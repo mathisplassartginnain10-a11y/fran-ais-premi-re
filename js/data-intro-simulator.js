@@ -74,10 +74,75 @@ function introSimNorm(s) {
     .replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-/** Titre court ou extrait complet collé par l'élève */
+/** Séparateur type sujet de bac entre incipit et explicit */
+function introSimPassageEllipsis() {
+  return ' … ';
+}
+
+function introSimPassageHasEllipsis(texte) {
+  return /\s[…\.]{3}\s|\s\.\.\.\s/u.test(String(texte || ''));
+}
+
+/** Découpe en phrases (prose) */
+function introSimSplitSentences(texte) {
+  const flat = (texte || '').replace(/\s+/g, ' ').trim();
+  if (!flat) return [];
+  const parts = flat.match(/[^.!?…]+[.!?…]+|[^.!?…]+$/g);
+  return (parts || [flat]).map(s => s.trim()).filter(Boolean);
+}
+
+/** Format bac : première phrase (ou vers) … dernière phrase */
+function introSimPassageFirstLast(texte) {
+  const raw = (texte || '').trim();
+  if (!raw) return '';
+  if (introSimPassageHasEllipsis(raw)) {
+    return raw.replace(/\s\.\.\.\s/g, introSimPassageEllipsis()).replace(/\s\.{3,}\s/g, introSimPassageEllipsis());
+  }
+  const lines = introSimTextLines(raw);
+  if (lines.length >= 2) {
+    const first = lines[0];
+    const last = lines[lines.length - 1];
+    if (introSimNorm(first) === introSimNorm(last)) return first;
+    return first + introSimPassageEllipsis() + last;
+  }
+  const parts = introSimSplitSentences(raw);
+  if (parts.length <= 1) return raw;
+  const first = parts[0];
+  const last = parts[parts.length - 1];
+  if (introSimNorm(first) === introSimNorm(last)) return first;
+  return first + introSimPassageEllipsis() + last;
+}
+
+/** Incipit + explicit pour recherche / matching */
+function introSimPassageAnchors(texte) {
+  const raw = (texte || '').trim();
+  if (!raw) return { head: '', tail: '' };
+  if (introSimPassageHasEllipsis(raw)) {
+    const chunks = raw.split(/\s*[…\.]{3}\s*|\s\.\.\.\s/u).map(s => s.trim()).filter(Boolean);
+    if (chunks.length >= 2) {
+      return { head: introSimNorm(chunks[0]), tail: introSimNorm(chunks[chunks.length - 1]) };
+    }
+  }
+  const parts = introSimSplitSentences(raw);
+  if (parts.length >= 2) {
+    return { head: introSimNorm(parts[0]), tail: introSimNorm(parts[parts.length - 1]) };
+  }
+  const n = introSimNorm(raw);
+  return { head: n, tail: '' };
+}
+
+function introSimQuoteSnippet(s) {
+  const cut = (s || '').trim();
+  if (!cut) return '';
+  const q = cut.length > 90 ? cut.slice(0, 87) + '…' : cut;
+  return q.startsWith('«') ? q : `« ${q.replace(/^["«]|["»]$/g, '')} »`;
+}
+
+/** Titre court ou extrait collé (texte intégral ou première … dernière phrase) */
 function introSimIsExcerptText(raw) {
   const t = (raw || '').trim();
   if (!t) return false;
+  if (introSimPassageHasEllipsis(t)) return true;
   if (t.includes('\n')) return true;
   if (t.length > 100) return true;
   return t.split(/\s+/).filter(Boolean).length >= 18;
@@ -98,18 +163,89 @@ function introSimPassageSearchOpts(passage, opts) {
 }
 
 function introSimScoreExcerptMatch(entry, excerptNorm) {
-  if (!excerptNorm || excerptNorm.length < 35) return 0;
+  if (!excerptNorm || excerptNorm.length < 20) return 0;
   const hay = entry.textSnippet || entry.search || '';
-  if (!hay || hay.length < 20) return 0;
+  if (!hay || hay.length < 15) return 0;
   const head = excerptNorm.slice(0, 140);
-  if (head.length >= 35 && hay.includes(head)) return 58;
+  if (head.length >= 25 && hay.includes(head.slice(0, Math.min(80, head.length)))) return 58;
   const words = [...new Set(excerptNorm.split(' ').filter(w => w.length >= 4))].slice(0, 28);
   if (!words.length) return 0;
   const hits = words.filter(w => hay.includes(w)).length;
   const ratio = hits / words.length;
   if (ratio >= 0.4) return Math.min(52, Math.round(ratio * 55));
-  if (hits >= 7) return Math.min(42, hits * 5);
+  if (hits >= 5) return Math.min(42, hits * 5);
   return 0;
+}
+
+function introSimScoreAnchorMatch(excerptAnchors, gtTextNorm, gtAnchors) {
+  let score = 0;
+  const { head: eh, tail: et } = excerptAnchors;
+  const { head: gh, tail: gt } = gtAnchors;
+  if (eh.length >= 18) {
+    if (gh && (gh.includes(eh.slice(0, Math.min(50, eh.length))) || eh.includes(gh.slice(0, 40)))) score += 42;
+    else if (gtTextNorm.includes(eh.slice(0, Math.min(60, eh.length)))) score += 38;
+  }
+  if (et && et.length >= 12 && eh !== et) {
+    if (gt && (gt.includes(et.slice(0, Math.min(45, et.length))) || et.includes(gt.slice(0, 35)))) score += 38;
+    else if (gtTextNorm.includes(et.slice(0, Math.min(55, et.length)))) score += 32;
+  }
+  if (eh && gh && eh.slice(0, 30) === gh.slice(0, 30)) score += 20;
+  if (et && gt && et.slice(0, 25) === gt.slice(0, 25)) score += 18;
+  return score;
+}
+
+/** GT analysable à partir d'un extrait collé (texte intégral ou première … dernière phrase) */
+function introSimFindGtextByExcerpt(texte) {
+  const raw = (texte || '').trim();
+  if (raw.length < 24) return null;
+  const texts = typeof getAllGtexts === 'function'
+    ? getAllGtexts()
+    : (typeof GRANDS_TEXTES !== 'undefined' ? GRANDS_TEXTES : []);
+  if (!texts.length) return null;
+  const excerptNorm = introSimNorm(raw);
+  const excerptAnchors = introSimPassageAnchors(raw);
+  const head = excerptNorm.slice(0, 160);
+  let best = null;
+  let bestScore = 0;
+  texts.forEach(t => {
+    if (!t?.id || !/^GT-\d+$/.test(t.id) || !t.texte || !t.attendus?.length) return;
+    const tn = introSimNorm(t.texte);
+    const gtAnchors = introSimPassageAnchors(t.texte);
+    let score = introSimScoreAnchorMatch(excerptAnchors, tn, gtAnchors);
+    if (head.length >= 40 && tn.includes(head.slice(0, Math.min(90, head.length)))) score += 55;
+    else if (head.length >= 22 && tn.includes(head.slice(0, 36))) score += 40;
+    const words = [...new Set(excerptNorm.split(' ').filter(w => w.length >= 4))].slice(0, 32);
+    if (words.length) {
+      const hits = words.filter(w => tn.includes(w)).length;
+      score += Math.round((hits / words.length) * 40);
+    }
+    if (t.attendus.length >= 4) score += 6;
+    else if (t.attendus.length >= 3) score += 3;
+    if (parseInt(t.id.slice(3), 10) <= 260) score += 2;
+    const minScore = introSimPassageHasEllipsis(raw) ? 42 : 48;
+    if (score > bestScore && score >= minScore) {
+      bestScore = score;
+      best = t;
+    }
+  });
+  return best;
+}
+
+function introSimEnrichEntryFromExcerpt(entry, texte, auteur, oeuvre, opts) {
+  if (!texte || entry?.gtextId) return entry;
+  const found = introSimFindGtextByExcerpt(texte);
+  if (!found) return entry;
+  const built = introSimBuildFromText(found, auteur || found.auteur, oeuvre || found.oeuvre, { ...opts, userExcerpt: texte });
+  return {
+    ...built,
+    id: entry?.id || found.id,
+    gtextId: found.id,
+    prob: entry?.prob ?? built.prob,
+    search: entry?.search || built.search,
+    textSnippet: entry?.textSnippet || introSimNorm((found.texte || '').slice(0, 900)),
+    indexOnly: false,
+    fallback: false,
+  };
 }
 
 function introSimExtractYear(...parts) {
@@ -282,10 +418,30 @@ function introSimMovementLabel(author, year) {
 }
 
 function introSimExcerptPreview(texte) {
-  const line = (texte || '').split('\n').map(l => l.trim()).find(l => l.length > 8);
-  if (!line) return '';
-  const cut = line.length > 120 ? line.slice(0, 117) + '…' : line;
-  return cut.startsWith('«') ? cut : `« ${cut.replace(/^["«]|["»]$/g, '')} »`;
+  const t = (texte || '').trim();
+  if (!t) return '';
+  if (introSimPassageHasEllipsis(t)) {
+    const chunks = t.split(/\s*[…\.]{3}\s*|\s\.\.\.\s/u).map(s => s.trim()).filter(Boolean);
+    if (chunks.length >= 2) {
+      const a = introSimQuoteSnippet(chunks[0]);
+      const b = introSimQuoteSnippet(chunks[chunks.length - 1]);
+      if (introSimNorm(chunks[0]) !== introSimNorm(chunks[chunks.length - 1])) {
+        return `${a} et se clôt sur ${b}`;
+      }
+    }
+  }
+  const fl = introSimPassageFirstLast(t);
+  if (fl !== t && introSimPassageHasEllipsis(fl)) return introSimExcerptPreview(fl);
+  const line = t.split('\n').map(l => l.trim()).find(l => l.length > 8) || t;
+  return introSimQuoteSnippet(line.length > 120 ? line.slice(0, 117) + '…' : line);
+}
+
+function introSimExtraitPreviewSuffix(excerptPreview) {
+  if (!excerptPreview) return '';
+  if (excerptPreview.includes(' et se clôt sur ')) {
+    return ` Le passage s'ouvre sur ${excerptPreview}.`;
+  }
+  return ` Le passage s'ouvre notamment sur ${excerptPreview}.`;
 }
 
 function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
@@ -337,7 +493,7 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
   let extraitPhrase = `Dans${passageLabel}, ${genreLbl} extrait de « ${oeuvreClean} »`;
   if (situation) extraitPhrase += `, ${situation}`;
   extraitPhrase += `, l'auteur traite de ${theme} en adoptant un registre ${registre}.`;
-  if (excerptPreview) extraitPhrase += ` Le passage s'ouvre notamment sur ${excerptPreview}.`;
+  extraitPhrase += introSimExtraitPreviewSuffix(excerptPreview);
 
   const temps = {
     amorce: introSimBuildAmorce(era),
@@ -374,6 +530,7 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
     problematiqueAlt,
     full: Object.values(temps).join('\n\n'),
     contexte: t.contexte,
+    genreKind,
   };
 }
 
@@ -381,7 +538,8 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
   opts = opts || {};
   const author = introSimResolveAuthor(auteur);
   const auteurNom = author.nom || auteur.trim();
-  if (!auteurNom) return null;
+  if (!auteurNom && !opts.userExcerpt) return null;
+  const displayAuteur = auteurNom || 'L\'auteur';
   const year = introSimExtractYear(oeuvre);
   const era = introSimDetectEra(year, author.mouvement, author.genre || '');
   const fonction = introSimFonction(author.genre || oeuvre);
@@ -395,7 +553,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
 
   let auteurPhrase = phraseType
     ? phraseType.replace(/^Phrase type\s*:\s*/i, '').replace(/^«|»$/g, '').trim()
-    : `C'est dans ce contexte que s'inscrit ${auteurNom}${datesStr}, ${fonction} majeur de cette période.`;
+    : `C'est dans ce contexte que s'inscrit ${displayAuteur}${datesStr}, ${fonction} majeur de cette période.`;
   if (!phraseType && oeuvreClean) {
     auteurPhrase += year
       ? ` Il publie en ${year} « ${oeuvreClean} ».`
@@ -407,7 +565,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
   const passageLbl = shortPassage ? ` l'extrait « ${shortPassage.slice(0, 80)}${shortPassage.length > 80 ? '…' : ''} »` : ' cet extrait';
   let extraitPhrase = `Dans${passageLbl}${oeuvreClean ? `, tiré de « ${oeuvreClean} »` : ''}, l'auteur traite de ${theme} en adoptant un registre ${registre}.`;
   const excerptPreview = userExcerpt ? introSimExcerptPreview(userExcerpt) : '';
-  if (excerptPreview) extraitPhrase += ` Le passage s'ouvre notamment sur ${excerptPreview}.`;
+  extraitPhrase += introSimExtraitPreviewSuffix(excerptPreview);
   const temps = {
     amorce: introSimBuildAmorce(era),
     auteur: auteurPhrase,
@@ -418,8 +576,8 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
 
   return {
     id: 'FALLBACK',
-    auteur: auteur,
-    auteurNom,
+    auteur: auteur || displayAuteur,
+    auteurNom: displayAuteur,
     oeuvre: oeuvreClean,
     titre: passage || '',
     genre: author.genre || '',
@@ -432,7 +590,295 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
     full: Object.values(temps).join('\n\n'),
     contexte: author.dev ? author.dev.slice(0, 180) + '…' : '',
     fallback: true,
+    registre,
+    theme,
+    genreKind,
   };
+}
+
+/** Lignes non vides du texte (numérotées à partir de 1) */
+function introSimTextLines(texte) {
+  const out = [];
+  (texte || '').split('\n').forEach(l => {
+    const t = l.trim();
+    if (t.length > 1) out.push(t);
+  });
+  return out;
+}
+
+function introSimCitationFromLines(lines, startLine) {
+  if (!lines?.length) return '« … »';
+  const slice = lines.slice(0, 3).join(' / ');
+  const cut = slice.length > 95 ? slice.slice(0, 92) + '…' : slice;
+  const end = startLine + lines.length - 1;
+  const ref = end > startLine ? ` (v. ${startLine}–${end})` : ` (v. ${startLine})`;
+  return `« ${cut.replace(/^["«]|["»]$/g, '')} »${ref}`;
+}
+
+function introSimCleanInterp(interp) {
+  let s = (interp || '').trim();
+  if (!s) return '';
+  s = s.replace(
+    /^(Anaphore|Comparaison(?:\s+(?:avec|explicite)[^:]{0,50})?|Métaphore|Personnification|Assonance|Enjambement|Registre[^:]*|Champ lexical|Hyperbole|Allitération|Versification|Antithèse|Dialogue[^:]*|Accumulation|Gradation|Ironie|Apostrophe|Synechdoque|Métonymie|Sonnet|Didascalies?)\s*:\s*/i,
+    ''
+  );
+  s = s.replace(/^Citation\s*:[^.]+\.\s*/i, '');
+  return s.trim();
+}
+
+function introSimIdeaFromInterp(interp) {
+  const cleaned = introSimCleanInterp(interp) || (interp || '').trim();
+  const s = cleaned.split(/(?<=[.!?])\s+/)[0]?.trim() || cleaned;
+  if (s.length >= 24) {
+    return s.charAt(0).toUpperCase() + s.slice(1).replace(/[.!?]$/, '') + '.';
+  }
+  return 'Le passage construit progressivement son effet sur le lecteur.';
+}
+
+function introSimProcLabel(proc) {
+  const raw = (proc || 'procédé').trim();
+  const p = raw.toLowerCase();
+  if (/^registre/.test(p)) return `le ${p}`;
+  if (/^champ lexical/.test(p)) return `le ${p}`;
+  if (/^dialogue/.test(p)) return `le ${p}`;
+  if (/^versification/.test(p)) return `la versification`;
+  if (/^enjambement/.test(p)) return `l'enjambement`;
+  if (/^(métaphore|personnification|comparaison|hyperbole|anaphore|assonance|allitération|antithèse|ironie|allégorie|allegorie|synecdoque|métonymie|antanaclase|accumulation|gradation)$/.test(p)) {
+    return `la ${p}`;
+  }
+  if (/^([aeiouàâéèêëîïôùûü])/.test(p)) return `l'${p}`;
+  if (/tion$|ade$|ance$|esse$|ure$|ie$|èse$/.test(p)) return `la ${p}`;
+  return `le ${p}`;
+}
+
+function introSimBuildIpciParagraph(att, auteurNom) {
+  const author = auteurNom || 'L\'auteur';
+  const proc = introSimProcLabel(att.procede);
+  const cite = att.citation ? ` (${att.citation})` : '';
+  let body = introSimCleanInterp(att.interpretation);
+  if (!body) {
+    body = introSimGenericInterp(att.procede, null, null).replace(/[.!?]$/, '');
+  }
+  if (!body) body = 'renforce l\'impact du passage sur le lecteur';
+  if (!/[.!?]$/.test(body)) body += '.';
+  const start = body.charAt(0).toLowerCase() + body.slice(1);
+  return `${author} mobilise ${proc}${cite} : ${start}`;
+}
+
+function introSimGuessProcede(segment, genre) {
+  const s = introSimNorm(segment);
+  const g = introSimNorm(genre);
+  if (/^je\b|mon coeur|mon ame|je pleure/.test(s)) return 'Registre lyrique';
+  if (/\bcomme\b|pareil|tel/.test(s)) return 'Comparaison';
+  if (/(\b\w{4,}\b).*\1/.test(segment)) return 'Répétition / anaphore';
+  if (/[!?]/.test(segment) && /[!?].*[!?]/.test(segment)) return 'Exclamation / interrogation';
+  if (/ne pas|jamais|rien|sans|nul/.test(s)) return 'Négation';
+  if (/théâtre|trag|comed/.test(g)) return 'Dialogue théâtral';
+  if (/poes|poeme|vers/.test(g)) return 'Versification';
+  if (segment.split(/\s+/).length >= 18) return 'Phrase longue / accumulation';
+  return 'Champ lexical';
+}
+
+function introSimGenericInterp(procede, theme, registre) {
+  const p = (procede || 'procédé').toLowerCase();
+  const th = theme || 'l\'enjeu du passage';
+  const reg = (registre || 'littéraire').split(',')[0];
+  if (/asson|allit|rythm|vers|enjam|alexandr|octos/.test(p)) {
+    return `crée un rythme et une musicalité qui traduisent ${th} dans un registre ${reg}.`;
+  }
+  if (/compar|metaph|personnif|hyperb|analog/.test(p)) {
+    return `oriente la représentation et donne une dimension symbolique à ${th}.`;
+  }
+  if (/lyri|je po|subjectiv/.test(p)) {
+    return `expose la subjectivité du locuteur et engage le lecteur dans une lecture ${reg}.`;
+  }
+  if (/champ lexical|lexique|vocab/.test(p)) {
+    return `construit un réseau de mots cohérent autour de ${th}.`;
+  }
+  if (/dialog|didascal|tirade|stichom/.test(p)) {
+    return `structure la scène et intensifie l'effet ${reg} sur le spectateur.`;
+  }
+  return `contribue à traduire ${th} et à produire un effet ${reg} sur le lecteur.`;
+}
+
+function introSimInferAttendusFromText(texte, entry) {
+  const lines = introSimTextLines(texte);
+  if (!lines.length) return [];
+  const attendus = [];
+  const used = new Set();
+
+  (entry.procedesCles || []).forEach((p, i) => {
+    const chunk = lines.slice(i * 2, i * 2 + 3);
+    if (!chunk.length) return;
+    attendus.push({
+      procede: p,
+      citation: introSimCitationFromLines(chunk, i * 2 + 1),
+      interpretation: introSimGenericInterp(p, entry.theme, entry.registre),
+    });
+    used.add(i);
+  });
+
+  const chunkSize = Math.max(2, Math.ceil(lines.length / 9));
+  for (let i = 0; i < lines.length && attendus.length < 14; i += chunkSize) {
+    const chunk = lines.slice(i, i + chunkSize);
+    const seg = chunk.join(' ');
+    const proc = introSimGuessProcede(seg, entry.genre);
+    const key = proc + '|' + i;
+    if (used.has(key)) continue;
+    attendus.push({
+      procede: proc,
+      citation: introSimCitationFromLines(chunk, i + 1),
+      interpretation: introSimGenericInterp(proc, entry.theme, entry.registre),
+    });
+  }
+  return attendus;
+}
+
+function introSimResolveAttendus(entry, texte) {
+  let raw = entry.gtextId ? introSimGetRawText(entry.gtextId) : null;
+  if ((!raw?.attendus?.length) && texte) {
+    const found = introSimFindGtextByExcerpt(texte);
+    if (found) raw = found;
+  }
+  const corpus = raw?.attendus?.length ? raw.attendus : [];
+  if (corpus.length && texte) {
+    const tn = introSimNorm(texte);
+    const matched = corpus.filter(a => {
+      const cite = introSimNorm((a.citation || '').replace(/[«»"]/g, ''));
+      if (cite.length >= 12 && tn.includes(cite.slice(0, Math.min(40, cite.length)))) return true;
+      return (a.keywords || []).some(k => k.length >= 4 && tn.includes(introSimNorm(k)));
+    });
+    if (matched.length >= 3) return matched;
+  }
+  if (corpus.length) return corpus;
+  return introSimInferAttendusFromText(texte, entry);
+}
+
+function introSimPartitionAttendus(attendus, n) {
+  const groups = Array.from({ length: n }, () => []);
+  attendus.forEach((a, i) => groups[i % n].push(a));
+  return groups;
+}
+
+function introSimPartTitle(i, axis) {
+  const rom = ['I', 'II', 'III'][i] || String(i + 1);
+  const cap = axis.charAt(0).toUpperCase() + axis.slice(1);
+  return `Partie ${rom} — ${cap}`;
+}
+
+function introSimPartLead(i, axis) {
+  if (i === 0) return `Dans un premier temps, nous étudierons ${axis}.`;
+  if (i === 1) return `Nous examinerons ensuite ${axis}.`;
+  return `Enfin, nous nous intéresserons à ${axis}.`;
+}
+
+function introSimPartTransition(prevAxis, nextAxis) {
+  return `Après avoir montré ${prevAxis}, il convient maintenant d'analyser ${nextAxis}.`;
+}
+
+function introSimBuildOuverture(entry) {
+  const author = introSimResolveAuthor(entry.auteur);
+  const mov = author.mouvement ? author.mouvement.split('—')[0].trim().toLowerCase() : 'cette période littéraire';
+  const oeuvre = (entry.oeuvre || '').replace(/\(\d{4}\)/, '').trim();
+  if (oeuvre) {
+    return `Ce texte s'inscrit dans la continuité des enjeux explorés dans « ${oeuvre} » et invite à un rapprochement avec d'autres œuvres du ${mov}.`;
+  }
+  return `On peut rapprocher ce passage d'autres textes du ${mov}, qui mobilisent des procédés différents pour des thématiques voisines.`;
+}
+
+function introSimBuildConclusion(entry) {
+  const auteur = entry.auteurNom || entry.auteur || 'l\'auteur';
+  const theme = entry.theme || 'l\'enjeu central du passage';
+  const procs = (entry.procedesCles || []).slice(0, 2);
+  const procTxt = procs.length ? procs.join(' et ') : 'les procédés étudiés';
+  const reg = (entry.registre || 'littéraire').split(',')[0];
+  const bilan = `Ainsi, à travers ${procTxt}, ${auteur} parvient à traduire ${theme} et à produire un effet ${reg} sur le lecteur.`;
+  return `${bilan}\n\n${introSimBuildOuverture(entry)}`;
+}
+
+/** Commentaire rédigé complet : intro + 3 parties IPCI + conclusion */
+function introSimBuildFullCommentary(entry, opts) {
+  opts = opts || {};
+  if (!entry?.temps) return null;
+  const raw = entry.gtextId ? introSimGetRawText(entry.gtextId) : null;
+  const texte = (opts.userExcerpt || raw?.texte || '').trim();
+  const gtRaw = raw?.attendus?.length ? raw : (texte ? introSimFindGtextByExcerpt(texte) : null);
+  const genreKind = entry.genreKind || introSimGenreKind(entry.genre);
+  const axes = (INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default).slice(0, 3);
+  const attendus = introSimResolveAttendus(entry, texte);
+  const groups = introSimPartitionAttendus(attendus, axes.length);
+  const auteurNom = entry.auteurNom || entry.auteur || 'L\'auteur';
+
+  const intro = Object.values(entry.temps).join('\n\n');
+  const parts = [];
+  const fullBlocks = [intro];
+
+  axes.forEach((axis, i) => {
+    const paras = (groups[i] || []).map(a => introSimBuildIpciParagraph(a, auteurNom));
+    if (!paras.length && texte) {
+      const lines = introSimTextLines(texte);
+      const chunkSize = Math.max(2, Math.ceil(lines.length / axes.length));
+      const chunk = lines.slice(i * chunkSize, (i + 1) * chunkSize);
+      if (chunk.length) {
+        const fake = {
+          procede: introSimGuessProcede(chunk.join(' '), entry.genre),
+          citation: introSimCitationFromLines(chunk, i * chunkSize + 1),
+          interpretation: introSimGenericInterp(null, entry.theme, entry.registre),
+        };
+        paras.push(introSimBuildIpciParagraph(fake, auteurNom));
+      }
+    }
+    const lead = introSimPartLead(i, axis);
+    const body = paras.length ? paras.join('\n\n') : `${auteurNom} développe ${axis} tout au long de l'extrait, en s'appuyant sur des procédés variés qui orientent la lecture.`;
+    const text = `${lead}\n\n${body}`;
+    const transition = i < axes.length - 1 ? introSimPartTransition(axes[i], axes[i + 1]) : '';
+    parts.push({ id: `part${i + 1}`, label: introSimPartTitle(i, axis), text, transition, ipcCount: paras.length });
+    fullBlocks.push(text);
+    if (transition) fullBlocks.push(transition);
+  });
+
+  const conclusion = introSimBuildConclusion(entry);
+  fullBlocks.push(conclusion);
+
+  return {
+    intro,
+    parts,
+    conclusion,
+    full: fullBlocks.join('\n\n'),
+    ipcCount: attendus.length,
+    lineCount: introSimTextLines(texte).length,
+    fromCorpus: !!(gtRaw?.attendus?.length),
+  };
+}
+
+function introSimAttachCommentary(entry, opts) {
+  if (!entry?.temps) return entry;
+  opts = opts || {};
+  if (opts.fullCommentary === false) return entry;
+  const excerpt = opts.userExcerpt || (introSimIsExcerptText(opts.passageRaw || '') ? opts.passageRaw.trim() : '');
+  const want = opts.fullCommentary
+    || excerpt
+    || (entry.gtextId && introSimGetRawText(entry.gtextId)?.attendus?.length);
+  if (!want) return entry;
+  if (excerpt && (!entry.gtextId || entry.fallback || entry.indexOnly)) {
+    entry = introSimEnrichEntryFromExcerpt(entry, excerpt, entry.auteur, entry.oeuvre, opts);
+  }
+  if (excerpt) opts = { ...opts, userExcerpt: excerpt };
+  const comm = introSimBuildFullCommentary(entry, opts);
+  if (!comm?.full) return entry;
+  entry.commentaire = comm;
+  entry.fullComment = comm.full;
+  if (entry.procedesCles?.length === 0 && comm.ipcCount) {
+    entry.procedesCles = introSimProcedesCles(
+      introSimResolveAttendus(entry, opts.userExcerpt || introSimGetRawText(entry.gtextId)?.texte || '')
+    );
+  }
+  return entry;
+}
+
+function introSimEnrichEntry(entry, auteur, oeuvre, passage, opts) {
+  const built = introSimRebuildEntry(entry, auteur, oeuvre, passage, opts);
+  return introSimAttachCommentary(built, { ...opts, passageRaw: passage });
 }
 
 function introSimScoreEntry(entry, auteurQ, oeuvreQ, passageQ) {
@@ -500,7 +946,7 @@ function introSimBuildIndex() {
         attendus: [],
       };
       const built = introSimBuildFromText(raw, p.auteur, p.oeuvre);
-      const textPart = (raw.texte || '').slice(0, 900);
+      const textPart = introSimPassageFirstLast(raw.texte || '');
       const textSnippet = introSimNorm(textPart);
       list.push({
         ...built,
@@ -619,9 +1065,17 @@ function introSimSearch(auteur, oeuvre, passage, opts) {
     }));
   }
 
+  scored = scored.map(m => ({
+    entry: introSimAttachCommentary(m.entry, { ...opts, passageRaw: passage, fullCommentary: opts.fullCommentary }),
+    score: m.score,
+  }));
+
   if (!scored.length && ((auteur || '').trim() || parsed.isExcerpt)) {
     const fb = introSimBuildFallback(auteur, oeuvre, parsed.label, opts);
-    if (fb) scored = [{ entry: fb, score: parsed.isExcerpt ? 32 : 28 }];
+    if (fb) {
+      const enriched = introSimAttachCommentary(fb, { ...opts, passageRaw: passage, fullCommentary: true });
+      scored = [{ entry: enriched, score: parsed.isExcerpt ? 32 : 28 }];
+    }
   }
   return scored;
 }

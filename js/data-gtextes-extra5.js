@@ -24,8 +24,7 @@ const GRANDS_TEXTES_EXTRA5 = [
     oeuvre: "Émaux et Camées (1852)",
     genre: "Poésie",
     diff: 2,
-    texte: `Toutes choses sont dites déjà ; mais l'on a toujours à redire.
-Oui, je sais, l'art n'a pas d'autre but que lui-même.`,
+    texte: `Toutes choses sont dites déjà ; mais l'on a toujours à redire. … Oui, je sais, l'art n'a pas d'autre but que lui-même.`,
     contexte: "Poésie parnassienne — art pour l'art, perfection formelle.",
     attendus: [
       { procede: "Antithèse", citation: "« Toutes choses sont dites… l'on a toujours à redire »", interpretation: "Antithèse repérée dans « Toutes choses sont dites… l'on a toujours à redire »: deux termes ou idées s'opposent pour souligner art pour l'art.", keywords: ["antithèse", "dites", "redire", "poésie", "contraste", "recréer"] },
@@ -41,10 +40,7 @@ Oui, je sais, l'art n'a pas d'autre but que lui-même.`,
     oeuvre: "Charmes (1922)",
     genre: "Poésie",
     diff: 3,
-    texte: `Ce toit tranquille, où marchent des colombes,
-Entre les pins palpite, entre les tombes ;
-Midi, le roi des étés, majestueux, tout en feu,
-Couvre de sa gloire éclatante les choses les plus tristes.`,
+    texte: `Ce toit tranquille, où marchent des colombes, … Couvre de sa gloire éclatante les choses les plus tristes.`,
     contexte: "Méditation existentielle — mer, mort, lumière, quête de sens.",
     attendus: [
       { procede: "Personnification", citation: "« Midi, le roi des étés »", interpretation: "En personnifiant « Midi, le roi des étés », le texte rend la description plus vivante ; l'animation du non-humain sert méditation existentielle dans Charmes.", keywords: ["personnification", "midi", "roi", "été", "soleil", "majest"] },
@@ -61,8 +57,7 @@ Couvre de sa gloire éclatante les choses les plus tristes.`,
     oeuvre: "Les Châtiments (1853)",
     genre: "Poésie engagée",
     diff: 2,
-    texte: `L'aigle, ce n'est pas le faucon ; l'aigle, c'est l'aigle.
-Il ne se laisse pas dompter ; il ne se laisse pas lier.`,
+    texte: `L'aigle, ce n'est pas le faucon ; l'aigle, c'est l'aigle. … Il ne se laisse pas dompter ; il ne se laisse pas lier.`,
     contexte: "Satire politique — Napoléon III, liberté, registre épique et satirique.",
     attendus: [
       { procede: "Anaphore", citation: "« l'aigle… l'aigle… l'aigle »", interpretation: "La reprise de « l'aigle » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur satire politique.", keywords: ["anaphore", "aigle", "répét", "fierté", "symbol", "polit"] },
@@ -79,9 +74,7 @@ Il ne se laisse pas dompter ; il ne se laisse pas lier.`,
     oeuvre: "Poésies (1870)",
     genre: "Poésie",
     diff: 2,
-    texte: `Sur l'onde calme et noire où dorment les étoiles
-La blanche Ophélia flotte comme un grand lys,
-Flotte très lentement, couchée en ses longs voiles…`,
+    texte: `Sur l'onde calme et noire où dorment les étoiles … Flotte très lentement, couchée en ses longs voiles…`,
     contexte: "Symbolisme précoce — mort d'Ophélie, atmosphère onirique et pathétique.",
     attendus: [
       { procede: "Comparaison", citation: "« flotte comme un grand lys »", interpretation: "Le parallèle introduit par « flotte comme un grand lys » (comparaison) facilite la visualisation de la scène et précise la dimension symbolisme précoce du passage.", keywords: ["comparaison", "comme", "lys", "ophélie", "pureté", "mort"] },
@@ -115,8 +108,7 @@ Le sens, qui doit partout l'emporter et régir.`,
     oeuvre: "La Peau de chagrin (1831)",
     genre: "Roman fantastique",
     diff: 3,
-    texte: `Veux-tu te faire aimer ? Veux-tu être riche ? Veux-tu être puissant ?
-Tout ce que tu voudras, tout ce que tu demanderas sera accompli.`,
+    texte: `Veux-tu te faire aimer ? Veux-tu être riche ? Veux-tu être puissant ? … Tout ce que tu voudras, tout ce que tu demanderas sera accompli.`,
     contexte: "Fantastique balzacien — désir, pacte faustien, symbolisme de la peau.",
     attendus: [
       { procede: "Anaphore", citation: "« Veux-tu… Veux-tu… Veux-tu »", interpretation: "La reprise de « Veux-tu » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur fantastique balzacien.", keywords: ["anaphore", "veux", "répét", "désir", "séduct", "fantast"] },
@@ -211,8 +203,7 @@ Passa sans bruit sans bruit sans bruit`,
     oeuvre: "Romances sans paroles (1874)",
     genre: "Poésie",
     diff: 1,
-    texte: `Voici des fruits, des fleurs, des feuilles et des branches,
-Et puis voici mon cœur qui ne bat que pour vous.`,
+    texte: `Voici des fruits, des fleurs, des feuilles et des branches, … Et puis voici mon cœur qui ne bat que pour vous.`,
     contexte: "Poésie musicale verlainienne — nature, amour, suggestion.",
     attendus: [
       { procede: "Énumération", citation: "« des fruits, des fleurs, des feuilles et des branches »", interpretation: "Énumération repérée dans « des fruits, des fleurs, des feuilles et des branches »: la liste multiplie les occurrences et renforce l'idée centrale de la nature.", keywords: ["énumération", "fruits", "fleurs", "liste", "sensuel", "nature"] },
@@ -279,9 +270,7 @@ Et qu'importe qui me tue, pourvu que je meure ?`,
     oeuvre: "Sonnets (1555)",
     genre: "Poésie",
     diff: 2,
-    texte: `Baise m'encor, rebaise moy et baise :
-Ne te voyant plus je crains
-Oubliant nostre amour de me mesprendre.`,
+    texte: `Baise m'encor, rebaise moy et baise : … Oubliant nostre amour de me mesprendre.`,
     contexte: "Sonnet lyrique — passion, peur de l'oubli, registre amoureux direct.",
     attendus: [
       { procede: "Anaphore", citation: "« Baise… rebaise… baise »", interpretation: "L'anaphore (« Baise… rebaise… baise ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "baise", "répét", "désir", "passion", "insiste"] },

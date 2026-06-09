@@ -10,25 +10,7 @@ const GRANDS_TEXTES = [
     oeuvre: "Poèmes saturniens (1866)",
     genre: "Poésie",
     diff: 1,
-    texte: `Les sanglots longs
-Des violons
-De l'automne
-Blessent mon cœur
-D'une langueur
-Monotone.
-
-Tout suffocant
-Et blême, quand
-Sonne l'heure,
-Je me souviens
-Des autres jours
-Et je pleure ;
-Et je m'en vais
-Au vent mauvais
-Qui m'emporte
-Deçà, delà,
-Pareil à la
-Feuille morte.`,
+    texte: `Les sanglots longs … Pareil à la feuille morte.`,
     contexte: "Poème lyrique en vers libres — mélancolie automnale, correspondances entre paysage et état d'âme.",
     attendus: [
       {
@@ -76,19 +58,7 @@ Feuille morte.`,
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Va, je ne te hais point.
-
-RODRIGUE
-Tu m'as donc pardonné !
-
-CHIMÈNE
-Va, ne le pense pas ; tu vois bien que je pleure.
-Je ne te hais point, mais je ne puis te pardonner.
-Mon honneur est en jeu, et mon devoir m'oblige.
-Cette obscure clarté qui tombe des étoiles
-Éclaire assez la terre, et nous rend visibles ;
-Mais à peine on voit encor le chemin qu'on suit.`,
+    texte: `CHIMÈNE … Mais à peine on voit encor le chemin qu'on suit.`,
     contexte: "Scène d'amour impossible — Chimène aime Rodrigue mais doit venger son père tué par lui.",
     attendus: [
       {
@@ -130,15 +100,7 @@ Mais à peine on voit encor le chemin qu'on suit.`,
     oeuvre: "Phèdre (1677)",
     genre: "Tragédie",
     diff: 2,
-    texte: `PHÈDRE
-Que ne suis-je assise à l'ombre des forêts !
-Quand pourrais-je, au travers d'une noble poussière,
-Monter sur mon chariot, et, de mes propres mains,
-Conduire mes chevaux, aux côtés de Thésée ?
-J'ai voulu, j'ai tenté de vaincre ma fureur ;
-J'ai voulu, j'ai tenté de fuir votre malheur ;
-Mais le malheur m'attire, et je ne puis le fuir.
-Ô dieux ! que n'ai-je au fond des mers une retraite !`,
+    texte: `PHÈDRE … Ô dieux ! que n'ai-je au fond des mers une retraite !`,
     contexte: "Phèdre avoue sa passion coupable pour Hippolyte — fatalité divine (Vénus) et déchirement moral.",
     attendus: [
       {
@@ -180,15 +142,7 @@ Mais le malheur m'attire, et je ne puis le fuir.
     oeuvre: "Les Contemplations (1856)",
     genre: "Poésie élégiaque",
     diff: 2,
-    texte: `Demain, dès l'aube, à l'heure où blanchit la campagne,
-Je partirai. Vois-tu, je sais que tu m'attends.
-J'irai par la forêt, j'irai par la montagne.
-Je ne puis demeurer loin de toi plus longtemps.
-
-Je marcherai les yeux fixés sur mes pensées,
-Sans rien voir au dehors, sans entendre aucun bruit,
-Seul, inconnu, le dos courbé, les mains croisées,
-Triste, et le jour pour moi sera comme la nuit.`,
+    texte: `Demain, dès l'aube, à l'heure où blanchit la campagne, … Triste, et le jour pour moi sera comme la nuit.`,
     contexte: "Élégie à la mémoire de la fille de Hugo, Léopoldine — voyage vers sa tombe à Villequier.",
     attendus: [
       {
@@ -230,10 +184,7 @@ Triste, et le jour pour moi sera comme la nuit.`,
     oeuvre: "L'Avare (1668)",
     genre: "Comédie",
     diff: 1,
-    texte: `HARPAGON
-Ah ! c'est une grande trahison que de me voler ainsi !
-Qu'on ne me parle plus de personne. On me volait, dis-je ;
-On me volait, on me volait, on me volait !`,
+    texte: `HARPAGON … On me volait, on me volait, on me volait !`,
     contexte: "Harpagon découvre la disparition de son argent — comique de caractère (l'avarice).",
     attendus: [
       {
@@ -263,15 +214,7 @@ On me volait, on me volait, on me volait !`,
     oeuvre: "Les Fleurs du Mal (1857)",
     genre: "Poésie symboliste",
     diff: 3,
-    texte: `La Nature est un temple où de vivants piliers
-Laissent parfois sortir de confuses paroles ;
-L'homme y passe à travers des forêts de symboles
-Qui l'observent avec des regards familiers.
-
-Comme de longs échos qui de loin se confondent
-Dans une ténébreuse et profonde unité,
-Vaste comme la nuit et comme la clarté,
-Les parfums, les couleurs et les sons se répondent.`,
+    texte: `La Nature est un temple où de vivants piliers … Les parfums, les couleurs et les sons se répondent.`,
     contexte: "Sonnet célèbre — correspondances entre les sens, vision symboliste du monde.",
     attendus: [
       {
@@ -322,14 +265,7 @@ Les parfums, les couleurs et les sons se répondent.`,
     oeuvre: "Horace (1640)",
     genre: "Tragédie",
     diff: 2,
-    texte: `CAMILLE
-Rome, l'unique objet de mon ressentiment !
-Rome, à qui vient ton bras d'immoler mon amant !
-Rome, qui veux que mon cœur adore ta puissance,
-Et qui le vois encor pleurer sa délivrance !
-
-Les dieux ont soif, les hommes ont faim :
-C'est là le sort affreux qui pèse sur les humains.`,
+    texte: `CAMILLE … C'est là le sort affreux qui pèse sur les humains.`,
     contexte: "Camille maudit Rome qui lui a pris Curiace — haine politique et amour contrarié.",
     attendus: [
       { procede: "Anaphore", citation: "« Rome, l'unique objet… / Rome, à qui… / Rome, qui veux… »", interpretation: "Anaphore de « Rome » en tête de vers : martèlement incantatoire qui exprime la haine obsédante de Camille contre la ville-puissance.", keywords: ["anaphore", "rome", "répét", "martel", "haine", "tête", "incant"] },
@@ -346,8 +282,7 @@ C'est là le sort affreux qui pèse sur les humains.`,
     oeuvre: "Andromaque (1667)",
     genre: "Tragédie",
     diff: 1,
-    texte: `ANDROMAQUE
-Pour qui sont ces serpents qui sifflent sur vos têtes ?`,
+    texte: `ANDROMAQUE … Pour qui sont ces serpents qui sifflent sur vos têtes ?`,
     contexte: "Vers célèbre d'Andromaque — image menaçante au théâtre classique.",
     attendus: [
       { procede: "Allitération", citation: "« ces serpents qui sifflent sur vos têtes »", interpretation: "Allitération en [s] : « sont », « serpents », « sifflent », « sur ». La consonne siflante imite le bruit des serpents — harmonie imitative.", keywords: ["allitération", "s", "siffl", "serpent", "consonne", "imit", "harmonie"] },
@@ -364,15 +299,7 @@ Pour qui sont ces serpents qui sifflent sur vos têtes ?`,
     oeuvre: "Fables (1668)",
     genre: "Fable",
     diff: 1,
-    texte: `Maître Corbeau, sur un arbre perché,
-Tenait en son bec un fromage.
-Maître Renard, par l'odeur alléché,
-Lui tint à peu près ce langage :
-« Hé ! bonjour, Monsieur du Corbeau.
-Que vous êtes joli ! que vous me semblez beau !
-Sans mentir, si votre ramage
-Se rapporte à votre plumage,
-Vous êtes le Phénix des hôtes de ces bois. »`,
+    texte: `Maître Corbeau, sur un arbre perché, … Vous êtes le Phénix des hôtes de ces bois. »`,
     contexte: "Fable didactique — flatterie du Renard pour voler le fromage.",
     attendus: [
       { procede: "Hyperbole", citation: "« Vous êtes le Phénix des hôtes de ces bois »", interpretation: "Hyperbole flatteuse : comparer le Corbeau au Phénix exagère la louange pour le manipuler — ironie du Renard.", keywords: ["hyperbole", "phénix", "flatte", "exag", "louange", "manipul"] },
@@ -389,9 +316,7 @@ Vous êtes le Phénix des hôtes de ces bois. »`,
     oeuvre: "Candide (1759)",
     genre: "Conte philosophique",
     diff: 2,
-    texte: `« C'est une boucherie héroïque et glorieuse », dit un officier.
-Candide tremblait de tous ses membres ; il ne pouvait s'empêcher de pleurer.
-« Quelle est cette rage de se faire tuer sans profit pour personne ? »`,
+    texte: `« C'est une boucherie héroïque et glorieuse », dit un officier. … « Quelle est cette rage de se faire tuer sans profit pour personne ? »`,
     contexte: "Voltaire dénonce les guerres absurdes — satire de l'euphémisme militaire.",
     attendus: [
       { procede: "Oxymore", citation: "« boucherie héroïque et glorieuse »", interpretation: "Oxymore : « boucherie » (horreur) associée à « héroïque » et « glorieuse » (louange) — décalage satirique qui dénonce l'absurdité de la guerre.", keywords: ["oxymore", "boucherie", "héroïque", "glorieux", "contradict", "guerre"] },
@@ -408,12 +333,7 @@ Candide tremblait de tous ses membres ; il ne pouvait s'empêcher de pleurer.
     oeuvre: "Odes (1545)",
     genre: "Poésie lyrique",
     diff: 1,
-    texte: `Mignonne, allons voir si la rose
-Qui ce matin avait déclose
-Sa robe de pourpre au Soleil,
-A point perdu cette vesprée
-Les plis de sa robe pourprée,
-Et son teint au vôtre pareil.`,
+    texte: `Mignonne, allons voir si la rose … Et son teint au vôtre pareil.`,
     contexte: "Carpe diem poétique — la rose symbolise la beauté éphémère de la femme aimée.",
     attendus: [
       { procede: "Métaphore", citation: "« Sa robe de pourpre au Soleil »", interpretation: "Métaphore : la rose est vêtue d'une « robe de pourpre » — transfert du vêtement humain sur la fleur, image courtoise et sensuelle.", keywords: ["métaphore", "robe", "pourpre", "rose", "fleur", "image"] },
@@ -430,15 +350,7 @@ Et son teint au vôtre pareil.`,
     oeuvre: "Méditations poétiques (1820)",
     genre: "Poésie élégiaque",
     diff: 2,
-    texte: `Ainsi, toujours poussés vers de nouveaux rivages,
-Dans la nuit éternelle emportés sans retour,
-Ne pourrons-nous jamais sur l'océan des âges
-Jeter l'ancre un seul jour ?
-
-Ô lac ! Le printemps, l'été, l'automne ont passé ;
-Les jours, les mois, les ans se sont écoulés ;
-Le vent du soir agitait les feuilles,
-Et le lac frissonnait sous le vent du soir.`,
+    texte: `Ainsi, toujours poussés vers de nouveaux rivages, … Et le lac frissonnait sous le vent du soir.`,
     contexte: "Élégie célèbre — le lac témoin d'un amour passé, métaphore du temps.",
     attendus: [
       { procede: "Comparaison", citation: "« sur l'océan des âges »", interpretation: "Le parallèle introduit par « sur l'océan des âges » (comparaison) facilite la visualisation de la scène et précise la dimension élégie célèbre du passage.", keywords: ["comparaison", "océan", "âges", "temps", "navigation", "vie"] },
@@ -457,14 +369,7 @@ Et le lac frissonnait sous le vent du soir.`,
     oeuvre: "Les Regrets (1558)",
     genre: "Sonnet élégiaque",
     diff: 2,
-    texte: `Heureux qui, comme Ulysse, a fait un beau voyage,
-Ou comme cestuy-là qui conquit la toison,
-Et puis est retourné, plein d'usage et raison,
-Vivre entre ses parents le reste de son âge !
-
-Quand reverrai-je, hélas, de mon petit village
-Les fossés pleins d'eau vive, les murs de ma cabane,
-Et mon Anjou verdoyant, et l'Angevin bocage ?`,
+    texte: `Heureux qui, comme Ulysse, a fait un beau voyage, … Et mon Anjou verdoyant, et l'Angevin bocage ?`,
     contexte: "Du Bellay, exilé à Rome, regrette son Anjou natal — sonnet du retour impossible.",
     attendus: [
       { procede: "Comparaison", citation: "« Heureux qui, comme Ulysse… / Ou comme cestuy-là… »", interpretation: "Comparaison avec « comme » : le poète envie Ulysse et Jason qui ont pu rentrer chez eux — modèle du voyage accompli.", keywords: ["comparaison", "comme", "ulysse", "voyage", "retour", "envie"] },
@@ -482,7 +387,7 @@ Et mon Anjou verdoyant, et l'Angevin bocage ?`,
     oeuvre: "L'Étranger (1942)",
     genre: "Roman",
     diff: 2,
-    texte: `Aujourd'hui, maman est morte. Ou peut-être hier, je ne sais pas. J'ai reçu un télégramme de l'asile : « Mère décédée. Enterrement demain. Sentiments distingués. » Cela ne veut pas dire « père décédé ». J'ai pris l'autobus à deux heures. Il faisait très chaud.`,
+    texte: `Aujourd'hui, maman est morte. … Il faisait très chaud.`,
     contexte: "Incipit célèbre — voix de Meursault, perception limitée et détachée.",
     attendus: [
       { procede: "Champ lexical", citation: "« morte », « décédée », « enterrement », « asile »", interpretation: "Champ lexical de la mort : morte, décédée, enterrement — vocabulaire administratif et froid qui contraste avec l'émotion attendue.", keywords: ["champ lexical", "mort", "décéd", "enterrement", "froid", "administr"] },
@@ -498,7 +403,7 @@ Et mon Anjou verdoyant, et l'Angevin bocage ?`,
     oeuvre: "Le Horla (1887)",
     genre: "Nouvelle fantastique",
     diff: 3,
-    texte: `Il m'a suivi. Quoi donc ? Il n'aurait pas pu… Il ?… Lui !… Il me hante, le terrible invisible, le Horla qui me vient la nuit. Je sens sa présence, je le devine, je le crains autour de moi.`,
+    texte: `Il m'a suivi. … Je sens sa présence, je le devine, je le crains autour de moi.`,
     contexte: "Monologue d'un narrateur qui doute de sa raison — présence invisible.",
     attendus: [
       { procede: "Anaphore", citation: "« Il m'a suivi… Il me hante… Je sens… je le devine… »", interpretation: "Anaphore du « il / je » : répétition obsédante qui traduit la folie progressive et l'emprise de l'être invisible.", keywords: ["anaphore", "il", "répét", "obsess", "hante", "folie"] },
@@ -513,7 +418,7 @@ Et mon Anjou verdoyant, et l'Angevin bocage ?`,
     oeuvre: "Germinal (1885)",
     genre: "Roman naturaliste",
     diff: 2,
-    texte: `Et les mineurs montaient, noirs, écrasés, les yeux blancs dans les faces de charbon. Ils avançaient lentement, courbés sous la fatigue. La fosse crachait sa besogne, hommes et bêtes confondus dans la nuit du travail.`,
+    texte: `Et les mineurs montaient, noirs, écrasés, les yeux blancs dans les faces de charbon. … La fosse crachait sa besogne, hommes et bêtes confondus dans la nuit du travail.`,
     contexte: "Description de la sortie de mine — dénonciation sociale zolienne.",
     attendus: [
       { procede: "Registre pathétique", citation: "« noirs, écrasés… courbés sous la fatigue »", interpretation: "Registre pathétique : la souffrance des mineurs suscite pitié et indignation — Zola veut émouvoir pour dénoncer.", keywords: ["pathétique", "souffr", "mineur", "fatigue", "pit", "indign"] },
@@ -530,7 +435,7 @@ Et mon Anjou verdoyant, et l'Angevin bocage ?`,
     oeuvre: "Les Misérables (1862)",
     genre: "Roman",
     diff: 2,
-    texte: `Gavroche était tombé. Il venait de recevoir à la poitrine la balle de fusil de chasse qui ne l'avait pas averti. Il s'était écroulé. C'était le petit enfant des rues, le gamin de Paris, celui qui riait au vent, qui chantait dans la mitraille.`,
+    texte: `Gavroche était tombé. … C'était le petit enfant des rues, le gamin de Paris, celui qui riait au vent, qui chantait dans la mitraille.`,
     contexte: "Mort de Gavroche — scène pathétique engagée chez Hugo.",
     attendus: [
       { procede: "Registre pathétique", citation: "mort de Gavroche", interpretation: "Registre pathétique : la mort de l'enfant innocent provoque compassion et indignation sociale — Hugo émeut pour faire réfléchir.", keywords: ["pathétique", "gavroche", "enfant", "mort", "compassion", "indign"] },
@@ -547,16 +452,7 @@ Et mon Anjou verdoyant, et l'Angevin bocage ?`,
     oeuvre: "Fables (1668)",
     genre: "Fable",
     diff: 1,
-    texte: `La Cigale, ayant chanté
-Tout l'été,
-Se trouva fort dépourvue
-Quand la bise fut venue :
-Pas un seul petit morceau
-De mouche ou de vermisseau.
-Elle alla crier famine
-Chez la Fourmi sa voisine,
-La priant de lui prêter
-Quelque grain pour subsister.`,
+    texte: `La Cigale, ayant chanté … Quelque grain pour subsister.`,
     contexte: "Fable morale sur le travail et la prévoyance — registre didactique.",
     attendus: [
       { procede: "Champ lexical", citation: "« famine », « dépourvue », « grain », « subsister »", interpretation: "Champ lexical du besoin et de la subsistance : famine, dépourvue, grain — contraste avec le chant estival.", keywords: ["champ lexical", "famine", "grain", "besoin", "subsist", "dépourv"] },
@@ -572,11 +468,7 @@ Quelque grain pour subsister.`,
     oeuvre: "Bérénice (1670)",
     genre: "Tragédie",
     diff: 2,
-    texte: `BÉRÉNICE
-Qu'en puis-je conclure, sinon que je vous aime,
-Que je ne sais que vous aimer, que je ne puis
-Vivre loin de vos yeux, que je ne vois que vous,
-Que je ne respire et ne vis que pour vous ?`,
+    texte: `BÉRÉNICE … Que je ne respire et ne vis que pour vous ?`,
     contexte: "Bérénice avoue son amour impossible pour Titus — registre pathétique et lyrique.",
     attendus: [
       { procede: "Anaphore", citation: "« que je… que je… que je… que je… »", interpretation: "Anaphore de « que je » : répétition incantatoire qui exprime l'emprise totale de l'amour — martèlement pathétique.", keywords: ["anaphore", "que je", "répét", "amour", "martel", "incant"] },
@@ -593,15 +485,7 @@ Que je ne respire et ne vis que pour vous ?`,
     oeuvre: "Jadis et naguère (1884)",
     genre: "Poésie",
     diff: 2,
-    texte: `De la musique avant toute chose,
-Et pour cela préfère l'Impair
-Plus vague et plus soluble dans l'air,
-Sans rien en lui qui pèse ou qui pose.
-
-Il faut aussi que tu n'ailles point
-Choisir tes mots sans quelque méprise :
-Rien de plus cher que la chanson grise
-Où l'Indécis au Précis se joint.`,
+    texte: `De la musique avant toute chose, … Où l'Indécis au Précis se joint.`,
     contexte: "Manifeste du symbolisme — musicalité, vagueness, poétique de l'Indécis.",
     attendus: [
       { procede: "Assonance", citation: "« musique… Impair… soluble… air… pose »", interpretation: "Assonances en [y] et voyelles ouvertes : musicalité du poème qui illustre théoriquement son propos — le vers devient musique.", keywords: ["assonance", "musical", "voyelle", "musique", "air", "soluble"] },
@@ -618,13 +502,7 @@ Où l'Indécis au Précis se joint.`,
     oeuvre: "Alcools (1913)",
     genre: "Poésie moderniste",
     diff: 2,
-    texte: `Sous le pont Mirabeau coule la Seine
-Et nos amours
-Faut-il qu'il m'en souvienne
-La joie venait toujours après la peine
-
-Vienne la nuit sonne l'heure
-Les jours s'en vont je demeure`,
+    texte: `Sous le pont Mirabeau coule la Seine … Les jours s'en vont je demeure`,
     contexte: "Poème célèbre sur le temps et l'amour passé — rimes et reprises.",
     attendus: [
       { procede: "Enjambement", citation: "« coule la Seine / Et nos amours »", interpretation: "Enjambement : « Et nos amours » déborde sur le vers suivant — les amours mêlées au fleuve, fluidité du temps.", keywords: ["enjambement", "seine", "amours", "déborde", "vers", "flux"] },
@@ -641,11 +519,7 @@ Les jours s'en vont je demeure`,
     oeuvre: "Les Fourberies de Scapin (1671)",
     genre: "Comédie",
     diff: 1,
-    texte: `SCAPIN
-Quoi ! tu serais capable… Non, tu ne le serais pas… Si fait, tu le serais… Ah ! le coquin !…
-Mais non, je ne le crois pas… Si fait, si fait, tu le ferais…
-Allons, montre-moi un peu la main… Ouvre donc… Voyons…
-Ah ! coquin, coquin, coquin, coquin !`,
+    texte: `SCAPIN … Ah ! coquin, coquin, coquin, coquin !`,
     contexte: "Scapin interroge un complice — comique de situation et répétitions.",
     attendus: [
       { procede: "Registre comique", citation: "monologue de Scapin", interpretation: "Registre comique : quiproquo, fausses hésitations, gestuelle — le rire naît de la situation et du personnage rusé.", keywords: ["comique", "scapin", "quiproqu", "rire", "situation", "ruse"] },
@@ -661,19 +535,7 @@ Ah ! coquin, coquin, coquin, coquin !`,
     oeuvre: "Les Fleurs du Mal (1857)",
     genre: "Poésie",
     diff: 2,
-    texte: `Mon enfant, ma sœur,
-Songe à la douceur
-D'aller là-bas vivre ensemble !
-Aimer à loisir,
-Aimer et mourir
-Au pays qui te ressemble !
-
-Les soleils mouillés
-De ces ciels brouillés
-Pour mon esprit ont les charmes
-Si mystérieux
-De tes yeux traversés
-Dans un pleur qui ne pleure pas.`,
+    texte: `Mon enfant, ma sœur, … Dans un pleur qui ne pleure pas.`,
     contexte: "Poème d'évasion amoureuse — pays rêvé, correspondances sensuelles.",
     attendus: [
       { procede: "Métaphore", citation: "« Au pays qui te ressemble »", interpretation: "Métaphore : le pays idéal = le visage de la bien-aimée — espace géographique transformé en image amoureuse.", keywords: ["métaphore", "pays", "ressemble", "amour", "idéal", "image"] },
@@ -690,11 +552,7 @@ Dans un pleur qui ne pleure pas.`,
     oeuvre: "Tartuffe (1664)",
     genre: "Comédie",
     diff: 2,
-    texte: `TARTUFFE
-Non, non, je veux vous quitter ; tout ici est souillé ;
-Le Ciel m'ordonne, et je veux suivre l'ordre du Ciel :
-Je crains qu'il ne soit fléchi par vos pièges ;
-Et vous ne m'attirerez plus par vos manèges.`,
+    texte: `TARTUFFE … Et vous ne m'attirerez plus par vos manèges.`,
     contexte: "Tartuffe simule la dévotion pour tromper Orgon — comédie de l'hypocrisie religieuse.",
     attendus: [
       { procede: "Registre comique", citation: "fausse dévotion de Tartuffe", interpretation: "Registre comique: « fausse dévotion de Tartuffe » provoque le rire par la situation, les mots ou les personnages, au cœur de la comédie de l'hypocrisie religieuse.", keywords: ["comique", "hypocris", "dévot", "duplicit", "rire", "tartuffe"] },
@@ -727,8 +585,7 @@ Et vous ne m'attirerez plus par vos manèges.`,
     oeuvre: "Dom Juan ou le Festin de pierre (1665)",
     genre: "Comédie",
     diff: 2,
-    texte: `DOM JUAN
-Ah ! pour être honnête homme, je donnerais tous les honnêtes gens du monde ; et je ne crois pas qu'on puisse faire une plaisanterie plus plaisante que de se moquer d'eux.`,
+    texte: `DOM JUAN Ah ! … pour être honnête homme, je donnerais tous les honnêtes gens du monde ; et je ne crois pas qu'on puisse faire une plaisanterie plus plaisante que de se moquer d'eux.`,
     contexte: "Dom Juan assume son immoralisme — comédie du libertin qui défie la morale.",
     attendus: [
       { procede: "Registre comique", citation: "« plaisanterie plus plaisante »", interpretation: "Registre comique: la scène provoque le rire par la situation, les mots ou les personnages; « plaisanterie plus plaisante » concentre cette coloration du comédie du libertin qui défie la morale.", keywords: ["comique", "moque", "provoc", "rire", "renvers", "valeurs"] },
@@ -745,7 +602,7 @@ Ah ! pour être honnête homme, je donnerais tous les honnêtes gens du monde ; 
     oeuvre: "Notre-Dame de Paris (1831)",
     genre: "Roman",
     diff: 2,
-    texte: `Quasimodo était à peu près difforme. Il n'était pas seulement difforme, il était informe. Son dos était voûté, sa poitrine osseuse et concave, son épaule gauche avait une bosse qui le faisait pencher, sa jambe droite était estropiée.`,
+    texte: `Quasimodo était à peu près difforme. … Son dos était voûté, sa poitrine osseuse et concave, son épaule gauche avait une bosse qui le faisait pencher, sa jambe droite était estropiée.`,
     contexte: "Portrait physique de Quasimodo — pathétique et grotesque, style hugolien.",
     attendus: [
       { procede: "Registre pathétique", citation: "portrait de la difformité", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « portrait de la difformité » concentre cette coloration du pathétique et grotesque.", keywords: ["pathétique", "difform", "compassion", "victime", "rejet", "laideur"] },
@@ -762,7 +619,7 @@ Ah ! pour être honnête homme, je donnerais tous les honnêtes gens du monde ; 
     oeuvre: "Lettres persanes (1721)",
     genre: "Conte argumenté",
     diff: 2,
-    texte: `Comment peut-on être Persan ! J'ai à peine revu la Perse, que je ne demande plus comment on peut être Européen ; car il faut avouer que l'on ne voit rien de si singulier que ce pays-ci.`,
+    texte: `Comment peut-on être Persan ! … J'ai à peine revu la Perse, que je ne demande plus comment on peut être Européen ; car il faut avouer que l'on ne voit rien de si singulier que ce pays-ci.`,
     contexte: "Usbek découvre Paris avec un regard étranger — satire des mœurs européennes.",
     attendus: [
       { procede: "Registre satirique", citation: "« rien de si singulier que ce pays-ci »", interpretation: "Registre satirique : le regard persan déforme Paris pour en révéler les absurdités — dénonciation par le décalage culturel.", keywords: ["satirique", "singulier", "décalage", "absurd", "dénonc", "paris"] },
@@ -778,9 +635,7 @@ Ah ! pour être honnête homme, je donnerais tous les honnêtes gens du monde ; 
     oeuvre: "Athalie (1691)",
     genre: "Tragédie",
     diff: 3,
-    texte: `Quel prodige nouveau me fait trembler et craindre ?
-Un enfant, un enfant roi !… Dieu ne peut-il donc rien
-Pour me punir, que de choisir un si faible instrument ?`,
+    texte: `Quel prodige nouveau me fait trembler et craindre ? … Pour me punir, que de choisir un si faible instrument ?`,
     contexte: "Athalie panique devant la prophétie — tragédie biblique, peur de la fatalité.",
     attendus: [
       { procede: "Registre tragique", citation: "« me fait trembler et craindre »", interpretation: "Registre tragique : Athalie est saisie par la peur d'une fatalité divine — terreur devant un pouvoir qui la dépasse.", keywords: ["tragique", "trembl", "crainte", "fatal", "peur", "dépasse"] },

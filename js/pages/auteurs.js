@@ -115,9 +115,11 @@ function auteursBodyHtml(a) {
   const corpusBtn = typeof openCorpusRef === 'function'
     ? `<button type="button" class="corpus-inline-btn auteur-corpus-btn" onclick="event.stopPropagation();openCorpusRef('${corpusId}')">📖 Voir ${corpusId} dans le Corpus</button>`
     : '';
-  const simBtn = typeof introSimOpenFromAuteur === 'function'
-    ? `<button type="button" class="sbtn sec auteur-intro-sim-btn" onclick="event.stopPropagation();introSimOpenFromAuteur(${JSON.stringify(a.nom)}, ${JSON.stringify(a.oeuvres || '')})">📝 Simuler une intro</button>`
-    : '';
+  const simBtn = typeof introSimOpenFromAuteurFull === 'function'
+    ? `<button type="button" class="sbtn sec auteur-intro-sim-btn" onclick="event.stopPropagation();introSimOpenFromAuteurFull(${JSON.stringify(a.nom)}, ${JSON.stringify(a.oeuvres || '')})">📝 Commentaire complet</button>`
+    : (typeof introSimOpenFromAuteur === 'function'
+      ? `<button type="button" class="sbtn sec auteur-intro-sim-btn" onclick="event.stopPropagation();introSimOpenFromAuteur(${JSON.stringify(a.nom)}, ${JSON.stringify(a.oeuvres || '')})">📝 Simuler une intro</button>`
+      : '');
   const actions = [simBtn, corpusBtn].filter(Boolean).join('');
   return `<div class="auteur-body-inner">${intro}${mouv}${oeuvres}${dev}${note}${empty}${actions ? `<div class="auteur-corpus-row">${actions}</div>` : ''}</div>`;
 }

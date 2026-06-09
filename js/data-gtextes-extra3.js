@@ -7,7 +7,7 @@ const GRANDS_TEXTES_EXTRA3 = [
     oeuvre: "La Princesse de Clèves (1678)",
     genre: "Roman",
     diff: 2,
-    texte: `Je n'ai pas tenu compte de ce que je vous avais dit, que je ne devais pas vous aimer ; je sens que je ne puis ni ne dois l'être. Il ne dépend pas de moi de vous donner des marques de mon estime et de ma tendresse.`,
+    texte: `Je n'ai pas tenu compte de ce que je vous avais dit, que je ne devais pas vous aimer ; je sens que je ne puis ni ne dois l'être. … Il ne dépend pas de moi de vous donner des marques de mon estime et de ma tendresse.`,
     contexte: "La princesse avoue à Monsieur de Clèves son amour pour le duc de Nemours — roman psychologique fondateur.",
     attendus: [      { procede: "Antithèse", citation: "« ne devais pas vous aimer » / « estime et tendresse »", interpretation: "Antithèse: « ne devais pas vous aimer » s'oppose à « estime et tendresse ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "devoir", "tendresse", "passion", "contraste", "moral"] },
       { procede: "Registre pathétique", citation: "« Il ne dépend pas de moi »", interpretation: "Registre pathétique : la princesse est victime d'un sentiment involontaire — pitié pour une héroïne déchirée.", keywords: ["pathétique", "victime", "involont", "pitié", "déchir", "sentiment"] },
@@ -22,7 +22,7 @@ const GRANDS_TEXTES_EXTRA3 = [
     oeuvre: "René (1802)",
     genre: "Roman",
     diff: 2,
-    texte: `Il n'y a point d'individu qui ne soit plus heureux que moi dans le monde entier. Un frère, une sœur, une maîtresse, une mère, perdues dans la tombe !`,
+    texte: `Il n'y a point d'individu qui ne soit plus heureux que moi dans le monde entier. … Un frère, une sœur, une maîtresse, une mère, perdues dans la tombe !`,
     contexte: "René confie son mal du siècle à un père missionnaire — préromantisme et mélancolie.",
     attendus: [
       { procede: "Antithèse", citation: "« plus heureux que moi » / « perdues dans la tombe »", interpretation: "Antithèse ironique : René se dit le plus malheureux alors qu'il énumère ses deuils — exagération romantique.", keywords: ["antithèse", "heureux", "tombe", "iron", "malheur", "contraste"] },
@@ -39,10 +39,7 @@ const GRANDS_TEXTES_EXTRA3 = [
     oeuvre: "Les Chimères (1854)",
     genre: "Poésie symboliste",
     diff: 3,
-    texte: `Je suis le Ténébreux, — le Veuf, — l'Inconsolé,
-Le Prince d'Aquitaine à la Tour abolie :
-Ma seule Étoile est morte, — et mon luth constellé
-Porte le Soleil noir de la Mélancolie.`,
+    texte: `Je suis le Ténébreux, — le Veuf, — l'Inconsolé, … Porte le Soleil noir de la Mélancolie.`,
     contexte: "Sonnet hermétique — identité multiple du poète, symbolisme et mélancolie.",
     attendus: [
       { procede: "Anaphore", citation: "« Je suis le… — le… — l'… »", interpretation: "En reprenant « Je suis le… — le… — l'… », Gérard de Nerval use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire du sonnet hermétique dans Les Chimères.", keywords: ["anaphore", "je suis", "identité", "fragment", "répét", "sujet"] },
@@ -60,10 +57,7 @@ Porte le Soleil noir de la Mélancolie.`,
     oeuvre: "Les Fleurs du Mal (1857)",
     genre: "Poésie",
     diff: 2,
-    texte: `La rue assourdissante autour de moi hurlait.
-Longue, mince, en deuil, la majestueuse tristesse
-De son maintien, la rendait comme une reine
-Et j'ai senti passer un coup de foudre.`,
+    texte: `La rue assourdissante autour de moi hurlait. … Et j'ai senti passer un coup de foudre.`,
     contexte: "Poème en prose lyrique — beauté fugitive dans la foule parisienne, modernité urbaine.",
     attendus: [
       { procede: "Comparaison", citation: "« comme une reine »", interpretation: "Le parallèle introduit par « comme une reine » (comparaison) facilite la visualisation de la scène et précise la dimension poème en prose lyrique du passage.", keywords: ["comparaison", "comme", "reine", "passante", "idéal", "transfig"] },
@@ -80,7 +74,7 @@ Et j'ai senti passer un coup de foudre.`,
     oeuvre: "Indiana (1832)",
     genre: "Roman",
     diff: 2,
-    texte: `Il y avait, dans l'île Bourbon, une maison bien connue, qu'on appelait le manoir de B… Elle était située au fond d'un vallon, au milieu de plantations de caféiers.`,
+    texte: `Il y avait, dans l'île Bourbon, une maison bien connue, qu'on appelait le manoir de B… … Elle était située au fond d'un vallon, au milieu de plantations de caféiers.`,
     contexte: "Roman colonial et féministe — cadre exotique, Indiana prisonnière de son mariage.",
     attendus: [
       { procede: "Focalisation zéro", citation: "« Il y avait… une maison »", interpretation: "Focalisation zéro (externe) : le narrateur omniscient installe le décor — description objective du cadre.", keywords: ["focalisation zéro", "narrateur", "décor", "objectif", "omnisc", "description"] },
@@ -143,7 +137,7 @@ Et j'ai senti passer un coup de foudre.`,
     oeuvre: "Le Mariage de Figaro (1784)",
     genre: "Comédie",
     diff: 2,
-    texte: `Parce que vous êtes un grand seigneur, vous vous croyez un grand génie !… Noblesse, fortune, un rang, des places, tout cela rend si fier ! Qu'avez-vous fait pour tant de biens ?`,
+    texte: `Parce que vous êtes un grand seigneur, vous vous croyez un grand génie !… … Qu'avez-vous fait pour tant de biens ?`,
     contexte: "Figaro dénonce le privilège — comédie des Lumières, registre satirique et polémique.",
     attendus: [
       { procede: "Registre satirique", citation: "« vous vous croyez un grand génie »", interpretation: "Registre satirique: « vous vous croyez un grand génie » dénonce les mœurs ou les institutions par l'ironie et la dérision, au cœur du comédie des lumières.", keywords: ["satirique", "génie", "orgueil", "noblesse", "privil", "critique"] },
@@ -160,10 +154,7 @@ Et j'ai senti passer un coup de foudre.`,
     oeuvre: "Cinna (1641)",
     genre: "Tragédie",
     diff: 2,
-    texte: `Pour ne le point suivre, il faut quitter la vie,
-Et qui m'en laisserait le pouvoir, je le ferais.
-Mais l'Empereur veut que je vive, et par sa bonté
-Il m'ôte le moyen de mourir à sa pitié.`,
+    texte: `Pour ne le point suivre, il faut quitter la vie, … Il m'ôte le moyen de mourir à sa pitié.`,
     contexte: "Auguste face à Cinna — tragédie politique, conflit entre clémence et justice.",
     attendus: [
       { procede: "Antithèse", citation: "« quitter la vie » / « veut que je vive »", interpretation: "Antithèse: « quitter la vie » s'oppose à « veut que je vive ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "mort", "vivre", "clémence", "contraste", "auguste"] },
@@ -180,9 +171,7 @@ Il m'ôte le moyen de mourir à sa pitié.`,
     oeuvre: "Esther (1689)",
     genre: "Tragédie",
     diff: 2,
-    texte: `Oui, je viens, Seigneur, je viens, je viens en tremblant
-Devant votre autel, où je me prosterne en vain :
-Vous seul connaissez mon innocence et mon crime.`,
+    texte: `Oui, je viens, Seigneur, je viens, je viens en tremblant … Vous seul connaissez mon innocence et mon crime.`,
     contexte: "Esther implore Dieu — tragédie biblique, registre pathétique et religieux.",
     attendus: [
       { procede: "Anaphore", citation: "« je viens… je viens… je viens »", interpretation: "L'anaphore sur « je viens… je viens… je viens » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Racine.", keywords: ["anaphore", "viens", "répét", "ferveur", "peur", "esther"] },
@@ -199,10 +188,7 @@ Vous seul connaissez mon innocence et mon crime.`,
     oeuvre: "Le Misanthrope (1666)",
     genre: "Comédie",
     diff: 2,
-    texte: `Je ne puis souffrir, et j'enrage en mon âme,
-De voir les mœurs du temps, et la lâche bassesse
-De ces lâches mortels qui, par une faiblesse,
-Se laissent conduire au gré de leurs appétits.`,
+    texte: `Je ne puis souffrir, et j'enrage en mon âme, … Se laissent conduire au gré de leurs appétits.`,
     contexte: "Alceste dénonce l'hypocrisie mondaine — comédie de caractère, héros intransigeant.",
     attendus: [
       { procede: "Registre satirique", citation: "« lâche bassesse… lâches mortels »", interpretation: "À travers « lâche bassesse… lâches mortels », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Le Misanthrope.", keywords: ["satirique", "lâche", "hypocris", "monde", "critique", "moral"] },
@@ -219,7 +205,7 @@ Se laissent conduire au gré de leurs appétits.`,
     oeuvre: "Le Malade imaginaire (1673)",
     genre: "Comédie",
     diff: 1,
-    texte: `Tout ce qui est de moi est à la médecine. Je ne suis né que pour souffrir et pour me faire soigner ; je n'ai point de santé, et je suis malade.`,
+    texte: `Tout ce qui est de moi est à la médecine. … Je ne suis né que pour souffrir et pour me faire soigner ; je n'ai point de santé, et je suis malade.`,
     contexte: "Argan, hypocondriaque — satire de la médecine et du caractère comique.",
     attendus: [
       { procede: "Hyperbole", citation: "« Tout ce qui est de moi est à la médecine »", interpretation: "L'hyperbole « Tout ce qui est de moi est à la médecine » pousse l'expression au-delà du vraisemblable : Molière souligne l'intensité du ressenti pour marquer argan, hypocondriaque.", keywords: ["hyperbole", "médecine", "exag", "comique", "hypocond", "existence"] },
@@ -236,12 +222,7 @@ Se laissent conduire au gré de leurs appétits.`,
     oeuvre: "Les Contemplations (1856)",
     genre: "Poésie",
     diff: 2,
-    texte: `Murs, ville,
-Et port,
-Et docks,
-Silence !
-Les djinns, fils du feu, dans les airs rapides et chauds,
-Montent, retombent, ou passent en hurlant.`,
+    texte: `Murs, ville, … Montent, retombent, ou passent en hurlant.`,
     contexte: "Poème en strophes de longueur variable — peur surnaturelle, rythme et crescendo.",
     attendus: [
       { procede: "Énumération", citation: "« Murs, ville, / Et port, / Et docks »", interpretation: "Énumération: les termes « Murs », « ville », « port » juxtaposent plusieurs éléments pour insister sur la peur surnaturelle et produire un effet de plénitude ou d'oppression.", keywords: ["énumération", "murs", "ville", "port", "liste", "décor"] },
@@ -258,10 +239,7 @@ Montent, retombent, ou passent en hurlant.`,
     oeuvre: "Une saison en enfer (1873)",
     genre: "Poésie moderniste",
     diff: 3,
-    texte: `Ô saisons, ô châtiments
-On est de son temps malgré tout
-Et pourtant on ne s'y habitue pas
-Plus doucement on y serait pris`,
+    texte: `Ô saisons, ô châtiments … Plus doucement on y serait pris`,
     contexte: "Prose poétique — révolte existentielle, modernité rimbaudienne.",
     attendus: [
       { procede: "Apostrophe", citation: "« Ô saisons, ô châtiments »", interpretation: "L'apostrophe « Ô saisons, ô châtiments » interpelle un absent ou une abstraction : Arthur Rimbaud implique le lecteur ou un destinataire absent et dramatise prose poétique.", keywords: ["apostrophe", "saisons", "châtim", "interpelle", "lyrique", "révolte"] },
@@ -278,7 +256,7 @@ Plus doucement on y serait pris`,
     oeuvre: "Le Silence de la mer (1942)",
     genre: "Nouvelle",
     diff: 2,
-    texte: `Nous ne lui répondions pas. Il restait là, debout, un instant, puis il s'inclinait légèrement et repartait sans avoir prononcé une parole.`,
+    texte: `Nous ne lui répondions pas. … Il restait là, debout, un instant, puis il s'inclinait légèrement et repartait sans avoir prononcé une parole.`,
     contexte: "Résistance passive — occupant allemand et famille française, silence comme refus.",
     attendus: [
       { procede: "Antithèse", citation: "visite de l'officier / silence total", interpretation: "Antithèse repérée dans « visite de l'officier / silence total »: deux termes ou idées s'opposent pour souligner occupant allemand et famille française.", keywords: ["antithèse", "silence", "ennemi", "résist", "mutisme", "contraste"] },
@@ -293,7 +271,7 @@ Plus doucement on y serait pris`,
     oeuvre: "Antigone (1944)",
     genre: "Tragédie",
     diff: 2,
-    texte: `Je suis de ceux qui pensent toujours qu'on va faire quelque chose de bien. Et qui, parfois, le font.`,
+    texte: `Je suis de ceux qui pensent toujours qu'on va faire quelque chose de bien. … Et qui, parfois, le font.`,
     contexte: "Antigone moderne face à Créon — tragédie de la révolte, théâtre du XXe siècle.",
     attendus: [
       { procede: "Antithèse", citation: "« pensent… faire » / « parfois, le font »", interpretation: "Antithèse: « pensent… faire » s'oppose à « parfois, le font ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "pensent", "font", "idéal", "action", "espoir"] },
@@ -311,7 +289,7 @@ Plus doucement on y serait pris`,
     oeuvre: "La Condition humaine (1933)",
     genre: "Roman",
     diff: 3,
-    texte: `Ce qui meurt en un homme, c'est le consentement. La révolte, c'est ce qui le construit.`,
+    texte: `Ce qui meurt en un homme, c'est le consentement. … La révolte, c'est ce qui le construit.`,
     contexte: "Roman engagé — révolution chinoise, philosophie de l'action et de la fraternité.",
     attendus: [
       { procede: "Antithèse", citation: "« consentement » / « révolte »", interpretation: "Antithèse: « consentement » s'oppose à « révolte ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "consent", "révolte", "passiv", "refus", "contraste"] },

@@ -1,8 +1,25 @@
 ﻿/* gtextes.js — Grands textes : analyse + personnalisation */
 const GTEXT_STATE = {
-  diff: 0, genre: '', search: '', sort: 'default', priorityOnly: false,
+  diff: 0, genre: '', search: '', sort: 'default', priorityOnly: false, demoOnly: false, completeOnly: false,
   activeId: null, entries: [], phase: 'list', showCustomForm: false,
 };
+
+/** Fiche générée sans extrait réel (titre/texte placeholder). */
+function gtextIsTemplate(t) {
+  if (!t || t.custom) return false;
+  const tit = (t.titre || '').trim();
+  const tx = (t.texte || '').trim();
+  if (/^Passage \d/i.test(tit)) return true;
+  if (/^Po[eè]me \d/i.test(tit)) return true;
+  if (/Ouverture \/ incipit/i.test(tit)) return true;
+  if (/Portrait du personnage/i.test(tit)) return true;
+  if (/Sc[eè]ne cl[eé]/i.test(tit)) return true;
+  if (/extrait invite à une lecture attentive des procédés/i.test(tx)) return true;
+  if (/^Dans ce passage de .+, .+ Le lecteur perçoit une écriture marquée/i.test(tx)) return true;
+  if (/^«\s*(Passage|Po[eè]me|Ouverture|Portrait|Sc[eè]ne)/i.test(tx)) return true;
+  if (/Les mots choisis par l'auteur construisent un effet/i.test(tx) && tx.length < 130) return true;
+  return false;
+}
 
 function gtextGetThreshold() {
   return (getSetting('gtextInterpThreshold') ?? 28) / 100;
@@ -123,6 +140,25 @@ function gtextEscAttr(s) {
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+function gtextRenderIntroSimStrip() {
+  const strip = el('gtext-intro-sim-strip');
+  if (!strip) return;
+  const demoN = typeof INTRO_SIM_GT_DEMOS !== 'undefined' ? INTRO_SIM_GT_DEMOS.length : 45;
+  const ids = typeof introSimGtDemoPreviewIds === 'function'
+    ? introSimGtDemoPreviewIds(5)
+    : ['GT-001', 'GT-003', 'GT-006', 'GT-017', 'GT-021'];
+  const chips = ids.map(id => {
+    const t = gtextGetById(id);
+    if (!t) return '';
+    const label = `${t.auteur} · ${(t.titre || t.oeuvre || id).replace(/\(\d{4}\)/, '').trim().slice(0, 24)}`;
+    return `<button type="button" class="chip intro-sim-ex-chip intro-sim-gt-chip" onclick="introSimOpenFromGtext('${gtextEscAttr(id)}')" title="Commentaire complet · ${gtextEscAttr(id)}">${gtextEsc(label)}</button>`;
+  }).filter(Boolean).join('');
+  strip.innerHTML = `
+    <span>Commentaire complet · <strong>${demoN}</strong> modèles · banque bac</span>
+    ${chips}
+    <button type="button" class="sbtn sec" onclick="introSimNavigate()">📝 Tous les modèles</button>`;
 }
 
 function gtextStartIdFromAction(action) {
@@ -557,8 +593,10 @@ function gtextClearDraft(id) {
 }
 
 function gtextGetInterpText(entry) {
-  const i = (entry?.interpretation || '').trim();
-  return i.replace(/^Citation\s*:\s*[^.]+\.\s*/i, '').trim() || i;
+  const raw = (entry?.interpretation || '').trim();
+  let i = typeof introSimCleanInterp === 'function' ? introSimCleanInterp(raw) : raw;
+  if (!i) i = raw;
+  return i.replace(/^Citation\s*:\s*[^.]+\.\s*/i, '').trim() || raw;
 }
 
 function gtextCitationOk(citation, texte, matchedAttendu) {
@@ -916,6 +954,12 @@ function gtextFilterItems(items) {
     const recIds = new Set(computeGtextExtendedStats().recommendedIds || []);
     if (recIds.size) out = out.filter(t => recIds.has(t.id));
   }
+  if (GTEXT_STATE.demoOnly && typeof introSimIsGtDemo === 'function') {
+    out = out.filter(t => introSimIsGtDemo(t.id));
+  }
+  if (GTEXT_STATE.completeOnly) {
+    out = out.filter(t => !gtextIsTemplate(t));
+  }
   return gtextSortItems(out);
 }
 
@@ -1230,6 +1274,26 @@ function initGtextesFilters() {
       renderGtextesList();
     };
     viewCont.appendChild(priBtn);
+    const demoBtn = document.createElement('button');
+    demoBtn.className = 'chip' + (GTEXT_STATE.demoOnly ? ' on' : '');
+    demoBtn.textContent = '✎ Modèles commentaire';
+    demoBtn.title = 'Textes avec commentaire complet auto (simulateur)';
+    demoBtn.onclick = () => {
+      GTEXT_STATE.demoOnly = !GTEXT_STATE.demoOnly;
+      demoBtn.classList.toggle('on', GTEXT_STATE.demoOnly);
+      renderGtextesList();
+    };
+    viewCont.appendChild(demoBtn);
+    const completeBtn = document.createElement('button');
+    completeBtn.className = 'chip' + (GTEXT_STATE.completeOnly ? ' on' : '');
+    completeBtn.textContent = 'Texte intégral';
+    completeBtn.title = 'Masquer les fiches sans extrait réel (Poème N, incipit générique…)';
+    completeBtn.onclick = () => {
+      GTEXT_STATE.completeOnly = !GTEXT_STATE.completeOnly;
+      completeBtn.classList.toggle('on', GTEXT_STATE.completeOnly);
+      renderGtextesList();
+    };
+    viewCont.appendChild(completeBtn);
   }
 
   const sortCont = el('gtextes-sort-chips');
@@ -1373,6 +1437,7 @@ function renderGtextesList() {
   if (workView) workView.classList.add('hidden');
 
   renderGtextCustomForm();
+  try { gtextRenderIntroSimStrip(); } catch (e) { console.error('gtextRenderIntroSimStrip', e); }
 
   const cont = el('gtextes-list');
   const summaryEl = el('gtextes-summary');
@@ -1438,6 +1503,12 @@ function renderGtextesList() {
     const extTag = (!t.custom && /^GT-(\d+)$/.test(t.id) && parseInt(t.id.slice(3), 10) >= 261)
       ? '<span class="gtext-ext-tag" title="Fiche générée — banque bac étendue (GT-261+)">Banque étendue</span>'
       : '';
+    const demoTag = !t.custom && typeof introSimIsGtDemo === 'function' && introSimIsGtDemo(t.id)
+      ? `<button type="button" class="gtext-demo-tag" onclick="event.stopPropagation();introSimOpenFromGtext('${gtextEscAttr(t.id)}')" title="Commentaire complet auto">✎ Modèle</button>`
+      : '';
+    const tplTag = !t.custom && gtextIsTemplate(t)
+      ? '<span class="gtext-tpl-tag" title="Fiche indexée sans extrait intégral — filtre « Texte intégral »">Extrait à venir</span>'
+      : '';
     const delBtn = t.custom
       ? `<button type="button" class="gtext-entry-del" data-gtext-del="${gtextEscAttr(t.id)}" title="Supprimer">✕</button>`
       : '';
@@ -1445,7 +1516,7 @@ function renderGtextesList() {
       <div class="gtext-card-head">
         <h3>${gtextEsc(t.titre)}</h3>
         <div style="display:flex;gap:6px;align-items:center;flex-shrink:0">
-          ${noteBadge}${recTag}${extTag}${customTag}${delBtn}
+          ${noteBadge}${demoTag}${tplTag}${recTag}${extTag}${customTag}${delBtn}
           <span class="gtext-genre-tag">${t.genre}</span>
           <span class="gtext-badge">${(t.attendus?.length ?? 0)} proc. texte</span>
         </div>
@@ -1542,7 +1613,7 @@ function renderGtextWork() {
       <div class="gtext-head">
         <h2>${gtextEsc(t.titre)}${t.custom ? ' <span class="gtext-custom-tag">Perso</span>' : ''}</h2>
         <div class="gtext-meta">${gtextEsc(t.auteur)} · ${gtextEsc(t.oeuvre)} · ${gtextEsc(t.genre)}</div>
-        ${typeof introSimOpenFromGtext === 'function' && !t.custom ? `<button type="button" class="sbtn sec gtext-intro-sim-btn" onclick="introSimOpenFromGtext('${gtextEscAttr(t.id)}')">📝 Simuler l'intro</button>` : ''}
+        ${typeof introSimOpenFromGtext === 'function' && !t.custom ? `<button type="button" class="sbtn sec gtext-intro-sim-btn" onclick="introSimOpenFromGtext('${gtextEscAttr(t.id)}')">📝 Commentaire complet</button>` : ''}
         ${showCtx ? gtextRenderOeuvreContext(t) : ''}
       </div>
       ${gtextRenderPassage(t.texte, t.titre)}

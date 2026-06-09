@@ -1010,6 +1010,9 @@ body.fs-lg { font-size: 17px; }
 .gtext-coach-live-fb{display:block;margin-top:4px;color:var(--tx2);font-style:italic}
 .gtext-rec-tag{font-size:9px;padding:2px 7px;border-radius:999px;background:rgba(201,168,76,.2);color:var(--gold2);font-weight:600;white-space:nowrap}
 .gtext-ext-tag{font-size:9px;padding:2px 7px;border-radius:999px;background:rgba(120,160,200,.15);color:var(--tx2);font-weight:600;white-space:nowrap}
+.gtext-demo-tag{font-size:9px;padding:2px 7px;border-radius:999px;border:1px solid color-mix(in srgb,var(--gold) 45%,var(--b1));background:color-mix(in srgb,var(--gold) 10%,transparent);color:var(--gold);font-weight:600;white-space:nowrap;cursor:pointer}
+.gtext-demo-tag:hover{border-color:var(--gold)}
+.gtext-tpl-tag{font-size:9px;padding:2px 7px;border-radius:999px;border:1px solid color-mix(in srgb,var(--muted) 35%,var(--b1));background:color-mix(in srgb,var(--muted) 8%,transparent);color:var(--muted);font-weight:500;white-space:nowrap}
 .gtext-card-rec{border-color:rgba(201,168,76,.35)!important}
 .gtext-prob-sims{display:grid;gap:5px;margin:.65rem 0}
 .gtext-prob-sim{display:flex;justify-content:space-between;font-size:11px;color:var(--tx2);padding:4px 8px;background:var(--s1);border-radius:var(--rad1)}
@@ -1292,12 +1295,34 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 .intro-sim-top-chip{border-color:color-mix(in srgb,var(--gold) 35%,var(--b2))!important}
 .intro-sim-recent{display:flex;flex-wrap:wrap;gap:6px}
 .intro-sim-ex-chip{font-size:10.5px!important;padding:4px 9px!important;cursor:pointer}
+.intro-sim-gt-wrap{margin-bottom:.85rem}
+.intro-sim-gt-search{width:100%;max-width:420px;margin:.35rem 0 .5rem;font-size:13px;padding:.45rem .65rem}
+.intro-sim-gt-genres{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.45rem}
+.intro-sim-gt-genre{font-size:10px!important;padding:3px 8px!important;opacity:.88}
+.intro-sim-gt-genre.on{opacity:1;border-color:var(--gold)!important;background:color-mix(in srgb,var(--gold) 12%,transparent)}
+.intro-sim-gt{display:flex;flex-wrap:wrap;gap:6px}
+.intro-sim-gt-chip{border-color:color-mix(in srgb,var(--gold) 35%,var(--b1))!important}
+.intro-sim-gt-chip:hover{border-color:var(--gold)!important}
+.intro-sim-gt-more{border-style:dashed!important;opacity:.92}
+.intro-sim-gt-more:hover{opacity:1}
 .intro-sim-form{display:grid;gap:.75rem;margin-bottom:1rem;padding:1rem 1.1rem;background:var(--s2);border:.5px solid var(--b2);border-radius:var(--rad2)}
 .intro-sim-row{display:grid;gap:.35rem}
 .intro-sim-label{font-size:11px;font-weight:600;color:var(--tx2)}
 .intro-sim-opt{font-weight:400;color:var(--tx3);font-size:10px}
 .intro-sim-input{width:100%}
 .intro-sim-textarea{min-height:4.5rem;resize:vertical;line-height:1.45;font-family:inherit}
+.intro-sim-textarea-lg{min-height:9rem;max-height:28rem}
+.intro-sim-mode-row{margin-top:-.15rem}
+.intro-sim-check{display:flex;align-items:flex-start;gap:.45rem;font-size:12px;color:var(--tx2);cursor:pointer;line-height:1.35}
+.intro-sim-check input{margin-top:.15rem;accent-color:var(--gold)}
+.intro-sim-comm{margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--b1)}
+.intro-sim-comm-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.65rem}
+.intro-sim-comm-meta{font-size:11px;color:var(--tx3)}
+.intro-sim-comm-part{margin-bottom:.75rem;padding:.65rem .75rem;background:var(--s2);border-radius:var(--rad1);border-left:3px solid var(--teal,#2a9d8f)}
+.intro-sim-comm-part-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--teal,#2a9d8f);margin-bottom:.35rem}
+.intro-sim-comm-part p{margin:0;font-size:13px;line-height:1.58;color:var(--tx1);white-space:pre-wrap}
+.intro-sim-comm-trans{font-size:12px;font-style:italic;color:var(--tx2);margin:.55rem 0 .25rem;padding-left:.5rem;border-left:2px solid var(--b2)}
+.intro-sim-comm-concl{border-left-color:var(--gold)}
 .intro-sim-hint{font-size:.78rem;color:var(--muted, #6b7280);margin:.1rem 0 0;line-height:1.35}
 .intro-sim-form-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:.25rem}
 .intro-sim-btn{justify-self:start}

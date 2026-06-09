@@ -7,10 +7,7 @@ const GRANDS_TEXTES_EXTRA8 = [
     oeuvre: "Rolla (1833)",
     genre: "Poésie",
     diff: 2,
-    texte: `La nuit était sombre et belle,
-Les étoiles sans nombre étincelaient,
-Et Rolla, les yeux pleins de larmes,
-Regardait la terre et le ciel.`,
+    texte: `La nuit était sombre et belle, … Regardait la terre et le ciel.`,
     contexte: "Poème romantique — désespoir amoureux, registre lyrique et mélancolique.",
     attendus: [
       { procede: "Personnification", citation: "« La nuit était… belle »", interpretation: "En personnifiant « La nuit était… belle », le texte rend la description plus vivante ; l'animation du non-humain sert poème romantique dans Rolla.", keywords: ["personnification", "nuit", "belle", "être", "romant", "cadre"] },
@@ -59,10 +56,7 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Les Fleurs du mal (1857)",
     genre: "Poésie",
     diff: 3,
-    texte: `Rappelez-vous l'objet que nous vîmes, mon âme,
-Ce beau matin d'été si doux :
-Au détour d'un sentier, une charogne infâme
-Sur un lit semé de cailloux.`,
+    texte: `Rappelez-vous l'objet que nous vîmes, mon âme, … Sur un lit semé de cailloux.`,
     contexte: "Poésie moderniste — spleen, laideur et beauté, registre satirique et lyrique.",
     attendus: [
       { procede: "Apostrophe", citation: "« Rappelez-vous… mon âme »", interpretation: "En s'adressant directement (« Rappelez-vous… mon âme »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe", "âme", "rappelez", "dialogue", "introspect", "poète"] },
@@ -246,8 +240,7 @@ Sur un lit semé de cailloux.`,
     oeuvre: "Le Bateau ivre (1871)",
     genre: "Poésie",
     diff: 3,
-    texte: `Comme je descendais des Fleuves impassibles,
-Je ne me sentis plus guidé par les haleurs.`,
+    texte: `Comme je descendais des Fleuves impassibles, … Je ne me sentis plus guidé par les haleurs.`,
     contexte: "Poème symboliste — voyage initiatique, liberté, registre épique et lyrique.",
     attendus: [
       { procede: "Personnification", citation: "« Fleuves impassibles »", interpretation: "Personnification: « Fleuves impassibles » reçoit des traits humains (parler, agir, ressentir). Arthur Rimbaud anime la scène et rend voyage initiatique plus vivante.", keywords: ["personnification", "fleuves", "impassib", "guides", "nature", "indiff"] },

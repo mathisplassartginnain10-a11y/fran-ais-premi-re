@@ -12,7 +12,8 @@ const GRANDS_TEXTES_EXTRA7 = [
     attendus: [
       { procede: "Registre populaire", citation: "« bonshommes », syntaxe relâchée", interpretation: "Registre populaire: la scène rapproche la langue du parler quotidien et des classes populaires; « bonshommes » concentre cette coloration du syntaxe orale.", keywords: ["populaire", "familier", "oral", "bonshommes", "rupture", "soutenu"] },
       { procede: "Apostrophe", citation: "« vous apprendra… si vous vivez »", interpretation: "En s'adressant directement (« vous apprendra… si vous vivez »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe", "vous", "lecteur", "direct", "cynique", "complicit"] },
-      { procede: "Antiphrase", citation: "« une grande tendresse » après la guerre", interpretation: "Antiphrase: « une grande tendresse » dit le contraire du sens réel ou crée un décalage critique. Louis-Ferdinand Céline invite à lire syntaxe orale à contre-pied.", keywords: ["antiphrase", "tendresse", "guerre", "iron", "décalage", "tragique"] }    ]
+      { procede: "Antiphrase", citation: "« une grande tendresse » après la guerre", interpretation: "Antiphrase: « une grande tendresse » dit le contraire du sens réel ou crée un décalage critique. Louis-Ferdinand Céline invite à lire syntaxe orale à contre-pied.", keywords: ["antiphrase", "tendresse", "guerre", "iron", "décalage", "tragique"] }
+    ]
   },
   {
     id: "GT-162",
@@ -173,7 +174,8 @@ Y habite longtemps`,
     texte: `La persienne est restée immobile. La persienne est restée immobile. La persienne est restée immobile.`,
     contexte: "Nouveau roman — description objective, répétition, jalousie du narrateur.",
     attendus: [
-      { procede: "Anaphore", citation: "« La persienne est restée immobile »", interpretation: "En reprenant « La persienne est restée immobile », Alain Robbe-Grillet use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire de la nouveau roman dans Jalousie.", keywords: ["anaphore", "persienne", "immobile", "répét", "obsess", "jalous"] },      { procede: "Registre pathétique", citation: "obsession de la persienne", interpretation: "Registre pathétique atténué : l'obsession trahit la souffrance amoureuse.", keywords: ["pathétique", "obsess", "souffr", "amour", "atténu", "persienne"] },
+      { procede: "Anaphore", citation: "« La persienne est restée immobile »", interpretation: "En reprenant « La persienne est restée immobile », Alain Robbe-Grillet use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire de la nouveau roman dans Jalousie.", keywords: ["anaphore", "persienne", "immobile", "répét", "obsess", "jalous"] },
+      { procede: "Registre pathétique", citation: "obsession de la persienne", interpretation: "Registre pathétique atténué : l'obsession trahit la souffrance amoureuse.", keywords: ["pathétique", "obsess", "souffr", "amour", "atténu", "persienne"] },
       { procede: "Gradation", citation: "répétition identique trois fois", interpretation: "Alain Robbe-Grillet recourt à le gradation (« répétition », « identique », « trois ») pour épuise ou exalte selon la visée de l'auteur ; la liste éclaire de la nouveau roman dans Jalousie.", keywords: ["gradation", "répét", "insiste", "tension", "narrative", "monte"] }
     ]
   },
@@ -189,7 +191,8 @@ Y habite longtemps`,
     attendus: [
       { procede: "Apostrophe", citation: "« Vous avez… vous laissez… vous enlevez »", interpretation: "L'apostrophe « Vous avez… vous laissez… vous enlevez » interpelle un absent ou une abstraction : Michel Butor implique le lecteur ou un destinataire absent et dramatise nouveau roman.", keywords: ["apostrophe", "vous", "lecteur", "personnag", "butor", "original"] },
       { procede: "Présent de narration", citation: "temps présent des verbes", interpretation: "Présent de narration: « temps présent des verbes » concentre l'effet recherché par Michel Butor dans le deuxième personne. le présent de narration oriente la lecture vers le sens du passage.", keywords: ["présent", "narration", "action", "lecteur", "immédiat", "temps"] },
-      { procede: "Énumération", citation: "gestes successifs", interpretation: "Énumération repérée dans « gestes successifs »: la liste multiplie les occurrences et renforce l'idée centrale de le deuxième personne.", keywords: ["énumération", "gestes", "success", "descript", "minut", "objectif"] }    ]
+      { procede: "Énumération", citation: "gestes successifs", interpretation: "Énumération repérée dans « gestes successifs »: la liste multiplie les occurrences et renforce l'idée centrale de le deuxième personne.", keywords: ["énumération", "gestes", "success", "descript", "minut", "objectif"] }
+    ]
   },
   {
     id: "GT-173",
@@ -246,10 +249,7 @@ Y habite longtemps`,
     oeuvre: "Paroles (1949)",
     genre: "Poésie",
     diff: 1,
-    texte: `Il a mis le café
-Dans la tasse
-Il a mis le lait
-Dans la tasse de café`,
+    texte: `Il a mis le café … Et il est reparti`,
     contexte: "Poésie du quotidien — rupture amoureuse, registre lyrique et tragique.",
     attendus: [
       { procede: "Anaphore", citation: "« Il a mis… Il a mis… »", interpretation: "La reprise de « Il a mis… Il a mis… » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur poésie du quotidien.", keywords: ["anaphore", "mis", "répét", "gestes", "départ", "tension"] },
@@ -299,9 +299,7 @@ Jamais une erreur les mots ne mentent pas`,
     oeuvre: "Les Contemplations (1856)",
     genre: "Poésie",
     diff: 2,
-    texte: `Ô toi que j'ai quittée en pleurant,
-Hôte du ciel, maison fermée,
-Où reste-t-il de toi ?`,
+    texte: `Ô toi que j'ai quittée en pleurant, … Où reste-t-il de toi ?`,
     contexte: "Élégie à Léopoldine — deuil, registre pathétique et lyrique.",
     attendus: [
       { procede: "Apostrophe", citation: "« Ô toi que j'ai quittée »", interpretation: "En s'adressant directement (« Ô toi que j'ai quittée »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe", "toi", "quittée", "morte", "deuil", "lyrique"] },

@@ -391,7 +391,7 @@ function renderExo() {
           <span class="diff-star">${STARS[e.diff]}</span>
 
           ${e.oeuvre ? `<span class="exo-oeuvre">${e.oeuvre}</span>` : ''}
-          ${typeof introSimParseOeuvreRef === 'function' && introSimParseOeuvreRef(e.oeuvre) ? `<button type="button" class="sbtn sec exo-intro-btn" onclick="introSimOpenFromExo(${e.id})" title="Simuler l'introduction">📝 Intro</button>` : ''}
+          ${typeof introSimParseOeuvreRef === 'function' && introSimParseOeuvreRef(e.oeuvre) ? `<button type="button" class="sbtn sec exo-intro-btn" onclick="introSimOpenFromExo(${e.id})" title="Commentaire complet si modèle GT disponible">📝 Commentaire</button>` : ''}
 
           <button class="exo-fav${isFav?' on':''}" onclick="toggleExoFav(${e.id})" title="Favori">★</button>
 

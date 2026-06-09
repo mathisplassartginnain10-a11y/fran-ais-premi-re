@@ -10,9 +10,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `« Monologue de Phèdre (I, 3) » : registre pathétique. L'extrait invite à une lecture attentive des procédés.`,
     contexte: "Confession de l'amour interdit pour Hippolyte — registre pathétique.",
     attendus: [
-      { procede: "Antithèse", citation: "« Monologue de Phèdre »", interpretation: "Antithèse repérée dans « Monologue de Phèdre »: deux termes ou idées s'opposent pour souligner registre pathétique.", keywords: ["antithèse","monologue","de","phèdre","(i,","3)"] },
-      { procede: "Hyperbole", citation: "« Monologue de Phèdre »", interpretation: "En exagérant « Monologue de Phèdre », Racine use de l'hyperbole pour souligner registre pathétique.", keywords: ["hyperbole","racine"] },
-      { procede: "Registre pathétique", citation: "« Monologue de Phèdre »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Monologue de Phèdre » concentre cette coloration du registre pathétique.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Antithèse", citation: "« Monologue de Phèdre »", interpretation: "Antithèse: « Monologue de Phèdre » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","monologue","de","phèdre","(i,","3)"] },
+      { procede: "Hyperbole", citation: "« Monologue de Phèdre »", interpretation: "Hyperbole repérée dans « Monologue de Phèdre »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","racine"] },
+      { procede: "Registre pathétique", citation: "« Monologue de Phèdre »", interpretation: "À travers « Monologue de Phèdre », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","tragique"] }
     ]
   },
   {
@@ -25,9 +25,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Manipulation et conseil criminel — registre tragique. Les mots choisis par l'auteur construisent un effet comique.`,
     contexte: "Manipulation et conseil criminel — registre tragique.",
     attendus: [
-      { procede: "Anaphore", citation: "« Phèdre et Oenone »", interpretation: "Anaphore de « Phèdre »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Racine insiste ainsi sur registre tragique.", keywords: ["anaphore","phèdre","et","oenone","(ii,","5)"] },
-      { procede: "Dialogue", citation: "« Phèdre et Oenone »", interpretation: "Dialogue: « Phèdre et Oenone » concentre l'effet recherché par Racine dans registre tragique. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","racine"] },
-      { procede: "Focalisation interne", citation: "« Phèdre et Oenone »", interpretation: "Par « Phèdre et Oenone », le focalisation interne approfondit registre tragique et marque le style de Racine.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Anaphore", citation: "« Phèdre et Oenone »", interpretation: "Anaphore: « Phèdre et Oenone » se répète pour produire un effet d'insistance mémorable et structurer registre tragique.", keywords: ["anaphore","phèdre","et","oenone","(ii,","5)"] },
+      { procede: "Dialogue", citation: "« Phèdre et Oenone »", interpretation: "Dialogue repéré dans « Phèdre et Oenone »: Racine mobilise ce procédé pour structurer registre tragique dans Phèdre.", keywords: ["dialogue","racine"] },
+      { procede: "Focalisation interne", citation: "« Phèdre et Oenone »", interpretation: "Focalisation interne repéré dans « Phèdre et Oenone »: Racine mobilise ce procédé pour structurer registre tragique dans Phèdre.", keywords: ["focalisation","interne","tragique"] }
     ]
   },
   {
@@ -40,9 +40,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Corneille, litote amoureuse — « Va, je ne te hais point ». Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Litote amoureuse — « Va, je ne te hais point ».",
     attendus: [
-      { procede: "Antithèse", citation: "« Chimène et le Comte »", interpretation: "Antithèse: « Chimène et le Comte » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","chimène","et","le","comte","(i,"] },
-      { procede: "Hyperbole", citation: "« Chimène et le Comte »", interpretation: "En exagérant « Chimène et le Comte », Corneille use de l'hyperbole pour souligner litote amoureuse.", keywords: ["hyperbole","corneille"] },
-      { procede: "Registre pathétique", citation: "« Chimène et le Comte »", interpretation: "À travers « Chimène et le Comte », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Antithèse", citation: "« Chimène et le Comte »", interpretation: "Antithèse repérée dans « Chimène et le Comte »: deux termes ou idées s'opposent pour souligner litote amoureuse.", keywords: ["antithèse","chimène","et","le","comte","(i,"] },
+      { procede: "Hyperbole", citation: "« Chimène et le Comte »", interpretation: "Hyperbole repérée dans « Chimène et le Comte »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","corneille"] },
+      { procede: "Registre pathétique", citation: "« Chimène et le Comte »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Chimène et le Comte » concentre cette coloration de la litote amoureuse.", keywords: ["registre","pathétique","tragique"] }
     ]
   },
   {
@@ -55,9 +55,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Hugo, roman engagé — misère et rédemption. — poème « Gavroche ». Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Roman engagé — misère et rédemption. — poème « Gavroche ».",
     attendus: [
-      { procede: "Registre réaliste", citation: "« Gavroche »", interpretation: "Registre réaliste: la scène colore le passage d'une tonalité marquée; « Gavroche » concentre cette coloration de la misère et rédemption.", keywords: ["registre","réaliste","gavroche","réaliste"] },
-      { procede: "Énumération", citation: "« Gavroche »", interpretation: "Énumération repérée dans « Gavroche »: la liste multiplie les occurrences et renforce l'idée centrale de la misère et rédemption.", keywords: ["énumération","hugo"] },
-      { procede: "Didascalies", citation: "« Gavroche »", interpretation: "Didascalies repéré dans « Gavroche »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["didascalies","réaliste"] }
+      { procede: "Registre réaliste", citation: "« Gavroche »", interpretation: "Registre réaliste: « Gavroche » colore le passage d'une tonalité marquée, de la misère et rédemption.", keywords: ["registre","réaliste","gavroche","réaliste"] },
+      { procede: "Énumération", citation: "« Gavroche »", interpretation: "Énumération: les termes « Gavroche », « énumération », « hugo » juxtaposent plusieurs éléments pour insister sur la misère et rédemption et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","hugo"] },
+      { procede: "Didascalies", citation: "« Gavroche »", interpretation: "Par « Gavroche », le didascalies approfondit misère et rédemption et marque le style de Hugo.", keywords: ["didascalies","réaliste"] }
     ]
   },
   {
@@ -70,9 +70,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Récit de la mort d'Hippolyte — registre épique et pathétique. Les mots choisis par l'auteur construisent un effet épique.`,
     contexte: "Récit de la mort d'Hippolyte — registre épique et pathétique.",
     attendus: [
-      { procede: "Antithèse", citation: "« Hippolyte et Théramène »", interpretation: "Antithèse repérée dans « Hippolyte et Théramène »: deux termes ou idées s'opposent pour souligner registre épique et pathétique.", keywords: ["antithèse","hippolyte","et","théramène","(iv,","2)"] },
-      { procede: "Hyperbole", citation: "« Hippolyte et Théramène »", interpretation: "En exagérant « Hippolyte et Théramène », Racine use de l'hyperbole pour souligner registre épique et pathétique.", keywords: ["hyperbole","racine"] },
-      { procede: "Registre pathétique", citation: "« Hippolyte et Théramène »", interpretation: "Registre pathétique: par « Hippolyte et Théramène », Racine suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Phèdre.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Antithèse", citation: "« Hippolyte et Théramène »", interpretation: "Antithèse: « Hippolyte et Théramène » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","hippolyte","et","théramène","(iv,","2)"] },
+      { procede: "Hyperbole", citation: "« Hippolyte et Théramène »", interpretation: "Hyperbole repérée dans « Hippolyte et Théramène »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","racine"] },
+      { procede: "Registre pathétique", citation: "« Hippolyte et Théramène »", interpretation: "Registre pathétique: « Hippolyte et Théramène » suscite la compassion et l'indignation face à la souffrance, du registre épique et pathétique.", keywords: ["registre","pathétique","tragique"] }
     ]
   },
   {
@@ -85,9 +85,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Conflit entre honneur et amour. Les mots choisis par l'auteur construisent un effet épique.`,
     contexte: "Conflit entre honneur et amour.",
     attendus: [
-      { procede: "Métaphore", citation: "« Stances de Chimène »", interpretation: "« Stances de Chimène » fonctionne comme métaphore: le rapprochement implicite enrichit conflit entre honneur et amour et marque le style de Corneille.", keywords: ["métaphore","stances","de","chimène","(iii,","4)"] },
-      { procede: "Point de vue", citation: "« Stances de Chimène »", interpretation: "Point de vue: « Stances de Chimène » concentre l'effet recherché par Corneille dans conflit entre honneur et amour. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","corneille"] },
-      { procede: "Registre épique", citation: "« Stances de Chimène »", interpretation: "Registre épique: « Stances de Chimène » élève l'action au niveau du grand récit et exalte la scène, du conflit entre honneur et amour.", keywords: ["registre","épique","tragique"] }
+      { procede: "Métaphore", citation: "« Stances de Chimène »", interpretation: "La métaphore « Stances de Chimène » rapproche deux réalités sans outil comparatif: l'image condense conflit entre honneur et amour en une vision poétique forte.", keywords: ["métaphore","stances","de","chimène","(iii,","4)"] },
+      { procede: "Point de vue", citation: "« Stances de Chimène »", interpretation: "Point de vue repéré dans « Stances de Chimène »: Corneille mobilise ce procédé pour structurer conflit entre honneur et amour dans Le Cid.", keywords: ["point","de","vue","corneille"] },
+      { procede: "Registre épique", citation: "« Stances de Chimène »", interpretation: "Registre épique: la scène élève l'action au niveau du grand récit et exalte la scène; « Stances de Chimène » concentre cette coloration du conflit entre honneur et amour.", keywords: ["registre","épique","tragique"] }
     ]
   },
   {
@@ -100,9 +100,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `« Tartuffe et Elmire (IV, 5) » : comique et satirique. L'extrait invite à une lecture attentive des procédés.`,
     contexte: "Scène du sous les yeux d'Orgon — comique et satirique.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Tartuffe et Elmire »", interpretation: "À travers « Tartuffe et Elmire », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["registre","tragique","tartuffe","et","elmire","(iv,"] },
-      { procede: "Énumération", citation: "« Tartuffe et Elmire »", interpretation: "Énumération repérée dans « Tartuffe et Elmire »: la liste multiplie les occurrences et renforce l'idée centrale de le comique et satirique.", keywords: ["énumération","molière"] },
-      { procede: "Didascalies", citation: "« Tartuffe et Elmire »", interpretation: "Didascalies: « Tartuffe et Elmire » concentre l'effet recherché par Molière dans comique et satirique. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","tragique"] }
+      { procede: "Registre tragique", citation: "« Tartuffe et Elmire »", interpretation: "Registre tragique: par « Tartuffe et Elmire », Molière installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Tartuffe.", keywords: ["registre","tragique","tartuffe","et","elmire","(iv,"] },
+      { procede: "Énumération", citation: "« Tartuffe et Elmire »", interpretation: "Énumération: les termes « Tartuffe », « Elmire », « énumération » juxtaposent plusieurs éléments pour insister sur le comique et satirique et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","molière"] },
+      { procede: "Didascalies", citation: "« Tartuffe et Elmire »", interpretation: "Par « Tartuffe et Elmire », le didascalies approfondit comique et satirique et marque le style de Molière.", keywords: ["didascalies","tragique"] }
     ]
   },
   {
@@ -115,9 +115,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `« Dénoûement — mort de Phèdre (V, 7) » : Catharsis tragique, confession finale. L'extrait invite à une lecture attentive des procédés.`,
     contexte: "Catharsis tragique, confession finale.",
     attendus: [
-      { procede: "Métaphore", citation: "« Dénoûement — mort de Phèdre »", interpretation: "La métaphore « Dénoûement — mort de Phèdre » rapproche deux réalités sans outil comparatif: l'image condense catharsis tragique, confession finale en une vision poétique forte.", keywords: ["métaphore","dénoûement","—","mort","de","phèdre"] },
-      { procede: "Point de vue", citation: "« Dénoûement — mort de Phèdre »", interpretation: "Point de vue repéré dans « Dénoûement — mort de Phèdre »: Racine mobilise ce procédé pour structurer catharsis tragique, confession finale dans Phèdre.", keywords: ["point","de","vue","racine"] },
-      { procede: "Registre épique", citation: "« Dénoûement — mort de Phèdre »", interpretation: "Registre épique: par « Dénoûement — mort de Phèdre », Racine élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Phèdre.", keywords: ["registre","épique","tragique"] }
+      { procede: "Métaphore", citation: "« Dénoûement — mort de Phèdre »", interpretation: "Métaphore: « Dénoûement — mort de Phèdre » transfère le sens d'un domaine à un autre et crée une image frappante. Racine suggère ainsi catharsis tragique, confession finale.", keywords: ["métaphore","dénoûement","—","mort","de","phèdre"] },
+      { procede: "Point de vue", citation: "« Dénoûement — mort de Phèdre »", interpretation: "Par « Dénoûement — mort de Phèdre », le point de vue approfondit catharsis tragique, confession finale et marque le style de Racine.", keywords: ["point","de","vue","racine"] },
+      { procede: "Registre épique", citation: "« Dénoûement — mort de Phèdre »", interpretation: "À travers « Dénoûement — mort de Phèdre », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","tragique"] }
     ]
   },
   {
@@ -130,9 +130,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Devoir maternel et refus de remariage. Les mots choisis par l'auteur construisent un effet épique.`,
     contexte: "Devoir maternel et refus de remariage.",
     attendus: [
-      { procede: "Antithèse", citation: "« Monologue d'Andromaque »", interpretation: "Antithèse: « Monologue d'Andromaque » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","monologue","d'andromaque","(i,","2)","tragique"] },
-      { procede: "Hyperbole", citation: "« Monologue d'Andromaque »", interpretation: "En exagérant « Monologue d'Andromaque », Racine use de l'hyperbole pour souligner devoir maternel et refus de remariage.", keywords: ["hyperbole","racine"] },
-      { procede: "Registre pathétique", citation: "« Monologue d'Andromaque »", interpretation: "À travers « Monologue d'Andromaque », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Antithèse", citation: "« Monologue d'Andromaque »", interpretation: "Antithèse repérée dans « Monologue d'Andromaque »: deux termes ou idées s'opposent pour souligner devoir maternel et refus de remariage.", keywords: ["antithèse","monologue","d'andromaque","(i,","2)","tragique"] },
+      { procede: "Hyperbole", citation: "« Monologue d'Andromaque »", interpretation: "Hyperbole: « Monologue d'Andromaque » exagère volontairement la réalité pour marquer l'intensité du ressenti dans devoir maternel et refus de remariage.", keywords: ["hyperbole","racine"] },
+      { procede: "Registre pathétique", citation: "« Monologue d'Andromaque »", interpretation: "Registre pathétique: par « Monologue d'Andromaque », Racine suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Andromaque.", keywords: ["registre","pathétique","tragique"] }
     ]
   },
   {
@@ -145,9 +145,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `« Père, épouse, sœur, et maîtresse… » — anaphore. Les mots choisis par l'auteur construisent un effet épique.`,
     contexte: "« Père, épouse, sœur, et maîtresse… » — anaphore.",
     attendus: [
-      { procede: "Anaphore", citation: "« Exclamatif de Chimène »", interpretation: "Anaphore de « Exclamatif »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Corneille insiste ainsi sur anaphore.", keywords: ["anaphore","exclamatif","de","chimène","(iii,","5)"] },
-      { procede: "Dialogue", citation: "« Exclamatif de Chimène »", interpretation: "Dialogue: « Exclamatif de Chimène » concentre l'effet recherché par Corneille dans anaphore. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","corneille"] },
-      { procede: "Focalisation interne", citation: "« Exclamatif de Chimène »", interpretation: "Focalisation interne: « Exclamatif de Chimène » concentre l'effet recherché par Corneille dans anaphore. le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Anaphore", citation: "« Exclamatif de Chimène »", interpretation: "La reprise de « Exclamatif de Chimène » (anaphore) accélère ou alourdit le rythme et concentre l'attention sur anaphore.", keywords: ["anaphore","exclamatif","de","chimène","(iii,","5)"] },
+      { procede: "Dialogue", citation: "« Exclamatif de Chimène »", interpretation: "Par « Exclamatif de Chimène », le dialogue approfondit anaphore et marque le style de Corneille.", keywords: ["dialogue","corneille"] },
+      { procede: "Focalisation interne", citation: "« Exclamatif de Chimène »", interpretation: "Focalisation interne repéré dans « Exclamatif de Chimène »: Corneille mobilise ce procédé pour structurer anaphore dans Le Cid.", keywords: ["focalisation","interne","tragique"] }
     ]
   },
   {
@@ -160,9 +160,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Molière, dénonciation de l'hypocrisie religieuse. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Dénonciation de l'hypocrisie religieuse.",
     attendus: [
-      { procede: "Comparaison", citation: "« Orgon et Cléante »", interpretation: "Comparaison repérée dans « Orgon et Cléante »: le parallèle rend dénonciation de l'hypocrisie religieuse plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","orgon","et","cléante","(i,","5)"] },
-      { procede: "Temporalité", citation: "« Orgon et Cléante »", interpretation: "Temporalité repéré dans « Orgon et Cléante »: Molière mobilise ce procédé pour structurer dénonciation de l'hypocrisie religieuse dans Tartuffe.", keywords: ["temporalité","molière"] },
-      { procede: "Registre satirique", citation: "« Orgon et Cléante »", interpretation: "À travers « Orgon et Cléante », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["registre","satirique","tragique"] }
+      { procede: "Comparaison", citation: "« Orgon et Cléante »", interpretation: "Par « Orgon et Cléante », Molière établit une comparaison qui clarifie dénonciation de l'hypocrisie religieuse et ancre le sens dans une image accessible.", keywords: ["comparaison","orgon","et","cléante","(i,","5)"] },
+      { procede: "Temporalité", citation: "« Orgon et Cléante »", interpretation: "Par « Orgon et Cléante », le temporalité approfondit dénonciation de l'hypocrisie religieuse et marque le style de Molière.", keywords: ["temporalité","molière"] },
+      { procede: "Registre satirique", citation: "« Orgon et Cléante »", interpretation: "Registre satirique: par « Orgon et Cléante », Molière dénonce les mœurs ou les institutions par l'ironie et la dérision — tonalité dominante de Tartuffe.", keywords: ["registre","satirique","tragique"] }
     ]
   },
   {
@@ -175,9 +175,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Hugo, poésie du deuil et de la mémoire. — poème « Demain, dès l'aube ». Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Poésie du deuil et de la mémoire. — poème « Demain, dès l'aube ».",
     attendus: [
-      { procede: "Antithèse", citation: "« Demain, dès l'aube »", interpretation: "Antithèse repérée dans « Demain, dès l'aube »: deux termes ou idées s'opposent pour souligner poème « demain.", keywords: ["antithèse","demain,","dès","l'aube","lyrique"] },
-      { procede: "Hyperbole", citation: "« Demain, dès l'aube »", interpretation: "En exagérant « Demain, dès l'aube », Hugo use de l'hyperbole pour souligner poème « demain.", keywords: ["hyperbole","hugo"] },
-      { procede: "Registre pathétique", citation: "« Demain, dès l'aube »", interpretation: "Registre pathétique: par « Demain, dès l'aube », Hugo suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Les Contemplations.", keywords: ["registre","pathétique","lyrique"] }
+      { procede: "Antithèse", citation: "« Demain, dès l'aube »", interpretation: "Antithèse: « Demain, dès l'aube » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","demain,","dès","l'aube","lyrique"] },
+      { procede: "Hyperbole", citation: "« Demain, dès l'aube »", interpretation: "Hyperbole repérée dans « Demain, dès l'aube »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","hugo"] },
+      { procede: "Registre pathétique", citation: "« Demain, dès l'aube »", interpretation: "Registre pathétique: « Demain, dès l'aube » suscite la compassion et l'indignation face à la souffrance, du poème « demain.", keywords: ["registre","pathétique","lyrique"] }
     ]
   },
   {
@@ -190,9 +190,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Roman engagé — misère et rédemption. — poème « Cosette et Valjean ». Les mots choisis par l'auteur construisent un effet comique.`,
     contexte: "Roman engagé — misère et rédemption. — poème « Cosette et Valjean ».",
     attendus: [
-      { procede: "Métaphore", citation: "« Cosette et Valjean »", interpretation: "Métaphore: « Cosette et Valjean » transfère le sens d'un domaine à un autre et crée une image frappante. Hugo suggère ainsi misère et rédemption.", keywords: ["métaphore","cosette","et","valjean","réaliste"] },
-      { procede: "Point de vue", citation: "« Cosette et Valjean »", interpretation: "Point de vue: « Cosette et Valjean » concentre l'effet recherché par Hugo dans misère et rédemption. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","hugo"] },
-      { procede: "Registre épique", citation: "« Cosette et Valjean »", interpretation: "Registre épique: par « Cosette et Valjean », Hugo élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Les Misérables.", keywords: ["registre","épique","réaliste"] }
+      { procede: "Métaphore", citation: "« Cosette et Valjean »", interpretation: "La métaphore « Cosette et Valjean » rapproche deux réalités sans outil comparatif: l'image condense misère et rédemption en une vision poétique forte.", keywords: ["métaphore","cosette","et","valjean","réaliste"] },
+      { procede: "Point de vue", citation: "« Cosette et Valjean »", interpretation: "Point de vue repéré dans « Cosette et Valjean »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["point","de","vue","hugo"] },
+      { procede: "Registre épique", citation: "« Cosette et Valjean »", interpretation: "Registre épique: « Cosette et Valjean » élève l'action au niveau du grand récit et exalte la scène, de la misère et rédemption.", keywords: ["registre","épique","réaliste"] }
     ]
   },
   {
@@ -205,9 +205,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Racine, tension dramatique, malentendu amoureux. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Tension dramatique, malentendu amoureux.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Scène de reconnaissance avec Hippolyte »", interpretation: "Registre tragique: « Scène de reconnaissance avec Hippolyte » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, du tension dramatique, malentendu amoureux.", keywords: ["registre","tragique","scène","de","reconnaissance","avec"] },
-      { procede: "Énumération", citation: "« Scène de reconnaissance avec Hippolyte »", interpretation: "Énumération repérée dans « Scène de reconnaissance avec Hippolyte »: la liste multiplie les occurrences et renforce l'idée centrale de le tension dramatique, malentendu amoureux.", keywords: ["énumération","racine"] },
-      { procede: "Didascalies", citation: "« Scène de reconnaissance avec Hippolyte »", interpretation: "Par « Scène de reconnaissance avec Hippolyte », le didascalies approfondit tension dramatique, malentendu amoureux et marque le style de Racine.", keywords: ["didascalies","tragique"] }
+      { procede: "Registre tragique", citation: "« Scène de reconnaissance avec Hippolyte »", interpretation: "Registre tragique: par « Scène de reconnaissance avec Hippolyte », Racine installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Phèdre.", keywords: ["registre","tragique","scène","de","reconnaissance","avec"] },
+      { procede: "Énumération", citation: "« Scène de reconnaissance avec Hippolyte »", interpretation: "Énumération: les termes « Scène », « reconnaissance », « avec » juxtaposent plusieurs éléments pour insister sur le tension dramatique, malentendu amoureux et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","racine"] },
+      { procede: "Didascalies", citation: "« Scène de reconnaissance avec Hippolyte »", interpretation: "Didascalies: « Scène de reconnaissance avec Hippolyte » concentre l'effet recherché par Racine dans tension dramatique, malentendu amoureux. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","tragique"] }
     ]
   },
   {
@@ -220,9 +220,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `« « Pour qui sont ces serpents… » (V, 5) » : onomatopée et pathos. L'extrait invite à une lecture attentive des procédés.`,
     contexte: "Récit de la mort d'Hermione — onomatopée et pathos.",
     attendus: [
-      { procede: "Anaphore", citation: "« « Pour qui sont ces serpents… » »", interpretation: "La reprise de « Pour qui sont ces serpents… (anaphore) accélère ou alourdit le rythme et concentre l'attention sur onomatopée et pathos.", keywords: ["anaphore","«","pour","qui","sont","ces"] },
-      { procede: "Dialogue", citation: "« « Pour qui sont ces serpents… » »", interpretation: "Par « Pour qui sont ces serpents…, le dialogue approfondit onomatopée et pathos et marque le style de Racine.", keywords: ["dialogue","racine"] },
-      { procede: "Focalisation interne", citation: "« « Pour qui sont ces serpents… » »", interpretation: "Focalisation interne repéré dans « Pour qui sont ces serpents…: Racine mobilise ce procédé pour structurer onomatopée et pathos dans Andromaque.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Anaphore", citation: "« « Pour qui sont ces serpents… » »", interpretation: "Anaphore de « Pour »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Racine insiste ainsi sur onomatopée et pathos.", keywords: ["anaphore","«","pour","qui","sont","ces"] },
+      { procede: "Dialogue", citation: "« « Pour qui sont ces serpents… » »", interpretation: "Dialogue repéré dans « Pour qui sont ces serpents…: Racine mobilise ce procédé pour structurer onomatopée et pathos dans Andromaque.", keywords: ["dialogue","racine"] },
+      { procede: "Focalisation interne", citation: "« « Pour qui sont ces serpents… » »", interpretation: "Par « Pour qui sont ces serpents…, le focalisation interne approfondit onomatopée et pathos et marque le style de Racine.", keywords: ["focalisation","interne","tragique"] }
     ]
   },
   {
@@ -235,9 +235,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Corneille, devoir filial et honneur. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Devoir filial et honneur.",
     attendus: [
-      { procede: "Comparaison", citation: "« Don Diègue et Rodrigue »", interpretation: "Comparaison repérée dans « Don Diègue et Rodrigue »: le parallèle rend devoir filial et honneur plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","don","diègue","et","rodrigue","(i,"] },
-      { procede: "Temporalité", citation: "« Don Diègue et Rodrigue »", interpretation: "Par « Don Diègue et Rodrigue », le temporalité approfondit devoir filial et honneur et marque le style de Corneille.", keywords: ["temporalité","corneille"] },
-      { procede: "Registre satirique", citation: "« Don Diègue et Rodrigue »", interpretation: "Registre satirique: la scène dénonce les mœurs ou les institutions par l'ironie et la dérision; « Don Diègue et Rodrigue » concentre cette coloration de la devoir filial et honneur.", keywords: ["registre","satirique","tragique"] }
+      { procede: "Comparaison", citation: "« Don Diègue et Rodrigue »", interpretation: "Comparaison: « Don Diègue et Rodrigue » rapproche explicitement deux éléments (outil comparatif ou ressemblance). Le lecteur visualise mieux devoir filial et honneur.", keywords: ["comparaison","don","diègue","et","rodrigue","(i,"] },
+      { procede: "Temporalité", citation: "« Don Diègue et Rodrigue »", interpretation: "Temporalité: « Don Diègue et Rodrigue » concentre l'effet recherché par Corneille dans devoir filial et honneur. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","corneille"] },
+      { procede: "Registre satirique", citation: "« Don Diègue et Rodrigue »", interpretation: "À travers « Don Diègue et Rodrigue », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["registre","satirique","tragique"] }
     ]
   },
   {
@@ -247,12 +247,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `« Alceste et Célimène (II, 1) » : Critique des salons et de l'hypocrisie. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Critique des salons et de l'hypocrisie.",
+    texte: `Non, non, il ne faut point adoucir les choses, et rien n'est si beau, pour bien parler, que la vérité dont on se fait un honneur ; aussi, je veux qu'on me traite avec une pleine franchise, ou qu'on ne me traite point du tout.`,
+    contexte: "Critique des salons — vérité contre hypocrisie mondaine.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Alceste et Célimène »", interpretation: "Les mots « Alceste », « Célimène », « champ » appartiennent au même champ sémantique. Leur convergence renforce critique des salons et de l'hypocrisie et structure l'unité thématique du passage.", keywords: ["champ","lexical","alceste","et","célimène","(ii,"] },
-      { procede: "Description", citation: "« Alceste et Célimène »", interpretation: "Description repéré dans « Alceste et Célimène »: Molière mobilise ce procédé pour structurer critique des salons et de l'hypocrisie dans Le Misanthrope.", keywords: ["description","molière"] },
-      { procede: "Narration", citation: "« Alceste et Célimène »", interpretation: "Narration repéré dans « Alceste et Célimène »: Molière mobilise ce procédé pour structurer critique des salons et de l'hypocrisie dans Le Misanthrope.", keywords: ["narration","tragique"] }
+      { procede: "Anaphore", citation: "« Non, non… »", interpretation: "Anaphore : la reprise de « non » affirme l'intransigeance d'Alceste et structure son refus de la flatterie.", keywords: ["anaphore","non","vérité","alceste"] },
+      { procede: "Antithèse", citation: "« adoucir les choses… la vérité »", interpretation: "Antithèse entre adoucissement social et vérité brutale : Molière oppose deux éthiques de la parole.", keywords: ["antithèse","vérité","hypocrisie","parole"] },
+      { procede: "Registre polémique", citation: "« pleine franchise »", interpretation: "Registre polémique : le lexique combatif d'Alceste arme le discours contre les mœurs du salon.", keywords: ["registre","polémique","franchise","misanthrope"] }
     ]
   },
   {
@@ -262,12 +262,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `Dans ce passage de Molière, registre comique. Le lecteur perçoit une écriture marquée par le registre dominant.`,
-    contexte: "Registre comique.",
+    texte: `Oui, je le trahirai, monsieur, je le trahirai, ou que la colère de Dieu m'écrase sur le champ ! … Il n'est point ici de crime ou de scélérat que je redoute davantage.`,
+    contexte: "Dénonciation de l'hypocrisie — courage moral de Damis.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Damis démasque Tartuffe »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « Damis démasque Tartuffe » concentre cette coloration du registre comique.", keywords: ["registre","tragique","damis","démasque","tartuffe","(iii,"] },
-      { procede: "Énumération", citation: "« Damis démasque Tartuffe »", interpretation: "Énumération: les termes « Damis », « démasque », « Tartuffe » juxtaposent plusieurs éléments pour insister sur le registre comique et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","molière"] },
-      { procede: "Didascalies", citation: "« Damis démasque Tartuffe »", interpretation: "Didascalies: « Damis démasque Tartuffe » concentre l'effet recherché par Molière dans registre comique. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","tragique"] }
+      { procede: "Anaphore", citation: "« je le trahirai… je le trahirai »", interpretation: "Anaphore : Damis répète son serment et marque la fermeté de sa dénonciation.", keywords: ["anaphore","trahirai","damis","serment"] },
+      { procede: "Hyperbole", citation: "« que la colère de Dieu m'écrase »", interpretation: "Hyperbole : l'adjuration divine exagère l'enjeu moral et souligne le courage du personnage.", keywords: ["hyperbole","dieu","colère","courage"] },
+      { procede: "Registre polémique", citation: "« crime ou de scélérat »", interpretation: "Registre polémique : le vocabulaire judiciaire dénonce Tartuffe comme menace morale maximale.", keywords: ["registre","polémique","scélérat","hypocrisie"] }
     ]
   },
   {
@@ -277,12 +277,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Poèmes saturniens (1866)",
     genre: "Poésie",
     diff: 1,
-    texte: `« Mon rêve familier » : poème « Mon rêve familier ». L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Poésie mélancolique et musicale. — poème « Mon rêve familier ».",
+    texte: `C'est toujours la même chose, et c'est toujours toi. … Au son de ta voix faible et profonde, hélas !`,
+    contexte: "Poésie mélancolique — amour idéal, musicalité verlainienne.",
     attendus: [
-      { procede: "Registre lyrique", citation: "« Mon rêve familier »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Mon rêve familier » concentre cette coloration du poème « mon rêve familier ».", keywords: ["registre","lyrique","mon","rêve","familier","lyrique"] },
-      { procede: "Énumération", citation: "« Mon rêve familier »", interpretation: "Énumération repérée dans « Mon rêve familier »: la liste multiplie les occurrences et renforce l'idée centrale de le poème « mon rêve familier ».", keywords: ["énumération","verlaine"] },
-      { procede: "Didascalies", citation: "« Mon rêve familier »", interpretation: "Didascalies: « Mon rêve familier » concentre l'effet recherché par Verlaine dans poème « mon rêve familier ». le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","lyrique"] }
+      { procede: "Anaphore", citation: "« C'est toujours… c'est toujours »", interpretation: "Anaphore : la reprise installe l'obsession amoureuse et un rythme incantatoire.", keywords: ["anaphore","toujours","obsession","amour"] },
+      { procede: "Comparaison", citation: "« Comme un sanglot »", interpretation: "Comparaison : la voix comparée à un sanglot traduit une émotion intime débordante.", keywords: ["comparaison","sanglot","voix","émotion"] },
+      { procede: "Registre lyrique", citation: "« tout mon corps se soulève »", interpretation: "Registre lyrique : le corps réagissant à la voix exprime une subjectivité passionnée.", keywords: ["registre","lyrique","corps","passion"] }
     ]
   },
   {
@@ -292,12 +292,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Fleurs du mal (1857)",
     genre: "Poésie",
     diff: 1,
-    texte: `« Élévation » : poème « Élévation ». L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Modernité poétique, spleen et idéal. — poème « Élévation ».",
+    texte: `Au-dessus des étangs, au-dessus des vallons, … Du Seigneur, du Seigneur mon Dieu !`,
+    contexte: "Poésie baudelairienne — élévation mystique, anaphore et rythme.",
     attendus: [
-      { procede: "Ironie", citation: "« Élévation »", interpretation: "Ironie repérée dans « Élévation »: le décalage entre le dit et le voulu dénonce ou moque poème « élévation ».", keywords: ["ironie","élévation","lyrique"] },
-      { procede: "Figures de style", citation: "« Élévation »", interpretation: "Figures de style: « Élévation » concentre l'effet recherché par Baudelaire dans poème « élévation ». le figures de style oriente la lecture vers le sens du passage.", keywords: ["figures","de","style","baudelaire"] },
-      { procede: "Registre lyrique", citation: "« Élévation »", interpretation: "Registre lyrique: par « Élévation », Baudelaire exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Les Fleurs du mal.", keywords: ["registre","lyrique","lyrique"] }
+      { procede: "Anaphore", citation: "« au-dessus des… au-dessus des »", interpretation: "Anaphore : la montée répétée des prépositions structure l'élévation progressive de l'âme.", keywords: ["anaphore","au-dessus","élévation","âme"] },
+      { procede: "Énumération", citation: "« montagnes, des bois, des nuages, des mers »", interpretation: "Énumération : la liste des espaces naturels élargit le regard et prépare l'envol poétique.", keywords: ["énumération","nature","espace","envol"] },
+      { procede: "Registre lyrique", citation: "« Élève-toi, mon âme »", interpretation: "Registre lyrique : l'apostrophe à l'âme traduit une quête d'idéal au-delà du spleen.", keywords: ["registre","lyrique","âme","idéal"] }
     ]
   },
   {
@@ -307,12 +307,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 1,
-    texte: `Conflit politique et affectif. Les mots choisis par l'auteur construisent un effet épique.`,
-    contexte: "Conflit politique et affectif.",
+    texte: `Andromaque, il faut que je vous aime, … Et c'est Hector qui m'ordonne de le dire.`,
+    contexte: "Tragédie classique — passion, devoir et conflit politique.",
     attendus: [
-      { procede: "Anaphore", citation: "« Pyrrhus et Andromaque »", interpretation: "Anaphore de « Pyrrhus »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Racine insiste ainsi sur conflit politique et affectif.", keywords: ["anaphore","pyrrhus","et","andromaque","(i,","4)"] },
-      { procede: "Dialogue", citation: "« Pyrrhus et Andromaque »", interpretation: "Dialogue: « Pyrrhus et Andromaque » concentre l'effet recherché par Racine dans conflit politique et affectif. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","racine"] },
-      { procede: "Focalisation interne", citation: "« Pyrrhus et Andromaque »", interpretation: "Focalisation interne: « Pyrrhus et Andromaque » concentre l'effet recherché par Racine dans conflit politique et affectif. le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Apostrophe", citation: "« Andromaque, il faut »", interpretation: "Apostrophe : Pyrrhus interpelle Andromaque et dramatise l'aveu amoureux au cœur de la scène.", keywords: ["apostrophe","andromaque","pyrrhus","aveu"] },
+      { procede: "Hyperbole", citation: "« c'est Hector qui m'ordonne »", interpretation: "Hyperbole : l'invocation d'Hector magnifie l'enjeu et mêle amour, mort et politique.", keywords: ["hyperbole","hector","ordre","mort"] },
+      { procede: "Registre tragique", citation: "« il faut que je vous aime »", interpretation: "Registre tragique : la fatalité du désir dépasse les personnages et annonce la catastrophe.", keywords: ["registre","tragique","fatalité","passion"] }
     ]
   },
   {
@@ -322,12 +322,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 1,
-    texte: `« Combat et mort du Comte (I, 4) » : Registre épique et tragique. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Registre épique et tragique.",
+    texte: `Ô rage ! Ô désespoir ! Ô vieil homme forcé ! … Mon fils, mon fils unique, témoin du jour et de ma honte !`,
+    contexte: "Registre pathétique — honneur blessé, vengeance et filiation.",
     attendus: [
-      { procede: "Comparaison", citation: "« Combat et mort du Comte »", interpretation: "Comparaison repérée dans « Combat et mort du Comte »: le parallèle rend registre épique et tragique plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","combat","et","mort","du","comte"] },
-      { procede: "Temporalité", citation: "« Combat et mort du Comte »", interpretation: "Temporalité: « Combat et mort du Comte » concentre l'effet recherché par Corneille dans registre épique et tragique. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","corneille"] },
-      { procede: "Registre satirique", citation: "« Combat et mort du Comte »", interpretation: "Registre satirique: « Combat et mort du Comte » dénonce les mœurs ou les institutions par l'ironie et la dérision, du registre épique et tragique.", keywords: ["registre","satirique","tragique"] }
+      { procede: "Anaphore", citation: "« Ô rage ! Ô désespoir ! Ô vieil homme »", interpretation: "Anaphore : la triple exclamation structure le désespoir de Don Diègue et intensifie le pathos.", keywords: ["anaphore","rage","désespoir","exclamation"] },
+      { procede: "Apostrophe", citation: "« Mon fils, mon fils unique »", interpretation: "Apostrophe : le père s'adresse à Rodrigue et transfère sur lui l'honneur familial.", keywords: ["apostrophe","fils","rodrigue","honneur"] },
+      { procede: "Registre pathétique", citation: "« témoin du jour et de ma honte »", interpretation: "Registre pathétique : la honte publique suscite pitié et prépare la vengeance tragique.", keywords: ["registre","pathétique","honte","honneur"] }
     ]
   },
   {
@@ -337,12 +337,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `« Monologue d'Alceste (IV, 3) » : Misanthropie et sincérité. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Misanthropie et sincérité.",
+    texte: `Ah ! mon pauvre cœur, voilà comme on te traite, … Qu'il faut obéir aux maximes du monde ?`,
+    contexte: "Misanthropie — déception amoureuse et sincérité blessée.",
     attendus: [
-      { procede: "Ironie", citation: "« Monologue d'Alceste »", interpretation: "Ironie: « Monologue d'Alceste » dit le contraire du sens réel ou crée un décalage critique. Molière invite à lire misanthropie et sincérité à contre-pied.", keywords: ["ironie","monologue","d'alceste","(iv,","3)","tragique"] },
-      { procede: "Figures de style", citation: "« Monologue d'Alceste »", interpretation: "Figures de style repéré dans « Monologue d'Alceste »: Molière mobilise ce procédé pour structurer misanthropie et sincérité dans Le Misanthrope.", keywords: ["figures","de","style","molière"] },
-      { procede: "Registre lyrique", citation: "« Monologue d'Alceste »", interpretation: "Registre lyrique: « Monologue d'Alceste » exprime une subjectivité intime et des émotions personnelles, de la misanthropie et sincérité.", keywords: ["registre","lyrique","tragique"] }
+      { procede: "Apostrophe", citation: "« mon pauvre cœur »", interpretation: "Apostrophe : Alceste s'adresse à son cœur et extériorise une souffrance intime.", keywords: ["apostrophe","cœur","alceste","souffrance"] },
+      { procede: "Anaphore", citation: "« voilà comme… voilà sous quelle »", interpretation: "Anaphore sur « voilà » : la reprise martèle l'injustice subie par le misanthrope.", keywords: ["anaphore","voilà","injustice","misanthrope"] },
+      { procede: "Registre pathétique", citation: "« mon pauvre cœur »", interpretation: "Registre pathétique : la plainte du moi sincère suscite compassion et ironie tragique.", keywords: ["registre","pathétique","plainte","sincérité"] }
     ]
   },
   {
@@ -352,12 +352,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Contemplations (1856)",
     genre: "Poésie",
     diff: 1,
-    texte: `Poésie du deuil et de la mémoire. — poème « Bois mon ami ». Les mots choisis par l'auteur construisent un effet épique.`,
-    contexte: "Poésie du deuil et de la mémoire. — poème « Bois mon ami ».",
+    texte: `O bois, mon ami, l'automne tient ses fêtes ; … Et tout ce grand silence est paisible au fond des bois.`,
+    contexte: "Poésie du deuil — mémoire, nature et mélancolie.",
     attendus: [
-      { procede: "Ironie", citation: "« Bois mon ami »", interpretation: "Ironie: « Bois mon ami » dit le contraire du sens réel ou crée un décalage critique. Hugo invite à lire poème « bois mon ami » à contre-pied.", keywords: ["ironie","bois","mon","ami","lyrique"] },
-      { procede: "Figures de style", citation: "« Bois mon ami »", interpretation: "Par « Bois mon ami », le figures de style approfondit poème « bois mon ami » et marque le style de Hugo.", keywords: ["figures","de","style","hugo"] },
-      { procede: "Registre lyrique", citation: "« Bois mon ami »", interpretation: "Registre lyrique: « Bois mon ami » exprime une subjectivité intime et des émotions personnelles, du poème « bois mon ami ».", keywords: ["registre","lyrique","lyrique"] }
+      { procede: "Apostrophe", citation: "« O bois, mon ami »", interpretation: "Apostrophe : Hugo s'adresse au bois comme à un confident et personnifie la nature.", keywords: ["apostrophe","bois","ami","nature"] },
+      { procede: "Métaphore", citation: "« voile d'argent sa lisière »", interpretation: "Métaphore : l'étang drapé d'argent crée une image visuelle douce qui traduit la mélancolie.", keywords: ["métaphore","argent","étang","mélancolie"] },
+      { procede: "Registre lyrique", citation: "« tout ce grand silence »", interpretation: "Registre lyrique : le silence paisible exprime une subjectivité nostalgique face au temps qui passe.", keywords: ["registre","lyrique","silence","deuil"] }
     ]
   },
   {
@@ -367,12 +367,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Misérables (1862)",
     genre: "Roman",
     diff: 1,
-    texte: `Roman engagé — misère et rédemption. — poème « Javert se suicide ». Les mots choisis par l'auteur construisent un effet épique.`,
-    contexte: "Roman engagé — misère et rédemption. — poème « Javert se suicide ».",
+    texte: `Il venait de se délivrer, lui, Javert, du rancuneur ; il venait de rendre à autrui le droit de le mépriser et de le fouler aux pieds. … Il sentit le vertige de son abîme.`,
+    contexte: "Roman engagé — déchirement moral, chute du personnage.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Javert se suicide »", interpretation: "Champ lexical: « Javert », « suicide », « champ ». L'accumulation de ces lexies enveloppe le lecteur dans l'univers de misère et rédemption.", keywords: ["champ","lexical","javert","se","suicide","réaliste"] },
-      { procede: "Description", citation: "« Javert se suicide »", interpretation: "Par « Javert se suicide », le description approfondit misère et rédemption et marque le style de Hugo.", keywords: ["description","hugo"] },
-      { procede: "Narration", citation: "« Javert se suicide »", interpretation: "Par « Javert se suicide », le narration approfondit misère et rédemption et marque le style de Hugo.", keywords: ["narration","réaliste"] }
+      { procede: "Anaphore", citation: "« Il venait de… il venait de »", interpretation: "Anaphore : la reprise souligne la double libération impossible de Javert et prépare sa chute.", keywords: ["anaphore","javert","libération","chute"] },
+      { procede: "Métaphore", citation: "« vertige de son abîme »", interpretation: "Métaphore : l'abîme traduit la crise existentielle de Javert face à la pitié reçue.", keywords: ["métaphore","abîme","vertige","crise"] },
+      { procede: "Registre pathétique", citation: "« le droit de le mépriser »", interpretation: "Registre pathétique : la souffrance intérieure de Javert suscite pitié et tragédie morale.", keywords: ["registre","pathétique","mépris","souffrance"] }
     ]
   },
   {
@@ -382,12 +382,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 1,
-    texte: `Dans ce passage de Racine, jalousie et ambivalence. Le lecteur perçoit une écriture marquée par le registre dominant.`,
-    contexte: "Jalousie et ambivalence.",
+    texte: `Je suis plein de ton ombre, et crois en cet instant … Je crois entendre sa plainte à chaque pas que je fais.`,
+    contexte: "Monologue d'Oreste — jalousie, obsession et ambivalence.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Oreste et Pyrrhus »", interpretation: "Champ lexical: « Oreste », « Pyrrhus », « champ ». L'accumulation de ces lexies enveloppe le lecteur dans l'univers de jalousie et ambivalence.", keywords: ["champ","lexical","oreste","et","pyrrhus","(ii,"] },
-      { procede: "Description", citation: "« Oreste et Pyrrhus »", interpretation: "Description: « Oreste et Pyrrhus » concentre l'effet recherché par Racine dans jalousie et ambivalence. le description oriente la lecture vers le sens du passage.", keywords: ["description","racine"] },
-      { procede: "Narration", citation: "« Oreste et Pyrrhus »", interpretation: "Par « Oreste et Pyrrhus », le narration approfondit jalousie et ambivalence et marque le style de Racine.", keywords: ["narration","tragique"] }
+      { procede: "Métaphore", citation: "« plein de ton ombre »", interpretation: "Métaphore : l'ombre d'Andromaque envahit Oreste et traduit une passion obsédante.", keywords: ["métaphore","ombre","obsession","jalousie"] },
+      { procede: "Anaphore", citation: "« Je crois… Je crois »", interpretation: "Anaphore : la reprise de « je crois » marque le trouble mental du personnage.", keywords: ["anaphore","crois","trouble","oreste"] },
+      { procede: "Registre lyrique", citation: "« sa plainte à chaque pas »", interpretation: "Registre lyrique : la subjectivité d'Oreste exprime une souffrance amoureuse intérieure.", keywords: ["registre","lyrique","plainte","passion"] }
     ]
   },
   {
@@ -397,12 +397,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `Registre comique et satirique. Les mots choisis par l'auteur construisent un effet épique.`,
-    contexte: "Registre comique et satirique.",
+    texte: `On ne sauroit jamais être un petit marquis à demi ; et celui-ci remplit noblement sa place, en furetant de côté et d'autre, avec une mise tant de majesté.`,
+    contexte: "Satire mondaine — portrait comique du petit marquis.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Scène du « petit marquis » »", interpretation: "Registre tragique: par Scène du « petit marquis, Molière installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Le Misanthrope.", keywords: ["registre","tragique","scène","du","«","petit"] },
-      { procede: "Énumération", citation: "« Scène du « petit marquis » »", interpretation: "Énumération: les termes « Scène », « petit », « marquis » juxtaposent plusieurs éléments pour insister sur le registre comique et satirique et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","molière"] },
-      { procede: "Didascalies", citation: "« Scène du « petit marquis » »", interpretation: "Didascalies repéré dans Scène du « petit marquis: Molière mobilise ce procédé pour structurer registre comique et satirique dans Le Misanthrope.", keywords: ["didascalies","tragique"] }
+      { procede: "Hyperbole", citation: "« remplit noblement sa place »", interpretation: "Hyperbole : Molière exagère la pose du marquis pour le ridiculiser.", keywords: ["hyperbole","marquis","pose","satire"] },
+      { procede: "Ironie", citation: "« noblement »", interpretation: "Ironie : l'adverbe « noblement » dit le contraire du ridicule décrit.", keywords: ["ironie","noblement","ridicule","mondanité"] },
+      { procede: "Registre comique", citation: "« petit marquis à demi »", interpretation: "Registre comique : le portrait satirique vise les mœurs du salon.", keywords: ["registre","comique","satire","salon"] }
     ]
   },
   {
@@ -412,12 +412,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `« Sganarelle et Gusman (I, 2) » : fantastique. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Statue du Commandeur — fantastique.",
+    texte: `J'en pleurerais de compassion ; l'honnêteté semble une chose si démodée, et les hommes ne sont plus que des loups les uns pour les autres.`,
+    contexte: "Valet et satire morale — critique des mœurs et du libertinage.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Sganarelle et Gusman »", interpretation: "Registre tragique: « Sganarelle et Gusman » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, du fantastique.", keywords: ["registre","tragique","sganarelle","et","gusman","(i,"] },
-      { procede: "Énumération", citation: "« Sganarelle et Gusman »", interpretation: "Énumération repérée dans « Sganarelle et Gusman »: la liste multiplie les occurrences et renforce l'idée centrale de le fantastique.", keywords: ["énumération","molière"] },
-      { procede: "Didascalies", citation: "« Sganarelle et Gusman »", interpretation: "Didascalies: « Sganarelle et Gusman » concentre l'effet recherché par Molière dans fantastique. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","tragique"] }
+      { procede: "Comparaison", citation: "« des loups les uns pour les autres »", interpretation: "Comparaison : Sganarelle assimile les hommes à des loups et dénonce l'égoïsme social.", keywords: ["comparaison","loups","égoïsme","mœurs"] },
+      { procede: "Ironie", citation: "« l'honnêteté semble une chose si démodée »", interpretation: "Ironie : la formule moque une société où la vertu paraît dépassée.", keywords: ["ironie","honnêteté","démodée","satire"] },
+      { procede: "Registre comique", citation: "« J'en pleurerais de compassion »", interpretation: "Registre comique : le valet commente en spectateur et guide le rire du public.", keywords: ["registre","comique","valet","sganarelle"] }
     ]
   },
   {
@@ -427,12 +427,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Poèmes saturniens (1866)",
     genre: "Poésie",
     diff: 1,
-    texte: `Poésie mélancolique et musicale. — poème « Le Dormeur du val ». Les mots choisis par l'auteur construisent un effet épique.`,
-    contexte: "Poésie mélancolique et musicale. — poème « Le Dormeur du val ».",
+    texte: `C'est un trou de verdure où chante une rivière … Luit : c'est un petit val, calme et riant.`,
+    contexte: "Poésie mélancolique — nature paisible masquant la mort du soldat.",
     attendus: [
-      { procede: "Comparaison", citation: "« Le Dormeur du val »", interpretation: "Comparaison repérée dans « Le Dormeur du val »: le parallèle rend poème « le dormeur du val » plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","le","dormeur","du","val","lyrique"] },
-      { procede: "Temporalité", citation: "« Le Dormeur du val »", interpretation: "Par « Le Dormeur du val », le temporalité approfondit poème « le dormeur du val » et marque le style de Verlaine.", keywords: ["temporalité","verlaine"] },
-      { procede: "Registre satirique", citation: "« Le Dormeur du val »", interpretation: "Registre satirique: la scène dénonce les mœurs ou les institutions par l'ironie et la dérision; « Le Dormeur du val » concentre cette coloration du poème « le dormeur du val ».", keywords: ["registre","satirique","lyrique"] }
+      { procede: "Champ lexical", citation: "« verdure », « rivière », « val »", interpretation: "Champ lexical de la nature : le décor bucolique installe une atmosphère paisible qui contraste avec la révélation finale.", keywords: ["champ","lexical","nature","verdure"] },
+      { procede: "Métaphore", citation: "« haillons d'argent »", interpretation: "Métaphore : les reflets argentés de la rivière créent une image sensorielle musicale typique de Verlaine.", keywords: ["métaphore","argent","rivière","musicalité"] },
+      { procede: "Registre lyrique", citation: "« calme et riant »", interpretation: "Registre lyrique : l'adjectivation douce traduit une mélancolie voilée caractéristique du poème.", keywords: ["registre","lyrique","calme","mélancolie"] }
     ]
   },
   {
@@ -442,12 +442,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Fleurs du mal (1857)",
     genre: "Poésie",
     diff: 1,
-    texte: `« Harmonie du soir » : poème « Harmonie du soir ». L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Modernité poétique, spleen et idéal. — poème « Harmonie du soir ».",
+    texte: `Voici venir les temps où vibrant sur sa tige … De l'extase aux vertiges, il n'y a plus de milieu.`,
+    contexte: "Modernité poétique — synesthies, spleen et extase au crépuscule.",
     attendus: [
-      { procede: "Comparaison", citation: "« Harmonie du soir »", interpretation: "Comparaison: « Harmonie du soir » rapproche explicitement deux éléments (outil comparatif ou ressemblance). Le lecteur visualise mieux poème « harmonie du soir ».", keywords: ["comparaison","harmonie","du","soir","lyrique"] },
-      { procede: "Temporalité", citation: "« Harmonie du soir »", interpretation: "Temporalité: « Harmonie du soir » concentre l'effet recherché par Baudelaire dans poème « harmonie du soir ». le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","baudelaire"] },
-      { procede: "Registre satirique", citation: "« Harmonie du soir »", interpretation: "Registre satirique: « Harmonie du soir » dénonce les mœurs ou les institutions par l'ironie et la dérision, du poème « harmonie du soir ».", keywords: ["registre","satirique","lyrique"] }
+      { procede: "Comparaison", citation: "« s'évapore ainsi qu'un encensoir »", interpretation: "Comparaison : la fleur comparée à l'encensoir fusionne parfum et rite, typique de la synesthie baudelairienne.", keywords: ["comparaison","encensoir","fleur","synesthie"] },
+      { procede: "Synesthésie", citation: "« sons et les parfums »", interpretation: "Synesthésie : l'union des sens crée une atmosphère onirique propre à l'esthétique du spleen.", keywords: ["synesthésie","sons","parfums","spleen"] },
+      { procede: "Antithèse", citation: "« extase aux vertiges »", interpretation: "Antithèse : Baudelaire oppose deux états limites du ressenti et abolit toute médiation.", keywords: ["antithèse","extase","vertige","contraste"] }
     ]
   },
   {
@@ -457,12 +457,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Horace (1640)",
     genre: "Théâtre tragique",
     diff: 1,
-    texte: `« Camille — « Rome, l'unique objet… » (IV, 2) » : Anaphore et haine politique. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Anaphore et haine politique.",
+    texte: `Rome, l'unique objet de ma haine et de ma colère, … Connais le cœur que tu prétends que j'outrage.`,
+    contexte: "Tragédie classique — anaphore, devoir politique et passion.",
     attendus: [
-      { procede: "Ironie", citation: "« Camille — « Rome, l'unique objet… » »", interpretation: "Ironie: Camille — « Rome, l'unique objet… dit le contraire du sens réel ou crée un décalage critique. Corneille invite à lire anaphore et haine politique à contre-pied.", keywords: ["ironie","camille","—","«","rome,","l'unique"] },
-      { procede: "Figures de style", citation: "« Camille — « Rome, l'unique objet… » »", interpretation: "Par Camille — « Rome, l'unique objet…, le figures de style approfondit anaphore et haine politique et marque le style de Corneille.", keywords: ["figures","de","style","corneille"] },
-      { procede: "Registre lyrique", citation: "« Camille — « Rome, l'unique objet… » »", interpretation: "À travers Camille — « Rome, l'unique objet…, le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","tragique"] }
+      { procede: "Anaphore", citation: "« Rome… Rome… Rome »", interpretation: "Anaphore : la reprise de « Rome » martèle la haine politique de Camille et structure le monologue.", keywords: ["anaphore","rome","haine","politique"] },
+      { procede: "Apostrophe", citation: "« Rome, l'unique objet »", interpretation: "Apostrophe : Camille interpelle la cité comme un personnage et dramatise le conflit public.", keywords: ["apostrophe","rome","camille","cité"] },
+      { procede: "Registre tragique", citation: "« ma juste inhumanité »", interpretation: "Registre tragique : l'oxymore moral traduit l'irréductible conflit entre amour et devoir.", keywords: ["registre","tragique","devoir","passion"] }
     ]
   },
   {
@@ -472,12 +472,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `« Dom Juan et le Pauvre (III, 2) » : Registre comique et philosophique. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Registre comique et philosophique.",
+    texte: `Que faire ? … Non, non, je ne veux, et ne puis rien renier de ce que j'ai fait.`,
+    contexte: "Registre comique et philosophique — libertin et morale.",
     attendus: [
-      { procede: "Antithèse", citation: "« Dom Juan et le Pauvre »", interpretation: "Antithèse repérée dans « Dom Juan et le Pauvre »: deux termes ou idées s'opposent pour souligner registre comique et philosophique.", keywords: ["antithèse","dom","juan","et","le","pauvre"] },
-      { procede: "Hyperbole", citation: "« Dom Juan et le Pauvre »", interpretation: "Hyperbole: « Dom Juan et le Pauvre » exagère volontairement la réalité pour marquer l'intensité du ressenti dans registre comique et philosophique.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Dom Juan et le Pauvre »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Dom Juan et le Pauvre » concentre cette coloration du registre comique et philosophique.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Ironie", citation: "« s'il n'y a que les misérables… honnêtes »", interpretation: "Ironie : Dom Juan retourne la leçon du Pauvre et défend une éthique provocatrice.", keywords: ["ironie","pauvre","honnête","libertin"] },
+      { procede: "Anaphore", citation: "« Non, non, je ne veux »", interpretation: "Anaphore : la négation répétée affirme l'entêtement du personnage et le comique de situation.", keywords: ["anaphore","non","dom","juan"] },
+      { procede: "Registre comique", citation: "« Que faire ? »", interpretation: "Registre comique : l'exclamation ouvre un débat moral sur un ton paradoxal propre à Molière.", keywords: ["registre","comique","paradoxe","moral"] }
     ]
   },
   {
@@ -487,12 +487,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Romances sans paroles (1874)",
     genre: "Poésie",
     diff: 1,
-    texte: `« Paysages belges » : poème « Paysages belges ». L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Poésie impressionniste et musicalité. — poème « Paysages belges ».",
+    texte: `Je vois les toits que le jour écarte lentement, … Assombrit Bruges et Gand que j'ai vus autrefois.`,
+    contexte: "Poésie impressionniste — mélancolie, mémoire et musicalité.",
     attendus: [
-      { procede: "Anaphore", citation: "« Paysages belges »", interpretation: "La reprise de « Paysages belges » (anaphore) accélère ou alourdit le rythme et concentre l'attention sur poème « paysages belges ».", keywords: ["anaphore","paysages","belges","lyrique"] },
-      { procede: "Dialogue", citation: "« Paysages belges »", interpretation: "Par « Paysages belges », le dialogue approfondit poème « paysages belges » et marque le style de Verlaine.", keywords: ["dialogue","verlaine"] },
-      { procede: "Focalisation interne", citation: "« Paysages belges »", interpretation: "Par « Paysages belges », le focalisation interne approfondit poème « paysages belges » et marque le style de Verlaine.", keywords: ["focalisation","interne","lyrique"] }
+      { procede: "Champ lexical", citation: "« toits », « clochers », « pluie », « hiver »", interpretation: "Champ lexical urbain et hivernal : le décor belge installe une atmosphère mélancolique.", keywords: ["champ","lexical","pluie","hiver"] },
+      { procede: "Métaphore", citation: "« le jour écarte lentement »", interpretation: "Métaphore : le jour personnifié suggère une lumière rare et un temps suspendu.", keywords: ["métaphore","jour","lentement","lumière"] },
+      { procede: "Registre lyrique", citation: "« que j'ai vus autrefois »", interpretation: "Registre lyrique : le souvenir personnel colore le paysage d'une nostalgie intime.", keywords: ["registre","lyrique","souvenir","nostalgie"] }
     ]
   },
   {
@@ -502,12 +502,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Contemplations (1856)",
     genre: "Poésie",
     diff: 1,
-    texte: `Poésie du deuil et de la mémoire. — poème « Paroles sur la dune ». Les mots choisis par l'auteur construisent un effet comique.`,
-    contexte: "Poésie du deuil et de la mémoire. — poème « Paroles sur la dune ».",
+    texte: `J'errais tout seul par la plage au vent froid, … S'étendait, vaste, lugubre et sans fin.`,
+    contexte: "Poésie du deuil — paysage nocturne et méditation.",
     attendus: [
-      { procede: "Comparaison", citation: "« Paroles sur la dune »", interpretation: "Par « Paroles sur la dune », Hugo établit une comparaison qui clarifie poème « paroles sur la dune » et ancre le sens dans une image accessible.", keywords: ["comparaison","paroles","sur","la","dune","lyrique"] },
-      { procede: "Temporalité", citation: "« Paroles sur la dune »", interpretation: "Temporalité repéré dans « Paroles sur la dune »: Hugo mobilise ce procédé pour structurer poème « paroles sur la dune » dans Les Contemplations.", keywords: ["temporalité","hugo"] },
-      { procede: "Registre satirique", citation: "« Paroles sur la dune »", interpretation: "Registre satirique: « Paroles sur la dune » dénonce les mœurs ou les institutions par l'ironie et la dérision, du poème « paroles sur la dune ».", keywords: ["registre","satirique","lyrique"] }
+      { procede: "Métaphore", citation: "« comme un monde mort »", interpretation: "Métaphore : le moi intérieur assimilé à un monde mort traduit le deuil et l'isolement.", keywords: ["métaphore","mort","deuil","isolement"] },
+      { procede: "Énumération", citation: "« La mer… la nuit… la dune »", interpretation: "Énumération : les éléments du paysage s'accumulent et alourdissent l'atmosphère tragique.", keywords: ["énumération","mer","nuit","dune"] },
+      { procede: "Registre lyrique", citation: "« lugubre et sans fin »", interpretation: "Registre lyrique : l'adjectivation exprime une subjectivité noyée dans la mélancolie.", keywords: ["registre","lyrique","lugubre","mélancolie"] }
     ]
   },
   {
@@ -517,12 +517,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Misérables (1862)",
     genre: "Roman",
     diff: 1,
-    texte: `« Monseigneur Myriel » : poème « Monseigneur Myriel ». L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Roman engagé — misère et rédemption. — poème « Monseigneur Myriel ».",
+    texte: `Il y avait à Digne, en 1815, un prêtre que la ville appelait M. … C'était un vieillard de soixante-quinze ans qui occupait le siège de Digne depuis 1806.`,
+    contexte: "Roman engagé — portrait moral de l'évêque, misère et rédemption.",
     attendus: [
-      { procede: "Métaphore", citation: "« Monseigneur Myriel »", interpretation: "La métaphore « Monseigneur Myriel » rapproche deux réalités sans outil comparatif: l'image condense misère et rédemption en une vision poétique forte.", keywords: ["métaphore","monseigneur","myriel","réaliste"] },
-      { procede: "Point de vue", citation: "« Monseigneur Myriel »", interpretation: "Par « Monseigneur Myriel », le point de vue approfondit misère et rédemption et marque le style de Hugo.", keywords: ["point","de","vue","hugo"] },
-      { procede: "Registre épique", citation: "« Monseigneur Myriel »", interpretation: "À travers « Monseigneur Myriel », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","réaliste"] }
+      { procede: "Antithèse", citation: "« M. Bienvenu… Monseigneur Bienvenu »", interpretation: "Antithèse entre familiarité et titre : Hugo souligne la bienveillance du personnage.", keywords: ["antithèse","bienvenu","monseigneur","bienveillance"] },
+      { procede: "Champ lexical", citation: "« prêtre », « évêque », « siège »", interpretation: "Champ lexical religieux : le portrait ancre Myriel dans une fonction morale exemplaire.", keywords: ["champ","lexical","prêtre","évêque"] },
+      { procede: "Registre épique", citation: "« toute la contrée nommait »", interpretation: "Registre épique : la renommée du personnage l'élève au rang de figure exemplaire.", keywords: ["registre","épique","contrée","exemplaire"] }
     ]
   },
   {
@@ -532,12 +532,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Horace (1640)",
     genre: "Théâtre tragique",
     diff: 1,
-    texte: `Conflit familial et patriotique. Les mots choisis par l'auteur construisent un effet comique.`,
-    contexte: "Conflit familial et patriotique.",
+    texte: `C'est sur moi qu'ils attendent la victoire ou le blâme ; … Quoi ! pour être cruel, faut-il qu'on soit Romain ?`,
+    contexte: "Tragédie — conflit familial et patriotique, dilemme de Sabine.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Sabine entre Horace et Curiace »", interpretation: "Champ lexical centré sur conflit familial et patriotique: « Sabine », « entre », « Horace ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ","lexical","sabine","entre","horace","et"] },
-      { procede: "Description", citation: "« Sabine entre Horace et Curiace »", interpretation: "Par « Sabine entre Horace et Curiace », le description approfondit conflit familial et patriotique et marque le style de Corneille.", keywords: ["description","corneille"] },
-      { procede: "Narration", citation: "« Sabine entre Horace et Curiace »", interpretation: "Par « Sabine entre Horace et Curiace », le narration approfondit conflit familial et patriotique et marque le style de Corneille.", keywords: ["narration","tragique"] }
+      { procede: "Antithèse", citation: "« victoire ou le blâme »", interpretation: "Antithèse : Sabine oppose honneur et honte et dramatise son dilemme impossible.", keywords: ["antithèse","victoire","blâme","dilemme"] },
+      { procede: "Anaphore", citation: "« ni Rome, ni mon époux »", interpretation: "Anaphore sur « ni » : la double loyauté structure le conflit tragique.", keywords: ["anaphore","rome","époux","loyauté"] },
+      { procede: "Registre tragique", citation: "« pour être cruel, faut-il qu'on soit Romain ? »", interpretation: "Registre tragique : la question rhétorique dénonce la violence du devoir politique.", keywords: ["registre","tragique","cruauté","devoir"] }
     ]
   },
   {
@@ -547,12 +547,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `« Chute de Dom Juan (V, 5) » : registre fantastique. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Punition du libertin — registre fantastique.",
+    texte: `Don Juan, je vous attends. Oui, oui, vous m'avez appelé : me voici. … Ne me parlez plus ; la rencontrer, c'est obéir.`,
+    contexte: "Punition du libertin — registre fantastique et chute morale.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Chute de Dom Juan »", interpretation: "Les mots « Chute », « Dom », « Juan » appartiennent au même champ sémantique. Leur convergence renforce registre fantastique et structure l'unité thématique du passage.", keywords: ["champ","lexical","chute","de","dom","juan"] },
-      { procede: "Description", citation: "« Chute de Dom Juan »", interpretation: "Description: « Chute de Dom Juan » concentre l'effet recherché par Molière dans registre fantastique. le description oriente la lecture vers le sens du passage.", keywords: ["description","molière"] },
-      { procede: "Narration", citation: "« Chute de Dom Juan »", interpretation: "Narration repéré dans « Chute de Dom Juan »: Molière mobilise ce procédé pour structurer registre fantastique dans Dom Juan.", keywords: ["narration","tragique"] }
+      { procede: "Anaphore", citation: "« Oui, oui, vous m'avez appelé »", interpretation: "Anaphore : la Statue martèle l'inéluctable du châtiment et annonce la chute.", keywords: ["anaphore","oui","statue","châtiment"] },
+      { procede: "Registre fantastique", citation: "« Don Juan, je vous attends »", interpretation: "Registre fantastique : la Statue parlante brise le réalisme et punit le libertin.", keywords: ["registre","fantastique","statue","dom","juan"] },
+      { procede: "Registre tragique", citation: "« la rencontrer, c'est obéir »", interpretation: "Registre tragique : la fatalité du devoir divin précipite la fin du héros.", keywords: ["registre","tragique","fatalité","obéir"] }
     ]
   },
   {
@@ -562,12 +562,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "L'Avare (1668)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `Dans ce passage de Molière, registre comique, obsession de l'argent. Le lecteur perçoit une écriture marquée par le registre dominant.`,
-    contexte: "Registre comique, obsession de l'argent.",
+    texte: `Sans mentir, voilà ce qui me chagrine le plus, de voir qu'on me dérobe, qu'on me pille ! … Enfin, c'est en vain que je mets de l'argent de côté ; on me vole tout, on me fait banqueroute !`,
+    contexte: "Comédie — obsession de l'argent, registre comique.",
     attendus: [
-      { procede: "Antithèse", citation: "« Harpagon et La Flèche »", interpretation: "Antithèse repérée dans « Harpagon et La Flèche »: deux termes ou idées s'opposent pour souligner registre comique, obsession de l'argent.", keywords: ["antithèse","harpagon","et","la","flèche","(i,"] },
-      { procede: "Hyperbole", citation: "« Harpagon et La Flèche »", interpretation: "Hyperbole: « Harpagon et La Flèche » exagère volontairement la réalité pour marquer l'intensité du ressenti dans registre comique, obsession de l'argent.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Harpagon et La Flèche »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Harpagon et La Flèche » concentre cette coloration du registre comique, obsession de l'argent.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Hyperbole", citation: "« on me vole tout, on me fait banqueroute »", interpretation: "Hyperbole : Harpagon exagère sa ruine et révèle une avarice comique.", keywords: ["hyperbole","vol","banqueroute","avarice"] },
+      { procede: "Anaphore", citation: "« qu'on me dérobe, qu'on me pille »", interpretation: "Anaphore sur « qu'on me » : la reprise concentre l'obsession possessive du personnage.", keywords: ["anaphore","dérobe","pille","obsession"] },
+      { procede: "Registre comique", citation: "« voilà ce qui me chagrine le plus »", interpretation: "Registre comique : la plainte disproportionnée suscite le rire du public.", keywords: ["registre","comique","chagrine","rire"] }
     ]
   },
   {
@@ -577,12 +577,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Poèmes saturniens (1866)",
     genre: "Poésie",
     diff: 1,
-    texte: `Poésie mélancolique et musicale. — poème « Clair de lune ». Les mots choisis par l'auteur construisent un effet comique.`,
-    contexte: "Poésie mélancolique et musicale. — poème « Clair de lune ».",
+    texte: `Votre âme est un paysage choisi … Tristes sous leurs déguisements fantasques.`,
+    contexte: "Poésie symboliste — musique, masques et mélancolie voilée.",
     attendus: [
-      { procede: "Ironie", citation: "« Clair de lune »", interpretation: "Ironie repérée dans « Clair de lune »: le décalage entre le dit et le voulu dénonce ou moque poème « clair de lune ».", keywords: ["ironie","clair","de","lune","lyrique"] },
-      { procede: "Figures de style", citation: "« Clair de lune »", interpretation: "Par « Clair de lune », le figures de style approfondit poème « clair de lune » et marque le style de Verlaine.", keywords: ["figures","de","style","verlaine"] },
-      { procede: "Registre lyrique", citation: "« Clair de lune »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Clair de lune » concentre cette coloration du poème « clair de lune ».", keywords: ["registre","lyrique","lyrique"] }
+      { procede: "Métaphore", citation: "« Votre âme est un paysage »", interpretation: "Métaphore : l'âme comparée à un paysage traduit la vision symboliste du monde intérieur.", keywords: ["métaphore","âme","paysage","symbolisme"] },
+      { procede: "Champ lexical", citation: "« masques », « bergamasques », « déguisements »", interpretation: "Champ lexical du théâtre : les masques suggèrent l'artifice social et une tristesse dissimulée.", keywords: ["champ","lexical","masques","théâtre"] },
+      { procede: "Registre lyrique", citation: "« quasi tristes »", interpretation: "Registre lyrique : la litote « quasi tristes » exprime une mélancolie délicate propre à Verlaine.", keywords: ["registre","lyrique","tristesse","litote"] }
     ]
   },
   {
@@ -592,12 +592,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Les Fleurs du mal (1857)",
     genre: "Poésie",
     diff: 1,
-    texte: `« Recueillement » : poème « Recueillement ». L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Modernité poétique, spleen et idéal. — poème « Recueillement ».",
+    texte: `Sois sage, ô ma Douleur, tiens-toi plus rassemblée. … À l'Homme le silence et le regret.`,
+    contexte: "Poésie du spleen — apaisement nocturne et méditation.",
     attendus: [
-      { procede: "Métaphore", citation: "« Recueillement »", interpretation: "Métaphore: « Recueillement » transfère le sens d'un domaine à un autre et crée une image frappante. Baudelaire suggère ainsi poème « recueillement ».", keywords: ["métaphore","recueillement","lyrique"] },
-      { procede: "Point de vue", citation: "« Recueillement »", interpretation: "Point de vue: « Recueillement » concentre l'effet recherché par Baudelaire dans poème « recueillement ». le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","baudelaire"] },
-      { procede: "Registre épique", citation: "« Recueillement »", interpretation: "À travers « Recueillement », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","lyrique"] }
+      { procede: "Apostrophe", citation: "« ô ma Douleur »", interpretation: "Apostrophe : Baudelaire personnifie la souffrance et entame un dialogue intérieur apaisé.", keywords: ["apostrophe","douleur","spleen","dialogue"] },
+      { procede: "Personnification", citation: "« le Soir ; il descend »", interpretation: "Personnification : le soir devient un personnage qui répond au désir du poète.", keywords: ["personnification","soir","descend","nuit"] },
+      { procede: "Registre lyrique", citation: "« silence et le regret »", interpretation: "Registre lyrique : la nuit apporte une paix mélancolique où se mêlent recueillement et spleen.", keywords: ["registre","lyrique","silence","regret"] }
     ]
   },
   {
@@ -607,12 +607,12 @@ const GRANDS_TEXTES_EXTRA12 = [
     oeuvre: "Méditations poétiques (1820)",
     genre: "Poésie",
     diff: 1,
-    texte: `Lyrisme romantique et méditation. — poème « Le Vallon ». Les mots choisis par l'auteur construisent un effet comique.`,
-    contexte: "Lyrisme romantique et méditation. — poème « Le Vallon ».",
+    texte: `Je me promenais seul, rêveur et sans dessein, … Où le feuillage incliné versait un frais ombrage.`,
+    contexte: "Lyrisme romantique — méditation intime et paysage.",
     attendus: [
-      { procede: "Anaphore", citation: "« Le Vallon »", interpretation: "Anaphore de « Vallon »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Lamartine insiste ainsi sur poème « le vallon ».", keywords: ["anaphore","le","vallon","lyrique"] },
-      { procede: "Dialogue", citation: "« Le Vallon »", interpretation: "Dialogue: « Le Vallon » concentre l'effet recherché par Lamartine dans poème « le vallon ». le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","lamartine"] },
-      { procede: "Focalisation interne", citation: "« Le Vallon »", interpretation: "Focalisation interne repéré dans « Le Vallon »: Lamartine mobilise ce procédé pour structurer poème « le vallon » dans Méditations poétiques.", keywords: ["focalisation","interne","lyrique"] }
+      { procede: "Focalisation interne", citation: "« Je me promenais seul, rêveur »", interpretation: "Focalisation interne : le je poétique guide la promenade et la méditation.", keywords: ["focalisation","interne","promenade","méditation"] },
+      { procede: "Champ lexical", citation: "« vallon », « rive », « feuillage », « ombrage »", interpretation: "Champ lexical bucolique : le paysage naturel enveloppe le poète d'une quiétude mélancolique.", keywords: ["champ","lexical","vallon","nature"] },
+      { procede: "Registre lyrique", citation: "« rêveur et sans dessein »", interpretation: "Registre lyrique : la flânerie exprime une subjectivité romantique ouverte au souvenir.", keywords: ["registre","lyrique","rêveur","romantisme"] }
     ]
   },
   {
@@ -625,9 +625,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Racine, renoncement amoureux — registre lyrique et pathétique. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Renoncement amoureux — registre lyrique et pathétique.",
     attendus: [
-      { procede: "Ironie", citation: "« Monologue de Bérénice »", interpretation: "Ironie repérée dans « Monologue de Bérénice »: le décalage entre le dit et le voulu dénonce ou moque registre lyrique et pathétique.", keywords: ["ironie","monologue","de","bérénice","(iv,","5)"] },
-      { procede: "Figures de style", citation: "« Monologue de Bérénice »", interpretation: "Par « Monologue de Bérénice », le figures de style approfondit registre lyrique et pathétique et marque le style de Racine.", keywords: ["figures","de","style","racine"] },
-      { procede: "Registre lyrique", citation: "« Monologue de Bérénice »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Monologue de Bérénice » concentre cette coloration du registre lyrique et pathétique.", keywords: ["registre","lyrique","tragique"] }
+      { procede: "Ironie", citation: "« Monologue de Bérénice »", interpretation: "Ironie: « Monologue de Bérénice » dit le contraire du sens réel ou crée un décalage critique. Racine invite à lire registre lyrique et pathétique à contre-pied.", keywords: ["ironie","monologue","de","bérénice","(iv,","5)"] },
+      { procede: "Figures de style", citation: "« Monologue de Bérénice »", interpretation: "Figures de style repéré dans « Monologue de Bérénice »: Racine mobilise ce procédé pour structurer registre lyrique et pathétique dans Bérénice.", keywords: ["figures","de","style","racine"] },
+      { procede: "Registre lyrique", citation: "« Monologue de Bérénice »", interpretation: "À travers « Monologue de Bérénice », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","tragique"] }
     ]
   },
   {
@@ -640,9 +640,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Molière, comique de situation. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Comique de situation.",
     attendus: [
-      { procede: "Antithèse", citation: "« Scène du dîner »", interpretation: "Antithèse repérée dans « Scène du dîner »: deux termes ou idées s'opposent pour souligner comique de situation.", keywords: ["antithèse","scène","du","dîner","(iii,","1)"] },
-      { procede: "Hyperbole", citation: "« Scène du dîner »", interpretation: "En exagérant « Scène du dîner », Molière use de l'hyperbole pour souligner comique de situation.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Scène du dîner »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Scène du dîner » concentre cette coloration de la comique de situation.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Antithèse", citation: "« Scène du dîner »", interpretation: "Antithèse: « Scène du dîner » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","scène","du","dîner","(iii,","1)"] },
+      { procede: "Hyperbole", citation: "« Scène du dîner »", interpretation: "Hyperbole repérée dans « Scène du dîner »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","molière"] },
+      { procede: "Registre pathétique", citation: "« Scène du dîner »", interpretation: "Registre pathétique: « Scène du dîner » suscite la compassion et l'indignation face à la souffrance, de la comique de situation.", keywords: ["registre","pathétique","tragique"] }
     ]
   },
   {
@@ -655,9 +655,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Poésie impressionniste et musicalité. — poème « Green ». Les mots choisis par l'auteur construisent un effet épique.`,
     contexte: "Poésie impressionniste et musicalité. — poème « Green ».",
     attendus: [
-      { procede: "Anaphore", citation: "« Green »", interpretation: "La reprise de « Green » (anaphore) accélère ou alourdit le rythme et concentre l'attention sur poème « green ».", keywords: ["anaphore","green","lyrique"] },
-      { procede: "Dialogue", citation: "« Green »", interpretation: "Par « Green », le dialogue approfondit poème « green » et marque le style de Verlaine.", keywords: ["dialogue","verlaine"] },
-      { procede: "Focalisation interne", citation: "« Green »", interpretation: "Focalisation interne: « Green » concentre l'effet recherché par Verlaine dans poème « green ». le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","lyrique"] }
+      { procede: "Anaphore", citation: "« Green »", interpretation: "Anaphore de « Green »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Verlaine insiste ainsi sur poème « green ».", keywords: ["anaphore","green","lyrique"] },
+      { procede: "Dialogue", citation: "« Green »", interpretation: "Dialogue repéré dans « Green »: Verlaine mobilise ce procédé pour structurer poème « green » dans Romances sans paroles.", keywords: ["dialogue","verlaine"] },
+      { procede: "Focalisation interne", citation: "« Green »", interpretation: "Focalisation interne repéré dans « Green »: Verlaine mobilise ce procédé pour structurer poème « green » dans Romances sans paroles.", keywords: ["focalisation","interne","lyrique"] }
     ]
   },
   {
@@ -670,9 +670,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Poésie du deuil et de la mémoire. — poème « A Villequier ». Les mots choisis par l'auteur construisent un effet comique.`,
     contexte: "Poésie du deuil et de la mémoire. — poème « A Villequier ».",
     attendus: [
-      { procede: "Comparaison", citation: "« A Villequier »", interpretation: "Comparaison repérée dans « A Villequier »: le parallèle rend poème « a villequier » plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","a","villequier","lyrique"] },
-      { procede: "Temporalité", citation: "« A Villequier »", interpretation: "Temporalité repéré dans « A Villequier »: Hugo mobilise ce procédé pour structurer poème « a villequier » dans Les Contemplations.", keywords: ["temporalité","hugo"] },
-      { procede: "Registre satirique", citation: "« A Villequier »", interpretation: "Registre satirique: « A Villequier » dénonce les mœurs ou les institutions par l'ironie et la dérision, du poème « a villequier ».", keywords: ["registre","satirique","lyrique"] }
+      { procede: "Comparaison", citation: "« A Villequier »", interpretation: "Par « A Villequier », Hugo établit une comparaison qui clarifie poème « a villequier » et ancre le sens dans une image accessible.", keywords: ["comparaison","a","villequier","lyrique"] },
+      { procede: "Temporalité", citation: "« A Villequier »", interpretation: "Temporalité: « A Villequier » concentre l'effet recherché par Hugo dans poème « a villequier ». le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","hugo"] },
+      { procede: "Registre satirique", citation: "« A Villequier »", interpretation: "Registre satirique: la scène dénonce les mœurs ou les institutions par l'ironie et la dérision; « A Villequier » concentre cette coloration du poème « a villequier ».", keywords: ["registre","satirique","lyrique"] }
     ]
   },
   {
@@ -685,9 +685,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `« La barricade » : poème « La barricade ». L'extrait invite à une lecture attentive des procédés.`,
     contexte: "Roman engagé — misère et rédemption. — poème « La barricade ».",
     attendus: [
-      { procede: "Champ lexical", citation: "« La barricade »", interpretation: "Les mots « barricade », « champ », « lexical » appartiennent au même champ sémantique. Leur convergence renforce misère et rédemption et structure l'unité thématique du passage.", keywords: ["champ","lexical","la","barricade","réaliste"] },
-      { procede: "Description", citation: "« La barricade »", interpretation: "Description repéré dans « La barricade »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["description","hugo"] },
-      { procede: "Narration", citation: "« La barricade »", interpretation: "Narration: « La barricade » concentre l'effet recherché par Hugo dans misère et rédemption. le narration oriente la lecture vers le sens du passage.", keywords: ["narration","réaliste"] }
+      { procede: "Champ lexical", citation: "« La barricade »", interpretation: "Champ lexical centré sur misère et rédemption: « barricade », « champ », « lexical ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ","lexical","la","barricade","réaliste"] },
+      { procede: "Description", citation: "« La barricade »", interpretation: "Par « La barricade », le description approfondit misère et rédemption et marque le style de Hugo.", keywords: ["description","hugo"] },
+      { procede: "Narration", citation: "« La barricade »", interpretation: "Narration repéré dans « La barricade »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["narration","réaliste"] }
     ]
   },
   {
@@ -700,9 +700,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Hugo, roman engagé — misère et rédemption. — Ouverture / incipit. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Roman engagé — misère et rédemption. — Ouverture / incipit.",
     attendus: [
-      { procede: "Anaphore", citation: "« Ouverture / incipit »", interpretation: "Anaphore: « Ouverture / incipit » se répète pour produire un effet d'insistance mémorable et structurer misère et rédemption.", keywords: ["anaphore","ouverture","/","incipit","réaliste"] },
-      { procede: "Dialogue", citation: "« Ouverture / incipit »", interpretation: "Par « Ouverture / incipit », le dialogue approfondit misère et rédemption et marque le style de Hugo.", keywords: ["dialogue","hugo"] },
-      { procede: "Focalisation interne", citation: "« Ouverture / incipit »", interpretation: "Focalisation interne: « Ouverture / incipit » concentre l'effet recherché par Hugo dans misère et rédemption. le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","réaliste"] }
+      { procede: "Anaphore", citation: "« Ouverture / incipit »", interpretation: "Anaphore de « Ouverture »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Hugo insiste ainsi sur misère et rédemption.", keywords: ["anaphore","ouverture","/","incipit","réaliste"] },
+      { procede: "Dialogue", citation: "« Ouverture / incipit »", interpretation: "Dialogue repéré dans « Ouverture / incipit »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["dialogue","hugo"] },
+      { procede: "Focalisation interne", citation: "« Ouverture / incipit »", interpretation: "Focalisation interne repéré dans « Ouverture / incipit »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["focalisation","interne","réaliste"] }
     ]
   },
   {
@@ -715,9 +715,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Dans ce passage de Racine, conflit entre amour et devoir politique. Le lecteur perçoit une écriture marquée par le registre dominant.`,
     contexte: "Conflit entre amour et devoir politique.",
     attendus: [
-      { procede: "Métaphore", citation: "« Titus et Antiochus »", interpretation: "La métaphore « Titus et Antiochus » rapproche deux réalités sans outil comparatif: l'image condense conflit entre amour et devoir politique en une vision poétique forte.", keywords: ["métaphore","titus","et","antiochus","(ii,","1)"] },
-      { procede: "Point de vue", citation: "« Titus et Antiochus »", interpretation: "Par « Titus et Antiochus », le point de vue approfondit conflit entre amour et devoir politique et marque le style de Racine.", keywords: ["point","de","vue","racine"] },
-      { procede: "Registre épique", citation: "« Titus et Antiochus »", interpretation: "Registre épique: par « Titus et Antiochus », Racine élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Bérénice.", keywords: ["registre","épique","tragique"] }
+      { procede: "Métaphore", citation: "« Titus et Antiochus »", interpretation: "« Titus et Antiochus » fonctionne comme métaphore: le rapprochement implicite enrichit conflit entre amour et devoir politique et marque le style de Racine.", keywords: ["métaphore","titus","et","antiochus","(ii,","1)"] },
+      { procede: "Point de vue", citation: "« Titus et Antiochus »", interpretation: "Point de vue repéré dans « Titus et Antiochus »: Racine mobilise ce procédé pour structurer conflit entre amour et devoir politique dans Bérénice.", keywords: ["point","de","vue","racine"] },
+      { procede: "Registre épique", citation: "« Titus et Antiochus »", interpretation: "À travers « Titus et Antiochus », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","tragique"] }
     ]
   },
   {
@@ -730,9 +730,9 @@ const GRANDS_TEXTES_EXTRA12 = [
     texte: `Poésie mélancolique et musicale. — poème « Croquis parisien ». Les mots choisis par l'auteur construisent un effet épique.`,
     contexte: "Poésie mélancolique et musicale. — poème « Croquis parisien ».",
     attendus: [
-      { procede: "Antithèse", citation: "« Croquis parisien »", interpretation: "Antithèse: « Croquis parisien » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","croquis","parisien","lyrique"] },
-      { procede: "Hyperbole", citation: "« Croquis parisien »", interpretation: "Hyperbole: « Croquis parisien » exagère volontairement la réalité pour marquer l'intensité du ressenti dans poème « croquis parisien ».", keywords: ["hyperbole","verlaine"] },
-      { procede: "Registre pathétique", citation: "« Croquis parisien »", interpretation: "Registre pathétique: « Croquis parisien » suscite la compassion et l'indignation face à la souffrance, du poème « croquis parisien ».", keywords: ["registre","pathétique","lyrique"] }
+      { procede: "Antithèse", citation: "« Croquis parisien »", interpretation: "Antithèse repérée dans « Croquis parisien »: deux termes ou idées s'opposent pour souligner poème « croquis parisien ».", keywords: ["antithèse","croquis","parisien","lyrique"] },
+      { procede: "Hyperbole", citation: "« Croquis parisien »", interpretation: "Hyperbole repérée dans « Croquis parisien »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","verlaine"] },
+      { procede: "Registre pathétique", citation: "« Croquis parisien »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Croquis parisien » concentre cette coloration du poème « croquis parisien ».", keywords: ["registre","pathétique","lyrique"] }
     ]
   }
 ];

@@ -54,7 +54,7 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Journal d'un curé de campagne (1936)",
     genre: "Roman",
     diff: 3,
-    texte: `Mon paroisse est pauvre. Mon presbytère est froid. J'ai du mal à me chauffer. On m'appelle le curé de Torcy.`,
+    texte: `Mon paroisse est pauvre. … On m'appelle le curé de Torcy.`,
     contexte: "Roman catholique — misère, foi, solitude, écriture intime.",
     attendus: [      { procede: "Anaphore", citation: "« Mon… Mon… »", interpretation: "L'anaphore (« Mon… Mon… ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "mon", "répét", "curé", "condition", "insiste"] },
       { procede: "Registre pathétique", citation: "« j'ai du mal à me chauffer »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « j'ai du mal à me chauffer » concentre cette coloration du misère.", keywords: ["pathétique", "chauffer", "misère", "pit", "dénuement", "froid"] },
@@ -69,7 +69,7 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Le Nœud de vipères (1932)",
     genre: "Roman",
     diff: 3,
-    texte: `Je vous écris, mon cher enfant, pour vous dire que je vous hais. Oui, je vous hais, et je ne me sens pas le moindre remords.`,
+    texte: `Je vous écris, mon cher enfant, pour vous dire que je vous hais. … Oui, je vous hais, et je ne me sens pas le moindre remords.`,
     contexte: "Lettre testamentaire — haine familiale, registre pathétique et tragique.",
     attendus: [
       { procede: "Apostrophe", citation: "« mon cher enfant » / « je vous hais »", interpretation: "En s'adressant directement (« mon cher enfant » face à « je vous hais »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe", "cher", "hais", "iron", "antiphrase", "enfant"] },
@@ -114,8 +114,7 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Les Yeux d'Elsa (1942)",
     genre: "Poésie",
     diff: 2,
-    texte: `Elsa, tes yeux d'azur, vos yeux d'azur, vos yeux d'azur,
-Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.`,
+    texte: `Elsa, tes yeux d'azur, vos yeux d'azur, vos yeux d'azur, … Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.`,
     contexte: "Poésie de la Résistance — amour et engagement, anaphore incantatoire.",
     attendus: [
       { procede: "Anaphore", citation: "« Elsa… vos yeux d'azur »", interpretation: "L'anaphore sur « Elsa… vos yeux d'azur » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Louis Aragon.", keywords: ["anaphore", "elsa", "yeux", "azur", "incant", "répét"] },

@@ -1631,8 +1631,8 @@
         <div class="pr"><span class="prl">Axe 3</span><span class="prv">La dimension spectaculaire : didascalies, double énonciation.</span></div>
       </div>
 
-      <div class="msec" id="intro-sim">Simulateur d'introduction</div>
-      <p class="meth-intro-lead">Saisis <strong>l'auteur</strong> et <strong>l'œuvre</strong> (comme sur ta copie d'examen). Le simulateur interroge <strong>10 000 passages probables</strong> au bac et génère une intro en <strong>5 temps</strong>.</p>
+      <div class="msec" id="intro-sim">Simulateur de commentaire</div>
+      <p class="meth-intro-lead">Saisis <strong>l'auteur</strong> et <strong>l'œuvre</strong>, ou colle <strong>la première et la dernière phrase</strong> du passage (séparées par <strong>…</strong>) : intro en <strong>5 temps</strong> + <strong>commentaire rédigé complet</strong> si le passage est reconnu.</p>
       <p class="intro-sim-meta" id="intro-sim-meta">… passages indexés</p>
       <div class="intro-sim-quick-wrap">
         <span class="intro-sim-quick-lbl">Exemples rapides</span>
@@ -1658,16 +1658,22 @@
           <datalist id="intro-sim-oeuvre-list"></datalist>
         </div>
         <div class="intro-sim-row">
-          <label class="intro-sim-label" for="intro-sim-passage">Passage ou extrait <span class="intro-sim-opt">(optionnel)</span></label>
-          <textarea class="sinput intro-sim-input intro-sim-textarea" id="intro-sim-passage" rows="3" placeholder="Titre du passage (ex. Chanson d'automne) ou colle l'extrait complet depuis ta copie…" autocomplete="off"></textarea>
-          <p class="intro-sim-hint">Tu ne connais pas le titre ? Colle les premières lignes du texte : la recherche s'appuiera sur ton extrait.</p>
+          <label class="intro-sim-label" for="intro-sim-passage">Texte ou titre du passage</label>
+          <textarea class="sinput intro-sim-input intro-sim-textarea intro-sim-textarea-lg" id="intro-sim-passage" rows="8" placeholder="Colle la 1re phrase du passage, puis … puis la dernière phrase (comme au bac). Ou seulement le titre (ex. Chanson d'automne)…" autocomplete="off"></textarea>
+          <p class="intro-sim-hint">Texte complet collé → commentaire entièrement rédigé (intro + développement IPCI + conclusion), avec citations numérotées sur ton extrait.</p>
+        </div>
+        <div class="intro-sim-row intro-sim-mode-row">
+          <label class="intro-sim-check">
+            <input type="checkbox" id="intro-sim-fullmode" checked>
+            Générer le commentaire complet (décocher pour l'intro seule)
+          </label>
         </div>
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-theme">Thème <span class="intro-sim-opt">(optionnel — remplace l'auto)</span></label>
           <input type="text" class="sinput intro-sim-input" id="intro-sim-theme" placeholder="Ex. la mélancolie du temps qui passe…">
         </div>
         <div class="intro-sim-form-actions">
-          <button type="button" class="pbtn intro-sim-btn" onclick="introSimGenerate()">✨ Générer mon intro parfaite</button>
+          <button type="button" class="pbtn intro-sim-btn" onclick="introSimGenerate()">✨ Générer mon commentaire</button>
           <button type="button" class="sbtn sec" onclick="introSimRandom()">🎲 Passage au hasard</button>
         </div>
       </div>
@@ -1745,11 +1751,8 @@
     </div>
     <div class="wrap-sm">
       <div id="gtextes-list-view">
-        <p class="gtextes-intro">Extraits de <strong>tous les genres</strong> du programme : <strong>732</strong> fiches analysables · banque de <strong>10 000</strong> passages probables pour l'intro (simulateur Commentaire). Repère les procédés, citation + IPCI, corrigé détaillé.</p>
-        <div class="gtext-intro-sim-strip" id="gtext-intro-sim-strip">
-          <span>Simulateur d'intro · <strong>10 000</strong> passages probables au bac</span>
-          <button type="button" class="sbtn sec" onclick="introSimNavigate()">📝 Simuler une intro</button>
-        </div>
+        <p class="gtextes-intro">Extraits de <strong>tous les genres</strong> du programme : <strong>732</strong> fiches analysables · banque de <strong>10 000</strong> passages probables pour l'intro (simulateur de commentaire). Repère les procédés, citation + IPCI, corrigé détaillé.</p>
+        <div class="gtext-intro-sim-strip" id="gtext-intro-sim-strip"></div>
         <div id="gtext-prob-hub"></div>
         <div class="gtextes-toolbar">
           <div class="sbox gtextes-search-box">
@@ -2194,19 +2197,19 @@
 <script defer src="js/data-gtextes-extra9.js?v=20260613"></script>
 <script defer src="js/data-gtextes-extra10.js?v=20260613"></script>
 <script defer src="js/data-gtextes-extra11.js?v=20260622"></script>
-<script defer src="js/data-gtextes-extra12.js?v=20260622"></script>
+<script defer src="js/data-gtextes-extra12.js?v=20260709"></script>
 <script defer src="js/data-gtextes-extra13.js?v=20260622"></script>
 <script defer src="js/data-gtextes-extra14.js?v=20260622"></script>
 <script defer src="js/data-gtextes-extra15.js?v=20260622"></script>
 <script defer src="js/data-gtextes-extra16.js?v=20260622"></script>
-<script defer src="js/data-gtextes-extra17.js?v=20260622"></script>
-<script defer src="js/data-gtextes-extra18.js?v=20260622"></script>
-<script defer src="js/data-gtextes-extra19.js?v=20260622"></script>
-<script defer src="js/data-gtextes-extra20.js?v=20260622"></script>
-<script defer src="js/data-gtextes-extra21.js?v=20260622"></script>
+<script defer src="js/data-gtextes-extra17.js?v=20260706"></script>
+<script defer src="js/data-gtextes-extra18.js?v=20260706"></script>
+<script defer src="js/data-gtextes-extra19.js?v=20260706"></script>
+<script defer src="js/data-gtextes-extra20.js?v=20260706"></script>
+<script defer src="js/data-gtextes-extra21.js?v=20260706"></script>
 <script defer src="js/data-bac-passages.js?v=20260625"></script>
 <script defer src="js/data-gtextes-oeuvre-by-id.js?v=20260622"></script>
-<script defer src="js/data-intro-simulator.js?v=20260627"></script>
+<script defer src="js/data-intro-simulator.js?v=20260710"></script>
 <script defer src="js/data-grammaire.js"></script>
 <script defer src="js/data-vocabulaire.js"></script>
 <script defer src="js/data-vocabulaire-extra.js"></script>
@@ -2229,11 +2232,11 @@
 <script defer src="js/pages/stats-ui.js?v=20260628"></script>
 <script defer src="js/pages/keyboard.js?v=20260607"></script>
 <script defer src="js/pages/exam.js?v=20260607"></script>
-<script defer src="js/pages/exercices.js?v=20260607"></script>
+<script defer src="js/pages/exercices.js?v=20260703"></script>
 <script defer src="js/pages/corpus.js?v=20260615"></script>
-<script defer src="js/pages/gtextes.js?v=20260612"></script>
-<script defer src="js/pages/intro-sim.js?v=20260627"></script>
-<script defer src="js/pages/auteurs.js?v=20260617"></script>
+<script defer src="js/pages/gtextes.js?v=20260709"></script>
+<script defer src="js/pages/intro-sim.js?v=20260710"></script>
+<script defer src="js/pages/auteurs.js?v=20260702"></script>
 <script defer src="js/stats-engine.js?v=20260628"></script>
 <script defer src="js/pages/boot-app.js?v=20260623"></script>
 <script defer src="js/pages-loader.js?v=20260609"></script>

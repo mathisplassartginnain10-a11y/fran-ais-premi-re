@@ -7,10 +7,7 @@ const GRANDS_TEXTES_EXTRA2 = [
     oeuvre: "Sonnets (1555)",
     genre: "Poésie",
     diff: 1,
-    texte: `Je vis, je meurs : je me brûle et me noie,
-J'ai chaud extrême, et froid comme la glace ;
-Jadis suis grosse, impuissante et maigre,
-Tout en un coup d'œil je ris et je pleure.`,
+    texte: `Je vis, je meurs : je me brûle et me noie, … Tout en un coup d'œil je ris et je pleure.`,
     contexte: "Sonnet célèbre — amour contradictoire, oxymores et antithèses enchaînés.",
     attendus: [
       { procede: "Oxymore", citation: "« Je vis, je meurs »", interpretation: "Oxymore repéré dans « Je vis, je meurs »: l'association d'opposés condense une contradiction poétique propre à l'amour contradictoire.", keywords: ["oxymore", "vis", "meurs", "contradict", "amour", "logique"] },
@@ -27,12 +24,7 @@ Tout en un coup d'œil je ris et je pleure.`,
     oeuvre: "Fables (1668)",
     genre: "Fable",
     diff: 1,
-    texte: `La raison du plus fort est toujours la meilleure :
-Nous l'allons montrer tout à l'heure.
-Un Agneau se désaltérait
-Dans le courant d'une onde pure.
-Un Loup survient à jeun qui cherchait aventure,
-Et que la faim en ces lieux rendait hardi.`,
+    texte: `La raison du plus fort est toujours la meilleure : … Et que la faim en ces lieux rendait hardi.`,
     contexte: "Fable célèbre — critique du pouvoir arbitraire, morale en exergue.",
     attendus: [
       { procede: "Registre satirique", citation: "« La raison du plus fort… »", interpretation: "À travers « La raison du plus fort… », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique", "fort", "raison", "injust", "puissant", "iron"] },
@@ -48,10 +40,7 @@ Et que la faim en ces lieux rendait hardi.`,
     oeuvre: "Poésies diverses (1840)",
     genre: "Poésie",
     diff: 1,
-    texte: `J'ai perdu ma force et ma vie,
-Et mes amis et ma gaieté ;
-J'ai perdu jusqu'à la fierté
-Qui faisait croire à mon génie.`,
+    texte: `J'ai perdu ma force et ma vie, … Qui faisait croire à mon génie.`,
     contexte: "Poème autobiographique — dépression du poète, registre élégiaque.",
     attendus: [
       { procede: "Anaphore", citation: "« J'ai perdu… / J'ai perdu… »", interpretation: "En reprenant « J'ai perdu… / J'ai perdu… », Alfred de Musset use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire du poème autobiographique dans Poésies diverses.", keywords: ["anaphore", "perdu", "répét", "deuil", "martel", "insiste"] },
@@ -67,11 +56,7 @@ Qui faisait croire à mon génie.`,
     oeuvre: "Paroles (1949)",
     genre: "Poésie",
     diff: 1,
-    texte: `Page d'écriture
-Avec ses taches de rousseur
-Son grand nez son teint de lait
-Et ses yeux couleur de mer
-Et ses yeux couleur de mer`,
+    texte: `Page d'écriture … Et ses yeux couleur de mer`,
     contexte: "Poème en vers libres — portrait d'enfant, répétition incantatoire.",
     attendus: [
       { procede: "Énumération", citation: "« taches… nez… teint… yeux »", interpretation: "Énumération: les termes « taches », « nez », « teint » juxtaposent plusieurs éléments pour insister sur le portrait d'enfant et produire un effet de plénitude ou d'oppression.", keywords: ["énumération", "portrait", "traits", "liste", "fragments", "visage"] },
@@ -88,11 +73,7 @@ Et ses yeux couleur de mer`,
     oeuvre: "Poésie et vérité (1942)",
     genre: "Poésie",
     diff: 1,
-    texte: `Sur mon cahier d'écolier
-Sur mon pupitre et mes arbres
-Sur le sable sur la neige
-J'écris ton nom
-Liberté`,
+    texte: `Sur mes cahiers d'écolier … Pour te nommer / Liberté`,
     contexte: "Poème de la Résistance — anaphore célèbre, registre engagé.",
     attendus: [
       { procede: "Anaphore", citation: "« Sur mon… / Sur mon… / Sur le… »", interpretation: "La reprise de « Sur mon… / Sur mon… / Sur le… » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur poème de la résistance.", keywords: ["anaphore", "sur", "répét", "incant", "liberté", "propage"] },
@@ -108,9 +89,7 @@ Liberté`,
     oeuvre: "Poésies (1899)",
     genre: "Poésie",
     diff: 2,
-    texte: `La chair est triste, hélas ! et j'ai lu tous les livres.
-Fuir ! Là-bas fuir ! Je sens que des oiseaux sont ivres
-D'être parmi l'écume sans éternité !`,
+    texte: `La chair est triste, hélas ! et j'ai lu tous les livres. … D'être parmi l'écume sans éternité !`,
     contexte: "Poème symboliste — spleen, désir d'évasion, langage obscur.",
     attendus: [
       { procede: "Registre lyrique", citation: "« La chair est triste, hélas ! »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « La chair est triste, hélas! » concentre cette coloration du spleen.", keywords: ["lyrique", "triste", "spleen", "je", "mélancol", "exist"] },
@@ -126,7 +105,7 @@ D'être parmi l'écume sans éternité !`,
     oeuvre: "Le Père Goriot (1835)",
     genre: "Roman",
     diff: 2,
-    texte: `Allons plus loin. Il existait alors, dans la rue Neuve-Sainte-Geneviève, entre la rue des Fossés-Saint-Victor et la rue de l'Arbalète, une maison qui mérite le nom de maison de pension, comme le Panthéon mérite celui d'hôtel.`,
+    texte: `Allons plus loin. … Il existait alors, dans la rue Neuve-Sainte-Geneviève, entre la rue des Fossés-Saint-Victor et la rue de l'Arbalète, une maison qui mérite le nom de maison de pension, comme le Panthéon mérite celui d'hôtel.`,
     contexte: "Incipit du roman — réalisme balzacien, comparaison ironique.",
     attendus: [
       { procede: "Comparaison", citation: "« comme le Panthéon mérite celui d'hôtel »", interpretation: "Comparaison ironique avec « comme » : la laideur de la pension est magnifiée par antiphrase — satire sociale.", keywords: ["comparaison", "comme", "iron", "panthéon", "pension", "satire"] },
@@ -142,9 +121,10 @@ D'être parmi l'écume sans éternité !`,
     oeuvre: "Trois Contes (1877)",
     genre: "Nouvelle",
     diff: 2,
-    texte: `Pendant cinquante ans, Félicité fut servante chez madame Aubain, une veuve. C'était une grosse fille de campagne, qui avait l'air d'une femme de quarante ans. Sa figure était maigre, et plus longue que large.`,
+    texte: `Pendant cinquante ans, Félicité fut servante chez madame Aubain, une veuve. … Sa figure était maigre, et plus longue que large.`,
     contexte: "Portrait d'une servante — réalisme, description clinique.",
-    attendus: [      { procede: "Champ lexical", citation: "« servante », « campagne », « maigre »", interpretation: "Les occurrences « servante », « campagne », « maigre » composent un champ lexical cohérent autour de portrait d'une servante ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Flaubert.", keywords: ["champ lexical", "servante", "campagne", "efface", "social", "simple"] },
+    attendus: [
+      { procede: "Champ lexical", citation: "« servante », « campagne », « maigre »", interpretation: "Les occurrences « servante », « campagne », « maigre » composent un champ lexical cohérent autour de portrait d'une servante ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Flaubert.", keywords: ["champ lexical", "servante", "campagne", "efface", "social", "simple"] },
       { procede: "Antithèse", citation: "« grosse fille » / « figure maigre »", interpretation: "Antithèse entre « grosse fille » et « figure maigre »: le contraste met en relief deux pôles opposés et accentue réalisme.", keywords: ["antithèse", "grosse", "maigre", "corps", "laideur", "usure"] },
       { procede: "Registre pathétique", citation: "portrait de Félicité", interpretation: "À travers « portrait de Félicité », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["pathétique", "compassion", "efface", "servante", "réalis", "xixe"] }
     ]
@@ -156,8 +136,7 @@ D'être parmi l'écume sans éternité !`,
     oeuvre: "Le Barbier de Séville (1775)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `FIGARO
-Parce que vous êtes un grand seigneur, vous vous croyez un grand génie !… Noblesse, fortune, un rang, des places, tout cela rend si fière ! Qu'avez-vous fait pour tant de biens ? Vous vous êtes donné la peine de naître, et rien de plus.`,
+    texte: `FIGARO Parce que vous êtes un grand seigneur, vous vous croyez un grand génie !… … Vous vous êtes donné la peine de naître, et rien de plus.`,
     contexte: "Tirade de Figaro — critique de l'aristocratie, registre comique et satirique.",
     attendus: [
       { procede: "Registre satirique", citation: "« vous vous croyez un grand génie »", interpretation: "À travers « vous vous croyez un grand génie », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique", "noble", "arrog", "figaro", "critique", "rire"] },
@@ -178,7 +157,8 @@ Il me semble que si l'on me regarde, je ne sais plus ce que je disais ; et que s
     contexte: "Comédie du sentiment — trouble amoureux, registre léger et psychologique.",
     attendus: [
       { procede: "Antithèse", citation: "« si l'on me regarde… / si l'on ne me regarde pas »", interpretation: "Antithèse repérée dans « si l'on me regarde… / si l'on ne me regarde pas »: deux termes ou idées s'opposent pour souligner trouble amoureux.", keywords: ["antithèse", "regard", "perdu", "amour", "paralys", "dorante"] },
-      { procede: "Registre comique", citation: "trouble de Dorante", interpretation: "Registre comique: « trouble de Dorante » provoque le rire par la situation, les mots ou les personnages, au cœur du trouble amoureux.", keywords: ["comique", "désarroi", "amuse", "sentiment", "marivaux", "amour"] },      { procede: "Registre lyrique", citation: "trouble amoureux", interpretation: "Registre lyrique : expression du trouble amoureux — subjectivité du personnage amoureux.", keywords: ["lyrique", "trouble", "amour", "subjectiv", "personn", "émotion"] }
+      { procede: "Registre comique", citation: "trouble de Dorante", interpretation: "Registre comique: « trouble de Dorante » provoque le rire par la situation, les mots ou les personnages, au cœur du trouble amoureux.", keywords: ["comique", "désarroi", "amuse", "sentiment", "marivaux", "amour"] },
+      { procede: "Registre lyrique", citation: "trouble amoureux", interpretation: "Registre lyrique : expression du trouble amoureux — subjectivité du personnage amoureux.", keywords: ["lyrique", "trouble", "amour", "subjectiv", "personn", "émotion"] }
     ]
   },
   {
@@ -188,12 +168,7 @@ Il me semble que si l'on me regarde, je ne sais plus ce que je disais ; et que s
     oeuvre: "Britannicus (1669)",
     genre: "Théâtre tragique",
     diff: 3,
-    texte: `NÉRON
-Quoi ! toujours Auguste et César !… Qu'on me laisse enfin
-Un moment respirer. Qu'ai-je donc fait, Néron, pour être
-Néron ?… Qu'ai-je donc fait ?… Je suis las de me voir
-Toujours en mes discours, toujours en mes actions,
-Traîner ce nom odieux qui m'accable et me pèse.`,
+    texte: `NÉRON … Traîner ce nom odieux qui m'accable et me pèse.`,
     contexte: "Monologue de Néron — identité tyrannique, registre tragique.",
     attendus: [
       { procede: "Anaphore", citation: "« Qu'ai-je donc fait… / Qu'ai-je donc fait ? »", interpretation: "L'anaphore (« Qu'ai-je donc fait… / Qu'ai-je donc fait ? ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "question", "néron", "identité", "désesp", "tyran"] },
@@ -210,8 +185,7 @@ Traîner ce nom odieux qui m'accable et me pèse.`,
     oeuvre: "Les Précieuses ridicules (1659)",
     genre: "Théâtre comique",
     diff: 1,
-    texte: `MADELON
-Ah ! mon Dieu ! que votre visage a d'embonpoint ! Et que vous avez l'air triste ! Vous ne vous portez pas bien, sans doute.`,
+    texte: `MADELON … Ah ! mon Dieu ! que votre visage a d'embonpoint ! Et que vous avez l'air triste ! Vous ne vous portez pas bien, sans doute.`,
     contexte: "Comédie des manières — moquerie des précieuses, registre comique.",
     attendus: [
       { procede: "Registre comique", citation: "« embonpoint » / « air triste »", interpretation: "Registre comique: la scène provoque le rire par la situation, les mots ou les personnages; « embonpoint » concentre cette coloration du moquerie des précieuses.", keywords: ["comique", "embonpoint", "affect", "ridicule", "précieuse", "moquer"] },
@@ -227,7 +201,7 @@ Ah ! mon Dieu ! que votre visage a d'embonpoint ! Et que vous avez l'air triste 
     oeuvre: "La Cantatrice chauve (1950)",
     genre: "Théâtre",
     diff: 2,
-    texte: `Il y a un an, Elizabeth, vous aviez quarante ans. Vous en aviez trente-neuf. Nous étions assis sur le divan. Il y a un an, il y a deux ans, il y a trois ans, il y a quatre ans, il y a cinq ans, il y a six ans…`,
+    texte: `Il y a un an, Elizabeth, vous aviez quarante ans. … Il y a un an, il y a deux ans, il y a trois ans, il y a quatre ans, il y a cinq ans, il y a six ans…`,
     contexte: "Théâtre de l'absurde — répétition mécanique, déconstruction du langage.",
     attendus: [
       { procede: "Anaphore", citation: "« il y a un an… il y a deux ans… »", interpretation: "L'anaphore (« il y a un an… il y a deux ans… ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "an", "répét", "mécan", "absurde", "temps"] },
@@ -243,12 +217,7 @@ Ah ! mon Dieu ! que votre visage a d'embonpoint ! Et que vous avez l'air triste 
     oeuvre: "En attendant Godot (1952)",
     genre: "Théâtre",
     diff: 2,
-    texte: `VLADIMIR
-Rien à faire. C'est ce qui est terrible.
-ESTRAGON
-Quand tu dis qu'il y a une terrible attente, tu ne veux pas dire…
-VLADIMIR
-Qu'on attend Godot ?`,
+    texte: `Rien à faire. … ESTRAGON : Alors on y va ? VLADIMIR : On y va.`,
     contexte: "Théâtre de l'absurde — attente, vide existentiel.",
     attendus: [
       { procede: "Registre tragique", citation: "« C'est ce qui est terrible »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « C'est ce qui est terrible » concentre cette coloration de l'attente.", keywords: ["tragique", "terrible", "attente", "vide", "fatal", "exist"] },
@@ -269,7 +238,8 @@ Qu'on attend Godot ?`,
     attendus: [
       { procede: "Registre épique", citation: "« général Bonaparte… jeune armée »", interpretation: "Registre épique: par « général Bonaparte… jeune armée », Stendhal élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de La Chartreuse de Parme.", keywords: ["épique", "bonaparte", "armée", "conquête", "grandeur", "histor"] },
       { procede: "Énumération", citation: "« Arcole… pont de Lodi »", interpretation: "Énumération: les termes « Arcole », « pont », « Lodi » juxtaposent plusieurs éléments pour insister sur l'écriture sobre et produire un effet de plénitude ou d'oppression.", keywords: ["énumération", "arcole", "lodi", "victoire", "gloire", "liste"] },
-      { procede: "Champ lexical", citation: "« général », « armée », « traversé »", interpretation: "Champ lexical centré sur écriture sobre: « général », « armée », « traversé ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ lexical", "général", "armée", "militaire", "napoléon", "histor"] }    ]
+      { procede: "Champ lexical", citation: "« général », « armée », « traversé »", interpretation: "Champ lexical centré sur écriture sobre: « général », « armée », « traversé ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ lexical", "général", "armée", "militaire", "napoléon", "histor"] }
+    ]
   },
   {
     id: "GT-061",
@@ -278,12 +248,13 @@ Qu'on attend Godot ?`,
     oeuvre: "L'Assommoir (1877)",
     genre: "Roman naturaliste",
     diff: 2,
-    texte: `Gervaise, debout devant le lit, regardait dormir ses deux petits. Elle avait eu tant de misère, tant de fatigue, qu'elle ne sentait plus rien. Son corps était brisé.`,
+    texte: `Gervaise, debout devant le lit, regardait dormir ses deux petits. … Son corps était brisé.`,
     contexte: "Naturalisme zolien — misère ouvrière, registre pathétique.",
     attendus: [
       { procede: "Registre pathétique", citation: "« tant de misère, tant de fatigue »", interpretation: "Registre pathétique: par « tant de misère, tant de fatigue », Zola suscite la compassion et l'indignation face à la souffrance — tonalité dominante de L'Assommoir.", keywords: ["pathétique", "misère", "fatigue", "compassion", "natural", "ouvri"] },
       { procede: "Accumulation", citation: "« tant de misère, tant de fatigue »", interpretation: "Accumulation: les termes « tant », « misère », « fatigue » juxtaposent plusieurs éléments pour insister sur la misère ouvrière et produire un effet de plénitude ou d'oppression.", keywords: ["accumulation", "tant", "masse", "écrase", "misère", "effet"] },
-      { procede: "Champ lexical", citation: "« misère », « fatigue », « brisé »", interpretation: "Les occurrences « misère », « fatigue », « brisé » composent un champ lexical cohérent autour de naturalisme zolien ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Zola.", keywords: ["champ lexical", "misère", "fatigue", "brisé", "souffr", "ouvrier"] }    ]
+      { procede: "Champ lexical", citation: "« misère », « fatigue », « brisé »", interpretation: "Les occurrences « misère », « fatigue », « brisé » composent un champ lexical cohérent autour de naturalisme zolien ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Zola.", keywords: ["champ lexical", "misère", "fatigue", "brisé", "souffr", "ouvrier"] }
+    ]
   },
   {
     id: "GT-062",
@@ -292,7 +263,7 @@ Qu'on attend Godot ?`,
     oeuvre: "Chéri (1920)",
     genre: "Roman",
     diff: 2,
-    texte: `Ils s'aimaient. Leur différence d'âge ne comptait pas. Léa, la Belle, avait cinquante ans. Chéri en avait vingt-cinq. Ils formaient un couple singulier, admiré et envié.`,
+    texte: `Ils s'aimaient. … Ils formaient un couple singulier, admiré et envié.`,
     contexte: "Roman de la maturité — amour, regard social, style sensoriel.",
     attendus: [
       { procede: "Antithèse", citation: "« cinquante ans » / « vingt-cinq »", interpretation: "Antithèse: « cinquante ans » s'oppose à « vingt-cinq ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "âge", "cinquante", "vingt", "contraste", "couple"] },
@@ -308,12 +279,13 @@ Qu'on attend Godot ?`,
     oeuvre: "L'Amant (1984)",
     genre: "Roman",
     diff: 2,
-    texte: `Il est mort. Il me semble que je ne pleurerai pas. Maman ne pleure pas non plus. On ne peut pas dire que ce soit une douleur, c'est plus sec, plus lointain, plus profond.`,
+    texte: `Il est mort. … On ne peut pas dire que ce soit une douleur, c'est plus sec, plus lointain, plus profond.`,
     contexte: "Autobiographie romancée — deuil, écriture minimaliste.",
     attendus: [
       { procede: "Registre lyrique", citation: "« Il me semble que je ne pleurerai pas »", interpretation: "Registre lyrique: « Il me semble que je ne pleurerai pas » exprime une subjectivité intime et des émotions personnelles, au cœur du deuil.", keywords: ["lyrique", "je", "deuil", "pleurer", "émotion", "conten"] },
       { procede: "Gradation", citation: "« plus sec, plus lointain, plus profond »", interpretation: "Gradation: « plus sec, plus lointain, plus profond » organise les éléments en intensité croissante ou décroissante. La progression dramatique structure deuil.", keywords: ["gradation", "sec", "lointain", "profond", "douleur", "intens"] },
-      { procede: "Antithèse", citation: "« mort » / « ne pleurerai pas »", interpretation: "Antithèse entre « mort » et « ne pleurerai pas »: le contraste met en relief deux pôles opposés et accentue deuil.", keywords: ["antithèse", "mort", "pleurer", "deuil", "larmes", "convent"] }    ]
+      { procede: "Antithèse", citation: "« mort » / « ne pleurerai pas »", interpretation: "Antithèse entre « mort » et « ne pleurerai pas »: le contraste met en relief deux pôles opposés et accentue deuil.", keywords: ["antithèse", "mort", "pleurer", "deuil", "larmes", "convent"] }
+    ]
   },
   {
     id: "GT-064",
@@ -322,10 +294,7 @@ Qu'on attend Godot ?`,
     oeuvre: "Le Marteau sans maître (1934)",
     genre: "Poésie",
     diff: 3,
-    texte: `Libellule sans reproche
-Sur ton bâton de mémoire
-Tu tiens l'ombre et tu tiens l'orée
-Du jour où nous nous sommes connus`,
+    texte: `Libellule sans reproche … Du jour où nous nous sommes connus`,
     contexte: "Poésie surréaliste-résistante — images concises, symbolisme.",
     attendus: [
       { procede: "Métaphore", citation: "« bâton de mémoire »", interpretation: "En transposant le sens de « bâton de mémoire », René Char métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore", "bâton", "mémoire", "trace", "passé", "image"] },
@@ -341,9 +310,7 @@ Du jour où nous nous sommes connus`,
     oeuvre: "Gravitations (1925)",
     genre: "Poésie",
     diff: 2,
-    texte: `Je suis un homme et ma vie est comme celle de tous les hommes
-Mais j'ai un oiseau qui chante dans ma cage
-Et parfois je l'oublie et parfois je l'entends`,
+    texte: `Je suis un homme et ma vie est comme celle de tous les hommes … Et parfois je l'oublie et parfois je l'entends`,
     contexte: "Poème humaniste — oiseau = poésie intérieure, registre simple.",
     attendus: [
       { procede: "Comparaison", citation: "« ma vie est comme celle de tous les hommes »", interpretation: "Le parallèle introduit par « ma vie est comme celle de tous les hommes » (comparaison) facilite la visualisation de la scène et précise la dimension poème humaniste du passage.", keywords: ["comparaison", "comme", "homme", "univers", "condition", "modest"] },
@@ -359,10 +326,7 @@ Et parfois je l'oublie et parfois je l'entends`,
     oeuvre: "Les Yeux d'Elsa (1942)",
     genre: "Poésie",
     diff: 2,
-    texte: `Les lilas et les roses
-Ont une saison
-Qui dure le temps d'un souffle
-Et l'hiver reprend le monde`,
+    texte: `Les lilas et les roses … Et l'hiver reprend le monde`,
     contexte: "Poème de la Résistance — fugacité du bonheur, registre élégiaque.",
     attendus: [
       { procede: "Métaphore", citation: "« saison… temps d'un souffle »", interpretation: "Par la métaphore (« saison », « temps », « d'un », « souffle »), le réel est détourné : Louis Aragon condense une idée complexe en une image frappante tout en ancrant poème de la résistance.", keywords: ["métaphore", "saison", "souffle", "fugace", "bonheur", "instant"] },
@@ -378,10 +342,7 @@ Et l'hiver reprend le monde`,
     oeuvre: "Poèmes antiques et modernes (1826)",
     genre: "Poésie",
     diff: 2,
-    texte: `J'aime le son du cor, le soir, au fond du bois,
-Sois donc mon livre et mon ami, ma pensée,
-Car tu sais comme moi la tristesse infinie
-Des hommes qu'on n'aime plus dès qu'on les a compris.`,
+    texte: `J'aime le son du cor, le soir, au fond du bois, … Des hommes qu'on n'aime plus dès qu'on les a compris.`,
     contexte: "Poème philosophique — mélancolie, registre élégiaque romantique.",
     attendus: [
       { procede: "Comparaison", citation: "« Sois donc mon livre et mon ami »", interpretation: "Le parallèle introduit par « Sois donc mon livre et mon ami » (comparaison) facilite la visualisation de la scène et précise la dimension poème philosophique du passage.", keywords: ["comparaison", "livre", "ami", "nature", "confident", "romant"] },
@@ -397,10 +358,7 @@ Des hommes qu'on n'aime plus dès qu'on les a compris.`,
     oeuvre: "Les Fleurs du Mal (1857)",
     genre: "Poésie",
     diff: 2,
-    texte: `Quand le ciel bas et lourd pèse comme un couvercle
-Sur l'esprit gémissant en proie à l'ennui,
-Et que, bordant les lointains, on dirait qu'une ourse
-Verser un jour noir sur un monde impur ;`,
+    texte: `Quand le ciel bas et lourd pèse comme un couvercle … Verser un jour noir sur un monde impur ;`,
     contexte: "Sonnet du spleen — oppression, images sombres, alexandrins.",
     attendus: [
       { procede: "Comparaison", citation: "« pèse comme un couvercle »", interpretation: "Comparaison repérée dans « pèse comme un couvercle »: le parallèle rend oppression plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison", "comme", "couvercle", "ciel", "oppress", "esprit"] },
@@ -417,10 +375,7 @@ Verser un jour noir sur un monde impur ;`,
     oeuvre: "Odes (1550)",
     genre: "Poésie",
     diff: 1,
-    texte: `Que tu es heureux, Automne, et la terre est belle
-Quand elle te voit venir, belle saison des vents !
-Les arbres te saluent et te rendent gracieuse
-Leurs feuilles qui mourront demain.`,
+    texte: `Que tu es heureux, Automne, et la terre est belle … Leurs feuilles qui mourront demain.`,
     contexte: "Ode à l'automne — personnification, registre lyrique renaissant.",
     attendus: [
       { procede: "Personnification", citation: "« Automne… belle saison » / « arbres te saluent »", interpretation: "La personnification « Automne… belle saison » face à « arbres te saluent » dote un élément abstrait ou objectal de traits humains : Pierre de Ronsard rend la description plus vivante et dynamise ode à l'automne.", keywords: ["personnification", "automne", "arbres", "saluent", "nature", "saison"] },
@@ -436,9 +391,7 @@ Leurs feuilles qui mourront demain.`,
     oeuvre: "Méditations poétiques (1820)",
     genre: "Poésie",
     diff: 1,
-    texte: `Solitude ! que veux-tu donc ?…
-Quand tu m'as pris le cœur, pourquoi m'as-tu laissé
-Cette lumière éteinte au fond de ma pensée ?`,
+    texte: `Solitude ! que veux-tu donc ?… … Cette lumière éteinte au fond de ma pensée ?`,
     contexte: "Poème élégiaque — solitude, souvenir amoureux.",
     attendus: [
       { procede: "Personnification", citation: "« Solitude ! que veux-tu donc ? »", interpretation: "Personnification: « Solitude! que veux-tu donc? » reçoit des traits humains (parler, agir, ressentir). Alphonse de Lamartine anime la scène et rend solitude plus vivante.", keywords: ["personnification", "solitude", "interpell", "abstrac", "interloc", "veux"] },
@@ -471,9 +424,10 @@ Cette lumière éteinte au fond de ma pensée ?`,
     oeuvre: "La Nausée (1938)",
     genre: "Roman",
     diff: 3,
-    texte: `Et voici que tout se dérobait, se vidait sous mon regard. J'ai eu la nausée. Et voici que la racine du marronnier plongeait dans le sol, juste devant moi.`,
+    texte: `Et voici que tout se dérobait, se vidait sous mon regard. … Et voici que la racine du marronnier plongeait dans le sol, juste devant moi.`,
     contexte: "Roman existentialiste — révélation de l'absurde.",
-    attendus: [      { procede: "Registre tragique", citation: "« tout se dérobait, se vidait »", interpretation: "À travers « tout se dérobait, se vidait », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["tragique", "dérob", "vidait", "absurde", "exist", "sens"] },
+    attendus: [
+      { procede: "Registre tragique", citation: "« tout se dérobait, se vidait »", interpretation: "À travers « tout se dérobait, se vidait », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["tragique", "dérob", "vidait", "absurde", "exist", "sens"] },
       { procede: "Gradation", citation: "« se dérobait, se vidait »", interpretation: "Gradation repérée dans « dérobait », « vidait », « gradation »: l'escalade (ou la chute) d'intensité concentre l'effet sur révélation de l'absurde.", keywords: ["gradation", "dérob", "vidait", "progress", "crise", "intens"] },
       { procede: "Champ lexical", citation: "« nausée », « dérobait », « vidait »", interpretation: "Le champ lexical repéré (« nausée », « dérobait », « vidait ») enveloppe « nausée » face à « dérobait » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans La Nausée.", keywords: ["champ lexical", "nausée", "vide", "malaise", "exist", "sartre"] }
     ]
@@ -485,7 +439,7 @@ Cette lumière éteinte au fond de ma pensée ?`,
     oeuvre: "Les Nourritures terrestres (1897)",
     genre: "Roman",
     diff: 2,
-    texte: `Nathanaël, mets en ordre dans ta vie. Jette de ta vie les images du passé : ne garde que ce qui est toi, ce qui t'appartient.`,
+    texte: `Nathanaël, mets en ordre dans ta vie. … Jette de ta vie les images du passé : ne garde que ce qui est toi, ce qui t'appartient.`,
     contexte: "Prose lyrique — quête de soi, registre lyrique et didactique.",
     attendus: [
       { procede: "Registre lyrique", citation: "« ce qui est toi, ce qui t'appartient »", interpretation: "Registre lyrique: « ce qui est toi, ce qui t'appartient » exprime une subjectivité intime et des émotions personnelles, au cœur du quête de soi.", keywords: ["lyrique", "toi", "appartient", "authentic", "identité", "quête"] },
@@ -501,11 +455,7 @@ Cette lumière éteinte au fond de ma pensée ?`,
     oeuvre: "Polyeucte (1642)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `POLYEUCTE
-Non, non, il est un Dieu, Sévère, et c'est lui-même
-Qui te parle par ma bouche, et veut que je te aime.
-J'ai trop longtemps suivi les erreurs de ton cœur ;
-Mon devoir m'oblige, et parle avec fureur.`,
+    texte: `POLYEUCTE … Mon devoir m'oblige, et parle avec fureur.`,
     contexte: "Tragédie chrétienne — conflit foi / amour, registre tragique.",
     attendus: [
       { procede: "Registre tragique", citation: "« parle avec fureur »", interpretation: "Registre tragique: par « parle avec fureur », Corneille installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Polyeucte.", keywords: ["tragique", "fureur", "foi", "fatal", "polyeucte", "dieu"] },
@@ -521,10 +471,7 @@ Mon devoir m'oblige, et parle avec fureur.`,
     oeuvre: "La Légende des Siècles (1859)",
     genre: "Poésie",
     diff: 2,
-    texte: `Booz s'était couché fatigue de sa journée ;
-Et toute la moisson, et le blé, et les chaumes,
-L'herbe et l'or des guérets, les fleurs et les vergers,
-Tout dormait autour de lui dans la campagne.`,
+    texte: `Booz s'était couché fatigue de sa journée ; … Tout dormait autour de lui dans la campagne.`,
     contexte: "Poème biblique — nuit paisible, énumération, registre épique.",
     attendus: [
       { procede: "Énumération", citation: "« moisson… blé… chaumes… fleurs »", interpretation: "Énumération: les termes « moisson », « blé », « chaumes » juxtaposent plusieurs éléments pour insister sur le nuit paisible et produire un effet de plénitude ou d'oppression.", keywords: ["énumération", "moisson", "blé", "fleurs", "liste", "plénitude"] },
@@ -541,10 +488,7 @@ Tout dormait autour de lui dans la campagne.`,
     oeuvre: "Alcools (1913)",
     genre: "Poésie moderniste",
     diff: 3,
-    texte: `À la fin tu es las de ce monde ancien
-Bergère ô Eiffel Tower le troupeau des ponts braille sur Paris
-Et tu t'en vas la nuit en taxi zizag
-Les rues les aéroplanes`,
+    texte: `À la fin tu es las de ce monde ancien … Les rues les aéroplanes`,
     contexte: "Poème moderniste — collage d'images, vers libre, rupture.",
     attendus: [
       { procede: "Vers libre", citation: "vers sans rime ni mètre fixe", interpretation: "Vers libre repéré dans le passage: l'absence de contrainte métrique fixe laisse le sens et la musicalité primer dans le collage d'images.", keywords: ["vers libre", "rupture", "moderne", "apollinaire", "mètre", "fixe"] },
@@ -579,7 +523,7 @@ C'est la guerre.`,
     oeuvre: "Le Petit Prince (1943)",
     genre: "Conte",
     diff: 1,
-    texte: `On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.`,
+    texte: `On ne voit bien qu'avec le cœur. … L'essentiel est invisible pour les yeux.`,
     contexte: "Conte philosophique — morale sur l'amitié et l'amour.",
     attendus: [
       { procede: "Antithèse", citation: "« cœur » / « yeux »", interpretation: "Antithèse: « cœur » s'oppose à « yeux ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "cœur", "yeux", "intérieur", "vision", "morale"] },

@@ -228,12 +228,18 @@
         <div class="pr"><span class="prl">Axe 3</span><span class="prv">La dimension spectaculaire : didascalies, double énonciation.</span></div>
       </div>
 
-      <div class="msec" id="intro-sim">Simulateur d'introduction</div>
-      <p class="meth-intro-lead">Saisis <strong>l'auteur</strong> et <strong>l'œuvre</strong> (comme sur ta copie d'examen). Le simulateur interroge <strong>10 000 passages probables</strong> au bac et génère une intro en <strong>5 temps</strong>.</p>
+      <div class="msec" id="intro-sim">Simulateur de commentaire</div>
+      <p class="meth-intro-lead">Saisis <strong>l'auteur</strong> et <strong>l'œuvre</strong>, ou colle <strong>la première et la dernière phrase</strong> du passage (<strong>…</strong> entre les deux) : intro en <strong>5 temps</strong> + <strong>commentaire rédigé complet</strong> si le passage est reconnu.</p>
       <p class="intro-sim-meta" id="intro-sim-meta">… passages indexés</p>
       <div class="intro-sim-quick-wrap">
         <span class="intro-sim-quick-lbl">Exemples rapides</span>
         <div class="intro-sim-quick" id="intro-sim-quick"></div>
+      </div>
+      <div class="intro-sim-gt-wrap" id="intro-sim-gt-wrap">
+        <span class="intro-sim-quick-lbl">Texte intégral <span class="intro-sim-opt">(modèles · commentaire complet · corrigé GT)</span></span>
+        <input type="search" class="sinput intro-sim-gt-search" id="intro-sim-gt-search" placeholder="Filtrer par auteur, titre, œuvre…" autocomplete="off">
+        <div class="intro-sim-gt-genres" id="intro-sim-gt-genres"></div>
+        <div class="intro-sim-gt" id="intro-sim-gt"></div>
       </div>
       <div class="intro-sim-recent-wrap" id="intro-sim-recent-wrap" hidden>
         <span class="intro-sim-quick-lbl">Récents</span>
@@ -255,17 +261,24 @@
           <datalist id="intro-sim-oeuvre-list"></datalist>
         </div>
         <div class="intro-sim-row">
-          <label class="intro-sim-label" for="intro-sim-passage">Passage ou extrait <span class="intro-sim-opt">(optionnel)</span></label>
-          <textarea class="sinput intro-sim-input intro-sim-textarea" id="intro-sim-passage" rows="3" placeholder="Titre du passage (ex. Chanson d'automne) ou colle l'extrait complet depuis ta copie…" autocomplete="off"></textarea>
-          <p class="intro-sim-hint">Tu ne connais pas le titre ? Colle les premières lignes du texte : la recherche s'appuiera sur ton extrait.</p>
+          <label class="intro-sim-label" for="intro-sim-passage">Texte ou titre du passage</label>
+          <textarea class="sinput intro-sim-input intro-sim-textarea intro-sim-textarea-lg" id="intro-sim-passage" rows="8" placeholder="1re phrase … dernière phrase (format bac), ou titre seul…" autocomplete="off"></textarea>
+          <p class="intro-sim-hint">Texte complet collé → commentaire entièrement rédigé (intro + développement IPCI + conclusion).</p>
+        </div>
+        <div class="intro-sim-row intro-sim-mode-row">
+          <label class="intro-sim-check">
+            <input type="checkbox" id="intro-sim-fullmode" checked>
+            Générer le commentaire complet (décocher pour l'intro seule)
+          </label>
         </div>
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-theme">Thème <span class="intro-sim-opt">(optionnel — remplace l'auto)</span></label>
           <input type="text" class="sinput intro-sim-input" id="intro-sim-theme" placeholder="Ex. la mélancolie du temps qui passe…">
         </div>
         <div class="intro-sim-form-actions">
-          <button type="button" class="pbtn intro-sim-btn" onclick="introSimGenerate()">✨ Générer mon intro parfaite</button>
+          <button type="button" class="pbtn intro-sim-btn" onclick="introSimGenerate()">✨ Générer mon commentaire</button>
           <button type="button" class="sbtn sec" onclick="introSimRandom()">🎲 Passage au hasard</button>
+          <button type="button" class="sbtn sec" onclick="introSimRandomGtDemo()">📖 Texte modèle au hasard</button>
         </div>
       </div>
       <div id="intro-sim-matches" class="intro-sim-matches"></div>
@@ -342,11 +355,8 @@
     </div>
     <div class="wrap-sm">
       <div id="gtextes-list-view">
-        <p class="gtextes-intro">Extraits de <strong>tous les genres</strong> du programme : <strong>732</strong> fiches analysables · banque de <strong>10 000</strong> passages probables pour l'intro (simulateur Commentaire). Repère les procédés, citation + IPCI, corrigé détaillé.</p>
-        <div class="gtext-intro-sim-strip" id="gtext-intro-sim-strip">
-          <span>Simulateur d'intro · <strong>10 000</strong> passages probables au bac</span>
-          <button type="button" class="sbtn sec" onclick="introSimNavigate()">📝 Simuler une intro</button>
-        </div>
+        <p class="gtextes-intro">Extraits de <strong>tous les genres</strong> du programme : <strong>732</strong> fiches analysables · banque de <strong>10 000</strong> passages probables pour l'intro (simulateur de commentaire). Repère les procédés, citation + IPCI, corrigé détaillé.</p>
+        <div class="gtext-intro-sim-strip" id="gtext-intro-sim-strip"></div>
         <div id="gtext-prob-hub"></div>
         <div class="gtextes-toolbar">
           <div class="sbox gtextes-search-box">

@@ -7,15 +7,7 @@ const GRANDS_TEXTES_EXTRA = [
     oeuvre: "Les Fleurs du Mal (1857)",
     genre: "Poésie",
     diff: 2,
-    texte: `Souvent, pour s'amuser, les hommes d'équipage
-Prennent des albatros, vastes oiseaux des mers,
-Qui suivent, indolents compagnons de voyage,
-Le navire glissant sur les gouffres amers.
-
-À peine les ont-ils déposés sur les planches,
-Qu'ils chancellent, les ailes comme des avirons
-Devant eux. Ce voyageur ailé, comme il est gauche !
-Lui, naguère si beau, qu'il est comique et laid !`,
+    texte: `Souvent, pour s'amuser, les hommes d'équipage … Lui, naguère si beau, qu'il est comique et laid !`,
     contexte: "Poème en alexandrins — métaphore de l'artiste incompris par la foule.",
     attendus: [
       { procede: "Comparaison", citation: "« les ailes comme des avirons »", interpretation: "Comparaison avec « comme » : les ailes de l'albatros deviennent ridicules sur le pont — image de l'artiste déchu hors de son élément.", keywords: ["comparaison", "comme", "ailes", "aviron", "ridicule", "déchu"] },
@@ -32,10 +24,7 @@ Lui, naguère si beau, qu'il est comique et laid !`,
     oeuvre: "Poésie (1871)",
     genre: "Poésie moderniste",
     diff: 3,
-    texte: `A noir, E blanc, I rouge, U vert, O bleu : voyelles,
-Je dirai quelque jour vos naissances latentes :
-A, noir corset velu des mouches éclatantes
-Qui bombinent autour des puanteurs cruelles,`,
+    texte: `A noir, E blanc, I rouge, U vert, O bleu : voyelles, … Qui bombinent autour des puanteurs cruelles,`,
     contexte: "Poème symboliste — synesthie des voyelles, rupture avec la poésie descriptive.",
     attendus: [
       { procede: "Anaphore", citation: "« A noir, E blanc, I rouge… »", interpretation: "L'anaphore sur « A noir, E blanc, I rouge… » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Rimbaud.", keywords: ["anaphore", "voyelle", "énumér", "répét", "structure", "son"] },
@@ -53,9 +42,10 @@ Qui bombinent autour des puanteurs cruelles,`,
     oeuvre: "Le Rouge et le Noir (1830)",
     genre: "Roman",
     diff: 2,
-    texte: `Julien entra dans l'église. Il s'assit sur un banc, au fond, près d'un pilier. Il n'osait pas regarder les dames élégantes ; il ne pensait qu'à sa peur de rougir et de se trahir.`,
+    texte: `Julien entra dans l'église. … Il n'osait pas regarder les dames élégantes ; il ne pensait qu'à sa peur de rougir et de se trahir.`,
     contexte: "Julien Sorel, jeune provincial timide — roman psychologique du XIXe siècle.",
-    attendus: [      { procede: "Registre pathétique", citation: "« sa peur de rougir et de se trahir »", interpretation: "Registre pathétique : la vulnérabilité de Julien suscite la compassion — héros mal à l'aise dans un monde social supérieur.", keywords: ["pathétique", "vulnér", "compassion", "rougir", "trahir", "mal à l'aise"] },
+    attendus: [
+      { procede: "Registre pathétique", citation: "« sa peur de rougir et de se trahir »", interpretation: "Registre pathétique : la vulnérabilité de Julien suscite la compassion — héros mal à l'aise dans un monde social supérieur.", keywords: ["pathétique", "vulnér", "compassion", "rougir", "trahir", "mal à l'aise"] },
       { procede: "Antithèse", citation: "« dames élégantes » / peur de Julien", interpretation: "Antithèse repérée dans « dames élégantes »: deux termes ou idées s'opposent pour souligner roman psychologique du xixe siècle.", keywords: ["antithèse", "élégant", "gêne", "contraste", "social", "mondain"] },
       { procede: "Champ lexical", citation: "« peur », « rougir », « trahir », « n'osait pas »", interpretation: "Champ lexical de la honte et de la crainte — vocabulaire qui traduit l'inhibition psychologique du personnage.", keywords: ["champ lexical", "peur", "honte", "crainte", "inhib", "psycholog"] }
     ]
@@ -67,7 +57,7 @@ Qui bombinent autour des puanteurs cruelles,`,
     oeuvre: "La Parure (1884)",
     genre: "Nouvelle",
     diff: 1,
-    texte: `Elle était de toute la soirée la plus jolie, la plus gracieuse, souriante et joyeuse. Tous les hommes la regardaient, la demandaient à danser, l'assiduité du ministre lui fit remarquer cette femme.`,
+    texte: `Elle était de toute la soirée la plus jolie, la plus gracieuse, souriante et joyeuse. … Tous les hommes la regardaient, la demandaient à danser, l'assiduité du ministre lui fit remarquer cette femme.`,
     contexte: "Matilde Loisel au bal — ironie du destin, nouvelle naturaliste.",
     attendus: [
       { procede: "Hyperbole", citation: "« la plus jolie, la plus gracieuse »", interpretation: "Hyperbole du superlatif : Matilde atteint le sommet du bonheur social — exagération qui prépare la chute tragique.", keywords: ["hyperbole", "superlatif", "jolie", "bonheur", "exag", "chute"] },
@@ -85,10 +75,7 @@ Qui bombinent autour des puanteurs cruelles,`,
     oeuvre: "Romances sans paroles (1874)",
     genre: "Poésie",
     diff: 1,
-    texte: `Il pleure dans mon cœur
-Comme il pleut sur la ville ;
-Quelle est cette langueur
-Qui pénètre mon cœur ?`,
+    texte: `Il pleure dans mon cœur … Qui pénètre mon cœur ?`,
     contexte: "Poème musical en vers impairs — mélancolie urbaine, correspondances pluie / larmes.",
     attendus: [
       { procede: "Comparaison", citation: "« Comme il pleut sur la ville »", interpretation: "Comparaison avec « comme » : la tristesse intérieure est assimilée à la pluie — correspondance entre état d'âme et paysage.", keywords: ["comparaison", "comme", "pluie", "tristesse", "correspondance", "ville"] },
@@ -104,10 +91,7 @@ Qui pénètre mon cœur ?`,
     oeuvre: "Paroles (1946)",
     genre: "Poésie",
     diff: 1,
-    texte: `Barbara
-Il pleut sur Brest ce matin comme il pleuvra toujours
-Sauf qu'il pleut
-Et c'est le vent le vent qui pleure le vent qui pleure`,
+    texte: `Barbara … Et c'est le vent le vent qui pleure le vent qui pleure`,
     contexte: "Poème de la Résistance — Brest bombardée, amour et guerre entremêlés.",
     attendus: [
       { procede: "Anaphore", citation: "« Il pleut… il pleuvra… il pleut »", interpretation: "En reprenant « Il pleut… il pleuvra… il pleut », Prévert use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire du poème de la résistance dans Paroles.", keywords: ["anaphore", "pleut", "répét", "obsess", "souffr", "attente"] },
@@ -123,16 +107,13 @@ Et c'est le vent le vent qui pleure le vent qui pleure`,
     oeuvre: "Huis clos (1944)",
     genre: "Théâtre",
     diff: 2,
-    texte: `GARCIN
-L'enfer, c'est les autres.
-
-INEZ
-Vous avez votre rêve en main. Allez-y. Gardez-le. Je ne suis pas votre bouche à souffrir.`,
+    texte: `GARCIN … Vous avez votre rêve en main. Allez-y. Gardez-le. Je ne suis pas votre bouche à souffrir.`,
     contexte: "Théâtre existentialiste — enfer comme regard des autres, pas supplice physique.",
     attendus: [
       { procede: "Antithèse", citation: "« L'enfer, c'est les autres »", interpretation: "Antithèse avec l'idée chrétienne de l'enfer : Sartre inverse la tradition — l'enfer est relationnel, pas surnaturel.", keywords: ["antithèse", "enfer", "autres", "tradition", "relation", "existential"] },
       { procede: "Registre tragique", citation: "« L'enfer, c'est les autres »", interpretation: "Registre tragique: par « L'enfer, c'est les autres », Sartre installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Huis clos.", keywords: ["tragique", "regard", "condamn", "existence", "rédemption", "autrui"] },
-      { procede: "Paradoxe", citation: "« L'enfer, c'est les autres »", interpretation: "Paradoxe : l'enfer n'est ni feu ni démon mais la présence des autres — formule choc qui résume la philosophie de la pièce.", keywords: ["paradoxe", "enfer", "autres", "formule", "philosoph", "choc"] },    ]
+      { procede: "Paradoxe", citation: "« L'enfer, c'est les autres »", interpretation: "Paradoxe : l'enfer n'est ni feu ni démon mais la présence des autres — formule choc qui résume la philosophie de la pièce.", keywords: ["paradoxe", "enfer", "autres", "formule", "philosoph", "choc"] },
+    ]
   },
   {
     id: "GT-038",
@@ -141,7 +122,7 @@ Vous avez votre rêve en main. Allez-y. Gardez-le. Je ne suis pas votre bouche �
     oeuvre: "La Peste (1947)",
     genre: "Roman",
     diff: 2,
-    texte: `Les curieux événements qui font le sujet de cette chronique eurent lieu en 194… à Oran. L'opinion générale était qu'on devait s'y résigner et que, vraiment, il n'y avait pas de quoi faire de telles histoires.`,
+    texte: `Les curieux événements qui font le sujet de cette chronique eurent lieu en 194… … L'opinion générale était qu'on devait s'y résigner et que, vraiment, il n'y avait pas de quoi faire de telles histoires.`,
     contexte: "Allegorie de l'Occupation — ton neutre du narrateur face à l'événement absurde.",
     attendus: [
       { procede: "Registre tragique", citation: "« curieux événements » / résignation", interpretation: "Registre tragique sous ton feint : la peste est minimisée par la foule — terreur de l'absurde et de l'indifférence.", keywords: ["tragique", "résignation", "indifférence", "absurde", "peste", "foule"] },
@@ -157,7 +138,7 @@ Vous avez votre rêve en main. Allez-y. Gardez-le. Je ne suis pas votre bouche �
     oeuvre: "Les Confessions (1782)",
     genre: "Autobiographie",
     diff: 2,
-    texte: `Je forme une entreprise qui n'eut jamais d'exemple, et dont l'exécution n'aura point d'imitateur. Je veux montrer à mes semblables un homme dans toute la vérité de la nature ; et cet homme, ce sera moi.`,
+    texte: `Je forme une entreprise qui n'eut jamais d'exemple, et dont l'exécution n'aura point d'imitateur. … Je veux montrer à mes semblables un homme dans toute la vérité de la nature ; et cet homme, ce sera moi.`,
     contexte: "Manifeste autobiographique — transparence et orgueil du moi écrivant.",
     attendus: [
       { procede: "Hyperbole", citation: "« n'eut jamais d'exemple… n'aura point d'imitateur »", interpretation: "L'hyperbole « n'eut jamais d'exemple… n'aura point d'imitateur » pousse l'expression au-delà du vraisemblable : Rousseau souligne l'intensité du ressenti pour marquer manifeste autobiographique.", keywords: ["hyperbole", "unique", "exag", "original", "exemple", "imitateur"] },
@@ -173,10 +154,7 @@ Vous avez votre rêve en main. Allez-y. Gardez-le. Je ne suis pas votre bouche �
     oeuvre: "Poèmes antiques et modernes (1837)",
     genre: "Poésie élégiaque",
     diff: 2,
-    texte: `La bête traînait encore sa croupe sanglante,
-Mais l'œil du loup était éteint, et sa mâchoire,
-Tombant avec lâcheté, laissait voir sa dent noire
-Et sa langue immobile.`,
+    texte: `La bête traînait encore sa croupe sanglante, … Et sa langue immobile.`,
     contexte: "Mort du loup blessé — élégie sur la fin de la force et de la fierté.",
     attendus: [
       { procede: "Registre élégiaque", citation: "mort du loup", interpretation: "Registre élégiaque: « mort du loup » mêle deuil, souvenir et méditation sur la perte, au cœur de l'élégie sur la fin de la force et de la fierté.", keywords: ["élégiaque", "plainte", "mort", "mélancol", "défaite", "noble"] },
@@ -192,14 +170,7 @@ Et sa langue immobile.`,
     oeuvre: "Rhinocéros (1959)",
     genre: "Théâtre de l'absurde",
     diff: 2,
-    texte: `BÉrengER
-Mais qu'est-ce que c'est que cette bête ?
-
-JEAN
-C'est un rhinocéros.
-
-BÉrengER
-Un rhinocéros ?`,
+    texte: `BÉRENGER — Qu'est-ce que c'est que cette bête-là ? … Un rhinocéros !`,
     contexte: "Théâtre de l'absurde — métaphore de la conformité et du totalitarisme.",
     attendus: [
       { procede: "Registre comique", citation: "« Un rhinocéros ? »", interpretation: "À travers « Un rhinocéros ? », le texte bascule dans un registre comique ; le lecteur éprouve une mise à distance comique grâce à l'humour et détend la scène, ce qui s'inscrit dans Rhinocéros.", keywords: ["comique", "incrédul", "rire", "absurde", "quotidien", "répét"] },
@@ -215,10 +186,7 @@ Un rhinocéros ?`,
     oeuvre: "Cyrano de Bergerac (1897)",
     genre: "Théâtre",
     diff: 2,
-    texte: `CYRANO
-Ah ! non ! c'est un peu court, jeune homme !
-On ne pourrait pas ?… Non, c'est un peu court !
-Mais qu'on ne se pique pas de l'être !`,
+    texte: `CYRANO … Mais qu'on ne se pique pas de l'être !`,
     contexte: "Répartie célèbre — registre comique et épique, virtuosité verbale.",
     attendus: [
       { procede: "Anaphore", citation: "« c'est un peu court »", interpretation: "La reprise de « c'est », « court » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur répartie célèbre.", keywords: ["anaphore", "court", "répét", "ironie", "insulte", "ridicul"] },
@@ -234,12 +202,13 @@ Mais qu'on ne se pique pas de l'être !`,
     oeuvre: "Du côté de chez Swann (1913)",
     genre: "Roman",
     diff: 3,
-    texte: `Et tout d'un coup le souvenir m'est apparu. Ce goût, c'était la madeleine que le dimanche matin chez ma tante Léonie… dès que j'eus reconnu le goût de la madeleine… toute la Combray et ses environs… surgirent de ma tasse.`,
+    texte: `Et tout d'un coup le souvenir m'est apparu. … surgirent de ma tasse.`,
     contexte: "Mémoire involontaire — madeleine, temps perdu et resurgence sensorielle.",
     attendus: [
       { procede: "Métaphore", citation: "« surgirent de ma tasse »", interpretation: "La métaphore « surgirent de ma tasse » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit mémoire involontaire dans Du côté de chez Swann.", keywords: ["métaphore", "surgir", "tasse", "souvenir", "madeleine", "jaillir"] },
       { procede: "Registre lyrique", citation: "« le souvenir m'est apparu »", interpretation: "Registre lyrique: par « le souvenir m'est apparu », Proust exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Du côté de chez Swann.", keywords: ["lyrique", "souvenir", "passé", "émotion", "intime", "narrateur"] },
-      { procede: "Hyperbole", citation: "« toute la Combray »", interpretation: "L'hyperbole « toute la Combray » pousse l'expression au-delà du vraisemblable : Proust souligne l'intensité du ressenti pour marquer mémoire involontaire.", keywords: ["hyperbole", "combray", "goût", "mémoire", "exag", "ville"] },    ]
+      { procede: "Hyperbole", citation: "« toute la Combray »", interpretation: "L'hyperbole « toute la Combray » pousse l'expression au-delà du vraisemblable : Proust souligne l'intensité du ressenti pour marquer mémoire involontaire.", keywords: ["hyperbole", "combray", "goût", "mémoire", "exag", "ville"] },
+    ]
   },
   {
     id: "GT-044",
@@ -248,11 +217,12 @@ Mais qu'on ne se pique pas de l'être !`,
     oeuvre: "Les Liaisons dangereuses (1782)",
     genre: "Roman épistolaire",
     diff: 3,
-    texte: `J'ai, je l'avoue, une certaine vanité de femme à laquelle vous avez su plaire. Vous m'avez vue faible : ne comptez pas sur ma faiblesse, mais sur ma vengeance.`,
+    texte: `J'ai, je l'avoue, une certaine vanité de femme à laquelle vous avez su plaire. … Vous m'avez vue faible : ne comptez pas sur ma faiblesse, mais sur ma vengeance.`,
     contexte: "Mme de Merteuil — manipulation, registre satirique et tragique.",
     attendus: [
       { procede: "Antithèse", citation: "« faiblesse » / « vengeance »", interpretation: "Antithèse: « faiblesse » s'oppose à « vengeance ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "faiblesse", "vengeance", "contraste", "duplicit", "personnage"] },
-      { procede: "Registre satirique", citation: "manipulation amoureuse", interpretation: "À travers « manipulation amoureuse », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique", "manipul", "masque", "corruption", "aristocrat", "dénonc"] },      { procede: "Chiasme", citation: "structure de la menace", interpretation: "Chiasme possible dans l'inversion des rôles domination / soumission — Merteuil retourne la situation.", keywords: ["chiasme", "inversion", "domination", "soumission", "menace", "retourne"] }
+      { procede: "Registre satirique", citation: "manipulation amoureuse", interpretation: "À travers « manipulation amoureuse », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique", "manipul", "masque", "corruption", "aristocrat", "dénonc"] },
+      { procede: "Chiasme", citation: "structure de la menace", interpretation: "Chiasme possible dans l'inversion des rôles domination / soumission — Merteuil retourne la situation.", keywords: ["chiasme", "inversion", "domination", "soumission", "menace", "retourne"] }
     ]
   },
   {
@@ -262,10 +232,7 @@ Mais qu'on ne se pique pas de l'être !`,
     oeuvre: "Poésie (1870)",
     genre: "Poésie",
     diff: 2,
-    texte: `C'est un trou de verdure où chante une rivière
-Accrochant follement aux herbes des haillons
-D'argent ; où le soleil, de la montagne fière,
-Luit : c'est un petit val qui mousse de rayons.`,
+    texte: `C'est un trou de verdure où chante une rivière … Luit : c'est un petit val qui mousse de rayons.`,
     contexte: "Poème de la guerre — idylle trompeuse, soldat mort révélé à la fin.",
     attendus: [
       { procede: "Champ lexical", citation: "« verdure », « rivière », « soleil », « rayons »", interpretation: "Les occurrences « verdure », « rivière », « soleil », « rayons » composent un champ lexical cohérent autour de poème de la guerre ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Rimbaud.", keywords: ["champ lexical", "nature", "lumière", "verdure", "soleil", "bucol"] },

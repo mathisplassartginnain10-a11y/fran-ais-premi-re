@@ -37,7 +37,7 @@ function introSimToggleFav() {
   if (typeof loadFavs !== 'function' || typeof saveFavs !== 'function') return;
   const f = loadFavs();
   if (!f.intros) f.intros = [];
-  const key = introSimFavKey(fields, entry.full);
+  const key = introSimFavKey(fields, entry.fullComment || entry.full);
   const idx = f.intros.findIndex(i => i.key === key);
   if (idx >= 0) {
     f.intros.splice(idx, 1);
@@ -58,7 +58,8 @@ function introSimToggleFav() {
     genre: entry.genre || '',
     prob: entry.prob || 0,
     gtextId: entry.gtextId || null,
-    full: entry.full,
+    full: entry.fullComment || entry.full,
+    introOnly: entry.full,
     temps: { ...entry.temps },
   });
   if (f.intros.length > INTRO_SIM_FAV_MAX) f.intros.length = INTRO_SIM_FAV_MAX;
@@ -109,13 +110,21 @@ function introSimShowSavedFav(item) {
     prob: item.prob,
     gtextId: item.gtextId,
     temps: item.temps,
-    full: item.full,
+    full: item.introOnly || item.full,
+    fullComment: item.full,
     contexte: '',
     fallback: false,
     indexOnly: !item.gtextId,
     procedesCles: [],
     authorTips: [],
   };
+  if (item.fields && typeof introSimAttachCommentary === 'function' && entry.fullComment && entry.fullComment !== entry.full) {
+    introSimAttachCommentary(entry, {
+      userExcerpt: item.fields.passage,
+      passageRaw: item.fields.passage,
+      fullCommentary: true,
+    });
+  }
   window._introSimCurrent = entry;
   introSimShowResult(entry, null, { persist: false });
 }
@@ -126,8 +135,147 @@ const INTRO_SIM_EXAMPLES = [
   { auteur: 'Hugo', oeuvre: 'Les Misérables', passage: 'Gavroche' },
   { auteur: 'Corneille', oeuvre: 'Le Cid', passage: 'Chimène' },
   { auteur: 'Baudelaire', oeuvre: 'Les Fleurs du mal', passage: 'Correspondances' },
+  { auteur: 'Lamartine', oeuvre: 'Méditations poétiques', passage: 'Le Lac' },
+  { auteur: 'Molière', oeuvre: 'Tartuffe', passage: '' },
+  { auteur: 'Camus', oeuvre: 'L\'Étranger', passage: '' },
+  { auteur: 'Rimbaud', oeuvre: 'Le Bateau ivre', passage: '' },
+  { auteur: 'La Fontaine', oeuvre: 'Fables', passage: 'La Cigale et la Fourmi' },
   { auteur: 'Voltaire', oeuvre: 'Candide', passage: '' },
+  { auteur: 'Rostand', oeuvre: 'Cyrano de Bergerac', passage: 'tirade du nez' },
+  { auteur: 'Du Bellay', oeuvre: 'Les Regrets', passage: 'Heureux qui' },
+  { auteur: 'Zola', oeuvre: 'Germinal', passage: 'la mine' },
+  { auteur: 'Maupassant', oeuvre: 'La Parure', passage: '' },
+  { auteur: 'Apollinaire', oeuvre: 'Alcools', passage: 'Mirabeau' },
+  { auteur: 'Prévert', oeuvre: 'Paroles', passage: 'Barbara' },
+  { auteur: 'Hugo', oeuvre: 'Les Contemplations', passage: 'Demain dès l\'aube' },
+  { auteur: 'Anouilh', oeuvre: 'Antigone', passage: '' },
+  { auteur: 'Valéry', oeuvre: 'Le Cimetière marin', passage: '' },
+  { auteur: 'Senghor', oeuvre: 'Poésie', passage: 'Femme noire' },
+  { auteur: 'Beckett', oeuvre: 'En attendant Godot', passage: '' },
+  { auteur: 'Césaire', oeuvre: 'Cahier d\'un retour au pays natal', passage: '' },
 ];
+
+/** GT iconiques — première … dernière phrase + corrigé IPCI pour démo commentaire complet */
+const INTRO_SIM_GT_DEMOS = [
+  'GT-001', 'GT-002', 'GT-003', 'GT-004', 'GT-006', 'GT-007', 'GT-008', 'GT-009',
+  'GT-010', 'GT-011', 'GT-012', 'GT-013', 'GT-014', 'GT-015', 'GT-016', 'GT-017',
+  'GT-019', 'GT-020', 'GT-021', 'GT-022', 'GT-024', 'GT-025', 'GT-026', 'GT-027',
+  'GT-028', 'GT-030', 'GT-031', 'GT-032', 'GT-034', 'GT-035', 'GT-036', 'GT-038',
+  'GT-042', 'GT-045', 'GT-050', 'GT-068', 'GT-076', 'GT-084', 'GT-092', 'GT-097',
+  'GT-107', 'GT-108', 'GT-123', 'GT-176', 'GT-196',
+  'GT-005', 'GT-023', 'GT-029', 'GT-040', 'GT-041', 'GT-047', 'GT-052', 'GT-056',
+  'GT-059', 'GT-077', 'GT-080', 'GT-082', 'GT-083', 'GT-087', 'GT-089', 'GT-091',
+  'GT-101', 'GT-106', 'GT-121', 'GT-180', 'GT-195', 'GT-255', 'GT-261', 'GT-269', 'GT-275',
+  'GT-033', 'GT-037', 'GT-039', 'GT-046', 'GT-048', 'GT-049', 'GT-054', 'GT-057', 'GT-058',
+  'GT-062', 'GT-064', 'GT-066', 'GT-069', 'GT-070', 'GT-072', 'GT-074', 'GT-075', 'GT-081',
+  'GT-086', 'GT-090', 'GT-093', 'GT-094', 'GT-099', 'GT-102', 'GT-103', 'GT-104', 'GT-117',
+  'GT-120', 'GT-128', 'GT-262', 'GT-268', 'GT-283',
+  'GT-043', 'GT-044', 'GT-051', 'GT-053', 'GT-061', 'GT-063', 'GT-067', 'GT-073',
+  'GT-085', 'GT-088', 'GT-105', 'GT-111', 'GT-112', 'GT-124', 'GT-125', 'GT-142',
+  'GT-214', 'GT-252', 'GT-273', 'GT-274', 'GT-276', 'GT-284',
+  'GT-531', 'GT-595', 'GT-644', 'GT-721',
+  'GT-587', 'GT-657', 'GT-715', 'GT-729',
+  'GT-055', 'GT-116', 'GT-122', 'GT-138', 'GT-144',
+  'GT-065', 'GT-095', 'GT-096', 'GT-109', 'GT-127', 'GT-134', 'GT-141', 'GT-143', 'GT-145', 'GT-148',
+  'GT-265', 'GT-266', 'GT-267', 'GT-270', 'GT-271', 'GT-272',
+  'GT-263', 'GT-264', 'GT-277', 'GT-278', 'GT-279', 'GT-280', 'GT-281', 'GT-282', 'GT-285',
+  'GT-060', 'GT-115', 'GT-119', 'GT-181', 'GT-184',
+];
+const INTRO_SIM_GT_DEMO_SET = new Set(INTRO_SIM_GT_DEMOS);
+const INTRO_SIM_GT_DEMO_INITIAL = 18;
+const INTRO_SIM_GT_GENRES = [
+  { id: 'all', label: 'Tous' },
+  { id: 'poesie', label: 'Poésie', match: /po[eé]sie/i },
+  { id: 'theatre', label: 'Théâtre', match: /th[eé][âa]tre|com[eé]die|trag[eé]die/i },
+  { id: 'roman', label: 'Roman', match: /roman|r[eé]cit|nouvelle|conte/i },
+  { id: 'fable', label: 'Fable', match: /fable/i },
+  { id: 'idees', label: 'Idées', match: /id[eé]es|essai|pamphlet|lettre|discours/i },
+];
+let _introSimGtExpanded = false;
+let _introSimGtGenre = 'all';
+let _introSimGtSearch = '';
+
+function introSimIsGtDemo(id) {
+  return INTRO_SIM_GT_DEMO_SET.has(id);
+}
+
+function introSimNormAuthorLabel(s) {
+  return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+}
+
+/** Meilleur GT modèle pour un auteur (fiche auteurs, etc.) */
+function introSimFindGtDemoForAuthor(auteurNom) {
+  const fam = introSimNormAuthorLabel(auteurNom).split(/\s+/).pop();
+  if (!fam || fam.length < 3) return null;
+  const hits = INTRO_SIM_GT_DEMOS.map(id => (typeof gtextGetById === 'function' ? gtextGetById(id) : null))
+    .filter(t => {
+      if (!t?.id) return false;
+      const ta = introSimNormAuthorLabel(t.auteur);
+      const tf = ta.split(/\s+/).pop();
+      return ta.includes(fam) || tf === fam || fam.includes(tf);
+    });
+  if (!hits.length) return null;
+  hits.sort((a, b) => {
+    const na = parseInt(a.id.slice(3), 10);
+    const nb = parseInt(b.id.slice(3), 10);
+    if (na <= 260 && nb > 260) return -1;
+    if (nb <= 260 && na > 260) return 1;
+    return (b.attendus?.length || 0) - (a.attendus?.length || 0);
+  });
+  return hits[0].id;
+}
+
+function introSimOpenFromAuteurFull(nom, oeuvresStr) {
+  const gtId = introSimFindGtDemoForAuthor(nom);
+  if (gtId) {
+    introSimOpenFromGtext(gtId);
+    return;
+  }
+  introSimOpenFromAuteur(nom, oeuvresStr);
+}
+
+/** GT modèle le plus proche (auteur + œuvre + titre passage) */
+function introSimFindGtDemoMatch(auteur, oeuvre, passage) {
+  const fam = introSimNormAuthorLabel(auteur).split(/\s+/).pop();
+  const norm = typeof introSimNorm === 'function' ? introSimNorm : introSimNormAuthorLabel;
+  const o = norm(oeuvre || '');
+  const p = norm(passage || '');
+  if (!fam && !o && !p) return null;
+  let bestId = null;
+  let bestScore = 0;
+  INTRO_SIM_GT_DEMOS.forEach(id => {
+    const t = typeof gtextGetById === 'function' ? gtextGetById(id) : null;
+    if (!t) return;
+    let score = 0;
+    const ta = introSimNormAuthorLabel(t.auteur);
+    const tf = ta.split(/\s+/).pop();
+    if (fam && (ta.includes(fam) || tf === fam)) score += 42;
+    const to = norm(String(t.oeuvre || '').replace(/\(\d{4}\)/, ''));
+    const tt = norm(t.titre || '');
+    if (o.length >= 3) {
+      const ow = o.split(' ').filter(w => w.length >= 4);
+      const hits = ow.filter(w => to.includes(w) || tt.includes(w)).length;
+      score += Math.min(38, hits * 12);
+      if (to.includes(o.slice(0, Math.min(14, o.length))) || o.includes(to.slice(0, 14))) score += 28;
+    }
+    if (p.length >= 3) {
+      const pw = p.split(' ').filter(w => w.length >= 4);
+      const hits = pw.filter(w => tt.includes(w) || to.includes(w)).length;
+      score += Math.min(32, hits * 10);
+      if (tt.includes(p.slice(0, Math.min(12, p.length))) || p.includes(tt.slice(0, 12))) score += 24;
+    }
+    if (score > bestScore && score >= 52) {
+      bestScore = score;
+      bestId = id;
+    }
+  });
+  return bestId;
+}
+
+function introSimUpdateGtDemoLabel() {
+  const opt = document.querySelector('#intro-sim-gt-wrap .intro-sim-opt');
+  if (opt) opt.textContent = `(${INTRO_SIM_GT_DEMOS.length} modèles · commentaire complet · corrigé GT)`;
+}
 
 function introSimUpdateMeta() {
   const meta = el('intro-sim-meta');
@@ -139,7 +287,7 @@ function introSimUpdateMeta() {
     return;
   }
   const n = typeof introSimCount === 'function' ? introSimCount() : 10000;
-  meta.textContent = n + ' passages probables indexés · ' + gtN + ' grands textes analysables · aperçu en direct';
+  meta.textContent = n + ' passages probables indexés · ' + gtN + ' grands textes · ' + INTRO_SIM_GT_DEMOS.length + ' modèles de commentaire complet';
 }
 
 function introSimRenderTopBac() {
@@ -154,6 +302,119 @@ function introSimRenderTopBac() {
     const oe = (e.oeuvre || '').replace(/\(\d{4}\)/, '').trim();
     return `<button type="button" class="chip intro-sim-ex-chip intro-sim-top-chip" onclick="introSimQuick(${JSON.stringify(e.auteurNom || e.auteur)},${JSON.stringify(oe)},${JSON.stringify(e.titre || '')})" title="Probabilité ~${e.prob || '?'}%">${introSimEsc(e.auteurNom || e.auteur)} · ${introSimEsc((e.titre || oe).slice(0, 28))}</button>`;
   }).join('');
+}
+
+function introSimGtDemoIdsFiltered() {
+  let ids = _introSimGtGenre === 'all' ? INTRO_SIM_GT_DEMOS : INTRO_SIM_GT_DEMOS.filter(id => {
+    const f = INTRO_SIM_GT_GENRES.find(x => x.id === _introSimGtGenre);
+    const t = typeof gtextGetById === 'function' ? gtextGetById(id) : null;
+    return t && f?.match?.test(t.genre || '');
+  });
+  const q = typeof introSimNorm === 'function'
+    ? introSimNorm(_introSimGtSearch)
+    : introSimNormAuthorLabel(_introSimGtSearch);
+  if (q.length >= 2) {
+    ids = ids.filter(id => {
+      const t = typeof gtextGetById === 'function' ? gtextGetById(id) : null;
+      if (!t) return false;
+      const hay = typeof introSimNorm === 'function'
+        ? introSimNorm([t.auteur, t.titre, t.oeuvre, t.genre, id].join(' '))
+        : introSimNormAuthorLabel([t.auteur, t.titre, t.oeuvre, t.genre, id].join(' '));
+      return hay.includes(q);
+    });
+  }
+  return ids;
+}
+
+function introSimOnGtSearchInput() {
+  _introSimGtSearch = el('intro-sim-gt-search')?.value.trim() || '';
+  _introSimGtExpanded = _introSimGtSearch.length >= 2;
+  introSimRenderGtDemos();
+}
+
+function introSimRenderGtGenreFilters() {
+  const cont = el('intro-sim-gt-genres');
+  if (!cont) return;
+  cont.innerHTML = INTRO_SIM_GT_GENRES.map(g => {
+    const n = g.id === 'all'
+      ? INTRO_SIM_GT_DEMOS.length
+      : INTRO_SIM_GT_DEMOS.filter(id => {
+          const t = typeof gtextGetById === 'function' ? gtextGetById(id) : null;
+          return t && g.match?.test(t.genre || '');
+        }).length;
+    if (g.id !== 'all' && !n) return '';
+    const on = _introSimGtGenre === g.id ? ' on' : '';
+    return `<button type="button" class="chip intro-sim-gt-genre${on}" onclick="introSimSetGtGenre('${g.id}')">${introSimEsc(g.label)}${g.id === 'all' ? '' : ` (${n})`}</button>`;
+  }).filter(Boolean).join('');
+}
+
+function introSimSetGtGenre(id) {
+  _introSimGtGenre = id || 'all';
+  _introSimGtExpanded = false;
+  introSimRenderGtGenreFilters();
+  introSimRenderGtDemos();
+}
+
+function introSimClearGtSearch() {
+  _introSimGtSearch = '';
+  const inp = el('intro-sim-gt-search');
+  if (inp) inp.value = '';
+  _introSimGtExpanded = false;
+  introSimRenderGtDemos();
+}
+
+function introSimRenderGtDemos() {
+  const wrap = el('intro-sim-gt-wrap');
+  const cont = el('intro-sim-gt');
+  if (!wrap || !cont) return;
+  const ids = introSimGtDemoIdsFiltered();
+  if (!ids.length) {
+    const msg = _introSimGtSearch
+      ? `Aucun modèle pour « ${introSimEsc(_introSimGtSearch)} » — essaie un autre mot ou « Tous ».`
+      : 'Aucun modèle dans ce genre — choisis « Tous ».';
+    cont.innerHTML = `<p class="intro-sim-hint">${msg}</p>`;
+    wrap.hidden = false;
+    return;
+  }
+  const autoExpand = _introSimGtSearch.length >= 2;
+  const showAll = _introSimGtExpanded || autoExpand;
+  const slice = showAll ? ids : ids.slice(0, INTRO_SIM_GT_DEMO_INITIAL);
+  const chips = [];
+  slice.forEach(id => {
+    const t = typeof gtextGetById === 'function' ? gtextGetById(id) : null;
+    if (!t?.texte) return;
+    const label = `${t.auteur} · ${(t.titre || t.oeuvre || id).replace(/\(\d{4}\)/, '').trim()}`;
+    chips.push(`<button type="button" class="chip intro-sim-ex-chip intro-sim-gt-chip" onclick="introSimOpenFromGtext('${introSimEscAttr(id)}')" title="Texte intégral · commentaire complet (${id})">${introSimEsc(label.slice(0, 42))}${label.length > 42 ? '…' : ''}</button>`);
+  });
+  if (ids.length > INTRO_SIM_GT_DEMO_INITIAL && !autoExpand) {
+    const rest = ids.length - INTRO_SIM_GT_DEMO_INITIAL;
+    chips.push(`<button type="button" class="chip intro-sim-ex-chip intro-sim-gt-more" onclick="introSimToggleGtDemos()" title="Commentaires complets avec corrigé GT">${showAll ? '− Réduire' : `+ ${rest} autres textes`}</button>`);
+  }
+  if (!chips.length) { wrap.hidden = true; return; }
+  wrap.hidden = false;
+  cont.innerHTML = chips.join('');
+}
+
+function introSimToggleGtDemos() {
+  _introSimGtExpanded = !_introSimGtExpanded;
+  introSimRenderGtDemos();
+}
+
+/** Premiers ids GT pour aperçu (page Grands textes, etc.) */
+function introSimGtDemoPreviewIds(n) {
+  return INTRO_SIM_GT_DEMOS.slice(0, Math.max(1, n || 4));
+}
+
+function introSimRandomGtDemo() {
+  const pool = introSimGtDemoIdsFiltered().filter(id => {
+    const t = typeof gtextGetById === 'function' ? gtextGetById(id) : null;
+    return t?.texte;
+  });
+  if (!pool.length) {
+    alert('Aucun texte modèle disponible pour ce filtre.');
+    return;
+  }
+  introSimOpenFromGtext(pool[Math.floor(Math.random() * pool.length)]);
 }
 
 function initIntroSim() {
@@ -212,7 +473,18 @@ function initIntroSim() {
     }
     introSimRenderRecent();
     introSimRenderTopBac();
+    introSimRenderGtGenreFilters();
+    introSimRenderGtDemos();
+    introSimUpdateGtDemoLabel();
     introSimApplyQuery();
+    const gtSearch = el('intro-sim-gt-search');
+    if (gtSearch && !gtSearch.dataset.ready) {
+      gtSearch.dataset.ready = '1';
+      gtSearch.addEventListener('input', introSimOnGtSearchInput);
+      gtSearch.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { e.preventDefault(); introSimClearGtSearch(); }
+      });
+    }
   };
 
   if (typeof ensureBacPassagesLoaded === 'function') {
@@ -344,7 +616,13 @@ function introSimShareLink() {
 
 function introSimOpts() {
   const theme = el('intro-sim-theme')?.value.trim();
-  return theme ? { themeOverride: theme.charAt(0).toLowerCase() + theme.slice(1) } : {};
+  const passage = el('intro-sim-passage')?.value.trim() || '';
+  const fullMode = el('intro-sim-fullmode');
+  const excerpt = typeof introSimIsExcerptText === 'function' && introSimIsExcerptText(passage);
+  const fullCommentary = fullMode ? (fullMode.checked || excerpt) : excerpt;
+  const opts = { fullCommentary };
+  if (theme) opts.themeOverride = theme.charAt(0).toLowerCase() + theme.slice(1);
+  return opts;
 }
 
 function introSimScheduleLive() {
@@ -355,8 +633,9 @@ function introSimScheduleLive() {
 function introSimLivePreview() {
   const auteur = el('intro-sim-auteur')?.value.trim() || '';
   const oeuvre = el('intro-sim-oeuvre')?.value.trim() || '';
-  if (!auteur && !oeuvre) return;
   const passage = el('intro-sim-passage')?.value.trim() || '';
+  const excerptOnly = typeof introSimIsExcerptText === 'function' && introSimIsExcerptText(passage);
+  if (!auteur && !oeuvre && !excerptOnly) return;
   const matches = introSimSearch(auteur, oeuvre, passage, introSimOpts());
   if (matches.length) introSimRenderMatches(matches, auteur, oeuvre, passage, true);
 }
@@ -397,7 +676,16 @@ function introSimOpenFromGtext(id) {
   introSimNavigate();
   setTimeout(() => {
     initIntroSim();
-    introSimQuick(t.auteur, t.oeuvre.replace(/\(\d{4}\)/, '').trim(), t.titre);
+    introSimSetFields({
+      auteur: t.auteur,
+      oeuvre: t.oeuvre.replace(/\(\d{4}\)/, '').trim(),
+      passage: typeof introSimPassageFirstLast === 'function'
+        ? introSimPassageFirstLast(t.texte || '') || t.titre || ''
+        : (t.texte || t.titre || ''),
+    });
+    const fm = el('intro-sim-fullmode');
+    if (fm) fm.checked = !!(t.texte && t.texte.length > 80);
+    introSimGenerate();
     el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 120);
 }
@@ -407,6 +695,13 @@ function introSimOpenFromExo(exoId) {
   const ex = EXERCICES.find(e => e.id === exoId);
   const parsed = ex?.oeuvre ? introSimParseOeuvreRef(ex.oeuvre) : null;
   if (!parsed) return;
+  const gtId = typeof introSimFindGtDemoMatch === 'function'
+    ? introSimFindGtDemoMatch(parsed.auteur, parsed.oeuvre, parsed.passage)
+    : null;
+  if (gtId) {
+    introSimOpenFromGtext(gtId);
+    return;
+  }
   introSimNavigate();
   setTimeout(() => {
     initIntroSim();
@@ -519,9 +814,31 @@ function introSimShowResult(entry, score, showOpts) {
     actions.push(`<button type="button" class="sbtn sec" onclick="introSimRotateProb()">↻ Autre problématique</button>`);
   }
   actions.push(`<button type="button" class="sbtn sec intro-sim-fav-btn" id="intro-sim-fav-btn" onclick="introSimToggleFav()">☆ Enregistrer</button>`);
-  actions.push(`<button type="button" class="sbtn sec" onclick="introSimCopyFull()">📋 Copier l'intro complète</button>`);
+  actions.push(`<button type="button" class="sbtn sec" onclick="introSimCopyFull()">📋 Copier ${entry.fullComment ? 'le commentaire complet' : 'l\'intro'}</button>`);
+  if (entry.fullComment) {
+    actions.push(`<button type="button" class="sbtn sec" onclick="introSimCopyIntroOnly()">📋 Copier l'intro seule</button>`);
+  }
   actions.push(`<button type="button" class="sbtn sec" onclick="introSimShareLink()">🔗 Lien partageable</button>`);
   actions.push(`<button type="button" class="sbtn sec" onclick="window.print()">🖨 Imprimer</button>`);
+
+  const comm = entry.commentaire;
+  const commHtml = comm?.full ? `
+    <div class="intro-sim-comm">
+      <div class="intro-sim-comm-head">
+        <strong>Commentaire rédigé</strong>
+        <span class="intro-sim-comm-meta">${comm.parts?.length || 3} partie(s) · ${comm.ipcCount || 0} analyse(s) IPCI${comm.lineCount ? ` · ${comm.lineCount} vers/lignes couverts` : ''}${comm.fromCorpus ? ' · corrigé GT' : ''}</span>
+      </div>
+      ${(comm.parts || []).map(p => `
+        <div class="intro-sim-comm-part">
+          <div class="intro-sim-comm-part-lbl">${introSimEsc(p.label)}</div>
+          <p>${introSimEsc(p.text)}</p>
+          ${p.transition ? `<p class="intro-sim-comm-trans">${introSimEsc(p.transition)}</p>` : ''}
+        </div>`).join('')}
+      <div class="intro-sim-comm-part intro-sim-comm-concl">
+        <div class="intro-sim-comm-part-lbl">Conclusion</div>
+        <p>${introSimEsc(comm.conclusion)}</p>
+      </div>
+    </div>` : '';
 
   out.innerHTML = `
     <div class="intro-sim-result-head">
@@ -539,12 +856,18 @@ function introSimShowResult(entry, score, showOpts) {
     <div class="intro-sim-temps-wrap">${blocks}</div>
     <div class="intro-sim-actions">${actions.join('')}</div>
     <div class="intro-sim-full">
-      <div class="intro-sim-full-lbl">Introduction complète</div>
+      <div class="intro-sim-full-lbl">${entry.fullComment ? 'Introduction (5 temps)' : 'Introduction complète'}</div>
       <div class="intro-sim-full-text" id="intro-sim-full-text">${keys.map(k => `<p>${introSimEsc(k === 'problematique' ? probText : entry.temps[k])}</p>`).join('')}</div>
+    </div>
+    ${commHtml}
+    <div class="intro-sim-full" ${entry.fullComment ? '' : 'style="display:none"'} id="intro-sim-full-comment-wrap">
+      <div class="intro-sim-full-lbl">Commentaire complet (texte continu)</div>
+      <div class="intro-sim-full-text" id="intro-sim-full-comment-text">${entry.fullComment ? introSimEsc(entry.fullComment).split('\n\n').map(p => `<p>${p}</p>`).join('') : ''}</div>
     </div>`;
 
   window._introSimCurrent = { ...entry, temps: { ...entry.temps, problematique: probText } };
   window._introSimCurrent.full = keys.map(k => window._introSimCurrent.temps[k]).join('\n\n');
+  if (entry.fullComment) window._introSimCurrent.fullComment = entry.fullComment;
   if (showOpts.persist) {
     introSimSaveRecent(introSimFields());
     introSimPushQuery(introSimFields());
@@ -562,14 +885,15 @@ function introSimRotateProb() {
 function introSimGenerate() {
   const run = () => {
     if (typeof introSimSearch !== 'function') {
-      alert('Banque d\'intros non chargée.');
+      alert('Banque de commentaires non chargée.');
       return;
     }
     const auteur = el('intro-sim-auteur')?.value.trim() || '';
     const oeuvre = el('intro-sim-oeuvre')?.value.trim() || '';
     const passage = el('intro-sim-passage')?.value.trim() || '';
-    if (!auteur && !oeuvre) {
-      alert('Renseigne au moins l\'auteur ou l\'œuvre.');
+    const excerptOnly = typeof introSimIsExcerptText === 'function' && introSimIsExcerptText(passage);
+    if (!auteur && !oeuvre && !excerptOnly) {
+      alert('Renseigne au moins l\'auteur, l\'œuvre, ou colle la première et la dernière phrase du passage (avec … entre les deux).');
       return;
     }
     const matches = introSimSearch(auteur, oeuvre, passage, introSimOpts());
@@ -601,15 +925,23 @@ function introSimCopySection(key) {
 
 function introSimCopyFull() {
   const entry = window._introSimCurrent;
-  if (!entry?.full) return;
-  navigator.clipboard.writeText(entry.full).then(() => {
+  const txt = entry?.fullComment || entry?.full;
+  if (!txt) return;
+  navigator.clipboard.writeText(txt).then(() => {
     if (typeof playSound === 'function') playSound('ok');
   }).catch(() => {
     const ta = document.createElement('textarea');
-    ta.value = entry.full;
+    ta.value = txt;
     document.body.appendChild(ta);
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
   });
+}
+
+function introSimCopyIntroOnly() {
+  const entry = window._introSimCurrent;
+  if (!entry?.full) return;
+  navigator.clipboard.writeText(entry.full).catch(() => {});
+  if (typeof playSound === 'function') playSound('ok');
 }
