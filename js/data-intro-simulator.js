@@ -854,6 +854,7 @@ function introSimBuildFullCommentary(entry, opts) {
 function introSimAttachCommentary(entry, opts) {
   if (!entry?.temps) return entry;
   opts = opts || {};
+  if (opts.skipTemplateCommentary) return entry;
   if (opts.fullCommentary === false) return entry;
   const excerpt = opts.userExcerpt || (introSimIsExcerptText(opts.passageRaw || '') ? opts.passageRaw.trim() : '');
   const want = opts.fullCommentary
@@ -1065,15 +1066,30 @@ function introSimSearch(auteur, oeuvre, passage, opts) {
     }));
   }
 
+  const ollamaActive = typeof introSimOllamaEnabled === 'function'
+    ? introSimOllamaEnabled()
+    : (typeof ollamaCommentIsEnabled === 'function' && ollamaCommentIsEnabled());
+  const skipTemplate = ollamaActive && opts.fullCommentary;
+
   scored = scored.map(m => ({
-    entry: introSimAttachCommentary(m.entry, { ...opts, passageRaw: passage, fullCommentary: opts.fullCommentary }),
+    entry: introSimAttachCommentary(m.entry, {
+      ...opts,
+      passageRaw: passage,
+      fullCommentary: opts.fullCommentary,
+      skipTemplateCommentary: skipTemplate,
+    }),
     score: m.score,
   }));
 
   if (!scored.length && ((auteur || '').trim() || parsed.isExcerpt)) {
     const fb = introSimBuildFallback(auteur, oeuvre, parsed.label, opts);
     if (fb) {
-      const enriched = introSimAttachCommentary(fb, { ...opts, passageRaw: passage, fullCommentary: true });
+      const enriched = introSimAttachCommentary(fb, {
+        ...opts,
+        passageRaw: passage,
+        fullCommentary: true,
+        skipTemplateCommentary: skipTemplate,
+      });
       scored = [{ entry: enriched, score: parsed.isExcerpt ? 32 : 28 }];
     }
   }

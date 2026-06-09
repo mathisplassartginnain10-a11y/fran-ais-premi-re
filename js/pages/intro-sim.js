@@ -2,6 +2,144 @@
 
 let _introSimLiveTimer = null;
 let _introSimProbIdx = 0;
+let _introSimOllamaAbort = null;
+let _introSimOllamaGenId = 0;
+function introSimOllamaEnabled() {
+  const cb = el('intro-sim-ollama');
+  if (cb) return cb.checked;
+  return typeof ollamaCommentIsEnabled === 'function' && ollamaCommentIsEnabled();
+}
+
+function introSimWantsFullCommentary(passage) {
+  const fullMode = el('intro-sim-fullmode');
+  const excerptOnly = typeof introSimIsExcerptText === 'function' && introSimIsExcerptText(passage || '');
+  return fullMode ? (fullMode.checked || excerptOnly) : excerptOnly;
+}
+
+function introSimInitOllamaUi() {
+  const cb = el('intro-sim-ollama');
+  if (cb && !cb.dataset.ready) {
+    cb.dataset.ready = '1';
+    const cfg = typeof ollamaCommentLoadCfg === 'function' ? ollamaCommentLoadCfg() : { enabled: false };
+    cb.checked = cfg.enabled === true;
+    cb.addEventListener('change', () => {
+      if (typeof ollamaCommentSaveCfg === 'function') ollamaCommentSaveCfg({ enabled: cb.checked });
+      introSimUpdateOllamaStatus();
+      if (cb.checked && typeof ollamaCommentEnsureReady === 'function') {
+        ollamaCommentEnsureReady({ onStatus: (msg) => {
+          const status = el('intro-sim-ollama-status');
+          if (status) status.textContent = msg;
+        } }).then(() => introSimUpdateOllamaStatus()).catch(() => introSimUpdateOllamaStatus());
+      }
+    });
+  }
+  introSimUpdateOllamaStatus();
+}
+
+function introSimUpdateOllamaStatus() {
+  const status = el('intro-sim-ollama-status');
+  if (!status || typeof ollamaCommentCheck !== 'function') return;
+  if (!introSimOllamaEnabled()) {
+    status.textContent = 'Optionnel — coche pour rédiger via Ollama (qwen3:14b)';
+    status.classList.remove('ok', 'err');
+    return;
+  }
+  status.textContent = 'Connexion Ollama…';
+  status.classList.remove('ok', 'err');
+  ollamaCommentCheck(false).then(async ok => {
+    const cfg = typeof ollamaCommentLoadCfg === 'function' ? ollamaCommentLoadCfg() : { model: 'bac-qwen3-14b' };
+    if (!ok) {
+      status.textContent = '○ Ollama indisponible — lance start.ps1';
+      status.classList.toggle('err', true);
+      return;
+    }
+    let gpuLabel = '';
+    if (typeof ollamaCommentFetchGpuStatus === 'function' && typeof ollamaCommentDetectMode === 'function') {
+      const mode = await ollamaCommentDetectMode(false);
+      const gpu = await ollamaCommentFetchGpuStatus(ollamaCommentResolveBase(mode));
+      if (gpu?.isFullGpu) gpuLabel = ' · VRAM';
+      else if (gpu?.processor) gpuLabel = ` · ⚠ ${gpu.processor}`;
+    }
+    status.textContent = `● ${cfg.model}${gpuLabel} · prêt`;
+    status.classList.toggle('ok', true);
+    status.classList.toggle('err', !!gpuLabel && gpuLabel.includes('⚠'));
+  });
+}
+
+function introSimSetOllamaPanel(visible, streamingText) {
+  const panel = el('intro-sim-ollama-panel');
+  const stream = el('intro-sim-ollama-stream');
+  if (!panel) return;
+  panel.hidden = !visible;
+  if (stream && streamingText != null) stream.textContent = streamingText;
+}
+
+function introSimAbortOllama() {
+  if (_introSimOllamaAbort) {
+    _introSimOllamaAbort.abort();
+    _introSimOllamaAbort = null;
+  }
+}
+
+async function introSimRequestOllamaCommentary(entry, passage, score, showOpts) {
+  if (!entry || !introSimOllamaEnabled() || !introSimWantsFullCommentary(passage)) return;
+  if (typeof ollamaCommentGenerate !== 'function') return;
+
+  introSimAbortOllama();
+  const genId = ++_introSimOllamaGenId;
+  _introSimOllamaAbort = new AbortController();
+
+  const cfg = typeof ollamaCommentLoadCfg === 'function' ? ollamaCommentLoadCfg() : { model: 'qwen3:14b' };
+  introSimSetOllamaPanel(true, `Préparation d'Ollama (${cfg.model})…`);
+
+  try {
+    const comm = await ollamaCommentGenerate(entry, {
+      ...introSimOpts(),
+      passageRaw: passage,
+      signal: _introSimOllamaAbort.signal,
+      onStatus: (msg) => {
+        if (genId !== _introSimOllamaGenId) return;
+        introSimSetOllamaPanel(true, msg);
+      },
+      onChunk: (text) => {
+        if (genId !== _introSimOllamaGenId) return;
+        introSimSetOllamaPanel(true, text);
+      },
+    });
+    if (genId !== _introSimOllamaGenId) return;
+    entry.commentaire = comm;
+    entry.fullComment = comm.full;
+    introSimSetOllamaPanel(false);
+    introSimShowResult(entry, score, showOpts || { persist: true });
+    if (typeof playSound === 'function') playSound('ok');
+  } catch (e) {
+    if (e.name === 'AbortError' || genId !== _introSimOllamaGenId) return;
+    introSimSetOllamaPanel(false);
+
+    const fbOpts = { ...introSimOpts(), passageRaw: passage, userExcerpt: passage };
+    if (typeof introSimBuildFullCommentary === 'function') {
+      const comm = introSimBuildFullCommentary(entry, fbOpts);
+      if (comm?.full) {
+        entry.commentaire = comm;
+        entry.fullComment = comm.full;
+        introSimShowResult(entry, score, showOpts || { persist: true });
+      }
+    }
+
+    const wrap = el('intro-sim-matches');
+    if (wrap) {
+      const old = wrap.querySelector('.intro-sim-ollama-warn');
+      if (old) old.remove();
+      const p = document.createElement('p');
+      p.className = 'intro-sim-warn intro-sim-ollama-warn';
+      p.innerHTML = `Ollama indisponible (<strong>${introSimEsc(e.message)}</strong>) — commentaire modèle utilisé. Lance <code>start.ps1</code> ou <code>ollama serve</code>.`;
+      wrap.prepend(p);
+    }
+  } finally {
+    if (genId === _introSimOllamaGenId) _introSimOllamaAbort = null;
+  }
+}
+
 const INTRO_SIM_RECENT_KEY = 'bac_intro_sim_recent';
 const INTRO_SIM_RECENT_MAX = 8;
 const INTRO_SIM_FAV_MAX = 50;
@@ -11,33 +149,57 @@ function introSimFavKey(fields, full) {
     .join('|').toLowerCase();
 }
 
-function introSimGetFavIntros() {
-  return typeof loadFavs === 'function' ? (loadFavs().intros || []) : [];
+function introSimFavSaveText(entry) {
+  return entry?.fullComment || entry?.full || '';
+}
+
+function introSimFavIntroText(entry) {
+  if (entry?.temps) return Object.values(entry.temps).join('\n\n');
+  return entry?.full || '';
+}
+
+function introSimCanFav(entry) {
+  return !!(entry?.full || entry?.fullComment || entry?.temps);
 }
 
 function introSimIsFav(entry, fields) {
-  if (!entry?.full) return false;
-  const key = introSimFavKey(fields || introSimFields(), entry.full);
+  if (!introSimCanFav(entry)) return false;
+  const key = introSimFavKey(fields || introSimFields(), introSimFavSaveText(entry));
   return introSimGetFavIntros().some(i => i.key === key);
 }
 
 function introSimUpdateFavBtn() {
   const btn = el('intro-sim-fav-btn');
-  if (!btn) return;
-  const on = introSimIsFav(window._introSimCurrent, introSimFields());
-  btn.classList.toggle('on', on);
-  btn.textContent = on ? '★ Enregistrée' : '☆ Enregistrer';
-  btn.title = on ? 'Retirer des favoris' : 'Enregistrer dans mes favoris';
+  const btnComm = el('intro-sim-fav-comm-btn');
+  const entry = window._introSimCurrent;
+  const on = introSimIsFav(entry, introSimFields());
+  const hasComm = !!(entry?.fullComment || entry?.commentaire?.full);
+  [btn, btnComm].forEach(b => {
+    if (!b) return;
+    b.classList.toggle('on', on);
+    b.disabled = !introSimCanFav(entry);
+  });
+  if (btn) {
+    btn.textContent = on ? '★ Enregistrée' : (hasComm ? '☆ Enregistrer tout' : '☆ Enregistrer');
+    btn.title = on ? 'Retirer des favoris' : (hasComm ? 'Enregistrer intro + commentaire' : 'Enregistrer dans mes favoris');
+  }
+  if (btnComm) {
+    btnComm.textContent = on ? '★ Commentaire enregistré' : '☆ Enregistrer le commentaire';
+    btnComm.hidden = !hasComm;
+    btnComm.title = on ? 'Retirer des favoris' : 'Enregistrer le commentaire complet (IA ou modèle)';
+  }
 }
 
 function introSimToggleFav() {
   const entry = window._introSimCurrent;
-  if (!entry?.full) return;
+  if (!introSimCanFav(entry)) return;
   const fields = introSimFields();
   if (typeof loadFavs !== 'function' || typeof saveFavs !== 'function') return;
   const f = loadFavs();
   if (!f.intros) f.intros = [];
-  const key = introSimFavKey(fields, entry.fullComment || entry.full);
+  const saveText = introSimFavSaveText(entry);
+  const introOnly = introSimFavIntroText(entry);
+  const key = introSimFavKey(fields, saveText);
   const idx = f.intros.findIndex(i => i.key === key);
   if (idx >= 0) {
     f.intros.splice(idx, 1);
@@ -58,9 +220,12 @@ function introSimToggleFav() {
     genre: entry.genre || '',
     prob: entry.prob || 0,
     gtextId: entry.gtextId || null,
-    full: entry.fullComment || entry.full,
-    introOnly: entry.full,
-    temps: { ...entry.temps },
+    full: saveText || introOnly,
+    fullComment: entry.fullComment || null,
+    introOnly,
+    commentaire: entry.commentaire ? { ...entry.commentaire } : null,
+    fromOllama: !!(entry.commentaire?.fromOllama || entry.fullComment),
+    temps: entry.temps ? { ...entry.temps } : {},
   });
   if (f.intros.length > INTRO_SIM_FAV_MAX) f.intros.length = INTRO_SIM_FAV_MAX;
   saveFavs(f);
@@ -79,10 +244,18 @@ function introSimRemoveFavById(id) {
   if (typeof renderFavs === 'function') renderFavs();
 }
 
-function introSimCopyFavById(id) {
+function introSimGetFavIntros() {
+  return typeof loadFavs === 'function' ? (loadFavs().intros || []) : [];
+}
+
+function introSimCopyFavById(id, mode) {
   const item = introSimGetFavIntros().find(i => i.id === id);
-  if (!item?.full) return;
-  navigator.clipboard.writeText(item.full).then(() => {
+  if (!item) return;
+  const txt = mode === 'intro'
+    ? (item.introOnly || (item.temps ? Object.values(item.temps).join('\n\n') : ''))
+    : (item.fullComment || item.full || '');
+  if (!txt) return;
+  navigator.clipboard.writeText(txt).then(() => {
     if (typeof playSound === 'function') playSound('ok');
   }).catch(() => {});
 }
@@ -100,6 +273,10 @@ function introSimOpenFromFav(id) {
 }
 
 function introSimShowSavedFav(item) {
+  const introOnly = item.introOnly
+    || (item.temps ? Object.values(item.temps).join('\n\n') : '');
+  const fullComment = item.fullComment
+    || (item.full && item.full !== introOnly ? item.full : null);
   const entry = {
     id: item.entryId || 'FAV',
     auteurNom: item.auteurNom,
@@ -109,16 +286,18 @@ function introSimShowSavedFav(item) {
     genre: item.genre,
     prob: item.prob,
     gtextId: item.gtextId,
-    temps: item.temps,
-    full: item.introOnly || item.full,
-    fullComment: item.full,
+    temps: item.temps || {},
+    full: introOnly,
+    fullComment,
+    commentaire: item.commentaire || null,
     contexte: '',
     fallback: false,
     indexOnly: !item.gtextId,
     procedesCles: [],
     authorTips: [],
   };
-  if (item.fields && typeof introSimAttachCommentary === 'function' && entry.fullComment && entry.fullComment !== entry.full) {
+  if (!entry.commentaire && !entry.fullComment
+    && item.fields && typeof introSimAttachCommentary === 'function') {
     introSimAttachCommentary(entry, {
       userExcerpt: item.fields.passage,
       passageRaw: item.fields.passage,
@@ -476,6 +655,7 @@ function initIntroSim() {
     introSimRenderGtGenreFilters();
     introSimRenderGtDemos();
     introSimUpdateGtDemoLabel();
+    introSimInitOllamaUi();
     introSimApplyQuery();
     const gtSearch = el('intro-sim-gt-search');
     if (gtSearch && !gtSearch.dataset.ready) {
@@ -760,6 +940,9 @@ function introSimRenderMatches(matches, auteur, oeuvre, passage, silent) {
   window._introSimMatches = top;
   _introSimProbIdx = 0;
   introSimShowResult(top[0].entry, top[0].score, { persist: !silent });
+  if (!silent && introSimOllamaEnabled() && introSimWantsFullCommentary(passage)) {
+    introSimRequestOllamaCommentary(top[0].entry, passage, top[0].score, { persist: true });
+  }
 }
 
 function introSimPickMatch(idx) {
@@ -768,6 +951,10 @@ function introSimPickMatch(idx) {
   document.querySelectorAll('.intro-sim-match-chip').forEach((c, i) => c.classList.toggle('on', i === idx));
   _introSimProbIdx = 0;
   introSimShowResult(m.entry, m.score, { persist: true });
+  const passage = el('intro-sim-passage')?.value.trim() || '';
+  if (introSimOllamaEnabled() && introSimWantsFullCommentary(passage)) {
+    introSimRequestOllamaCommentary(m.entry, passage, m.score, { persist: true });
+  }
 }
 
 function introSimShowResult(entry, score, showOpts) {
@@ -826,7 +1013,8 @@ function introSimShowResult(entry, score, showOpts) {
     <div class="intro-sim-comm">
       <div class="intro-sim-comm-head">
         <strong>Commentaire rédigé</strong>
-        <span class="intro-sim-comm-meta">${comm.parts?.length || 3} partie(s) · ${comm.ipcCount || 0} analyse(s) IPCI${comm.lineCount ? ` · ${comm.lineCount} vers/lignes couverts` : ''}${comm.fromCorpus ? ' · corrigé GT' : ''}</span>
+        <span class="intro-sim-comm-meta">${comm.parts?.length || 3} partie(s) · ${comm.ipcCount || 0} analyse(s) IPCI${comm.lineCount ? ` · ${comm.lineCount} vers/lignes couverts` : ''}${comm.fromOllama ? ` · IA locale (${introSimEsc(comm.model || 'Ollama')})` : ''}${comm.fromCorpus ? ' · corrigé GT' : ''}</span>
+        <button type="button" class="sbtn sec intro-sim-fav-btn intro-sim-fav-comm-btn" id="intro-sim-fav-comm-btn" onclick="introSimToggleFav()">☆ Enregistrer le commentaire</button>
       </div>
       ${(comm.parts || []).map(p => `
         <div class="intro-sim-comm-part">
@@ -868,6 +1056,7 @@ function introSimShowResult(entry, score, showOpts) {
   window._introSimCurrent = { ...entry, temps: { ...entry.temps, problematique: probText } };
   window._introSimCurrent.full = keys.map(k => window._introSimCurrent.temps[k]).join('\n\n');
   if (entry.fullComment) window._introSimCurrent.fullComment = entry.fullComment;
+  if (entry.commentaire) window._introSimCurrent.commentaire = entry.commentaire;
   if (showOpts.persist) {
     introSimSaveRecent(introSimFields());
     introSimPushQuery(introSimFields());
@@ -883,6 +1072,7 @@ function introSimRotateProb() {
 }
 
 function introSimGenerate() {
+  introSimAbortOllama();
   const run = () => {
     if (typeof introSimSearch !== 'function') {
       alert('Banque de commentaires non chargée.');

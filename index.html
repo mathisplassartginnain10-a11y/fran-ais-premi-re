@@ -1660,13 +1660,20 @@
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-passage">Texte ou titre du passage</label>
           <textarea class="sinput intro-sim-input intro-sim-textarea intro-sim-textarea-lg" id="intro-sim-passage" rows="8" placeholder="Colle la 1re phrase du passage, puis … puis la dernière phrase (comme au bac). Ou seulement le titre (ex. Chanson d'automne)…" autocomplete="off"></textarea>
-          <p class="intro-sim-hint">Texte complet collé → commentaire entièrement rédigé (intro + développement IPCI + conclusion), avec citations numérotées sur ton extrait.</p>
+          <p class="intro-sim-hint">Commentaire modèle par défaut · option Ollama pour qwen3:14b. Recommandé : lancer via <code>start.ps1</code> (Ollama auto).</p>
         </div>
         <div class="intro-sim-row intro-sim-mode-row">
           <label class="intro-sim-check">
             <input type="checkbox" id="intro-sim-fullmode" checked>
             Générer le commentaire complet (décocher pour l'intro seule)
           </label>
+        </div>
+        <div class="intro-sim-row intro-sim-mode-row">
+          <label class="intro-sim-check">
+            <input type="checkbox" id="intro-sim-ollama">
+            <span class="intro-sim-opt">Optionnel —</span> rédiger via Ollama GPU (bac-qwen3-14b · VRAM)
+          </label>
+          <span class="intro-sim-ollama-status" id="intro-sim-ollama-status">…</span>
         </div>
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-theme">Thème <span class="intro-sim-opt">(optionnel — remplace l'auto)</span></label>
@@ -1678,6 +1685,13 @@
         </div>
       </div>
       <div id="intro-sim-matches" class="intro-sim-matches"></div>
+      <div id="intro-sim-ollama-panel" class="intro-sim-ollama-panel" hidden>
+        <div class="intro-sim-ollama-head">
+          <strong>Génération IA (Ollama)</strong>
+          <button type="button" class="sbtn sec intro-sim-ollama-cancel" onclick="introSimAbortOllama();introSimSetOllamaPanel(false)">Annuler</button>
+        </div>
+        <pre class="intro-sim-ollama-stream" id="intro-sim-ollama-stream"></pre>
+      </div>
       <div id="intro-sim-result" class="intro-sim-result"></div>
     </div>
   </div>
@@ -2209,7 +2223,8 @@
 <script defer src="js/data-gtextes-extra21.js?v=20260706"></script>
 <script defer src="js/data-bac-passages.js?v=20260625"></script>
 <script defer src="js/data-gtextes-oeuvre-by-id.js?v=20260622"></script>
-<script defer src="js/data-intro-simulator.js?v=20260710"></script>
+<script defer src="js/data-intro-simulator.js?v=20260711"></script>
+<script defer src="js/ollama-comment.js?v=20260716"></script>
 <script defer src="js/data-grammaire.js"></script>
 <script defer src="js/data-vocabulaire.js"></script>
 <script defer src="js/data-vocabulaire-extra.js"></script>
@@ -2223,7 +2238,7 @@
 <script defer src="js/time-tracker.js?v=20260608"></script>
 <script defer src="js/pages/core.js?v=20260611"></script>
 <script defer src="js/pages/challenge.js?v=20260607"></script>
-<script defer src="js/pages/favoris.js?v=20260626"></script>
+<script defer src="js/pages/favoris.js?v=20260715"></script>
 <script defer src="js/pages/proc.js?v=20260615"></script>
 <script defer src="js/pages/gram.js?v=20260607"></script>
 <script defer src="js/pages/vocab.js?v=20260607"></script>
@@ -2235,7 +2250,7 @@
 <script defer src="js/pages/exercices.js?v=20260703"></script>
 <script defer src="js/pages/corpus.js?v=20260615"></script>
 <script defer src="js/pages/gtextes.js?v=20260709"></script>
-<script defer src="js/pages/intro-sim.js?v=20260710"></script>
+<script defer src="js/pages/intro-sim.js?v=20260715"></script>
 <script defer src="js/pages/auteurs.js?v=20260702"></script>
 <script defer src="js/stats-engine.js?v=20260628"></script>
 <script defer src="js/pages/boot-app.js?v=20260623"></script>

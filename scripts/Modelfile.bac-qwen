@@ -1,0 +1,9 @@
+# bac-qwen3-14b — qwen3:14b calibré VRAM GPU (16 Go · ctx 8192)
+# ollama create bac-qwen3-14b -f scripts/Modelfile.bac-qwen
+FROM qwen3:14b
+PARAMETER num_ctx 8192
+PARAMETER num_gpu 999
+PARAMETER num_thread 2
+PARAMETER num_batch 384
+PARAMETER temperature 0.65
+PARAMETER repeat_penalty 1.1

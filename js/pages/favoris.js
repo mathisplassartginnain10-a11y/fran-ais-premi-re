@@ -177,7 +177,7 @@ function renderFavs() {
     empty = false;
     const h = document.createElement('div');
     h.className = 'fav-section-title';
-    h.textContent = '📝 Introductions enregistrées';
+    h.textContent = '📝 Commentaires & introductions enregistrés';
     cont.appendChild(h);
     const list = document.createElement('div');
     list.className = 'fav-intro-list';
@@ -187,24 +187,32 @@ function renderFavs() {
       const date = item.savedAt
         ? new Date(item.savedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })
         : '';
-      const preview = (item.full || '').replace(/\s+/g, ' ').trim().slice(0, 200);
+      const hasComm = !!(item.fullComment || (item.commentaire?.full));
+      const previewSrc = item.fullComment || item.full || item.introOnly || '';
+      const preview = previewSrc.replace(/\s+/g, ' ').trim().slice(0, 220);
       const titre = item.titre || item.fields?.passage || item.fields?.oeuvre || 'Introduction';
+      const badges = [];
+      if (hasComm) badges.push('<span class="fav-intro-tag fav-intro-tag-comm">Commentaire complet</span>');
+      if (item.commentaire?.fromOllama || item.fromOllama) badges.push('<span class="fav-intro-tag fav-intro-tag-ia">IA Ollama</span>');
+      else if (item.commentaire?.fromCorpus) badges.push('<span class="fav-intro-tag">Corrigé GT</span>');
       card.innerHTML = `
         <div class="fav-intro-head">
           <div class="fav-intro-titles">
             <strong>${favEsc(item.auteurNom || item.fields?.auteur)}</strong>
             <span>${favEsc(titre)}</span>
+            ${badges.length ? `<div class="fav-intro-tags">${badges.join('')}</div>` : ''}
           </div>
           <div class="fav-intro-head-right">
             ${item.prob ? `<span class="intro-sim-prob-badge">~${item.prob}%</span>` : ''}
             <button type="button" class="fav-btn on" onclick="introSimRemoveFavById('${favEsc(item.id)}')" title="Retirer des favoris">★</button>
           </div>
         </div>
-        <p class="fav-intro-preview">${favEsc(preview)}${(item.full || '').length > 200 ? '…' : ''}</p>
+        <p class="fav-intro-preview">${favEsc(preview)}${previewSrc.length > 220 ? '…' : ''}</p>
         <div class="fav-intro-meta">${favEsc(date)}${item.entryId ? ' · ' + favEsc(item.entryId) : ''}</div>
         <div class="fav-intro-actions">
           <button type="button" class="sbtn" onclick="introSimOpenFromFav('${favEsc(item.id)}')">Ouvrir</button>
-          <button type="button" class="sbtn sec" onclick="introSimCopyFavById('${favEsc(item.id)}')">📋 Copier</button>
+          <button type="button" class="sbtn sec" onclick="introSimCopyFavById('${favEsc(item.id)}')">📋 Copier ${hasComm ? 'tout' : ''}</button>
+          ${hasComm ? `<button type="button" class="sbtn sec" onclick="introSimCopyFavById('${favEsc(item.id)}', 'intro')">📋 Intro seule</button>` : ''}
         </div>`;
       list.appendChild(card);
     });
@@ -212,7 +220,7 @@ function renderFavs() {
   }
 
   if (empty) {
-    cont.innerHTML = '<div class="fav-empty">Aucun favori pour l\'instant.<br>Clique sur ★ dans les fiches, les QCM, ou <strong>Enregistrer</strong> dans le simulateur d\'intro.</div>';
+    cont.innerHTML = '<div class="fav-empty">Aucun favori pour l\'instant.<br>Clique sur ★ dans les fiches, les QCM, ou <strong>Enregistrer</strong> / <strong>Enregistrer le commentaire</strong> dans le simulateur.</div>';
   }
 }
 

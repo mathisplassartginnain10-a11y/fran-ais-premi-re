@@ -1317,6 +1317,12 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 .intro-sim-check input{margin-top:.15rem;accent-color:var(--gold)}
 .intro-sim-comm{margin-top:1rem;padding-top:.85rem;border-top:1px solid var(--b1)}
 .intro-sim-comm-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.65rem}
+.intro-sim-comm-head .intro-sim-fav-comm-btn{margin-left:auto;font-size:10.5px!important;padding:4px 10px!important}
+.intro-sim-fav-btn.on,.intro-sim-fav-comm-btn.on{color:var(--gold2)!important;border-color:var(--gold)!important}
+.fav-intro-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:.35rem}
+.fav-intro-tag{font-size:9px;padding:2px 7px;border-radius:999px;background:var(--s3);color:var(--tx3);text-transform:uppercase;letter-spacing:.04em}
+.fav-intro-tag-comm{background:rgba(42,157,143,.15);color:var(--teal,#2a9d8f)}
+.fav-intro-tag-ia{background:rgba(201,168,76,.15);color:var(--gold2)}
 .intro-sim-comm-meta{font-size:11px;color:var(--tx3)}
 .intro-sim-comm-part{margin-bottom:.75rem;padding:.65rem .75rem;background:var(--s2);border-radius:var(--rad1);border-left:3px solid var(--teal,#2a9d8f)}
 .intro-sim-comm-part-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--teal,#2a9d8f);margin-bottom:.35rem}
@@ -1324,6 +1330,14 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 .intro-sim-comm-trans{font-size:12px;font-style:italic;color:var(--tx2);margin:.55rem 0 .25rem;padding-left:.5rem;border-left:2px solid var(--b2)}
 .intro-sim-comm-concl{border-left-color:var(--gold)}
 .intro-sim-hint{font-size:.78rem;color:var(--muted, #6b7280);margin:.1rem 0 0;line-height:1.35}
+.intro-sim-ollama-status{display:block;font-size:10.5px;color:var(--tx3);margin:.25rem 0 0 .1rem}
+.intro-sim-ollama-status.ok{color:var(--green,#52b788)}
+.intro-sim-ollama-status.err{color:var(--amber)}
+.intro-sim-ollama-panel{margin:.75rem 0 1rem;padding:.75rem .85rem;background:var(--s2);border:1px solid color-mix(in srgb,var(--teal,#2a9d8f) 35%,var(--b2));border-radius:var(--rad2)}
+.intro-sim-ollama-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.5rem;font-size:12px;color:var(--tx2)}
+.intro-sim-ollama-stream{margin:0;max-height:220px;overflow:auto;font-size:11.5px;line-height:1.45;color:var(--tx2);white-space:pre-wrap;word-break:break-word;font-family:inherit}
+.intro-sim-ollama-cancel{font-size:10px!important;padding:3px 8px!important}
+.intro-sim-ollama-warn{margin-bottom:.65rem!important}
 .intro-sim-form-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:.25rem}
 .intro-sim-btn{justify-self:start}
 .gtext-intro-sim-btn{margin:.35rem 0 .5rem}
