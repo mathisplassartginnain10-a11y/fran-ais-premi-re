@@ -1,0 +1,178 @@
+[
+  {
+    "id": "GT-033",
+    "file": "data-gtextes-extra.js",
+    "proc": "Registre pathétique",
+    "cite": "« sa peur de rougir et de se trahir »",
+    "interp": "Registre pathétique : la vulnérabilité de Julien suscite la compassion — héros mal à l'aise dans un monde social supérieur.",
+    "score": 65
+  },
+  {
+    "id": "GT-038",
+    "file": "data-gtextes-extra.js",
+    "proc": "Focalisation externe",
+    "cite": "« L'opinion générale était »",
+    "interp": "Focalisation externe : le narrateur observe la cité sans entrer dans une conscience — distance chronique.",
+    "score": 65
+  },
+  {
+    "id": "GT-052",
+    "file": "data-gtextes-extra2.js",
+    "proc": "Registre satirique",
+    "cite": "« mérite le nom de… »",
+    "interp": "Registre satirique : Balzac moque les prétentions d'une pension misérable — critique du quotidien parisien.",
+    "score": 65
+  },
+  {
+    "id": "GT-081",
+    "file": "data-gtextes-extra3.js",
+    "proc": "Registre pathétique",
+    "cite": "« Il ne dépend pas de moi »",
+    "interp": "Registre pathétique : la princesse est victime d'un sentiment involontaire — pitié pour une héroïne déchirée.",
+    "score": 65
+  },
+  {
+    "id": "GT-010",
+    "file": "data-gtextes.js",
+    "proc": "Registre satirique",
+    "cite": "« boucherie héroïque »",
+    "interp": "Registre satirique : Voltaire ridiculise le discours officiel sur la guerre par l'ironie et le grotesque — dénonciation par le rire.",
+    "score": 65
+  },
+  {
+    "id": "GT-010",
+    "file": "data-gtextes.js",
+    "proc": "Hyperbole",
+    "cite": "« tremblait de tous ses membres »",
+    "interp": "Hyperbole : la peur de Candide est exagérée corporellement pour marquer l'horreur ressentie face au massacre.",
+    "score": 65
+  },
+  {
+    "id": "GT-016",
+    "file": "data-gtextes.js",
+    "proc": "Registre pathétique",
+    "cite": "« noirs, écrasés… courbés sous la fatigue »",
+    "interp": "Registre pathétique : la souffrance des mineurs suscite pitié et indignation — Zola veut émouvoir pour dénoncer.",
+    "score": 65
+  },
+  {
+    "id": "GT-016",
+    "file": "data-gtextes.js",
+    "proc": "Registre épique",
+    "cite": "« La fosse crachait sa besogne »",
+    "interp": "Registre épique : souffle grandiose de la description collective — la mine comme monstre dévorant les hommes.",
+    "score": 65
+  },
+  {
+    "id": "GT-029",
+    "file": "data-gtextes.js",
+    "proc": "Registre satirique",
+    "cite": "« rien de si singulier que ce pays-ci »",
+    "interp": "Registre satirique : le regard persan déforme Paris pour en révéler les absurdités — dénonciation par le décalage culturel.",
+    "score": 65
+  },
+  {
+    "id": "GT-030",
+    "file": "data-gtextes.js",
+    "proc": "Registre tragique",
+    "cite": "« me fait trembler et craindre »",
+    "interp": "Registre tragique : Athalie est saisie par la peur d'une fatalité divine — terreur devant un pouvoir qui la dépasse.",
+    "score": 65
+  },
+  {
+    "id": "GT-032",
+    "file": "data-gtextes-extra.js",
+    "proc": "Registre lyrique",
+    "cite": "« Je dirai quelque jour vos naissances latentes »",
+    "interp": "Registre lyrique : le « je » poétique promet de révéler un mystère intime des voyelles — subjectivité visionnaire.",
+    "score": 70
+  },
+  {
+    "id": "GT-041",
+    "file": "data-gtextes-extra.js",
+    "proc": "Registre satirique",
+    "cite": "ensemble de la scène",
+    "interp": "Registre satirique : Ionesco dénonce la bêtise collective par l'absurde — métaphore de la déshumanisation.",
+    "score": 70
+  },
+  {
+    "id": "GT-046",
+    "file": "data-gtextes-extra2.js",
+    "proc": "Registre lyrique",
+    "cite": "« je ris et je pleure »",
+    "interp": "Registre lyrique : expression directe du « je » et des émotions contradictoires — subjectivité amoureuse.",
+    "score": 70
+  },
+  {
+    "id": "GT-046",
+    "file": "data-gtextes-extra2.js",
+    "proc": "Sonnet",
+    "cite": "forme 14 vers",
+    "interp": "Sonnet: la structure en quatrains et tercets organise la amour contradictoire et permet un retournement au dernier tercet.",
+    "score": 70
+  },
+  {
+    "id": "GT-101",
+    "file": "data-gtextes-extra4.js",
+    "proc": "Sonnet",
+    "cite": "forme 14 vers",
+    "interp": "Sonnet: la structure en quatrains et tercets organise la métaphore de la jeunesse et du temps qui passe et permet un retournement au dernier tercet.",
+    "score": 70
+  },
+  {
+    "id": "GT-007",
+    "file": "data-gtextes.js",
+    "proc": "Registre tragique",
+    "cite": "ensemble du monologue",
+    "interp": "Registre tragique : Camille est broyée par la fatalité politique et amoureuse. La cité l'emporte sur l'individu — terreur et pitié.",
+    "score": 70
+  },
+  {
+    "id": "GT-008",
+    "file": "data-gtextes.js",
+    "proc": "Registre tragique",
+    "cite": "ensemble du vers",
+    "interp": "Registre tragique : l'image obsédante des serpents traduit une menace fatale et une atmosphère d'angoisse.",
+    "score": 70
+  },
+  {
+    "id": "GT-011",
+    "file": "data-gtextes.js",
+    "proc": "Registre lyrique",
+    "cite": "« Mignonne, allons voir… »",
+    "interp": "Registre lyrique : apostrophe amoureuse, « je » poétique qui s'adresse à la femme — célébration intime de la beauté et du temps.",
+    "score": 70
+  },
+  {
+    "id": "GT-019",
+    "file": "data-gtextes.js",
+    "proc": "Personnification",
+    "cite": "La Cigale… La Fourmi sa voisine",
+    "interp": "Personnification : les insectes parlent, raisonnent et agissent comme des humains — procédé propre à la fable.",
+    "score": 70
+  },
+  {
+    "id": "GT-020",
+    "file": "data-gtextes.js",
+    "proc": "Registre lyrique",
+    "cite": "« je vous aime… je ne respire et ne vis que pour vous »",
+    "interp": "Registre lyrique : expression directe des sentiments intimes — « je » amoureux, passion déclarée sans retenue.",
+    "score": 70
+  },
+  {
+    "id": "GT-021",
+    "file": "data-gtextes.js",
+    "proc": "Registre lyrique",
+    "cite": "« De la musique avant toute chose »",
+    "interp": "Registre lyrique : le poète exprime une vision personnelle de l'art — subjectivité du « tu » poétique adressé au poète.",
+    "score": 70
+  },
+  {
+    "id": "GT-023",
+    "file": "data-gtextes.js",
+    "proc": "Registre comique",
+    "cite": "monologue de Scapin",
+    "interp": "Registre comique : quiproquo, fausses hésitations, gestuelle — le rire naît de la situation et du personnage rusé.",
+    "score": 70
+  }
+]

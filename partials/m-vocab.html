@@ -1,0 +1,128 @@
+<div id="m-vocab" class="matiere">
+  <div class="subnav" id="snav-vocab">
+    <button class="stab on" onclick="switchPg('vocab','p-cours',this)">📖 Fiches</button>
+    <button class="stab"    onclick="switchPg('vocab','p-vcartes',this)">🃏 Cartes</button>
+    <button class="stab"    onclick="switchPg('vocab','p-qcm',this)">✏️ QCM</button>
+    <button class="stab"    onclick="switchPg('vocab','p-exam',this)">🏆 Examen</button>
+    <button class="stab"    onclick="switchPg('vocab','p-stat',this)">📊 Stats</button>
+  </div>
+
+  <div id="vocab-p-cours" class="pg on">
+    <div class="hero">
+      <div class="eyebrow">Vocabulaire · Première · Bac de Français</div>
+      <h1>Vocabulaire de <em>l'analyse</em> &amp; <em>Bien rédiger</em></h1>
+      <p class="hero-sub" id="vocab-count-hero">… fiches · Lexique commentaire & dissertation · Clic pour développer</p>
+    </div>
+    <div class="fbar">
+      <div class="sbox">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="sinput" id="vsrch" placeholder="Rechercher dans le vocabulaire…">
+      </div>
+      <div class="chips" id="vchips"></div>
+    </div>
+    <div class="wrap">
+      <div class="cbar" id="vcbar"></div>
+      <div id="vgrid"></div>
+    </div>
+  </div>
+
+  <div id="vocab-p-vcartes" class="pg">
+    <div class="wrap-sm">
+      <div class="qcm-top">
+        <h2>Cartes <em>Vocabulaire</em></h2>
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          <span id="vcarte-prog" style="font-size:12px;color:var(--tx2)">0 / 0</span>
+          <button class="sbtn" onclick="vCarteShuffle()">🔀 Mélanger</button>
+          <button class="sbtn" onclick="vCarteReset()">↺ Recommencer</button>
+        </div>
+      </div>
+      <div class="chips" id="vcarte-chips" style="margin-bottom:1rem"></div>
+      <div class="ptrack" style="margin-bottom:1.2rem"><div class="pfill" id="vcarte-pbar" style="width:0%"></div></div>
+      <div class="kb-info">
+        <span><kbd>Espace</kbd> retourner</span>
+        <span><kbd>←</kbd><kbd>→</kbd> naviguer</span>
+      </div>
+      <div id="vcarte-cont"></div>
+    </div>
+  </div>
+
+  <div id="vocab-p-exam" class="pg">
+    <div class="wrap-sm">
+      <div id="vocab-exam-cont"></div>
+    </div>
+  </div>
+
+  <div id="vocab-p-qcm" class="pg">
+    <div class="wrap-sm">
+      <div class="qcm-top">
+        <h2>QCM <em>Vocabulaire</em> <span class="qcm-count" id="qcm-count-vocab"></span></h2>
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          <div class="scorepill">Score : <b id="vqsc">0</b> / <b id="vqtot">0</b></div>
+          <button class="sbtn" id="vtimer-btn" onclick="toggleTimer('vocab')" title="Timer 30s par question">⏱ Timer</button>
+          <button class="revise-btn" id="vrevise-btn" onclick="toggleRevise('vocab')" title="Réviser les questions difficiles">🎯 Ciblée</button>
+          <button class="sbtn" id="vfocus-btn" onclick="toggleQcmFocus('vocab')" title="Une question à la fois">🔍 Focus</button>
+          <button class="sbtn" onclick="mixQ('vocab')">🔀 Mélanger</button>
+          <button class="pbtn" onclick="resetQ('vocab')">↺ Recommencer</button>
+        </div>
+      </div>
+      <div class="session-bar">
+        <span class="session-lbl">Session :</span>
+        <div class="chips chips-inline" id="v-session-chips">
+          <button class="chip" onclick="setQcmSession(10,this)">10</button>
+          <button class="chip on" onclick="setQcmSession(20,this)">20</button>
+          <button class="chip" onclick="setQcmSession(30,this)">30</button>
+          <button class="chip" onclick="setQcmSession(50,this)">50</button>
+          <button class="chip" onclick="setQcmSession(100,this)">100</button>
+          <button class="chip" onclick="setQcmSession(0,this)">Toutes</button>
+        </div>
+      </div>
+      <div style="margin-bottom:1.1rem">
+        <div class="ptrack"><div class="pfill" id="vqbar" style="width:0%"></div></div>
+        <div class="plbl" id="vqprog">0 question répondue</div>
+      </div>
+      <div class="kb-info" style="margin-bottom:.8rem">
+        <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> répondre à la question suivante</span>
+      </div>
+      <div class="chips" id="vqcats" style="margin-bottom:1.2rem"></div>
+      <div id="vqcont"></div>
+    </div>
+  </div>
+
+  <div id="vocab-p-stat" class="pg">
+    <div class="wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.6rem">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700">
+          Stats <em style="font-style:italic;color:var(--gold2)">Vocabulaire</em>
+        </h2>
+        <div style="display:flex;gap:7px">
+          <button class="sbtn" onclick="window.print()">🖨 Imprimer</button>
+          <button class="rst-btn" onclick="clearSt('vocab')">Réinitialiser</button>
+        </div>
+      </div>
+      <div id="vreadiness"></div>
+      <div id="vexamprob"></div>
+      <div class="kpig" id="vkpis"></div>
+      <div class="charts">
+        <div class="cbox cbox-wide"><div class="ctitle">Décomposition de l'indice (100 pts)</div><div id="vfactors"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><div class="ctitle">Maîtrise par thème</div><div id="vmastery"></div></div>
+        <div class="cbox"><div class="ctitle">Recommandations</div><div id="vrecommend"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><div class="ctitle">Score par thème</div><div id="vradar"></div></div>
+        <div class="cbox"><div class="ctitle">Historique sessions (14 dernières)</div><div class="tl" id="vtl"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><div class="ctitle">Examens blancs</div><div id="vexams"></div></div>
+        <div class="cbox"><div class="ctitle">Questions difficiles</div><div id="vhard"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox cbox-wide"><div class="ctitle">Défis express (10 min)</div><div id="vchallenge"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox cbox-wide"><div class="ctitle">Dernières parties</div><div id="vhist"></div></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /m-vocab -->

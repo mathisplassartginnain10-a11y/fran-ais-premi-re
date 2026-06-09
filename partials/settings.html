@@ -1,0 +1,1347 @@
+﻿<div class="settings-overlay" id="settings-overlay" onclick="closeSettings()"></div>
+
+<aside class="settings-panel" id="settings-panel">
+
+  <div class="sp-header">
+    <span class="sp-title">⚙️ Paramètres</span>
+    <button class="sp-close" onclick="closeSettings()">✕</button>
+  </div>
+
+  <div class="sp-body">
+
+    <!-- PRESETS -->
+    <div class="sp-presets">
+      <span class="sp-presets-lbl">Profils rapides :</span>
+      <button class="sp-preset-btn" onclick="applySettingsPreset('full')">Complet</button>
+      <button class="sp-preset-btn" onclick="applySettingsPreset('revision')">Révision</button>
+      <button class="sp-preset-btn" onclick="applySettingsPreset('exam')">Examen</button>
+      <button class="sp-preset-btn" onclick="applySettingsPreset('minimal')">Minimal</button>
+      <button class="sp-preset-btn" onclick="applySettingsPreset('focus')">Focus</button>
+      <button class="sp-preset-btn" onclick="applySettingsPreset('cosy')">Cosy</button>
+      <button class="sp-preset-btn" onclick="applyCustomPreset()">Mon profil</button>
+      <button class="sp-preset-btn sp-preset-save" onclick="saveCustomPreset()" title="Enregistrer tous les réglages actuels">💾 Sauver</button>
+    </div>
+
+    <div class="sp-tabs" id="sp-tabs">
+      <button type="button" class="sp-tab on" data-tab="design" onclick="switchSettingsTab('design',this)">🎨 Design</button>
+      <button type="button" class="sp-tab" data-tab="interface" onclick="switchSettingsTab('interface',this)">🖥 Interface</button>
+      <button type="button" class="sp-tab" data-tab="profile" onclick="switchSettingsTab('profile',this)">👤 Profil</button>
+      <button type="button" class="sp-tab" data-tab="learn" onclick="switchSettingsTab('learn',this)">📚 Apprendre</button>
+      <button type="button" class="sp-tab" data-tab="data" onclick="switchSettingsTab('data',this)">💾 Données</button>
+    </div>
+    <div class="sp-search-wrap">
+      <input type="search" class="sp-search" id="sp-search" placeholder="Rechercher un réglage…" autocomplete="off"
+        oninput="filterSettingsPanel(this.value)">
+    </div>
+
+    <!-- APPARENCE -->
+    <div class="sp-section" data-sp-tab="design">
+      <div class="sp-section-title">🎨 Apparence</div>
+
+      <div class="sp-preview" id="sp-preview"></div>
+
+      <div class="sp-row">
+        <div class="sp-label">Thème automatique (système)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-themeauto" onchange="applySetting('themeAuto',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Thème</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-theme">
+            <button class="seg-btn" data-val="dark"  onclick="applySetting('theme','dark',this)">🌙 Sombre</button>
+            <button class="seg-btn" data-val="light" onclick="applySetting('theme','light',this)">☀️ Clair</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Couleur d'accent</div>
+        <div class="sp-ctrl">
+          <div class="accent-swatches" id="accent-swatches"></div>
+          <input type="color" class="sp-color" id="inp-accent-custom" title="Couleur personnalisée"
+            onchange="applyCustomAccent(this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Style des cartes</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-surface">
+            <button class="seg-btn" data-val="default" onclick="applySetting('surfaceStyle','default',this)">Classique</button>
+            <button class="seg-btn" data-val="glass" onclick="applySetting('surfaceStyle','glass',this)">Verre</button>
+            <button class="seg-btn" data-val="flat" onclick="applySetting('surfaceStyle','flat',this)">Plat</button>
+            <button class="seg-btn" data-val="soft" onclick="applySetting('surfaceStyle','soft',this)">Doux</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Coins arrondis</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-radius">
+            <button class="seg-btn" data-val="sharp" onclick="applySetting('borderRadius','sharp',this)">Vifs</button>
+            <button class="seg-btn" data-val="normal" onclick="applySetting('borderRadius','normal',this)">Normal</button>
+            <button class="seg-btn" data-val="round" onclick="applySetting('borderRadius','round',this)">Ronds</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">En-têtes de page</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-hero">
+            <button class="seg-btn" data-val="minimal" onclick="applySetting('heroStyle','minimal',this)">Minimal</button>
+            <button class="seg-btn" data-val="gradient" onclick="applySetting('heroStyle','gradient',this)">Dégradé</button>
+            <button class="seg-btn" data-val="bold" onclick="applySetting('heroStyle','bold',this)">Marqué</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Lueur accent (or / couleur)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-accentglow" onchange="applySetting('accentGlow',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Barre compte à rebours Bac</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-countdown" onchange="applySetting('showCountdownBar',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Onglets sous-nav</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-navstyle">
+            <button class="seg-btn" data-val="default" onclick="applySetting('navStyle','default',this)">Classique</button>
+            <button class="seg-btn" data-val="pills" onclick="applySetting('navStyle','pills',this)">Capsules</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Fond de page</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-background">
+            <button class="seg-btn" data-val="default" onclick="applySetting('backgroundStyle','default',this)">Uni</button>
+            <button class="seg-btn" data-val="subtle" onclick="applySetting('backgroundStyle','subtle',this)">Grain</button>
+            <button class="seg-btn" data-val="gradient" onclick="applySetting('backgroundStyle','gradient',this)">Dégradé</button>
+            <button class="seg-btn" data-val="plain" onclick="applySetting('backgroundStyle','plain',this)">Plat</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Couleurs par matière (nav)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-matierecolors" onchange="applySetting('matiereColors',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Bordures des cartes</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-cardborder">
+            <button class="seg-btn" data-val="normal" onclick="applySetting('cardBorder','normal',this)">Normal</button>
+            <button class="seg-btn" data-val="accent" onclick="applySetting('cardBorder','accent',this)">Accent</button>
+            <button class="seg-btn" data-val="minimal" onclick="applySetting('cardBorder','minimal',this)">Minimal</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Taille du texte</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-fontsize">
+            <button class="seg-btn" data-val="0" onclick="applySetting('fontSize',0,this)">A−</button>
+            <button class="seg-btn" data-val="1" onclick="applySetting('fontSize',1,this)">A</button>
+            <button class="seg-btn" data-val="2" onclick="applySetting('fontSize',2,this)">A+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Densité d'affichage</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-density">
+            <button class="seg-btn" data-val="compact"  onclick="applySetting('density','compact',this)">Compact</button>
+            <button class="seg-btn" data-val="normal"   onclick="applySetting('density','normal',this)">Normal</button>
+            <button class="seg-btn" data-val="spacious" onclick="applySetting('density','spacious',this)">Aéré</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Animations</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-animations" onchange="applySetting('animations',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Police</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-fontfamily">
+            <button class="seg-btn" data-val="default" onclick="applySetting('fontFamily','default',this)">Mixte</button>
+            <button class="seg-btn" data-val="serif" onclick="applySetting('fontFamily','serif',this)">Serif</button>
+            <button class="seg-btn" data-val="sans" onclick="applySetting('fontFamily','sans',this)">Sans</button>
+            <button class="seg-btn" data-val="system" onclick="applySetting('fontFamily','system',this)">Système</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Zoom interface
+          <div class="sp-sub" id="uiscale-val-lbl">100%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-uiscale" min="85" max="120" step="5" value="100"
+            oninput="applySetting('uiScale',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Colonnes procédés</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-gridcols">
+            <button class="seg-btn" data-val="2" onclick="applySetting('procGridCols',2,this)">2</button>
+            <button class="seg-btn" data-val="3" onclick="applySetting('procGridCols',3,this)">3</button>
+            <button class="seg-btn" data-val="4" onclick="applySetting('procGridCols',4,this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Panneau paramètres large</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-spwide" onchange="applySetting('settingsPanelWide',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFIL -->
+    <div class="sp-section" data-sp-tab="profile">
+      <div class="sp-section-title">👤 Profil</div>
+      <div class="sp-row">
+        <div class="sp-label">Titre de l'app</div>
+        <div class="sp-ctrl">
+          <input type="text" class="sp-text" id="inp-brand" maxlength="48" placeholder="Bac de Français"
+            onchange="applySetting('brandTitle',this.value||'Bac de Français')">
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Ton prénom (tableau de bord)</div>
+        <div class="sp-ctrl">
+          <input type="text" class="sp-text" id="inp-username" maxlength="24" placeholder="Optionnel"
+            onchange="applySetting('userName',this.value);applyUiPreferences(true)">
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Emoji profil (nav + dashboard)</div>
+        <div class="sp-ctrl">
+          <input type="text" class="sp-text sp-text-emoji" id="inp-profile-emoji" maxlength="4" placeholder="📚"
+            oninput="applySetting('profileEmoji',this.value);applyUiPreferences(true)">
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Objectif Bac (dashboard)</div>
+        <div class="sp-ctrl">
+          <input type="text" class="sp-text" id="inp-profile-goal" maxlength="48" placeholder="Ex. Viser 14/20 · mention B"
+            onchange="applySetting('profileGoal',this.value);scheduleDashboardUpdate()">
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="sp-section" data-sp-tab="interface">
+      <div class="sp-section-title">🧭 Navigation</div>
+      <div class="sp-row">
+        <div class="sp-label">Matière au démarrage</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-defaultmat">
+            <button class="seg-btn" data-val="proc" onclick="applySetting('defaultMatiere','proc',this)">📖 Lit.</button>
+            <button class="seg-btn" data-val="gram" onclick="applySetting('defaultMatiere','gram',this)">✍️ Gram.</button>
+            <button class="seg-btn" data-val="vocab" onclick="applySetting('defaultMatiere','vocab',this)">📚 Vocab.</button>
+            <button class="seg-btn" data-val="fav" onclick="applySetting('defaultMatiere','fav',this)">⭐ Fav.</button>
+          </div>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Mémoriser la dernière page</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-remember" onchange="applySetting('rememberPage',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Barre d'onglets (sous-nav)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-subnav" onchange="applySetting('showSubnav',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Nav compacte (icônes seules)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-compactnav" onchange="applySetting('compactNav',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Bandeaux d'intro (hero)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-heroes" onchange="applySetting('showHeroSections',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Pied de page</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-footers" onchange="applySetting('showFooters',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Aide clavier (1-4, ←→)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-kbhints" onchange="applySetting('showKbHints',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Défi express (10 min)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-daily" onchange="applySetting('showDailyChallenge',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Délai recherche
+          <div class="sp-sub" id="debounce-val-lbl">180ms</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-debounce" min="0" max="500" step="20" value="180"
+            oninput="applySetting('searchDebounce',+this.value)">
+        </div>
+      </div>
+    </div>
+
+    <!-- QCM -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">✏️ QCM</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Durée du timer
+          <div class="sp-sub" id="timer-val-lbl">30s</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-timer"
+            min="10" max="60" step="5" value="30"
+            oninput="applySetting('timerDuration',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Explications immédiates</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-expl" onchange="applySetting('showExplIm',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Raccourcis clavier (1-4)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-kb" onchange="applySetting('kbShortcuts',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">% progression par catégorie</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-catprog" onchange="applySetting('showCatProg',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Seuil révision ciblée
+          <div class="sp-sub" id="revise-val-lbl">&lt; 60%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-revise"
+            min="30" max="80" step="10" value="60"
+            oninput="applySetting('reviseThresh',this.value/100)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Session par défaut</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-qcmsession">
+            <button class="seg-btn" data-val="10" onclick="applySetting('qcmSessionSize',10,this);syncSessionChips();mixQ('proc');mixQ('gram')">10</button>
+            <button class="seg-btn" data-val="20" onclick="applySetting('qcmSessionSize',20,this);syncSessionChips();mixQ('proc');mixQ('gram')">20</button>
+            <button class="seg-btn" data-val="30" onclick="applySetting('qcmSessionSize',30,this);syncSessionChips();mixQ('proc');mixQ('gram')">30</button>
+            <button class="seg-btn" data-val="50" onclick="applySetting('qcmSessionSize',50,this);syncSessionChips();mixQ('proc');mixQ('gram')">50</button>
+            <button class="seg-btn" data-val="0" onclick="applySetting('qcmSessionSize',0,this);syncSessionChips();mixQ('proc');mixQ('gram')">∞</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Mode focus (1 question)</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-qcmfocus">
+            <button class="seg-btn" data-val="1" onclick="applySetting('qcmFocusMode',true,this);applyUiPreferences()">On</button>
+            <button class="seg-btn" data-val="0" onclick="applySetting('qcmFocusMode',false,this);applyUiPreferences()">Off</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Mélanger au reset</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-qcmshuffle" onchange="applySetting('qcmShuffleOnReset',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Avance auto après réponse</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-qcmadvance" onchange="applySetting('qcmAutoAdvance',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Lien Corpus dans QCM</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-qcmcorpus" onchange="applySetting('qcmShowCorpusLink',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Bouton favori ★</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-qcmfav" onchange="applySetting('qcmShowFavBtn',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLASHCARDS -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">🃏 Cartes</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Retournement auto
+          <div class="sp-sub" id="autoflip-lbl">Désactivé</div>
+        </div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-autoflip">
+            <button class="seg-btn" data-val="0" onclick="applySetting('autoFlip',0,this)">Off</button>
+            <button class="seg-btn" data-val="3" onclick="applySetting('autoFlip',3,this)">3s</button>
+            <button class="seg-btn" data-val="5" onclick="applySetting('autoFlip',5,this)">5s</button>
+            <button class="seg-btn" data-val="8" onclick="applySetting('autoFlip',8,this)">8s</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Afficher la catégorie</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-catcard" onchange="applySetting('showCatCard',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMIFICATION -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">🎉 Gamification</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Effets sonores</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-sound" onchange="applySetting('soundOn',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Volume sons
+          <div class="sp-sub" id="sound-val-lbl">70%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-sound"
+            min="0" max="100" step="5" value="70"
+            oninput="applySetting('soundVolume',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Style sonore
+          <div class="sp-sub" id="sound-theme-hint">Arpèges variés · plusieurs variantes par effet</div>
+        </div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-soundtheme">
+            <button class="seg-btn" data-val="classic" onclick="applySetting('soundTheme','classic',this)">Classique</button>
+            <button class="seg-btn" data-val="soft" onclick="applySetting('soundTheme','soft',this)">Doux</button>
+            <button class="seg-btn" data-val="minimal" onclick="applySetting('soundTheme','minimal',this)">Minimal</button>
+            <button class="seg-btn" data-val="arcade" onclick="applySetting('soundTheme','arcade',this)">Arcade</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Clics navigation</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-soundclick" onchange="applySetting('soundClicks',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Tic minuteur QCM / examen</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-soundtick" onchange="applySetting('soundTimerTick',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Aperçu</div>
+        <div class="sp-ctrl">
+          <button type="button" class="sp-action-btn sp-sound-preview" onclick="previewSound()">🔊 Tester les sons</button>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Confetti</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-confetti" onchange="applySetting('confettiOn',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Seuil confetti
+          <div class="sp-sub" id="confetti-val-lbl">≥ 88%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-confetti"
+            min="60" max="100" step="5" value="88"
+            oninput="applySetting('confettiThr',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Série quotidienne 🔥</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-streak" onchange="applySetting('streakOn',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Badge série 🔥 (nav)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-navstreak" onchange="applySetting('showNavStreak',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMEN -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">🏆 Examen blanc</div>
+      <div class="sp-row">
+        <div class="sp-label">Preset par défaut
+          <div class="sp-sub" id="exampreset-lbl">20q·10m</div>
+        </div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl seg-ctrl-wrap" id="seg-exampreset">
+            <button class="seg-btn" data-val="0" onclick="applySetting('examPresetDefault',0,this);_examPreset=0;renderExam()">10</button>
+            <button class="seg-btn" data-val="1" onclick="applySetting('examPresetDefault',1,this);_examPreset=1;renderExam()">20</button>
+            <button class="seg-btn" data-val="2" onclick="applySetting('examPresetDefault',2,this);_examPreset=2;renderExam()">30</button>
+            <button class="seg-btn" data-val="3" onclick="applySetting('examPresetDefault',3,this);_examPreset=3;renderExam()">50</button>
+            <button class="seg-btn" data-val="4" onclick="applySetting('examPresetDefault',4,this);_examPreset=4;renderExam()">100</button>
+          </div>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Matière par défaut</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-exammat">
+            <button class="seg-btn" data-val="both" onclick="applySetting('examMatDefault','both',this);_examMat='both';renderExam()">Mixte</button>
+            <button class="seg-btn" data-val="proc" onclick="applySetting('examMatDefault','proc',this);_examMat='proc';renderExam()">Lit.</button>
+            <button class="seg-btn" data-val="gram" onclick="applySetting('examMatDefault','gram',this);_examMat='gram';renderExam()">Gram.</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">📊 Stats &amp; progression</div>
+      <div class="sp-row">
+        <div class="sp-label">Indice préparation (jauges)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-readystats" onchange="applySetting('showReadinessStats',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Stats avancées (décomposition)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-advstats" onchange="applySetting('showStatsAdvanced',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Badge % nav (préparation)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-navready" onchange="applySetting('showNavReadiness',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Tableau de bord Favoris</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-bacdash" onchange="applySetting('showBacDashboard',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBABILITÉS -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">🎲 Probabilités &amp; modèle</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Mode d'estimation
+          <div class="sp-sub" id="prob-mode-lbl">Réaliste</div>
+        </div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-probmode">
+            <button class="seg-btn" data-val="prudent" onclick="applySetting('probMode','prudent',this)">Prudent</button>
+            <button class="seg-btn" data-val="realistic" onclick="applySetting('probMode','realistic',this)">Réaliste</button>
+            <button class="seg-btn" data-val="ambitious" onclick="applySetting('probMode','ambitious',this)">Ambitieux</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Prior admis (peu de données)
+          <div class="sp-sub" id="prob-prior-lbl">40%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-prior" min="20" max="55" step="1" value="40"
+            oninput="applySetting('probPriorAdmis',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Prior grands textes
+          <div class="sp-sub" id="prob-priorgt-lbl">38%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-priorgt" min="20" max="55" step="1" value="38"
+            oninput="applySetting('probPriorGtext',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Rétrécissement bayésien (QCM)
+          <div class="sp-sub" id="prob-shrink-lbl">8</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-shrink" min="2" max="20" step="1" value="8"
+            oninput="applySetting('probShrinkK',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Rétrécissement examens
+          <div class="sp-sub" id="prob-shrinkexam-lbl">2</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-shrinkexam" min="1" max="10" step="1" value="2"
+            oninput="applySetting('probShrinkKExam',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Rétrécissement grands textes
+          <div class="sp-sub" id="prob-shrinkgt-lbl">4</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-shrinkgt" min="2" max="12" step="1" value="4"
+            oninput="applySetting('probShrinkKGtext',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pente courbe logistique
+          <div class="sp-sub" id="prob-steep-lbl">88</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-steep" min="60" max="120" step="2" value="88"
+            oninput="applySetting('probSteepness',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Part QCM dans score Bac
+          <div class="sp-sub" id="prob-composite-lbl">62% QCM</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-composite" min="50" max="80" step="2" value="62"
+            oninput="applySetting('probCompositeQcm',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Poids examens blancs
+          <div class="sp-sub" id="prob-wexam-lbl">36%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-wexam" min="5" max="60" step="1" value="36"
+            oninput="applySetting('probWeightExam',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Poids QCM global
+          <div class="sp-sub" id="prob-wqcm-lbl">30%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-wqcm" min="5" max="60" step="1" value="30"
+            oninput="applySetting('probWeightQcm',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Poids grands textes
+          <div class="sp-sub" id="prob-wgtext-lbl">22%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-wgtext" min="5" max="50" step="1" value="22"
+            oninput="applySetting('probWeightGtext',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Poids exercices repérage
+          <div class="sp-sub" id="prob-wexo-lbl">6%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-wexo" min="0" max="20" step="1" value="6"
+            oninput="applySetting('probWeightExo',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Poids défis 10 min
+          <div class="sp-sub" id="prob-wchal-lbl">3%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-wchal" min="0" max="15" step="1" value="3"
+            oninput="applySetting('probWeightChallenge',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Poids flashcards
+          <div class="sp-sub" id="prob-wcartes-lbl">3%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-wcartes" min="0" max="15" step="1" value="3"
+            oninput="applySetting('probWeightCartes',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Min. questions QCM (signal)
+          <div class="sp-sub" id="prob-minqcm-lbl">3</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-minqcm" min="1" max="20" step="1" value="3"
+            oninput="applySetting('probMinQcmAttempts',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Min. tentatives par catégorie
+          <div class="sp-sub" id="prob-mincat-lbl">3</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-mincat" min="1" max="10" step="1" value="3"
+            oninput="applySetting('probMinCatAttempts',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Min. exercices repérage
+          <div class="sp-sub" id="prob-minexo-lbl">5</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-minexo" min="1" max="20" step="1" value="5"
+            oninput="applySetting('probMinExoAttempts',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Min. défis express
+          <div class="sp-sub" id="prob-minchal-lbl">3</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-minchal" min="1" max="15" step="1" value="3"
+            oninput="applySetting('probMinChallenge',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Min. cartes flashcards
+          <div class="sp-sub" id="prob-mincartes-lbl">8</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-mincartes" min="2" max="30" step="1" value="8"
+            oninput="applySetting('probMinCarteCards',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Plafond proba (confiance haute)
+          <div class="sp-sub" id="prob-cap-hi-lbl">90%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-cap-hi" min="70" max="95" step="1" value="90"
+            oninput="applySetting('probMaxCapHigh',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Plafond proba (confiance moyenne)
+          <div class="sp-sub" id="prob-cap-mid-lbl">82%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-cap-mid" min="60" max="90" step="1" value="82"
+            oninput="applySetting('probMaxCapMid',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Plafond proba (confiance faible)
+          <div class="sp-sub" id="prob-cap-lo-lbl">74%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-cap-lo" min="50" max="85" step="1" value="74"
+            oninput="applySetting('probMaxCapLow',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Plafond si n &lt; 5
+          <div class="sp-sub" id="prob-capn5-lbl">72%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-capn5" min="40" max="85" step="1" value="72"
+            oninput="applySetting('probCapN5',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Plafond si n &lt; 2
+          <div class="sp-sub" id="prob-capn2-lbl">62%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-capn2" min="35" max="75" step="1" value="62"
+            oninput="applySetting('probCapN2',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Plafond si n &lt; 1
+          <div class="sp-sub" id="prob-capn1-lbl">48%</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-capn1" min="25" max="65" step="1" value="48"
+            oninput="applySetting('probCapN1',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Élargir fourchettes
+          <div class="sp-sub" id="prob-band-lbl">+0 pts</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-band" min="0" max="15" step="1" value="0"
+            oninput="applySetting('probBandSpread',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Fourchette si données insuffisantes
+          <div class="sp-sub" id="prob-band-ins-lbl">12 pts</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-band-ins" min="6" max="25" step="1" value="12"
+            oninput="applySetting('probBandInsufficient',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Appliquer les pénalités</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-penalties" onchange="applySetting('probApplyPenalties',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — pas d'examen
+          <div class="sp-sub" id="prob-pen-noexam-lbl">−5</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-noexam" min="0" max="15" step="1" value="5"
+            oninput="applySetting('probPenaltyNoExam',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — couverture &lt; 12%
+          <div class="sp-sub" id="prob-pen-cov12-lbl">−10</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-cov12" min="0" max="20" step="1" value="10"
+            oninput="applySetting('probPenaltyLowCov12',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — couverture &lt; 25%
+          <div class="sp-sub" id="prob-pen-cov25-lbl">−5</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-cov25" min="0" max="15" step="1" value="5"
+            oninput="applySetting('probPenaltyLowCov25',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — timeouts fréquents
+          <div class="sp-sub" id="prob-pen-tout-lbl">−6</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-tout" min="0" max="15" step="1" value="6"
+            oninput="applySetting('probPenaltyTimeoutHigh',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — quelques timeouts
+          <div class="sp-sub" id="prob-pen-toutmid-lbl">−3</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-toutmid" min="0" max="10" step="1" value="3"
+            oninput="applySetting('probPenaltyTimeoutMid',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — 4+ catégories faibles
+          <div class="sp-sub" id="prob-pen-weak4-lbl">−6</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-weak4" min="0" max="15" step="1" value="6"
+            oninput="applySetting('probPenaltyWeak4',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Pénalité — 2+ catégories faibles
+          <div class="sp-sub" id="prob-pen-weak2-lbl">−3</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-prob-pen-weak2" min="0" max="10" step="1" value="3"
+            oninput="applySetting('probPenaltyWeak2',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Inclure défis dans le modèle</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-challenge" onchange="applySetting('probIncludeChallenge',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Inclure flashcards</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-cartes" onchange="applySetting('probIncludeCartes',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Inclure exercices repérage</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-exo" onchange="applySetting('probIncludeExo',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Centre probabilités (Favoris)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-hub" onchange="applySetting('probShowHub',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Catalogue complet (grille)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-catalog" onchange="applySetting('probShowCatalogGrid',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Indicateurs (couverture, régularité)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-indicators" onchange="applySetting('probShowIndicators',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Stats n insuffisant dans le catalogue</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-insufficient" onchange="applySetting('probShowInsufficient',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Aperçu proba avant examen</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-examprev" onchange="applySetting('probShowExamPreview',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Panneau proba (grands textes)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-prob-gtext" onchange="applySetting('probShowGtextPanel',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRANDS TEXTES -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">📜 Grands textes</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Seuil interprétation
+          <div class="sp-sub" id="gtext-thr-lbl">28% mots-clés</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-gtext-thr" min="20" max="50" step="3" value="28"
+            oninput="applySetting('gtextInterpThreshold',+this.value);if(typeof renderGtextWork==='function'&&GTEXT_STATE.phase==='work')renderGtextWork()">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Longueur min. interprétation
+          <div class="sp-sub" id="gtext-min-lbl">15 car.</div>
+        </div>
+        <div class="sp-ctrl">
+          <input type="range" class="sp-range" id="range-gtext-min" min="10" max="40" step="5" value="15"
+            oninput="applySetting('gtextMinInterpChars',+this.value)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Taille du texte à lire</div>
+        <div class="sp-ctrl">
+          <div class="seg-ctrl" id="seg-gtextsize">
+            <button class="seg-btn" data-val="compact" onclick="applySetting('gtextTextSize','compact',this);syncGtextUiClasses();if(typeof renderGtextWork==='function'&&GTEXT_STATE.phase==='work')renderGtextWork()">Compact</button>
+            <button class="seg-btn" data-val="normal" onclick="applySetting('gtextTextSize','normal',this);syncGtextUiClasses();if(typeof renderGtextWork==='function'&&GTEXT_STATE.phase==='work')renderGtextWork()">Normal</button>
+            <button class="seg-btn" data-val="large" onclick="applySetting('gtextTextSize','large',this);syncGtextUiClasses();if(typeof renderGtextWork==='function'&&GTEXT_STATE.phase==='work')renderGtextWork()">Grand</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Afficher le contexte</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-gtext-ctx" onchange="applySetting('gtextShowContext',this.checked);if(typeof renderGtextWork==='function'&&GTEXT_STATE.phase==='work')renderGtextWork()">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Indices procédés + interprétation</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-gtext-hints" onchange="applySetting('gtextShowHints',this.checked);if(typeof renderGtextWork==='function'&&GTEXT_STATE.phase==='work')renderGtextWork()">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Masquer les textes déjà faits</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-gtext-hide" onchange="applySetting('gtextHideCompleted',this.checked);renderGtextesList()">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Mélanger la liste</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-gtext-shuf" onchange="applySetting('gtextShuffleList',this.checked);renderGtextesList()">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Mes textes en premier</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-gtext-customfirst" onchange="applySetting('gtextShowCustomFirst',this.checked);renderGtextesList()">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Hub probabilités (liste)</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-gtext-probhub" onchange="applySetting('gtextShowProbHub',this.checked);renderGtextesList()">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXERCICES & CORPUS -->
+    <div class="sp-section" data-sp-tab="learn">
+      <div class="sp-section-title">🔍 Exercices &amp; Corpus</div>
+      <div class="sp-row">
+        <div class="sp-label">Mélanger exercices au reset</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-exoshuffle" onchange="applySetting('exoShuffleOnReset',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+      <div class="sp-row">
+        <div class="sp-label">Corpus vue compacte</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-corpuscomp" onchange="applySetting('corpusCompact',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSIBILITÉ -->
+    <div class="sp-section" data-sp-tab="design">
+      <div class="sp-section-title">♿ Accessibilité</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Réduire les animations</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-motion" onchange="applySetting('reduceMotion',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Contraste élevé</div>
+        <div class="sp-ctrl">
+          <label class="toggle-sw">
+            <input type="checkbox" id="sw-contrast" onchange="applySetting('highContrast',this.checked)">
+            <span class="toggle-knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- DONNÉES -->
+    <div class="sp-section" data-sp-tab="data">
+      <div class="sp-section-title">💾 Données</div>
+
+      <div class="sp-row">
+        <div class="sp-label">Exporter les paramètres seuls</div>
+        <div class="sp-ctrl">
+          <button class="sp-action-btn" onclick="exportSettingsOnly()">⬇ Paramètres JSON</button>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Importer des paramètres</div>
+        <div class="sp-ctrl">
+          <button class="sp-action-btn" onclick="el('import-settings-input').click()">⬆ Paramètres JSON</button>
+          <input type="file" id="import-settings-input" accept=".json" style="display:none" onchange="importSettingsOnly(event)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Exporter les statistiques</div>
+        <div class="sp-ctrl">
+          <button class="sp-action-btn" onclick="exportStats()">⬇ Export JSON</button>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Importer des statistiques</div>
+        <div class="sp-ctrl">
+          <button class="sp-action-btn" onclick="el('import-input').click()">⬆ Import JSON</button>
+          <input type="file" id="import-input" accept=".json" style="display:none" onchange="importStats(event)">
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Réinitialiser les statistiques
+          <div class="sp-sub">QCM, examens, textes, exos, cartes, défi · favoris conservés</div>
+        </div>
+        <div class="sp-ctrl">
+          <button type="button" class="sp-action-btn danger" onclick="resetStats()">🔄 Réinitialiser les stats</button>
+        </div>
+      </div>
+
+      <div class="sp-row">
+        <div class="sp-label">Effacer stats + favoris</div>
+        <div class="sp-ctrl">
+          <button type="button" class="sp-action-btn danger" onclick="resetAll()">🗑 Tout effacer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- À PROPOS -->
+    <div class="sp-section sp-section-about" data-sp-tab="data">
+      <div class="sp-section-title">ℹ️ À propos</div>
+      <div class="sp-about-text">
+        Bac de Français · Première<br>
+        … procédés · … fiches grammaire · … QCM<br>
+        <span style="color:var(--tx3)">Données stockées localement (localStorage)</span>
+      </div>
+      <button class="sp-reset-defaults" onclick="resetToDefaults()">↺ Rétablir les paramètres par défaut</button>
+    </div>
+
+  </div><!-- /sp-body -->
+</aside>

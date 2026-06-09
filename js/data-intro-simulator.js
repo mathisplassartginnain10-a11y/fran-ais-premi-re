@@ -1,0 +1,783 @@
+/* data-intro-simulator.js — Banque d'intros (5 temps) indexée sur les grands textes + auteurs */
+
+const INTRO_SIM_AMORCE = {
+  classicisme: {
+    prev: 'Baroque',
+    prevCar: 'liberté théâtrale et excès baroques',
+    siecle: 'XVIIe',
+    curCar: 'classicisme, théâtre de l\'honneur et règles dramatiques',
+  },
+  lumieres: {
+    prev: 'classicisme',
+    prevCar: 'théâtre moral et esthétique des règles',
+    siecle: 'XVIIIe',
+    curCar: 'Siècle des Lumières, progrès de la raison et combat des préjugés',
+  },
+  romantisme: {
+    prev: 'Siècle des Lumières',
+    prevCar: 'combat des préjugés et visée didactique',
+    siecle: 'XIXe',
+    curCar: 'romantisme, subjectivité, nature et « mal du siècle »',
+  },
+  realisme: {
+    prev: 'romantisme',
+    prevCar: 'exaltation de la subjectivité et du « je » poétique',
+    siecle: 'XIXe',
+    curCar: 'réalisme et naturalisme, miroir du réel et analyse sociale',
+  },
+  moderne: {
+    prev: 'réalisme et naturalisme',
+    prevCar: 'description objective de la société et du milieu',
+    siecle: 'XXe',
+    curCar: 'modernité littéraire, remise en question des formes et de la condition humaine',
+  },
+  contemporain: {
+    prev: 'XXe siècle',
+    prevCar: 'exploration de l\'absurde et rupture avec les formes classiques',
+    siecle: 'XXIe',
+    curCar: 'littérature contemporaine, mémoire, identité et conflits intimes',
+  },
+};
+
+const INTRO_SIM_PLAN = {
+  poesie: [
+    'la construction lyrique du « je » et l\'expression des émotions',
+    'le travail formel du poème (versification, effets sonores, figures)',
+    'la portée symbolique du texte et son effet sur le lecteur',
+  ],
+  narratif: [
+    'la construction du récit (point de vue, temporalité, rythme)',
+    'la caractérisation et l\'univers fictionnel',
+    'le projet de l\'auteur et le registre dominant',
+  ],
+  theatre: [
+    'la dramaturgie et les enjeux de la scène',
+    'la langue théâtrale (dialogues, figures, registres)',
+    'la dimension spectaculaire (didascalies, double énonciation)',
+  ],
+  idees: [
+    'l\'argumentation et la visée persuasive',
+    'les procédés stylistiques au service de la démonstration',
+    'l\'engagement de l\'auteur et la portée du texte',
+  ],
+  default: [
+    'les procédés qui construisent le sens',
+    'l\'effet produit sur le lecteur ou le spectateur',
+    'la cohérence du projet d\'écriture dans l\'extrait',
+  ],
+};
+
+let _introSimIndex = null;
+
+function introSimNorm(s) {
+  return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/** Titre court ou extrait complet collé par l'élève */
+function introSimIsExcerptText(raw) {
+  const t = (raw || '').trim();
+  if (!t) return false;
+  if (t.includes('\n')) return true;
+  if (t.length > 100) return true;
+  return t.split(/\s+/).filter(Boolean).length >= 18;
+}
+
+function introSimParsePassageInput(raw) {
+  const texte = (raw || '').trim();
+  if (!texte) return { label: '', texte: '', isExcerpt: false };
+  const isExcerpt = introSimIsExcerptText(texte);
+  return { label: isExcerpt ? '' : texte, texte, isExcerpt };
+}
+
+function introSimPassageSearchOpts(passage, opts) {
+  opts = opts || {};
+  const parsed = introSimParsePassageInput(passage);
+  if (parsed.isExcerpt) opts = { ...opts, userExcerpt: parsed.texte };
+  return { parsed, opts };
+}
+
+function introSimScoreExcerptMatch(entry, excerptNorm) {
+  if (!excerptNorm || excerptNorm.length < 35) return 0;
+  const hay = entry.textSnippet || entry.search || '';
+  if (!hay || hay.length < 20) return 0;
+  const head = excerptNorm.slice(0, 140);
+  if (head.length >= 35 && hay.includes(head)) return 58;
+  const words = [...new Set(excerptNorm.split(' ').filter(w => w.length >= 4))].slice(0, 28);
+  if (!words.length) return 0;
+  const hits = words.filter(w => hay.includes(w)).length;
+  const ratio = hits / words.length;
+  if (ratio >= 0.4) return Math.min(52, Math.round(ratio * 55));
+  if (hits >= 7) return Math.min(42, hits * 5);
+  return 0;
+}
+
+function introSimExtractYear(...parts) {
+  for (const p of parts) {
+    const pub = String(p || '').match(/\((\d{4})\)/);
+    if (pub) return pub[1];
+  }
+  for (const p of parts) {
+    const s = String(p || '');
+    if (/\d{4}\s*[–-]\s*\d{4}/.test(s)) continue;
+    const m = s.match(/\b(1[6-9]\d{2}|20\d{2})\b/);
+    if (m) return m[1];
+  }
+  return '';
+}
+
+function introSimDetectEra(year, mouvement, genre) {
+  const y = parseInt(year, 10);
+  const m = introSimNorm(mouvement + ' ' + genre);
+  if (/contempor|québéc|xxie/.test(m)) return 'contemporain';
+  if (y >= 2000 || (!y && /contempor/.test(m))) return 'contemporain';
+  if (y >= 1900 || /surréal|existential|absurde|nouveau roman/.test(m)) return 'moderne';
+  if (/natural|zola|realis|flaubert|maupassant|balzac|stendhal/.test(m)) return 'realisme';
+  if (y >= 1800 && y < 1880 || /romant|hugo|lamartine|musset|vigny/.test(m)) return 'romantisme';
+  if (y >= 1680 && y < 1780 || /lumière|voltaire|diderot|marivaux|beaumarchais/.test(m)) return 'lumieres';
+  if (y >= 1600 && y < 1680 || /classic|corneille|racine|molière|molier|prévost|fenelon/.test(m)) return 'classicisme';
+  if (y >= 1780 && y < 1900) return 'realisme';
+  if (y >= 1500 && y < 1600) return 'classicisme';
+  return 'romantisme';
+}
+
+function introSimFonction(genre) {
+  const g = introSimNorm(genre);
+  if (/theatre|trag|comed|drame|piece/.test(g)) return 'dramaturge';
+  if (/poes|poeme|sonnet|fable|eleg|lyriq|vers/.test(g)) return 'poète';
+  if (/roman|nouvel|conte|recit|epist/.test(g)) return 'romancier';
+  if (/idees|essai|philos|pamph|discours/.test(g)) return 'philosophe et écrivain';
+  return 'écrivain';
+}
+
+function introSimGenreKind(genre) {
+  const g = introSimNorm(genre);
+  if (/theatre|trag|comed|drame|piece/.test(g)) return 'theatre';
+  if (/poes|poeme|sonnet|fable|eleg|lyriq|vers/.test(g)) return 'poesie';
+  if (/idees|essai|philos|pamph|discours|conte philo/.test(g)) return 'idees';
+  if (/roman|nouvel|conte|recit|epist/.test(g)) return 'narratif';
+  return 'default';
+}
+
+function introSimRegistre(genre, contexte, attendus) {
+  const c = introSimNorm(contexte + ' ' + genre);
+  if (/comique|satir|iron|fable/.test(c)) return 'comique et satirique';
+  if (/trag|fatal|passion coup|mort|deuil|douleur/.test(c)) return 'tragique et pathétique';
+  if (/lyriq|melancol|amour|souvenir|eleg/.test(c)) return 'lyrique et mélancolique';
+  if (/epique|heros|honneur|devoir|patriot/.test(c)) return 'épique et héroïque';
+  if (/fantast|peur|folie|horreur/.test(c)) return 'fantastique ou angoissant';
+  if (/philos|argument|denonc|engag/.test(c)) return 'polémique et argumentatif';
+  if (attendus?.length) {
+    const p = attendus[0].procede || '';
+    if (/registre/i.test(p)) {
+      const r = p.replace(/^registre\s+/i, '').toLowerCase();
+      if (r) return r;
+    }
+  }
+  return 'varié, mêlant description et subjectivité';
+}
+
+function introSimTheme(contexte, titre, attendus) {
+  const c = (contexte || '').trim();
+  if (c) {
+    const cut = c.split(/[.—]/)[0].trim();
+    if (cut.length > 12) return cut.charAt(0).toLowerCase() + cut.slice(1);
+  }
+  if (/amour|passion/.test(introSimNorm(c + titre))) return 'l\'amour et le conflit des sentiments';
+  if (/mort|deuil/.test(introSimNorm(c))) return 'la mort et le deuil';
+  if (/nature|paysage|saison/.test(introSimNorm(c))) return 'le rapport à la nature et au temps';
+  if (/societe|misere|injust/.test(introSimNorm(c))) return 'la dénonciation sociale';
+  if (/heros|honneur|devoir/.test(introSimNorm(c))) return 'le conflit entre passion et devoir';
+  if (attendus?.[0]?.interpretation) {
+    const w = attendus[0].interpretation.split(' ').slice(0, 12).join(' ');
+    return w.charAt(0).toLowerCase() + w.slice(1).replace(/\.$/, '');
+  }
+  return 'un enjeu central du passage proposé';
+}
+
+function introSimProblematique(fonction, theme, registre, genreKind) {
+  if (genreKind === 'poesie') {
+    return `le poète parvient à traduire ${theme} dans un registre ${registre.split(',')[0]}`;
+  }
+  if (genreKind === 'theatre') {
+    return `le dramaturge met en scène ${theme} et suscite un effet ${registre.split(',')[0]} chez le spectateur`;
+  }
+  if (genreKind === 'narratif') {
+    return `le narrateur rend compte de ${theme} et oriente la lecture du passage`;
+  }
+  if (genreKind === 'idees') {
+    return `l'auteur construit son argumentation autour de ${theme}`;
+  }
+  return `l'${fonction === 'poète' ? 'auteur' : 'écrivain'} parvient, dans cet extrait, à faire émerger ${theme}`;
+}
+
+function introSimResolveAuthor(auteurInput) {
+  const q = introSimNorm(auteurInput);
+  if (!q) return { nom: auteurInput.trim(), dates: '', mouvement: '', intro: [] };
+  if (typeof AUTEURS_DATA !== 'undefined') {
+    const hit = AUTEURS_DATA.find(a => {
+      const n = introSimNorm(a.nom);
+      const last = n.split(' ').pop();
+      return n.includes(q) || q.includes(last) || last === q || q.split(' ').pop() === last;
+    });
+    if (hit) return hit;
+  }
+  return { nom: auteurInput.trim(), dates: '', mouvement: '', intro: [] };
+}
+
+function introSimBuildAmorce(era) {
+  const t = INTRO_SIM_AMORCE[era] || INTRO_SIM_AMORCE.romantisme;
+  return `Depuis toujours, la littérature permet aux auteurs d'exprimer leur vision du monde et de questionner la société dans laquelle ils vivent. Si le ${t.prev} était marqué par ${t.prevCar}, le ${t.siecle} siècle voit naître ${t.curCar}.`;
+}
+
+function introSimGenreLabel(genre) {
+  const g = (genre || '').trim();
+  if (!g) return 'texte littéraire';
+  return g.charAt(0).toLowerCase() + g.slice(1);
+}
+
+function introSimSituationLine(contexte, oeuvreBrief) {
+  if (oeuvreBrief) {
+    const after = oeuvreBrief.includes(':') ? oeuvreBrief.split(':').slice(1).join(':').trim() : oeuvreBrief;
+    if (after.length > 18) {
+      const s = after.split(/[.—]/)[0].trim();
+      return s.charAt(0).toLowerCase() + s.slice(1);
+    }
+  }
+  if (contexte) {
+    const s = contexte.split(/[.—]/)[0].trim();
+    if (s.length > 12) return s.charAt(0).toLowerCase() + s.slice(1);
+  }
+  return '';
+}
+
+function introSimProcedesCles(attendus) {
+  if (!attendus?.length) return [];
+  const seen = new Set();
+  const out = [];
+  attendus.forEach(a => {
+    const p = (a.procede || '').trim();
+    if (!p || seen.has(p)) return;
+    seen.add(p);
+    out.push(p);
+  });
+  return out.slice(0, 5);
+}
+
+function introSimMovementLabel(author, year) {
+  const id = author.id || '';
+  const y = parseInt(year, 10) || 0;
+  if (id === 'rimbaud' || /rimbaud/i.test(author.nom || '')) {
+    if (y && y <= 1875) return '__RIMBAUD_MAUDIT__';
+    return 'symbolisme';
+  }
+  if (id === 'verlaine' || /verlaine/i.test(author.nom || '')) {
+    return y && y < 1880 ? 'romantisme tardif' : 'symbolisme';
+  }
+  if (id === 'baudelaire' || /baudelaire/i.test(author.nom || '')) {
+    return 'modernité poétique';
+  }
+  if (author.mouvement) return author.mouvement.split('—')[0].trim().toLowerCase();
+  return '';
+}
+
+function introSimExcerptPreview(texte) {
+  const line = (texte || '').split('\n').map(l => l.trim()).find(l => l.length > 8);
+  if (!line) return '';
+  const cut = line.length > 120 ? line.slice(0, 117) + '…' : line;
+  return cut.startsWith('«') ? cut : `« ${cut.replace(/^["«]|["»]$/g, '')} »`;
+}
+
+function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
+  opts = opts || {};
+  const author = introSimResolveAuthor(auteurInput || t.auteur);
+  const auteurNom = author.nom || t.auteur;
+  const oeuvreBrief = typeof GTEXT_OEUVRE_BY_ID !== 'undefined' ? GTEXT_OEUVRE_BY_ID[t.id] : '';
+  const year = introSimExtractYear(t.oeuvre, oeuvreInput, oeuvreBrief);
+  const oeuvreLabel = (oeuvreInput || '').trim() || t.oeuvre || t.titre;
+  const era = introSimDetectEra(year, author.mouvement, t.genre);
+  const fonction = introSimFonction(t.genre);
+  const genreKind = introSimGenreKind(t.genre);
+  const registre = opts.registreOverride || introSimRegistre(t.genre, t.contexte, t.attendus);
+  const theme = opts.themeOverride || introSimTheme(t.contexte, t.titre, t.attendus);
+  const plan = INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default;
+  const prob = introSimProblematique(fonction, theme, registre, genreKind);
+  const datesStr = author.dates ? ` (${author.dates})` : '';
+  const userExcerpt = opts.userExcerpt || '';
+  const passageLabel = userExcerpt
+    ? ' cet extrait'
+    : (t.titre ? ` l'extrait intitulé « ${t.titre} »` : ' cet extrait');
+  const situation = introSimSituationLine(t.contexte, oeuvreBrief);
+  const genreLbl = introSimGenreLabel(t.genre);
+  const procedesCles = introSimProcedesCles(t.attendus);
+  const excerptPreview = introSimExcerptPreview(userExcerpt || t.texte);
+
+  const oeuvreClean = oeuvreLabel.replace(/\s*\(\d{4}\)\s*$/, '').replace(/^«|»$/g, '').trim();
+  const titreInOeuvre = t.titre && introSimNorm(oeuvreClean).includes(introSimNorm(t.titre));
+  const oeuvreIsPoem = genreKind === 'poesie' && t.titre && introSimNorm(oeuvreClean) === introSimNorm(t.titre);
+  let auteurPhrase = `C'est dans ce contexte que s'inscrit ${auteurNom}${datesStr}, ${fonction} majeur`;
+  const movLbl = introSimMovementLabel(author, year);
+  if (movLbl === '__RIMBAUD_MAUDIT__') {
+    auteurPhrase += `, figure emblématique du poète maudit et de la modernité poétique`;
+  } else if (movLbl) auteurPhrase += ` du ${movLbl}`;
+  else auteurPhrase += ' de cette période';
+  if (year) {
+    if (oeuvreIsPoem) {
+      auteurPhrase += `. Il compose en ${year} le poème « ${t.titre} »`;
+    } else {
+      auteurPhrase += `. Il publie en ${year} « ${oeuvreClean} »`;
+      if (t.titre && !titreInOeuvre) auteurPhrase += `, dont est tiré « ${t.titre} »`;
+    }
+  } else {
+    auteurPhrase += `. Il compose « ${oeuvreClean} »`;
+    if (t.titre && !titreInOeuvre) auteurPhrase += `, dont est tiré « ${t.titre} »`;
+  }
+  auteurPhrase += '.';
+
+  let extraitPhrase = `Dans${passageLabel}, ${genreLbl} extrait de « ${oeuvreClean} »`;
+  if (situation) extraitPhrase += `, ${situation}`;
+  extraitPhrase += `, l'auteur traite de ${theme} en adoptant un registre ${registre}.`;
+  if (excerptPreview) extraitPhrase += ` Le passage s'ouvre notamment sur ${excerptPreview}.`;
+
+  const temps = {
+    amorce: introSimBuildAmorce(era),
+    auteur: auteurPhrase,
+    extrait: extraitPhrase,
+    problematique: `À travers l'étude de ce passage, nous nous demanderons comment ${prob}.`,
+    plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}, puis ${plan[2]}.`,
+  };
+
+  const problematiqueAlt = [
+    `Comment ${prob} ?`,
+    `En quoi ce ${genreLbl} parvient-il à traduire ${theme} par un registre ${registre.split(',')[0]} ?`,
+    `Dans quelle mesure l'auteur parvient-il, dans ce passage, à faire émerger ${theme} ?`,
+  ];
+
+  return {
+    id: t.id,
+    gtextId: t.id,
+    auteur: t.auteur,
+    auteurNom,
+    oeuvre: t.oeuvre,
+    titre: t.titre,
+    genre: t.genre,
+    year,
+    era,
+    registre,
+    theme,
+    procedesCles,
+    excerptPreview,
+    authorTips: author.intro || [],
+    authorDev: author.dev || '',
+    oeuvreBrief: oeuvreBrief || '',
+    temps,
+    problematiqueAlt,
+    full: Object.values(temps).join('\n\n'),
+    contexte: t.contexte,
+  };
+}
+
+function introSimBuildFallback(auteur, oeuvre, passage, opts) {
+  opts = opts || {};
+  const author = introSimResolveAuthor(auteur);
+  const auteurNom = author.nom || auteur.trim();
+  if (!auteurNom) return null;
+  const year = introSimExtractYear(oeuvre);
+  const era = introSimDetectEra(year, author.mouvement, author.genre || '');
+  const fonction = introSimFonction(author.genre || oeuvre);
+  const genreKind = introSimGenreKind(author.genre || '');
+  const plan = INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default;
+  const theme = opts.themeOverride || 'un enjeu central de l\'œuvre';
+  const registre = opts.registreOverride || 'varié';
+  const oeuvreClean = (oeuvre || passage || 'l\'œuvre').replace(/\(\d{4}\)/, '').trim();
+  const datesStr = author.dates ? ` (${author.dates})` : '';
+  const phraseType = author.intro?.find(l => /^Phrase type/i.test(l));
+
+  let auteurPhrase = phraseType
+    ? phraseType.replace(/^Phrase type\s*:\s*/i, '').replace(/^«|»$/g, '').trim()
+    : `C'est dans ce contexte que s'inscrit ${auteurNom}${datesStr}, ${fonction} majeur de cette période.`;
+  if (!phraseType && oeuvreClean) {
+    auteurPhrase += year
+      ? ` Il publie en ${year} « ${oeuvreClean} ».`
+      : ` Son œuvre majeure est « ${oeuvreClean} ».`;
+  }
+
+  const userExcerpt = opts.userExcerpt || '';
+  const shortPassage = userExcerpt ? '' : (passage || '').trim();
+  const passageLbl = shortPassage ? ` l'extrait « ${shortPassage.slice(0, 80)}${shortPassage.length > 80 ? '…' : ''} »` : ' cet extrait';
+  let extraitPhrase = `Dans${passageLbl}${oeuvreClean ? `, tiré de « ${oeuvreClean} »` : ''}, l'auteur traite de ${theme} en adoptant un registre ${registre}.`;
+  const excerptPreview = userExcerpt ? introSimExcerptPreview(userExcerpt) : '';
+  if (excerptPreview) extraitPhrase += ` Le passage s'ouvre notamment sur ${excerptPreview}.`;
+  const temps = {
+    amorce: introSimBuildAmorce(era),
+    auteur: auteurPhrase,
+    extrait: extraitPhrase,
+    problematique: `À travers l'étude de ce passage, nous nous demanderons comment l'auteur parvient à traduire ${theme} dans ce registre.`,
+    plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}, puis ${plan[2]}.`,
+  };
+
+  return {
+    id: 'FALLBACK',
+    auteur: auteur,
+    auteurNom,
+    oeuvre: oeuvreClean,
+    titre: passage || '',
+    genre: author.genre || '',
+    year,
+    procedesCles: [],
+    authorTips: author.intro || [],
+    authorDev: author.dev || '',
+    temps,
+    problematiqueAlt: [`Comment l'auteur parvient-il à traduire ${theme} ?`],
+    full: Object.values(temps).join('\n\n'),
+    contexte: author.dev ? author.dev.slice(0, 180) + '…' : '',
+    fallback: true,
+  };
+}
+
+function introSimScoreEntry(entry, auteurQ, oeuvreQ, passageQ) {
+  let score = 0;
+  const a = introSimNorm(auteurQ);
+  const o = introSimNorm(oeuvreQ);
+  const parsed = introSimParsePassageInput(passageQ);
+  const p = introSimNorm(parsed.label);
+  const ea = introSimNorm(entry.auteur);
+  const en = introSimNorm(entry.auteurNom);
+  const eo = introSimNorm(entry.oeuvre);
+  const et = introSimNorm(entry.titre);
+
+  if (a) {
+    if (ea === a || en === a) score += 50;
+    else if (ea.includes(a) || a.includes(ea) || en.includes(a) || a.includes(en.split(' ').pop())) score += 38;
+    else if (a.length >= 4 && (ea.includes(a.slice(0, 4)) || en.includes(a.slice(0, 4)))) score += 20;
+  }
+  if (o) {
+    if (eo.includes(o) || o.includes(eo)) score += 45;
+    else if (et.includes(o) || o.includes(et)) score += 40;
+    else {
+      const ow = o.split(' ').filter(w => w.length >= 4);
+      const hits = ow.filter(w => eo.includes(w) || et.includes(w)).length;
+      score += Math.min(35, hits * 12);
+    }
+  }
+  if (p) {
+    if (et.includes(p) || p.includes(et)) score += 35;
+    else {
+      const pw = p.split(' ').filter(w => w.length >= 3);
+      const hits = pw.filter(w => et.includes(w) || (entry.search || '').includes(w)).length;
+      score += Math.min(30, hits * 10);
+    }
+  }
+  if (parsed.isExcerpt) {
+    score += introSimScoreExcerptMatch(entry, introSimNorm(parsed.texte));
+  }
+  if (!a && !o && !p && !parsed.isExcerpt) return 0;
+  if (a && o && score < 30) score = Math.max(score, 15);
+  if (parsed.isExcerpt && score < 25 && (a || o)) score = Math.max(score, 18);
+  if (entry.prob) score += Math.min(12, Math.round(entry.prob * 0.08));
+  return score;
+}
+
+function introSimBuildIndex() {
+  if (_introSimIndex) return _introSimIndex;
+  const list = [];
+  const gtById = new Map();
+  const gtTexts = typeof getAllGtexts === 'function' ? getAllGtexts() : (typeof GRANDS_TEXTES !== 'undefined' ? GRANDS_TEXTES : []);
+  gtTexts.forEach(t => { if (t?.id) gtById.set(t.id, t); });
+
+  const sources = typeof getAllBacPassages === 'function' ? getAllBacPassages() : null;
+  if (sources?.length) {
+    sources.forEach(p => {
+      if (!p?.auteur) return;
+      const raw = p.gtextId && gtById.has(p.gtextId) ? gtById.get(p.gtextId) : {
+        id: p.gtextId || p.id,
+        auteur: p.auteur,
+        oeuvre: p.oeuvre,
+        titre: p.titre,
+        genre: p.genre,
+        contexte: p.contexte,
+        texte: '',
+        attendus: [],
+      };
+      const built = introSimBuildFromText(raw, p.auteur, p.oeuvre);
+      const textPart = (raw.texte || '').slice(0, 900);
+      const textSnippet = introSimNorm(textPart);
+      list.push({
+        ...built,
+        id: p.id,
+        gtextId: p.gtextId && /^GT-\d+$/.test(p.gtextId) ? p.gtextId : null,
+        prob: p.prob || 0,
+        indexOnly: !p.gtextId,
+        textSnippet,
+        search: introSimNorm([p.id, p.gtextId, p.auteur, built.auteurNom, p.oeuvre, p.titre, p.genre, p.contexte, built.procedesCles.join(' '), textPart].join(' ')),
+      });
+    });
+  } else {
+    gtTexts.forEach(t => {
+      if (!t?.auteur) return;
+      const built = introSimBuildFromText(t, t.auteur, t.oeuvre);
+      const textPart = (t.texte || '').slice(0, 900);
+      const textSnippet = introSimNorm(textPart);
+      list.push({
+        ...built,
+        prob: 100,
+        textSnippet,
+        search: introSimNorm([t.id, t.auteur, built.auteurNom, t.oeuvre, t.titre, t.genre, t.contexte, built.procedesCles.join(' '), textPart].join(' ')),
+      });
+    });
+  }
+  _introSimIndex = list;
+  return list;
+}
+
+function introSimScorePct(score) {
+  return Math.min(100, Math.round((score / 85) * 100));
+}
+
+function introSimGetRawText(id) {
+  const gtTexts = typeof getAllGtexts === 'function' ? getAllGtexts() : (typeof GRANDS_TEXTES !== 'undefined' ? GRANDS_TEXTES : []);
+  const hit = gtTexts.find(x => x.id === id);
+  if (hit) return hit;
+  if (typeof getAllBacPassages === 'function') {
+    const p = getAllBacPassages().find(x => x.id === id || x.gtextId === id);
+    if (p) {
+      return gtTexts.find(x => x.id === p.gtextId) || {
+        id: p.gtextId || p.id,
+        auteur: p.auteur,
+        oeuvre: p.oeuvre,
+        titre: p.titre,
+        genre: p.genre,
+        contexte: p.contexte,
+        texte: '',
+        attendus: [],
+      };
+    }
+  }
+  return null;
+}
+
+function introSimGetById(id) {
+  const t = introSimGetRawText(id);
+  return t ? introSimBuildFromText(t, t.auteur, t.oeuvre) : null;
+}
+
+function introSimCount() {
+  if (typeof getAllBacPassages === 'function') {
+    const st = typeof bacPassagesLoadStatus === 'function' ? bacPassagesLoadStatus() : null;
+    if (st?.loaded >= st?.total) return getAllBacPassages().length;
+    if (st?.count) return st.count;
+  }
+  return introSimBuildIndex().length;
+}
+
+function introSimRandomEntry(minProb) {
+  const index = introSimBuildIndex();
+  if (!index.length) return null;
+  const floor = minProb || 0;
+  const pool = floor ? index.filter(e => (e.prob || 0) >= floor) : index;
+  const src = pool.length ? pool : index;
+  return src[Math.floor(Math.random() * src.length)];
+}
+
+function introSimTopEntries(n, minProb) {
+  const index = introSimBuildIndex();
+  const floor = minProb || 85;
+  return index
+    .filter(e => (e.prob || 0) >= floor)
+    .sort((a, b) => (b.prob || 0) - (a.prob || 0))
+    .slice(0, n || 12);
+}
+
+function introSimRebuildEntry(entry, auteur, oeuvre, passage, opts) {
+  const { parsed, opts: o2 } = introSimPassageSearchOpts(passage, opts);
+  opts = o2;
+  const passageLabel = parsed.label;
+  if (!entry?.gtextId || entry.fallback) {
+    const fb = introSimBuildFallback(auteur, oeuvre, passageLabel, opts);
+    return fb ? { ...fb, search: entry?.search, textSnippet: entry?.textSnippet } : entry;
+  }
+  const t = introSimGetRawText(entry.gtextId);
+  if (!t) return entry;
+  const built = introSimBuildFromText(t, auteur || t.auteur, oeuvre || t.oeuvre, opts);
+  return { ...built, search: entry.search, textSnippet: entry.textSnippet, prob: entry.prob, indexOnly: entry.indexOnly };
+}
+
+function introSimSearch(auteur, oeuvre, passage, opts) {
+  const { parsed, opts: o2 } = introSimPassageSearchOpts(passage, opts);
+  opts = o2;
+  const index = introSimBuildIndex();
+  let scored = index
+    .map(e => ({ entry: e, score: introSimScoreEntry(e, auteur, oeuvre, passage) }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  const needRebuild = parsed.isExcerpt || opts.themeOverride || opts.registreOverride;
+  if (scored.length && needRebuild) {
+    scored = scored.map(m => ({
+      entry: introSimRebuildEntry(m.entry, auteur, oeuvre, passage, opts),
+      score: m.score,
+    }));
+  }
+
+  if (!scored.length && ((auteur || '').trim() || parsed.isExcerpt)) {
+    const fb = introSimBuildFallback(auteur, oeuvre, parsed.label, opts);
+    if (fb) scored = [{ entry: fb, score: parsed.isExcerpt ? 32 : 28 }];
+  }
+  return scored;
+}
+
+function introSimSuggest(partial, field) {
+  const q = introSimNorm(partial);
+  if (q.length < 2) return [];
+  const index = introSimBuildIndex();
+  const set = new Set();
+  const out = [];
+  index.forEach(e => {
+    let val = field === 'auteur' ? e.auteurNom
+      : field === 'oeuvre' ? (e.oeuvre || '').replace(/\(\d{4}\)/, '').trim()
+      : field === 'titre' ? e.titre
+      : e.titre;
+    if (!val) return;
+    const n = introSimNorm(val);
+    if (n.includes(q) && !set.has(val)) {
+      set.add(val);
+      out.push(val);
+    }
+  });
+  return out.slice(0, 12);
+}
+
+function introSimResetIndex() {
+  _introSimIndex = null;
+}
+
+/** GT analysable le plus proche (même auteur / œuvre) pour un passage index-only */
+function introSimFindRelatedGtext(entry) {
+  const texts = typeof getAllGtexts === 'function' ? getAllGtexts() : (typeof GRANDS_TEXTES !== 'undefined' ? GRANDS_TEXTES : []);
+  if (!texts.length || !entry?.auteur) return null;
+  const au = introSimNorm(entry.auteur);
+  const oe = introSimNorm(String(entry.oeuvre || '').replace(/\(\d{4}\)/, ''));
+  const ti = introSimNorm(entry.titre || '');
+  const sameAuthor = texts.filter(t => {
+    if (!t?.id || !/^GT-\d+$/.test(t.id)) return false;
+    const ta = introSimNorm(t.auteur);
+    const fam = au.length >= 3 ? ta.includes(au) || au.includes(ta.split(' ').pop()) : ta === au;
+    return fam;
+  });
+  if (!sameAuthor.length) return null;
+  const byTitre = sameAuthor.find(t => {
+    const tt = introSimNorm(t.titre);
+    return ti && (tt === ti || tt.includes(ti) || ti.includes(tt));
+  });
+  if (byTitre) return byTitre;
+  const byOeuvre = sameAuthor.find(t => {
+    const to = introSimNorm(String(t.oeuvre || '').replace(/\(\d{4}\)/, ''));
+    return oe && (to === oe || to.includes(oe) || oe.includes(to));
+  });
+  if (byOeuvre) return byOeuvre;
+  return sameAuthor.sort((a, b) => {
+    const na = parseInt(a.id.slice(3), 10);
+    const nb = parseInt(b.id.slice(3), 10);
+    if (na <= 260 && nb > 260) return -1;
+    if (nb <= 260 && na > 260) return 1;
+    return na - nb;
+  })[0];
+}
+
+/** Alias passage / titre court → titre d'œuvre (champ EXERCICES, corpus, etc.) */
+const INTRO_SIM_PASSAGE_ALIASES = {
+  'chanson d automne': { oeuvre: 'Poèmes saturniens', passage: true },
+  'correspondances': { oeuvre: 'Les Fleurs du mal', passage: true },
+  'le voyage': { oeuvre: 'Les Fleurs du mal', passage: true },
+  'spleen et ideal': { oeuvre: 'Les Fleurs du mal', passage: true },
+  'le spleen de paris': { oeuvre: 'Le Spleen de Paris', passage: false },
+  'les animaux malades de la peste': { oeuvre: 'Fables', passage: true },
+  'la cigale et la fourmi': { oeuvre: 'Fables', passage: true },
+  'le corbeau et le renard': { oeuvre: 'Fables', passage: true },
+  'demain des l aube': { oeuvre: 'Les Contemplations', passage: true },
+  'bois mon ami': { oeuvre: 'Les Contemplations', passage: true },
+  'un coup de des jamais n abolira le hasard': { oeuvre: 'Poésies', passage: true },
+  'mon reve familier': { oeuvre: 'Poèmes saturniens', passage: true },
+  'il pleure dans mon coeur': { oeuvre: 'Romances sans paroles', passage: true },
+  'art poetique': { oeuvre: 'Jadis et naguère', passage: true },
+  'l albatros': { oeuvre: 'Les Fleurs du mal', passage: true },
+  'l invitation au voyage': { oeuvre: 'Les Fleurs du mal', passage: true },
+  'harmonie du soir': { oeuvre: 'Les Fleurs du mal', passage: true },
+  'le lac': { oeuvre: 'Méditations poétiques', passage: true },
+  'mignonne allons voir si la rose': { oeuvre: 'Odes', passage: true },
+  'l apres midi d un faune': { oeuvre: "L'Après-midi d'un faune", passage: false },
+  'le bateau ivre': { oeuvre: 'Le Bateau ivre', passage: false },
+  'le dormeur du val': { oeuvre: 'Poésie', passage: true },
+};
+
+/** Alias réservés à un auteur (évite les confusions inter-auteurs) */
+const INTRO_SIM_AUTHOR_ALIASES = {
+  hugo: {
+    'demain des l aube': { oeuvre: 'Les Contemplations', passage: true },
+    'bois mon ami': { oeuvre: 'Les Contemplations', passage: true },
+    'recueillement': { oeuvre: 'Les Contemplations', passage: true },
+  },
+  baudelaire: {
+    'correspondances': { oeuvre: 'Les Fleurs du mal', passage: true },
+    'le voyage': { oeuvre: 'Les Fleurs du mal', passage: true },
+    'l albatros': { oeuvre: 'Les Fleurs du mal', passage: true },
+  },
+  verlaine: {
+    'chanson d automne': { oeuvre: 'Poèmes saturniens', passage: true },
+    'il pleure dans mon coeur': { oeuvre: 'Romances sans paroles', passage: true },
+    'art poetique': { oeuvre: 'Jadis et naguère', passage: true },
+    'mon reve familier': { oeuvre: 'Poèmes saturniens', passage: true },
+  },
+  rimbaud: {
+    'le bateau ivre': { oeuvre: 'Le Bateau ivre', passage: false },
+    'le dormeur du val': { oeuvre: 'Poésie', passage: true },
+  },
+  lamartine: {
+    'le lac': { oeuvre: 'Méditations poétiques', passage: true },
+  },
+  mallarme: {
+    'l apres midi d un faune': { oeuvre: "L'Après-midi d'un faune", passage: false },
+  },
+};
+
+function introSimResolvePassageAlias(auteur, rest) {
+  const r = introSimNorm(rest);
+  const a = introSimNorm(auteur).split(' ').pop();
+  const scoped = INTRO_SIM_AUTHOR_ALIASES[a]?.[r] || INTRO_SIM_AUTHOR_ALIASES[introSimNorm(auteur)]?.[r];
+  const hit = scoped || INTRO_SIM_PASSAGE_ALIASES[r];
+  if (!hit) return null;
+  if (hit.passage) return { oeuvre: hit.oeuvre, passage: rest };
+  return { oeuvre: hit.oeuvre, passage: '' };
+}
+
+function introSimFirstOeuvreFromList(oeuvresStr) {
+  if (!oeuvresStr) return '';
+  const first = oeuvresStr.split(/[·;,]/)[0].trim();
+  return first.replace(/\s*\(\d{4}\)\s*$/, '').replace(/^«|»$/g, '').trim();
+}
+
+/** Parse « Auteur, Titre (année) » ou « Auteur, Passage — Œuvre (année) » (EXERCICES, corpus…) */
+function introSimParseOeuvreRef(raw) {
+  const s = (raw || '').trim();
+  if (!s || /formule classique|^exemple$|^texte anonyme/i.test(s)) return null;
+  const withoutYear = s.replace(/\s*\(\d{4}\)\s*$/, '').trim();
+  const comma = withoutYear.indexOf(',');
+  if (comma < 1) return null;
+  const auteur = withoutYear.slice(0, comma).trim();
+  let rest = withoutYear.slice(comma + 1).trim();
+  if (!auteur || !rest) return null;
+  let oeuvre = rest;
+  let passage = '';
+  if (rest.includes(' — ')) {
+    const dash = rest.indexOf(' — ');
+    passage = rest.slice(0, dash).trim();
+    oeuvre = rest.slice(dash + 3).trim();
+  } else {
+    const aliased = introSimResolvePassageAlias(auteur, rest);
+    if (aliased) {
+      oeuvre = aliased.oeuvre;
+      passage = aliased.passage;
+    }
+  }
+  return { auteur, oeuvre, passage };
+}

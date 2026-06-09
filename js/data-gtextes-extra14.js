@@ -1,0 +1,742 @@
+/* Grands textes — lot 14 (GT-343 → GT-391) · généré */
+const GRANDS_TEXTES_EXTRA14 = [
+  {
+    id: "GT-343",
+    titre: "Monologue intérieur",
+    auteur: "Hugo",
+    oeuvre: "Les Misérables (1862)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Roman engagé — misère et rédemption. — Monologue intérieur. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Roman engagé — misère et rédemption. — Monologue intérieur.",
+    attendus: [
+      { procede: "Comparaison", citation: "« Monologue intérieur »", interpretation: "Comparaison repérée dans « Monologue intérieur »: le parallèle rend misère et rédemption plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","monologue","intérieur","réaliste"] },
+      { procede: "Temporalité", citation: "« Monologue intérieur »", interpretation: "Temporalité repéré dans « Monologue intérieur »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["temporalité","hugo"] },
+      { procede: "Registre satirique", citation: "« Monologue intérieur »", interpretation: "Registre satirique: « Monologue intérieur » dénonce les mœurs ou les institutions par l'ironie et la dérision, de la misère et rédemption.", keywords: ["registre","satirique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-344",
+    titre: "Poème 3",
+    auteur: "Rimbaud",
+    oeuvre: "Le Bateau ivre (1871)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Rimbaud, voyage initiatique et modernité poétique. — poème n°3. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Voyage initiatique et modernité poétique. — poème n°3.",
+    attendus: [
+      { procede: "Registre lyrique", citation: "« Poème 3 »", interpretation: "Registre lyrique: par « Poème 3 », Rimbaud exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Le Bateau ivre.", keywords: ["registre","lyrique","poème","3","lyrique"] },
+      { procede: "Énumération", citation: "« Poème 3 »", interpretation: "Énumération repérée dans « Poème 3 »: la liste multiplie les occurrences et renforce l'idée centrale de le poème n°3.", keywords: ["énumération","rimbaud"] },
+      { procede: "Didascalies", citation: "« Poème 3 »", interpretation: "Didascalies repéré dans « Poème 3 »: Rimbaud mobilise ce procédé pour structurer poème n°3 dans Le Bateau ivre.", keywords: ["didascalies","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-345",
+    titre: "Poème 2",
+    auteur: "La Fontaine",
+    oeuvre: "Fables (1678)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Fable morale et satire sociale. — poème n°2. Les mots choisis par l'auteur construisent un effet comique.`,
+    contexte: "Fable morale et satire sociale. — poème n°2.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Poème 2 »", interpretation: "Antithèse: « Poème 2 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","poème","2","lyrique"] },
+      { procede: "Hyperbole", citation: "« Poème 2 »", interpretation: "Hyperbole repérée dans « Poème 2 »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","la","fontaine"] },
+      { procede: "Registre pathétique", citation: "« Poème 2 »", interpretation: "À travers « Poème 2 », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-346",
+    titre: "Scène clé",
+    auteur: "Zola",
+    oeuvre: "Germinal (1885)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Zola, naturalisme — grève minière et misère. — Scène clé. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Naturalisme — grève minière et misère. — Scène clé.",
+    attendus: [
+      { procede: "Métaphore", citation: "« Scène clé »", interpretation: "La métaphore « Scène clé » rapproche deux réalités sans outil comparatif: l'image condense grève minière et misère en une vision poétique forte.", keywords: ["métaphore","scène","clé","réaliste"] },
+      { procede: "Point de vue", citation: "« Scène clé »", interpretation: "Point de vue repéré dans « Scène clé »: Zola mobilise ce procédé pour structurer grève minière et misère dans Germinal.", keywords: ["point","de","vue","zola"] },
+      { procede: "Registre épique", citation: "« Scène clé »", interpretation: "À travers « Scène clé », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-347",
+    titre: "Acte 1, scène 2",
+    auteur: "Racine",
+    oeuvre: "Phèdre (1677)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `Dans ce passage de Racine, tragédie de la passion transgressive et du devoir. — Acte 1, scène 2. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Tragédie de la passion transgressive et du devoir. — Acte 1, scène 2.",
+    attendus: [
+      { procede: "Comparaison", citation: "« Acte 1, scène 2 »", interpretation: "Par « Acte 1, scène 2 », Racine établit une comparaison qui clarifie acte 1 et ancre le sens dans une image accessible.", keywords: ["comparaison","acte","1,","scène","2","tragique"] },
+      { procede: "Temporalité", citation: "« Acte 1, scène 2 »", interpretation: "Temporalité repéré dans « Acte 1, scène 2 »: Racine mobilise ce procédé pour structurer acte 1 dans Phèdre.", keywords: ["temporalité","racine"] },
+      { procede: "Registre satirique", citation: "« Acte 1, scène 2 »", interpretation: "Registre satirique: la scène dénonce les mœurs ou les institutions par l'ironie et la dérision; « Acte 1, scène 2 » concentre cette coloration de l'acte 1.", keywords: ["registre","satirique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-348",
+    titre: "Acte 1, scène 1",
+    auteur: "Corneille",
+    oeuvre: "Le Cid (1637)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `Dans ce passage de Corneille, tragédie de l'honneur et de l'amour. — Acte 1, scène 1. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Tragédie de l'honneur et de l'amour. — Acte 1, scène 1.",
+    attendus: [
+      { procede: "Métaphore", citation: "« Acte 1, scène 1 »", interpretation: "« Acte 1, scène 1 » fonctionne comme métaphore: le rapprochement implicite enrichit acte 1 et marque le style de Corneille.", keywords: ["métaphore","acte","1,","scène","1","tragique"] },
+      { procede: "Point de vue", citation: "« Acte 1, scène 1 »", interpretation: "Point de vue: « Acte 1, scène 1 » concentre l'effet recherché par Corneille dans acte 1. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","corneille"] },
+      { procede: "Registre épique", citation: "« Acte 1, scène 1 »", interpretation: "Registre épique: par « Acte 1, scène 1 », Corneille élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Le Cid.", keywords: ["registre","épique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-349",
+    titre: "Poème 5",
+    auteur: "Verlaine",
+    oeuvre: "Poèmes saturniens (1866)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Verlaine, poésie mélancolique et musicale. — poème n°5. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Poésie mélancolique et musicale. — poème n°5.",
+    attendus: [
+      { procede: "Comparaison", citation: "« Poème 5 »", interpretation: "Comparaison repérée dans « Poème 5 »: le parallèle rend poème n°5 plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","poème","5","lyrique"] },
+      { procede: "Temporalité", citation: "« Poème 5 »", interpretation: "Temporalité: « Poème 5 » concentre l'effet recherché par Verlaine dans poème n°5. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","verlaine"] },
+      { procede: "Registre satirique", citation: "« Poème 5 »", interpretation: "À travers « Poème 5 », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["registre","satirique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-350",
+    titre: "Poème 2",
+    auteur: "Verlaine",
+    oeuvre: "Romances sans paroles (1874)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Verlaine, poésie impressionniste et musicalité. — poème n°2. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Poésie impressionniste et musicalité. — poème n°2.",
+    attendus: [
+      { procede: "Métaphore", citation: "« Poème 2 »", interpretation: "« Poème 2 » fonctionne comme métaphore: le rapprochement implicite enrichit poème n°2 et marque le style de Verlaine.", keywords: ["métaphore","poème","2","lyrique"] },
+      { procede: "Point de vue", citation: "« Poème 2 »", interpretation: "Point de vue repéré dans « Poème 2 »: Verlaine mobilise ce procédé pour structurer poème n°2 dans Romances sans paroles.", keywords: ["point","de","vue","verlaine"] },
+      { procede: "Registre épique", citation: "« Poème 2 »", interpretation: "Registre épique: par « Poème 2 », Verlaine élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Romances sans paroles.", keywords: ["registre","épique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-351",
+    titre: "Poème 7",
+    auteur: "Baudelaire",
+    oeuvre: "Les Fleurs du mal (1857)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 7 » : poème n°7. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Modernité poétique, spleen et idéal. — poème n°7.",
+    attendus: [
+      { procede: "Comparaison", citation: "« Poème 7 »", interpretation: "Comparaison: « Poème 7 » rapproche explicitement deux éléments (outil comparatif ou ressemblance). Le lecteur visualise mieux poème n°7.", keywords: ["comparaison","poème","7","lyrique"] },
+      { procede: "Temporalité", citation: "« Poème 7 »", interpretation: "Temporalité repéré dans « Poème 7 »: Baudelaire mobilise ce procédé pour structurer poème n°7 dans Les Fleurs du mal.", keywords: ["temporalité","baudelaire"] },
+      { procede: "Registre satirique", citation: "« Poème 7 »", interpretation: "Registre satirique: par « Poème 7 », Baudelaire dénonce les mœurs ou les institutions par l'ironie et la dérision — tonalité dominante de Les Fleurs du mal.", keywords: ["registre","satirique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-352",
+    titre: "Poème 4",
+    auteur: "Hugo",
+    oeuvre: "Les Contemplations (1856)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Poésie du deuil et de la mémoire. — poème n°4. Les mots choisis par l'auteur construisent un effet comique.`,
+    contexte: "Poésie du deuil et de la mémoire. — poème n°4.",
+    attendus: [
+      { procede: "Comparaison", citation: "« Poème 4 »", interpretation: "Par « Poème 4 », Hugo établit une comparaison qui clarifie poème n°4 et ancre le sens dans une image accessible.", keywords: ["comparaison","poème","4","lyrique"] },
+      { procede: "Temporalité", citation: "« Poème 4 »", interpretation: "Temporalité repéré dans « Poème 4 »: Hugo mobilise ce procédé pour structurer poème n°4 dans Les Contemplations.", keywords: ["temporalité","hugo"] },
+      { procede: "Registre satirique", citation: "« Poème 4 »", interpretation: "Registre satirique: par « Poème 4 », Hugo dénonce les mœurs ou les institutions par l'ironie et la dérision — tonalité dominante de Les Contemplations.", keywords: ["registre","satirique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-353",
+    titre: "Poème 4",
+    auteur: "Rimbaud",
+    oeuvre: "Le Bateau ivre (1871)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 4 » : poème n°4. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Voyage initiatique et modernité poétique. — poème n°4.",
+    attendus: [
+      { procede: "Ironie", citation: "« Poème 4 »", interpretation: "Ironie: « Poème 4 » dit le contraire du sens réel ou crée un décalage critique. Rimbaud invite à lire poème n°4 à contre-pied.", keywords: ["ironie","poème","4","lyrique"] },
+      { procede: "Figures de style", citation: "« Poème 4 »", interpretation: "Par « Poème 4 », le figures de style approfondit poème n°4 et marque le style de Rimbaud.", keywords: ["figures","de","style","rimbaud"] },
+      { procede: "Registre lyrique", citation: "« Poème 4 »", interpretation: "À travers « Poème 4 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-354",
+    titre: "Poème 1",
+    auteur: "Lamartine",
+    oeuvre: "Méditations poétiques (1820)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Lyrisme romantique et méditation. — poème n°1. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Lyrisme romantique et méditation. — poème n°1.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Poème 1 »", interpretation: "Anaphore: « Poème 1 » se répète pour produire un effet d'insistance mémorable et structurer poème n°1.", keywords: ["anaphore","poème","1","lyrique"] },
+      { procede: "Dialogue", citation: "« Poème 1 »", interpretation: "Dialogue: « Poème 1 » concentre l'effet recherché par Lamartine dans poème n°1. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","lamartine"] },
+      { procede: "Focalisation interne", citation: "« Poème 1 »", interpretation: "Focalisation interne repéré dans « Poème 1 »: Lamartine mobilise ce procédé pour structurer poème n°1 dans Méditations poétiques.", keywords: ["focalisation","interne","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-355",
+    titre: "Poème 3",
+    auteur: "La Fontaine",
+    oeuvre: "Fables (1678)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 3 » : poème n°3. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Fable morale et satire sociale. — poème n°3.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Poème 3 »", interpretation: "Antithèse: « Poème 3 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","poème","3","lyrique"] },
+      { procede: "Hyperbole", citation: "« Poème 3 »", interpretation: "Hyperbole repérée dans « Poème 3 »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","la","fontaine"] },
+      { procede: "Registre pathétique", citation: "« Poème 3 »", interpretation: "À travers « Poème 3 », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-356",
+    titre: "Monologue intérieur",
+    auteur: "Voltaire",
+    oeuvre: "Candide (1759)",
+    genre: "Conte philosophique",
+    diff: 2,
+    texte: `« Monologue intérieur » : Monologue intérieur. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Conte philosophique — critique de l'optimisme. — Monologue intérieur.",
+    attendus: [
+      { procede: "Champ lexical", citation: "« Monologue intérieur »", interpretation: "Champ lexical centré sur critique de l'optimisme: « Monologue », « intérieur », « champ ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ","lexical","monologue","intérieur","polémique"] },
+      { procede: "Description", citation: "« Monologue intérieur »", interpretation: "Par « Monologue intérieur », le description approfondit critique de l'optimisme et marque le style de Voltaire.", keywords: ["description","voltaire"] },
+      { procede: "Narration", citation: "« Monologue intérieur »", interpretation: "Narration: « Monologue intérieur » concentre l'effet recherché par Voltaire dans critique de l'optimisme. le narration oriente la lecture vers le sens du passage.", keywords: ["narration","polémique"] }
+    ]
+  },
+  {
+    id: "GT-357",
+    titre: "Scène clé",
+    auteur: "Balzac",
+    oeuvre: "Le Père Goriot (1835)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Réalisme — ascension sociale et déclin. — Scène clé. Les mots choisis par l'auteur construisent un effet comique.`,
+    contexte: "Réalisme — ascension sociale et déclin. — Scène clé.",
+    attendus: [
+      { procede: "Ironie", citation: "« Scène clé »", interpretation: "Ironie: « Scène clé » dit le contraire du sens réel ou crée un décalage critique. Balzac invite à lire ascension sociale et déclin à contre-pied.", keywords: ["ironie","scène","clé","réaliste"] },
+      { procede: "Figures de style", citation: "« Scène clé »", interpretation: "Figures de style: « Scène clé » concentre l'effet recherché par Balzac dans ascension sociale et déclin. le figures de style oriente la lecture vers le sens du passage.", keywords: ["figures","de","style","balzac"] },
+      { procede: "Registre lyrique", citation: "« Scène clé »", interpretation: "Registre lyrique: « Scène clé » exprime une subjectivité intime et des émotions personnelles, de l'ascension sociale et déclin.", keywords: ["registre","lyrique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-358",
+    titre: "Ouverture / incipit",
+    auteur: "Maupassant",
+    oeuvre: "Bel-Ami (1885)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Maupassant, réalisme — ascension sociale cynique. — Ouverture / incipit. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Réalisme — ascension sociale cynique. — Ouverture / incipit.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Ouverture / incipit »", interpretation: "Antithèse repérée dans « Ouverture / incipit »: deux termes ou idées s'opposent pour souligner ascension sociale cynique.", keywords: ["antithèse","ouverture","/","incipit","réaliste"] },
+      { procede: "Hyperbole", citation: "« Ouverture / incipit »", interpretation: "En exagérant « Ouverture / incipit », Maupassant use de l'hyperbole pour souligner ascension sociale cynique.", keywords: ["hyperbole","maupassant"] },
+      { procede: "Registre pathétique", citation: "« Ouverture / incipit »", interpretation: "Registre pathétique: par « Ouverture / incipit », Maupassant suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Bel-Ami.", keywords: ["registre","pathétique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-359",
+    titre: "Ouverture / incipit",
+    auteur: "Camus",
+    oeuvre: "La Peste (1947)",
+    genre: "Roman",
+    diff: 2,
+    texte: `« Ouverture / incipit » : Ouverture / incipit. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Allégorie — résistance et solidarité. — Ouverture / incipit.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Ouverture / incipit »", interpretation: "Antithèse: « Ouverture / incipit » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","ouverture","/","incipit","réaliste"] },
+      { procede: "Hyperbole", citation: "« Ouverture / incipit »", interpretation: "Hyperbole repérée dans « Ouverture / incipit »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","camus"] },
+      { procede: "Registre pathétique", citation: "« Ouverture / incipit »", interpretation: "À travers « Ouverture / incipit », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-360",
+    titre: "Portrait du personnage",
+    auteur: "Proust",
+    oeuvre: "Du côté de chez Swann (1913)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Proust, mémoire involontaire et temps perdu. — Portrait du personnage. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Mémoire involontaire et temps perdu. — Portrait du personnage.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Portrait du personnage »", interpretation: "Antithèse: « Portrait du personnage » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","portrait","du","personnage","réaliste"] },
+      { procede: "Hyperbole", citation: "« Portrait du personnage »", interpretation: "Hyperbole repérée dans « Portrait du personnage »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","proust"] },
+      { procede: "Registre pathétique", citation: "« Portrait du personnage »", interpretation: "À travers « Portrait du personnage », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-361",
+    titre: "Acte 1, scène 3",
+    auteur: "Racine",
+    oeuvre: "Phèdre (1677)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `Tragédie de la passion transgressive et du devoir. — Acte 1, scène 3. Les mots choisis par l'auteur construisent un effet comique.`,
+    contexte: "Tragédie de la passion transgressive et du devoir. — Acte 1, scène 3.",
+    attendus: [
+      { procede: "Ironie", citation: "« Acte 1, scène 3 »", interpretation: "Ironie: « Acte 1, scène 3 » dit le contraire du sens réel ou crée un décalage critique. Racine invite à lire acte 1 à contre-pied.", keywords: ["ironie","acte","1,","scène","3","tragique"] },
+      { procede: "Figures de style", citation: "« Acte 1, scène 3 »", interpretation: "Figures de style repéré dans « Acte 1, scène 3 »: Racine mobilise ce procédé pour structurer acte 1 dans Phèdre.", keywords: ["figures","de","style","racine"] },
+      { procede: "Registre lyrique", citation: "« Acte 1, scène 3 »", interpretation: "À travers « Acte 1, scène 3 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-362",
+    titre: "Acte 2, scène 1",
+    auteur: "Racine",
+    oeuvre: "Phèdre (1677)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `Dans ce passage de Racine, tragédie de la passion transgressive et du devoir. — Acte 2, scène 1. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Tragédie de la passion transgressive et du devoir. — Acte 2, scène 1.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Acte 2, scène 1 »", interpretation: "Anaphore de « Acte »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Racine insiste ainsi sur acte 2.", keywords: ["anaphore","acte","2,","scène","1","tragique"] },
+      { procede: "Dialogue", citation: "« Acte 2, scène 1 »", interpretation: "Dialogue repéré dans « Acte 2, scène 1 »: Racine mobilise ce procédé pour structurer acte 2 dans Phèdre.", keywords: ["dialogue","racine"] },
+      { procede: "Focalisation interne", citation: "« Acte 2, scène 1 »", interpretation: "Focalisation interne repéré dans « Acte 2, scène 1 »: Racine mobilise ce procédé pour structurer acte 2 dans Phèdre.", keywords: ["focalisation","interne","tragique"] }
+    ]
+  },
+  {
+    id: "GT-363",
+    titre: "Acte 1, scène 2",
+    auteur: "Corneille",
+    oeuvre: "Le Cid (1637)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `« Acte 1, scène 2 » : Acte 1, scène 2. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Tragédie de l'honneur et de l'amour. — Acte 1, scène 2.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Acte 1, scène 2 »", interpretation: "Anaphore: « Acte 1, scène 2 » se répète pour produire un effet d'insistance mémorable et structurer acte 1.", keywords: ["anaphore","acte","1,","scène","2","tragique"] },
+      { procede: "Dialogue", citation: "« Acte 1, scène 2 »", interpretation: "Dialogue: « Acte 1, scène 2 » concentre l'effet recherché par Corneille dans acte 1. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","corneille"] },
+      { procede: "Focalisation interne", citation: "« Acte 1, scène 2 »", interpretation: "Focalisation interne: « Acte 1, scène 2 » concentre l'effet recherché par Corneille dans acte 1. le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","tragique"] }
+    ]
+  },
+  {
+    id: "GT-364",
+    titre: "Acte 1, scène 1",
+    auteur: "Molière",
+    oeuvre: "Tartuffe (1664)",
+    genre: "Théâtre comique",
+    diff: 2,
+    texte: `Dans ce passage de Molière, comédie — dénonciation de l'hypocrisie. — Acte 1, scène 1. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 1, scène 1.",
+    attendus: [
+      { procede: "Comparaison", citation: "« Acte 1, scène 1 »", interpretation: "Comparaison repérée dans « Acte 1, scène 1 »: le parallèle rend dénonciation de l'hypocrisie plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","acte","1,","scène","1","tragique"] },
+      { procede: "Temporalité", citation: "« Acte 1, scène 1 »", interpretation: "Temporalité: « Acte 1, scène 1 » concentre l'effet recherché par Molière dans dénonciation de l'hypocrisie. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","molière"] },
+      { procede: "Registre satirique", citation: "« Acte 1, scène 1 »", interpretation: "Registre satirique: par « Acte 1, scène 1 », Molière dénonce les mœurs ou les institutions par l'ironie et la dérision — tonalité dominante de Tartuffe.", keywords: ["registre","satirique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-365",
+    titre: "Poème 6",
+    auteur: "Verlaine",
+    oeuvre: "Poèmes saturniens (1866)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Poésie mélancolique et musicale. — poème n°6. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Poésie mélancolique et musicale. — poème n°6.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Poème 6 »", interpretation: "Antithèse: « Poème 6 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","poème","6","lyrique"] },
+      { procede: "Hyperbole", citation: "« Poème 6 »", interpretation: "En exagérant « Poème 6 », Verlaine use de l'hyperbole pour souligner poème n°6.", keywords: ["hyperbole","verlaine"] },
+      { procede: "Registre pathétique", citation: "« Poème 6 »", interpretation: "Registre pathétique: « Poème 6 » suscite la compassion et l'indignation face à la souffrance, du poème n°6.", keywords: ["registre","pathétique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-366",
+    titre: "Poème 3",
+    auteur: "Verlaine",
+    oeuvre: "Romances sans paroles (1874)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Poésie impressionniste et musicalité. — poème n°3. Les mots choisis par l'auteur construisent un effet comique.`,
+    contexte: "Poésie impressionniste et musicalité. — poème n°3.",
+    attendus: [
+      { procede: "Ironie", citation: "« Poème 3 »", interpretation: "Ironie repérée dans « Poème 3 »: le décalage entre le dit et le voulu dénonce ou moque poème n°3.", keywords: ["ironie","poème","3","lyrique"] },
+      { procede: "Figures de style", citation: "« Poème 3 »", interpretation: "Figures de style: « Poème 3 » concentre l'effet recherché par Verlaine dans poème n°3. le figures de style oriente la lecture vers le sens du passage.", keywords: ["figures","de","style","verlaine"] },
+      { procede: "Registre lyrique", citation: "« Poème 3 »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Poème 3 » concentre cette coloration du poème n°3.", keywords: ["registre","lyrique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-367",
+    titre: "Le Cygne",
+    auteur: "Baudelaire",
+    oeuvre: "Les Fleurs du mal (1857)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Baudelaire, modernité poétique, spleen et idéal. — poème « Le Cygne ». Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Modernité poétique, spleen et idéal. — poème « Le Cygne ».",
+    attendus: [
+      { procede: "Antithèse", citation: "« Le Cygne »", interpretation: "Antithèse: « Le Cygne » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","le","cygne","lyrique"] },
+      { procede: "Hyperbole", citation: "« Le Cygne »", interpretation: "En exagérant « Le Cygne », Baudelaire use de l'hyperbole pour souligner poème « le cygne ».", keywords: ["hyperbole","baudelaire"] },
+      { procede: "Registre pathétique", citation: "« Le Cygne »", interpretation: "Registre pathétique: « Le Cygne » suscite la compassion et l'indignation face à la souffrance, du poème « le cygne ».", keywords: ["registre","pathétique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-368",
+    titre: "Poème 8",
+    auteur: "Baudelaire",
+    oeuvre: "Les Fleurs du mal (1857)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Modernité poétique, spleen et idéal. — poème n°8. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Modernité poétique, spleen et idéal. — poème n°8.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Poème 8 »", interpretation: "Anaphore de « Poème »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Baudelaire insiste ainsi sur poème n°8.", keywords: ["anaphore","poème","8","lyrique"] },
+      { procede: "Dialogue", citation: "« Poème 8 »", interpretation: "Dialogue: « Poème 8 » concentre l'effet recherché par Baudelaire dans poème n°8. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","baudelaire"] },
+      { procede: "Focalisation interne", citation: "« Poème 8 »", interpretation: "Focalisation interne repéré dans « Poème 8 »: Baudelaire mobilise ce procédé pour structurer poème n°8 dans Les Fleurs du mal.", keywords: ["focalisation","interne","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-369",
+    titre: "Poème 5",
+    auteur: "Hugo",
+    oeuvre: "Les Contemplations (1856)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Hugo, poésie du deuil et de la mémoire. — poème n°5. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Poésie du deuil et de la mémoire. — poème n°5.",
+    attendus: [
+      { procede: "Champ lexical", citation: "« Poème 5 »", interpretation: "Les mots « Poème », « champ », « lexical » appartiennent au même champ sémantique. Leur convergence renforce poème n°5 et structure l'unité thématique du passage.", keywords: ["champ","lexical","poème","5","lyrique"] },
+      { procede: "Description", citation: "« Poème 5 »", interpretation: "Par « Poème 5 », le description approfondit poème n°5 et marque le style de Hugo.", keywords: ["description","hugo"] },
+      { procede: "Narration", citation: "« Poème 5 »", interpretation: "Par « Poème 5 », le narration approfondit poème n°5 et marque le style de Hugo.", keywords: ["narration","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-370",
+    titre: "Portrait du personnage",
+    auteur: "Hugo",
+    oeuvre: "Notre-Dame de Paris (1831)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Hugo, roman historique et gothique. — Portrait du personnage. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Roman historique et gothique. — Portrait du personnage.",
+    attendus: [
+      { procede: "Métaphore", citation: "« Portrait du personnage »", interpretation: "La métaphore « Portrait du personnage » rapproche deux réalités sans outil comparatif: l'image condense portrait du personnage en une vision poétique forte.", keywords: ["métaphore","portrait","du","personnage","réaliste"] },
+      { procede: "Point de vue", citation: "« Portrait du personnage »", interpretation: "Point de vue repéré dans « Portrait du personnage »: Hugo mobilise ce procédé pour structurer portrait du personnage dans Notre-Dame de Paris.", keywords: ["point","de","vue","hugo"] },
+      { procede: "Registre épique", citation: "« Portrait du personnage »", interpretation: "Registre épique: « Portrait du personnage » élève l'action au niveau du grand récit et exalte la scène, du portrait du personnage.", keywords: ["registre","épique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-371",
+    titre: "Poème 5",
+    auteur: "Rimbaud",
+    oeuvre: "Le Bateau ivre (1871)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Voyage initiatique et modernité poétique. — poème n°5. Les mots choisis par l'auteur construisent un effet comique.`,
+    contexte: "Voyage initiatique et modernité poétique. — poème n°5.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Poème 5 »", interpretation: "Antithèse: « Poème 5 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","poème","5","lyrique"] },
+      { procede: "Hyperbole", citation: "« Poème 5 »", interpretation: "En exagérant « Poème 5 », Rimbaud use de l'hyperbole pour souligner poème n°5.", keywords: ["hyperbole","rimbaud"] },
+      { procede: "Registre pathétique", citation: "« Poème 5 »", interpretation: "À travers « Poème 5 », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-372",
+    titre: "Poème 1",
+    auteur: "Rimbaud",
+    oeuvre: "Une Saison en enfer (1873)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 1 » : poème n°1. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Prose poétique — révolte et quête. — poème n°1.",
+    attendus: [
+      { procede: "Ironie", citation: "« Poème 1 »", interpretation: "Ironie: « Poème 1 » dit le contraire du sens réel ou crée un décalage critique. Rimbaud invite à lire révolte et quête à contre-pied.", keywords: ["ironie","poème","1","lyrique"] },
+      { procede: "Figures de style", citation: "« Poème 1 »", interpretation: "Par « Poème 1 », le figures de style approfondit révolte et quête et marque le style de Rimbaud.", keywords: ["figures","de","style","rimbaud"] },
+      { procede: "Registre lyrique", citation: "« Poème 1 »", interpretation: "À travers « Poème 1 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-373",
+    titre: "Poème 2",
+    auteur: "Lamartine",
+    oeuvre: "Méditations poétiques (1820)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Lamartine, lyrisme romantique et méditation. — poème n°2. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Lyrisme romantique et méditation. — poème n°2.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Poème 2 »", interpretation: "La reprise de « Poème 2 » (anaphore) accélère ou alourdit le rythme et concentre l'attention sur poème n°2.", keywords: ["anaphore","poème","2","lyrique"] },
+      { procede: "Dialogue", citation: "« Poème 2 »", interpretation: "Par « Poème 2 », le dialogue approfondit poème n°2 et marque le style de Lamartine.", keywords: ["dialogue","lamartine"] },
+      { procede: "Focalisation interne", citation: "« Poème 2 »", interpretation: "Focalisation interne repéré dans « Poème 2 »: Lamartine mobilise ce procédé pour structurer poème n°2 dans Méditations poétiques.", keywords: ["focalisation","interne","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-374",
+    titre: "Poème 4",
+    auteur: "La Fontaine",
+    oeuvre: "Fables (1678)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de La Fontaine, fable morale et satire sociale. — poème n°4. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Fable morale et satire sociale. — poème n°4.",
+    attendus: [
+      { procede: "Champ lexical", citation: "« Poème 4 »", interpretation: "Champ lexical centré sur poème n°4: « Poème », « champ », « lexical ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ","lexical","poème","4","lyrique"] },
+      { procede: "Description", citation: "« Poème 4 »", interpretation: "Par « Poème 4 », le description approfondit poème n°4 et marque le style de La Fontaine.", keywords: ["description","la","fontaine"] },
+      { procede: "Narration", citation: "« Poème 4 »", interpretation: "Par « Poème 4 », le narration approfondit poème n°4 et marque le style de La Fontaine.", keywords: ["narration","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-375",
+    titre: "Monologue intérieur",
+    auteur: "Flaubert",
+    oeuvre: "Madame Bovary (1857)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Flaubert, roman réaliste — bovarysme et style indirect libre. — Monologue intérieur. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Roman réaliste — bovarysme et style indirect libre. — Monologue intérieur.",
+    attendus: [
+      { procede: "Métaphore", citation: "« Monologue intérieur »", interpretation: "Métaphore: « Monologue intérieur » transfère le sens d'un domaine à un autre et crée une image frappante. Flaubert suggère ainsi bovarysme et style indirect libre.", keywords: ["métaphore","monologue","intérieur","réaliste"] },
+      { procede: "Point de vue", citation: "« Monologue intérieur »", interpretation: "Point de vue repéré dans « Monologue intérieur »: Flaubert mobilise ce procédé pour structurer bovarysme et style indirect libre dans Madame Bovary.", keywords: ["point","de","vue","flaubert"] },
+      { procede: "Registre épique", citation: "« Monologue intérieur »", interpretation: "Registre épique: la scène élève l'action au niveau du grand récit et exalte la scène; « Monologue intérieur » concentre cette coloration du bovarysme et style indirect libre.", keywords: ["registre","épique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-376",
+    titre: "Scène clé",
+    auteur: "Stendhal",
+    oeuvre: "Le Rouge et le Noir (1830)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Stendhal, roman psychologique — ambition et hypocrisie. — Scène clé. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Roman psychologique — ambition et hypocrisie. — Scène clé.",
+    attendus: [
+      { procede: "Registre réaliste", citation: "« Scène clé »", interpretation: "Registre réaliste: par « Scène clé », Stendhal colore le passage d'une tonalité marquée — tonalité dominante de Le Rouge et le Noir.", keywords: ["registre","réaliste","scène","clé","réaliste"] },
+      { procede: "Énumération", citation: "« Scène clé »", interpretation: "Énumération repérée dans « Scène clé »: la liste multiplie les occurrences et renforce l'idée centrale de l''ambition et hypocrisie.", keywords: ["énumération","stendhal"] },
+      { procede: "Didascalies", citation: "« Scène clé »", interpretation: "Didascalies repéré dans « Scène clé »: Stendhal mobilise ce procédé pour structurer ambition et hypocrisie dans Le Rouge et le Noir.", keywords: ["didascalies","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-377",
+    titre: "Ouverture / incipit",
+    auteur: "Maupassant",
+    oeuvre: "Le Horla (1887)",
+    genre: "Nouvelle",
+    diff: 2,
+    texte: `Dans ce passage de Maupassant, fantastique — folie et peur. — Ouverture / incipit. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Fantastique — folie et peur. — Ouverture / incipit.",
+    attendus: [
+      { procede: "Métaphore", citation: "« Ouverture / incipit »", interpretation: "« Ouverture / incipit » fonctionne comme métaphore: le rapprochement implicite enrichit folie et peur et marque le style de Maupassant.", keywords: ["métaphore","ouverture","/","incipit","réaliste"] },
+      { procede: "Point de vue", citation: "« Ouverture / incipit »", interpretation: "Point de vue: « Ouverture / incipit » concentre l'effet recherché par Maupassant dans folie et peur. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","maupassant"] },
+      { procede: "Registre épique", citation: "« Ouverture / incipit »", interpretation: "Registre épique: la scène élève l'action au niveau du grand récit et exalte la scène; « Ouverture / incipit » concentre cette coloration de la folie et peur.", keywords: ["registre","épique","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-378",
+    titre: "Monologue intérieur",
+    auteur: "Camus",
+    oeuvre: "L'Étranger (1942)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Dans ce passage de Camus, absurde — indifférence et condamnation. — Monologue intérieur. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Absurde — indifférence et condamnation. — Monologue intérieur.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Monologue intérieur »", interpretation: "Anaphore: « Monologue intérieur » se répète pour produire un effet d'insistance mémorable et structurer indifférence et condamnation.", keywords: ["anaphore","monologue","intérieur","réaliste"] },
+      { procede: "Dialogue", citation: "« Monologue intérieur »", interpretation: "Par « Monologue intérieur », le dialogue approfondit indifférence et condamnation et marque le style de Camus.", keywords: ["dialogue","camus"] },
+      { procede: "Focalisation interne", citation: "« Monologue intérieur »", interpretation: "Focalisation interne: « Monologue intérieur » concentre l'effet recherché par Camus dans indifférence et condamnation. le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-379",
+    titre: "Poème 1",
+    auteur: "Mallarmé",
+    oeuvre: "L'Après-midi d'un faune (1876)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Symbolisme — sensualité et rêve. — poème n°1. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Symbolisme — sensualité et rêve. — poème n°1.",
+    attendus: [
+      { procede: "Ironie", citation: "« Poème 1 »", interpretation: "Ironie repérée dans « Poème 1 »: le décalage entre le dit et le voulu dénonce ou moque sensualité et rêve.", keywords: ["ironie","poème","1","lyrique"] },
+      { procede: "Figures de style", citation: "« Poème 1 »", interpretation: "Figures de style repéré dans « Poème 1 »: Mallarmé mobilise ce procédé pour structurer sensualité et rêve dans L'Après-midi d'un faune.", keywords: ["figures","de","style","mallarmé"] },
+      { procede: "Registre lyrique", citation: "« Poème 1 »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Poème 1 » concentre cette coloration du sensualité et rêve.", keywords: ["registre","lyrique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-380",
+    titre: "Acte 1, scène 4",
+    auteur: "Racine",
+    oeuvre: "Phèdre (1677)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `« Acte 1, scène 4 » : Acte 1, scène 4. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Tragédie de la passion transgressive et du devoir. — Acte 1, scène 4.",
+    attendus: [
+      { procede: "Ironie", citation: "« Acte 1, scène 4 »", interpretation: "Ironie: « Acte 1, scène 4 » dit le contraire du sens réel ou crée un décalage critique. Racine invite à lire acte 1 à contre-pied.", keywords: ["ironie","acte","1,","scène","4","tragique"] },
+      { procede: "Figures de style", citation: "« Acte 1, scène 4 »", interpretation: "Figures de style: « Acte 1, scène 4 » concentre l'effet recherché par Racine dans acte 1. le figures de style oriente la lecture vers le sens du passage.", keywords: ["figures","de","style","racine"] },
+      { procede: "Registre lyrique", citation: "« Acte 1, scène 4 »", interpretation: "À travers « Acte 1, scène 4 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-381",
+    titre: "Acte 1, scène 1",
+    auteur: "Racine",
+    oeuvre: "Andromaque (1667)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `« Acte 1, scène 1 » : Acte 1, scène 1. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Tragédie de la fidélité et de la jalousie. — Acte 1, scène 1.",
+    attendus: [
+      { procede: "Ironie", citation: "« Acte 1, scène 1 »", interpretation: "Ironie: « Acte 1, scène 1 » dit le contraire du sens réel ou crée un décalage critique. Racine invite à lire acte 1 à contre-pied.", keywords: ["ironie","acte","1,","scène","1","tragique"] },
+      { procede: "Figures de style", citation: "« Acte 1, scène 1 »", interpretation: "Figures de style: « Acte 1, scène 1 » concentre l'effet recherché par Racine dans acte 1. le figures de style oriente la lecture vers le sens du passage.", keywords: ["figures","de","style","racine"] },
+      { procede: "Registre lyrique", citation: "« Acte 1, scène 1 »", interpretation: "À travers « Acte 1, scène 1 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-382",
+    titre: "Acte 1, scène 3",
+    auteur: "Corneille",
+    oeuvre: "Le Cid (1637)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `Tragédie de l'honneur et de l'amour. — Acte 1, scène 3. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Tragédie de l'honneur et de l'amour. — Acte 1, scène 3.",
+    attendus: [
+      { procede: "Registre tragique", citation: "« Acte 1, scène 3 »", interpretation: "Registre tragique: « Acte 1, scène 3 » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, de l'acte 1.", keywords: ["registre","tragique","acte","1,","scène","3"] },
+      { procede: "Énumération", citation: "« Acte 1, scène 3 »", interpretation: "Énumération repérée dans « Acte 1, scène 3 »: la liste multiplie les occurrences et renforce l'idée centrale de l''acte 1.", keywords: ["énumération","corneille"] },
+      { procede: "Didascalies", citation: "« Acte 1, scène 3 »", interpretation: "Par « Acte 1, scène 3 », le didascalies approfondit acte 1 et marque le style de Corneille.", keywords: ["didascalies","tragique"] }
+    ]
+  },
+  {
+    id: "GT-383",
+    titre: "Acte 2, scène 1",
+    auteur: "Corneille",
+    oeuvre: "Le Cid (1637)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `« Acte 2, scène 1 » : Acte 2, scène 1. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Tragédie de l'honneur et de l'amour. — Acte 2, scène 1.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Acte 2, scène 1 »", interpretation: "Antithèse: « Acte 2, scène 1 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","acte","2,","scène","1","tragique"] },
+      { procede: "Hyperbole", citation: "« Acte 2, scène 1 »", interpretation: "Hyperbole: « Acte 2, scène 1 » exagère volontairement la réalité pour marquer l'intensité du ressenti dans acte 2.", keywords: ["hyperbole","corneille"] },
+      { procede: "Registre pathétique", citation: "« Acte 2, scène 1 »", interpretation: "Registre pathétique: « Acte 2, scène 1 » suscite la compassion et l'indignation face à la souffrance, de l'acte 2.", keywords: ["registre","pathétique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-384",
+    titre: "Acte 1, scène 2",
+    auteur: "Molière",
+    oeuvre: "Tartuffe (1664)",
+    genre: "Théâtre comique",
+    diff: 2,
+    texte: `« Acte 1, scène 2 » : Acte 1, scène 2. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 1, scène 2.",
+    attendus: [
+      { procede: "Ironie", citation: "« Acte 1, scène 2 »", interpretation: "Ironie: « Acte 1, scène 2 » dit le contraire du sens réel ou crée un décalage critique. Molière invite à lire dénonciation de l'hypocrisie à contre-pied.", keywords: ["ironie","acte","1,","scène","2","tragique"] },
+      { procede: "Figures de style", citation: "« Acte 1, scène 2 »", interpretation: "Figures de style: « Acte 1, scène 2 » concentre l'effet recherché par Molière dans dénonciation de l'hypocrisie. le figures de style oriente la lecture vers le sens du passage.", keywords: ["figures","de","style","molière"] },
+      { procede: "Registre lyrique", citation: "« Acte 1, scène 2 »", interpretation: "Registre lyrique: « Acte 1, scène 2 » exprime une subjectivité intime et des émotions personnelles, de la dénonciation de l'hypocrisie.", keywords: ["registre","lyrique","tragique"] }
+    ]
+  },
+  {
+    id: "GT-385",
+    titre: "Poème 7",
+    auteur: "Verlaine",
+    oeuvre: "Poèmes saturniens (1866)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 7 » : poème n°7. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Poésie mélancolique et musicale. — poème n°7.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Poème 7 »", interpretation: "Antithèse repérée dans « Poème 7 »: deux termes ou idées s'opposent pour souligner poème n°7.", keywords: ["antithèse","poème","7","lyrique"] },
+      { procede: "Hyperbole", citation: "« Poème 7 »", interpretation: "Hyperbole: « Poème 7 » exagère volontairement la réalité pour marquer l'intensité du ressenti dans poème n°7.", keywords: ["hyperbole","verlaine"] },
+      { procede: "Registre pathétique", citation: "« Poème 7 »", interpretation: "Registre pathétique: par « Poème 7 », Verlaine suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Poèmes saturniens.", keywords: ["registre","pathétique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-386",
+    titre: "Poème 4",
+    auteur: "Verlaine",
+    oeuvre: "Romances sans paroles (1874)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 4 » : poème n°4. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Poésie impressionniste et musicalité. — poème n°4.",
+    attendus: [
+      { procede: "Ironie", citation: "« Poème 4 »", interpretation: "Ironie: « Poème 4 » dit le contraire du sens réel ou crée un décalage critique. Verlaine invite à lire poème n°4 à contre-pied.", keywords: ["ironie","poème","4","lyrique"] },
+      { procede: "Figures de style", citation: "« Poème 4 »", interpretation: "Par « Poème 4 », le figures de style approfondit poème n°4 et marque le style de Verlaine.", keywords: ["figures","de","style","verlaine"] },
+      { procede: "Registre lyrique", citation: "« Poème 4 »", interpretation: "À travers « Poème 4 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-387",
+    titre: "Poème 9",
+    auteur: "Baudelaire",
+    oeuvre: "Les Fleurs du mal (1857)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Baudelaire, modernité poétique, spleen et idéal. — poème n°9. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Modernité poétique, spleen et idéal. — poème n°9.",
+    attendus: [
+      { procede: "Champ lexical", citation: "« Poème 9 »", interpretation: "Les mots « Poème », « champ », « lexical » appartiennent au même champ sémantique. Leur convergence renforce poème n°9 et structure l'unité thématique du passage.", keywords: ["champ","lexical","poème","9","lyrique"] },
+      { procede: "Description", citation: "« Poème 9 »", interpretation: "Par « Poème 9 », le description approfondit poème n°9 et marque le style de Baudelaire.", keywords: ["description","baudelaire"] },
+      { procede: "Narration", citation: "« Poème 9 »", interpretation: "Par « Poème 9 », le narration approfondit poème n°9 et marque le style de Baudelaire.", keywords: ["narration","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-388",
+    titre: "Poème 6",
+    auteur: "Hugo",
+    oeuvre: "Les Contemplations (1856)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `« Poème 6 » : poème n°6. L'extrait invite à une lecture attentive des procédés.`,
+    contexte: "Poésie du deuil et de la mémoire. — poème n°6.",
+    attendus: [
+      { procede: "Registre lyrique", citation: "« Poème 6 »", interpretation: "Registre lyrique: « Poème 6 » exprime une subjectivité intime et des émotions personnelles, du poème n°6.", keywords: ["registre","lyrique","poème","6","lyrique"] },
+      { procede: "Énumération", citation: "« Poème 6 »", interpretation: "Énumération: les termes « Poème », « énumération », « hugo » juxtaposent plusieurs éléments pour insister sur le poème n°6 et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","hugo"] },
+      { procede: "Didascalies", citation: "« Poème 6 »", interpretation: "Didascalies: « Poème 6 » concentre l'effet recherché par Hugo dans poème n°6. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-389",
+    titre: "Description",
+    auteur: "Hugo",
+    oeuvre: "Les Misérables (1862)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Roman engagé — misère et rédemption. — Description. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Roman engagé — misère et rédemption. — Description.",
+    attendus: [
+      { procede: "Registre réaliste", citation: "« Description »", interpretation: "À travers « Description », le registre réaliste domine et colore le passage d'une tonalité marquée.", keywords: ["registre","réaliste","description","réaliste"] },
+      { procede: "Énumération", citation: "« Description »", interpretation: "Énumération: les termes « Description », « énumération », « hugo » juxtaposent plusieurs éléments pour insister sur la misère et rédemption et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","hugo"] },
+      { procede: "Didascalies", citation: "« Description »", interpretation: "Didascalies repéré dans « Description »: Hugo mobilise ce procédé pour structurer misère et rédemption dans Les Misérables.", keywords: ["didascalies","réaliste"] }
+    ]
+  },
+  {
+    id: "GT-390",
+    titre: "Poème 6",
+    auteur: "Rimbaud",
+    oeuvre: "Le Bateau ivre (1871)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Dans ce passage de Rimbaud, voyage initiatique et modernité poétique. — poème n°6. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    contexte: "Voyage initiatique et modernité poétique. — poème n°6.",
+    attendus: [
+      { procede: "Registre lyrique", citation: "« Poème 6 »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Poème 6 » concentre cette coloration du poème n°6.", keywords: ["registre","lyrique","poème","6","lyrique"] },
+      { procede: "Énumération", citation: "« Poème 6 »", interpretation: "Énumération repérée dans « Poème 6 »: la liste multiplie les occurrences et renforce l'idée centrale de le poème n°6.", keywords: ["énumération","rimbaud"] },
+      { procede: "Didascalies", citation: "« Poème 6 »", interpretation: "Didascalies repéré dans « Poème 6 »: Rimbaud mobilise ce procédé pour structurer poème n°6 dans Le Bateau ivre.", keywords: ["didascalies","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-391",
+    titre: "Poème 2",
+    auteur: "Rimbaud",
+    oeuvre: "Une Saison en enfer (1873)",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Prose poétique — révolte et quête. — poème n°2. Les mots choisis par l'auteur construisent un effet épique.`,
+    contexte: "Prose poétique — révolte et quête. — poème n°2.",
+    attendus: [
+      { procede: "Registre lyrique", citation: "« Poème 2 »", interpretation: "Registre lyrique: « Poème 2 » exprime une subjectivité intime et des émotions personnelles, du révolte et quête.", keywords: ["registre","lyrique","poème","2","lyrique"] },
+      { procede: "Énumération", citation: "« Poème 2 »", interpretation: "Énumération: les termes « Poème », « énumération », « rimbaud » juxtaposent plusieurs éléments pour insister sur le révolte et quête et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","rimbaud"] },
+      { procede: "Didascalies", citation: "« Poème 2 »", interpretation: "Didascalies: « Poème 2 » concentre l'effet recherché par Rimbaud dans révolte et quête. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","lyrique"] }
+    ]
+  }
+];
+
+if (typeof GRANDS_TEXTES !== 'undefined') {
+  GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA14);
+}

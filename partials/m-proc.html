@@ -1,0 +1,487 @@
+﻿<div id="m-proc" class="matiere on">
+  <div class="subnav" id="snav-proc">
+    <button class="stab on"  onclick="switchPg('proc','p-fiche',this)">📖 Procédés</button>
+    <button class="stab"     onclick="switchPg('proc','p-cartes',this)">🃏 Cartes</button>
+    <button class="stab"     onclick="switchPg('proc','p-qcm',this)">✏️ QCM</button>
+    <button class="stab"     onclick="switchPg('proc','p-exam',this)">🏆 Examen</button>
+    <button class="stab"     onclick="switchPg('proc','p-stat',this)">📊 Stats</button>
+    <button class="stab"     onclick="switchPg('proc','p-meth',this)">📝 Commentaire</button>
+    <button class="stab"     onclick="switchPg('proc','p-auteurs',this)">👤 Auteurs</button>
+    <button class="stab"     onclick="switchPg('proc','p-dissert',this)">📋 Dissertation</button>
+    <button class="stab"     onclick="switchPg('proc','p-exo',this)">🔍 Exercices</button>
+    <button class="stab"     onclick="switchPg('proc','p-gtextes',this)">📜 Grands textes</button>
+    <button class="stab"     data-corpus="1" onclick="switchPg('proc','p-corpus',this)">📚 Corpus</button>
+  </div>
+
+  <!-- ── Procédés fiches ── -->
+  <div id="proc-p-fiche" class="pg on">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Première</div>
+      <h1>Procédés &amp; <em>Techniques</em> Littéraires</h1>
+      <p class="hero-sub" id="proc-count-hero">… procédés courants · Exemples &amp; effets · Clic pour développer</p>
+    </div>
+    <div class="daily-box" id="daily-challenge" style="display:none"></div>
+    <div class="fbar">
+      <div class="sbox">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="sinput" id="psrch" placeholder="Rechercher un procédé…">
+      </div>
+      <div class="chips" id="pchips"></div>
+    </div>
+    <div class="wrap">
+      <div class="cbar" id="pcbar"></div>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+  </div>
+
+  <!-- ── Mode Cartes (Flashcards) ── -->
+  <div id="proc-p-cartes" class="pg">
+    <div class="wrap-sm">
+      <div class="qcm-top">
+        <h2>Mode <em>Cartes</em></h2>
+        <p class="hero-sub" id="carte-count-hero" style="margin:0;font-size:12px">… cartes · Programme bac</p>
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          <span id="carte-prog" style="font-size:12px;color:var(--tx2)">0 / 0</span>
+          <button class="sbtn" onclick="carteShuffle()">🔀 Mélanger</button>
+          <button class="sbtn" onclick="carteReset()">↺ Recommencer</button>
+        </div>
+      </div>
+      <div class="chips" id="carte-chips" style="margin-bottom:1rem"></div>
+      <div class="ptrack" style="margin-bottom:1.2rem"><div class="pfill" id="carte-pbar" style="width:0%"></div></div>
+      <div class="kb-info">
+        <span><kbd>Espace</kbd> retourner</span>
+        <span><kbd>←</kbd><kbd>→</kbd> naviguer</span>
+      </div>
+      <div id="carte-cont"></div>
+    </div>
+  </div>
+
+  <!-- ── Mode Examen ── -->
+  <div id="proc-p-exam" class="pg">
+    <div class="wrap-sm">
+      <p class="hero-sub" id="exam-count-hero" style="text-align:center;margin:0 0 .8rem;font-size:12px">…</p>
+      <div id="exam-cont"></div>
+    </div>
+  </div>
+
+  <!-- ── QCM Littérature ── -->
+  <div id="proc-p-qcm" class="pg">
+    <div class="wrap-sm">
+      <div class="qcm-top">
+        <h2>QCM <em>Littérature</em> <span class="qcm-count" id="qcm-count-proc"></span></h2>
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          <div class="scorepill">Score : <b id="pqsc">0</b> / <b id="pqtot">0</b></div>
+          <button class="sbtn" id="ptimer-btn" onclick="toggleTimer('proc')" title="Timer 30s par question">⏱ Timer</button>
+          <button class="revise-btn" id="previse-btn" onclick="toggleRevise('proc')" title="Réviser les questions difficiles">🎯 Ciblée</button>
+          <button class="sbtn" id="pfocus-btn" onclick="toggleQcmFocus('proc')" title="Une question à la fois">🔍 Focus</button>
+          <button class="sbtn" onclick="mixQ('proc')">🔀 Mélanger</button>
+          <button class="pbtn" onclick="resetQ('proc')">↺ Recommencer</button>
+        </div>
+      </div>
+      <div class="session-bar">
+        <span class="session-lbl">Session :</span>
+        <div class="chips chips-inline" id="p-session-chips">
+          <button class="chip" onclick="setQcmSession(10,this)">10</button>
+          <button class="chip on" onclick="setQcmSession(20,this)">20</button>
+          <button class="chip" onclick="setQcmSession(30,this)">30</button>
+          <button class="chip" onclick="setQcmSession(50,this)">50</button>
+          <button class="chip" onclick="setQcmSession(100,this)">100</button>
+          <button class="chip" onclick="setQcmSession(0,this)">Toutes</button>
+        </div>
+      </div>
+      <div style="margin-bottom:1.1rem">
+        <div class="ptrack"><div class="pfill" id="pqbar" style="width:0%"></div></div>
+        <div class="plbl" id="pqprog">0 question répondue</div>
+      </div>
+      <div class="kb-info" style="margin-bottom:.8rem">
+          <span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> répondre</span>
+          <span><kbd>←</kbd><kbd>→</kbd> naviguer (mode focus)</span>
+          <span><kbd>★</kbd> favori</span>
+      </div>
+      <div class="chips" id="pqcats" style="margin-bottom:1.2rem"></div>
+      <div id="pqcont"></div>
+    </div>
+  </div>
+
+  <!-- ── Stats Littérature ── -->
+  <div id="proc-p-stat" class="pg">
+    <div class="wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.6rem">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700">
+          Stats <em style="font-style:italic;color:var(--gold2)">Littérature</em>
+        </h2>
+        <div style="display:flex;gap:7px">
+          <button class="sbtn" onclick="window.print()">🖨 Imprimer</button>
+          <button class="rst-btn" onclick="clearSt('proc')">Réinitialiser</button>
+        </div>
+      </div>
+      <div id="preadiness"></div>
+      <div id="pexamprob"></div>
+      <div class="kpig" id="pkpis"></div>
+      <div class="charts">
+        <div class="cbox cbox-wide"><div class="ctitle">Décomposition de l'indice (100 pts)</div><div id="pfactors"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><div class="ctitle">Maîtrise par catégorie</div><div id="pmastery"></div></div>
+        <div class="cbox"><div class="ctitle">Recommandations</div><div id="precommend"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><div class="ctitle">Score par catégorie</div><div id="pradar"></div></div>
+        <div class="cbox"><div class="ctitle">Historique sessions (14 dernières)</div><div class="tl" id="ptl"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox"><div class="ctitle">Examens blancs</div><div id="pexams"></div></div>
+        <div class="cbox"><div class="ctitle">Questions difficiles</div><div id="phard"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox cbox-wide"><div class="ctitle">Défis express (10 min)</div><div id="pchallenge"></div></div>
+      </div>
+      <div class="charts">
+        <div class="cbox cbox-wide"><div class="ctitle">Dernières parties</div><div id="phist"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Méthode commentaire ── -->
+  <div id="proc-p-meth" class="pg">
+    <div class="wrap-sm">
+      <div class="mhero">
+        <h2>Méthode du <em>Commentaire de texte</em></h2>
+        <p>Bac de Français · Première · Voie générale — Étapes, IPCI, phrases-modèles, pièges &amp; plans</p>
+      </div>
+
+      <div class="msec">Introduction express — 5 temps</div>
+      <p class="meth-intro-lead">Modèle d'introduction raccourci : amorce historique, auteur, extrait, problématique, annonce du plan.</p>
+      <p class="meth-doc-source">Source : <code>docs/intro version raccourcie.docx</code> · <button type="button" class="corpus-inline-btn" onclick="openCorpusRef('M-INTRO')">M-INTRO</button> · <button type="button" class="corpus-inline-btn" onclick="openCorpusRef('M-TRANS')">M-TRANS</button></p>
+      <div class="step"><div class="stepn">1</div><div><div class="stept">L'amorce (contexte et rupture)</div><div class="stepb">Depuis toujours, la littérature permet aux auteurs d'exprimer leur vision du monde et de questionner la société dans laquelle ils vivent. Si le <em>[siècle précédent]</em> était marqué par <em>[caractéristique de l'ancien mouvement]</em>, le <em>[siècle de l'auteur]</em> voit naître <em>[caractéristique du nouveau mouvement]</em>.</div></div></div>
+      <div class="step"><div class="stepn">2</div><div><div class="stept">Présentation de l'auteur et de l'œuvre</div><div class="stepb">C'est dans ce contexte que s'inscrit <em>[nom de l'auteur]</em>, dramaturge / romancier / philosophe majeur de cette période. Il/elle publie en <em>[année]</em> son œuvre <em>[titre de l'œuvre]</em>.</div></div></div>
+      <div class="step"><div class="stepn">3</div><div><div class="stept">Situation et présentation de l'extrait</div><div class="stepb">Dans cet extrait, l'auteur traite de <em>[thème général du texte]</em> en utilisant <em>[ton ou registre]</em>.</div></div></div>
+      <div class="step"><div class="stepn">4</div><div><div class="stept">Problématique</div><div class="stepb">À travers l'étude de ce passage, nous nous demanderons comment <em>[problématique : ex. renouvelle les codes du genre pour dénoncer une injustice / parvient à rendre compte de la complexité psychologique du personnage]</em>.</div></div></div>
+      <div class="step"><div class="stepn">5</div><div><div class="stept">Annonce du plan</div><div class="stepb">Pour répondre à cette question, nous analyserons dans un premier temps <em>[mouvement 1]</em>, avant d'étudier <em>[mouvement 2]</em>.</div></div></div>
+
+      <div class="msec">Récap' Express — transitions d'époque</div>
+      <p class="meth-intro-lead">Formules de rupture pour articuler deux périodes littéraires dans l'amorce ou une transition.</p>
+      <div class="pcrd"><h4>Du Baroque au Classicisme (XVII<sup>e</sup>)</h4>
+        <div class="pr"><span class="prl">Rupture</span><span class="prv">Liberté totale pour le théâtre → théâtre modèle de moralité (Molière, Racine, Abbé Prévost).</span></div>
+      </div>
+      <div class="pcrd"><h4>Du Classicisme aux Lumières (XVII<sup>e</sup> – XVIII<sup>e</sup>)</h4>
+        <div class="pr"><span class="prl">Rupture</span><span class="prv">Théâtre moral → outil pour faire progresser l'humanité et combattre les préjugés (Voltaire, Diderot).</span></div>
+      </div>
+      <div class="pcrd"><h4>Des Lumières au Romantisme (XVIII<sup>e</sup> – XIX<sup>e</sup>)</h4>
+        <div class="pr"><span class="prl">Rupture</span><span class="prv">Combat des préjugés → exaltation de la subjectivité, puissance de la nature et « mal du siècle » (Alexandre Dumas, Alfred de Musset).</span></div>
+      </div>
+      <div class="pcrd"><h4>Du Romantisme au Réalisme puis Naturalisme (XIX<sup>e</sup>)</h4>
+        <div class="pr"><span class="prl">Rupture</span><span class="prv">Subjectivité romantique → miroir du réel influencé par les sciences et la sociologie (Émile Zola, Alexandre Dumas fils).</span></div>
+      </div>
+      <div class="pcrd"><h4>Du XIX<sup>e</sup> au XX<sup>e</sup> (contemporain)</h4>
+        <div class="pr"><span class="prl">Rupture</span><span class="prv">Miroir du réel → exploration des tensions familiales et absurdité de la condition humaine (Mouawad, Albert Camus) — importance des didascalies au théâtre.</span></div>
+      </div>
+
+      <div class="msec">Les 6 étapes en salle d'examen</div>
+      <div class="step"><div class="stepn">1</div><div><span class="steptime">⏱ 5 min</span><div class="stept">Lire le texte attentivement (2 fois)</div><div class="stepb">Première lecture <strong>globale</strong> pour saisir le sens. Deuxième lecture <strong>crayon en main</strong> : souligne les procédés, les mots importants, les ruptures de ton. Note dans la marge champs lexicaux et premières impressions.</div></div></div>
+      <div class="step"><div class="stepn">2</div><div><span class="steptime">⏱ 10 min</span><div class="stept">Identifier le projet de l'auteur</div><div class="stepb"><ul><li><strong>Qui parle ?</strong> (narrateur, locuteur poétique, personnage)</li><li><strong>De quoi ?</strong> (thème central)</li><li><strong>Dans quel but ?</strong> (convaincre, émouvoir, dénoncer…)</li><li><strong>Quel registre ?</strong> (lyrique, épique, satirique, tragique…)</li><li><strong>Quel genre ?</strong> (poème, récit, théâtre, essai)</li></ul></div></div></div>
+      <div class="step"><div class="stepn">3</div><div><span class="steptime">⏱ 15 min</span><div class="stept">Construire le plan (2 ou 3 axes thématiques)</div><div class="stepb">Chaque axe doit être étayé par des procédés précis. <strong>Évite absolument</strong> le plan chronologique (ligne par ligne) : c'est une paraphrase déguisée.</div></div></div>
+      <div class="step"><div class="stepn">4</div><div><span class="steptime">⏱ 5 min</span><div class="stept">Rédiger l'introduction</div><div class="stepb"><ul><li><strong>Présentation du texte</strong> : auteur, œuvre, date, genre</li><li><strong>Situation dans l'œuvre</strong> (si connue)</li><li><strong>Problématique</strong> : question que le texte soulève</li><li><strong>Annonce du plan</strong> en 2 ou 3 mouvements</li></ul></div></div></div>
+      <div class="step"><div class="stepn">5</div><div><span class="steptime">⏱ 40 min</span><div class="stept">Rédiger le développement (méthode IPCI)</div><div class="stepb"><strong>Idée → Procédé → Citation → Interprétation</strong> pour chaque paragraphe. Articule les parties avec des transitions rédigées.</div></div></div>
+      <div class="step"><div class="stepn">6</div><div><span class="steptime">⏱ 5 min</span><div class="stept">Rédiger la conclusion</div><div class="stepb"><ul><li><strong>Bilan</strong> : réponds à la problématique</li><li><strong>Ouverture</strong> : rapprochement avec une autre œuvre ou un mouvement</li></ul>N'introduis <strong>jamais</strong> d'éléments nouveaux.</div></div></div>
+
+      <div class="msec">La méthode IPCI — analyser un procédé</div>
+      <div class="ipci">
+        <div class="mblock"><h4>① Idée</h4><p>Formule l'interprétation à défendre.<br><span style="color:var(--tx3)">« Le poète exprime sa mélancolie face au temps. »</span></p></div>
+        <div class="mblock"><h4>② Procédé</h4><p>Nomme précisément la figure ou le procédé.<br><span style="color:var(--tx3)">« L'assonance en [ɔ̃]… »</span></p></div>
+        <div class="mblock"><h4>③ Citation</h4><p>Cite brièvement entre guillemets, avec numéro de ligne.<br><span style="color:var(--tx3)">« …dans « sanglots longs / des violons » (v. 1-2)… »</span></p></div>
+        <div class="mblock"><h4>④ Interprétation</h4><p>Explique l'effet et son lien au sens global.<br><span style="color:var(--tx3)">« …crée une musique lancinante qui traduit la tristesse. »</span></p></div>
+      </div>
+
+      <div class="msec">Phrases-modèles</div>
+      <div class="phm"><span>Introduction — présentation</span>Ce texte, extrait de <em>[œuvre]</em> de <em>[auteur]</em> (<em>[date]</em>), appartient au genre de <em>[genre]</em> et relève du registre <em>[registre]</em>.</div>
+      <div class="phm"><span>Problématique</span>On peut se demander comment <em>[auteur]</em> parvient à <em>[effet visé]</em> dans ce passage.</div>
+      <div class="phm"><span>Transition</span>Après avoir montré que <em>[axe 1]</em>, il convient d'examiner comment <em>[axe 2]</em>.</div>
+      <div class="phm"><span>Analyse IPCI</span>L'emploi de <em>[procédé]</em> dans « <em>[citation]</em> » traduit <em>[interprétation]</em>, renforçant l'impression de <em>[effet global]</em>.</div>
+      <div class="phm"><span>Conclusion — bilan</span>Ainsi, à travers <em>[procédé 1]</em> et <em>[procédé 2]</em>, <em>[auteur]</em> parvient à <em>[réponse à la problématique]</em>.</div>
+      <div class="phm"><span>Conclusion — ouverture</span>Ce texte entre en résonance avec <em>[autre œuvre]</em>, qui traite de la même question sous un angle différent.</div>
+
+      <div class="msec">Pièges &amp; astuces</div>
+      <div class="g2">
+        <div class="mblock piege"><h4>✗ La paraphrase</h4><p>Raconter le texte avec d'autres mots n'est pas analyser. Chaque affirmation doit être justifiée par un procédé et une citation précise.</p></div>
+        <div class="mblock astuce"><h4>✓ Interpréter, pas décrire</h4><p>Ne pas se contenter de nommer un procédé. Toujours expliquer <strong>pourquoi</strong> l'auteur l'utilise et <strong>quel effet</strong> il produit.</p></div>
+        <div class="mblock piege"><h4>✗ Le plan chronologique</h4><p>Analyser ligne par ligne = paraphrase déguisée. Il faut un plan thématique répondant à la problématique.</p></div>
+        <div class="mblock astuce"><h4>✓ Varier les niveaux d'analyse</h4><p>Mobilise des procédés à différents niveaux : lexical, syntaxique, stylistique, rythmique.</p></div>
+        <div class="mblock piege"><h4>✗ Les citations trop longues</h4><p>Une citation efficace est courte et précise. Tronque avec « […] » si besoin.</p></div>
+        <div class="mblock astuce"><h4>✓ Contextualiser l'auteur</h4><p>Mentionner le mouvement littéraire (romantisme, surréalisme…) donne de la profondeur à l'analyse.</p></div>
+      </div>
+
+      <div class="msec">Plans-types selon le genre</div>
+      <div class="pcrd"><h4>Texte poétique</h4>
+        <div class="pr"><span class="prl">Axe 1</span><span class="prv">Le lyrisme : « je » lyrique, figures d'analogie, expression des émotions.</span></div>
+        <div class="pr"><span class="prl">Axe 2</span><span class="prv">Le travail formel : versification, effets sonores, enjambements.</span></div>
+        <div class="pr"><span class="prl">Axe 3</span><span class="prv">La portée universelle : dialogue avec le lecteur, inscription dans un mouvement.</span></div>
+      </div>
+      <div class="pcrd"><h4>Texte narratif</h4>
+        <div class="pr"><span class="prl">Axe 1</span><span class="prv">La construction du récit : point de vue narratif, rythme, structure temporelle.</span></div>
+        <div class="pr"><span class="prl">Axe 2</span><span class="prv">La caractérisation des personnages : portrait, discours, rapport au monde.</span></div>
+        <div class="pr"><span class="prl">Axe 3</span><span class="prv">Le projet de l'auteur : registre dominant, visée critique ou esthétique.</span></div>
+      </div>
+      <div class="pcrd"><h4>Texte théâtral</h4>
+        <div class="pr"><span class="prl">Axe 1</span><span class="prv">La dramaturgie : enjeux de la scène, progression dramatique, rapports de force.</span></div>
+        <div class="pr"><span class="prl">Axe 2</span><span class="prv">La langue dramatique : tirades/stichomythies, registre, figures de style.</span></div>
+        <div class="pr"><span class="prl">Axe 3</span><span class="prv">La dimension spectaculaire : didascalies, double énonciation.</span></div>
+      </div>
+
+      <div class="msec" id="intro-sim">Simulateur d'introduction</div>
+      <p class="meth-intro-lead">Saisis <strong>l'auteur</strong> et <strong>l'œuvre</strong> (comme sur ta copie d'examen). Le simulateur interroge <strong>10 000 passages probables</strong> au bac et génère une intro en <strong>5 temps</strong>.</p>
+      <p class="intro-sim-meta" id="intro-sim-meta">… passages indexés</p>
+      <div class="intro-sim-quick-wrap">
+        <span class="intro-sim-quick-lbl">Exemples rapides</span>
+        <div class="intro-sim-quick" id="intro-sim-quick"></div>
+      </div>
+      <div class="intro-sim-recent-wrap" id="intro-sim-recent-wrap" hidden>
+        <span class="intro-sim-quick-lbl">Récents</span>
+        <div class="intro-sim-recent" id="intro-sim-recent"></div>
+      </div>
+      <div class="intro-sim-top-wrap" id="intro-sim-top-wrap" hidden>
+        <span class="intro-sim-quick-lbl">Top bac <span class="intro-sim-opt">(≥ 92 % probabilité)</span></span>
+        <div class="intro-sim-top" id="intro-sim-top"></div>
+      </div>
+      <div class="intro-sim-form">
+        <div class="intro-sim-row">
+          <label class="intro-sim-label" for="intro-sim-auteur">Auteur</label>
+          <input type="text" class="sinput intro-sim-input" id="intro-sim-auteur" list="intro-sim-auteur-list" placeholder="Ex. Verlaine, Hugo, Racine…" autocomplete="off">
+          <datalist id="intro-sim-auteur-list"></datalist>
+        </div>
+        <div class="intro-sim-row">
+          <label class="intro-sim-label" for="intro-sim-oeuvre">Œuvre</label>
+          <input type="text" class="sinput intro-sim-input" id="intro-sim-oeuvre" list="intro-sim-oeuvre-list" placeholder="Ex. Poèmes saturniens, Les Misérables, Phèdre…" autocomplete="off">
+          <datalist id="intro-sim-oeuvre-list"></datalist>
+        </div>
+        <div class="intro-sim-row">
+          <label class="intro-sim-label" for="intro-sim-passage">Passage ou extrait <span class="intro-sim-opt">(optionnel)</span></label>
+          <textarea class="sinput intro-sim-input intro-sim-textarea" id="intro-sim-passage" rows="3" placeholder="Titre du passage (ex. Chanson d'automne) ou colle l'extrait complet depuis ta copie…" autocomplete="off"></textarea>
+          <p class="intro-sim-hint">Tu ne connais pas le titre ? Colle les premières lignes du texte : la recherche s'appuiera sur ton extrait.</p>
+        </div>
+        <div class="intro-sim-row">
+          <label class="intro-sim-label" for="intro-sim-theme">Thème <span class="intro-sim-opt">(optionnel — remplace l'auto)</span></label>
+          <input type="text" class="sinput intro-sim-input" id="intro-sim-theme" placeholder="Ex. la mélancolie du temps qui passe…">
+        </div>
+        <div class="intro-sim-form-actions">
+          <button type="button" class="pbtn intro-sim-btn" onclick="introSimGenerate()">✨ Générer mon intro parfaite</button>
+          <button type="button" class="sbtn sec" onclick="introSimRandom()">🎲 Passage au hasard</button>
+        </div>
+      </div>
+      <div id="intro-sim-matches" class="intro-sim-matches"></div>
+      <div id="intro-sim-result" class="intro-sim-result"></div>
+    </div>
+  </div>
+
+  <!-- ── Principaux auteurs ── -->
+  <div id="proc-p-auteurs" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Révisions</div>
+      <h1>Principaux <em>auteurs</em></h1>
+      <p class="hero-sub" id="auteurs-count-hero">Genre · Dates · Mouvement · Œuvres principales</p>
+    </div>
+    <div class="wrap-sm">
+      <p class="auteurs-intro">Fiches pour le bac : clique sur un auteur pour voir les <strong>repères d'introduction</strong> (5 temps), mouvement, œuvres et développement.</p>
+      <p class="meth-doc-source">Source : <code>docs/Principaux auteurs.docx</code> · voir aussi le <button type="button" class="corpus-inline-btn" onclick="openCorpusCat('Principaux auteurs')">Corpus · Principaux auteurs</button> (<code>AU-…</code>)</p>
+      <div class="auteurs-toolbar">
+        <div class="sbox auteurs-search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="sinput" id="auteurs-search" placeholder="Rechercher un auteur, un mouvement, une œuvre…">
+        </div>
+        <span class="auteurs-summary" id="auteurs-summary"></span>
+      </div>
+      <div class="auteurs-filters">
+        <span class="auteurs-filter-label">Genre</span>
+        <div class="chips" id="auteurs-genre-chips"></div>
+      </div>
+      <div id="auteurs-list" class="auteurs-list"></div>
+    </div>
+  </div>
+
+  <!-- ── Exercices ── -->
+  <div id="proc-p-exo" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Exercices appliqués</div>
+      <h1>Exercices sur <em>textes réels</em></h1>
+      <p class="hero-sub" id="exo-count-hero">… exercices · Réponses écrites · Extraits · Corrigés</p>
+      <p class="exo-mode-note">Saisissez procédé, terme ou réponse — pas de choix multiples.</p>
+    </div>
+    <div class="wrap-sm">
+      <div class="exo-top-bar" style="margin-top:1.4rem">
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          <div class="scorepill">Score : <b id="eqsc">0</b> / <b id="eqtot">0</b></div>
+          <button class="sbtn" onclick="mixExo()">🔀 Mélanger</button>
+          <button class="revise-btn" id="exorevise-btn" onclick="toggleReviseExo()" title="Exercices difficiles">🎯 Ciblée</button>
+          <button class="pbtn" onclick="resetExo()">↺ Recommencer</button>
+        </div>
+      </div>
+      <div style="margin-bottom:.9rem">
+        <div class="ptrack"><div class="pfill" id="eqbar" style="width:0%"></div></div>
+        <div class="plbl" id="eqprog">0 exercice répondu</div>
+      </div>
+      <!-- Filtre catégorie -->
+      <div class="exo-filters">
+        <span class="exo-filter-lbl">Catégorie :</span>
+        <div class="chips" id="exo-cats"></div>
+      </div>
+      <!-- Filtre difficulté -->
+      <div class="exo-filters">
+        <span class="exo-filter-lbl">Niveau :</span>
+        <div class="chips" id="exo-diffs"></div>
+      </div>
+      <div id="exo-cont"></div>
+    </div>
+  </div>
+
+  <!-- ── Grands textes ── -->
+  <div id="proc-p-gtextes" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Commentaire guidé</div>
+      <h1>Grands <em>textes</em></h1>
+      <p class="hero-sub" id="gtextes-count-hero">Poésie, théâtre, roman, fable… · Repère les procédés · Corrigé détaillé</p>
+    </div>
+    <div class="wrap-sm">
+      <div id="gtextes-list-view">
+        <p class="gtextes-intro">Extraits de <strong>tous les genres</strong> du programme : <strong>732</strong> fiches analysables · banque de <strong>10 000</strong> passages probables pour l'intro (simulateur Commentaire). Repère les procédés, citation + IPCI, corrigé détaillé.</p>
+        <div class="gtext-intro-sim-strip" id="gtext-intro-sim-strip">
+          <span>Simulateur d'intro · <strong>10 000</strong> passages probables au bac</span>
+          <button type="button" class="sbtn sec" onclick="introSimNavigate()">📝 Simuler une intro</button>
+        </div>
+        <div id="gtext-prob-hub"></div>
+        <div class="gtextes-toolbar">
+          <div class="sbox gtextes-search-box">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="sinput" id="gtextes-search" placeholder="Rechercher titre, auteur, genre…">
+          </div>
+          <span class="gtextes-summary" id="gtextes-summary"></span>
+          <button class="sbtn" onclick="gtextToggleCustomForm(true)">+ Mon texte</button>
+        </div>
+        <div id="gtextes-custom-form" class="hidden"></div>
+        <div class="gtextes-filters">
+          <div class="gtextes-filter-row">
+            <span class="gtextes-filter-label">Genre</span>
+            <div class="chips" id="gtextes-genre-chips"></div>
+          </div>
+          <div class="gtextes-filter-row">
+            <span class="gtextes-filter-label">Niveau</span>
+            <div class="chips" id="gtextes-diff-chips"></div>
+          </div>
+          <div class="gtextes-filter-row">
+            <span class="gtextes-filter-label">Tri</span>
+            <div class="chips" id="gtextes-sort-chips"></div>
+          </div>
+          <div class="gtextes-filter-row">
+            <span class="gtextes-filter-label">Vue</span>
+            <div class="chips" id="gtextes-view-chips"></div>
+          </div>
+        </div>
+        <div id="gtextes-list" class="gtextes-list"></div>
+      </div>
+      <div id="gtextes-work-view" class="gtextes-work hidden">
+        <button class="sbtn gtextes-back" onclick="gtextBackToList()">← Retour à la liste</button>
+        <div id="gtextes-work-cont"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Document Corpus (référence maître) ── -->
+  <div id="proc-p-corpus" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Document de référence · Bac de Français</div>
+      <h1>Corpus <em>intégral</em></h1>
+      <p class="hero-sub" id="corpus-count-hero">Procédés · Grammaire · Phrases analysées · Exercices — toutes les réponses des QCM « Analyse de phrase » s'y trouvent</p>
+    </div>
+    <div class="wrap">
+      <div class="fbar" style="margin-bottom:1rem">
+        <div class="sbox" style="flex:1;max-width:420px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="sinput" id="corpus-srch" placeholder="Rechercher une phrase, un procédé, une règle… (ex. CP-001, oxymore)" oninput="debounceCorpusSearch()">
+        </div>
+        <button class="sbtn sec" onclick="openCorpusRef('GENERAL_PROCEDES')">📋 GENERAL_PROCEDES</button>
+        <button class="sbtn" onclick="printGeneralProcedes()">🖨 Fiche procédés</button>
+        <button class="sbtn sec" onclick="window.print()">🖨 Corpus complet</button>
+      </div>
+      <div class="chips" id="corpus-chips" style="margin-bottom:1rem"></div>
+      <div class="corpus-meta" id="corpus-meta"></div>
+      <div id="corpus-cont" class="corpus-list"></div>
+    </div>
+  </div>
+
+  <!-- ── Dissertation ── -->
+  <div id="proc-p-dissert" class="pg">
+    <div class="wrap-sm">
+
+      <!-- ════════════════ DISSERTATION ════════════════ -->
+      <div class="mhero">
+        <h2>Méthode de la <em>Dissertation</em></h2>
+        <p>Bac de Français · Première · Voie générale — Plan, argumentation, exemples, connecteurs</p>
+      </div>
+
+      <div class="msec">Qu'est-ce que la dissertation ?</div>
+      <div class="mblock">
+        <h4>Définition</h4>
+        <p>La dissertation est un devoir d'argumentation : il s'agit de <strong>défendre une thèse littéraire</strong> en réponse à une question ou à une affirmation, en s'appuyant sur des <strong>œuvres précises</strong> (programme + lectures personnelles). Elle diffère du commentaire qui analyse un texte donné.</p>
+      </div>
+      <div class="g2">
+        <div class="mblock astuce"><h4>✓ Ce qu'il faut faire</h4><ul><li>Prendre position et la défendre</li><li>Citer des œuvres précises (titre, auteur)</li><li>Analyser les exemples — ne pas les raconter</li><li>Utiliser des connecteurs logiques</li><li>Nuancer sa thèse</li></ul></div>
+        <div class="mblock piege"><h4>✗ Ce qu'il faut éviter</h4><ul><li>Paraphraser les œuvres (raconter l'intrigue)</li><li>Citer sans analyser</li><li>Plan chronologique (par auteur/date)</li><li>Oublier la problématique</li><li>Conclusion abrupte sans ouverture</li></ul></div>
+      </div>
+
+      <div class="msec">Les 3 types de plans</div>
+      <div class="pcrd">
+        <h4>Plan dialectique (thèse / antithèse / synthèse)</h4>
+        <div class="pr"><span class="prl">Quand ?</span><span class="prv">Sujet de type « La littérature est-elle… ? » ou affirmation à nuancer.</span></div>
+        <div class="pr"><span class="prl">Partie I</span><span class="prv"><strong>Thèse</strong> : défendre l'affirmation du sujet — « Oui, la littérature est un miroir du réel… »</span></div>
+        <div class="pr"><span class="prl">Partie II</span><span class="prv"><strong>Antithèse</strong> : nuancer, montrer les limites — « Mais elle le déforme, le réinterprète… »</span></div>
+        <div class="pr"><span class="prl">Partie III</span><span class="prv"><strong>Synthèse</strong> : dépasser la contradiction — « La littérature recréé le réel pour lui donner sens… »</span></div>
+      </div>
+      <div class="pcrd">
+        <h4>Plan thématique (3 aspects complémentaires)</h4>
+        <div class="pr"><span class="prl">Quand ?</span><span class="prv">Sujet invitant à explorer plusieurs facettes d'une même question.</span></div>
+        <div class="pr"><span class="prl">Partie I</span><span class="prv">Premier angle : <em>ex.</em> la littérature comme connaissance de soi</span></div>
+        <div class="pr"><span class="prl">Partie II</span><span class="prv">Deuxième angle : <em>ex.</em> la littérature comme connaissance du monde</span></div>
+        <div class="pr"><span class="prl">Partie III</span><span class="prv">Troisième angle : <em>ex.</em> la littérature comme outil de transformation sociale</span></div>
+      </div>
+      <div class="pcrd">
+        <h4>Plan analytique (problème → analyse → solution)</h4>
+        <div class="pr"><span class="prl">Quand ?</span><span class="prv">Sujet posant un problème concret lié à la littérature ou à l'écriture.</span></div>
+        <div class="pr"><span class="prl">Partie I</span><span class="prv">Poser le problème et ses enjeux</span></div>
+        <div class="pr"><span class="prl">Partie II</span><span class="prv">Analyser les causes et les mécanismes</span></div>
+        <div class="pr"><span class="prl">Partie III</span><span class="prv">Proposer une réponse ou un dépassement</span></div>
+      </div>
+
+      <div class="msec">Les 5 étapes en salle d'examen</div>
+      <div class="step"><div class="stepn">1</div><div><span class="steptime">⏱ 10 min</span><div class="stept">Analyser le sujet et dégager la problématique</div><div class="stepb">Souligne les mots-clés. Définis les termes. Reformule en question ouverte. <strong>Ne jamais paraphraser le sujet.</strong></div></div></div>
+      <div class="step"><div class="stepn">2</div><div><span class="steptime">⏱ 10 min</span><div class="stept">Constituer le réservoir d'exemples</div><div class="stepb">Liste rapide : œuvres du programme + lectures personnelles. Pour chaque œuvre : <strong>titre, auteur, date, argument illustré</strong>.</div></div></div>
+      <div class="step"><div class="stepn">3</div><div><span class="steptime">⏱ 10 min</span><div class="stept">Construire le plan détaillé</div><div class="stepb">Choisir dialectique ou thématique. Pour chaque partie : <strong>argument principal + 2-3 exemples + mini-conclusion</strong>. Rédiger les transitions.</div></div></div>
+      <div class="step"><div class="stepn">4</div><div><span class="steptime">⏱ 5 min</span><div class="stept">Rédiger l'introduction</div><div class="stepb"><strong>Accroche</strong> (citation, fait, paradoxe) → <strong>Contextualisation</strong> → <strong>Problématique</strong> → <strong>Annonce du plan</strong> (2-3 mouvements).</div></div></div>
+      <div class="step"><div class="stepn">5</div><div><span class="steptime">⏱ 45 min</span><div class="stept">Rédiger le développement + conclusion</div><div class="stepb">Chaque paragraphe : <strong>argument → exemple → analyse → lien thèse</strong>. Transitions entre parties. Conclusion : bilan + ouverture.</div></div></div>
+
+      <div class="msec">Phrases-modèles — Dissertation</div>
+      <div class="phm"><span>Accroche</span>« <em>[citation d'auteur]</em> » — cette affirmation de <em>[auteur]</em> invite à s'interroger sur <em>[thème du sujet]</em>.</div>
+      <div class="phm"><span>Problématique</span>On peut se demander dans quelle mesure / en quoi <em>[reformulation ouverte du sujet]</em>.</div>
+      <div class="phm"><span>Annonce du plan</span>Nous verrons d'abord que <em>[axe 1]</em>. Puis, nous montrerons que <em>[axe 2]</em>. Enfin, nous nuancerons en montrant que <em>[axe 3]</em>.</div>
+      <div class="phm"><span>Argument + exemple</span><em>[Idée générale]</em>. Ainsi, dans <em>[titre]</em> de <em>[auteur]</em> (<em>[date]</em>), <em>[résumé de la scène/procédé]</em> illustre bien <em>[l'idée]</em>.</div>
+      <div class="phm"><span>Transition</span>Nous avons vu que <em>[bilan I]</em>. Cependant, cette vision mérite d'être nuancée, car <em>[annonce II]</em>.</div>
+      <div class="phm"><span>Synthèse dialectique</span>Si la littérature est à la fois <em>[thèse]</em> et <em>[antithèse]</em>, c'est qu'elle est avant tout <em>[synthèse]</em>.</div>
+      <div class="phm"><span>Conclusion — bilan</span>En définitive, <em>[réponse à la problématique en une phrase]</em>.</div>
+      <div class="phm"><span>Conclusion — ouverture</span>Cette réflexion sur <em>[thème]</em> ouvre vers la question plus large de <em>[élargissement]</em>, que l'on retrouve notamment dans <em>[autre œuvre/art/époque]</em>.</div>
+
+      <!-- ════════════════ CONNECTEURS ════════════════ -->
+      <div class="msec" style="margin-top:2rem">Tableau des connecteurs logiques</div>
+      <table class="mtable">
+        <tr><th>Fonction</th><th>Connecteurs</th><th>Exemple</th></tr>
+        <tr><td>Addition</td><td>de plus, en outre, par ailleurs, qui plus est, voire, également</td><td><em>« De plus, Flaubert montre que… »</em></td></tr>
+        <tr><td>Opposition</td><td>mais, or, cependant, pourtant, en revanche, au contraire</td><td><em>« Cependant, Zola nuance cette vision… »</em></td></tr>
+        <tr><td>Concession</td><td>certes, il est vrai que, bien que (+ subj.), même si, tout en</td><td><em>« Certes, Hugo plaide pour la beauté. Mais… »</em></td></tr>
+        <tr><td>Conséquence</td><td>donc, ainsi, par conséquent, c'est pourquoi, dès lors, de ce fait</td><td><em>« Ainsi, le lecteur est transformé par… »</em></td></tr>
+        <tr><td>Illustration</td><td>par exemple, ainsi, c'est le cas de, tel est, à titre d'illustration</td><td><em>« Ainsi, dans Candide (Voltaire)… »</em></td></tr>
+        <tr><td>Explication</td><td>en effet, car, c'est que, puisque, étant donné que</td><td><em>« En effet, la métaphore permet… »</em></td></tr>
+        <tr><td>Reformulation</td><td>autrement dit, en d'autres termes, c'est-à-dire, soit</td><td><em>« En d'autres termes, l'auteur affirme… »</em></td></tr>
+        <tr><td>Conclusion</td><td>en définitive, en somme, finalement, en conclusion, bref</td><td><em>« En définitive, la littérature… »</em></td></tr>
+      </table>
+
+    </div>
+  </div><!-- /p-dissert -->
+
+</div><!-- /m-proc -->
