@@ -1280,6 +1280,7 @@ function switchPg(matiere, page, btn) {
   if (page === 'p-exo')    { initExoFilters(); if (!EXO_STATE.shuffled.length) mixExo(); }
   if (page === 'p-exam')  { EXAM_STATE.running = false; renderExam(); }
   if (page === 'p-corpus') { initCorpusFilters(); renderCorpus(); }
+  if (page === 'p-guide') initGuide();
   if (page === 'p-gtextes') {
     try { initGtextesFilters(); renderGtextesList(); }
     catch (e) { console.error('p-gtextes', e); }

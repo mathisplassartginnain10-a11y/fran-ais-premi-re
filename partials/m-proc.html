@@ -11,6 +11,7 @@
     <button class="stab"     onclick="switchPg('proc','p-exo',this)">🔍 Exercices</button>
     <button class="stab"     onclick="switchPg('proc','p-gtextes',this)">📜 Grands textes</button>
     <button class="stab"     data-corpus="1" onclick="switchPg('proc','p-corpus',this)">📚 Corpus</button>
+    <button class="stab"     data-guide="1" onclick="switchPg('proc','p-guide',this)">💻 Installation</button>
   </div>
 
   <!-- ── Procédés fiches ── -->
@@ -431,6 +432,75 @@
       <div class="chips" id="corpus-chips" style="margin-bottom:1rem"></div>
       <div class="corpus-meta" id="corpus-meta"></div>
       <div id="corpus-cont" class="corpus-list"></div>
+    </div>
+  </div>
+
+  <!-- ── Installation & Git ── -->
+  <div id="proc-p-guide" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Dépôt Git · Bac de Français Première</div>
+      <h1>Installation &amp; <em>Git</em></h1>
+      <p class="hero-sub">Cloner, lancer sans Cursor, commentaire IA Ollama — tout fonctionne en local sur http://127.0.0.1:8765</p>
+    </div>
+    <div class="wrap-sm">
+      <div id="guide-status" class="guide-status guide-status-warn">
+        <strong>Vérification…</strong><p>Chargement du mode de lancement.</p>
+      </div>
+
+      <div class="msec">Cloner depuis GitHub</div>
+      <div class="mblock">
+        <p>Le dépôt contient toute l’application (~140 fichiers · ~50&nbsp;000 lignes · ~4,4&nbsp;Mo). Aucun <code>npm install</code> ni build.</p>
+        <pre class="guide-code" id="guide-clone-cmd">git clone https://github.com/mathisplassartginnain10-a11y/fran-ais-premi-re.git</pre>
+        <div class="guide-actions">
+          <button type="button" class="sbtn" id="guide-copy-clone" onclick="guideCopyClone()">📋 Copier la commande</button>
+          <a class="sbtn sec" href="https://github.com/mathisplassartginnain10-a11y/fran-ais-premi-re" target="_blank" rel="noopener">🔗 Voir sur GitHub</a>
+        </div>
+      </div>
+
+      <div class="msec">Lancer l’application</div>
+      <div class="pcrd">
+        <h4>Windows (recommandé)</h4>
+        <div class="pr"><span class="prl">1</span><span class="prv">Double-clic sur <strong>Lancer.bat</strong> ou le raccourci bureau <strong>Bac Français</strong></span></div>
+        <div class="pr"><span class="prl">2</span><span class="prv">Le navigateur ouvre <strong>http://127.0.0.1:8765</strong></span></div>
+        <div class="pr"><span class="prl">Prérequis</span><span class="prv"><strong>Node.js</strong> (serveur local) · optionnel <strong>Ollama</strong> pour le commentaire IA</span></div>
+      </div>
+
+      <div class="msec">Fermer Cursor — est-ce que ça marche ?</div>
+      <div class="g2">
+        <div class="mblock astuce">
+          <h4>✓ Oui, sans Cursor</h4>
+          <ul>
+            <li>Lance via <strong>Lancer.bat</strong> (pas le terminal Cursor)</li>
+            <li>L’app tourne dans Chrome / Edge sur le port <strong>8765</strong></li>
+            <li>Au démarrage Windows, <strong>bac-background.ps1</strong> relance le serveur si besoin (~15&nbsp;s)</li>
+          </ul>
+        </div>
+        <div class="mblock piege">
+          <h4>✗ Non</h4>
+          <ul>
+            <li>Page <strong>GitHub.com</strong> en ligne (code seulement)</li>
+            <li>Double-clic sur <strong>index.html</strong> (<code>file://</code>)</li>
+            <li>Serveur lancé <em>uniquement</em> dans le terminal Cursor puis Cursor fermé</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="msec">Commentaire IA (Ollama)</div>
+      <div class="mblock">
+        <p>Dans <strong>Commentaire</strong>, coche <strong>Ollama</strong> puis génère. Le serveur charge <code>bac-qwen3-14b</code> sur ta VRAM NVIDIA, rédige le développement + conclusion (l’intro reste celle du simulateur), puis <strong>arrête Ollama</strong> pour libérer le PC.</p>
+        <p>Première utilisation IA : <code>ollama pull qwen3:14b</code> (une fois).</p>
+      </div>
+
+      <div class="msec">Ce qui fonctionne où</div>
+      <table class="guide-table">
+        <thead><tr><th>Contexte</th><th>QCM · textes · intro</th><th>Commentaire IA</th></tr></thead>
+        <tbody>
+          <tr><td><strong>http://127.0.0.1:8765</strong></td><td>✓</td><td>✓ (Ollama + GPU)</td></tr>
+          <tr><td>GitHub en ligne</td><td>✗</td><td>✗</td></tr>
+          <tr><td><code>file://</code> index.html</td><td>partiel</td><td>✗</td></tr>
+          <tr><td>Cursor fermé + autostart</td><td>✓</td><td>✓ si serveur actif</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

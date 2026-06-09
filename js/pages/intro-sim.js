@@ -205,9 +205,12 @@ function introSimUpdateOllamaStatus() {
     return;
   }
   if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.port !== '8765')) {
-    status.textContent = '⚠ Ouvre via le raccourci « Bac Français » (http://127.0.0.1:8765) — bouton ⚡ pour démarrer';
+    status.textContent = '⚠ Ouvre via le raccourci « Bac Français » (http://127.0.0.1:8765) — voir 💻 Installation';
     status.classList.add('err');
     status.classList.remove('ok');
+    status.title = 'Clique pour ouvrir le guide Installation';
+    status.style.cursor = 'pointer';
+    status.onclick = () => { if (typeof openGuidePage === 'function') openGuidePage(); };
     return;
   }
   status.textContent = 'Connexion Ollama CUDA…';
