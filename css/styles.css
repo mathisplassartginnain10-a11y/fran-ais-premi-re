@@ -1339,20 +1339,6 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 .intro-sim-ollama-status.ok{color:var(--green,#52b788)}
 .intro-sim-ollama-status.err{color:var(--amber)}
 
-/* ── Page Installation & Git ── */
-.guide-status{padding:.65rem .85rem;border-radius:var(--rad1);margin-bottom:1.1rem;border:1px solid var(--b2);background:var(--s2)}
-.guide-status strong{display:block;font-size:13px;margin-bottom:.25rem}
-.guide-status p{margin:0;font-size:12.5px;line-height:1.5;color:var(--tx2)}
-.guide-status-ok{border-color:color-mix(in srgb,var(--green,#52b788) 45%,var(--b2));background:color-mix(in srgb,var(--green,#52b788) 8%,var(--s2))}
-.guide-status-ok strong{color:var(--green,#52b788)}
-.guide-status-warn{border-color:color-mix(in srgb,var(--amber,#ffc107) 40%,var(--b2));background:color-mix(in srgb,var(--amber,#ffc107) 8%,var(--s2))}
-.guide-status-err{border-color:color-mix(in srgb,var(--red,#e63946) 35%,var(--b2));background:color-mix(in srgb,var(--red,#e63946) 8%,var(--s2))}
-.guide-code{margin:.65rem 0;padding:.65rem .75rem;background:var(--s3);border-radius:var(--rad1);font-size:12px;line-height:1.45;overflow-x:auto;border:1px solid var(--b2);white-space:pre-wrap;word-break:break-all}
-.guide-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:.5rem}
-.guide-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:1rem}
-.guide-table th,.guide-table td{padding:.45rem .55rem;border:1px solid var(--b2);text-align:left;vertical-align:top}
-.guide-table th{background:var(--s3);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--tx3)}
-.guide-table td{color:var(--tx2)}
 .intro-sim-ollama-panel{margin:.75rem 0 1rem;padding:.75rem .85rem;background:var(--s2);border:1px solid color-mix(in srgb,var(--teal,#2a9d8f) 35%,var(--b2));border-radius:var(--rad2)}
 .intro-sim-ollama-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.5rem;font-size:12px;color:var(--tx2)}
 .intro-sim-ollama-stream{margin:0;max-height:220px;overflow:auto;font-size:11.5px;line-height:1.45;color:var(--tx2);white-space:pre-wrap;word-break:break-word;font-family:inherit}

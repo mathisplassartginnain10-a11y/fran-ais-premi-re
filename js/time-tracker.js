@@ -24,6 +24,7 @@ const TIME_PAGE_MAP = {
   'p-gtextes': 'gtext',
   'p-fiche': 'learn',
   'p-meth': 'learn',
+  'p-sim': 'learn',
   'p-dissert': 'learn',
   'p-corpus': 'learn',
   'p-auteurs': 'learn',

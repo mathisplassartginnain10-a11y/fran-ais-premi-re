@@ -71,8 +71,8 @@ function introSimIsLocalServer() {
 
 function introSimGoCommentairePage() {
   if (typeof switchMatiere === 'function') switchMatiere('proc');
-  const btn = document.querySelector("#snav-proc .stab[onclick*=\"p-meth\"]");
-  if (typeof switchPg === 'function' && btn) switchPg('proc', 'p-meth', btn);
+  const btn = document.querySelector("#snav-proc .stab[onclick*=\"p-sim\"]");
+  if (typeof switchPg === 'function' && btn) switchPg('proc', 'p-sim', btn);
   el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -205,12 +205,12 @@ function introSimUpdateOllamaStatus() {
     return;
   }
   if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.port !== '8765')) {
-    status.textContent = '⚠ Ouvre via le raccourci « Bac Français » (http://127.0.0.1:8765) — voir 💻 Installation';
+    status.textContent = '⚠ Ouvre via le raccourci « Bac Français » (http://127.0.0.1:8765)';
     status.classList.add('err');
     status.classList.remove('ok');
-    status.title = 'Clique pour ouvrir le guide Installation';
-    status.style.cursor = 'pointer';
-    status.onclick = () => { if (typeof openGuidePage === 'function') openGuidePage(); };
+    status.removeAttribute('title');
+    status.style.cursor = '';
+    status.onclick = null;
     return;
   }
   status.textContent = 'Connexion Ollama CUDA…';
@@ -1055,8 +1055,8 @@ function introSimSetFields({ auteur, oeuvre, passage, theme }) {
 
 function introSimNavigate() {
   switchMatiere('proc');
-  const btn = document.querySelector('#snav-proc .stab[onclick*="p-meth"]');
-  if (btn) switchPg('proc', 'p-meth', btn);
+  const btn = document.querySelector('#snav-proc .stab[onclick*="p-sim"]');
+  if (btn) switchPg('proc', 'p-sim', btn);
   setTimeout(() => el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 160);
 }
 
