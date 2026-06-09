@@ -1,4 +1,4 @@
-# Lance l'app + Ollama en mode GPU (VRAM CUDA uniquement)
+# Bac Français — démarrage automatique (serveur + Ollama VRAM NVIDIA)
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
 
@@ -11,21 +11,35 @@ if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
   exit 1
 }
 
-# Force CUDA / VRAM (NVIDIA)
-$env:OLLAMA_LLM_LIBRARY = 'cuda'
-$env:CUDA_VISIBLE_DEVICES = '0'
-$env:OLLAMA_FLASH_ATTENTION = '1'
-$env:OLLAMA_KV_CACHE_TYPE = 'q8_0'
-$env:OLLAMA_MAX_LOADED_MODELS = '1'
-$env:OLLAMA_NUM_PARALLEL = '1'
+& "$PSScriptRoot\scripts\setup-ollama-gpu-env.ps1" -Quiet
 
-Write-Host 'Arret Ollama existant…' -ForegroundColor DarkGray
-taskkill /F /IM ollama.exe 2>$null | Out-Null
-taskkill /F /IM 'ollama app.exe' 2>$null | Out-Null
-Start-Sleep -Seconds 2
+$gpuEnv = @{
+  CUDA_VISIBLE_DEVICES    = '0'
+  OLLAMA_VULKAN           = '0'
+  GGML_VK_VISIBLE_DEVICES = '-1'
+  OLLAMA_INTEL_GPU        = '0'
+  OLLAMA_CONTEXT_LENGTH   = '8192'
+  OLLAMA_FLASH_ATTENTION  = '1'
+  OLLAMA_KV_CACHE_TYPE    = 'q8_0'
+  OLLAMA_MAX_LOADED_MODELS = '1'
+  OLLAMA_NUM_PARALLEL     = '1'
+  OLLAMA_LOAD_TIMEOUT     = '10m0s'
+  OLLAMA_HOST             = '127.0.0.1:11434'
+}
+foreach ($k in $gpuEnv.Keys) { Set-Item -Path "env:$k" -Value $gpuEnv[$k] }
+Remove-Item Env:OLLAMA_LLM_LIBRARY -ErrorAction SilentlyContinue
 
-Write-Host 'Modele GPU bac-qwen3-14b…' -ForegroundColor DarkGray
-ollama create bac-qwen3-14b -f "$PSScriptRoot\scripts\Modelfile.bac-qwen" 2>$null | Out-Null
+Write-Host 'Arret Ollama (tray)…' -ForegroundColor DarkGray
+Get-Process -Name 'ollama*' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 3
 
-Write-Host 'Demarrage serveur (VRAM CUDA · ctx 8192)…' -ForegroundColor Cyan
+# Libère le port 8765 si un ancien serveur tourne encore
+$portPid = (Get-NetTCPConnection -LocalPort 8765 -State Listen -ErrorAction SilentlyContinue |
+  Select-Object -ExpandProperty OwningProcess -Unique | Select-Object -First 1)
+if ($portPid) {
+  Stop-Process -Id $portPid -Force -ErrorAction SilentlyContinue
+  Start-Sleep -Seconds 1
+}
+
+Write-Host 'Demarrage Bac Français + VRAM CUDA (automatique)…' -ForegroundColor Cyan
 node "$PSScriptRoot\scripts\local-server.mjs"

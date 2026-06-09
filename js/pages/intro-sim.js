@@ -16,6 +16,141 @@ function introSimWantsFullCommentary(passage) {
   return fullMode ? (fullMode.checked || excerptOnly) : excerptOnly;
 }
 
+async function introSimFetchLocalApi(paths, opts) {
+  opts = opts || {};
+  const timeout = opts.timeout || 660000;
+  const method = opts.method || 'POST';
+  for (const path of paths) {
+    try {
+      const r = await fetch(path, { method, signal: AbortSignal.timeout(timeout) });
+      if (r.status === 404) continue;
+      const j = await r.json().catch(() => ({}));
+      return { r, j, path };
+    } catch (e) { /* essai suivant */ }
+  }
+  return { r: null, j: {}, path: null };
+}
+
+async function introSimPingLocalServer() {
+  const bases = ['http://127.0.0.1:8765'];
+  const paths = ['/api/ping', '/api/config', '/'];
+  for (const base of bases) {
+    for (const path of paths) {
+      try {
+        const r = await fetch(base + path, { signal: AbortSignal.timeout(2500) });
+        if (r.ok) return true;
+      } catch (e) { /* ignore */ }
+    }
+  }
+  return false;
+}
+
+function introSimIsLocalServer() {
+  return typeof location !== 'undefined'
+    && location.protocol !== 'file:'
+    && location.hostname === '127.0.0.1'
+    && location.port === '8765';
+}
+
+function introSimGoCommentairePage() {
+  if (typeof switchMatiere === 'function') switchMatiere('proc');
+  const btn = document.querySelector("#snav-proc .stab[onclick*=\"p-meth\"]");
+  if (typeof switchPg === 'function' && btn) switchPg('proc', 'p-meth', btn);
+  el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function introSimSetLaunchBtn(loading, label) {
+  const btn = el('intro-sim-launch-btn');
+  if (!btn) return;
+  btn.disabled = !!loading;
+  if (label) btn.textContent = label;
+  else btn.textContent = '⚡ Démarrer tout (Ollama VRAM)';
+}
+
+async function introSimLaunchAll(auto) {
+  const status = el('intro-sim-ollama-status');
+  const cb = el('intro-sim-ollama');
+  introSimGoCommentairePage();
+  introSimSetLaunchBtn(true, auto ? 'Démarrage auto…' : 'Démarrage…');
+  if (status) {
+    status.textContent = 'Initialisation serveur + VRAM…';
+    status.classList.remove('ok', 'err');
+  }
+
+  const finishOk = (j) => {
+    if (cb) {
+      cb.checked = true;
+      if (typeof ollamaCommentSaveCfg === 'function') ollamaCommentSaveCfg({ enabled: true });
+    }
+    const vram = j?.vramMb != null ? ` · ${j.vramMb} MiB VRAM` : '';
+    if (status) {
+      status.textContent = `● ${j?.model || 'bac-qwen3-14b'} · ${j?.processor || '100% GPU'}${vram}`;
+      status.classList.add('ok');
+      status.classList.remove('err');
+    }
+    introSimSetLaunchBtn(false);
+    if (typeof playSound === 'function') playSound('ok');
+  };
+
+  const finishErr = (msg) => {
+    if (status) {
+      status.textContent = msg;
+      status.classList.add('err');
+      status.classList.remove('ok');
+    }
+    introSimSetLaunchBtn(false);
+  };
+
+  if (!introSimIsLocalServer()) {
+    if (status) status.textContent = 'Connexion au serveur local…';
+    for (let i = 0; i < 24; i++) {
+      if (await introSimPingLocalServer()) {
+        window.location.href = 'http://127.0.0.1:8765/?launch=ollama';
+        return;
+      }
+      if (status) status.textContent = `Serveur local… (${i + 1}/24) — lance Lancer.bat si besoin`;
+      await new Promise(r => setTimeout(r, 1500));
+    }
+    finishErr('Serveur arrêté — double-clique Lancer.bat à la racine du projet');
+    return;
+  }
+
+  try {
+    if (auto) {
+      const check = await introSimFetchLocalApi(['/api/ollama/gpu', '/api/ollama/ensure'], { method: 'GET', timeout: 12000 });
+      if (check.r?.ok && check.j.gpu === true) {
+        finishOk(check.j);
+        return;
+      }
+    }
+    let { r, j } = await introSimFetchLocalApi([
+      '/api/launch?restart=1',
+      '/api/ollama/ensure?restart=1',
+    ]);
+    if (!r?.ok || !j.ok || j.gpu !== true) {
+      ({ r, j } = await introSimFetchLocalApi(['/api/ollama/ensure?restart=1']));
+    }
+    if (!r?.ok || !j.ok || j.gpu !== true) {
+      finishErr(j.error || 'Serveur obsolète — relance Lancer.bat puis réessaie');
+      return;
+    }
+    finishOk(j);
+  } catch (e) {
+    finishErr(`Échec : ${e.message || 'timeout'} — relance Lancer.bat`);
+  }
+}
+
+function introSimMaybeAutoLaunch() {
+  const sp = new URLSearchParams(location.search);
+  if (sp.get('launch') !== 'ollama') return;
+  sp.delete('launch');
+  const q = sp.toString();
+  try {
+    history.replaceState(null, '', location.pathname + (q ? `?${q}` : '') + location.hash);
+  } catch (e) { /* ignore */ }
+  setTimeout(() => introSimLaunchAll(true), 400);
+}
+
 function introSimInitOllamaUi() {
   const cb = el('intro-sim-ollama');
   if (cb && !cb.dataset.ready) {
@@ -25,7 +160,9 @@ function introSimInitOllamaUi() {
     cb.addEventListener('change', () => {
       if (typeof ollamaCommentSaveCfg === 'function') ollamaCommentSaveCfg({ enabled: cb.checked });
       introSimUpdateOllamaStatus();
-      if (cb.checked && typeof ollamaCommentEnsureReady === 'function') {
+      if (cb.checked && typeof introSimLaunchAll === 'function') {
+        introSimLaunchAll(true);
+      } else if (cb.checked && typeof ollamaCommentEnsureReady === 'function') {
         ollamaCommentEnsureReady({ onStatus: (msg) => {
           const status = el('intro-sim-ollama-status');
           if (status) status.textContent = msg;
@@ -34,35 +171,59 @@ function introSimInitOllamaUi() {
     });
   }
   introSimUpdateOllamaStatus();
+  introSimMaybeAutoLaunch();
 }
 
 function introSimUpdateOllamaStatus() {
   const status = el('intro-sim-ollama-status');
   if (!status || typeof ollamaCommentCheck !== 'function') return;
   if (!introSimOllamaEnabled()) {
-    status.textContent = 'Optionnel — coche pour rédiger via Ollama (qwen3:14b)';
+    status.textContent = 'Optionnel — coche pour rédiger via Ollama (bac-qwen3-14b · VRAM)';
     status.classList.remove('ok', 'err');
     return;
   }
-  status.textContent = 'Connexion Ollama…';
+  if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.port !== '8765')) {
+    status.textContent = '⚠ Lance start.ps1 — sans lui Ollama utilise la RAM (pas la VRAM)';
+    status.classList.add('err');
+    status.classList.remove('ok');
+    return;
+  }
+  status.textContent = 'Connexion Ollama CUDA…';
   status.classList.remove('ok', 'err');
-  ollamaCommentCheck(false).then(async ok => {
-    const cfg = typeof ollamaCommentLoadCfg === 'function' ? ollamaCommentLoadCfg() : { model: 'bac-qwen3-14b' };
+  const finish = async (ok, cfg) => {
     if (!ok) {
-      status.textContent = '○ Ollama indisponible — lance start.ps1';
-      status.classList.toggle('err', true);
+      status.textContent = '○ Ollama indisponible — ferme l’icône tray puis start.ps1';
+      status.classList.add('err');
       return;
     }
     let gpuLabel = '';
-    if (typeof ollamaCommentFetchGpuStatus === 'function' && typeof ollamaCommentDetectMode === 'function') {
+    let isGpu = false;
+    const gpuCheck = await introSimFetchLocalApi(
+      ['/api/ollama/gpu', '/api/ollama/ensure'],
+      { method: 'GET', timeout: 12000 },
+    );
+    if (gpuCheck.r?.ok) {
+      const j = gpuCheck.j;
+      if (j.gpu || j.processor?.includes('100% GPU')) {
+        isGpu = true;
+        const vram = j.vramMb != null ? ` · ${j.vramMb} MiB VRAM` : '';
+        gpuLabel = ` · ${j.processor || '100% GPU'}${vram}`.trim();
+      } else {
+        gpuLabel = ` · ⚠ ${j.processor || 'RAM/CPU'} — bouton ⚡ pour relancer`;
+      }
+    } else if (typeof ollamaCommentFetchGpuStatus === 'function' && typeof ollamaCommentDetectMode === 'function') {
       const mode = await ollamaCommentDetectMode(false);
       const gpu = await ollamaCommentFetchGpuStatus(ollamaCommentResolveBase(mode));
-      if (gpu?.isFullGpu) gpuLabel = ' · VRAM';
+      if (gpu?.isFullGpu) { isGpu = true; gpuLabel = ' · 100% GPU (VRAM)'; }
       else if (gpu?.processor) gpuLabel = ` · ⚠ ${gpu.processor}`;
     }
-    status.textContent = `● ${cfg.model}${gpuLabel} · prêt`;
-    status.classList.toggle('ok', true);
-    status.classList.toggle('err', !!gpuLabel && gpuLabel.includes('⚠'));
+    status.textContent = `● ${cfg.model}${gpuLabel}`;
+    status.classList.toggle('ok', isGpu || !gpuLabel.includes('⚠'));
+    status.classList.toggle('err', gpuLabel.includes('⚠'));
+  };
+  ollamaCommentCheck(false).then(ok => {
+    const cfg = typeof ollamaCommentLoadCfg === 'function' ? ollamaCommentLoadCfg() : { model: 'bac-qwen3-14b' };
+    finish(ok, cfg);
   });
 }
 
@@ -81,7 +242,7 @@ function introSimAbortOllama() {
   }
 }
 
-async function introSimRequestOllamaCommentary(entry, passage, score, showOpts) {
+async function introSimRequestOllamaCommentary(entry, passage, score, showOpts, retryGpu) {
   if (!entry || !introSimOllamaEnabled() || !introSimWantsFullCommentary(passage)) return;
   if (typeof ollamaCommentGenerate !== 'function') return;
 
@@ -114,6 +275,13 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts) 
     if (typeof playSound === 'function') playSound('ok');
   } catch (e) {
     if (e.name === 'AbortError' || genId !== _introSimOllamaGenId) return;
+    if (!retryGpu && introSimIsLocalServer()) {
+      introSimSetOllamaPanel(true, 'Redémarrage Ollama VRAM…');
+      try {
+        await introSimLaunchAll(true);
+        return introSimRequestOllamaCommentary(entry, passage, score, showOpts, true);
+      } catch (e2) { /* fallback ci-dessous */ }
+    }
     introSimSetOllamaPanel(false);
 
     const fbOpts = { ...introSimOpts(), passageRaw: passage, userExcerpt: passage };
@@ -132,7 +300,7 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts) 
       if (old) old.remove();
       const p = document.createElement('p');
       p.className = 'intro-sim-warn intro-sim-ollama-warn';
-      p.innerHTML = `Ollama indisponible (<strong>${introSimEsc(e.message)}</strong>) — commentaire modèle utilisé. Lance <code>start.ps1</code> ou <code>ollama serve</code>.`;
+      p.innerHTML = `Ollama indisponible (<strong>${introSimEsc(e.message)}</strong>) — commentaire modèle utilisé. Clique <strong>⚡ Démarrer tout</strong> puis réessaie.`;
       wrap.prepend(p);
     }
   } finally {

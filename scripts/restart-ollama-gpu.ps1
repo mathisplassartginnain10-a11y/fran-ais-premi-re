@@ -2,20 +2,28 @@
 $ErrorActionPreference = 'Stop'
 Set-Location (Split-Path $PSScriptRoot -Parent)
 
-$env:OLLAMA_LLM_LIBRARY = 'cuda'
+# CUDA : ne PAS mettre OLLAMA_LLM_LIBRARY=cuda (0.30.7 → CPU uniquement)
 $env:CUDA_VISIBLE_DEVICES = '0'
+$env:OLLAMA_VULKAN = '0'
+$env:GGML_VK_VISIBLE_DEVICES = '-1'
+$env:OLLAMA_INTEL_GPU = '0'
+$env:OLLAMA_CONTEXT_LENGTH = '8192'
 $env:OLLAMA_FLASH_ATTENTION = '1'
 $env:OLLAMA_KV_CACHE_TYPE = 'q8_0'
+$env:OLLAMA_LOAD_TIMEOUT = '10m0s'
 
 Write-Host 'Arret Ollama…'
-taskkill /F /IM ollama.exe 2>$null
-taskkill /F /IM 'ollama app.exe' 2>$null
-Start-Sleep -Seconds 2
+Get-Process -Name 'ollama*' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 3
 
 Write-Host 'Creation modele bac-qwen3-14b…'
-ollama create bac-qwen3-14b -f "$PSScriptRoot\Modelfile.bac-qwen"
+ollama create bac-qwen3-14b -f "$PSScriptRoot\Modelfile.bac-qwen" 2>$null | Out-Null
 
-Write-Host 'Demarrage ollama serve (CUDA)…'
+# ollama create relance parfois l'app tray (ctx 65536) — on la ferme
+Get-Process -Name 'ollama*' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 3
+
+Write-Host 'Demarrage ollama serve (CUDA · sans Vulkan Intel)…'
 Start-Process -WindowStyle Hidden -FilePath 'ollama' -ArgumentList 'serve'
 
 Start-Sleep -Seconds 4

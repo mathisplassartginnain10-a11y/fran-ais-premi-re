@@ -67,6 +67,28 @@ async function ollamaCommentPingBase(base, timeoutMs) {
   }
 }
 
+async function ollamaCommentCallEnsure(onStatus, signal, forceRestart) {
+  const mode = await ollamaCommentDetectMode(true);
+  if (mode.type !== 'proxy' || !mode.ensureUrl) return null;
+  const paths = forceRestart
+    ? [`${mode.ensureUrl}?restart=1`, '/api/launch?restart=1']
+    : [mode.ensureUrl, '/api/launch'];
+  for (const path of paths) {
+    try {
+      onStatus?.(forceRestart ? 'Arrêt Ollama + relance VRAM…' : 'Vérification VRAM…');
+      const r = await fetch(path, {
+        method: 'POST',
+        signal: signal || AbortSignal.timeout(660000),
+      });
+      if (r.status === 404) continue;
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok && j.gpu === true) return j;
+      if (forceRestart && r.ok && j.ok && j.gpu !== true) continue;
+    } catch (e) { /* essai suivant */ }
+  }
+  return null;
+}
+
 /** Démarre / attend Ollama avant une requête IA */
 async function ollamaCommentEnsureReady(opts) {
   opts = opts || {};
@@ -77,21 +99,13 @@ async function ollamaCommentEnsureReady(opts) {
   const mode = await ollamaCommentDetectMode(true);
 
   if (mode.type === 'proxy' && mode.ensureUrl) {
-    onStatus?.('Démarrage Ollama CUDA (VRAM)…');
-    const r = await fetch(mode.ensureUrl, { signal });
-    let j = await r.json().catch(() => ({}));
-    if (!r.ok || !j.ok) {
-      onStatus?.('Relance GPU forcée…');
-      const r2 = await fetch(`${mode.ensureUrl}?restart=1`, { signal });
-      j = await r2.json().catch(() => ({}));
-      if (!r2.ok || !j.ok) {
-        throw new Error(j.error || 'Ollama GPU indisponible — lance start.ps1');
-      }
+    let j = await ollamaCommentCallEnsure(onStatus, signal, true);
+    if (!j) j = await ollamaCommentCallEnsure(onStatus, signal, true);
+    if (!j || j.gpu !== true) {
+      throw new Error((j && j.error) || 'VRAM NVIDIA indisponible — clique ⚡ Démarrer tout');
     }
-    if (j.gpu === false) {
-      throw new Error(j.error || 'Modèle chargé en RAM — relance start.ps1 (CUDA/VRAM)');
-    }
-    onStatus?.(j.processor ? `● ${j.processor} · ${j.model || 'bac-qwen3-14b'}` : 'Ollama GPU prêt');
+    const vram = j.vramMb != null ? ` · ${j.vramMb} MiB` : '';
+    onStatus?.(`● ${j.processor || '100% GPU'}${vram} · ${j.model || 'bac-qwen3-14b'}`);
     return mode;
   }
 
@@ -106,8 +120,10 @@ async function ollamaCommentEnsureReady(opts) {
   }
 
   const hint = typeof location !== 'undefined' && location.protocol === 'file:'
-    ? ' Ouvre l\'app via start.ps1 (serveur local + Ollama auto).'
-    : ' Lance ollama serve ou double-clique start.ps1.';
+    ? ' Ouvre UNIQUEMENT via start.ps1 (http://127.0.0.1:8765) — sinon Ollama charge en RAM.'
+    : (typeof location !== 'undefined' && location.port !== '8765'
+      ? ' Utilise start.ps1 pour forcer la VRAM CUDA.'
+      : ' Lance ollama serve ou double-clique start.ps1.');
   throw new Error(`Ollama ne répond pas.${hint}`);
 }
 
@@ -142,11 +158,23 @@ async function ollamaCommentUnloadModel(base, modelName) {
 }
 
 async function ollamaCommentWarmModel(mode, cfg, signal, onStatus) {
+  if (mode.type === 'proxy') {
+    let j = await ollamaCommentCallEnsure(onStatus, signal, false);
+    if (!j || j.gpu !== true) {
+      onStatus?.('Correction VRAM automatique…');
+      j = await ollamaCommentCallEnsure(onStatus, signal, true);
+    }
+    if (!j || j.gpu !== true) {
+      throw new Error((j && j.error) || 'VRAM NVIDIA indisponible après redémarrage auto');
+    }
+    const vram = j.vramMb != null ? ` · ${j.vramMb} MiB` : '';
+    onStatus?.(`VRAM OK · ${j.processor || '100% GPU'}${vram} · génération…`);
+    return;
+  }
+
   const base = ollamaCommentResolveBase(mode);
   const model = ollamaCommentResolveModel(cfg);
-  onStatus?.('Vidage RAM · chargement VRAM uniquement…');
-  await ollamaCommentUnloadAll(base);
-  onStatus?.(`Chargement GPU · ${model} (ctx ${cfg.numCtx || 8192})…`);
+  onStatus?.(`Chargement GPU · ${model}…`);
   const body = ollamaCommentRequestBody({ ...cfg, model }, {
     messages: [{ role: 'user', content: 'OK' }],
     stream: false,
@@ -164,7 +192,7 @@ async function ollamaCommentWarmModel(mode, cfg, signal, onStatus) {
   }
   const gpu = await ollamaCommentFetchGpuStatus(base);
   if (gpu && !gpu.isFullGpu) {
-    throw new Error(`Modèle sur ${gpu.processor} (RAM/CPU) — ferme Ollama du tray et relance start.ps1`);
+    throw new Error(`Modèle hors VRAM (${gpu.processor || 'CPU/RAM'}) — utilise le bouton ⚡`);
   }
   if (gpu) {
     onStatus?.(`VRAM OK · ${gpu.processor} · génération…`);
@@ -221,11 +249,38 @@ function ollamaCommentRequestBody(cfg, payload) {
 }
 
 async function ollamaCommentFetchGpuStatus(base) {
+  const mode = await ollamaCommentDetectMode(false);
+  if (mode.type === 'proxy') {
+    try {
+      const r = await fetch('/api/ollama/gpu', { signal: AbortSignal.timeout(10000) });
+      if (r.ok) {
+        const j = await r.json();
+        return {
+          name: j.model,
+          processor: j.processor || '',
+          size: j.size,
+          vramMb: j.vramMb,
+          isFullGpu: j.gpu === true,
+        };
+      }
+      const r2 = await fetch('/api/ollama/ensure', { signal: AbortSignal.timeout(10000) });
+      if (r2.ok) {
+        const j2 = await r2.json();
+        return {
+          name: j2.model,
+          processor: j2.processor || '',
+          size: j2.size,
+          vramMb: j2.vramMb,
+          isFullGpu: j2.gpu === true,
+        };
+      }
+    } catch (e) { /* fallback */ }
+  }
   try {
     const r = await fetch(`${base}/api/ps`, { signal: AbortSignal.timeout(4000) });
     if (!r.ok) return null;
     const j = await r.json();
-    const row = (j.models || [])[0];
+    const row = (j.models || []).find(m => m.name?.includes('bac-qwen3-14b')) || (j.models || [])[0];
     if (!row) return null;
     return {
       name: row.name,
@@ -240,8 +295,11 @@ async function ollamaCommentFetchGpuStatus(base) {
 
 function ollamaCommentGpuStatusLabel(st) {
   if (!st) return '';
-  if (st.isFullGpu) return ` · ${st.processor} (VRAM)`;
-  return ` · ⚠ ${st.processor || 'CPU/RAM'} — relance via start.ps1`;
+  if (st.isFullGpu) {
+    const vram = st.vramMb != null ? ` · ${st.vramMb} MiB VRAM` : ' (VRAM NVIDIA)';
+    return ` · ${st.processor || '100% GPU'}${vram}`;
+  }
+  return ` · ⚠ ${st.processor || 'CPU/RAM'} — relance start.ps1`;
 }
 
 function ollamaCommentSaveCfg(partial) {

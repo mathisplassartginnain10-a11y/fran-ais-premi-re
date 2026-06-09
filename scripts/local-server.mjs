@@ -36,29 +36,97 @@ function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-/** Variables d'environnement pour forcer CUDA / VRAM (NVIDIA Windows) */
+/** Variables d'environnement NVIDIA (ne jamais mettre OLLAMA_LLM_LIBRARY=cuda sur 0.30.7) */
 function ollamaGpuEnv() {
+  const env = { ...process.env };
+  delete env.OLLAMA_LLM_LIBRARY;
   return {
-    ...process.env,
-    OLLAMA_LLM_LIBRARY: process.env.OLLAMA_LLM_LIBRARY || 'cuda',
-    CUDA_VISIBLE_DEVICES: process.env.CUDA_VISIBLE_DEVICES || '0',
+    ...env,
+    CUDA_VISIBLE_DEVICES: '0',
+    OLLAMA_VULKAN: '0',
+    GGML_VK_VISIBLE_DEVICES: '-1',
+    OLLAMA_INTEL_GPU: '0',
+    OLLAMA_CONTEXT_LENGTH: '8192',
     OLLAMA_FLASH_ATTENTION: '1',
     OLLAMA_MAX_LOADED_MODELS: '1',
     OLLAMA_NUM_PARALLEL: '1',
     OLLAMA_KEEP_ALIVE: '60m',
-    OLLAMA_KV_CACHE_TYPE: process.env.OLLAMA_KV_CACHE_TYPE || 'q8_0',
+    OLLAMA_KV_CACHE_TYPE: 'q8_0',
+    OLLAMA_LOAD_TIMEOUT: '10m0s',
     OLLAMA_HOST: `${HOST}:11434`,
   };
 }
 
-function stopOllamaProcesses() {
+const MIN_NVIDIA_VRAM_MB = 6000;
+
+function getProcessorFromCli(modelName) {
+  try {
+    const r = spawnSync('ollama', ['ps'], {
+      encoding: 'utf8',
+      shell: true,
+      timeout: 12000,
+      env: ollamaGpuEnv(),
+    });
+    const needle = (modelName || BAC_MODEL).split(':')[0];
+    for (const line of (r.stdout || '').split(/\r?\n/)) {
+      if (!line.includes(needle)) continue;
+      if (/100%\s*GPU/i.test(line)) return '100% GPU';
+      if (/100%\s*CPU/i.test(line)) return '100% CPU';
+      const cols = line.trim().split(/\s{2,}/);
+      const proc = cols.find(c => /100%\s*(GPU|CPU)/i.test(c));
+      if (proc) return proc;
+    }
+  } catch { /* ignore */ }
+  return '';
+}
+
+function getNvidiaVramMb() {
+  if (process.platform !== 'win32') return null;
+  try {
+    const r = spawnSync('nvidia-smi', ['--query-gpu=memory.used', '--format=csv,noheader,nounits'], {
+      encoding: 'utf8',
+      shell: true,
+      timeout: 8000,
+    });
+    const n = parseInt(String(r.stdout).trim(), 10);
+    return Number.isFinite(n) ? n : null;
+  } catch {
+    return null;
+  }
+}
+
+function isNvidiaVramLoaded(processor, vramMb) {
+  if (/100%\s*CPU/i.test(processor || '')) return false;
+  if (vramMb != null && vramMb >= MIN_NVIDIA_VRAM_MB) return true;
+  return /100%\s*GPU/i.test(processor || '') && vramMb != null && vramMb >= 4000;
+}
+
+async function readGpuState() {
+  const ps = await ollamaPs();
+  const row = ps.find(m => m.name.includes(BAC_MODEL)) || ps[0];
+  const processor = getProcessorFromCli(row?.name || BAC_MODEL) || row?.processor || '';
+  const vramMb = getNvidiaVramMb();
+  const gpu = isNvidiaVramLoaded(processor, vramMb);
+  return { row, processor, vramMb, gpu, ps };
+}
+
+async function stopOllamaProcesses() {
   if (process.platform === 'win32') {
+    spawnSync('powershell', ['-NoProfile', '-Command',
+      "Get-Process -Name 'ollama*','llama-server' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue"],
+    { shell: true, stdio: 'ignore' });
     spawnSync('taskkill', ['/F', '/IM', 'ollama.exe'], { shell: true, stdio: 'ignore' });
     spawnSync('taskkill', ['/F', '/IM', 'ollama app.exe'], { shell: true, stdio: 'ignore' });
+    spawnSync('taskkill', ['/F', '/IM', 'llama-server.exe'], { shell: true, stdio: 'ignore' });
+    await sleep(3000);
+    spawnSync('powershell', ['-NoProfile', '-Command',
+      "Get-Process -Name 'ollama*','llama-server' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue"],
+    { shell: true, stdio: 'ignore' });
   } else {
-    spawnSync('pkill', ['-f', 'ollama serve'], { stdio: 'ignore' });
+    spawnSync('pkill', ['-9', '-f', 'llama-server'], { stdio: 'ignore' });
+    spawnSync('pkill', ['-9', '-f', 'ollama serve'], { stdio: 'ignore' });
+    await sleep(1500);
   }
-  return sleep(1500);
 }
 
 function startOllamaServe() {
@@ -129,6 +197,15 @@ async function ensureBacGpuModel() {
       console.warn('[ollama] create:', r.stderr || r.stdout || r.status);
       return { ok: false, error: 'Impossible de créer bac-qwen3-14b' };
     }
+    // ollama create relance l'app tray → on repart proprement
+    console.log('[ollama] Nettoyage tray après create…');
+    await stopOllamaProcesses();
+    startOllamaServe();
+    for (let i = 0; i < 45; i++) {
+      await sleep(1000);
+      if (await ollamaUp()) break;
+      if (i === 44) return { ok: false, error: 'Ollama ne répond pas après create.' };
+    }
   }
   return { ok: true, model: BAC_MODEL };
 }
@@ -150,8 +227,8 @@ async function unloadModel(name) {
   } catch { /* ignore */ }
 }
 
-/** Vide la RAM/VRAM des modèles chargés puis précharge bac-qwen3-14b sur GPU */
-async function preloadGpuModel() {
+/** Vide RAM/VRAM puis précharge bac-qwen3-14b sur VRAM NVIDIA */
+async function preloadGpuModel(retry = 0) {
   const loaded = await ollamaPs();
   for (const m of loaded) {
     await unloadModel(m.name);
@@ -168,30 +245,56 @@ async function preloadGpuModel() {
     options: { ...GPU_OPTS, num_predict: 1 },
   };
 
-  const r = await fetch(`${OLLAMA}/api/chat`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(180000),
-  });
+  let r;
+  try {
+    console.log('[ollama] Chargement VRAM NVIDIA…');
+    r = await fetch(`${OLLAMA}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(600000),
+    });
+  } catch (e) {
+    if (retry < 2) {
+      await sleep(2000);
+      return preloadGpuModel(retry + 1);
+    }
+    return { ok: false, error: `Timeout chargement GPU: ${e.message}` };
+  }
 
   if (!r.ok) {
     const err = await r.text().catch(() => '');
+    if (retry < 2) {
+      await sleep(1500);
+      return preloadGpuModel(retry + 1);
+    }
     return { ok: false, error: `Chargement GPU échoué (${r.status}) ${err.slice(0, 120)}` };
   }
 
-  await sleep(800);
-  const ps = await ollamaPs();
-  const row = ps.find(m => m.name.includes(BAC_MODEL) || m.name.includes(LEGACY_MODEL)) || ps[0];
-  const gpu = row ? isFullGpu(row.processor) : false;
+  await sleep(2000);
+  const state = await readGpuState();
+  const { row, processor, vramMb, gpu } = state;
+
+  if (!gpu && retry < 3) {
+    console.warn('[ollama] VRAM NVIDIA absente — arrêt complet + relance…', processor, vramMb != null ? `${vramMb} MiB` : '');
+    await stopOllamaProcesses();
+    startOllamaServe();
+    for (let i = 0; i < 60; i++) {
+      await sleep(1000);
+      if (await ollamaUp()) break;
+      if (i === 59) return { ok: false, error: 'Ollama ne répond pas après redémarrage VRAM.' };
+    }
+    return preloadGpuModel(retry + 1);
+  }
 
   return {
     ok: gpu,
     gpu,
-    processor: row?.processor || 'inconnu',
+    processor: processor || row?.processor || 'CPU/RAM',
+    vramMb,
     size: row?.size,
     model: row?.name || BAC_MODEL,
-    error: gpu ? null : `Modèle sur ${row?.processor || 'CPU/RAM'} — redémarre via start.ps1`,
+    error: gpu ? null : `Modèle hors VRAM NVIDIA (${processor || 'CPU'} · ${vramMb ?? '?'} MiB)`,
   };
 }
 
@@ -219,6 +322,7 @@ async function ensureOllama(forceRestart) {
         started: true,
         gpu: preload.gpu,
         processor: preload.processor,
+        vramMb: preload.vramMb,
         size: preload.size,
         model: preload.model,
         error: preload.error,
@@ -234,32 +338,23 @@ async function ensureOllama(forceRestart) {
   const model = await ensureBacGpuModel();
   if (!model.ok) return model;
 
-  const ps = await ollamaPs();
-  const bad = ps.find(m => !isFullGpu(m.processor));
-  const wrong = ps.find(m => m.name.includes(LEGACY_MODEL) && !m.name.includes(BAC_MODEL));
+  const state = await readGpuState();
+  const hasBac = state.ps.some(m => m.name.includes(BAC_MODEL));
+  const wrong = state.ps.find(m => m.name.includes(LEGACY_MODEL) && !m.name.includes(BAC_MODEL));
 
-  if (bad || wrong || !ps.some(m => m.name.includes(BAC_MODEL))) {
-    const preload = await preloadGpuModel();
-    return {
-      ok: preload.ok,
-      started: false,
-      gpu: preload.gpu,
-      processor: preload.processor,
-      size: preload.size,
-      model: preload.model,
-      error: preload.error,
-      reloaded: true,
-    };
+  if (!hasBac || wrong || !state.gpu) {
+    console.warn('[ollama] État GPU invalide — redémarrage complet…', state.processor, state.vramMb);
+    return ensureOllama(true);
   }
 
-  const row = ps.find(m => m.name.includes(BAC_MODEL)) || ps[0];
   return {
     ok: true,
     started: false,
     gpu: true,
-    processor: row?.processor,
-    size: row?.size,
-    model: row?.name,
+    processor: state.processor,
+    vramMb: state.vramMb,
+    size: state.row?.size,
+    model: state.row?.name,
   };
 }
 
@@ -377,10 +472,26 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify({
       ollamaProxy: '/ollama',
       ensureUrl: '/api/ollama/ensure',
+      launchUrl: '/api/launch',
       ollamaModel: BAC_MODEL,
       numCtx: GPU_CTX,
       gpuOnly: true,
+      serverVersion: 2,
     }));
+    return;
+  }
+
+  if (p === '/api/ping') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ ok: true, port: PORT, model: BAC_MODEL }));
+    return;
+  }
+
+  if (p === '/api/launch') {
+    const force = url.searchParams.get('restart') === '1' || req.method === 'POST';
+    const result = await ensureOllama(force);
+    res.writeHead(result.ok ? 200 : 503, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(result));
     return;
   }
 
@@ -393,7 +504,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (p === '/api/ollama/ensure') {
-    const force = url.searchParams.get('restart') === '1';
+    const force = url.searchParams.get('restart') === '1' || req.method === 'POST';
     const result = await ensureOllama(force);
     res.writeHead(result.ok ? 200 : 503, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(result));
@@ -401,7 +512,10 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (p.startsWith('/ollama/')) {
-    await ensureOllama(false);
+    if (p.includes('/api/chat') || p.includes('/api/generate')) {
+      const state = await readGpuState();
+      if (!state.gpu) await ensureOllama(true);
+    }
     await proxyOllama(req, res, p.slice('/ollama'.length));
     return;
   }
@@ -409,16 +523,36 @@ const server = http.createServer(async (req, res) => {
   serveStatic(req, res, p);
 });
 
+let _gpuWatch = null;
+function startGpuWatchdog() {
+  if (_gpuWatch || process.platform !== 'win32') return;
+  _gpuWatch = setInterval(async () => {
+    if (_ensurePromise) return;
+    try {
+      if (!await ollamaUp()) return;
+      const state = await readGpuState();
+      if (!state.ps.length) return;
+      if (state.gpu) return;
+      console.warn('[ollama] Surveillance : hors VRAM NVIDIA — correction auto…', state.processor, state.vramMb);
+      await ensureOllama(true);
+    } catch { /* ignore */ }
+  }, 45000);
+}
+
 ensureOllama(false).then(r => {
   if (!r.ok) console.warn('[ollama]', r.error || r);
-  else console.log(`[ollama] ${r.processor || 'prêt'} · ${r.model || BAC_MODEL}`);
+  else {
+    const vram = r.vramMb != null ? ` · ${r.vramMb} MiB VRAM` : '';
+    console.log(`[ollama] ${r.processor || 'prêt'} · ${r.model || BAC_MODEL}${vram}`);
+  }
 }).finally(() => {
   server.listen(PORT, HOST, () => {
     const appUrl = `http://${HOST}:${PORT}`;
     console.log(`\n  Bac Français · ${appUrl}`);
-    console.log(`  Ollama GPU  · ${appUrl}/ollama · modèle ${BAC_MODEL} · ctx ${GPU_CTX}\n`);
+    console.log(`  Ollama VRAM  · ${BAC_MODEL} · bouton ⚡ dans Commentaire\n`);
+    startGpuWatchdog();
     if (process.env.BAC_OPEN !== '0') {
-      spawn('cmd', ['/c', 'start', '', appUrl], { stdio: 'ignore', shell: true }).unref?.();
+      spawn('cmd', ['/c', 'start', '', `${appUrl}/?launch=ollama`], { stdio: 'ignore', shell: true }).unref?.();
     }
   });
 });

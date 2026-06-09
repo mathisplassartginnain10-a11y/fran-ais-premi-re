@@ -263,13 +263,16 @@
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-passage">Texte ou titre du passage</label>
           <textarea class="sinput intro-sim-input intro-sim-textarea intro-sim-textarea-lg" id="intro-sim-passage" rows="8" placeholder="1re phrase … dernière phrase (format bac), ou titre seul…" autocomplete="off"></textarea>
-          <p class="intro-sim-hint">Commentaire modèle par défaut · option Ollama · lance <code>start.ps1</code> pour démarrage auto.</p>
         </div>
         <div class="intro-sim-row intro-sim-mode-row">
           <label class="intro-sim-check">
             <input type="checkbox" id="intro-sim-fullmode" checked>
             Générer le commentaire complet (décocher pour l'intro seule)
           </label>
+        </div>
+        <div class="intro-sim-row intro-sim-launch-row">
+          <button type="button" id="intro-sim-launch-btn" class="pbtn intro-sim-launch-btn" onclick="introSimLaunchAll()">⚡ Démarrer tout (Ollama VRAM)</button>
+          <span class="intro-sim-launch-hint">Serveur + GPU NVIDIA · un clic</span>
         </div>
         <div class="intro-sim-row intro-sim-mode-row">
           <label class="intro-sim-check">

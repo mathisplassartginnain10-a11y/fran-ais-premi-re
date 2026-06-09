@@ -1660,13 +1660,16 @@
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-passage">Texte ou titre du passage</label>
           <textarea class="sinput intro-sim-input intro-sim-textarea intro-sim-textarea-lg" id="intro-sim-passage" rows="8" placeholder="Colle la 1re phrase du passage, puis … puis la dernière phrase (comme au bac). Ou seulement le titre (ex. Chanson d'automne)…" autocomplete="off"></textarea>
-          <p class="intro-sim-hint">Commentaire modèle par défaut · option Ollama pour qwen3:14b. Recommandé : lancer via <code>start.ps1</code> (Ollama auto).</p>
         </div>
         <div class="intro-sim-row intro-sim-mode-row">
           <label class="intro-sim-check">
             <input type="checkbox" id="intro-sim-fullmode" checked>
             Générer le commentaire complet (décocher pour l'intro seule)
           </label>
+        </div>
+        <div class="intro-sim-row intro-sim-launch-row">
+          <button type="button" id="intro-sim-launch-btn" class="pbtn intro-sim-launch-btn" onclick="introSimLaunchAll()">⚡ Démarrer tout (Ollama VRAM)</button>
+          <span class="intro-sim-launch-hint">Serveur + GPU NVIDIA · un clic</span>
         </div>
         <div class="intro-sim-row intro-sim-mode-row">
           <label class="intro-sim-check">
@@ -2224,7 +2227,7 @@
 <script defer src="js/data-bac-passages.js?v=20260625"></script>
 <script defer src="js/data-gtextes-oeuvre-by-id.js?v=20260622"></script>
 <script defer src="js/data-intro-simulator.js?v=20260711"></script>
-<script defer src="js/ollama-comment.js?v=20260716"></script>
+<script defer src="js/ollama-comment.js?v=20260721"></script>
 <script defer src="js/data-grammaire.js"></script>
 <script defer src="js/data-vocabulaire.js"></script>
 <script defer src="js/data-vocabulaire-extra.js"></script>
@@ -2250,7 +2253,7 @@
 <script defer src="js/pages/exercices.js?v=20260703"></script>
 <script defer src="js/pages/corpus.js?v=20260615"></script>
 <script defer src="js/pages/gtextes.js?v=20260709"></script>
-<script defer src="js/pages/intro-sim.js?v=20260715"></script>
+<script defer src="js/pages/intro-sim.js?v=20260721"></script>
 <script defer src="js/pages/auteurs.js?v=20260702"></script>
 <script defer src="js/stats-engine.js?v=20260628"></script>
 <script defer src="js/pages/boot-app.js?v=20260623"></script>
