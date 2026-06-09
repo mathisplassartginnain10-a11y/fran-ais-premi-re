@@ -12,6 +12,7 @@ if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
 }
 
 & "$PSScriptRoot\scripts\setup-ollama-gpu-env.ps1" -Quiet
+& "$PSScriptRoot\scripts\install-autostart.ps1" -Quiet
 
 $gpuEnv = @{
   CUDA_VISIBLE_DEVICES    = '0'

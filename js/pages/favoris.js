@@ -13,7 +13,12 @@ function loadFavs() {
 }
 function saveFavs(f) {
   _favsCache = f;
-  try { localStorage.setItem('bac_favs', JSON.stringify(f)); } catch (e) {}
+  try {
+    localStorage.setItem('bac_favs', JSON.stringify(f));
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 function toggleFavCard(m, name) {
@@ -193,7 +198,10 @@ function renderFavs() {
       const titre = item.titre || item.fields?.passage || item.fields?.oeuvre || 'Introduction';
       const badges = [];
       if (hasComm) badges.push('<span class="fav-intro-tag fav-intro-tag-comm">Commentaire complet</span>');
-      if (item.commentaire?.fromOllama || item.fromOllama) badges.push('<span class="fav-intro-tag fav-intro-tag-ia">IA Ollama</span>');
+      if (item.commentaire?.fromOllama || item.fromOllama) {
+        const model = item.ollamaModel || item.commentaire?.model;
+        badges.push(`<span class="fav-intro-tag fav-intro-tag-ia">IA Ollama${model ? ' · ' + favEsc(model) : ''}</span>`);
+      }
       else if (item.commentaire?.fromCorpus) badges.push('<span class="fav-intro-tag">Corrigé GT</span>');
       card.innerHTML = `
         <div class="fav-intro-head">
@@ -220,7 +228,7 @@ function renderFavs() {
   }
 
   if (empty) {
-    cont.innerHTML = '<div class="fav-empty">Aucun favori pour l\'instant.<br>Clique sur ★ dans les fiches, les QCM, ou <strong>Enregistrer</strong> / <strong>Enregistrer le commentaire</strong> dans le simulateur.</div>';
+    cont.innerHTML = '<div class="fav-empty">Aucun favori pour l\'instant.<br>Clique sur ★ dans les fiches, les QCM, ou <strong>Enregistrer la réponse IA</strong> / <strong>Enregistrer tout</strong> dans le simulateur (après la génération Ollama).</div>';
   }
 }
 

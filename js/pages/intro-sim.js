@@ -32,15 +32,32 @@ async function introSimFetchLocalApi(paths, opts) {
 }
 
 async function introSimPingLocalServer() {
-  const bases = ['http://127.0.0.1:8765'];
-  const paths = ['/api/ping', '/api/config', '/'];
-  for (const base of bases) {
-    for (const path of paths) {
-      try {
-        const r = await fetch(base + path, { signal: AbortSignal.timeout(2500) });
-        if (r.ok) return true;
-      } catch (e) { /* ignore */ }
-    }
+  try {
+    const r = await fetch('http://127.0.0.1:8765/api/ping', {
+      signal: AbortSignal.timeout(2000),
+      cache: 'no-store',
+    });
+    return r.ok;
+  } catch (e) {
+    return false;
+  }
+}
+
+function introSimTrySpawnServer() {
+  try {
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = 'bacfrancais://launch';
+    document.body.appendChild(iframe);
+    setTimeout(() => iframe.remove(), 3000);
+  } catch (e) { /* ignore */ }
+}
+
+async function introSimWaitForServer(maxAttempts, onTick) {
+  for (let i = 0; i < maxAttempts; i++) {
+    if (await introSimPingLocalServer()) return true;
+    onTick?.(i + 1, maxAttempts);
+    await new Promise(r => setTimeout(r, 2000));
   }
   return false;
 }
@@ -102,16 +119,16 @@ async function introSimLaunchAll(auto) {
   };
 
   if (!introSimIsLocalServer()) {
-    if (status) status.textContent = 'Connexion au serveur local…';
-    for (let i = 0; i < 24; i++) {
-      if (await introSimPingLocalServer()) {
-        window.location.href = 'http://127.0.0.1:8765/?launch=ollama';
-        return;
-      }
-      if (status) status.textContent = `Serveur local… (${i + 1}/24) — lance Lancer.bat si besoin`;
-      await new Promise(r => setTimeout(r, 1500));
+    if (status) status.textContent = 'Demarrage du serveur local…';
+    introSimTrySpawnServer();
+    const ok = await introSimWaitForServer(20, (n, max) => {
+      if (status) status.textContent = `Serveur local… (${n}/${max})`;
+    });
+    if (ok) {
+      window.location.href = 'http://127.0.0.1:8765/?launch=ollama';
+      return;
     }
-    finishErr('Serveur arrêté — double-clique Lancer.bat à la racine du projet');
+    finishErr('Serveur arrêté — double-clique « Bac Français » sur le bureau, ou Lancer.bat');
     return;
   }
 
@@ -141,6 +158,7 @@ async function introSimLaunchAll(auto) {
 }
 
 function introSimMaybeAutoLaunch() {
+  if (!introSimIsLocalServer()) return;
   const sp = new URLSearchParams(location.search);
   if (sp.get('launch') !== 'ollama') return;
   sp.delete('launch');
@@ -183,7 +201,7 @@ function introSimUpdateOllamaStatus() {
     return;
   }
   if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.port !== '8765')) {
-    status.textContent = '⚠ Lance start.ps1 — sans lui Ollama utilise la RAM (pas la VRAM)';
+    status.textContent = '⚠ Ouvre via le raccourci « Bac Français » (http://127.0.0.1:8765) — bouton ⚡ pour démarrer';
     status.classList.add('err');
     status.classList.remove('ok');
     return;
@@ -252,6 +270,7 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts, 
 
   const cfg = typeof ollamaCommentLoadCfg === 'function' ? ollamaCommentLoadCfg() : { model: 'qwen3:14b' };
   introSimSetOllamaPanel(true, `Préparation d'Ollama (${cfg.model})…`);
+  introSimUpdateFavBtn();
 
   try {
     const comm = await ollamaCommentGenerate(entry, {
@@ -270,6 +289,12 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts, 
     if (genId !== _introSimOllamaGenId) return;
     entry.commentaire = comm;
     entry.fullComment = comm.full;
+    if (comm.temps) {
+      entry.temps = { ...entry.temps, ...comm.temps };
+      entry.full = Object.values(entry.temps).join('\n\n');
+    } else if (comm.intro) {
+      entry.full = comm.intro;
+    }
     introSimSetOllamaPanel(false);
     introSimShowResult(entry, score, showOpts || { persist: true });
     if (typeof playSound === 'function') playSound('ok');
@@ -312,73 +337,65 @@ const INTRO_SIM_RECENT_KEY = 'bac_intro_sim_recent';
 const INTRO_SIM_RECENT_MAX = 8;
 const INTRO_SIM_FAV_MAX = 50;
 
-function introSimFavKey(fields, full) {
-  return [fields?.auteur, fields?.oeuvre, fields?.passage, fields?.theme, (full || '').slice(0, 160)]
-    .join('|').toLowerCase();
+function introSimOllamaPending() {
+  return !!_introSimOllamaAbort;
+}
+
+function introSimFavBaseKey(fields, entry) {
+  return [
+    fields?.auteur,
+    fields?.oeuvre,
+    fields?.passage,
+    fields?.theme,
+    entry?.id || entry?.entryId || '',
+  ].map(s => String(s || '').trim().toLowerCase()).join('|');
+}
+
+function introSimFavHasFull(entry) {
+  return !!(entry?.fullComment || entry?.commentaire?.full);
+}
+
+function introSimFavKey(fields, entry, kind) {
+  const base = introSimFavBaseKey(fields, entry);
+  const full = kind === 'full' || (!kind && introSimFavHasFull(entry));
+  return full ? `${base}|full` : `${base}|intro`;
 }
 
 function introSimFavSaveText(entry) {
-  return entry?.fullComment || entry?.full || '';
+  return entry?.fullComment || entry?.commentaire?.full || entry?.full || '';
 }
 
 function introSimFavIntroText(entry) {
   if (entry?.temps) return Object.values(entry.temps).join('\n\n');
-  return entry?.full || '';
+  return entry?.commentaire?.intro || entry?.full || '';
+}
+
+function introSimCloneCommentaire(comm) {
+  if (!comm) return null;
+  return {
+    ...comm,
+    parts: (comm.parts || []).map(p => ({ ...p })),
+  };
 }
 
 function introSimCanFav(entry) {
-  return !!(entry?.full || entry?.fullComment || entry?.temps);
+  if (introSimOllamaPending() && introSimOllamaEnabled()) return false;
+  return !!(entry?.full || entry?.fullComment || entry?.commentaire?.full || entry?.temps);
 }
 
 function introSimIsFav(entry, fields) {
-  if (!introSimCanFav(entry)) return false;
-  const key = introSimFavKey(fields || introSimFields(), introSimFavSaveText(entry));
+  if (!entry) return false;
+  fields = fields || introSimFields();
+  const key = introSimFavKey(fields, entry, introSimFavHasFull(entry) ? 'full' : 'intro');
   return introSimGetFavIntros().some(i => i.key === key);
 }
 
-function introSimUpdateFavBtn() {
-  const btn = el('intro-sim-fav-btn');
-  const btnComm = el('intro-sim-fav-comm-btn');
-  const entry = window._introSimCurrent;
-  const on = introSimIsFav(entry, introSimFields());
-  const hasComm = !!(entry?.fullComment || entry?.commentaire?.full);
-  [btn, btnComm].forEach(b => {
-    if (!b) return;
-    b.classList.toggle('on', on);
-    b.disabled = !introSimCanFav(entry);
-  });
-  if (btn) {
-    btn.textContent = on ? '★ Enregistrée' : (hasComm ? '☆ Enregistrer tout' : '☆ Enregistrer');
-    btn.title = on ? 'Retirer des favoris' : (hasComm ? 'Enregistrer intro + commentaire' : 'Enregistrer dans mes favoris');
-  }
-  if (btnComm) {
-    btnComm.textContent = on ? '★ Commentaire enregistré' : '☆ Enregistrer le commentaire';
-    btnComm.hidden = !hasComm;
-    btnComm.title = on ? 'Retirer des favoris' : 'Enregistrer le commentaire complet (IA ou modèle)';
-  }
-}
-
-function introSimToggleFav() {
-  const entry = window._introSimCurrent;
-  if (!introSimCanFav(entry)) return;
-  const fields = introSimFields();
-  if (typeof loadFavs !== 'function' || typeof saveFavs !== 'function') return;
-  const f = loadFavs();
-  if (!f.intros) f.intros = [];
-  const saveText = introSimFavSaveText(entry);
+function introSimFavItemFromEntry(entry, fields) {
   const introOnly = introSimFavIntroText(entry);
-  const key = introSimFavKey(fields, saveText);
-  const idx = f.intros.findIndex(i => i.key === key);
-  if (idx >= 0) {
-    f.intros.splice(idx, 1);
-    saveFavs(f);
-    introSimUpdateFavBtn();
-    if (typeof renderFavs === 'function') renderFavs();
-    return;
-  }
-  f.intros.unshift({
-    id: 'IF-' + Date.now().toString(36),
-    key,
+  const fullComment = entry.fullComment || entry.commentaire?.full || null;
+  const commentaire = introSimCloneCommentaire(entry.commentaire);
+  const fromOllama = !!(commentaire?.fromOllama);
+  return {
     savedAt: new Date().toISOString(),
     fields: { ...fields },
     entryId: entry.id,
@@ -388,15 +405,94 @@ function introSimToggleFav() {
     genre: entry.genre || '',
     prob: entry.prob || 0,
     gtextId: entry.gtextId || null,
-    full: saveText || introOnly,
-    fullComment: entry.fullComment || null,
+    full: fullComment || introOnly,
+    fullComment,
     introOnly,
-    commentaire: entry.commentaire ? { ...entry.commentaire } : null,
-    fromOllama: !!(entry.commentaire?.fromOllama || entry.fullComment),
+    commentaire,
+    fromOllama,
+    ollamaModel: commentaire?.model || null,
     temps: entry.temps ? { ...entry.temps } : {},
+  };
+}
+
+function introSimPersistFavs(f) {
+  try {
+    saveFavs(f);
+    return true;
+  } catch (e) {
+    alert('Impossible d\'enregistrer dans les favoris (stockage local plein ou indisponible).');
+    return false;
+  }
+}
+
+function introSimUpdateFavBtn() {
+  const btn = el('intro-sim-fav-btn');
+  const btnComm = el('intro-sim-fav-comm-btn');
+  const entry = window._introSimCurrent;
+  const fields = introSimFields();
+  const pending = introSimOllamaPending() && introSimOllamaEnabled() && introSimWantsFullCommentary(fields.passage);
+  const on = !pending && introSimIsFav(entry, fields);
+  const hasComm = introSimFavHasFull(entry);
+  const fromOllama = !!(entry?.commentaire?.fromOllama);
+  [btn, btnComm].forEach(b => {
+    if (!b) return;
+    b.classList.toggle('on', on);
+    b.disabled = pending || !introSimCanFav(entry);
+  });
+  if (btn) {
+    if (pending) {
+      btn.textContent = '⏳ IA en cours…';
+      btn.title = 'Attends la fin de la génération Ollama pour enregistrer';
+    } else {
+      btn.textContent = on
+        ? '★ Enregistrée'
+        : (hasComm ? (fromOllama ? '☆ Enregistrer la réponse IA' : '☆ Enregistrer tout') : '☆ Enregistrer');
+      btn.title = on
+        ? 'Retirer des favoris'
+        : (hasComm ? 'Enregistrer intro + commentaire dans Mes favoris' : 'Enregistrer dans mes favoris');
+    }
+  }
+  if (btnComm) {
+    btnComm.hidden = !hasComm || pending;
+    if (!pending) {
+      btnComm.textContent = on ? '★ Commentaire enregistré' : (fromOllama ? '☆ Enregistrer la réponse IA' : '☆ Enregistrer le commentaire');
+      btnComm.title = on ? 'Retirer des favoris' : 'Enregistrer le commentaire complet dans Mes favoris';
+    }
+  }
+}
+
+function introSimToggleFav() {
+  const entry = window._introSimCurrent;
+  const fields = introSimFields();
+  if (introSimOllamaPending() && introSimOllamaEnabled() && introSimWantsFullCommentary(fields.passage)) {
+    alert('Attends la fin de la génération IA avant d\'enregistrer.');
+    return;
+  }
+  if (!introSimCanFav(entry)) return;
+  if (typeof loadFavs !== 'function' || typeof saveFavs !== 'function') return;
+  const f = loadFavs();
+  if (!f.intros) f.intros = [];
+  const hasFull = introSimFavHasFull(entry);
+  const key = introSimFavKey(fields, entry, hasFull ? 'full' : 'intro');
+  const idx = f.intros.findIndex(i => i.key === key);
+  if (idx >= 0) {
+    f.intros.splice(idx, 1);
+    if (!introSimPersistFavs(f)) return;
+    introSimUpdateFavBtn();
+    if (typeof renderFavs === 'function') renderFavs();
+    return;
+  }
+  if (hasFull) {
+    const introKey = introSimFavKey(fields, entry, 'intro');
+    f.intros = f.intros.filter(i => i.key !== introKey);
+  }
+  f.intros.unshift({
+    id: 'IF-' + Date.now().toString(36),
+    key,
+    ...introSimFavItemFromEntry(entry, fields),
   });
   if (f.intros.length > INTRO_SIM_FAV_MAX) f.intros.length = INTRO_SIM_FAV_MAX;
-  saveFavs(f);
+  if (!introSimPersistFavs(f)) return;
   introSimUpdateFavBtn();
   if (typeof renderFavs === 'function') renderFavs();
   if (typeof playSound === 'function') playSound('ok');
@@ -407,7 +503,7 @@ function introSimRemoveFavById(id) {
   const f = loadFavs();
   if (!f.intros?.length) return;
   f.intros = f.intros.filter(i => i.id !== id);
-  saveFavs(f);
+  introSimPersistFavs(f);
   introSimUpdateFavBtn();
   if (typeof renderFavs === 'function') renderFavs();
 }
@@ -444,7 +540,9 @@ function introSimShowSavedFav(item) {
   const introOnly = item.introOnly
     || (item.temps ? Object.values(item.temps).join('\n\n') : '');
   const fullComment = item.fullComment
+    || item.commentaire?.full
     || (item.full && item.full !== introOnly ? item.full : null);
+  const commentaire = introSimCloneCommentaire(item.commentaire);
   const entry = {
     id: item.entryId || 'FAV',
     auteurNom: item.auteurNom,
@@ -457,14 +555,26 @@ function introSimShowSavedFav(item) {
     temps: item.temps || {},
     full: introOnly,
     fullComment,
-    commentaire: item.commentaire || null,
+    commentaire,
     contexte: '',
     fallback: false,
     indexOnly: !item.gtextId,
     procedesCles: [],
     authorTips: [],
   };
-  if (!entry.commentaire && !entry.fullComment
+  if (item.fromOllama) {
+    entry.commentaire = entry.commentaire || {
+      intro: introOnly,
+      parts: [],
+      conclusion: '',
+      full: fullComment || '',
+      fromOllama: true,
+      model: item.ollamaModel || item.commentaire?.model || '',
+    };
+    entry.commentaire.fromOllama = true;
+    if (item.ollamaModel && !entry.commentaire.model) entry.commentaire.model = item.ollamaModel;
+  }
+  if (!item.fromOllama && !entry.commentaire && !entry.fullComment
     && item.fields && typeof introSimAttachCommentary === 'function') {
     introSimAttachCommentary(entry, {
       userExcerpt: item.fields.passage,

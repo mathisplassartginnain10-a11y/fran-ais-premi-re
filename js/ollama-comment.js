@@ -8,7 +8,7 @@ const OLLAMA_COMMENT_DEFAULTS = {
   model: 'bac-qwen3-14b',
   fallbackModel: 'qwen3:14b',
   numCtx: 8192,
-  minWords: 1800,
+  minWords: 2200,
 };
 
 let _ollamaPingCache = { ok: null, at: 0 };
@@ -228,8 +228,10 @@ function ollamaCommentGpuOptions(cfg, extra) {
 /** Options dédiées à la génération du commentaire complet (longue rédaction) */
 function ollamaCommentGenerateOptions(cfg) {
   return ollamaCommentGpuOptions(cfg, {
-    num_predict: 5800,
-    repeat_penalty: 1.08,
+    num_predict: 7800,
+    temperature: 0.74,
+    top_p: 0.92,
+    repeat_penalty: 1.14,
   });
 }
 
@@ -330,39 +332,72 @@ async function ollamaCommentCheck(force) {
 }
 
 function ollamaCommentSystemPrompt() {
-  return `Tu es un correcteur du baccalauréat de français (Première), auteur de corrigés modèles 18-20/20.
-Tu rédiges UNIQUEMENT le développement et la conclusion (l'introduction en 5 temps est déjà fournie — ne la réécris pas).
+  return `Tu es un élève de Première très bon en français, en pleine épreuve du bac : tu rédiges un commentaire COMPLET (intro 5 temps + 3 parties + conclusion), comme une vraie copie manuscrite de 40 minutes — pas un texte généré par IA.
 
-Niveau attendu : COPIE PARFAITE, très développée, comme un candidat excellent (40 min de rédaction condensées en prose aboutie).
+PRIORITÉ ABSOLUE — voix humaine :
+- Écris comme un lycéen excellent : phrases parfois courtes, parfois longues ; rythme naturel, pas mécanique.
+- Intègre la méthode IPCI dans la prose (idée → procédé → citation → interprétation) sans étiqueter « procédé : », « interprétation : ».
+- Varie les débuts de paragraphe : « L'image de… », « Dès le premier vers… », « En employant… », « On assiste ici à… », « Ce choix… », etc. Ne commence jamais trois paragraphes consécutifs pareil.
+- Connecteurs avec parcimonie : alterne (ainsi, dès lors, par là, de ce fait, c'est pourquoi, en définitive…) ; n'en abuse pas.
+- Évite absolument le style « assistant IA » ou corrigé robotique.
 
-Méthode IPCI (obligatoire à chaque analyse) :
-Idée interprétative → Procédé nommé précisément → Citation exacte entre « guillemets » avec renvoi (v. n ou l. n) → Interprétation approfondie de l'effet sur le sens et sur le lecteur.
+Formules INTERDITES (typiques IA — ne jamais utiliser) :
+« Il convient de noter », « Il est important de souligner », « En outre » en chaîne, « Par ailleurs » répété, « Cela permet à l'auteur de », « Cela contribue à », « met en lumière » à chaque phrase, « témoigne de », « il s'agit de », « on peut ainsi constater que », « dans un premier temps… dans un second temps… dans un troisième temps » en boucle, « En conclusion, nous pouvons affirmer que », « l'auteur parvient à susciter chez le lecteur », « riche de sens », « d'une grande force expressive », « de manière significative », « il est primordial de », « force est de constater », « cet extrait nous invite à réfléchir ».
 
-Structure :
-- 3 parties THÉMATIQUES (jamais chronologiques), annoncées dans l'intro fournie.
-- Chaque partie : phrase d'ouverture qui reprend l'axe + 4 à 6 paragraphes d'analyse IPCI minimum.
-- Chaque paragraphe = une analyse IPCI complète (ne regroupe pas plusieurs procédés sans les analyser).
-- Fin de la partie I et II : transition rédigée vers la partie suivante (2-3 phrases).
-- Conclusion : bilan synthétique des 3 axes (1 paragraphe) + ouverture pertinente vers une autre œuvre, un auteur ou un mouvement (1 paragraphe).
+Préfère plutôt :
+- Formulations directes et concrètes liées AU passage précis.
+- Verbes précis : suggère, affirme, contraste, souligne, révèle, heurte, brouille, ancre, déplace…
+- Analyses ancrées dans le texte, pas des généralités vagues sur « la littérature ».
+
+Introduction (5 temps obligatoires) :
+1. Amorce : accroche sur l'époque, le genre ou un thème littéraire — sans nommer l'auteur ni l'œuvre.
+2. Auteur et œuvre : biographie brève, titre, genre, dates — ton naturel de lycéen, pas encyclopédique.
+3. Extrait : situation du passage, thème, registre.
+4. Problématique : « nous nous demanderons comment… » ou « en quoi… » — une seule question claire.
+5. Plan : annonce fluide des 3 axes thématiques (jamais chronologiques).
+
+Méthode IPCI (obligatoire, mais rédigée naturellement) :
+Chaque analyse = idée interprétative + procédé nommé + citation exacte « entre guillemets » (v. n ou l. n) + effet sur le sens et le lecteur — le tout en prose continue.
+
+Développement :
+- 3 parties thématiques alignées sur le plan.
+- Chaque partie : ouverture qui reprend l'axe + 4 à 6 paragraphes d'analyse.
+- Transitions I→II et II→III : 2-3 phrases qui enchaînent vraiment, pas une formule toute faite.
+- Conclusion : bilan des 3 axes (1 paragraphe) + ouverture vers une autre œuvre ou un auteur (1 paragraphe).
 
 Style :
-- Registre soutenu, syntaxe variée, connecteurs logiques (dès lors, ainsi, par ailleurs, en outre, dès lors, c'est ainsi que…).
-- Vocabulaire analytique précis (registre, tonalité, visée, énonciation, focalisation, etc.).
-- Zéro paraphrase, zéro liste à puces, zéro méta-commentaire (« je vais montrer que… »).
-- Multiplie les citations courtes mais nombreuses ; couvre tout le passage.
+- Registre soutenu mais vivant ; vocabulaire analytique précis sans jargon vide.
+- Zéro liste à puces, zéro méta (« je vais montrer », « dans cette partie »).
+- Citations courtes et fréquentes ; couvre tout le passage.
+- Volume : 2 200 à 2 800 mots. Développe sans remplissage creux.
 
-Volume impératif : 1 800 à 2 500 mots pour les 3 parties + conclusion. Ne sois JAMAIS concis : creuse, approfondis, enchaîne les analyses.
+Format OBLIGATOIRE (titres seuls — le corps reste une vraie rédaction) :
 
-Format OBLIGATOIRE :
+### Introduction
+
+#### Amorce
+[paragraphe]
+
+#### Auteur et œuvre
+[paragraphe]
+
+#### Extrait
+[paragraphe]
+
+#### Problématique
+[paragraphe]
+
+#### Plan
+[paragraphe]
 
 ### Partie I — [titre court et interprétatif]
-[texte très développé]
+[texte développé, style copie d'élève]
 
 ### Partie II — [titre court et interprétatif]
-[texte très développé]
+[texte développé, style copie d'élève]
 
 ### Partie III — [titre court et interprétatif]
-[texte très développé]
+[texte développé, style copie d'élève]
 
 ### Conclusion
 [bilan + ouverture]`;
@@ -380,7 +415,7 @@ function ollamaCommentBuildUserPrompt(ctx) {
     lines.push(`Procédés repérables : ${ctx.procedesCles.join(', ')}`);
   }
   if (ctx.plan?.length) {
-    lines.push('Axes annoncés dans l\'intro :');
+    lines.push('Axes suggérés pour le plan (3 parties thématiques) :');
     ctx.plan.forEach((a, i) => lines.push(`  ${i + 1}. ${a}`));
   }
   if (ctx.attendus?.length) {
@@ -394,14 +429,17 @@ function ollamaCommentBuildUserPrompt(ctx) {
       lines.push(`- ${p}${c ? ` · ${c}` : ''}${i ? ` → ${i}` : ''}`);
     });
   }
-  lines.push(`\n--- INTRODUCTION DÉJÀ RÉDIGÉE (ne pas réécrire) ---\n${ctx.intro}`);
+  if (ctx.introHint) {
+    lines.push(`\n--- Repère intro type (inspiration uniquement — réécris entièrement en 5 temps) ---\n${ctx.introHint}`);
+  }
   lines.push(`\n--- PASSAGE À COMMENTER ---\n${ctx.texte || '(extrait partiel — analyse à partir des repères et du contexte)'}`);
   lines.push(`
 Consignes finales :
-- Rédige un commentaire EXEMPLAIRE et TRÈS LONG, niveau 18-20/20 au bac.
-- Minimum ${ctx.minWords || 1800} mots pour les 3 parties + conclusion.
-- Au moins 4 analyses IPCI complètes par partie ; cite abondamment le texte.
-- Respecte strictement les titres ### Partie I / II / III et ### Conclusion.`);
+- Rédige comme une VRAIE copie de bac : naturel, fluide, jamais robotique ni « corrigé IA ».
+- Commentaire complet (intro 5 temps + 3 parties + conclusion), niveau 18-20/20.
+- Minimum ${ctx.minWords || 2200} mots ; analyses IPCI intégrées dans des phrases, pas en listes.
+- Varie le vocabulaire et les tournures ; reste concret et ancré dans le passage.
+- Respecte les titres ### Introduction (#### Amorce, #### Auteur et œuvre, etc.), ### Partie I / II / III et ### Conclusion.`);
   return lines.join('\n');
 }
 
@@ -435,10 +473,56 @@ function ollamaCommentGatherContext(entry, opts) {
     procedesCles: entry.procedesCles || [],
     plan,
     attendus,
-    intro: entry.temps ? Object.values(entry.temps).join('\n\n') : '',
+    introHint: entry.temps ? Object.values(entry.temps).join('\n\n') : '',
     texte: texte.trim(),
-    minWords: ollamaCommentLoadCfg().minWords || 1800,
+    minWords: ollamaCommentLoadCfg().minWords || 2200,
   };
+}
+
+function ollamaCommentParseIntro(text, entry) {
+  const fallbackIntro = entry.temps ? Object.values(entry.temps).join('\n\n') : '';
+  const introMatch = text.match(/###\s*Introduction\s*\n([\s\S]*?)(?=###\s*Partie\s*[IVX\d]|###\s*Conclusion|$)/i);
+  if (!introMatch) return { intro: fallbackIntro, temps: null };
+
+  const introBlock = introMatch[1].trim();
+  const sections = [
+    ['amorce', /####\s*Amorce\s*\n([\s\S]*?)(?=####|$)/i],
+    ['auteur', /####\s*Auteur[^#\n]*\n([\s\S]*?)(?=####|$)/i],
+    ['extrait', /####\s*Extrait\s*\n([\s\S]*?)(?=####|$)/i],
+    ['problematique', /####\s*Probl[eé]matique\s*\n([\s\S]*?)(?=####|$)/i],
+    ['plan', /####\s*Plan\s*\n([\s\S]*?)(?=####|$)/i],
+  ];
+  const temps = { ...(entry.temps || {}) };
+  let found = 0;
+  sections.forEach(([key, re]) => {
+    const m = introBlock.match(re);
+    if (m?.[1]?.trim()) {
+      temps[key] = m[1].trim();
+      found++;
+    }
+  });
+  if (found >= 3) {
+    const intro = ['amorce', 'auteur', 'extrait', 'problematique', 'plan']
+      .map(k => temps[k])
+      .filter(Boolean)
+      .join('\n\n');
+    return { intro, temps };
+  }
+
+  const paras = introBlock
+    .replace(/####[^\n]+\n/g, '')
+    .split(/\n\n+/)
+    .map(p => p.trim())
+    .filter(Boolean);
+  const keys = ['amorce', 'auteur', 'extrait', 'problematique', 'plan'];
+  keys.forEach((k, i) => { if (paras[i]) temps[k] = paras[i]; });
+  if (paras.length >= 3) {
+    return {
+      intro: keys.map(k => temps[k]).filter(Boolean).join('\n\n'),
+      temps,
+    };
+  }
+  return { intro: introBlock || fallbackIntro, temps: null };
 }
 
 function ollamaCommentStripThinking(text) {
@@ -449,8 +533,8 @@ function ollamaCommentStripThinking(text) {
 }
 
 function ollamaCommentParseResponse(raw, entry, passageText) {
-  const intro = entry.temps ? Object.values(entry.temps).join('\n\n') : '';
   const text = ollamaCommentStripThinking(raw);
+  const { intro, temps } = ollamaCommentParseIntro(text, entry);
   const parts = [];
   const partRe = /###\s*Partie\s*([IVX\d]+)\s*[—–\-]\s*([^\n]+)\n([\s\S]*?)(?=###\s*Partie\s*[IVX\d]|###\s*Conclusion|$)/gi;
   let m;
@@ -481,6 +565,7 @@ function ollamaCommentParseResponse(raw, entry, passageText) {
 
   return {
     intro,
+    temps,
     parts,
     conclusion,
     full: fullBlocks.join('\n\n'),
