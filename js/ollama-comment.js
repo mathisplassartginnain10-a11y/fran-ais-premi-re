@@ -8,7 +8,7 @@ const OLLAMA_COMMENT_DEFAULTS = {
   model: 'bac-qwen3-14b',
   fallbackModel: 'qwen3:14b',
   numCtx: 8192,
-  minWords: 2200,
+  minWords: 1800,
 };
 
 let _ollamaPingCache = { ok: null, at: 0 };
@@ -43,6 +43,7 @@ async function ollamaCommentDetectMode(force) {
             type: 'proxy',
             base: `${location.origin}${j.ollamaProxy}`,
             ensureUrl: j.ensureUrl || '/api/ollama/ensure',
+            releaseUrl: j.releaseUrl || '/api/ollama/release',
           };
           return _ollamaMode;
         }
@@ -50,7 +51,7 @@ async function ollamaCommentDetectMode(force) {
     } catch (e) { /* pas le serveur local */ }
   }
 
-  _ollamaMode = { type: 'direct', base: directBase, ensureUrl: null };
+  _ollamaMode = { type: 'direct', base: directBase, ensureUrl: null, releaseUrl: null };
   return _ollamaMode;
 }
 
@@ -125,6 +126,38 @@ async function ollamaCommentEnsureReady(opts) {
       ? ' Utilise start.ps1 pour forcer la VRAM CUDA.'
       : ' Lance ollama serve ou double-clique start.ps1.');
   throw new Error(`Ollama ne répond pas.${hint}`);
+}
+
+async function ollamaCommentReleaseGpu(opts) {
+  opts = opts || {};
+  const onStatus = opts.onStatus;
+  const stop = opts.stop !== false;
+  onStatus?.('Arrêt Ollama · libération VRAM…');
+  _ollamaPingCache = { ok: null, at: 0 };
+
+  const mode = await ollamaCommentDetectMode(false);
+  if (mode.type === 'proxy' && mode.releaseUrl) {
+    try {
+      const q = stop ? '?stop=1' : '?stop=0';
+      const r = await fetch(`${mode.releaseUrl}${q}`, {
+        method: 'POST',
+        signal: opts.signal || AbortSignal.timeout(45000),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok) {
+        const vram = j.vramMb != null ? ` · ${j.vramMb} MiB VRAM` : '';
+        onStatus?.(j.stopped ? `Ollama arrêté${vram} — PC libéré` : `Modèle déchargé${vram}`);
+        return j;
+      }
+    } catch (e) { /* fallback direct */ }
+  }
+
+  const base = ollamaCommentResolveBase(mode);
+  if (await ollamaCommentPingBase(base, 2500)) {
+    await ollamaCommentUnloadAll(base);
+  }
+  onStatus?.('Modèle déchargé · VRAM libérée');
+  return { ok: true, released: true };
 }
 
 async function ollamaCommentUnloadAll(base) {
@@ -241,7 +274,7 @@ function ollamaCommentRequestBody(cfg, payload) {
   delete payload._fullCommentary;
   return {
     model: ollamaCommentResolveModel(cfg),
-    keep_alive: '60m',
+    keep_alive: '10m',
     think: false,
     ...payload,
     options: useGenerate
@@ -332,63 +365,35 @@ async function ollamaCommentCheck(force) {
 }
 
 function ollamaCommentSystemPrompt() {
-  return `Tu es un élève de Première très bon en français, en pleine épreuve du bac : tu rédiges un commentaire COMPLET (intro 5 temps + 3 parties + conclusion), comme une vraie copie manuscrite de 40 minutes — pas un texte généré par IA.
+  return `Tu es un élève de Première très bon en français, en pleine épreuve du bac.
+Tu rédiges UNIQUEMENT le développement (3 parties) et la conclusion.
+L'introduction en 5 temps est DÉJÀ FOURNIE — ne la réécris pas, ne la reformule pas, ne l'inclus pas dans ta réponse.
 
 PRIORITÉ ABSOLUE — voix humaine :
 - Écris comme un lycéen excellent : phrases parfois courtes, parfois longues ; rythme naturel, pas mécanique.
 - Intègre la méthode IPCI dans la prose (idée → procédé → citation → interprétation) sans étiqueter « procédé : », « interprétation : ».
-- Varie les débuts de paragraphe : « L'image de… », « Dès le premier vers… », « En employant… », « On assiste ici à… », « Ce choix… », etc. Ne commence jamais trois paragraphes consécutifs pareil.
-- Connecteurs avec parcimonie : alterne (ainsi, dès lors, par là, de ce fait, c'est pourquoi, en définitive…) ; n'en abuse pas.
+- Varie les débuts de paragraphe : « L'image de… », « Dès le premier vers… », « En employant… », « On assiste ici à… », « Ce choix… », etc.
+- Connecteurs avec parcimonie ; n'en abuse pas.
 - Évite absolument le style « assistant IA » ou corrigé robotique.
 
-Formules INTERDITES (typiques IA — ne jamais utiliser) :
-« Il convient de noter », « Il est important de souligner », « En outre » en chaîne, « Par ailleurs » répété, « Cela permet à l'auteur de », « Cela contribue à », « met en lumière » à chaque phrase, « témoigne de », « il s'agit de », « on peut ainsi constater que », « dans un premier temps… dans un second temps… dans un troisième temps » en boucle, « En conclusion, nous pouvons affirmer que », « l'auteur parvient à susciter chez le lecteur », « riche de sens », « d'une grande force expressive », « de manière significative », « il est primordial de », « force est de constater », « cet extrait nous invite à réfléchir ».
+Formules INTERDITES :
+« Il convient de noter », « Il est important de souligner », « En outre » en chaîne, « Par ailleurs » répété, « Cela permet à l'auteur de », « met en lumière » à chaque phrase, « témoigne de », « on peut ainsi constater que », « l'auteur parvient à susciter chez le lecteur », « riche de sens », « force est de constater », « cet extrait nous invite à réfléchir ».
 
-Préfère plutôt :
-- Formulations directes et concrètes liées AU passage précis.
-- Verbes précis : suggère, affirme, contraste, souligne, révèle, heurte, brouille, ancre, déplace…
-- Analyses ancrées dans le texte, pas des généralités vagues sur « la littérature ».
-
-Introduction (5 temps obligatoires) :
-1. Amorce : accroche sur l'époque, le genre ou un thème littéraire — sans nommer l'auteur ni l'œuvre.
-2. Auteur et œuvre : biographie brève, titre, genre, dates — ton naturel de lycéen, pas encyclopédique.
-3. Extrait : situation du passage, thème, registre.
-4. Problématique : « nous nous demanderons comment… » ou « en quoi… » — une seule question claire.
-5. Plan : annonce fluide des 3 axes thématiques (jamais chronologiques).
-
-Méthode IPCI (obligatoire, mais rédigée naturellement) :
-Chaque analyse = idée interprétative + procédé nommé + citation exacte « entre guillemets » (v. n ou l. n) + effet sur le sens et le lecteur — le tout en prose continue.
+Méthode IPCI (obligatoire, rédigée naturellement) :
+Chaque analyse = idée + procédé nommé + citation « entre guillemets » (v. n ou l. n) + effet sur le sens et le lecteur — en prose continue.
 
 Développement :
-- 3 parties thématiques alignées sur le plan.
+- 3 parties THÉMATIQUES (jamais chronologiques), alignées sur le plan annoncé dans l'intro fournie.
 - Chaque partie : ouverture qui reprend l'axe + 4 à 6 paragraphes d'analyse.
-- Transitions I→II et II→III : 2-3 phrases qui enchaînent vraiment, pas une formule toute faite.
+- Transitions I→II et II→III : 2-3 phrases qui enchaînent vraiment.
 - Conclusion : bilan des 3 axes (1 paragraphe) + ouverture vers une autre œuvre ou un auteur (1 paragraphe).
 
 Style :
-- Registre soutenu mais vivant ; vocabulaire analytique précis sans jargon vide.
+- Registre soutenu mais vivant ; citations courtes et fréquentes ; couvre tout le passage.
 - Zéro liste à puces, zéro méta (« je vais montrer », « dans cette partie »).
-- Citations courtes et fréquentes ; couvre tout le passage.
-- Volume : 2 200 à 2 800 mots. Développe sans remplissage creux.
+- Volume : 1 800 à 2 400 mots pour les 3 parties + conclusion (sans l'intro).
 
-Format OBLIGATOIRE (titres seuls — le corps reste une vraie rédaction) :
-
-### Introduction
-
-#### Amorce
-[paragraphe]
-
-#### Auteur et œuvre
-[paragraphe]
-
-#### Extrait
-[paragraphe]
-
-#### Problématique
-[paragraphe]
-
-#### Plan
-[paragraphe]
+Format OBLIGATOIRE (commence directement par Partie I — pas d'introduction) :
 
 ### Partie I — [titre court et interprétatif]
 [texte développé, style copie d'élève]
@@ -415,7 +420,7 @@ function ollamaCommentBuildUserPrompt(ctx) {
     lines.push(`Procédés repérables : ${ctx.procedesCles.join(', ')}`);
   }
   if (ctx.plan?.length) {
-    lines.push('Axes suggérés pour le plan (3 parties thématiques) :');
+    lines.push('Axes annoncés dans l\'intro (à respecter dans les 3 parties) :');
     ctx.plan.forEach((a, i) => lines.push(`  ${i + 1}. ${a}`));
   }
   if (ctx.attendus?.length) {
@@ -429,17 +434,17 @@ function ollamaCommentBuildUserPrompt(ctx) {
       lines.push(`- ${p}${c ? ` · ${c}` : ''}${i ? ` → ${i}` : ''}`);
     });
   }
-  if (ctx.introHint) {
-    lines.push(`\n--- Repère intro type (inspiration uniquement — réécris entièrement en 5 temps) ---\n${ctx.introHint}`);
+  if (ctx.intro) {
+    lines.push(`\n--- INTRODUCTION DÉJÀ RÉDIGÉE (ne pas réécrire — ne pas inclure dans ta réponse) ---\n${ctx.intro}`);
   }
   lines.push(`\n--- PASSAGE À COMMENTER ---\n${ctx.texte || '(extrait partiel — analyse à partir des repères et du contexte)'}`);
   lines.push(`
 Consignes finales :
-- Rédige comme une VRAIE copie de bac : naturel, fluide, jamais robotique ni « corrigé IA ».
-- Commentaire complet (intro 5 temps + 3 parties + conclusion), niveau 18-20/20.
-- Minimum ${ctx.minWords || 2200} mots ; analyses IPCI intégrées dans des phrases, pas en listes.
-- Varie le vocabulaire et les tournures ; reste concret et ancré dans le passage.
-- Respecte les titres ### Introduction (#### Amorce, #### Auteur et œuvre, etc.), ### Partie I / II / III et ### Conclusion.`);
+- Rédige comme une VRAIE copie de bac : naturel, fluide, jamais robotique.
+- UNIQUEMENT les 3 parties + la conclusion (l'intro fournie sera ajoutée telle quelle).
+- Minimum ${ctx.minWords || 1800} mots pour les 3 parties + conclusion.
+- Analyses IPCI intégrées dans des phrases ; cite abondamment le passage.
+- Respecte strictement ### Partie I / II / III et ### Conclusion — aucune introduction.`);
   return lines.join('\n');
 }
 
@@ -473,56 +478,24 @@ function ollamaCommentGatherContext(entry, opts) {
     procedesCles: entry.procedesCles || [],
     plan,
     attendus,
-    introHint: entry.temps ? Object.values(entry.temps).join('\n\n') : '',
+    intro: entry.temps ? Object.values(entry.temps).join('\n\n') : '',
     texte: texte.trim(),
-    minWords: ollamaCommentLoadCfg().minWords || 2200,
+    minWords: ollamaCommentLoadCfg().minWords || 1800,
   };
 }
 
-function ollamaCommentParseIntro(text, entry) {
-  const fallbackIntro = entry.temps ? Object.values(entry.temps).join('\n\n') : '';
-  const introMatch = text.match(/###\s*Introduction\s*\n([\s\S]*?)(?=###\s*Partie\s*[IVX\d]|###\s*Conclusion|$)/i);
-  if (!introMatch) return { intro: fallbackIntro, temps: null };
+function ollamaCommentTemplateIntro(entry) {
+  const intro = entry.temps ? Object.values(entry.temps).join('\n\n') : '';
+  return {
+    intro,
+    temps: entry.temps ? { ...entry.temps } : null,
+  };
+}
 
-  const introBlock = introMatch[1].trim();
-  const sections = [
-    ['amorce', /####\s*Amorce\s*\n([\s\S]*?)(?=####|$)/i],
-    ['auteur', /####\s*Auteur[^#\n]*\n([\s\S]*?)(?=####|$)/i],
-    ['extrait', /####\s*Extrait\s*\n([\s\S]*?)(?=####|$)/i],
-    ['problematique', /####\s*Probl[eé]matique\s*\n([\s\S]*?)(?=####|$)/i],
-    ['plan', /####\s*Plan\s*\n([\s\S]*?)(?=####|$)/i],
-  ];
-  const temps = { ...(entry.temps || {}) };
-  let found = 0;
-  sections.forEach(([key, re]) => {
-    const m = introBlock.match(re);
-    if (m?.[1]?.trim()) {
-      temps[key] = m[1].trim();
-      found++;
-    }
-  });
-  if (found >= 3) {
-    const intro = ['amorce', 'auteur', 'extrait', 'problematique', 'plan']
-      .map(k => temps[k])
-      .filter(Boolean)
-      .join('\n\n');
-    return { intro, temps };
-  }
-
-  const paras = introBlock
-    .replace(/####[^\n]+\n/g, '')
-    .split(/\n\n+/)
-    .map(p => p.trim())
-    .filter(Boolean);
-  const keys = ['amorce', 'auteur', 'extrait', 'problematique', 'plan'];
-  keys.forEach((k, i) => { if (paras[i]) temps[k] = paras[i]; });
-  if (paras.length >= 3) {
-    return {
-      intro: keys.map(k => temps[k]).filter(Boolean).join('\n\n'),
-      temps,
-    };
-  }
-  return { intro: introBlock || fallbackIntro, temps: null };
+function ollamaCommentStripIntroSection(text) {
+  return String(text || '')
+    .replace(/###\s*Introduction[\s\S]*?(?=###\s*Partie\s*[IVX\d]|###\s*Conclusion|$)/i, '')
+    .trim();
 }
 
 function ollamaCommentStripThinking(text) {
@@ -534,11 +507,12 @@ function ollamaCommentStripThinking(text) {
 
 function ollamaCommentParseResponse(raw, entry, passageText) {
   const text = ollamaCommentStripThinking(raw);
-  const { intro, temps } = ollamaCommentParseIntro(text, entry);
+  const { intro, temps } = ollamaCommentTemplateIntro(entry);
+  const bodyText = ollamaCommentStripIntroSection(text);
   const parts = [];
   const partRe = /###\s*Partie\s*([IVX\d]+)\s*[—–\-]\s*([^\n]+)\n([\s\S]*?)(?=###\s*Partie\s*[IVX\d]|###\s*Conclusion|$)/gi;
   let m;
-  while ((m = partRe.exec(text)) !== null) {
+  while ((m = partRe.exec(bodyText)) !== null) {
     const body = m[3].trim();
     if (!body) continue;
     const citeCount = (body.match(/«[^»]+»/g) || []).length;
@@ -552,11 +526,11 @@ function ollamaCommentParseResponse(raw, entry, passageText) {
   }
 
   let conclusion = '';
-  const cm = text.match(/###\s*Conclusion\s*\n([\s\S]*)/i);
+  const cm = bodyText.match(/###\s*Conclusion\s*\n([\s\S]*)/i);
   if (cm) conclusion = cm[1].trim();
 
-  if (!parts.length && text) {
-    parts.push({ id: 'part1', label: 'Développement', text, transition: '', ipcCount: 0 });
+  if (!parts.length && bodyText) {
+    parts.push({ id: 'part1', label: 'Développement', text: bodyText, transition: '', ipcCount: 0 });
   }
 
   const fullBlocks = [intro];
@@ -581,59 +555,71 @@ async function ollamaCommentGenerate(entry, opts) {
   opts = opts || {};
   const cfg = ollamaCommentLoadCfg();
 
-  const mode = await ollamaCommentEnsureReady({
-    signal: opts.signal,
-    onStatus: opts.onStatus,
-  });
-  await ollamaCommentWarmModel(mode, cfg, opts.signal, opts.onStatus);
+  try {
+    const mode = await ollamaCommentEnsureReady({
+      signal: opts.signal,
+      onStatus: opts.onStatus,
+    });
+    await ollamaCommentWarmModel(mode, cfg, opts.signal, opts.onStatus);
 
-  const ctx = ollamaCommentGatherContext(entry, opts);
-  const base = ollamaCommentResolveBase(mode);
+    const ctx = ollamaCommentGatherContext(entry, opts);
+    const base = ollamaCommentResolveBase(mode);
 
-  const r = await fetch(`${base}/api/chat`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(ollamaCommentRequestBody(cfg, {
-      _fullCommentary: true,
-      messages: [
-        { role: 'system', content: ollamaCommentSystemPrompt() },
-        { role: 'user', content: ollamaCommentBuildUserPrompt(ctx) },
-      ],
-      stream: true,
-    })),
-    signal: opts.signal,
-  });
+    const r = await fetch(`${base}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(ollamaCommentRequestBody(cfg, {
+        _fullCommentary: true,
+        messages: [
+          { role: 'system', content: ollamaCommentSystemPrompt() },
+          { role: 'user', content: ollamaCommentBuildUserPrompt(ctx) },
+        ],
+        stream: true,
+      })),
+      signal: opts.signal,
+    });
 
-  if (!r.ok) {
-    const errText = await r.text().catch(() => '');
-    throw new Error(`HTTP ${r.status}${errText ? ' — ' + errText.slice(0, 100) : ''}`);
-  }
-  if (!r.body) throw new Error('Réponse Ollama vide.');
+    if (!r.ok) {
+      const errText = await r.text().catch(() => '');
+      throw new Error(`HTTP ${r.status}${errText ? ' — ' + errText.slice(0, 100) : ''}`);
+    }
+    if (!r.body) throw new Error('Réponse Ollama vide.');
 
-  const reader = r.body.getReader();
-  const dec = new TextDecoder();
-  let buf = '';
-  let full = '';
+    const reader = r.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '';
+    let full = '';
 
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buf += dec.decode(value, { stream: true });
-    const lines = buf.split('\n');
-    buf = lines.pop() || '';
-    for (const line of lines) {
-      if (!line.trim()) continue;
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop() || '';
+      for (const line of lines) {
+        if (!line.trim()) continue;
+        try {
+          const j = JSON.parse(line);
+          const chunk = j.message?.content || '';
+          if (chunk) {
+            full += chunk;
+            if (typeof opts.onChunk === 'function') opts.onChunk(full);
+          }
+        } catch (e) { /* ligne JSON partielle */ }
+      }
+    }
+
+    if (!full.trim()) throw new Error('Le modèle n\'a renvoyé aucun texte.');
+    return ollamaCommentParseResponse(full, entry, ctx.texte);
+  } finally {
+    if (opts.keepLoaded !== true) {
       try {
-        const j = JSON.parse(line);
-        const chunk = j.message?.content || '';
-        if (chunk) {
-          full += chunk;
-          if (typeof opts.onChunk === 'function') opts.onChunk(full);
-        }
-      } catch (e) { /* ligne JSON partielle */ }
+        await ollamaCommentReleaseGpu({
+          onStatus: opts.onStatus,
+          signal: opts.signal,
+          stop: opts.stopOllama !== false,
+        });
+      } catch (e) { /* ignore */ }
     }
   }
-
-  if (!full.trim()) throw new Error('Le modèle n\'a renvoyé aucun texte.');
-  return ollamaCommentParseResponse(full, entry, ctx.texte);
 }

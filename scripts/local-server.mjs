@@ -50,7 +50,7 @@ function ollamaGpuEnv() {
     OLLAMA_FLASH_ATTENTION: '1',
     OLLAMA_MAX_LOADED_MODELS: '1',
     OLLAMA_NUM_PARALLEL: '1',
-    OLLAMA_KEEP_ALIVE: '60m',
+    OLLAMA_KEEP_ALIVE: '5m',
     OLLAMA_KV_CACHE_TYPE: 'q8_0',
     OLLAMA_LOAD_TIMEOUT: '10m0s',
     OLLAMA_HOST: `${HOST}:11434`,
@@ -227,18 +227,42 @@ async function unloadModel(name) {
   } catch { /* ignore */ }
 }
 
-/** Vide RAM/VRAM puis précharge bac-qwen3-14b sur VRAM NVIDIA */
-async function preloadGpuModel(retry = 0) {
+async function unloadAllModels() {
   const loaded = await ollamaPs();
   for (const m of loaded) {
     await unloadModel(m.name);
   }
   await unloadModel(LEGACY_MODEL);
   await unloadModel(BAC_MODEL);
+}
+
+/** Libère VRAM ; stop=true arrête aussi ollama serve */
+async function releaseOllama(opts = {}) {
+  const stop = opts.stop === true;
+  if (!await ollamaUp()) {
+    return { ok: true, released: true, stopped: false, vramMb: getNvidiaVramMb(), models: [] };
+  }
+  await unloadAllModels();
+  await sleep(800);
+  let stopped = false;
+  if (stop) {
+    await stopOllamaProcesses();
+    _serveStartedByUs = false;
+    stopped = true;
+    await sleep(500);
+  }
+  const vramMb = getNvidiaVramMb();
+  const models = await ollamaPs();
+  return { ok: true, released: true, stopped, vramMb, models };
+}
+
+/** Vide RAM/VRAM puis précharge bac-qwen3-14b sur VRAM NVIDIA */
+async function preloadGpuModel(retry = 0) {
+  await unloadAllModels();
 
   const body = {
     model: BAC_MODEL,
-    keep_alive: '60m',
+    keep_alive: '10m',
     think: false,
     stream: false,
     messages: [{ role: 'user', content: 'OK' }],
@@ -374,7 +398,7 @@ function patchOllamaBody(raw, path) {
     const j = JSON.parse(raw.toString('utf8'));
     if (j.model === LEGACY_MODEL || !j.model) j.model = BAC_MODEL;
     j.think = false;
-    if (!j.keep_alive && j.keep_alive !== 0) j.keep_alive = j.keep_alive || '60m';
+    if (!('keep_alive' in j)) j.keep_alive = '10m';
     j.options = { ...GPU_OPTS, ...j.options, num_gpu: 999, num_ctx: GPU_CTX };
     return Buffer.from(JSON.stringify(j));
   } catch {
@@ -472,6 +496,7 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify({
       ollamaProxy: '/ollama',
       ensureUrl: '/api/ollama/ensure',
+      releaseUrl: '/api/ollama/release',
       launchUrl: '/api/launch',
       ollamaModel: BAC_MODEL,
       numCtx: GPU_CTX,
@@ -496,10 +521,28 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (p === '/api/ollama/gpu') {
-    const result = await ensureOllama(false);
-    const ps = await ollamaPs();
+    const up = await ollamaUp();
+    const ps = up ? await ollamaPs() : [];
+    const state = up ? await readGpuState() : { processor: '', vramMb: getNvidiaVramMb(), gpu: false, row: null };
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ ...result, models: ps }));
+    res.end(JSON.stringify({
+      ok: up,
+      gpu: state.gpu,
+      processor: state.processor,
+      vramMb: state.vramMb,
+      size: state.row?.size,
+      model: state.row?.name || null,
+      loaded: ps.length > 0,
+      models: ps,
+    }));
+    return;
+  }
+
+  if (p === '/api/ollama/release') {
+    const stop = url.searchParams.get('stop') !== '0';
+    const result = await releaseOllama({ stop });
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(result));
     return;
   }
 
@@ -539,12 +582,9 @@ function startGpuWatchdog() {
   }, 45000);
 }
 
-ensureOllama(false).then(r => {
-  if (!r.ok) console.warn('[ollama]', r.error || r);
-  else {
-    const vram = r.vramMb != null ? ` · ${r.vramMb} MiB VRAM` : '';
-    console.log(`[ollama] ${r.processor || 'prêt'} · ${r.model || BAC_MODEL}${vram}`);
-  }
+ollamaUp().then(up => {
+  if (!up) console.warn('[ollama] Serveur absent — génération IA ou bouton ⚡ pour lancer.');
+  else console.log('[ollama] Serveur détecté (modèle chargé uniquement à la demande).');
 }).finally(() => {
   server.listen(PORT, HOST, () => {
     const appUrl = `http://${HOST}:${PORT}`;
@@ -552,7 +592,7 @@ ensureOllama(false).then(r => {
     console.log(`  Ollama VRAM  · ${BAC_MODEL} · bouton ⚡ dans Commentaire\n`);
     startGpuWatchdog();
     if (process.env.BAC_OPEN !== '0') {
-      spawn('cmd', ['/c', 'start', '', `${appUrl}/?launch=ollama`], { stdio: 'ignore', shell: true }).unref?.();
+      spawn('cmd', ['/c', 'start', '', appUrl], { stdio: 'ignore', shell: true }).unref?.();
     }
   });
 });

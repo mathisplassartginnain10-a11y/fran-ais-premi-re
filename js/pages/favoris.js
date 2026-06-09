@@ -54,6 +54,24 @@ function favEsc(s) {
   return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+function favIntroSummary(item) {
+  const hasComm = !!(item.fullComment || item.commentaire?.full);
+  const text = item.fullComment || item.full || item.introOnly || '';
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const parts = item.commentaire?.parts?.length || 0;
+  const oeuvre = (item.oeuvre || item.fields?.oeuvre || '').replace(/\(\d{4}\)/, '').trim();
+  const bits = [];
+  if (oeuvre) bits.push(oeuvre);
+  if (hasComm) {
+    bits.push(parts ? `${parts} parties + conclusion` : 'commentaire complet');
+  } else {
+    bits.push('introduction (5 temps)');
+  }
+  if (words) bits.push(`~${words} mots`);
+  if (item.fields?.passage) bits.push('extrait collé');
+  return bits.join(' · ');
+}
+
 function renderFavs() {
   const f = loadFavs();
   const cont = el('fav-cont');
@@ -193,9 +211,8 @@ function renderFavs() {
         ? new Date(item.savedAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })
         : '';
       const hasComm = !!(item.fullComment || (item.commentaire?.full));
-      const previewSrc = item.fullComment || item.full || item.introOnly || '';
-      const preview = previewSrc.replace(/\s+/g, ' ').trim().slice(0, 220);
       const titre = item.titre || item.fields?.passage || item.fields?.oeuvre || 'Introduction';
+      const summary = favIntroSummary(item);
       const badges = [];
       if (hasComm) badges.push('<span class="fav-intro-tag fav-intro-tag-comm">Commentaire complet</span>');
       if (item.commentaire?.fromOllama || item.fromOllama) {
@@ -215,7 +232,7 @@ function renderFavs() {
             <button type="button" class="fav-btn on" onclick="introSimRemoveFavById('${favEsc(item.id)}')" title="Retirer des favoris">★</button>
           </div>
         </div>
-        <p class="fav-intro-preview">${favEsc(preview)}${previewSrc.length > 220 ? '…' : ''}</p>
+        <p class="fav-intro-summary">${favEsc(summary)}</p>
         <div class="fav-intro-meta">${favEsc(date)}${item.entryId ? ' · ' + favEsc(item.entryId) : ''}</div>
         <div class="fav-intro-actions">
           <button type="button" class="sbtn" onclick="introSimOpenFromFav('${favEsc(item.id)}')">Ouvrir</button>

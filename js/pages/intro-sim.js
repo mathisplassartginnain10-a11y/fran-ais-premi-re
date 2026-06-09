@@ -177,6 +177,10 @@ function introSimInitOllamaUi() {
     cb.checked = cfg.enabled === true;
     cb.addEventListener('change', () => {
       if (typeof ollamaCommentSaveCfg === 'function') ollamaCommentSaveCfg({ enabled: cb.checked });
+      if (!cb.checked && typeof ollamaCommentReleaseGpu === 'function') {
+        ollamaCommentReleaseGpu({ stop: true }).finally(() => introSimUpdateOllamaStatus());
+        return;
+      }
       introSimUpdateOllamaStatus();
       if (cb.checked && typeof introSimLaunchAll === 'function') {
         introSimLaunchAll(true);
@@ -217,17 +221,19 @@ function introSimUpdateOllamaStatus() {
     let gpuLabel = '';
     let isGpu = false;
     const gpuCheck = await introSimFetchLocalApi(
-      ['/api/ollama/gpu', '/api/ollama/ensure'],
+      ['/api/ollama/gpu'],
       { method: 'GET', timeout: 12000 },
     );
     if (gpuCheck.r?.ok) {
       const j = gpuCheck.j;
-      if (j.gpu || j.processor?.includes('100% GPU')) {
+      if (j.loaded && (j.gpu || j.processor?.includes('100% GPU'))) {
         isGpu = true;
         const vram = j.vramMb != null ? ` · ${j.vramMb} MiB VRAM` : '';
         gpuLabel = ` · ${j.processor || '100% GPU'}${vram}`.trim();
-      } else {
+      } else if (j.loaded) {
         gpuLabel = ` · ⚠ ${j.processor || 'RAM/CPU'} — bouton ⚡ pour relancer`;
+      } else {
+        gpuLabel = ' · modèle non chargé (VRAM libre)';
       }
     } else if (typeof ollamaCommentFetchGpuStatus === 'function' && typeof ollamaCommentDetectMode === 'function') {
       const mode = await ollamaCommentDetectMode(false);
@@ -289,11 +295,8 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts, 
     if (genId !== _introSimOllamaGenId) return;
     entry.commentaire = comm;
     entry.fullComment = comm.full;
-    if (comm.temps) {
-      entry.temps = { ...entry.temps, ...comm.temps };
+    if (entry.temps) {
       entry.full = Object.values(entry.temps).join('\n\n');
-    } else if (comm.intro) {
-      entry.full = comm.intro;
     }
     introSimSetOllamaPanel(false);
     introSimShowResult(entry, score, showOpts || { persist: true });
@@ -329,7 +332,11 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts, 
       wrap.prepend(p);
     }
   } finally {
-    if (genId === _introSimOllamaGenId) _introSimOllamaAbort = null;
+    if (genId === _introSimOllamaGenId) {
+      _introSimOllamaAbort = null;
+      introSimUpdateFavBtn();
+      introSimUpdateOllamaStatus();
+    }
   }
 }
 
@@ -339,6 +346,13 @@ const INTRO_SIM_FAV_MAX = 50;
 
 function introSimOllamaPending() {
   return !!_introSimOllamaAbort;
+}
+
+function introSimOllamaPendingForFav(fields) {
+  fields = fields || introSimFields();
+  return introSimOllamaPending()
+    && introSimOllamaEnabled()
+    && introSimWantsFullCommentary(fields.passage);
 }
 
 function introSimFavBaseKey(fields, entry) {
@@ -379,7 +393,7 @@ function introSimCloneCommentaire(comm) {
 }
 
 function introSimCanFav(entry) {
-  if (introSimOllamaPending() && introSimOllamaEnabled()) return false;
+  if (introSimOllamaPendingForFav()) return false;
   return !!(entry?.full || entry?.fullComment || entry?.commentaire?.full || entry?.temps);
 }
 
@@ -395,6 +409,10 @@ function introSimFavItemFromEntry(entry, fields) {
   const fullComment = entry.fullComment || entry.commentaire?.full || null;
   const commentaire = introSimCloneCommentaire(entry.commentaire);
   const fromOllama = !!(commentaire?.fromOllama);
+  if (commentaire) {
+    if (fullComment) delete commentaire.full;
+    if (commentaire.intro === introOnly) delete commentaire.intro;
+  }
   return {
     savedAt: new Date().toISOString(),
     fields: { ...fields },
@@ -415,14 +433,55 @@ function introSimFavItemFromEntry(entry, fields) {
   };
 }
 
-function introSimPersistFavs(f) {
-  try {
-    saveFavs(f);
-    return true;
-  } catch (e) {
-    alert('Impossible d\'enregistrer dans les favoris (stockage local plein ou indisponible).');
-    return false;
+function introSimFavItemSlim(item) {
+  const slim = { ...item, commentaire: item.commentaire ? { ...item.commentaire } : null };
+  if (slim.commentaire) {
+    slim.commentaire = {
+      parts: (slim.commentaire.parts || []).map(p => ({
+        id: p.id,
+        label: p.label,
+        text: p.text,
+      })),
+      conclusion: slim.commentaire.conclusion || '',
+      fromOllama: slim.commentaire.fromOllama,
+      fromCorpus: slim.commentaire.fromCorpus,
+      model: slim.commentaire.model,
+      ipcCount: slim.commentaire.ipcCount,
+    };
   }
+  return slim;
+}
+
+function introSimPersistFavs(f) {
+  if (typeof saveFavs !== 'function') return false;
+  if (saveFavs(f)) return true;
+  return false;
+}
+
+function introSimPersistFavItem(f, item) {
+  f.intros.unshift(item);
+  if (f.intros.length > INTRO_SIM_FAV_MAX) f.intros.length = INTRO_SIM_FAV_MAX;
+  if (introSimPersistFavs(f)) return true;
+  f.intros.shift();
+  const slim = introSimFavItemSlim(item);
+  f.intros.unshift(slim);
+  if (f.intros.length > INTRO_SIM_FAV_MAX) f.intros.length = INTRO_SIM_FAV_MAX;
+  if (introSimPersistFavs(f)) return true;
+  f.intros.shift();
+  alert('Impossible d\'enregistrer dans les favoris (mémoire locale pleine). Supprime d\'anciens favoris dans l\'onglet ⭐ Favoris.');
+  return false;
+}
+
+function introSimFlashFavSaved(on) {
+  const out = el('intro-sim-result');
+  if (!out) return;
+  out.querySelector('.intro-sim-fav-ok')?.remove();
+  if (!on) return;
+  const p = document.createElement('p');
+  p.className = 'intro-sim-fav-ok';
+  p.innerHTML = '★ Enregistré dans <button type="button" class="intro-sim-fav-link" onclick="switchMatiere(\'fav\')">Mes favoris</button> — retrouve ta copie à tout moment.';
+  out.prepend(p);
+  setTimeout(() => p.remove(), 12000);
 }
 
 function introSimUpdateFavBtn() {
@@ -430,7 +489,7 @@ function introSimUpdateFavBtn() {
   const btnComm = el('intro-sim-fav-comm-btn');
   const entry = window._introSimCurrent;
   const fields = introSimFields();
-  const pending = introSimOllamaPending() && introSimOllamaEnabled() && introSimWantsFullCommentary(fields.passage);
+  const pending = introSimOllamaPendingForFav(fields);
   const on = !pending && introSimIsFav(entry, fields);
   const hasComm = introSimFavHasFull(entry);
   const fromOllama = !!(entry?.commentaire?.fromOllama);
@@ -464,7 +523,7 @@ function introSimUpdateFavBtn() {
 function introSimToggleFav() {
   const entry = window._introSimCurrent;
   const fields = introSimFields();
-  if (introSimOllamaPending() && introSimOllamaEnabled() && introSimWantsFullCommentary(fields.passage)) {
+  if (introSimOllamaPendingForFav(fields)) {
     alert('Attends la fin de la génération IA avant d\'enregistrer.');
     return;
   }
@@ -478,6 +537,7 @@ function introSimToggleFav() {
   if (idx >= 0) {
     f.intros.splice(idx, 1);
     if (!introSimPersistFavs(f)) return;
+    introSimFlashFavSaved(false);
     introSimUpdateFavBtn();
     if (typeof renderFavs === 'function') renderFavs();
     return;
@@ -486,13 +546,13 @@ function introSimToggleFav() {
     const introKey = introSimFavKey(fields, entry, 'intro');
     f.intros = f.intros.filter(i => i.key !== introKey);
   }
-  f.intros.unshift({
+  const item = {
     id: 'IF-' + Date.now().toString(36),
     key,
     ...introSimFavItemFromEntry(entry, fields),
-  });
-  if (f.intros.length > INTRO_SIM_FAV_MAX) f.intros.length = INTRO_SIM_FAV_MAX;
-  if (!introSimPersistFavs(f)) return;
+  };
+  if (!introSimPersistFavItem(f, item)) return;
+  introSimFlashFavSaved(true);
   introSimUpdateFavBtn();
   if (typeof renderFavs === 'function') renderFavs();
   if (typeof playSound === 'function') playSound('ok');
@@ -573,6 +633,12 @@ function introSimShowSavedFav(item) {
     };
     entry.commentaire.fromOllama = true;
     if (item.ollamaModel && !entry.commentaire.model) entry.commentaire.model = item.ollamaModel;
+  }
+  if (entry.commentaire && fullComment && !entry.commentaire.full) {
+    entry.commentaire.full = fullComment;
+  }
+  if (entry.commentaire && introOnly && !entry.commentaire.intro) {
+    entry.commentaire.intro = introOnly;
   }
   if (!item.fromOllama && !entry.commentaire && !entry.fullComment
     && item.fields && typeof introSimAttachCommentary === 'function') {
