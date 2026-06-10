@@ -1148,7 +1148,7 @@ function introSimOpts() {
   const excerpt = typeof introSimIsExcerptText === 'function' && introSimIsExcerptText(passage);
   const fullCommentary = fullMode ? (fullMode.checked || excerpt) : excerpt;
   const opts = { fullCommentary };
-  if (theme) opts.themeOverride = theme.charAt(0).toLowerCase() + theme.slice(1);
+  if (theme) opts.themeOverride = introSimThemeNormalize(theme);
   return opts;
 }
 
@@ -1319,10 +1319,8 @@ function introSimShowResult(entry, score, showOpts) {
     ? `<div class="intro-sim-tips"><strong>Repères auteur (intro)</strong><ul>${entry.authorTips.map(t => `<li>${introSimEsc(t)}</li>`).join('')}</ul></div>`
     : '';
 
-  const probAlt = entry.problematiqueAlt?.[_introSimProbIdx % (entry.problematiqueAlt.length || 1)];
-  const probText = _introSimProbIdx === 0
-    ? entry.temps.problematique
-    : `À travers l'étude de ce passage, nous nous demanderons ${probAlt}`;
+  const probVariants = [entry.temps.problematique, ...(entry.problematiqueAlt || [])];
+  const probText = probVariants[_introSimProbIdx % probVariants.length];
 
   const blocks = keys.map((k, i) => {
     const txt = k === 'problematique' ? probText : entry.temps[k];
@@ -1344,8 +1342,8 @@ function introSimShowResult(entry, score, showOpts) {
   } else if (relatedGt && typeof startGtext === 'function') {
     actions.push(`<button type="button" class="sbtn sec" onclick="startGtext('${introSimEscAttr(relatedGt.id)}')" title="Texte proche (même auteur/œuvre)">📖 Texte proche · ${introSimEsc(relatedGt.id)}</button>`);
   }
-  if (entry.problematiqueAlt?.length > 1) {
-    actions.push(`<button type="button" class="sbtn sec" onclick="introSimRotateProb()">↻ Autre problématique</button>`);
+  if (entry.problematiqueAlt?.length) {
+    actions.push(`<button type="button" class="sbtn sec" onclick="introSimRotateProb()">↻ Autre problématique (${(entry.problematiqueAlt.length || 0) + 1})</button>`);
   }
   actions.push(`<button type="button" class="sbtn sec intro-sim-fav-btn" id="intro-sim-fav-btn" onclick="introSimToggleFav()">☆ Enregistrer</button>`);
   actions.push(`<button type="button" class="sbtn sec" onclick="introSimCopyFull()">📋 Copier ${entry.fullComment ? 'le commentaire complet' : 'l\'intro'}</button>`);
@@ -1360,9 +1358,10 @@ function introSimShowResult(entry, score, showOpts) {
     <div class="intro-sim-comm">
       <div class="intro-sim-comm-head">
         <strong>Commentaire rédigé</strong>
-        <span class="intro-sim-comm-meta">${comm.parts?.length || 3} partie(s) · ${comm.ipcCount || 0} analyse(s) IPCI${comm.lineCount ? ` · ${comm.lineCount} vers/lignes couverts` : ''}${comm.fromOllama ? ` · IA locale (${introSimEsc(comm.model || 'Ollama')})` : ''}${comm.fromCorpus ? ' · corrigé GT' : ''}</span>
+        <span class="intro-sim-comm-meta">${comm.parts?.length || 3} partie(s) · ${comm.ipcCount || 0} analyse(s) IPCI${comm.lineCount ? ` · ${comm.lineCount} vers/lignes couverts` : ''}${comm.fromOllama ? ` · IA locale (${introSimEsc(comm.model || 'Ollama')})` : ''}${comm.fromCorpus ? ' · corrigé GT' : ''}${comm.validation?.citeStats?.total ? ` · citations extrait ${Math.round((comm.validation.citeStats.ratio || 0) * 100)}%` : ''}</span>
         <button type="button" class="sbtn sec intro-sim-fav-btn intro-sim-fav-comm-btn" id="intro-sim-fav-comm-btn" onclick="introSimToggleFav()">☆ Enregistrer le commentaire</button>
       </div>
+      ${comm.validation?.warnings?.length ? `<p class="intro-sim-warn intro-sim-comm-warn">${comm.validation.warnings.map(w => introSimEsc(w)).join(' · ')}</p>` : ''}
       ${(comm.parts || []).map(p => `
         <div class="intro-sim-comm-part">
           <div class="intro-sim-comm-part-lbl">${introSimEsc(p.label)}</div>
@@ -1413,8 +1412,10 @@ function introSimShowResult(entry, score, showOpts) {
 
 function introSimRotateProb() {
   const entry = window._introSimCurrent;
-  if (!entry?.problematiqueAlt?.length) return;
-  _introSimProbIdx = (_introSimProbIdx + 1) % entry.problematiqueAlt.length;
+  if (!entry?.temps?.problematique) return;
+  const total = 1 + (entry.problematiqueAlt?.length || 0);
+  if (total <= 1) return;
+  _introSimProbIdx = (_introSimProbIdx + 1) % total;
   introSimShowResult(entry, null);
 }
 

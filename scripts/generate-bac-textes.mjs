@@ -7,6 +7,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import vm from 'vm';
 import { BAC_OEUVRES, expandPassagesForWork } from './bac-catalog.mjs';
+import { GTEXT_GENERATION_PROMPT, GTEXT_CONTENT_CONSTRAINTS } from './gtext-generation-prompt.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const JS = path.join(__dirname, '..', 'js');
@@ -424,7 +425,10 @@ function updateIndexHtml(bpChunkCount, gtFiles) {
   fs.writeFileSync(htmlPath, html, 'utf8');
 }
 
-// ── Main ──
+// ── Main (exécution CLI uniquement — pas à l'import) ──
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMain) {
 const PASSAGES_ONLY = process.argv.includes('--passages-only');
 
 const existing = loadExistingGtexts();
@@ -460,5 +464,6 @@ updateIndexHtml(bpChunks, gtFiles);
 console.log('Fichiers BP:', bpChunks, 'chunks');
 console.log('Fichiers GT:', gtFiles.join(', '));
 console.log('Done.');
+}
 
-export { expandBpTuple, passages, newGt };
+export { expandBpTuple, GTEXT_GENERATION_PROMPT, GTEXT_CONTENT_CONSTRAINTS };

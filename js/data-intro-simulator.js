@@ -313,38 +313,133 @@ function introSimRegistre(genre, contexte, attendus) {
   return 'varié, mêlant description et subjectivité';
 }
 
-function introSimTheme(contexte, titre, attendus) {
-  const c = (contexte || '').trim();
-  if (c) {
-    const cut = c.split(/[.—]/)[0].trim();
-    if (cut.length > 12) return cut.charAt(0).toLowerCase() + cut.slice(1);
-  }
-  if (/amour|passion/.test(introSimNorm(c + titre))) return 'l\'amour et le conflit des sentiments';
-  if (/mort|deuil/.test(introSimNorm(c))) return 'la mort et le deuil';
-  if (/nature|paysage|saison/.test(introSimNorm(c))) return 'le rapport à la nature et au temps';
-  if (/societe|misere|injust/.test(introSimNorm(c))) return 'la dénonciation sociale';
-  if (/heros|honneur|devoir/.test(introSimNorm(c))) return 'le conflit entre passion et devoir';
-  if (attendus?.[0]?.interpretation) {
-    const w = attendus[0].interpretation.split(' ').slice(0, 12).join(' ');
-    return w.charAt(0).toLowerCase() + w.slice(1).replace(/\.$/, '');
-  }
-  return 'un enjeu central du passage proposé';
+function introSimRegistreShort(registre) {
+  return (registre || 'varié').split(',')[0].trim().replace(/^et\s+/i, '');
 }
 
-function introSimProblematique(fonction, theme, registre, genreKind) {
+const INTRO_SIM_THEME_PATTERNS = [
+  [/amour|passion|desir|coeur|baiser|tendre|jalous/, 'l\'amour et le conflit des sentiments'],
+  [/mort|deuil|tombe|funer|necro|sepul/, 'la mort et le deuil'],
+  [/temps|souvenir|passe|autrefois|melancol|automne|veill|oubli/, 'la mélancolie du temps qui passe'],
+  [/nature|paysage|saison|foret|mer|mont|campagn/, 'le rapport à la nature'],
+  [/libert|revol|injust|misere|pauv|oppress|exploit/, 'la dénonciation sociale et l\'injustice'],
+  [/heros|honneur|devoir|patriot|guerre|combat/, 'le conflit entre passion et devoir'],
+  [/folie|reve|song|halluc|fantas|absurd/, 'le trouble de la perception et du réel'],
+  [/ident|memoire|exil|enfant|origine/, 'l\'identité et la mémoire'],
+  [/colere|haine|venge|violence|cruaut/, 'la colère et la violence'],
+  [/beaut|laideur|art|creer|poet/, 'le rapport à la beauté et à l\'art'],
+  [/silence|parol|lang|discours|verbe/, 'le pouvoir de la parole et du silence'],
+  [/famill|pere|mere|filial|frater/, 'les liens familiaux'],
+];
+
+function introSimThemeNormalize(raw) {
+  let t = (raw || '').trim().replace(/\.$/, '').replace(/\s+/g, ' ');
+  if (!t) return '';
+  if (t.length > 65) t = t.split(/[,;]/)[0].trim();
+  if (t.length > 65) t = t.slice(0, 62).trim() + '…';
+  if (!/^(la |le |l'|les |un |une |des |du |de la |de l'|l')/i.test(t)) {
+    t = t.charAt(0).toLowerCase() + t.slice(1);
+  }
+  return t;
+}
+
+function introSimThemeFromInterp(interp) {
+  const m = interp.match(
+    /(?:traduis(?:ent|e)|sugg(?:ère|er|ère)|évoqu(?:e|ent)|illustr(?:e|ent)|renfor(?:ce|cent)|exprim(?:e|ent)|autour de|concern(?:e|ant)|insist(?:e|ent) sur)\s+([^,.;]{6,50})/i,
+  );
+  if (!m) return '';
+  let t = m[1].trim().replace(/\s+(dans|par|sur|au|en|à)\s+[^,.;]+$/i, '');
+  return introSimThemeNormalize(t);
+}
+
+function introSimThemeFromContext(contexte) {
+  let s = (contexte || '').trim().split(/[.—]/)[0].trim();
+  s = s.replace(/^(dans ce passage|cet extrait|extrait|scène|poème|texte|passage)\s*,?\s*/i, '');
+  if (s.length < 12 || s.length > 55) return '';
+  if (/^(il|elle|on|nous|ce|cette|l'auteur)/i.test(s)) return '';
+  return introSimThemeNormalize(s.charAt(0).toLowerCase() + s.slice(1));
+}
+
+function introSimThemeShort(contexte, titre, attendus, genreKind) {
+  const hay = introSimNorm((contexte || '') + ' ' + (titre || ''));
+  for (const [re, label] of INTRO_SIM_THEME_PATTERNS) {
+    if (re.test(hay)) return label;
+  }
+  if (attendus?.length) {
+    for (const a of attendus.slice(0, 4)) {
+      const cleaned = introSimCleanInterp(a.interpretation);
+      const fromInterp = introSimThemeFromInterp(cleaned);
+      if (fromInterp) return fromInterp;
+    }
+  }
+  const fromCtx = introSimThemeFromContext(contexte);
+  if (fromCtx) return fromCtx;
+  const defaults = {
+    poesie: 'la subjectivité et l\'expression des émotions',
+    theatre: 'la tension dramatique',
+    narratif: 'la construction du récit',
+    idees: 'l\'argumentation et la persuasion',
+  };
+  return defaults[genreKind] || 'le sens du passage';
+}
+
+function introSimTheme(contexte, titre, attendus, genreKind) {
+  return introSimThemeShort(contexte, titre, attendus, genreKind || 'default');
+}
+
+function introSimBuildProblematiquePack({ genreKind, themeShort, registre, genreLbl, procedesCles }) {
+  const reg = introSimRegistreShort(registre);
+  const proc = (procedesCles?.[0] || '').trim();
+  const procHint = proc && proc.length < 42 ? `, notamment par ${proc.toLowerCase()}` : '';
+
   if (genreKind === 'poesie') {
-    return `le poète parvient à traduire ${theme} dans un registre ${registre.split(',')[0]}`;
+    return {
+      main: `À travers l'étude de ce passage, nous nous demanderons en quoi les procédés poétiques${procHint} permettent de suggérer ${themeShort}.`,
+      alts: [
+        `Comment le poète exprime-t-il ${themeShort} par le choix des images et du rythme ?`,
+        `En quoi le registre ${reg} sert-il ici à faire ressortir ${themeShort} ?`,
+        `Dans quelle mesure la musicalité du poème renforce-t-elle ${themeShort} ?`,
+      ],
+    };
   }
   if (genreKind === 'theatre') {
-    return `le dramaturge met en scène ${theme} et suscite un effet ${registre.split(',')[0]} chez le spectateur`;
+    return {
+      main: `À travers l'étude de ce passage, nous nous demanderons comment la mise en scène et la langue théâtrale mettent en jeu ${themeShort}.`,
+      alts: [
+        `Comment le dramaturge crée-t-il la tension autour de ${themeShort} ?`,
+        `En quoi le registre ${reg} renforce-t-il ${themeShort} ?`,
+        `Dans quelle mesure ce ${genreLbl || 'texte théâtral'} engage-t-il le spectateur dans ${themeShort} ?`,
+      ],
+    };
   }
   if (genreKind === 'narratif') {
-    return `le narrateur rend compte de ${theme} et oriente la lecture du passage`;
+    return {
+      main: `À travers l'étude de ce passage, nous nous demanderons comment le narrateur construit ${themeShort}.`,
+      alts: [
+        `En quoi les choix de narration orientent-ils la perception de ${themeShort} ?`,
+        `Comment la description et le point de vue contribuent-ils à ${themeShort} ?`,
+        `Dans quelle mesure cet extrait narratif invite-t-il à ressentir ${themeShort} ?`,
+      ],
+    };
   }
   if (genreKind === 'idees') {
-    return `l'auteur construit son argumentation autour de ${theme}`;
+    return {
+      main: `À travers l'étude de ce passage, nous nous demanderons comment l'auteur articule son argumentation autour de ${themeShort}.`,
+      alts: [
+        `En quoi les procédés argumentatifs${procHint} éclairent ${themeShort} ?`,
+        `Comment l'écrivain cherche-t-il à faire comprendre ${themeShort} au lecteur ?`,
+        `Dans quelle mesure la visée persuasive passe-t-elle par ${themeShort} ?`,
+      ],
+    };
   }
-  return `l'${fonction === 'poète' ? 'auteur' : 'écrivain'} parvient, dans cet extrait, à faire émerger ${theme}`;
+  return {
+    main: `À travers l'étude de ce passage, nous nous demanderons en quoi l'écriture de l'auteur donne sens à ${themeShort}.`,
+    alts: [
+      `Comment l'auteur compose-t-il son texte pour faire ressortir ${themeShort} ?`,
+      `En quoi les procédés employés${procHint} éclairent ${themeShort} ?`,
+      `Dans quelle mesure le registre ${reg} participe-t-il de ${themeShort} ?`,
+    ],
+  };
 }
 
 function introSimResolveAuthor(auteurInput) {
@@ -455,17 +550,25 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
   const fonction = introSimFonction(t.genre);
   const genreKind = introSimGenreKind(t.genre);
   const registre = opts.registreOverride || introSimRegistre(t.genre, t.contexte, t.attendus);
-  const theme = opts.themeOverride || introSimTheme(t.contexte, t.titre, t.attendus);
+  const genreLbl = introSimGenreLabel(t.genre);
+  const procedesCles = introSimProcedesCles(t.attendus);
   const plan = INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default;
-  const prob = introSimProblematique(fonction, theme, registre, genreKind);
+  const theme = opts.themeOverride
+    ? introSimThemeNormalize(opts.themeOverride)
+    : introSimThemeShort(t.contexte, t.titre, t.attendus, genreKind);
+  const probPack = introSimBuildProblematiquePack({
+    genreKind,
+    themeShort: theme,
+    registre,
+    genreLbl,
+    procedesCles,
+  });
   const datesStr = author.dates ? ` (${author.dates})` : '';
   const userExcerpt = opts.userExcerpt || '';
   const passageLabel = userExcerpt
     ? ' cet extrait'
     : (t.titre ? ` l'extrait intitulé « ${t.titre} »` : ' cet extrait');
   const situation = introSimSituationLine(t.contexte, oeuvreBrief);
-  const genreLbl = introSimGenreLabel(t.genre);
-  const procedesCles = introSimProcedesCles(t.attendus);
   const excerptPreview = introSimExcerptPreview(userExcerpt || t.texte);
 
   const oeuvreClean = oeuvreLabel.replace(/\s*\(\d{4}\)\s*$/, '').replace(/^«|»$/g, '').trim();
@@ -499,15 +602,11 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
     amorce: introSimBuildAmorce(era),
     auteur: auteurPhrase,
     extrait: extraitPhrase,
-    problematique: `À travers l'étude de ce passage, nous nous demanderons comment ${prob}.`,
+    problematique: probPack.main,
     plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}, puis ${plan[2]}.`,
   };
 
-  const problematiqueAlt = [
-    `Comment ${prob} ?`,
-    `En quoi ce ${genreLbl} parvient-il à traduire ${theme} par un registre ${registre.split(',')[0]} ?`,
-    `Dans quelle mesure l'auteur parvient-il, dans ce passage, à faire émerger ${theme} ?`,
-  ];
+  const problematiqueAlt = probPack.alts;
 
   return {
     id: t.id,
@@ -544,9 +643,19 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
   const era = introSimDetectEra(year, author.mouvement, author.genre || '');
   const fonction = introSimFonction(author.genre || oeuvre);
   const genreKind = introSimGenreKind(author.genre || '');
+  const genreLbl = introSimGenreLabel(author.genre || '');
   const plan = INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default;
-  const theme = opts.themeOverride || 'un enjeu central de l\'œuvre';
+  const theme = opts.themeOverride
+    ? introSimThemeNormalize(opts.themeOverride)
+    : introSimThemeShort(author.dev || '', passage || oeuvre, null, genreKind);
   const registre = opts.registreOverride || 'varié';
+  const probPack = introSimBuildProblematiquePack({
+    genreKind,
+    themeShort: theme,
+    registre,
+    genreLbl,
+    procedesCles: [],
+  });
   const oeuvreClean = (oeuvre || passage || 'l\'œuvre').replace(/\(\d{4}\)/, '').trim();
   const datesStr = author.dates ? ` (${author.dates})` : '';
   const phraseType = author.intro?.find(l => /^Phrase type/i.test(l));
@@ -570,7 +679,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
     amorce: introSimBuildAmorce(era),
     auteur: auteurPhrase,
     extrait: extraitPhrase,
-    problematique: `À travers l'étude de ce passage, nous nous demanderons comment l'auteur parvient à traduire ${theme} dans ce registre.`,
+    problematique: probPack.main,
     plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}, puis ${plan[2]}.`,
   };
 
@@ -586,7 +695,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
     authorTips: author.intro || [],
     authorDev: author.dev || '',
     temps,
-    problematiqueAlt: [`Comment l'auteur parvient-il à traduire ${theme} ?`],
+    problematiqueAlt: probPack.alts,
     full: Object.values(temps).join('\n\n'),
     contexte: author.dev ? author.dev.slice(0, 180) + '…' : '',
     fallback: true,
@@ -773,7 +882,7 @@ function introSimPartLead(i, axis) {
 }
 
 function introSimPartTransition(prevAxis, nextAxis) {
-  return `Après avoir montré ${prevAxis}, il convient maintenant d'analyser ${nextAxis}.`;
+  return `Après avoir montré ${prevAxis}, nous analysons ${nextAxis}.`;
 }
 
 function introSimBuildOuverture(entry) {
@@ -792,7 +901,7 @@ function introSimBuildConclusion(entry) {
   const procs = (entry.procedesCles || []).slice(0, 2);
   const procTxt = procs.length ? procs.join(' et ') : 'les procédés étudiés';
   const reg = (entry.registre || 'littéraire').split(',')[0];
-  const bilan = `Ainsi, à travers ${procTxt}, ${auteur} parvient à traduire ${theme} et à produire un effet ${reg} sur le lecteur.`;
+  const bilan = `Ainsi, à travers ${procTxt}, ${auteur} traduit ${theme} et produit un effet ${reg} sur le lecteur.`;
   return `${bilan}\n\n${introSimBuildOuverture(entry)}`;
 }
 

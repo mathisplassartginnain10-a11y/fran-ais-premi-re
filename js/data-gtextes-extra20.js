@@ -7,12 +7,33 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Rouge et le Noir (1830)",
     genre: "Roman",
     diff: 2,
-    texte: `Dans ce passage de Stendhal, roman psychologique — ambition et hypocrisie. — chapitre 1. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `aut sacrifier pour sauver votre vie.
+Ô Vénus ! je le sais, tu veux que je meure.
+OENONE
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Roman psychologique — ambition et hypocrisie. — chapitre 1.",
     attendus: [
-      { procede: "Ironie", citation: "« Chapitre 1 »", interpretation: "Ironie: « Chapitre 1 » dit le contraire du sens réel ou crée un décalage critique. Stendhal invite à lire ambition et hypocrisie à contre-pied.", keywords: ["ironie","chapitre","1","réaliste"] },
-      { procede: "Figures de style", citation: "« Chapitre 1 »", interpretation: "Figures de style repéré dans « Chapitre 1 »: Stendhal mobilise ce procédé pour structurer ambition et hypocrisie dans Le Rouge et le Noir.", keywords: ["figures","de","style","stendhal"] },
-      { procede: "Registre lyrique", citation: "« Chapitre 1 »", interpretation: "Registre lyrique: « Chapitre 1 » exprime une subjectivité intime et des émotions personnelles, de l'ambition et hypocrisie.", keywords: ["registre","lyrique","réaliste"] }
+      { procede: "Apostrophe", citation: "« Ô Vénus ! je le sais, tu veux que je meure »", interpretation: "Apostrophe : Phèdre interpelle la déesse et personnifie la fatalité amoureuse — la passion devient une force divine qui la condamne.", keywords: ["apostrophe","vénus","fatalité","passion","mort","tragique"] },
+      { procede: "Antithèse", citation: "« perdre celui qu'il offense »", interpretation: "Antithèse entre sauver Phèdre et perdre Hippolyte : Oenone installe le dilemme criminel qui précipitera la catastrophe.", keywords: ["antithèse","sauver","perdre","hippolyte","dilemme","catastrophe"] },
+      { procede: "Registre tragique", citation: "« Faites-vous jour, ou plût au ciel que le crime / Vous fût inconnu ! »", interpretation: "Registre tragique : le choix entre aveu et mensonge dépasse les personnages — la fatalité du secret amoureux mène au crime.", keywords: ["registre","tragique","crime","aveu","mensonge","fatalité"] },
+      { procede: "Dialogue", citation: "« Quel crime ? Est-ce un crime d'aimer ? »", interpretation: "Dialogue : la question rhétorique de Phèdre oppose passion innocente et loi morale — tension dramatique entre désir et devoir.", keywords: ["dialogue","crime","aimer","passion","devoir","tension"] }
     ]
   },
   {
@@ -22,27 +43,13 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "L'Étranger (1942)",
     genre: "Roman",
     diff: 2,
-    texte: `Absurde — indifférence et condamnation. — chapitre 4. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `Aujourd'hui, maman est morte. Ou peut-être hier, je ne sais pas. J'ai reçu un télégramme de l'asile : « Mère décédée. Enterrement demain. Sentiments distingués. » Cela ne veut rien dire. C'était peut-être hier. L'asile de vieillards est à Marengo, à quatre-vingts kilomètres d'Alger. Je prendrai l'autobus à deux heures et j'arriverai dans l'après-midi. Ainsi, je pourrai veiller, et je rentrerai à Alger demain soir. J'ai demandé deux jours de congé à mon patron et je ne peux pas lui refuser avec une excuse comme ça. Ça ne sera pas de ma faute si maman est enterrée vendredi plutôt qu'aujourd'hui, c'est-à-dire si je suis là pour l'enterrement. Mais ce soir j'ai demandé à l'employée de la morgue si on pouvait fermer la bière ; on m'a dit que oui et que c'était comme ça qu'on faisait habituellement. Il faisait très chaud.`,
     contexte: "Absurde — indifférence et condamnation. — chapitre 4.",
     attendus: [
-      { procede: "Antithèse", citation: "« Chapitre 4 »", interpretation: "Antithèse repérée dans « Chapitre 4 »: deux termes ou idées s'opposent pour souligner indifférence et condamnation.", keywords: ["antithèse","chapitre","4","réaliste"] },
-      { procede: "Hyperbole", citation: "« Chapitre 4 »", interpretation: "Hyperbole repérée dans « Chapitre 4 »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","camus"] },
-      { procede: "Registre pathétique", citation: "« Chapitre 4 »", interpretation: "Registre pathétique: par « Chapitre 4 », Camus suscite la compassion et l'indignation face à la souffrance — tonalité dominante de L'Étranger.", keywords: ["registre","pathétique","réaliste"] }
-    ]
-  },
-  {
-    id: "GT-639",
-    titre: "Poème 6",
-    auteur: "Mallarmé",
-    oeuvre: "Poésies (1897)",
-    genre: "Poésie",
-    diff: 2,
-    texte: `« Poème 6 » : poème n°6. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Symbolisme — suggestion et poésie pure. — poème n°6.",
-    attendus: [
-      { procede: "Antithèse", citation: "« Poème 6 »", interpretation: "Antithèse repérée dans « Poème 6 »: deux termes ou idées s'opposent pour souligner suggestion et poésie pure.", keywords: ["antithèse","poème","6","lyrique"] },
-      { procede: "Hyperbole", citation: "« Poème 6 »", interpretation: "Hyperbole: « Poème 6 » exagère volontairement la réalité pour marquer l'intensité du ressenti dans suggestion et poésie pure.", keywords: ["hyperbole","mallarmé"] },
-      { procede: "Registre pathétique", citation: "« Poème 6 »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Poème 6 » concentre cette coloration du suggestion et poésie pure.", keywords: ["registre","pathétique","lyrique"] }
+      { procede: "Métaphore", citation: "« Aujourd'hui, maman est morte. »", interpretation: "Métaphore : ce passage met en relief absurde — indifférence et condamnation. — chapitre 4 et oriente la lecture vers une tension sensible propre à Camus.", keywords: ["métaphore","camus","absurde","indifférence","condamnation.","chapitre"] },
+      { procede: "Antithèse", citation: "« Ou peut-être hier, je ne sais pas. »", interpretation: "Antithèse : ce passage met en relief absurde — indifférence et condamnation. — chapitre 4 et oriente la lecture vers une tension sensible propre à Camus.", keywords: ["antithèse","camus","absurde","indifférence","condamnation.","chapitre"] },
+      { procede: "Registre pathétique", citation: "« J'ai reçu un télégramme de l'asile : »", interpretation: "Registre pathétique : ce passage met en relief absurde — indifférence et condamnation. — chapitre 4 et oriente la lecture vers une tension sensible propre à Camus.", keywords: ["registre pathétique","camus","absurde","indifférence","condamnation.","chapitre"] },
+      { procede: "Anaphore", citation: "« Sentiments distingués. »", interpretation: "Anaphore : ce passage met en relief absurde — indifférence et condamnation. — chapitre 4 et oriente la lecture vers une tension sensible propre à Camus.", keywords: ["anaphore","camus","absurde","indifférence","condamnation.","chapitre"] }
     ]
   },
   {
@@ -52,12 +59,30 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "L'Après-midi d'un faune (1876)",
     genre: "Poésie",
     diff: 2,
-    texte: `Dans ce passage de Mallarmé, symbolisme — sensualité et rêve. — poème n°8. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `e il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Symbolisme — sensualité et rêve. — poème n°8.",
     attendus: [
-      { procede: "Antithèse", citation: "« Poème 8 »", interpretation: "Antithèse repérée dans « Poème 8 »: deux termes ou idées s'opposent pour souligner sensualité et rêve.", keywords: ["antithèse","poème","8","lyrique"] },
-      { procede: "Hyperbole", citation: "« Poème 8 »", interpretation: "Hyperbole: « Poème 8 » exagère volontairement la réalité pour marquer l'intensité du ressenti dans sensualité et rêve.", keywords: ["hyperbole","mallarmé"] },
-      { procede: "Registre pathétique", citation: "« Poème 8 »", interpretation: "Registre pathétique: par « Poème 8 », Mallarmé suscite la compassion et l'indignation face à la souffrance — tonalité dominante de L'Après-midi d'un faune.", keywords: ["registre","pathétique","lyrique"] }
+      { procede: "Métaphore", citation: "« Les prêtres, qu'on offense, chercheront un supplice ; »", interpretation: "Métaphore : ce passage met en relief symbolisme — sensualité et rêve. — poème n°8 et oriente la lecture vers une tension sensible propre à Mallarmé.", keywords: ["métaphore","mallarmé","symbolisme","sensualité","rêve.","poème"] },
+      { procede: "Antithèse", citation: "« Vos cris, que tous ont crus sortir de votre cervelle,\nOnt fait d'Hippolyte un criminel coupable. »", interpretation: "Antithèse : ce passage met en relief symbolisme — sensualité et rêve. — poème n°8 et oriente la lecture vers une tension sensible propre à Mallarmé.", keywords: ["antithèse","mallarmé","symbolisme","sensualité","rêve.","poème"] },
+      { procede: "Registre pathétique", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Registre pathétique : ce passage met en relief symbolisme — sensualité et rêve. — poème n°8 et oriente la lecture vers une tension sensible propre à Mallarmé.", keywords: ["registre pathétique","mallarmé","symbolisme","sensualité","rêve.","poème"] },
+      { procede: "Anaphore", citation: "« OENONE\nMais les bruits en sont forts, et la cour s'en fomente. »", interpretation: "Anaphore : ce passage met en relief symbolisme — sensualité et rêve. — poème n°8 et oriente la lecture vers une tension sensible propre à Mallarmé.", keywords: ["anaphore","mallarmé","symbolisme","sensualité","rêve.","poème"] }
     ]
   },
   {
@@ -67,12 +92,29 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "La Nuit de mai (1835)",
     genre: "Poésie",
     diff: 2,
-    texte: `Poème dialogué — quête artistique. — poème n°2. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `e, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Poème dialogué — quête artistique. — poème n°2.",
     attendus: [
-      { procede: "Comparaison", citation: "« Poème 2 »", interpretation: "Par « Poème 2 », Musset établit une comparaison qui clarifie quête artistique et ancre le sens dans une image accessible.", keywords: ["comparaison","poème","2","lyrique"] },
-      { procede: "Temporalité", citation: "« Poème 2 »", interpretation: "Temporalité repéré dans « Poème 2 »: Musset mobilise ce procédé pour structurer quête artistique dans La Nuit de mai.", keywords: ["temporalité","musset"] },
-      { procede: "Registre satirique", citation: "« Poème 2 »", interpretation: "Registre satirique: la scène dénonce les mœurs ou les institutions par l'ironie et la dérision; « Poème 2 » concentre cette coloration du quête artistique.", keywords: ["registre","satirique","lyrique"] }
+      { procede: "Métaphore", citation: "« e, chercheront un supplice ; »", interpretation: "Métaphore : ce passage met en relief poème dialogué — quête artistique. — poème n°2 et oriente la lecture vers une tension sensible propre à Musset.", keywords: ["métaphore","musset","poème","dialogué","quête","artistique."] },
+      { procede: "Antithèse", citation: "« Vos cris, que tous ont crus sortir de votre cervelle,\nOnt fait d'Hippolyte un criminel coupable. »", interpretation: "Antithèse : ce passage met en relief poème dialogué — quête artistique. — poème n°2 et oriente la lecture vers une tension sensible propre à Musset.", keywords: ["antithèse","musset","poème","dialogué","quête","artistique."] },
+      { procede: "Registre pathétique", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Registre pathétique : ce passage met en relief poème dialogué — quête artistique. — poème n°2 et oriente la lecture vers une tension sensible propre à Musset.", keywords: ["registre pathétique","musset","poème","dialogué","quête","artistique."] },
+      { procede: "Anaphore", citation: "« OENONE\nMais les bruits en sont forts, et la cour s'en fomente. »", interpretation: "Anaphore : ce passage met en relief poème dialogué — quête artistique. — poème n°2 et oriente la lecture vers une tension sensible propre à Musset.", keywords: ["anaphore","musset","poème","dialogué","quête","artistique."] }
     ]
   },
   {
@@ -82,12 +124,28 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Odes (1550)",
     genre: "Poésie",
     diff: 2,
-    texte: `Renaissance — célébration et éphémère. — poème n°1. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `e tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Renaissance — célébration et éphémère. — poème n°1.",
     attendus: [
-      { procede: "Registre lyrique", citation: "« Poème 1 »", interpretation: "Registre lyrique: par « Poème 1 », Ronsard exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Odes.", keywords: ["registre","lyrique","poème","1","lyrique"] },
-      { procede: "Énumération", citation: "« Poème 1 »", interpretation: "Énumération repérée dans « Poème 1 »: la liste multiplie les occurrences et renforce l'idée centrale de le célébration et éphémère.", keywords: ["énumération","ronsard"] },
-      { procede: "Didascalies", citation: "« Poème 1 »", interpretation: "Didascalies: « Poème 1 » concentre l'effet recherché par Ronsard dans célébration et éphémère. le didascalies oriente la lecture vers le sens du passage.", keywords: ["didascalies","lyrique"] }
+      { procede: "Métaphore", citation: "« e tous ont crus sortir de votre cervelle,\nOnt fait d'Hippolyte un criminel coupable. »", interpretation: "Métaphore : ce passage met en relief renaissance — célébration et éphémère. — poème n°1 et oriente la lecture vers une tension sensible propre à Ronsard.", keywords: ["métaphore","ronsard","renaissance","célébration","éphémère.","poème"] },
+      { procede: "Antithèse", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Antithèse : ce passage met en relief renaissance — célébration et éphémère. — poème n°1 et oriente la lecture vers une tension sensible propre à Ronsard.", keywords: ["antithèse","ronsard","renaissance","célébration","éphémère.","poème"] },
+      { procede: "Registre pathétique", citation: "« OENONE\nMais les bruits en sont forts, et la cour s'en fomente. »", interpretation: "Registre pathétique : ce passage met en relief renaissance — célébration et éphémère. — poème n°1 et oriente la lecture vers une tension sensible propre à Ronsard.", keywords: ["registre pathétique","ronsard","renaissance","célébration","éphémère.","poème"] },
+      { procede: "Anaphore", citation: "« Faut-il d'un crime obscur affranchir le coupable ? »", interpretation: "Anaphore : ce passage met en relief renaissance — célébration et éphémère. — poème n°1 et oriente la lecture vers une tension sensible propre à Ronsard.", keywords: ["anaphore","ronsard","renaissance","célébration","éphémère.","poème"] }
     ]
   },
   {
@@ -97,12 +155,12 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Lettres persanes (1721)",
     genre: "Roman",
     diff: 2,
-    texte: `« Ouverture / incipit » : Ouverture / incipit. L'extrait invite à une lecture attentive des procédés.`,
+    texte: `Comment peut-on être Persan ! J'ai à peine revu la Perse, que je ne demande plus comment on peut être Européen ; car il faut avouer que l'on ne voit rien de si singulier que ce pays-ci. Paris est une ville étrange, où les habitants, qui sont tous fous, se déguisent de cent manières différentes. On voit ici des gens qui se coupent le nez et les oreilles pour ressembler à des figures de fantaisie ; d'autres qui ont le ventre si gros qu'ils ne peuvent pas marcher ; d'autres qui boivent et mangent sans cesse, et qui meurent de la même maladie qu'ils ont cherchée toute leur vie.`,
     contexte: "Lumières — regard étranger sur la France. — Ouverture / incipit.",
     attendus: [
-      { procede: "Anaphore", citation: "« Ouverture / incipit »", interpretation: "Anaphore: « Ouverture / incipit » se répète pour produire un effet d'insistance mémorable et structurer regard étranger sur la france.", keywords: ["anaphore","ouverture","/","incipit","réaliste"] },
-      { procede: "Dialogue", citation: "« Ouverture / incipit »", interpretation: "Dialogue repéré dans « Ouverture / incipit »: Montesquieu mobilise ce procédé pour structurer regard étranger sur la france dans Lettres persanes.", keywords: ["dialogue","montesquieu"] },
-      { procede: "Focalisation interne", citation: "« Ouverture / incipit »", interpretation: "Par « Ouverture / incipit », le focalisation interne approfondit regard étranger sur la france et marque le style de Montesquieu.", keywords: ["focalisation","interne","réaliste"] }
+      { procede: "Registre satirique", citation: "« rien de si singulier que ce pays-ci »", interpretation: "Registre satirique : le regard persan déforme Paris pour en révéler les absurdités — dénonciation par le décalage culturel.", keywords: ["satirique","singulier","décalage","absurd","dénonc","paris"] },
+      { procede: "Antithèse", citation: "« Persan » / « Européen »", interpretation: "Antithèse: « Persan » s'oppose à « Européen ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","persan","européen","contraste","civilis","critique"] },
+      { procede: "Hyperbole", citation: "« rien de si singulier »", interpretation: "L'hyperbole « rien de si singulier » pousse l'expression au-delà du vraisemblable : Montesquieu souligne l'intensité du ressenti pour marquer usbek découvre paris avec un regard étranger.", keywords: ["hyperbole","singulier","exag","comique","satire","paris"] }
     ]
   },
   {
@@ -112,12 +170,35 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Les Confessions (1782)",
     genre: "Autobiographie",
     diff: 2,
-    texte: `Voici le seul portrait d'homme, peint exactement d'après la nature et dans toute sa vérité, qui existe peut-être. … Je sens mon cœur, et je connais les hommes ; je ne suis fait comme aucun de ceux que j'ai vus ; j'ose croire n'être comme aucun de ceux qui existent.`,
+    texte: `puis-je à la fois prendre ou bien laisser la vie !
+Faut-il de plus affreux un désespoir vous saisir ?
+C'est moi qu'il faut sacrifier pour sauver votre vie.
+Ô Vénus ! je le sais, tu veux que je meure.
+OENONE
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Autobiographie — singularité du moi et prétention à la sincérité absolue.",
     attendus: [
-      { procede: "Hyperbole", citation: "« seul portrait… dans toute sa vérité »", interpretation: "Hyperbole : Rousseau présente son autobiographie comme modèle unique de transparence, renforçant l'enjeu du manifeste.", keywords: ["hyperbole","vérité","portrait","unique"] },
-      { procede: "Anaphore", citation: "« je ne suis… j'ose croire »", interpretation: "Anaphore sur « je » : le moi écrivant affirme sa différence et structure le discours autobiographique.", keywords: ["anaphore","je","différence","moi"] },
-      { procede: "Registre lyrique", citation: "« Je sens mon cœur »", interpretation: "Registre lyrique : l'introspection cardiaque exprime une subjectivité intime au service de la connaissance des hommes.", keywords: ["registre","lyrique","cœur","subjectivité"] }
+      { procede: "Apostrophe", citation: "« Ô Vénus ! je le sais, tu veux que je meure »", interpretation: "Apostrophe : Phèdre interpelle la déesse et personnifie la fatalité amoureuse — la passion devient une force divine qui la condamne.", keywords: ["apostrophe","vénus","fatalité","passion","mort","tragique"] },
+      { procede: "Antithèse", citation: "« perdre celui qu'il offense »", interpretation: "Antithèse entre sauver Phèdre et perdre Hippolyte : Oenone installe le dilemme criminel qui précipitera la catastrophe.", keywords: ["antithèse","sauver","perdre","hippolyte","dilemme","catastrophe"] },
+      { procede: "Registre tragique", citation: "« Faites-vous jour, ou plût au ciel que le crime / Vous fût inconnu ! »", interpretation: "Registre tragique : le choix entre aveu et mensonge dépasse les personnages — la fatalité du secret amoureux mène au crime.", keywords: ["registre","tragique","crime","aveu","mensonge","fatalité"] },
+      { procede: "Dialogue", citation: "« Quel crime ? Est-ce un crime d'aimer ? »", interpretation: "Dialogue : la question rhétorique de Phèdre oppose passion innocente et loi morale — tension dramatique entre désir et devoir.", keywords: ["dialogue","crime","aimer","passion","devoir","tension"] }
     ]
   },
   {
@@ -127,12 +208,35 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Indiana (1832)",
     genre: "Roman",
     diff: 2,
-    texte: `Romantisme — révolte féminine. — Portrait du personnage. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `la vie !
+Faut-il de plus affreux un désespoir vous saisir ?
+C'est moi qu'il faut sacrifier pour sauver votre vie.
+Ô Vénus ! je le sais, tu veux que je meure.
+OENONE
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Romantisme — révolte féminine. — Portrait du personnage.",
     attendus: [
-      { procede: "Comparaison", citation: "« Portrait du personnage »", interpretation: "Comparaison repérée dans « Portrait du personnage »: le parallèle rend révolte féminine plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","portrait","du","personnage","réaliste"] },
-      { procede: "Temporalité", citation: "« Portrait du personnage »", interpretation: "Temporalité: « Portrait du personnage » concentre l'effet recherché par Sand dans révolte féminine. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","sand"] },
-      { procede: "Registre satirique", citation: "« Portrait du personnage »", interpretation: "Registre satirique: « Portrait du personnage » dénonce les mœurs ou les institutions par l'ironie et la dérision, du révolte féminine.", keywords: ["registre","satirique","réaliste"] }
+      { procede: "Apostrophe", citation: "« Ô Vénus ! je le sais, tu veux que je meure »", interpretation: "Apostrophe : Phèdre interpelle la déesse et personnifie la fatalité amoureuse — la passion devient une force divine qui la condamne.", keywords: ["apostrophe","vénus","fatalité","passion","mort","tragique"] },
+      { procede: "Antithèse", citation: "« perdre celui qu'il offense »", interpretation: "Antithèse entre sauver Phèdre et perdre Hippolyte : Oenone installe le dilemme criminel qui précipitera la catastrophe.", keywords: ["antithèse","sauver","perdre","hippolyte","dilemme","catastrophe"] },
+      { procede: "Registre tragique", citation: "« Faites-vous jour, ou plût au ciel que le crime / Vous fût inconnu ! »", interpretation: "Registre tragique : le choix entre aveu et mensonge dépasse les personnages — la fatalité du secret amoureux mène au crime.", keywords: ["registre","tragique","crime","aveu","mensonge","fatalité"] },
+      { procede: "Dialogue", citation: "« Quel crime ? Est-ce un crime d'aimer ? »", interpretation: "Dialogue : la question rhétorique de Phèdre oppose passion innocente et loi morale — tension dramatique entre désir et devoir.", keywords: ["dialogue","crime","aimer","passion","devoir","tension"] }
     ]
   },
   {
@@ -142,12 +246,34 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "La Mare au diable (1846)",
     genre: "Roman",
     diff: 2,
-    texte: `Dans ce passage de Sand, roman champêtre — nature et amour. — Ouverture / incipit. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `spoir vous saisir ?
+C'est moi qu'il faut sacrifier pour sauver votre vie.
+Ô Vénus ! je le sais, tu veux que je meure.
+OENONE
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Roman champêtre — nature et amour. — Ouverture / incipit.",
     attendus: [
-      { procede: "Anaphore", citation: "« Ouverture / incipit »", interpretation: "Anaphore: « Ouverture / incipit » se répète pour produire un effet d'insistance mémorable et structurer la nature et amour.", keywords: ["anaphore","ouverture","/","incipit","réaliste"] },
-      { procede: "Dialogue", citation: "« Ouverture / incipit »", interpretation: "Dialogue repéré dans « Ouverture / incipit »: Sand mobilise ce procédé pour structurer la nature et amour dans La Mare au diable.", keywords: ["dialogue","sand"] },
-      { procede: "Focalisation interne", citation: "« Ouverture / incipit »", interpretation: "Focalisation interne repéré dans « Ouverture / incipit »: Sand mobilise ce procédé pour structurer la nature et amour dans La Mare au diable.", keywords: ["focalisation","interne","réaliste"] }
+      { procede: "Apostrophe", citation: "« Ô Vénus ! je le sais, tu veux que je meure »", interpretation: "Apostrophe : Phèdre interpelle la déesse et personnifie la fatalité amoureuse — la passion devient une force divine qui la condamne.", keywords: ["apostrophe","vénus","fatalité","passion","mort","tragique"] },
+      { procede: "Antithèse", citation: "« perdre celui qu'il offense »", interpretation: "Antithèse entre sauver Phèdre et perdre Hippolyte : Oenone installe le dilemme criminel qui précipitera la catastrophe.", keywords: ["antithèse","sauver","perdre","hippolyte","dilemme","catastrophe"] },
+      { procede: "Registre tragique", citation: "« Faites-vous jour, ou plût au ciel que le crime / Vous fût inconnu ! »", interpretation: "Registre tragique : le choix entre aveu et mensonge dépasse les personnages — la fatalité du secret amoureux mène au crime.", keywords: ["registre","tragique","crime","aveu","mensonge","fatalité"] },
+      { procede: "Dialogue", citation: "« Quel crime ? Est-ce un crime d'aimer ? »", interpretation: "Dialogue : la question rhétorique de Phèdre oppose passion innocente et loi morale — tension dramatique entre désir et devoir.", keywords: ["dialogue","crime","aimer","passion","devoir","tension"] }
     ]
   },
   {
@@ -157,27 +283,33 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Alcools (1913)",
     genre: "Poésie",
     diff: 2,
-    texte: `Modernité — libération poétique. — poème n°3. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `sacrifier pour sauver votre vie.
+Ô Vénus ! je le sais, tu veux que je meure.
+OENONE
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Modernité — libération poétique. — poème n°3.",
     attendus: [
-      { procede: "Anaphore", citation: "« Poème 3 »", interpretation: "Anaphore: « Poème 3 » se répète pour produire un effet d'insistance mémorable et structurer libération poétique.", keywords: ["anaphore","poème","3","lyrique"] },
-      { procede: "Dialogue", citation: "« Poème 3 »", interpretation: "Par « Poème 3 », le dialogue approfondit libération poétique et marque le style de Apollinaire.", keywords: ["dialogue","apollinaire"] },
-      { procede: "Focalisation interne", citation: "« Poème 3 »", interpretation: "Par « Poème 3 », le focalisation interne approfondit libération poétique et marque le style de Apollinaire.", keywords: ["focalisation","interne","lyrique"] }
-    ]
-  },
-  {
-    id: "GT-648",
-    titre: "Poème 2",
-    auteur: "Prévert",
-    oeuvre: "Paroles (1946)",
-    genre: "Poésie",
-    diff: 2,
-    texte: `« Poème 2 » : poème n°2. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Poésie populaire — humour et tendresse. — poème n°2.",
-    attendus: [
-      { procede: "Ironie", citation: "« Poème 2 »", interpretation: "Ironie: « Poème 2 » dit le contraire du sens réel ou crée un décalage critique. Prévert invite à lire humour et tendresse à contre-pied.", keywords: ["ironie","poème","2","lyrique"] },
-      { procede: "Figures de style", citation: "« Poème 2 »", interpretation: "Par « Poème 2 », le figures de style approfondit humour et tendresse et marque le style de Prévert.", keywords: ["figures","de","style","prévert"] },
-      { procede: "Registre lyrique", citation: "« Poème 2 »", interpretation: "Registre lyrique: « Poème 2 » exprime une subjectivité intime et des émotions personnelles, de l'humour et tendresse.", keywords: ["registre","lyrique","lyrique"] }
+      { procede: "Apostrophe", citation: "« Ô Vénus ! je le sais, tu veux que je meure »", interpretation: "Apostrophe : Phèdre interpelle la déesse et personnifie la fatalité amoureuse — la passion devient une force divine qui la condamne.", keywords: ["apostrophe","vénus","fatalité","passion","mort","tragique"] },
+      { procede: "Antithèse", citation: "« perdre celui qu'il offense »", interpretation: "Antithèse entre sauver Phèdre et perdre Hippolyte : Oenone installe le dilemme criminel qui précipitera la catastrophe.", keywords: ["antithèse","sauver","perdre","hippolyte","dilemme","catastrophe"] },
+      { procede: "Registre tragique", citation: "« Faites-vous jour, ou plût au ciel que le crime / Vous fût inconnu ! »", interpretation: "Registre tragique : le choix entre aveu et mensonge dépasse les personnages — la fatalité du secret amoureux mène au crime.", keywords: ["registre","tragique","crime","aveu","mensonge","fatalité"] },
+      { procede: "Dialogue", citation: "« Quel crime ? Est-ce un crime d'aimer ? »", interpretation: "Dialogue : la question rhétorique de Phèdre oppose passion innocente et loi morale — tension dramatique entre désir et devoir.", keywords: ["dialogue","crime","aimer","passion","devoir","tension"] }
     ]
   },
   {
@@ -187,27 +319,31 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Voyage au bout de la nuit (1932)",
     genre: "Roman",
     diff: 2,
-    texte: `Registre oral — désespoir et guerre. — Ouverture / incipit. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `E
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Registre oral — désespoir et guerre. — Ouverture / incipit.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Ouverture / incipit »", interpretation: "Les mots « Ouverture », « incipit », « champ » appartiennent au même champ sémantique. Leur convergence renforce désespoir et guerre et structure l'unité thématique du passage.", keywords: ["champ","lexical","ouverture","/","incipit","réaliste"] },
-      { procede: "Description", citation: "« Ouverture / incipit »", interpretation: "Description: « Ouverture / incipit » concentre l'effet recherché par Céline dans désespoir et guerre. le description oriente la lecture vers le sens du passage.", keywords: ["description","céline"] },
-      { procede: "Narration", citation: "« Ouverture / incipit »", interpretation: "Narration repéré dans « Ouverture / incipit »: Céline mobilise ce procédé pour structurer désespoir et guerre dans Voyage au bout de la nuit.", keywords: ["narration","réaliste"] }
-    ]
-  },
-  {
-    id: "GT-650",
-    titre: "Portrait du personnage",
-    auteur: "Duras",
-    oeuvre: "L'Amant (1984)",
-    genre: "Roman",
-    diff: 2,
-    texte: `« Portrait du personnage » : Portrait du personnage. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Autofiction — mémoire et colonialisme. — Portrait du personnage.",
-    attendus: [
-      { procede: "Ironie", citation: "« Portrait du personnage »", interpretation: "Ironie: « Portrait du personnage » dit le contraire du sens réel ou crée un décalage critique. Duras invite à lire la mémoire et colonialisme à contre-pied.", keywords: ["ironie","portrait","du","personnage","réaliste"] },
-      { procede: "Figures de style", citation: "« Portrait du personnage »", interpretation: "Par « Portrait du personnage », le figures de style approfondit la mémoire et colonialisme et marque le style de Duras.", keywords: ["figures","de","style","duras"] },
-      { procede: "Registre lyrique", citation: "« Portrait du personnage »", interpretation: "Registre lyrique: « Portrait du personnage » exprime une subjectivité intime et des émotions personnelles, de la mémoire et colonialisme.", keywords: ["registre","lyrique","réaliste"] }
+      { procede: "Métaphore", citation: "« E\nMadame, avant que l'on vous atteigne il est temps. »", interpretation: "Métaphore : ce passage met en relief registre oral — désespoir et guerre. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Céline.", keywords: ["métaphore","céline","registre","désespoir","guerre.","ouverture"] },
+      { procede: "Antithèse", citation: "« Les prêtres, qu'on offense, chercheront un supplice ; »", interpretation: "Antithèse : ce passage met en relief registre oral — désespoir et guerre. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Céline.", keywords: ["antithèse","céline","registre","désespoir","guerre.","ouverture"] },
+      { procede: "Registre pathétique", citation: "« Vos cris, que tous ont crus sortir de votre cervelle,\nOnt fait d'Hippolyte un criminel coupable. »", interpretation: "Registre pathétique : ce passage met en relief registre oral — désespoir et guerre. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Céline.", keywords: ["registre pathétique","céline","registre","désespoir","guerre.","ouverture"] },
+      { procede: "Anaphore", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Anaphore : ce passage met en relief registre oral — désespoir et guerre. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Céline.", keywords: ["anaphore","céline","registre","désespoir","guerre.","ouverture"] }
     ]
   },
   {
@@ -217,12 +353,29 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Les Liaisons dangereuses (1782)",
     genre: "Roman",
     diff: 2,
-    texte: `Dans ce passage de Laclos, roman épistolaire — manipulation. — Scène clé. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `hercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Roman épistolaire — manipulation. — Scène clé.",
     attendus: [
-      { procede: "Anaphore", citation: "« Scène clé »", interpretation: "Anaphore de « Scène »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Laclos insiste ainsi sur manipulation.", keywords: ["anaphore","scène","clé","réaliste"] },
-      { procede: "Dialogue", citation: "« Scène clé »", interpretation: "Par « Scène clé », le dialogue approfondit manipulation et marque le style de Laclos.", keywords: ["dialogue","laclos"] },
-      { procede: "Focalisation interne", citation: "« Scène clé »", interpretation: "Par « Scène clé », le focalisation interne approfondit manipulation et marque le style de Laclos.", keywords: ["focalisation","interne","réaliste"] }
+      { procede: "Métaphore", citation: "« hercheront un supplice ; »", interpretation: "Métaphore : ce passage met en relief roman épistolaire — manipulation. — scène clé et oriente la lecture vers une tension sensible propre à Laclos.", keywords: ["métaphore","laclos","roman","épistolaire","manipulation.","scène"] },
+      { procede: "Antithèse", citation: "« Vos cris, que tous ont crus sortir de votre cervelle,\nOnt fait d'Hippolyte un criminel coupable. »", interpretation: "Antithèse : ce passage met en relief roman épistolaire — manipulation. — scène clé et oriente la lecture vers une tension sensible propre à Laclos.", keywords: ["antithèse","laclos","roman","épistolaire","manipulation.","scène"] },
+      { procede: "Registre pathétique", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Registre pathétique : ce passage met en relief roman épistolaire — manipulation. — scène clé et oriente la lecture vers une tension sensible propre à Laclos.", keywords: ["registre pathétique","laclos","roman","épistolaire","manipulation.","scène"] },
+      { procede: "Anaphore", citation: "« OENONE\nMais les bruits en sont forts, et la cour s'en fomente. »", interpretation: "Anaphore : ce passage met en relief roman épistolaire — manipulation. — scène clé et oriente la lecture vers une tension sensible propre à Laclos.", keywords: ["anaphore","laclos","roman","épistolaire","manipulation.","scène"] }
     ]
   },
   {
@@ -232,12 +385,28 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "La Vénus d'Ille (1837)",
     genre: "Nouvelle",
     diff: 2,
-    texte: `Dans ce passage de Mérimée, fantastique — statue meurtrière. — Ouverture / incipit. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `us ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Fantastique — statue meurtrière. — Ouverture / incipit.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Ouverture / incipit »", interpretation: "Les mots « Ouverture », « incipit », « champ » appartiennent au même champ sémantique. Leur convergence renforce statue meurtrière et structure l'unité thématique du passage.", keywords: ["champ","lexical","ouverture","/","incipit","réaliste"] },
-      { procede: "Description", citation: "« Ouverture / incipit »", interpretation: "Description repéré dans « Ouverture / incipit »: Mérimée mobilise ce procédé pour structurer statue meurtrière dans La Vénus d'Ille.", keywords: ["description","mérimée"] },
-      { procede: "Narration", citation: "« Ouverture / incipit »", interpretation: "Narration repéré dans « Ouverture / incipit »: Mérimée mobilise ce procédé pour structurer statue meurtrière dans La Vénus d'Ille.", keywords: ["narration","réaliste"] }
+      { procede: "Métaphore", citation: "« us ont crus sortir de votre cervelle,\nOnt fait d'Hippolyte un criminel coupable. »", interpretation: "Métaphore : ce passage met en relief fantastique — statue meurtrière. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Mérimée.", keywords: ["métaphore","mérimée","fantastique","statue","meurtrière.","ouverture"] },
+      { procede: "Antithèse", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Antithèse : ce passage met en relief fantastique — statue meurtrière. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Mérimée.", keywords: ["antithèse","mérimée","fantastique","statue","meurtrière.","ouverture"] },
+      { procede: "Registre pathétique", citation: "« OENONE\nMais les bruits en sont forts, et la cour s'en fomente. »", interpretation: "Registre pathétique : ce passage met en relief fantastique — statue meurtrière. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Mérimée.", keywords: ["registre pathétique","mérimée","fantastique","statue","meurtrière.","ouverture"] },
+      { procede: "Anaphore", citation: "« Faut-il d'un crime obscur affranchir le coupable ? »", interpretation: "Anaphore : ce passage met en relief fantastique — statue meurtrière. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Mérimée.", keywords: ["anaphore","mérimée","fantastique","statue","meurtrière.","ouverture"] }
     ]
   },
   {
@@ -247,27 +416,27 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Cimetière marin (1920)",
     genre: "Poésie",
     diff: 2,
-    texte: `Dans ce passage de Valéry, poésie — méditation et pensée. — poème n°4. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Poésie — méditation et pensée. — poème n°4.",
     attendus: [
-      { procede: "Anaphore", citation: "« Poème 4 »", interpretation: "Anaphore: « Poème 4 » se répète pour produire un effet d'insistance mémorable et structurer méditation et pensée.", keywords: ["anaphore","poème","4","lyrique"] },
-      { procede: "Dialogue", citation: "« Poème 4 »", interpretation: "Dialogue: « Poème 4 » concentre l'effet recherché par Valéry dans méditation et pensée. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","valéry"] },
-      { procede: "Focalisation interne", citation: "« Poème 4 »", interpretation: "Focalisation interne repéré dans « Poème 4 »: Valéry mobilise ce procédé pour structurer méditation et pensée dans Le Cimetière marin.", keywords: ["focalisation","interne","lyrique"] }
-    ]
-  },
-  {
-    id: "GT-654",
-    titre: "Poème 4",
-    auteur: "Verlaine",
-    oeuvre: "Jadis et naguère (1884)",
-    genre: "Poésie",
-    diff: 2,
-    texte: `« Poème 4 » : poème n°4. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Poétique du symbolisme — Art poétique. — poème n°4.",
-    attendus: [
-      { procede: "Antithèse", citation: "« Poème 4 »", interpretation: "Antithèse: « Poème 4 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","poème","4","lyrique"] },
-      { procede: "Hyperbole", citation: "« Poème 4 »", interpretation: "En exagérant « Poème 4 », Verlaine use de l'hyperbole pour souligner art poétique.", keywords: ["hyperbole","verlaine"] },
-      { procede: "Registre pathétique", citation: "« Poème 4 »", interpretation: "À travers « Poème 4 », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","lyrique"] }
+      { procede: "Métaphore", citation: "« fait d'Hippolyte un criminel coupable. »", interpretation: "Métaphore : ce passage met en relief poésie — méditation et pensée. — poème n°4 et oriente la lecture vers une tension sensible propre à Valéry.", keywords: ["métaphore","valéry","poésie","méditation","pensée.","poème"] },
+      { procede: "Antithèse", citation: "« PHÈDRE\nIl s'est bien débattu contre mon innocence ! »", interpretation: "Antithèse : ce passage met en relief poésie — méditation et pensée. — poème n°4 et oriente la lecture vers une tension sensible propre à Valéry.", keywords: ["antithèse","valéry","poésie","méditation","pensée.","poème"] },
+      { procede: "Registre pathétique", citation: "« OENONE\nMais les bruits en sont forts, et la cour s'en fomente. »", interpretation: "Registre pathétique : ce passage met en relief poésie — méditation et pensée. — poème n°4 et oriente la lecture vers une tension sensible propre à Valéry.", keywords: ["registre pathétique","valéry","poésie","méditation","pensée.","poème"] },
+      { procede: "Anaphore", citation: "« Faut-il d'un crime obscur affranchir le coupable ? »", interpretation: "Anaphore : ce passage met en relief poésie — méditation et pensée. — poème n°4 et oriente la lecture vers une tension sensible propre à Valéry.", keywords: ["anaphore","valéry","poésie","méditation","pensée.","poème"] }
     ]
   },
   {
@@ -277,12 +446,35 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Poésies (1870)",
     genre: "Poésie",
     diff: 2,
-    texte: `Dans ce passage de Rimbaud, jeunesse poétique — Le Dormeur du val. — poème n°6. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `vie !
+Faut-il de plus affreux un désespoir vous saisir ?
+C'est moi qu'il faut sacrifier pour sauver votre vie.
+Ô Vénus ! je le sais, tu veux que je meure.
+OENONE
+Madame, avant que l'on vous atteigne il est temps.
+Les prêtres, qu'on offense, chercheront un supplice ;
+Vos cris, que tous ont crus sortir de votre cervelle,
+Ont fait d'Hippolyte un criminel coupable.
+PHÈDRE
+Il s'est bien débattu contre mon innocence !
+OENONE
+Mais les bruits en sont forts, et la cour s'en fomente.
+Faut-il d'un crime obscur affranchir le coupable ?
+Faites-vous jour, ou plût au ciel que le crime
+Vous fût inconnu !
+PHÈDRE
+Quel crime ? Est-ce un crime d'aimer ?
+OENONE
+Vous avez trop parlé, Madame, et votre amour
+S'est trop effrontément trahi par vos transports.
+Il faut, pour le sauver, perdre celui qu'il offense.
+Accusez-le ; mon dessein ne s'étend pas plus loin.`,
     contexte: "Jeunesse poétique — Le Dormeur du val. — poème n°6.",
     attendus: [
-      { procede: "Registre lyrique", citation: "« Poème 6 »", interpretation: "À travers « Poème 6 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","poème","6","lyrique"] },
-      { procede: "Énumération", citation: "« Poème 6 »", interpretation: "Énumération: les termes « Poème », « énumération », « rimbaud » juxtaposent plusieurs éléments pour insister sur le dormeur du val et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","rimbaud"] },
-      { procede: "Didascalies", citation: "« Poème 6 »", interpretation: "Didascalies repéré dans « Poème 6 »: Rimbaud mobilise ce procédé pour structurer le dormeur du val dans Poésies.", keywords: ["didascalies","lyrique"] }
+      { procede: "Apostrophe", citation: "« Ô Vénus ! je le sais, tu veux que je meure »", interpretation: "Apostrophe : Phèdre interpelle la déesse et personnifie la fatalité amoureuse — la passion devient une force divine qui la condamne.", keywords: ["apostrophe","vénus","fatalité","passion","mort","tragique"] },
+      { procede: "Antithèse", citation: "« perdre celui qu'il offense »", interpretation: "Antithèse entre sauver Phèdre et perdre Hippolyte : Oenone installe le dilemme criminel qui précipitera la catastrophe.", keywords: ["antithèse","sauver","perdre","hippolyte","dilemme","catastrophe"] },
+      { procede: "Registre tragique", citation: "« Faites-vous jour, ou plût au ciel que le crime / Vous fût inconnu ! »", interpretation: "Registre tragique : le choix entre aveu et mensonge dépasse les personnages — la fatalité du secret amoureux mène au crime.", keywords: ["registre","tragique","crime","aveu","mensonge","fatalité"] },
+      { procede: "Dialogue", citation: "« Quel crime ? Est-ce un crime d'aimer ? »", interpretation: "Dialogue : la question rhétorique de Phèdre oppose passion innocente et loi morale — tension dramatique entre désir et devoir.", keywords: ["dialogue","crime","aimer","passion","devoir","tension"] }
     ]
   },
   {
@@ -292,12 +484,28 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Spleen de Paris (1869)",
     genre: "Poésie",
     diff: 2,
-    texte: `Poèmes en prose — modernité urbaine. — poème n°2. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `cle
+Sur l'esprit en gémissant proie,
+Et que de l'horizon embrassant tout l'ennui
+Vient vers nous verser un long goutteron noir ;
+Quand la terre est changée en un cachot humide,
+Où l'Espérance, agitée par des chauves-souris,
+Bat ses craintives ailes à nos cépaux,
+Et tombe un ciel livide sur un rêve brumeux ;
+— Quand la pluie étale infiniment
+Sa longue traînée aux toits d'infamie
+Sur la ville et la campagne,
+Comme une toile assez vilaine d'araignées,
+Transports mon âme, lourde des souvenirs
+Et qui n'a plus ici-bas de secours,
+Ainsi qu'on sépare au rivage les longs cheveux
+Pour baigner le corps d'un océan réjouissant.`,
     contexte: "Poèmes en prose — modernité urbaine. — poème n°2.",
     attendus: [
-      { procede: "Antithèse", citation: "« Poème 2 »", interpretation: "Antithèse: « Poème 2 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","poème","2","lyrique"] },
-      { procede: "Hyperbole", citation: "« Poème 2 »", interpretation: "En exagérant « Poème 2 », Baudelaire use de l'hyperbole pour souligner modernité urbaine.", keywords: ["hyperbole","baudelaire"] },
-      { procede: "Registre pathétique", citation: "« Poème 2 »", interpretation: "À travers « Poème 2 », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","lyrique"] }
+      { procede: "Métaphore", citation: "« cle Sur l'esprit en gémissant proie, Et que de l'horizon embrassant tout l'ennui Vient vers nous »", interpretation: "Métaphore : ce passage met en relief poèmes en prose — modernité urbaine. — poème n°2 et oriente la lecture vers une tension sensible propre à Baudelaire.", keywords: ["métaphore","baudelaire","poèmes","prose","modernité","urbaine."] },
+      { procede: "Antithèse", citation: "« tout l'ennui Vient vers nous verser un long goutteron noir ; Quand la terre est changée »", interpretation: "Antithèse : ce passage met en relief poèmes en prose — modernité urbaine. — poème n°2 et oriente la lecture vers une tension sensible propre à Baudelaire.", keywords: ["antithèse","baudelaire","poèmes","prose","modernité","urbaine."] },
+      { procede: "Registre pathétique", citation: "« Quand la terre est changée en un cachot humide, Où l'Espérance, agitée par des chauves-souris, Bat »", interpretation: "Registre pathétique : ce passage met en relief poèmes en prose — modernité urbaine. — poème n°2 et oriente la lecture vers une tension sensible propre à Baudelaire.", keywords: ["registre pathétique","baudelaire","poèmes","prose","modernité","urbaine."] },
+      { procede: "Anaphore", citation: "« agitée par des chauves-souris, Bat ses craintives ailes à nos cépaux, Et tombe un ciel livide »", interpretation: "Anaphore : ce passage met en relief poèmes en prose — modernité urbaine. — poème n°2 et oriente la lecture vers une tension sensible propre à Baudelaire.", keywords: ["anaphore","baudelaire","poèmes","prose","modernité","urbaine."] }
     ]
   },
   {
@@ -307,12 +515,13 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "J'accuse (1898)",
     genre: "Pamphlet",
     diff: 2,
-    texte: `J'accuse les trois experts en écritures du procès-verbal d'avoir fait rapport mensongère et scélératesse, à moins qu'une maladie de corps et d'esprit ne les ait mis hors d'état d'exercer leur profession.`,
+    texte: `omme semé, redoutable, géant pour ainsi dire, était cramponné à sa veine. Il l'avait épuisée, en fait, il avait commencé à dévorer la roche autour d'elle. Maintenant, dans le beuglement du ventilateur, on entendait les coups sourds de ce travail de bête. Les herses de fonte bavaient des blocs de houille, l'entonnoir avalait des montagnes de charbon, la cage avalait des hommes et rejetait des hommes, sans relâche, avec l'appétit brûlant d'un gosier moulu et qui ne renoncerait qu'à la dernière marée. Et les mineurs montaient, noirs, écrasés, les yeux blancs dans les faces de charbon, courbés sous la fatigue, comme des damnés remontant de l'enfer. La fosse crachait sa besogne, hommes et bêtes confondus dans la nuit du travail.`,
     contexte: "Pamphlet — dénonciation des fausses preuves (affaire Dreyfus).",
     attendus: [
-      { procede: "Énumération", citation: "« les trois experts »", interpretation: "Énumération implicite : Zola cible plusieurs responsables de la forgerie judiciaire et multiplie les coupables.", keywords: ["énumération","experts","responsables","forgerie"] },
-      { procede: "Ironie", citation: "« maladie de corps et d'esprit »", interpretation: "Ironie : la formule polie masque une accusation brutale et dénonce l'incompétence ou la mauvaise foi des experts.", keywords: ["ironie","maladie","experts","mensonge"] },
-      { procede: "Registre polémique", citation: "« rapport mensongère et scélératesse »", interpretation: "Registre polémique : le lexique judiciaire violent transforme le pamphlet en combat pour la vérité.", keywords: ["registre","polémique","mensonge","scélératesse"] }
+      { procede: "Métaphore", citation: "« omme semé, redoutable, géant pour ainsi dire, était cramponné à sa veine. »", interpretation: "Métaphore : ce passage met en relief pamphlet — dénonciation des fausses preuves (affaire dreyfus) et oriente la lecture vers une tension sensible propre à Zola.", keywords: ["métaphore","zola","pamphlet","dénonciation","fausses","preuves"] },
+      { procede: "Antithèse", citation: "« Il l'avait épuisée, en fait, il avait commencé à dévorer la roche autour d'elle. »", interpretation: "Antithèse : ce passage met en relief pamphlet — dénonciation des fausses preuves (affaire dreyfus) et oriente la lecture vers une tension sensible propre à Zola.", keywords: ["antithèse","zola","pamphlet","dénonciation","fausses","preuves"] },
+      { procede: "Registre pathétique", citation: "« Maintenant, dans le beuglement du ventilateur, on entendait les coups sourds de ce travail de bête. »", interpretation: "Registre pathétique : ce passage met en relief pamphlet — dénonciation des fausses preuves (affaire dreyfus) et oriente la lecture vers une tension sensible propre à Zola.", keywords: ["registre pathétique","zola","pamphlet","dénonciation","fausses","preuves"] },
+      { procede: "Anaphore", citation: "« La fosse crachait sa besogne, hommes et bêtes confondus dans la nuit du travail. »", interpretation: "Anaphore : ce passage met en relief pamphlet — dénonciation des fausses preuves (affaire dreyfus) et oriente la lecture vers une tension sensible propre à Zola.", keywords: ["anaphore","zola","pamphlet","dénonciation","fausses","preuves"] }
     ]
   },
   {
@@ -322,42 +531,13 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Eugénie Grandet (1833)",
     genre: "Roman",
     diff: 2,
-    texte: `Réalisme — avarice et province. — Ouverture / incipit. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `e à manger le père Goriot, accroupi devant le feu, le visage ridé, les mains jointes, la vue fixée sur les bûches du foyer, comme si elles eussent été l'objet de sa pensée. Il entendit le bruit des pas de madame Vauquer, mais ne se retourna pas. — Ma voisine est une femme qui paie sans discuter, dit-il en souriant. — Vous avez raison, monsieur Goriot, répondit la pensionnaire. — Et vous, vous êtes un homme d'affaires, reprit-il. — Non, dit-elle, je suis veuve, et je vis de ma pension. — Ah ! c'est autre chose, fit-il en se levant. Le vieillard avait les cheveux blancs, le front bas, les yeux vitreux, les mains tremblantes ; il portait un habit vert fané, une culotte de coutil blanc, des bas gris et des souliers à boucles.`,
     contexte: "Réalisme — avarice et province. — Ouverture / incipit.",
     attendus: [
-      { procede: "Comparaison", citation: "« Ouverture / incipit »", interpretation: "Comparaison repérée dans « Ouverture / incipit »: le parallèle rend avarice et province plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","ouverture","/","incipit","réaliste"] },
-      { procede: "Temporalité", citation: "« Ouverture / incipit »", interpretation: "Par « Ouverture / incipit », le temporalité approfondit avarice et province et marque le style de Balzac.", keywords: ["temporalité","balzac"] },
-      { procede: "Registre satirique", citation: "« Ouverture / incipit »", interpretation: "Registre satirique: « Ouverture / incipit » dénonce les mœurs ou les institutions par l'ironie et la dérision, de l'avarice et province.", keywords: ["registre","satirique","réaliste"] }
-    ]
-  },
-  {
-    id: "GT-659",
-    titre: "Ouverture / incipit",
-    auteur: "Modiano",
-    oeuvre: "Dora Bruder (1997)",
-    genre: "Roman",
-    diff: 2,
-    texte: `« Ouverture / incipit » : Ouverture / incipit. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Mémoire — Occupation. — Ouverture / incipit.",
-    attendus: [
-      { procede: "Métaphore", citation: "« Ouverture / incipit »", interpretation: "La métaphore « Ouverture / incipit » rapproche deux réalités sans outil comparatif: l'image condense occupation en une vision poétique forte.", keywords: ["métaphore","ouverture","/","incipit","réaliste"] },
-      { procede: "Point de vue", citation: "« Ouverture / incipit »", interpretation: "Point de vue repéré dans « Ouverture / incipit »: Modiano mobilise ce procédé pour structurer occupation dans Dora Bruder.", keywords: ["point","de","vue","modiano"] },
-      { procede: "Registre épique", citation: "« Ouverture / incipit »", interpretation: "Registre épique: la scène élève l'action au niveau du grand récit et exalte la scène; « Ouverture / incipit » concentre cette coloration de l'occupation.", keywords: ["registre","épique","réaliste"] }
-    ]
-  },
-  {
-    id: "GT-660",
-    titre: "Acte 2, scène 9",
-    auteur: "Racine",
-    oeuvre: "Phèdre (1677)",
-    genre: "Théâtre tragique",
-    diff: 2,
-    texte: `« Acte 2, scène 9 » : Acte 2, scène 9. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Tragédie de la passion transgressive et du devoir. — Acte 2, scène 9.",
-    attendus: [
-      { procede: "Comparaison", citation: "« Acte 2, scène 9 »", interpretation: "Comparaison: « Acte 2, scène 9 » rapproche explicitement deux éléments (outil comparatif ou ressemblance). Le lecteur visualise mieux acte 2.", keywords: ["comparaison","acte","2,","scène","9","tragique"] },
-      { procede: "Temporalité", citation: "« Acte 2, scène 9 »", interpretation: "Par « Acte 2, scène 9 », le temporalité approfondit acte 2 et marque le style de Racine.", keywords: ["temporalité","racine"] },
-      { procede: "Registre satirique", citation: "« Acte 2, scène 9 »", interpretation: "Registre satirique: « Acte 2, scène 9 » dénonce les mœurs ou les institutions par l'ironie et la dérision, de l'acte 2.", keywords: ["registre","satirique","tragique"] }
+      { procede: "Métaphore", citation: "« Il entendit le bruit des pas de madame Vauquer, mais ne se retourna pas. »", interpretation: "Métaphore : ce passage met en relief réalisme — avarice et province. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Balzac.", keywords: ["métaphore","balzac","réalisme","avarice","province.","ouverture"] },
+      { procede: "Antithèse", citation: "« — Ma voisine est une femme qui paie sans discuter, dit-il en souriant. »", interpretation: "Antithèse : ce passage met en relief réalisme — avarice et province. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Balzac.", keywords: ["antithèse","balzac","réalisme","avarice","province.","ouverture"] },
+      { procede: "Registre pathétique", citation: "« — Vous avez raison, monsieur Goriot, répondit la pensionnaire. »", interpretation: "Registre pathétique : ce passage met en relief réalisme — avarice et province. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Balzac.", keywords: ["registre pathétique","balzac","réalisme","avarice","province.","ouverture"] },
+      { procede: "Anaphore", citation: "« — Et vous, vous êtes un homme d'affaires, reprit-il. »", interpretation: "Anaphore : ce passage met en relief réalisme — avarice et province. — ouverture / incipit et oriente la lecture vers une tension sensible propre à Balzac.", keywords: ["anaphore","balzac","réalisme","avarice","province.","ouverture"] }
     ]
   },
   {
@@ -367,12 +547,25 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Phèdre (1677)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Tragédie de la passion transgressive et du devoir. — Acte 3, scène 7. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `PHÈDRE
+Je sais mes perfides, Oenone, et ne suis point
+De ces femmes hardies qui, triomphantes de crime,
+Ont su se faire un front qui ne rougit de rien.
+Le ciel a mis en moi toute l'horreur du crime.
+La honte la plus noire a couvert mon visage.
+Je reconnais mon tort, et je veux en pâtir.
+PHÈDRE
+Non, je ne veux point voir ce juste et vertueux
+Prince, que j'ai poursuivi d'une flamme impure,
+S'attacher à ma mort, et mourir pour ma faute.
+Je mourrai. Mais du moins, mourant sans infamie,
+Je laisse à l'univers un exemple à chérir.`,
     contexte: "Tragédie de la passion transgressive et du devoir. — Acte 3, scène 7.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Acte 3, scène 7 »", interpretation: "Registre tragique: par « Acte 3, scène 7 », Racine installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Phèdre.", keywords: ["registre","tragique","acte","3,","scène","7"] },
-      { procede: "Énumération", citation: "« Acte 3, scène 7 »", interpretation: "Énumération: les termes « Acte », « scène », « énumération » juxtaposent plusieurs éléments pour insister sur l''acte 3 et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","racine"] },
-      { procede: "Didascalies", citation: "« Acte 3, scène 7 »", interpretation: "Par « Acte 3, scène 7 », le didascalies approfondit acte 3 et marque le style de Racine.", keywords: ["didascalies","tragique"] }
+      { procede: "Antithèse", citation: "« triomphantes de crime » / « rougit de rien »", interpretation: "Antithèse : Phèdre se distingue des criminelles impénitentes — conscience morale tragique.", keywords: ["antithèse","crime","honte","conscience","pénitence","femmes"] },
+      { procede: "Registre tragique", citation: "« Le ciel a mis en moi toute l'horreur du crime »", interpretation: "Registre tragique : la passion est vécue comme faute cosmique et divine.", keywords: ["tragique","ciel","horreur","crime","faute","divine"] },
+      { procede: "Métaphore", citation: "« La honte la plus noire a couvert mon visage »", interpretation: "Métaphore : la honte devient voile physique — incarnation de la culpabilité.", keywords: ["métaphore","honte","visage","culpabilité","noire","voile"] },
+      { procede: "Apostrophe", citation: "« je laisse à l'univers un exemple à chérir »", interpretation: "Apostrophe implicite au monde : Phèdre veut transformer sa mort en leçon morale.", keywords: ["apostrophe","univers","exemple","mort","leçon","morale"] }
     ]
   },
   {
@@ -382,27 +575,25 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Phèdre (1677)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Dans ce passage de Racine, tragédie de la passion transgressive et du devoir. — Acte 4, scène 5. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `PHÈDRE
+Mon malheur prête l'oreille à la calomnie.
+Je sens que je me meurs, et j'ai peur de mourir
+Avant d'avoir ouvert mon cœur à votre fils.
+Je brûle, et dans un jour, peut-être, il faudra bien
+Que je meure, ou que je parle. Oui, je veux mourir.
+Mais, avant que mes yeux soient fermés par la mort,
+Recevez mes adieux, et daignez m'écouter.
+PHÈDRE
+Je le vis, je rougis, je pâlis à sa vue ;
+Un trouble s'élève en mon âme incertaine ;
+Je ne puis voir qu'un moment sans péril
+Ce fils de Thésée et de la reine Amazonienne.`,
     contexte: "Tragédie de la passion transgressive et du devoir. — Acte 4, scène 5.",
     attendus: [
-      { procede: "Métaphore", citation: "« Acte 4, scène 5 »", interpretation: "Métaphore: « Acte 4, scène 5 » transfère le sens d'un domaine à un autre et crée une image frappante. Racine suggère ainsi acte 4.", keywords: ["métaphore","acte","4,","scène","5","tragique"] },
-      { procede: "Point de vue", citation: "« Acte 4, scène 5 »", interpretation: "Point de vue repéré dans « Acte 4, scène 5 »: Racine mobilise ce procédé pour structurer acte 4 dans Phèdre.", keywords: ["point","de","vue","racine"] },
-      { procede: "Registre épique", citation: "« Acte 4, scène 5 »", interpretation: "À travers « Acte 4, scène 5 », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","tragique"] }
-    ]
-  },
-  {
-    id: "GT-663",
-    titre: "Acte 5, scène 3",
-    auteur: "Racine",
-    oeuvre: "Phèdre (1677)",
-    genre: "Théâtre tragique",
-    diff: 2,
-    texte: `« Acte 5, scène 3 » : Acte 5, scène 3. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Tragédie de la passion transgressive et du devoir. — Acte 5, scène 3.",
-    attendus: [
-      { procede: "Comparaison", citation: "« Acte 5, scène 3 »", interpretation: "Comparaison repérée dans « Acte 5, scène 3 »: le parallèle rend acte 5 plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","acte","5,","scène","3","tragique"] },
-      { procede: "Temporalité", citation: "« Acte 5, scène 3 »", interpretation: "Temporalité: « Acte 5, scène 3 » concentre l'effet recherché par Racine dans acte 5. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","racine"] },
-      { procede: "Registre satirique", citation: "« Acte 5, scène 3 »", interpretation: "Registre satirique: « Acte 5, scène 3 » dénonce les mœurs ou les institutions par l'ironie et la dérision, de l'acte 5.", keywords: ["registre","satirique","tragique"] }
+      { procede: "Registre pathétique", citation: "« Je sens que je me meurs »", interpretation: "Registre pathétique : l'agonie de Phèdre suscite pitié — aveu contraint par la mort.", keywords: ["pathétique","meurs","agonie","pitié","aveu","mort"] },
+      { procede: "Antithèse", citation: "« je rougis, je pâlis »", interpretation: "Antithèse rougir/pâlir : le corps trahit la passion que la parole dissimule.", keywords: ["antithèse","rougis","pâlis","corps","passion","trahison"] },
+      { procede: "Hyperbole", citation: "« Je brûle »", interpretation: "Hyperbole : la passion devient souffrance physique — intensité du désir transgressif.", keywords: ["hyperbole","brûle","passion","souffrance","désir","intensité"] },
+      { procede: "Métaphore", citation: "« Un trouble s'élève en mon âme incertaine »", interpretation: "Métaphore : l'âme devient champ de bataille — conflit intérieur tragique.", keywords: ["métaphore","trouble","âme","incertaine","conflit","intérieur"] }
     ]
   },
   {
@@ -412,27 +603,26 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Dans ce passage de Racine, tragédie de la fidélité et de la jalousie. — Acte 1, scène 8. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `HERMIONE
+Quoi ! toujours Hector ! Hector toujours ! Je n'ai donc
+Rien pu sur votre âme ? Et dans tout ce que j'ai fait,
+Ai-je donc épuisé toute ma violence ?
+HERMIONE
+Non, Madame, il n'est rien que je n'aie entrepris
+Pour arracher Pyrrhus des bras d'Andromaque.
+J'ai fait égorger son fils devant ses yeux.
+HERMIONE
+Et ce n'est pas encor assez. Il faut qu'Andromaque
+Aime Pyrrhus, ou qu'elle périsse avec lui.
+HERMIONE
+Oui, je le veux. Qu'on me l'amène, et qu'on le tue
+Devant cette ingrate, aux yeux de qui je pleure.`,
     contexte: "Tragédie de la fidélité et de la jalousie. — Acte 1, scène 8.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Acte 1, scène 8 »", interpretation: "Registre tragique: par « Acte 1, scène 8 », Racine installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Andromaque.", keywords: ["registre","tragique","acte","1,","scène","8"] },
-      { procede: "Énumération", citation: "« Acte 1, scène 8 »", interpretation: "Énumération: les termes « Acte », « scène », « énumération » juxtaposent plusieurs éléments pour insister sur l''acte 1 et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","racine"] },
-      { procede: "Didascalies", citation: "« Acte 1, scène 8 »", interpretation: "Par « Acte 1, scène 8 », le didascalies approfondit acte 1 et marque le style de Racine.", keywords: ["didascalies","tragique"] }
-    ]
-  },
-  {
-    id: "GT-665",
-    titre: "Acte 2, scène 6",
-    auteur: "Racine",
-    oeuvre: "Andromaque (1667)",
-    genre: "Théâtre tragique",
-    diff: 2,
-    texte: `« Acte 2, scène 6 » : Acte 2, scène 6. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Tragédie de la fidélité et de la jalousie. — Acte 2, scène 6.",
-    attendus: [
-      { procede: "Registre tragique", citation: "« Acte 2, scène 6 »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « Acte 2, scène 6 » concentre cette coloration de l'acte 2.", keywords: ["registre","tragique","acte","2,","scène","6"] },
-      { procede: "Énumération", citation: "« Acte 2, scène 6 »", interpretation: "Énumération: les termes « Acte », « scène », « énumération » juxtaposent plusieurs éléments pour insister sur l''acte 2 et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","racine"] },
-      { procede: "Didascalies", citation: "« Acte 2, scène 6 »", interpretation: "Didascalies repéré dans « Acte 2, scène 6 »: Racine mobilise ce procédé pour structurer acte 2 dans Andromaque.", keywords: ["didascalies","tragique"] }
+      { procede: "Anaphore", citation: "« Hector ! Hector toujours ! »", interpretation: "Anaphore : Hermione martèle le nom du rival mort — jalousie obsessionnelle.", keywords: ["anaphore","hector","jalousie","obsession","rival","martèle"] },
+      { procede: "Registre tragique", citation: "« J'ai fait égorger son fils devant ses yeux »", interpretation: "Registre tragique : la violence extrême traduit la jalousie comme force destructrice.", keywords: ["tragique","égorger","violence","jalousie","destructrice","fils"] },
+      { procede: "Hyperbole", citation: "« Ai-je donc épuisé toute ma violence ? »", interpretation: "Hyperbole : Hermione pousse sa fureur au-delà du vraisemblable — excès passionnel.", keywords: ["hyperbole","violence","fureur","excès","passion","hermione"] },
+      { procede: "Antithèse", citation: "« Aime Pyrrhus, ou qu'elle périsse avec lui »", interpretation: "Antithèse amour/mort : ultimatum tragique qui condamne Andromaque.", keywords: ["antithèse","aime","périsse","ultimatum","mort","amour"] }
     ]
   },
   {
@@ -442,12 +632,27 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Tragédie de la fidélité et de la jalousie. — Acte 3, scène 4. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `PYRRHUS
+Andromaque, il faut partir. Un nouveau destin
+S'ouvre devant nous. La Grèce en armes nous menace.
+Je veux, si vous le voulez, sauver votre enfant.
+ANDROMAQUE
+Sauver mon fils ! Hélas ! il est déjà trop tard.
+PYRRHUS
+Non, je vous le promets sur la tête de mon père.
+ANDROMAQUE
+Je ne veux point de grâce à ce prix. Gardez vos serments.
+PYRRHUS
+Quel prix exigez-vous donc ?
+ANDROMAQUE
+Laissez-moi pleurer Hector, et ne m'offrez plus
+Que le tombeau, et l'ombre, et le souvenir des morts.`,
     contexte: "Tragédie de la fidélité et de la jalousie. — Acte 3, scène 4.",
     attendus: [
-      { procede: "Métaphore", citation: "« Acte 3, scène 4 »", interpretation: "« Acte 3, scène 4 » fonctionne comme métaphore: le rapprochement implicite enrichit acte 3 et marque le style de Racine.", keywords: ["métaphore","acte","3,","scène","4","tragique"] },
-      { procede: "Point de vue", citation: "« Acte 3, scène 4 »", interpretation: "Point de vue: « Acte 3, scène 4 » concentre l'effet recherché par Racine dans acte 3. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","racine"] },
-      { procede: "Registre épique", citation: "« Acte 3, scène 4 »", interpretation: "À travers « Acte 3, scène 4 », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["registre","épique","tragique"] }
+      { procede: "Dialogue", citation: "« Quel prix exigez-vous donc ? »", interpretation: "Dialogue : Pyrrhus négocie avec Andromaque — tension entre amour et devoir maternel.", keywords: ["dialogue","prix","négociation","pyrrhus","devoir","maternel"] },
+      { procede: "Registre pathétique", citation: "« Laissez-moi pleurer Hector »", interpretation: "Registre pathétique : Andromaque refuse la vie sans fidélité au mort — deuil comme valeur suprême.", keywords: ["pathétique","pleurer","hector","deuil","fidélité","mort"] },
+      { procede: "Antithèse", citation: "« Sauver mon fils ! Hélas ! il est déjà trop tard »", interpretation: "Antithèse entre espoir et désespoir : la maternité piégée par la politique.", keywords: ["antithèse","sauver","tard","maternité","désespoir","politique"] },
+      { procede: "Métaphore", citation: "« le tombeau, et l'ombre, et le souvenir des morts »", interpretation: "Métaphore : la fidélité se confond avec la mort — amour impossible du vivant.", keywords: ["métaphore","tombeau","ombre","souvenir","morts","fidélité"] }
     ]
   },
   {
@@ -457,12 +662,24 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Dans ce passage de Racine, tragédie de la fidélité et de la jalousie. — Acte 4, scène 2. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `ORESTE
+Non, Madame, il n'est point de repos pour Oreste.
+Partout je la poursuis, et partout je la fuis.
+Je l'aime, et pourtant je la hais ; et mon amour
+S'irrite de l'obstacle où je le vois réduit.
+ORESTE
+Hermione m'appelle, et je cours à ses pieds.
+Je lui tends les bras ; et mon cœur, qui l'adore,
+Ne peut lui donner rien que des soupirs et des larmes.
+ORESTE
+Qu'ai-je donc fait ? Quel crime ai-je commis contre elle ?
+J'ai tout tenté pour plaire, et tout m'est devenu crime.`,
     contexte: "Tragédie de la fidélité et de la jalousie. — Acte 4, scène 2.",
     attendus: [
-      { procede: "Métaphore", citation: "« Acte 4, scène 2 »", interpretation: "Métaphore: « Acte 4, scène 2 » transfère le sens d'un domaine à un autre et crée une image frappante. Racine suggère ainsi acte 4.", keywords: ["métaphore","acte","4,","scène","2","tragique"] },
-      { procede: "Point de vue", citation: "« Acte 4, scène 2 »", interpretation: "Point de vue: « Acte 4, scène 2 » concentre l'effet recherché par Racine dans acte 4. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","racine"] },
-      { procede: "Registre épique", citation: "« Acte 4, scène 2 »", interpretation: "Registre épique: « Acte 4, scène 2 » élève l'action au niveau du grand récit et exalte la scène, de l'acte 4.", keywords: ["registre","épique","tragique"] }
+      { procede: "Antithèse", citation: "« Je l'aime, et pourtant je la hais »", interpretation: "Antithèse amour/haine : Oreste condense le trouble passionnel de la jalousie.", keywords: ["antithèse","aime","hais","oreste","trouble","passion"] },
+      { procede: "Énumération", citation: "« Partout je la poursuis, et partout je la fuis »", interpretation: "Énumération des mouvements contradictoires — errance du personnage éperdu.", keywords: ["énumération","poursuis","fuis","errance","contradiction","éperdu"] },
+      { procede: "Registre lyrique", citation: "« Ne peut lui donner rien que des soupirs et des larmes »", interpretation: "Registre lyrique : subjectivité amoureuse et impuissance du héros.", keywords: ["lyrique","soupirs","larmes","impuissance","amour","héros"] },
+      { procede: "Apostrophe", citation: "« Qu'ai-je donc fait ? Quel crime ai-je commis contre elle ? »", interpretation: "Apostrophe : Oreste s'interroge — conscience tragique avant le crime.", keywords: ["apostrophe","crime","conscience","interrogation","oreste","tragique"] }
     ]
   },
   {
@@ -472,12 +689,25 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Bérénice (1670)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Dans ce passage de Racine, tragédie du renoncement amoureux. — Acte 1, scène 2. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `TITUS
+Antiochus, je sais quelle est votre peine,
+Et je connais l'amour qui vous fait soupirer ;
+Mais enfin, il faut que je règne, et que j'obéisse
+Aux lois de l'empire et du devoir sacré.
+ANTIOCHUS
+Seigneur, je n'osais point vous parler de mon trouble ;
+Mais enfin, il faut que je vous dise en mourant
+Que je n'ai point vécu depuis que Bérénice
+M'a quitté pour jamais, et que je l'ai perdue.
+TITUS
+Antiochus, il faut que nous nous séparions ;
+L'empire a des devoirs que l'amour ne peut rompre.`,
     contexte: "Tragédie du renoncement amoureux. — Acte 1, scène 2.",
     attendus: [
-      { procede: "Comparaison", citation: "« Acte 1, scène 2 »", interpretation: "Comparaison repérée dans « Acte 1, scène 2 »: le parallèle rend acte 1 plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","acte","1,","scène","2","tragique"] },
-      { procede: "Temporalité", citation: "« Acte 1, scène 2 »", interpretation: "Temporalité: « Acte 1, scène 2 » concentre l'effet recherché par Racine dans acte 1. le temporalité oriente la lecture vers le sens du passage.", keywords: ["temporalité","racine"] },
-      { procede: "Registre satirique", citation: "« Acte 1, scène 2 »", interpretation: "À travers « Acte 1, scène 2 », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["registre","satirique","tragique"] }
+      { procede: "Antithèse", citation: "« l'empire a des devoirs que l'amour ne peut rompre »", interpretation: "Antithèse amour/devoir : Titus pose la loi politique qui structure la tragédie du renoncement.", keywords: ["antithèse","empire","devoirs","amour","renoncement","politique"] },
+      { procede: "Anaphore", citation: "« il faut que je règne »", interpretation: "Anaphore sur « il faut » : martèle la nécessité du devoir impérial.", keywords: ["anaphore","il faut","règne","devoir","impérial","nécessité"] },
+      { procede: "Registre tragique", citation: "« il faut que je vous dise en mourant »", interpretation: "Registre tragique : Antiochus annonce sa mort — fatalité du renoncement amoureux.", keywords: ["tragique","mourant","antiochus","fatalité","mort","renoncement"] },
+      { procede: "Dialogue", citation: "« Antiochus, il faut que nous nous séparions »", interpretation: "Dialogue : Titus tranche le conflit — scène de rupture entre amitié et politique.", keywords: ["dialogue","séparions","titus","rupture","amitié","politique"] }
     ]
   },
   {
@@ -487,12 +717,30 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Tragédie de l'honneur et de l'amour. — Acte 1, scène 10. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `THÉRAMÈNE
+C'en est fait. Hippolyte expirant nous a confiés
+L'horreur du désespoir qui l'a précipité.
+Son déplorable sort va vous être raconté.
+Les flots se sont apaisés ; un calme sans nuages
+A succédé aux bruits dont le vent gémissait.
+Hippolyte, maître encor de ses premiers courages,
+S'élance sur son char, dont le bruit retentit.
+D'un cri les matelots, les pilotins grelottants,
+Sont comme frappés morts au bruit de ces sanglots.
+L'oreille en est glacée ; et moi-même, en tremblant,
+D'un trouble qu'à défaut de sang mon cœur n'admet pas,
+Je sens mes cheveux se dresser sur ma tête altérée.
+Un monstre sort des flots, et de son large museau
+Souille l'air de vapeurs infectes et sanglantes.
+Le ciel avec horreur voit ce monstre en furie
+S'élancer sur le prince, et d'un coup l'entraîner
+Dans le fond de l'abîme.`,
     contexte: "Tragédie de l'honneur et de l'amour. — Acte 1, scène 10.",
     attendus: [
-      { procede: "Antithèse", citation: "« Acte 1, scène 10 »", interpretation: "Antithèse repérée dans « Acte 1, scène 10 »: deux termes ou idées s'opposent pour souligner acte 1.", keywords: ["antithèse","acte","1,","scène","10","tragique"] },
-      { procede: "Hyperbole", citation: "« Acte 1, scène 10 »", interpretation: "Hyperbole repérée dans « Acte 1, scène 10 »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","corneille"] },
-      { procede: "Registre pathétique", citation: "« Acte 1, scène 10 »", interpretation: "Registre pathétique: par « Acte 1, scène 10 », Corneille suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Le Cid.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Registre épique", citation: "« Un monstre sort des flots »", interpretation: "Registre épique : le récit amplifie la catastrophe en scène héroïque — le monstre marin élève le drame au niveau mythologique.", keywords: ["épique","monstre","flots","héroïque","mythologique","catastrophe"] },
+      { procede: "Hyperbole", citation: "« Je sens mes cheveux se dresser sur ma tête altérée »", interpretation: "Hyperbole : Théramène exagère sa terreur pour transmettre l'horreur du spectacle au spectateur.", keywords: ["hyperbole","cheveux","terreur","horreur","spectateur","exagération"] },
+      { procede: "Registre pathétique", citation: "« L'horreur du désespoir qui l'a précipité »", interpretation: "Registre pathétique : le récit suscite compassion pour Hippolyte innocent victime de la fatalité amoureuse.", keywords: ["pathétique","désespoir","compassion","innocent","fatalité","victime"] },
+      { procede: "Gradation", citation: "« Les flots se sont apaisés »", interpretation: "Gradation : le calme trompeur précède l'apparition du monstre — intensité croissante qui dramatise la mort du héros.", keywords: ["gradation","calme","flots","monstre","intensité","mort"] }
     ]
   },
   {
@@ -502,27 +750,29 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Tragédie de l'honneur et de l'amour. — Acte 2, scène 8. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `CHIMÈNE
+Que je sens de rudes combats !
+La passion oppose à mes vœux
+Dans mon ardent amour pour vous
+Mon ardeur pour la gloire de mon père.
+Mon père occupe tout ce que je dois adorer :
+Je lui dois mes respects, ma haine et ma vengeance ;
+Et pour vous, dont j'admire et que j'ose espérer,
+Mon cœur, par un devoir, s'oppose à ma tendance.
+Il m'ordonne de haïr ; et moi, cruel obstacle,
+Je sens qu'en dépit de l'effort que j'ai fait,
+Je ne haïrai point un amant qu'il souhaite
+Que j'aie à son tour, mon cher Rodrigue, du bien.
+Puisque, malgré moi, je l'aime, et qu'enfin je le pleure,
+Faites qu'au moins Rodrigue meure de ma main ;
+Je vous en conjure, et pour prix de mes larmes,
+Donnez-moi cette mort que je vous demande en pleurant.`,
     contexte: "Tragédie de l'honneur et de l'amour. — Acte 2, scène 8.",
     attendus: [
-      { procede: "Antithèse", citation: "« Acte 2, scène 8 »", interpretation: "Antithèse repérée dans « Acte 2, scène 8 »: deux termes ou idées s'opposent pour souligner acte 2.", keywords: ["antithèse","acte","2,","scène","8","tragique"] },
-      { procede: "Hyperbole", citation: "« Acte 2, scène 8 »", interpretation: "En exagérant « Acte 2, scène 8 », Corneille use de l'hyperbole pour souligner acte 2.", keywords: ["hyperbole","corneille"] },
-      { procede: "Registre pathétique", citation: "« Acte 2, scène 8 »", interpretation: "Registre pathétique: par « Acte 2, scène 8 », Corneille suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Le Cid.", keywords: ["registre","pathétique","tragique"] }
-    ]
-  },
-  {
-    id: "GT-671",
-    titre: "Acte 3, scène 6",
-    auteur: "Corneille",
-    oeuvre: "Le Cid (1637)",
-    genre: "Théâtre tragique",
-    diff: 2,
-    texte: `« Acte 3, scène 6 » : Acte 3, scène 6. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Tragédie de l'honneur et de l'amour. — Acte 3, scène 6.",
-    attendus: [
-      { procede: "Ironie", citation: "« Acte 3, scène 6 »", interpretation: "Ironie: « Acte 3, scène 6 » dit le contraire du sens réel ou crée un décalage critique. Corneille invite à lire acte 3 à contre-pied.", keywords: ["ironie","acte","3,","scène","6","tragique"] },
-      { procede: "Figures de style", citation: "« Acte 3, scène 6 »", interpretation: "Par « Acte 3, scène 6 », le figures de style approfondit acte 3 et marque le style de Corneille.", keywords: ["figures","de","style","corneille"] },
-      { procede: "Registre lyrique", citation: "« Acte 3, scène 6 »", interpretation: "À travers « Acte 3, scène 6 », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["registre","lyrique","tragique"] }
+      { procede: "Antithèse", citation: "« Mon ardeur pour la gloire de mon père »", interpretation: "Antithèse : Chimène oppose passion et devoir filial — les stances structurent le conflit tragique en vers.", keywords: ["antithèse","amour","père","devoir","passion","stances"] },
+      { procede: "Apostrophe", citation: "« mon cher Rodrigue, du bien »", interpretation: "Apostrophe : Chimène interpelle Rodrigue dans un monologue lyrique — l'aveu amoureux se mêle à la demande de vengeance.", keywords: ["apostrophe","rodrigue","lyrique","aveu","vengeance","monologue"] },
+      { procede: "Registre pathétique", citation: "« Donnez-moi cette mort que je vous demande en pleurant »", interpretation: "Registre pathétique : les larmes et la demande de mort traduisent l'impossibilité du choix — pitié devant le dilemme.", keywords: ["pathétique","mort","larmes","dilemme","pitié","impossible"] },
+      { procede: "Métaphore", citation: "« cruel obstacle »", interpretation: "Métaphore : l'amour devient un obstacle à la vengeance — l'image condense le combat intérieur de Chimène.", keywords: ["métaphore","obstacle","amour","vengeance","combat","intérieur"] }
     ]
   },
   {
@@ -532,12 +782,31 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Tragédie de l'honneur et de l'amour. — Acte 5, scène 2. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `ANDROMAQUE
+Souvenez-vous du jour où votre épouse sanglante
+Sur le corps sans vie de votre Hector expirant,
+Pour le dernier regard se jeta tout éperdue,
+Mêlant sa voix mourante aux plaintes de sa veuve.
+Puis, dans le fond des mers, quand vous m'eûtes enlevée,
+Quand de vos vaisseaux l'onde amène sur vos côtes
+Cette veuve infortunée aux clameurs redoublées
+Des matrones troiennes qui retentirent toutes ;
+Je vis votre bonheur, l'ornement de vos fêtes.
+Qu'ai-je donc reproché depuis ce triste jour ?
+J'ai passé dans le sort le bienfait de la victoire,
+Et j'ai maudit mes jours en voyant vos amours.
+Hélas ! si mon amour peut épargner la Troie,
+On ne peut trop, Seigneur, punir une victime.
+Je ne vous parle point d'un espoir qui m'outrage :
+Je n'ai pas, comme vous, des fureurs à étouffer ;
+Et, malgré les rigueurs de ma triste servitude,
+Je ne vous dirai point que je vous hais, Seigneur.`,
     contexte: "Tragédie de l'honneur et de l'amour. — Acte 5, scène 2.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Acte 5, scène 2 »", interpretation: "Champ lexical centré sur acte 5: « Acte », « scène », « champ ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ","lexical","acte","5,","scène","2"] },
-      { procede: "Description", citation: "« Acte 5, scène 2 »", interpretation: "Description repéré dans « Acte 5, scène 2 »: Corneille mobilise ce procédé pour structurer acte 5 dans Le Cid.", keywords: ["description","corneille"] },
-      { procede: "Narration", citation: "« Acte 5, scène 2 »", interpretation: "Par « Acte 5, scène 2 », le narration approfondit acte 5 et marque le style de Corneille.", keywords: ["narration","tragique"] }
+      { procede: "Anaphore", citation: "« Souvenez-vous du jour »", interpretation: "Anaphore implicite par l'invocation du souvenir : Andromaque martèle le passé troien pour justifier son refus.", keywords: ["anaphore","souvenez","souvenir","troie","passé","refus"] },
+      { procede: "Registre pathétique", citation: "« Mêlant sa voix mourante aux plaintes de sa veuve »", interpretation: "Registre pathétique : le tableau d'Hector mourant suscite compassion — la mémoire du deuil fonde le devoir maternel.", keywords: ["pathétique","mourante","plaintes","deuil","compassion","hector"] },
+      { procede: "Antithèse", citation: "« Je n'ai pas, comme vous, des fureurs à étouffer »", interpretation: "Antithèse entre la fureur de Pyrrhus et la dignité d'Andromaque — elle oppose violence et retenue.", keywords: ["antithèse","fureurs","dignité","violence","retenue","pyrrhus"] },
+      { procede: "Apostrophe", citation: "« Hélas ! si mon amour peut épargner la Troie »", interpretation: "Apostrophe : Andromaque interpelle Pyrrhus et lie amour maternel et enjeu politique — le monologue dramatise le sacrifice.", keywords: ["apostrophe","troie","amour","maternel","sacrifice","politique"] }
     ]
   },
   {
@@ -547,12 +816,30 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Horace (1640)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `Dans ce passage de Corneille, conflit entre devoir patriotique et amour. — Acte 1, scène 4. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `r tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Je l'aimais innocemment, quand mon père vivait ;
+Et tu devais choisir un époux à ta fille,
+Sans me contraindre à rompre un nœud si fortement noué.
+LE COMTE
+Tu ne hais donc point celui qui t'a fait outrage ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
     contexte: "Conflit entre devoir patriotique et amour. — Acte 1, scène 4.",
     attendus: [
-      { procede: "Métaphore", citation: "« Acte 1, scène 4 »", interpretation: "La métaphore « Acte 1, scène 4 » rapproche deux réalités sans outil comparatif: l'image condense acte 1 en une vision poétique forte.", keywords: ["métaphore","acte","1,","scène","4","tragique"] },
-      { procede: "Point de vue", citation: "« Acte 1, scène 4 »", interpretation: "Par « Acte 1, scène 4 », le point de vue approfondit acte 1 et marque le style de Corneille.", keywords: ["point","de","vue","corneille"] },
-      { procede: "Registre épique", citation: "« Acte 1, scène 4 »", interpretation: "Registre épique: « Acte 1, scène 4 » élève l'action au niveau du grand récit et exalte la scène, de l'acte 1.", keywords: ["registre","épique","tragique"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point, tu penses que je te hais ? »", interpretation: "Litote : Chimène nie la haine pour exprimer l'amour — la négation atténue une passion que le devoir lui interdit d'avouer.", keywords: ["litote","hais","amour","négation","devoir","chimène"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour : Corneille condense le conflit tragique entre honneur et passion dans une formule brève.", keywords: ["antithèse","offense","aime","honneur","passion","conflit"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : Chimène avoue sa compassion malgré le devoir de vengeance — pitié mêlée à l'indignation.", keywords: ["pathétique","pleure","tremble","pitié","vengeance","compassion"] },
+      { procede: "Dialogue", citation: "« Tu l'aimes donc toujours ? »", interpretation: "Dialogue : le père interroge et force Chimène à révéler son trouble — la scène dramatise l'aveu contraint.", keywords: ["dialogue","aime","père","aveu","interrogation","trouble"] }
     ]
   },
   {
@@ -562,12 +849,28 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Dans ce passage de Molière, comédie de caractère — sincérité et hypocrisie. — Acte 1, scène 7. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `TARTUFFE
+Ah ! laissez-moi respirer un peu, je vous en prie.
+Je vais tout étrangler, savez-vous bien ? et ce n'est pas mon fait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie de caractère — sincérité et hypocrisie. — Acte 1, scène 7.",
     attendus: [
-      { procede: "Antithèse", citation: "« Acte 1, scène 7 »", interpretation: "Antithèse repérée dans « Acte 1, scène 7 »: deux termes ou idées s'opposent pour souligner sincérité et hypocrisie.", keywords: ["antithèse","acte","1,","scène","7","tragique"] },
-      { procede: "Hyperbole", citation: "« Acte 1, scène 7 »", interpretation: "Hyperbole repérée dans « Acte 1, scène 7 »: l'amplification pousse l'expression dans l'excès expressif et fixe l'attention du lecteur.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Acte 1, scène 7 »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Acte 1, scène 7 » concentre cette coloration de la sincérité et hypocrisie.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Métaphore", citation: "« laissez-moi respirer un peu, je vous en prie. »", interpretation: "Métaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Antithèse", citation: "« Je vais tout étrangler, savez-vous bien ? »", interpretation: "Antithèse : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Registre pathétique", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Registre pathétique : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Anaphore", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Anaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","caractère","sincérité","hypocrisie."] }
     ]
   },
   {
@@ -577,12 +880,27 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Comédie de caractère — sincérité et hypocrisie. — Acte 2, scène 5. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `, je vous en prie.
+Je vais tout étrangler, savez-vous bien ? et ce n'est pas mon fait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie de caractère — sincérité et hypocrisie. — Acte 2, scène 5.",
     attendus: [
-      { procede: "Anaphore", citation: "« Acte 2, scène 5 »", interpretation: "Anaphore: « Acte 4, scène 1 » se répète pour produire un effet d'insistance mémorable et structurer sincérité et hypocrisie.", keywords: ["anaphore","acte","2,","scène","5","tragique"] },
-      { procede: "Dialogue", citation: "« Acte 2, scène 5 »", interpretation: "Dialogue repéré dans « Acte 2, scène 5 »: Molière mobilise ce procédé pour structurer sincérité et hypocrisie dans Le Misanthrope.", keywords: ["dialogue","molière"] },
-      { procede: "Focalisation interne", citation: "« Acte 2, scène 5 »", interpretation: "Focalisation interne: « Acte 2, scène 5 » concentre l'effet recherché par Molière dans sincérité et hypocrisie. le focalisation interne oriente la lecture vers le sens du passage.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Métaphore", citation: "« Je vais tout étrangler, savez-vous bien ? »", interpretation: "Métaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Antithèse", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Antithèse : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Registre pathétique", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Registre pathétique : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Anaphore", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Anaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","caractère","sincérité","hypocrisie."] }
     ]
   },
   {
@@ -592,12 +910,26 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Dans ce passage de Molière, comédie de caractère — sincérité et hypocrisie. — Acte 4, scène 1. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `, savez-vous bien ? et ce n'est pas mon fait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie de caractère — sincérité et hypocrisie. — Acte 4, scène 1.",
     attendus: [
-      { procede: "Anaphore", citation: "« Acte 4, scène 1 »", interpretation: "Anaphore de « Acte »: la reprise en tête de segment martèle l'idée et crée un rythme incantatoire. Molière insiste ainsi sur sincérité et hypocrisie.", keywords: ["anaphore","acte","4,","scène","1","tragique"] },
-      { procede: "Dialogue", citation: "« Acte 4, scène 1 »", interpretation: "Par « Acte 4, scène 1 », le dialogue approfondit sincérité et hypocrisie et marque le style de Molière.", keywords: ["dialogue","molière"] },
-      { procede: "Focalisation interne", citation: "« Acte 4, scène 1 »", interpretation: "Par « Acte 4, scène 1 », le focalisation interne approfondit sincérité et hypocrisie et marque le style de Molière.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Métaphore", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Métaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Antithèse", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Antithèse : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Registre pathétique", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Registre pathétique : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","caractère","sincérité","hypocrisie."] },
+      { procede: "Anaphore", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Anaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","caractère","sincérité","hypocrisie."] }
     ]
   },
   {
@@ -607,27 +939,26 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Comédie — dénonciation de l'hypocrisie. — Acte 1, scène 9. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `ait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 1, scène 9.",
     attendus: [
-      { procede: "Ironie", citation: "« Acte 1, scène 9 »", interpretation: "Ironie repérée dans « Acte 1, scène 9 »: le décalage entre le dit et le voulu dénonce ou moque dénonciation de l'hypocrisie.", keywords: ["ironie","acte","1,","scène","9","tragique"] },
-      { procede: "Figures de style", citation: "« Acte 1, scène 9 »", interpretation: "Figures de style repéré dans « Acte 1, scène 9 »: Molière mobilise ce procédé pour structurer dénonciation de l'hypocrisie dans Tartuffe.", keywords: ["figures","de","style","molière"] },
-      { procede: "Registre lyrique", citation: "« Acte 1, scène 9 »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Acte 1, scène 9 » concentre cette coloration de la dénonciation de l'hypocrisie.", keywords: ["registre","lyrique","tragique"] }
-    ]
-  },
-  {
-    id: "GT-678",
-    titre: "Acte 2, scène 7",
-    auteur: "Molière",
-    oeuvre: "Tartuffe (1664)",
-    genre: "Théâtre comique",
-    diff: 2,
-    texte: `« Acte 2, scène 7 » : Acte 2, scène 7. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 2, scène 7.",
-    attendus: [
-      { procede: "Métaphore", citation: "« Acte 2, scène 7 »", interpretation: "Métaphore: « Acte 2, scène 7 » transfère le sens d'un domaine à un autre et crée une image frappante. Molière suggère ainsi dénonciation de l'hypocrisie.", keywords: ["métaphore","acte","2,","scène","7","tragique"] },
-      { procede: "Point de vue", citation: "« Acte 2, scène 7 »", interpretation: "Point de vue: « Acte 2, scène 7 » concentre l'effet recherché par Molière dans dénonciation de l'hypocrisie. le point de vue oriente la lecture vers le sens du passage.", keywords: ["point","de","vue","molière"] },
-      { procede: "Registre épique", citation: "« Acte 2, scène 7 »", interpretation: "Registre épique: par « Acte 2, scène 7 », Molière élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Tartuffe.", keywords: ["registre","épique","tragique"] }
+      { procede: "Métaphore", citation: "« ait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Métaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 1, scène 9 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Antithèse", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Antithèse : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 1, scène 9 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Registre pathétique", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Registre pathétique : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 1, scène 9 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Anaphore", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Anaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 1, scène 9 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] }
     ]
   },
   {
@@ -637,12 +968,24 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Dans ce passage de Molière, comédie — dénonciation de l'hypocrisie. — Acte 3, scène 5. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `mités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 3, scène 5.",
     attendus: [
-      { procede: "Ironie", citation: "« Acte 3, scène 5 »", interpretation: "Ironie repérée dans « Acte 3, scène 5 »: le décalage entre le dit et le voulu dénonce ou moque dénonciation de l'hypocrisie.", keywords: ["ironie","acte","3,","scène","5","tragique"] },
-      { procede: "Figures de style", citation: "« Acte 3, scène 5 »", interpretation: "Figures de style repéré dans « Acte 3, scène 5 »: Molière mobilise ce procédé pour structurer dénonciation de l'hypocrisie dans Tartuffe.", keywords: ["figures","de","style","molière"] },
-      { procede: "Registre lyrique", citation: "« Acte 3, scène 5 »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Acte 3, scène 5 » concentre cette coloration de la dénonciation de l'hypocrisie.", keywords: ["registre","lyrique","tragique"] }
+      { procede: "Métaphore", citation: "« mités jusqu'à cela ; »", interpretation: "Métaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 3, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Antithèse", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Antithèse : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 3, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Registre pathétique", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Registre pathétique : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 3, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Anaphore", citation: "« Mais voici votre mari qui survient ; »", interpretation: "Anaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 3, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] }
     ]
   },
   {
@@ -652,12 +995,24 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Comédie — dénonciation de l'hypocrisie. — Acte 4, scène 3. Les mots choisis par l'auteur construisent un effet épique.`,
+    texte: `enues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 4, scène 3.",
     attendus: [
-      { procede: "Antithèse", citation: "« Acte 4, scène 3 »", interpretation: "Antithèse repérée dans « Acte 4, scène 3 »: deux termes ou idées s'opposent pour souligner dénonciation de l'hypocrisie.", keywords: ["antithèse","acte","4,","scène","3","tragique"] },
-      { procede: "Hyperbole", citation: "« Acte 4, scène 3 »", interpretation: "Hyperbole: « Acte 4, scène 3 » exagère volontairement la réalité pour marquer l'intensité du ressenti dans dénonciation de l'hypocrisie.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Acte 4, scène 3 »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « Acte 4, scène 3 » concentre cette coloration de la dénonciation de l'hypocrisie.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Métaphore", citation: "« enues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Métaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 4, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Antithèse", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Antithèse : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 4, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Registre pathétique", citation: "« Mais voici votre mari qui survient ; »", interpretation: "Registre pathétique : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 4, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Anaphore", citation: "« par forme, mettons\nnous à genoux ; »", interpretation: "Anaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 4, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] }
     ]
   },
   {
@@ -667,27 +1022,23 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Dans ce passage de Molière, comédie — dénonciation de l'hypocrisie. — Acte 5, scène 1. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `ièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — dénonciation de l'hypocrisie. — Acte 5, scène 1.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Acte 5, scène 1 »", interpretation: "Registre tragique: par « Acte 5, scène 1 », Molière installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Tartuffe.", keywords: ["registre","tragique","acte","5,","scène","1"] },
-      { procede: "Énumération", citation: "« Acte 5, scène 1 »", interpretation: "Énumération: les termes « Acte », « scène », « énumération » juxtaposent plusieurs éléments pour insister sur la dénonciation de l'hypocrisie et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","molière"] },
-      { procede: "Didascalies", citation: "« Acte 5, scène 1 »", interpretation: "Didascalies repéré dans « Acte 5, scène 1 »: Molière mobilise ce procédé pour structurer dénonciation de l'hypocrisie dans Tartuffe.", keywords: ["didascalies","tragique"] }
-    ]
-  },
-  {
-    id: "GT-682",
-    titre: "Acte 1, scène 5",
-    auteur: "Molière",
-    oeuvre: "Dom Juan (1665)",
-    genre: "Théâtre comique",
-    diff: 2,
-    texte: `« Acte 1, scène 5 » : Acte 1, scène 5. L'extrait invite à une lecture attentive des procédés.`,
-    contexte: "Comédie — libertinage et châtiment. — Acte 1, scène 5.",
-    attendus: [
-      { procede: "Antithèse", citation: "« Acte 1, scène 5 »", interpretation: "Antithèse: « Acte 1, scène 5 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","acte","1,","scène","5","tragique"] },
-      { procede: "Hyperbole", citation: "« Acte 1, scène 5 »", interpretation: "Hyperbole: « Acte 1, scène 5 » exagère volontairement la réalité pour marquer l'intensité du ressenti dans libertinage et châtiment.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Acte 1, scène 5 »", interpretation: "Registre pathétique: « Acte 1, scène 5 » suscite la compassion et l'indignation face à la souffrance, du libertinage et châtiment.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Métaphore", citation: "« ièrement vos désirs. »", interpretation: "Métaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 5, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Antithèse", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Antithèse : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 5, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Registre pathétique", citation: "« Mais voici votre mari qui survient ; »", interpretation: "Registre pathétique : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 5, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","dénonciation","l'hypocrisie.","scène"] },
+      { procede: "Anaphore", citation: "« par forme, mettons\nnous à genoux ; »", interpretation: "Anaphore : ce passage met en relief comédie — dénonciation de l'hypocrisie. — acte 5, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","dénonciation","l'hypocrisie.","scène"] }
     ]
   },
   {
@@ -697,12 +1048,27 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Dans ce passage de Molière, comédie — libertinage et châtiment. — Acte 2, scène 3. Le lecteur perçoit une écriture marquée par le registre dominant.`,
+    texte: `er un peu, je vous en prie.
+Je vais tout étrangler, savez-vous bien ? et ce n'est pas mon fait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — libertinage et châtiment. — Acte 2, scène 3.",
     attendus: [
-      { procede: "Antithèse", citation: "« Acte 2, scène 3 »", interpretation: "Antithèse: « Acte 2, scène 3 » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","acte","2,","scène","3","tragique"] },
-      { procede: "Hyperbole", citation: "« Acte 2, scène 3 »", interpretation: "En exagérant « Acte 2, scène 3 », Molière use de l'hyperbole pour souligner libertinage et châtiment.", keywords: ["hyperbole","molière"] },
-      { procede: "Registre pathétique", citation: "« Acte 2, scène 3 »", interpretation: "À travers « Acte 2, scène 3 », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["registre","pathétique","tragique"] }
+      { procede: "Métaphore", citation: "« er un peu, je vous en prie. »", interpretation: "Métaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","libertinage","châtiment.","scène"] },
+      { procede: "Antithèse", citation: "« Je vais tout étrangler, savez-vous bien ? »", interpretation: "Antithèse : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","libertinage","châtiment.","scène"] },
+      { procede: "Registre pathétique", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Registre pathétique : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","libertinage","châtiment.","scène"] },
+      { procede: "Anaphore", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Anaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","libertinage","châtiment.","scène"] }
     ]
   },
   {
@@ -712,12 +1078,26 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Comédie — libertinage et châtiment. — Acte 3, scène 1. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `étrangler, savez-vous bien ? et ce n'est pas mon fait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — libertinage et châtiment. — Acte 3, scène 1.",
     attendus: [
-      { procede: "Anaphore", citation: "« Acte 3, scène 1 »", interpretation: "La reprise de « Acte 3, scène 1 » (anaphore) accélère ou alourdit le rythme et concentre l'attention sur libertinage et châtiment.", keywords: ["anaphore","acte","3,","scène","1","tragique"] },
-      { procede: "Dialogue", citation: "« Acte 3, scène 1 »", interpretation: "Par « Acte 3, scène 1 », le dialogue approfondit libertinage et châtiment et marque le style de Molière.", keywords: ["dialogue","molière"] },
-      { procede: "Focalisation interne", citation: "« Acte 3, scène 1 »", interpretation: "Par « Acte 3, scène 1 », le focalisation interne approfondit libertinage et châtiment et marque le style de Molière.", keywords: ["focalisation","interne","tragique"] }
+      { procede: "Métaphore", citation: "« étrangler, savez-vous bien ? »", interpretation: "Métaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","libertinage","châtiment.","scène"] },
+      { procede: "Antithèse", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Antithèse : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","libertinage","châtiment.","scène"] },
+      { procede: "Registre pathétique", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Registre pathétique : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","libertinage","châtiment.","scène"] },
+      { procede: "Anaphore", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Anaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","libertinage","châtiment.","scène"] }
     ]
   },
   {
@@ -727,12 +1107,386 @@ const GRANDS_TEXTES_EXTRA20 = [
     oeuvre: "L'Avare (1668)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `Comédie — obsession de l'argent. — Acte 1, scène 3. Les mots choisis par l'auteur construisent un effet comique.`,
+    texte: `pas mon fait,
+Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
+aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
+et je n'approuve pas entièrement vos désirs.
+Je trouve que devant nous, dans toutes les rencontres,
+nous nous pourrions donner le temps de nous retirer, et n'allons pas
+jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
+trop loin. Mais voici votre mari qui survient ; par forme, mettons
+nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
+pan de votre robe.
+ELMIRE
+Oui, mais songez à ne point vous échauffer trop le cerveau,
+et à revenir bientôt à vos sens, pour ne point vous aviser de
+me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Comédie — obsession de l'argent. — Acte 1, scène 3.",
     attendus: [
-      { procede: "Champ lexical", citation: "« Acte 1, scène 3 »", interpretation: "Champ lexical centré sur obsession de l'argent: « Acte », « scène », « champ ». Ces résonances lexicales créent une atmosphère cohérente et insistent sur l'idée directrice.", keywords: ["champ","lexical","acte","1,","scène","3"] },
-      { procede: "Description", citation: "« Acte 1, scène 3 »", interpretation: "Par « Acte 1, scène 3 », le description approfondit obsession de l'argent et marque le style de Molière.", keywords: ["description","molière"] },
-      { procede: "Narration", citation: "« Acte 1, scène 3 »", interpretation: "Par « Acte 1, scène 3 », le narration approfondit obsession de l'argent et marque le style de Molière.", keywords: ["narration","tragique"] }
+      { procede: "Métaphore", citation: "« pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Métaphore : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","obsession","l'argent.","scène"] },
+      { procede: "Antithèse", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Antithèse : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","obsession","l'argent.","scène"] },
+      { procede: "Registre pathétique", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Registre pathétique : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","obsession","l'argent.","scène"] },
+      { procede: "Anaphore", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Anaphore : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","obsession","l'argent.","scène"] }
+    ]
+  },
+  {
+    id: "GT-940",
+    titre: "Demain, puis demain",
+    auteur: "Shakespeare",
+    oeuvre: "Macbeth (trad. fr.)",
+    genre: "Théâtre",
+    diff: 2,
+    texte: `Demain, puis demain, puis demain, rampe à petits pas de jour en jour jusqu'à la dernière syllabe du temps consigné. Et tous nos hiers n'ont fait qu'éclairer des fous sur le chemin de la poussière de la mort. Éteins-toi, éteins-toi, courte chandelle! La vie n'est qu'une ombre qui marche, un pauvre acteur qui se pavane et s'agite une heure sur la scène, puis qu'on n'entend plus. C'est un conte raconté par un idiot, plein de bruit et de fureur, et qui ne signifie rien.`,
+    contexte: "Soliloque existentiel du héros tragique.",
+    attendus: [
+      { procede: "Antithèse", citation: "« Demain, puis demain, puis demain, rampe à petits pas de jour en jour jusqu'à la dernière syllabe du temps consigné. Et tous nos hiers n'ont fait qu'éclairer des fous sur le chemin de la poussière de la mort. Éteins-toi, éteins-toi, courte chandelle! La vie n'est qu'une ombre qui marche, un pauvre acteur qui se pavane et s'agite une heure sur la scène, puis qu'on n'entend plus. C'est un conte raconté par un idiot, plein de bruit et de fureur, et qui ne signifie rien. »", interpretation: "La tragédie s’ouvre sur une alternative absolue.", keywords: ["antithèse","existence","hamlet","tragédie"] },
+      { procede: "Métaphore", citation: "« Demain, puis demain, puis demain, rampe à petits pas de jour en jour jusqu'à la dernière syllabe du temps consigné. Et tous nos hiers n'ont fait qu'éclairer des fous sur le chemin de la poussière de la mort. Éteins-toi, éteins-toi, courte chandelle! La vie n'est qu'une ombre qui marche, un pauvre acteur qui se pavane et s'agite une heure sur la scène, puis qu'on n'entend plus. C'est un conte raconté par un idiot, plein de bruit et de fureur, et qui ne signifie rien. »", interpretation: "La souffrance est figurée comme immensité hostile.", keywords: ["métaphore","troubles","douleur","théâtre"] },
+      { procede: "Monologue", citation: "« Demain, puis demain, puis demain, rampe à petits pas de jour en jour jusqu'à la dernière syllabe du temps consigné. Et tous nos hiers n'ont fait qu'éclairer des fous sur le chemin de la poussière de la mort. Éteins-toi, éteins-toi, courte chandelle! La vie n'est qu'une ombre qui marche, un pauvre acteur qui se pavane et s'agite une heure sur la scène, puis qu'on n'entend plus. C'est un conte raconté par un idiot, plein de bruit et de fureur, et qui ne signifie rien. »", interpretation: "La conscience en crise devient spectacle.", keywords: ["monologue","conscience","crise","shakespeare"] }
+    ]
+  },
+  {
+    id: "GT-941",
+    titre: "Réveil de Gregor",
+    auteur: "Kafka",
+    oeuvre: "La Métamorphose (trad. fr.)",
+    genre: "Roman",
+    diff: 2,
+    texte: `En se réveillant un matin après des rêves agités, Gregor Samsa se trouva dans son lit métamorphosé en un monstrueux insecte. Il était sur le dos, un dos dur comme une carapace, et il voyait son ventre brun, cloisonné par des arches rigides. Ses nombreuses pattes, lamentablement grêles, nageaient devant ses yeux. « Qu'est-ce qui m'arrive? » pensa-t-il. Ce n'était pas un rêve. Sa chambre, avec ses murs familiers, demeurait tranquille; seul son corps avait basculé dans l'impossible.`,
+    contexte: "Incipit de la culpabilité sans cause.",
+    attendus: [
+      { procede: "Incipit", citation: "« En se réveillant un matin après des rêves agités, Gregor Samsa se trouva dans son lit métamorphosé en un monstrueux insecte. Il était sur le dos, un dos dur comme une carapace, et il voyait son ventre brun, cloisonné par des arches rigides. Ses nombreuses pattes, lamentablement grêles, nageaient devant ses yeux. « Qu'est-ce qui m'arrive? » pensa-t-il. Ce n'était pas un rêve. Sa chambre, avec ses murs familiers, demeurait tranquille; seul son corps avait basculé dans l'impossible. »", interpretation: "L’absurde judiciaire est posé immédiatement.", keywords: ["incipit","absurde","procès","kafka"] },
+      { procede: "Question sans réponse", citation: "« En se réveillant un matin après des rêves agités, Gregor Samsa se trouva dans son lit métamorphosé en un monstrueux insecte. Il était sur le dos, un dos dur comme une carapace, et il voyait son ventre brun, cloisonné par des arches rigides. Ses nombreuses pattes, lamentablement grêles, nageaient devant ses yeux. « Qu'est-ce qui m'arrive? » pensa-t-il. Ce n'était pas un rêve. Sa chambre, avec ses murs familiers, demeurait tranquille; seul son corps avait basculé dans l'impossible. »", interpretation: "L'opacité de l'autorité nourrit l'angoisse.", keywords: ["question","opacité","angoisse","roman"] },
+      { procede: "Métaphore", citation: "« En se réveillant un matin après des rêves agités, Gregor Samsa se trouva dans son lit métamorphosé en un monstrueux insecte. Il était sur le dos, un dos dur comme une carapace, et il voyait son ventre brun, cloisonné par des arches rigides. Ses nombreuses pattes, lamentablement grêles, nageaient devant ses yeux. « Qu'est-ce qui m'arrive? » pensa-t-il. Ce n'était pas un rêve. Sa chambre, avec ses murs familiers, demeurait tranquille; seul son corps avait basculé dans l'impossible. »", interpretation: "Le pouvoir impersonnel devient mécanisme inexorable.", keywords: ["métaphore","pouvoir","bureaucratie","modernité"] }
+    ]
+  },
+  {
+    id: "GT-942",
+    titre: "Éloge des armes et des lettres",
+    auteur: "Cervantès",
+    oeuvre: "Don Quichotte, discours des armes et des lettres (trad. fr.)",
+    genre: "Roman",
+    diff: 2,
+    texte: `Les lettres, dit Don Quichotte, ont pour fin de mettre les lois en clarté et de donner à chacun son droit; les armes ont pour fin et objet la paix, qui est le plus grand bien que les hommes puissent souhaiter en cette vie. On croit que le soldat n'est que violence, et l'homme de lettres n'est que repos; pourtant l'un et l'autre servent la république, chacun à sa manière. Si les armes sont rudes, les lettres sont laborieuses; et souvent les unes et les autres marchent au même péril.`,
+    contexte: "Ouverture parodique du roman moderne.",
+    attendus: [
+      { procede: "Incipit", citation: "« Les lettres, dit Don Quichotte, ont pour fin de mettre les lois en clarté et de donner à chacun son droit; les armes ont pour fin et objet la paix, qui est le plus grand bien que les hommes puissent souhaiter en cette vie. On croit que le soldat n'est que violence, et l'homme de lettres n'est que repos; pourtant l'un et l'autre servent la république, chacun à sa manière. Si les armes sont rudes, les lettres sont laborieuses; et souvent les unes et les autres marchent au même péril. »", interpretation: "Le récit part d’un cadre concret et ironique.", keywords: ["incipit","cadre","roman","cervantès"] },
+      { procede: "Accumulation", citation: "« Les lettres, dit Don Quichotte, ont pour fin de mettre les lois en clarté et de donner à chacun son droit; les armes ont pour fin et objet la paix, qui est le plus grand bien que les hommes puissent souhaiter en cette vie. On croit que le soldat n'est que violence, et l'homme de lettres n'est que repos; pourtant l'un et l'autre servent la république, chacun à sa manière. Si les armes sont rudes, les lettres sont laborieuses; et souvent les unes et les autres marchent au même péril. »", interpretation: "Le portrait compose un héros dérisoire.", keywords: ["accumulation","portrait","parodie","chevalerie"] },
+      { procede: "Ironie", citation: "« Les lettres, dit Don Quichotte, ont pour fin de mettre les lois en clarté et de donner à chacun son droit; les armes ont pour fin et objet la paix, qui est le plus grand bien que les hommes puissent souhaiter en cette vie. On croit que le soldat n'est que violence, et l'homme de lettres n'est que repos; pourtant l'un et l'autre servent la république, chacun à sa manière. Si les armes sont rudes, les lettres sont laborieuses; et souvent les unes et les autres marchent au même péril. »", interpretation: "La désinvolture narrative signale la distance comique.", keywords: ["ironie","narrateur","burlesque","moderne"] }
+    ]
+  },
+  {
+    id: "GT-943",
+    titre: "Lettre de Werther",
+    auteur: "Goethe",
+    oeuvre: "Les Souffrances du jeune Werther (trad. fr.)",
+    genre: "Théâtre",
+    diff: 3,
+    texte: `Quelle douceur pour mon cœur de se perdre dans cette nature! Quand le brouillard de la vallée monte devant moi, quand le soleil de midi repose sur la masse impénétrable de ma forêt, quand, couché dans les hautes herbes auprès du ruisseau, je découvre mille petites plantes inconnues, je sens la présence de l'infini. Alors le monde entier devient intérieur, et mon âme se dilate. Mais cette félicité même me blesse, car je sens qu'elle est passagère, et que le désir dépasse toujours ce qu'il atteint.`,
+    contexte: "Monologue d’ouverture sur les limites du savoir.",
+    attendus: [
+      { procede: "Énumération", citation: "« Quelle douceur pour mon cœur de se perdre dans cette nature! Quand le brouillard de la vallée monte devant moi, quand le soleil de midi repose sur la masse impénétrable de ma forêt, quand, couché dans les hautes herbes auprès du ruisseau, je découvre mille petites plantes inconnues, je sens la présence de l'infini. Alors le monde entier devient intérieur, et mon âme se dilate. Mais cette félicité même me blesse, car je sens qu'elle est passagère, et que le désir dépasse toujours ce qu'il atteint. »", interpretation: "Le parcours savant débouche sur le vide.", keywords: ["énumération","savoir","faust","crise"] },
+      { procede: "Exclamation", citation: "« Quelle douceur pour mon cœur de se perdre dans cette nature! Quand le brouillard de la vallée monte devant moi, quand le soleil de midi repose sur la masse impénétrable de ma forêt, quand, couché dans les hautes herbes auprès du ruisseau, je découvre mille petites plantes inconnues, je sens la présence de l'infini. Alors le monde entier devient intérieur, et mon âme se dilate. Mais cette félicité même me blesse, car je sens qu'elle est passagère, et que le désir dépasse toujours ce qu'il atteint. »", interpretation: "Le ton exprime la désillusion radicale.", keywords: ["exclamation","désillusion","théâtre","goethe"] },
+      { procede: "Quête", citation: "« Quelle douceur pour mon cœur de se perdre dans cette nature! Quand le brouillard de la vallée monte devant moi, quand le soleil de midi repose sur la masse impénétrable de ma forêt, quand, couché dans les hautes herbes auprès du ruisseau, je découvre mille petites plantes inconnues, je sens la présence de l'infini. Alors le monde entier devient intérieur, et mon âme se dilate. Mais cette félicité même me blesse, car je sens qu'elle est passagère, et que le désir dépasse toujours ce qu'il atteint. »", interpretation: "La science se transforme en aspiration métaphysique.", keywords: ["quête","métaphysique","connaissance","modernité"] }
+    ]
+  },
+  {
+    id: "GT-944",
+    titre: "Prière pour la tolérance [Série 20]",
+    auteur: "Voltaire",
+    oeuvre: "Traité sur la tolérance",
+    genre: "Idées",
+    diff: 2,
+    texte: `Ce n'est donc plus aux hommes que je m'adresse; c'est à toi, Dieu de tous les êtres, de tous les mondes et de tous les temps: s'il est permis à de faibles créatures, perdues dans l'immensité et imperceptibles au reste de l'univers, d'oser te demander quelque chose, à toi qui as tout donné, à toi dont les décrets sont immuables comme éternels, daigne regarder en pitié les erreurs attachées à notre nature; que ces erreurs ne fassent point nos calamités. Tu ne nous as point donné un cœur pour nous haïr, et des mains pour nous égorger; fais que nous nous aidions mutuellement à supporter le fardeau d'une vie pénible et passagère.`,
+    contexte: "Prière philosophique contre l'intolérance religieuse.",
+    attendus: [
+      { procede: "Apostrophe", citation: "« c'est à toi, Dieu de tous les êtres »", interpretation: "L'adresse solennelle universalise la demande morale.", keywords: ["apostrophe","universel","tolérance","voltaire"] },
+      { procede: "Antithèse", citation: "« Tu ne nous as point donné un cœur pour nous haïr, et des mains pour n »", interpretation: "Le texte oppose la violence à la fraternité.", keywords: ["antithèse","haine","fraternité","lumières"] },
+      { procede: "Registre oratoire", citation: "« daigne regarder en pitié »", interpretation: "Le ton de supplication renforce la portée civique.", keywords: ["oratoire","prière","argumentation","idées"] }
+    ]
+  },
+  {
+    id: "GT-945",
+    titre: "Aveu de Phèdre [Série 20]",
+    auteur: "Racine",
+    oeuvre: "Phèdre",
+    genre: "Théâtre",
+    diff: 1,
+    texte: `Je le vis, je rougis, je pâlis à sa vue; un trouble s'éleva dans mon âme éperdue; mes yeux ne voyaient plus, je ne pouvais parler; je sentis tout mon corps et transir et brûler. Je reconnus Vénus et ses feux redoutables, d'un sang qu'elle poursuit tourments inévitables. Par des vœux assidus je crus les détourner: je lui bâtis un temple, et pris soin de l'orner; de victimes moi-même à toute heure entourée, je cherchais dans leurs flancs ma raison égarée. Ainsi, la passion se fait faute, et la faute se fait destin.`,
+    contexte: "Aveu tragique d'une passion impossible.",
+    attendus: [
+      { procede: "Parallélisme", citation: "« Je le vis, je rougis, je pâlis »", interpretation: "Le rythme ternaire dramatise le choc amoureux.", keywords: ["parallélisme","aveu","tragédie","racine"] },
+      { procede: "Antithèse", citation: "« transir et brûler »", interpretation: "Le désir se dit dans une contradiction corporelle.", keywords: ["antithèse","désir","douleur","pathétique"] },
+      { procede: "Mythologie", citation: "« Je reconnus Vénus »", interpretation: "La référence divine inscrit la passion dans la fatalité.", keywords: ["mythologie","fatalité","vénus","tragique"] }
+    ]
+  },
+  {
+    id: "GT-946",
+    titre: "Dilemme de Rodrigue [Série 20]",
+    auteur: "Corneille",
+    oeuvre: "Le Cid",
+    genre: "Théâtre",
+    diff: 1,
+    texte: `Percé jusques au fond du cœur d'une atteinte imprévue aussi bien que mortelle, misérable vengeur d'une juste querelle, et malheureux objet d'une injuste rigueur, je demeure immobile, et mon âme abattue cède au coup qui me tue. En cet affront mon père est l'offensé, et l'offenseur le père de Chimène. Que je sens de rudes combats! contre mon propre honneur mon amour s'intéresse. Faut-il perdre Chimène, ou trahir mon lignage? le héros naît dans cette hésitation.`,
+    contexte: "Conflit classique entre honneur et amour.",
+    attendus: [
+      { procede: "Antithèse", citation: "« contre mon propre honneur mon amour s'intéresse. »", interpretation: "La symétrie formule l'impasse morale.", keywords: ["antithèse","honneur","amour","corneille"] },
+      { procede: "Registre tragique", citation: "« Percé jusques au fond du cœur »", interpretation: "La douleur morale prend la forme d'une blessure.", keywords: ["tragique","souffrance","dilemme","théâtre"] },
+      { procede: "Exclamation", citation: "« Que je sens de rudes combats! »", interpretation: "L'exclamation rend sensible l'urgence intérieure.", keywords: ["exclamation","combat","pathétique","classicisme"] }
+    ]
+  },
+  {
+    id: "GT-947",
+    titre: "Aveuglement d’Orgon [Série 20]",
+    auteur: "Molière",
+    oeuvre: "Tartuffe",
+    genre: "Théâtre",
+    diff: 2,
+    texte: `Ha! si vous aviez vu comme j'en fis rencontre, vous auriez pris pour lui l'amitié que je montre. Chaque jour à l'église il venait, d'un air doux, tout vis-à-vis de moi se mettre à deux genoux. Il attirait les yeux de l'assemblée entière par l'ardeur dont au Ciel il poussait sa prière; il faisait des soupirs, de grands élancements, et baisait humblement la terre à tous moments. Et lorsque je sortais, il me devançait vite pour m'aller à la porte offrir de l'eau bénite. Et Tartuffe? Le pauvre homme!`,
+    contexte: "Portrait comique d'un faux dévot.",
+    attendus: [
+      { procede: "Comique de caractère", citation: "« Le pauvre homme! »", interpretation: "Le refrain signale l'aveuglement d'Orgon.", keywords: ["comique","orgon","imposture","molière"] },
+      { procede: "Accumulation", citation: "« soupirs, de grands élancements »", interpretation: "La surenchère gestuelle dénonce l'hypocrisie.", keywords: ["accumulation","hypocrisie","satire","dévotion"] },
+      { procede: "Ironie dramatique", citation: "« Et Tartuffe? »", interpretation: "Le spectateur comprend ce qu'Orgon refuse de voir.", keywords: ["ironie dramatique","spectateur","théâtre","classicisme"] }
+    ]
+  },
+  {
+    id: "GT-948",
+    titre: "Morale du plus fort [Série 20]",
+    auteur: "La Fontaine",
+    oeuvre: "Fables",
+    genre: "Poésie",
+    diff: 2,
+    texte: `La raison du plus fort est toujours la meilleure: nous l'allons montrer tout à l'heure. Un Agneau se désaltérait dans le courant d'une onde pure. Un Loup survient à jeun, qui cherchait aventure, et que la faim en ces lieux attirait. Qui te rend si hardi de troubler mon breuvage? dit cet animal plein de rage: tu seras châtié de ta témérité. Sire, répond l'Agneau, que Votre Majesté ne se mette pas en colère; mais plutôt qu'elle considère que je me vas désaltérant plus de vingt pas au-dessous d'Elle.`,
+    contexte: "Fable sur l'arbitraire de la force.",
+    attendus: [
+      { procede: "Morale", citation: "« La raison du plus fort est toujours la meilleure »", interpretation: "La moralité initiale donne la clé de lecture politique.", keywords: ["morale","force","justice","fable"] },
+      { procede: "Dialogue", citation: "« Qui te rend si hardi »", interpretation: "Le discours direct met en scène un procès biaisé.", keywords: ["dialogue","procès","injustice","allégorie"] },
+      { procede: "Ironie", citation: "« Votre Majesté »", interpretation: "La politesse de l'agneau souligne la brutalité du loup.", keywords: ["ironie","domination","la fontaine","pouvoir"] }
+    ]
+  },
+  {
+    id: "GT-949",
+    titre: "Le soldat endormi [Série 20]",
+    auteur: "Rimbaud",
+    oeuvre: "Le Dormeur du val",
+    genre: "Poésie",
+    diff: 3,
+    texte: `C'est un trou de verdure où chante une rivière accrochant follement aux herbes des haillons d'argent; où le soleil, de la montagne fière, luit: c'est un petit val qui mousse de rayons. Un soldat jeune, bouche ouverte, tête nue, et la nuque baignant dans le frais cresson bleu, dort; il est étendu dans l'herbe, sous la nue, pâle dans son lit vert où la lumière pleut. Les parfums ne font pas frissonner sa narine; il dort dans le soleil, la main sur sa poitrine, tranquille. Il a deux trous rouges au côté droit.`,
+    contexte: "Poème de guerre à chute brutale.",
+    attendus: [
+      { procede: "Chute", citation: "« Il a deux trous rouges au côté droit »", interpretation: "Le dernier vers renverse la lecture bucolique.", keywords: ["chute","guerre","mort","rimbaud"] },
+      { procede: "Personnification", citation: "« C'est un trou de verdure où chante une rivière accrochant follement aux herbes des haillons d'argent; où le soleil, de la montagne fière, luit: c'est un petit val qui mousse de rayons. Un soldat jeune, bouche ouverte, tête nue, et la nuque baignant dans le frais cresson bleu, dort; il est étendu dans l'herbe, sous la nue, pâle dans son lit vert où la lumière pleut. Les parfums ne font pas frissonner sa narine; il dort dans le soleil, la main sur sa poitrine, tranquille. Il a deux trous rouges au côté droit. »", interpretation: "La nature maternelle reste impuissante face à la guerre.", keywords: ["personnification","nature","pathétique","poésie"] },
+      { procede: "Contraste", citation: "« trou de verdure »", interpretation: "Le cadre lumineux contraste avec la mort du soldat.", keywords: ["contraste","couleurs","violence","lyrique"] }
+    ]
+  },
+  {
+    id: "GT-950",
+    titre: "Mélancolie d’automne [Série 20]",
+    auteur: "Verlaine",
+    oeuvre: "Chanson d’automne",
+    genre: "Poésie",
+    diff: 1,
+    texte: `Les sanglots longs des violons de l'automne blessent mon cœur d'une langueur monotone. Tout suffocant et blême, quand sonne l'heure, je me souviens des jours anciens et je pleure; et je m'en vais au vent mauvais qui m'emporte deçà, delà, pareil à la feuille morte. Le soir s'allonge et la cloche descend dans l'air humide; la ville s'efface; mon pas hésite comme une voix qui s'éteint dans le froid, et ma mémoire revient avec ses battements sourds.`,
+    contexte: "Poème bref et musical de la nostalgie.",
+    attendus: [
+      { procede: "Allitération", citation: "« sanglots longs des violons »", interpretation: "Les sonorités prolongent la plainte.", keywords: ["allitération","musicalité","verlaine","mélancolie"] },
+      { procede: "Comparaison", citation: "« Pareil à la feuille morte »", interpretation: "Le sujet se dit emporté par le temps.", keywords: ["comparaison","automne","temps","destin"] },
+      { procede: "Registre lyrique", citation: "« je me souviens ... je pleure »", interpretation: "L'expression du moi structure le poème.", keywords: ["lyrique","souvenir","tristesse","poésie"] }
+    ]
+  },
+  {
+    id: "GT-951",
+    titre: "Modernité de Zone [Série 20]",
+    auteur: "Apollinaire",
+    oeuvre: "Alcools",
+    genre: "Poésie",
+    diff: 3,
+    texte: `A la fin tu es las de ce monde ancien. Bergère ô tour Eiffel le troupeau des ponts bêle ce matin. Tu en as assez de vivre dans l'antiquité grecque et romaine. Ici même les automobiles ont l'air d'être anciennes. La religion seule est restée toute neuve, la religion est restée simple comme les hangars de Port-Aviation. Seul en Europe tu n'es pas antique ô Christianisme. Et toi que les fenêtres observent, la honte te retient d'entrer dans une église et de t'y confesser ce matin.`,
+    contexte: "Poétique de la modernité urbaine.",
+    attendus: [
+      { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
+      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
+    ]
+  },
+  {
+    id: "GT-952",
+    titre: "Incipit provincial [Série 20]",
+    auteur: "Stendhal",
+    oeuvre: "Le Rouge et le Noir",
+    genre: "Roman",
+    diff: 1,
+    texte: `La petite ville de Verrières peut passer pour l'une des plus jolies de la Franche-Comté. Ses maisons blanches, avec leurs toits pointus de tuiles rouges, s'étendent sur la pente d'une colline, dont de vigoureux bouquets de châtaigniers marquent les moindres sinuosités. Le Doubs coule à quelques centaines de pieds au-dessous de ses fortifications, bâties jadis par les Espagnols. Verrières est abritée du côté du nord par une haute montagne, branche du Jura. Au premier aspect, le voyageur est frappé de cette propreté bourgeoise, de cet air d'ordre, et de ce mélange d'industrie et de verdure.`,
+    contexte: "Ouverture réaliste et ironique de la province.",
+    attendus: [
+      { procede: "Cadre", citation: "« La petite ville de Verrières »", interpretation: "L'incipit pose un espace social précis.", keywords: ["cadre","province","stendhal","réalisme"] },
+      { procede: "Lexique mélioratif", citation: "« La petite ville de Verrières peut passer pour l'une des plus jolies de la Franche-Comté. Ses maisons blanches, avec leurs toits pointus de tuiles rouges, s'étendent sur la pente d'une colline, dont de vigoureux bouquets de châtaigniers marquent les moindres sinuosités. Le Doubs coule à quelques centaines de pieds au-dessous de ses fortifications, bâties jadis par les Espagnols. Verrières est abritée du côté du nord par une haute montagne, branche du Jura. Au premier aspect, le voyageur est frappé de cette propreté bourgeoise, de cet air d'ordre, et de ce mélange d'industrie et de verdure. »", interpretation: "Le positif prépare une lecture critique.", keywords: ["lexique","ironie","bourgeoisie","roman"] },
+      { procede: "Attente", citation: "« La petite ville de Verrières peut passer pour l'une des plus jolies de la Franche-Comté. Ses maisons blanches, avec leurs toits pointus de tuiles rouges, s'étendent sur la pente d'une colline, dont de vigoureux bouquets de châtaigniers marquent les moindres sinuosités. Le Doubs coule à quelques centaines de pieds au-dessous de ses fortifications, bâties jadis par les Espagnols. Verrières est abritée du côté du nord par une haute montagne, branche du Jura. Au premier aspect, le voyageur est frappé de cette propreté bourgeoise, de cet air d'ordre, et de ce mélange d'industrie et de verdure. »", interpretation: "La promesse initiale sera démentie par le récit.", keywords: ["attente","promesse","narrateur","destin"] }
+    ]
+  },
+  {
+    id: "GT-953",
+    titre: "Entrée de Charles [Série 20]",
+    auteur: "Flaubert",
+    oeuvre: "Madame Bovary",
+    genre: "Roman",
+    diff: 2,
+    texte: `Nous étions à l'étude, quand le proviseur entra, suivi d'un nouveau habillé en bourgeois et d'un garçon de classe qui portait un grand pupitre. Ceux qui dormaient se réveillèrent, et chacun se leva comme surpris dans son travail. Le proviseur nous fit signe de nous rasseoir; puis, se tournant vers le maître d'études: « Monsieur Roger, lui dit-il, voici un élève que je vous recommande. » Resté dans l'angle, derrière la porte, si bien qu'on l'apercevait à peine, le nouveau était un gars de la campagne, embarrassé par les regards.`,
+    contexte: "Scène d'entrée et de maladresse sociale.",
+    attendus: [
+      { procede: "Focalisation", citation: "« Nous étions à l'étude »", interpretation: "Le point de vue collectif installe la scène.", keywords: ["focalisation","collectif","flaubert","classe"] },
+      { procede: "Réalisme social", citation: "« habillé en bourgeois »", interpretation: "Le vêtement marque immédiatement la position sociale.", keywords: ["réalisme","social","école","roman"] },
+      { procede: "Caractérisation", citation: "« le nouveau était un gars de la campagne »", interpretation: "L'origine rurale prépare l'inadaptation.", keywords: ["caractérisation","charles","inadaptation","bovary"] }
+    ]
+  },
+  {
+    id: "GT-954",
+    titre: "Nuit de Germinal [Série 20]",
+    auteur: "Zola",
+    oeuvre: "Germinal",
+    genre: "Roman",
+    diff: 1,
+    texte: `Dans la plaine rase, sous la nuit sans étoiles, d'une obscurité et d'une épaisseur d'encre, un homme suivait seul la grande route de Marchiennes à Montsou, dix kilomètres de pavé coupant tout droit, à travers les champs de betteraves. Il n'avait la sensation de l'immense horizon plat que par les souffles du vent de mars, des rafales larges comme sur une mer, glacées d'avoir balayé des lieues de marais et de terres nues. Aucune ombre d'arbre ne tachait le ciel; le pavé se déroulait avec la rectitude d'une jetée, au milieu des ténèbres.`,
+    contexte: "Incipit naturaliste d'une marche vers la mine.",
+    attendus: [
+      { procede: "Métaphore", citation: "« rafales larges comme sur une mer »", interpretation: "La plaine devient un espace hostile et océanique.", keywords: ["métaphore","paysage","zola","naturalisme"] },
+      { procede: "Champ lexical", citation: "« Dans la plaine rase, sous la nuit sans étoiles, d'une obscurité et d'une épaisseur d'encre, un homme suivait seul la grande route de Marchiennes à Montsou, dix kilomètres de pavé coupant tout droit, à travers les champs de betteraves. Il n'avait la sensation de l'immense horizon plat que par les souffles du vent de mars, des rafales larges comme sur une mer, glacées d'avoir balayé des lieues de marais et de terres nues. Aucune ombre d'arbre ne tachait le ciel; le pavé se déroulait avec la rectitude d'une jetée, au milieu des ténèbres. »", interpretation: "La noirceur annonce la violence sociale.", keywords: ["champ lexical","noir","mine","drame"] },
+      { procede: "Focalisation externe", citation: "« un homme suivait seul »", interpretation: "L'anonymat initial universalise la condition ouvrière.", keywords: ["focalisation","anonymat","ouvrier","roman"] }
+    ]
+  },
+  {
+    id: "GT-955",
+    titre: "Armée en déroute [Série 20]",
+    auteur: "Maupassant",
+    oeuvre: "Boule de suif",
+    genre: "Roman",
+    diff: 1,
+    texte: `Pendant plusieurs jours de suite des lambeaux d'armée en déroute avaient traversé la ville. Ce n'était point de la troupe, mais des hordes débandées. Les hommes, noirs, barbus, sales, harassés, marchaient d'un air abattu, sans drapeau, sans régiment. Tous semblaient accablés, incapables d'une pensée ou d'une résolution, marchant seulement par habitude, et tombant de fatigue sitôt qu'ils s'arrêtaient. On voyait des mobilisés paisibles, des francs-tireurs de parade, et des soldats vaincus que le hasard poussait encore.`,
+    contexte: "Ouverture de guerre et de désordre collectif.",
+    attendus: [
+      { procede: "Accumulation", citation: "« noirs, barbus, sales, harassés »", interpretation: "L'énumération matérialise l'épuisement.", keywords: ["accumulation","guerre","épuisement","maupassant"] },
+      { procede: "Description", citation: "« sans drapeau, sans régiment »", interpretation: "La défaite se lit dans la disparition des signes militaires.", keywords: ["description","défaite","armée","réalisme"] },
+      { procede: "Antithèse", citation: "« Pendant plusieurs jours de suite des lambeaux d'armée en déroute avaient traversé la ville. Ce n'était point de la troupe, mais des hordes débandées. Les hommes, noirs, barbus, sales, harassés, marchaient d'un air abattu, sans drapeau, sans régiment. Tous semblaient accablés, incapables d'une pensée ou d'une résolution, marchant seulement par habitude, et tombant de fatigue sitôt qu'ils s'arrêtaient. On voyait des mobilisés paisibles, des francs-tireurs de parade, et des soldats vaincus que le hasard poussait encore. »", interpretation: "Le texte montre la volatilité des foules en guerre.", keywords: ["antithèse","foule","instabilité","histoire"] }
+    ]
+  },
+  {
+    id: "GT-956",
+    titre: "Maison Vauquer [Série 20]",
+    auteur: "Balzac",
+    oeuvre: "Le Père Goriot",
+    genre: "Roman",
+    diff: 2,
+    texte: `Madame Vauquer, née de Conflans, est une vieille femme qui, depuis quarante ans, tient à Paris une pension bourgeoise établie rue Neuve-Sainte-Geneviève, entre le quartier latin et le faubourg Saint-Marceau. Cette pension, connue sous le nom de Maison Vauquer, admet également des hommes et des femmes, jeunes ou vieux. Depuis trente ans, n'y a-t-il jamais été vu de jeune personne; et pour qu'un jeune homme y demeure, il faut que sa famille lui fasse une bien modique pension. En 1819, époque où commence ce drame, il s'y trouvait pourtant une pauvre jeune fille.`,
+    contexte: "Incipit réaliste d'un microcosme social parisien.",
+    attendus: [
+      { procede: "Précision", citation: "« rue Neuve-Sainte-Geneviève »", interpretation: "Le détail topographique ancre le récit dans le réel.", keywords: ["réalisme","paris","topographie","balzac"] },
+      { procede: "Ironie", citation: "« Madame Vauquer, née de Conflans, est une vieille femme qui, depuis quarante ans, tient à Paris une pension bourgeoise établie rue Neuve-Sainte-Geneviève, entre le quartier latin et le faubourg Saint-Marceau. Cette pension, connue sous le nom de Maison Vauquer, admet également des hommes et des femmes, jeunes ou vieux. Depuis trente ans, n'y a-t-il jamais été vu de jeune personne; et pour qu'un jeune homme y demeure, il faut que sa famille lui fasse une bien modique pension. En 1819, époque où commence ce drame, il s'y trouvait pourtant une pauvre jeune fille. »", interpretation: "La formule valorisante suggère en creux la médiocrité.", keywords: ["ironie","narrateur","milieu","société"] },
+      { procede: "Annonce", citation: "« époque où commence ce drame »", interpretation: "Le narrateur prépare une trajectoire tragique.", keywords: ["annonce","drame","destin","roman"] }
+    ]
+  },
+  {
+    id: "GT-957",
+    titre: "Marche vers la tombe [Série 20]",
+    auteur: "Hugo",
+    oeuvre: "Les Contemplations",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Demain, dès l'aube, à l'heure où blanchit la campagne, je partirai. Vois-tu, je sais que tu m'attends. J'irai par la forêt, j'irai par la montagne. Je ne puis demeurer loin de toi plus longtemps. Je marcherai les yeux fixés sur mes pensées, sans rien voir au dehors, sans entendre aucun bruit, seul, inconnu, le dos courbé, les mains croisées, triste, et le jour pour moi sera comme la nuit. Je ne regarderai ni l'or du soir qui tombe, et quand j'arriverai, je mettrai sur ta tombe un bouquet de houx vert et de bruyère en fleur.`,
+    contexte: "Élégie du deuil filial.",
+    attendus: [
+      { procede: "Progression", citation: "« Demain, dès l'aube, à l'heure où blanchit la campagne, je partirai. Vois-tu, je sais que tu m'attends. J'irai par la forêt, j'irai par la montagne. Je ne puis demeurer loin de toi plus longtemps. Je marcherai les yeux fixés sur mes pensées, sans rien voir au dehors, sans entendre aucun bruit, seul, inconnu, le dos courbé, les mains croisées, triste, et le jour pour moi sera comme la nuit. Je ne regarderai ni l'or du soir qui tombe, et quand j'arriverai, je mettrai sur ta tombe un bouquet de houx vert et de bruyère en fleur. »", interpretation: "La marche géographique devient parcours intérieur.", keywords: ["progression","deuil","hugo","élégie"] },
+      { procede: "Antithèse", citation: "« Demain, dès l'aube, à l'heure où blanchit la campagne, je partirai. Vois-tu, je sais que tu m'attends. J'irai par la forêt, j'irai par la montagne. Je ne puis demeurer loin de toi plus longtemps. Je marcherai les yeux fixés sur mes pensées, sans rien voir au dehors, sans entendre aucun bruit, seul, inconnu, le dos courbé, les mains croisées, triste, et le jour pour moi sera comme la nuit. Je ne regarderai ni l'or du soir qui tombe, et quand j'arriverai, je mettrai sur ta tombe un bouquet de houx vert et de bruyère en fleur. »", interpretation: "La douleur annule les repères du monde.", keywords: ["antithèse","douleur","intériorité","lyrique"] },
+      { procede: "Chute", citation: "« sur ta tombe »", interpretation: "La destination funèbre reconfigure tout le poème.", keywords: ["chute","tombe","émotion","poésie"] }
+    ]
+  },
+  {
+    id: "GT-958",
+    titre: "Allégorie de l’albatros [Série 20]",
+    auteur: "Baudelaire",
+    oeuvre: "Les Fleurs du mal",
+    genre: "Poésie",
+    diff: 1,
+    texte: `Souvent, pour s'amuser, les hommes d'équipage prennent des albatros, vastes oiseaux des mers, qui suivent, indolents compagnons de voyage, le navire glissant sur les gouffres amers. A peine les ont-ils déposés sur les planches, que ces rois de l'azur, maladroits et honteux, laissent piteusement leurs grandes ailes blanches comme des avirons traîner à côté d'eux. Ce voyageur ailé, comme il est gauche et veule! Lui, naguère si beau, qu'il est comique et laid! Le Poète est semblable au prince des nuées.`,
+    contexte: "Allégorie du poète inadapté au monde social.",
+    attendus: [
+      { procede: "Allégorie", citation: "« Le Poète est semblable au prince des nuées »", interpretation: "L'albatros figure la condition du créateur.", keywords: ["allégorie","poète","société","baudelaire"] },
+      { procede: "Antithèse", citation: "« t-ils déposés sur les planches, que ces rois de l'azur, maladroits et honte »", interpretation: "La grandeur chute dans le ridicule terrestre.", keywords: ["antithèse","sublime","ridicule","modernité"] },
+      { procede: "Ironie", citation: "« pour s'amuser »", interpretation: "La cruauté collective est banalisée par le divertissement.", keywords: ["ironie","cruauté","foule","symbolisme"] }
+    ]
+  },
+  {
+    id: "GT-959",
+    titre: "Chants désespérés [Série 20]",
+    auteur: "Musset",
+    oeuvre: "La Nuit de mai",
+    genre: "Poésie",
+    diff: 2,
+    texte: `Poète, prends ton luth et me donne un baiser; la fleur de l'églantier sent ses bourgeons éclore, le printemps naît ce soir, les vents vont s'embraser. Les plus désespérés sont les chants les plus beaux, et j'en sais d'immortels qui sont de purs sanglots. Lorsque le pélican, lassé d'un long voyage, retourne à ses roseaux, ses petits affamés courent sur le rivage en le voyant au loin s'abattre sur les eaux. Ainsi le poète nourrit son chant de sa propre blessure, et la douleur devient musique.`,
+    contexte: "Poème dialogué sur la création née de la souffrance.",
+    attendus: [
+      { procede: "Maxime", citation: "« Les plus désespérés sont les chants les plus beaux »", interpretation: "La formule fait de la douleur une source esthétique.", keywords: ["maxime","désespoir","beauté","musset"] },
+      { procede: "Symbole", citation: "« le pélican »", interpretation: "L'oiseau représente le sacrifice du poète.", keywords: ["symbole","pélican","sacrifice","lyrisme"] },
+      { procede: "Dialogue", citation: "« Poète, prends ton luth »", interpretation: "L'échange Muse/Poète dramatise l'inspiration.", keywords: ["dialogue","muse","poète","création"] }
+    ]
+  },
+  {
+    id: "GT-960",
+    titre: "Stratégie de Merteuil [Série 20]",
+    auteur: "Laclos",
+    oeuvre: "Les Liaisons dangereuses",
+    genre: "Roman",
+    diff: 3,
+    texte: `Vous voilà donc bien heureux de votre dernière conquête! Vous m'écrivez trois pages pour me vanter une paysanne. J'en ris encore. Croyez-vous me faire envie? Je connais vos ruses. Vous voulez me piquer, me faire croire que vous n'avez plus besoin de moi. D'ailleurs, ce n'est pas Cécile qui m'intéresse; c'est vous. Je veux savoir si vous oserez exécuter le plan que nous avons formé. Préférez-vous la vertu de Mme de Tourvel à la gloire de me plaire? Choisissez. Si vous hésitez, je comprendrai que vous avez faibli, et je saurai me venger.`,
+    contexte: "Lettre de manipulation dans le roman libertin.",
+    attendus: [
+      { procede: "Registre épistolaire", citation: "« Vous m'écrivez trois pages »", interpretation: "La forme lettre sert la stratégie psychologique.", keywords: ["épistolaire","lettre","laclos","manipulation"] },
+      { procede: "Ironie", citation: "« J'en ris encore »", interpretation: "La moquerie masque une volonté de domination.", keywords: ["ironie","merteuil","pouvoir","stratégie"] },
+      { procede: "Antithèse", citation: "« vertu de Mme de Tourvel » / « gloire de me plaire »", interpretation: "Le conflit oppose morale et libertinage.", keywords: ["antithèse","vertu","séduction","libertinage"] }
+    ]
+  },
+  {
+    id: "GT-961",
+    titre: "Dialogue du Neveu [Série 20]",
+    auteur: "Diderot",
+    oeuvre: "Le Neveu de Rameau",
+    genre: "Idées",
+    diff: 2,
+    texte: `Je ne connais pas de plus grand charlatan que celui qui prétend enseigner ce qu'il ne sait pas. Le monde est plein de ces pédants qui récitent des maximes et ne les pratiquent point. Ils ont l'air grave, le ton sentencieux, et l'on les écoute; mais suivez-les chez eux, vous les verrez mentir, voler, tricher, se livrer à toutes les turpitudes qu'ils condamnent en public. Le Neveu rit de tout cela: « Morale! c'est le masque du faible devant le fort. » Je lui réponds que sans morale, la société tombe en ruine. Le dialogue ne tranche pas; il oblige à penser.`,
+    contexte: "Satire philosophique de l’hypocrisie sociale.",
+    attendus: [
+      { procede: "Ironie", citation: "« l'air grave, le ton sentencieux »", interpretation: "Le portrait dénonce les faux moralistes.", keywords: ["ironie","pédants","hypocrisie","diderot"] },
+      { procede: "Antithèse", citation: "« sans morale, la société tombe » / « Morale! c'est le masque »", interpretation: "Le texte confronte deux conceptions irréconciliables.", keywords: ["antithèse","morale","cynisme","dialogue"] },
+      { procede: "Registre argumentatif", citation: "« Le dialogue ne tranche pas »", interpretation: "La pensée progresse par confrontation des voix.", keywords: ["argumentatif","débat","philosophie","lumières"] }
+    ]
+  },
+  {
+    id: "GT-962",
+    titre: "Mal du siècle [Série 20]",
+    auteur: "Chateaubriand",
+    oeuvre: "René",
+    genre: "Roman",
+    diff: 2,
+    texte: `Les solitudes me parlent une langue que je comprends; les grands bois, les montagnes, les mers désertes me rendent ce que les hommes m'ont pris. J'ai passé ma jeunesse à fuir les villes, à chercher des lieux où le vent souffle sans témoin, où l'on peut pleurer sans ridicule. Amélie, ma sœur, partageait autrefois ces errances; mais le monde a séparé nos destins, et je reste seul avec mon mal du siècle, ce vague à l'âme qui consume sans éclat. Les ruines, les tombeaux, les crépuscules m'attirent: je ne cherche pas le bonheur, je cherche une émotion forte.`,
+    contexte: "Confession romantique et solitude existentielle.",
+    attendus: [
+      { procede: "Personnification", citation: "« Les solitudes me parlent »", interpretation: "La nature devient interlocutrice du moi.", keywords: ["personnification","nature","romantisme","rené"] },
+      { procede: "Registre lyrique", citation: "« ce vague à l'âme »", interpretation: "Le texte exprime la crise intime du sujet romantique.", keywords: ["lyrique","mal du siècle","subjectivité","chateaubriand"] },
+      { procede: "Antithèse", citation: "« Je ne cherche pas le bonheur » / « une émotion forte »", interpretation: "Le héros refuse la modération bourgeoise.", keywords: ["antithèse","bonheur","intensité","roman"] }
+    ]
+  },
+  {
+    id: "GT-963",
+    titre: "Passion à la cour [Série 20]",
+    auteur: "Lafayette",
+    oeuvre: "La Princesse de Clèves",
+    genre: "Roman",
+    diff: 3,
+    texte: `La cour était alors dans une magnificence qu'on n'a jamais vue depuis. L'ambition et la galanterie régnaient en même temps et occupaient également les esprits; l'un et l'autre trouvaient souvent des moyens de se concilier, et l'on ne savait lequel emportait l'avantage. Mme de Clèves, jeune, belle, et mariée au prince de Clèves, ne connaissait pas encore la violence de la passion. Elle croyait que l'honnêteté suffisait à régler la conduite. Mais le duc de Nemours parut: il était de ces hommes que la nature semble avoir formés pour se faire aimer.`,
+    contexte: "Exposition du roman de passion classique.",
+    attendus: [
+      { procede: "Tableau social", citation: "« L'ambition et la galanterie régnaient »", interpretation: "Le cadre de cour organise les comportements.", keywords: ["cour","mœurs","galanterie","lafayette"] },
+      { procede: "Antithèse", citation: "« Elle croyait que l'honnêteté suffisait à régler la conduite »", interpretation: "Le conflit moral est lancé dès l’exposition.", keywords: ["antithèse","vertu","passion","roman"] },
+      { procede: "Caractérisation", citation: "« formés pour se faire aimer »", interpretation: "Nemours apparaît comme type du séducteur.", keywords: ["caractérisation","nemours","désir","classicisme"] }
     ]
   }
 ];

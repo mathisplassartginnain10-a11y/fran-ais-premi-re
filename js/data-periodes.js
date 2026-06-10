@@ -1,4 +1,5 @@
-/* data-periodes.js — Mouvements littéraires (XVIIe s. → aujourd'hui) */
+/* data-periodes.js — Mouvements littéraires (XVIIe s. → aujourd'hui)
+   « Première œuvre » = texte fondateur du mouvement dans le genre (repère bac). */
 const PERIODES_GENRES = [
   { id: 'roman', label: 'Roman', icon: '📕' },
   { id: 'theatre', label: 'Théâtre', icon: '🎭' },
@@ -18,7 +19,7 @@ const PERIODES_DATA = {
       id: 'roman-lumieres',
       mouvement: 'Lumières',
       periode: 'XVIIIe siècle',
-      oeuvre: { titre: 'Manon Lescaut', auteur: 'Abbé Prévost', annee: '1731' },
+      oeuvre: { titre: 'Lettres persanes', auteur: 'Montesquieu', annee: '1721' },
       auteurs: ['Voltaire', 'Jean-Jacques Rousseau'],
     },
     {
@@ -46,14 +47,14 @@ const PERIODES_DATA = {
       id: 'roman-xxe',
       mouvement: 'XXe siècle',
       periode: '1900 – 1950',
-      oeuvre: { titre: "L'Étranger", auteur: 'Albert Camus', annee: '1942' },
-      auteurs: ['Albert Camus', 'Marcel Proust'],
+      oeuvre: { titre: 'Du côté de chez Swann', auteur: 'Marcel Proust', annee: '1913' },
+      auteurs: ['Marcel Proust', 'Albert Camus'],
     },
     {
       id: 'roman-contemporain',
       mouvement: 'Contemporain',
       periode: '1950 – aujourd\'hui',
-      oeuvre: { titre: 'Moderato cantabile', auteur: 'Marguerite Duras', annee: '1958' },
+      oeuvre: { titre: 'La Jalousie', auteur: 'Alain Robbe-Grillet', annee: '1957' },
       auteurs: ['Annie Ernaux', 'Marie NDiaye'],
     },
   ],
@@ -69,14 +70,14 @@ const PERIODES_DATA = {
       id: 'theatre-lumieres',
       mouvement: 'Lumières',
       periode: 'XVIIIe siècle',
-      oeuvre: { titre: 'Le Barbier de Séville', auteur: 'Beaumarchais', annee: '1775' },
-      auteurs: ['Beaumarchais', 'Marivaux'],
+      oeuvre: { titre: 'Le Fils naturel', auteur: 'Diderot', annee: '1757' },
+      auteurs: ['Diderot', 'Beaumarchais'],
     },
     {
       id: 'theatre-romantisme',
       mouvement: 'Romantisme',
       periode: '1830 – 1850',
-      oeuvre: { titre: 'Hernani', auteur: 'Victor Hugo', annee: '1830' },
+      oeuvre: { titre: 'Henri III et sa cour', auteur: 'Alexandre Dumas', annee: '1829' },
       auteurs: ['Victor Hugo', 'Alfred de Musset'],
     },
     {
@@ -90,8 +91,8 @@ const PERIODES_DATA = {
       id: 'theatre-xxe',
       mouvement: 'Théâtre du XXe s.',
       periode: '1900 – 1960',
-      oeuvre: { titre: 'En attendant Godot', auteur: 'Samuel Beckett', annee: '1953' },
-      auteurs: ['Eugène Ionesco', 'Jean Anouilh'],
+      oeuvre: { titre: 'Ubu roi', auteur: 'Alfred Jarry', annee: '1896' },
+      auteurs: ['Alfred Jarry', 'Jean Cocteau'],
     },
     {
       id: 'theatre-contemporain',
@@ -106,7 +107,7 @@ const PERIODES_DATA = {
       id: 'poesie-baroque',
       mouvement: 'Baroque',
       periode: 'XVIIe siècle (début)',
-      oeuvre: { titre: 'Les Œuvres', auteur: 'Théophile de Viau', annee: '1621' },
+      oeuvre: { titre: 'Les Œuvres poétiques', auteur: 'Théophile de Viau', annee: '1621' },
       auteurs: ['Théophile de Viau', 'Jean de Schelandre'],
     },
     {
@@ -120,7 +121,7 @@ const PERIODES_DATA = {
       id: 'poesie-lumieres',
       mouvement: 'Lumières',
       periode: 'XVIIIe siècle',
-      oeuvre: { titre: 'Les Jardins', auteur: 'Jacques Delille', annee: '1782' },
+      oeuvre: { titre: 'Henriade', auteur: 'Voltaire', annee: '1723' },
       auteurs: ['Voltaire', 'André Chénier'],
     },
     {
@@ -134,8 +135,8 @@ const PERIODES_DATA = {
       id: 'poesie-parnasse',
       mouvement: 'Parnasse',
       periode: '1850 – 1870',
-      oeuvre: { titre: 'Les Fleurs du mal', auteur: 'Charles Baudelaire', annee: '1857' },
-      auteurs: ['Charles Baudelaire', 'Théophile Gautier'],
+      oeuvre: { titre: 'Émaux et camées', auteur: 'Théophile Gautier', annee: '1852' },
+      auteurs: ['Théophile Gautier', 'Leconte de Lisle'],
     },
     {
       id: 'poesie-symbolisme',
