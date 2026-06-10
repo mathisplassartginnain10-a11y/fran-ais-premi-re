@@ -11,6 +11,14 @@ document.addEventListener('keydown', e => {
     return null;
   }
 
+  if (e.key === 'Escape') {
+    const panel = el('settings-panel');
+    if (panel && panel.classList.contains('open') && typeof closeSettings === 'function') {
+      closeSettings();
+      return;
+    }
+  }
+
   if (['1','2','3','4'].includes(e.key) && getSetting('kbShortcuts')) {
     const m = activeMatiere();
     if (!m) return;

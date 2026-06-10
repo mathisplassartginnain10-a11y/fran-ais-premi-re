@@ -517,6 +517,8 @@ function openSettings() {
   el('settings-overlay').classList.add('open');
   el('settings-panel').classList.add('open');
   document.body.style.overflow = 'hidden';
+  const closeBtn = el('settings-panel')?.querySelector('.sp-close');
+  if (closeBtn) closeBtn.focus();
 }
 function closeSettings() {
   el('settings-overlay').classList.remove('open');
