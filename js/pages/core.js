@@ -1285,6 +1285,7 @@ function switchPg(matiere, page, btn) {
     catch (e) { console.error('p-gtextes', e); }
   }
   if (page === 'p-auteurs') { initAuteursFilters(); renderAuteursList(); }
+  if (page === 'p-periodes') { initPeriodesFilters(); renderPeriodesList(); }
   if (page === 'p-sim') initIntroSim();
 }
 

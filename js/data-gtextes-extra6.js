@@ -9,7 +9,8 @@ const GRANDS_TEXTES_EXTRA6 = [
     diff: 2,
     texte: `J'ai toujours suspecté les ethnographes et les linguistes lorsqu'ils reviennent d'un voyage aux Indes ou au Mexique.`,
     contexte: "Narrateur sceptique — exotisme, réalisme, registre satirique.",
-    attendus: [      { procede: "Registre satirique", citation: "« ethnographes et linguistes »", interpretation: "À travers « ethnographes et linguistes », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique", "ethnograp", "moquer", "exotisme", "démyst", "savants"] },
+    attendus: [
+      { procede: "Registre satirique", citation: "« ethnographes et linguistes »", interpretation: "À travers « ethnographes et linguistes », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique", "ethnograp", "moquer", "exotisme", "démyst", "savants"] },
       { procede: "Antiphrase", citation: "« suspecté »", interpretation: "Antiphrase: « suspecté » dit le contraire du sens réel ou crée un décalage critique. Prosper Mérimée invite à lire exotisme à contre-pied.", keywords: ["antiphrase", "suspect", "lucide", "iron", "savoir", "officiel"] },
       { procede: "Registre didactique", citation: "ton de leçon d'expérience", interpretation: "Registre didactique: « ton de leçon d'expérience » vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle, au cœur de l'exotisme.", keywords: ["didact", "leçon", "expérience", "méthode", "récit", "première"] }
     ]
@@ -56,7 +57,8 @@ const GRANDS_TEXTES_EXTRA6 = [
     diff: 3,
     texte: `Mon paroisse est pauvre. … On m'appelle le curé de Torcy.`,
     contexte: "Roman catholique — misère, foi, solitude, écriture intime.",
-    attendus: [      { procede: "Anaphore", citation: "« Mon… Mon… »", interpretation: "L'anaphore (« Mon… Mon… ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "mon", "répét", "curé", "condition", "insiste"] },
+    attendus: [
+      { procede: "Anaphore", citation: "« Mon… Mon… »", interpretation: "L'anaphore (« Mon… Mon… ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "mon", "répét", "curé", "condition", "insiste"] },
       { procede: "Registre pathétique", citation: "« j'ai du mal à me chauffer »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « j'ai du mal à me chauffer » concentre cette coloration du misère.", keywords: ["pathétique", "chauffer", "misère", "pit", "dénuement", "froid"] },
       { procede: "Champ lexical", citation: "« pauvre », « froid », « mal »", interpretation: "Autour de « pauvre » face à « froid », le vocabulaire (« pauvre », « froid ») forme un réseau sémantique : le lecteur perçoit roman catholique par accumulation lexicale.", keywords: ["champ lexical", "pauvre", "froid", "mal", "misère", "réaliste"] },
       { procede: "Registre lyrique", citation: "« On m'appelle »", interpretation: "À travers « On m'appelle », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique", "appelle", "identité", "je", "confession", "prêtre"] }
@@ -74,7 +76,8 @@ const GRANDS_TEXTES_EXTRA6 = [
     attendus: [
       { procede: "Apostrophe", citation: "« mon cher enfant » / « je vous hais »", interpretation: "En s'adressant directement (« mon cher enfant » face à « je vous hais »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe", "cher", "hais", "iron", "antiphrase", "enfant"] },
       { procede: "Antithèse", citation: "« mon cher enfant » / « je vous hais »", interpretation: "Antithèse: « mon cher enfant » s'oppose à « je vous hais ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "cher", "hais", "famille", "conflit", "contraste"] },
-      { procede: "Registre pathétique", citation: "« je vous hais »", interpretation: "Registre pathétique: « je vous hais » suscite la compassion et l'indignation face à la souffrance, au cœur de l'haine familiale.", keywords: ["pathétique", "hais", "terreur", "pit", "haine", "déclar"] },      { procede: "Litote", citation: "« pas le moindre remords »", interpretation: "Litote : absence totale de remords — dureté du personnage.", keywords: ["litote", "remords", "absence", "dureté", "personnag", "total"] }
+      { procede: "Registre pathétique", citation: "« je vous hais »", interpretation: "Registre pathétique: « je vous hais » suscite la compassion et l'indignation face à la souffrance, au cœur de l'haine familiale.", keywords: ["pathétique", "hais", "terreur", "pit", "haine", "déclar"] },
+      { procede: "Litote", citation: "« pas le moindre remords »", interpretation: "Litote : absence totale de remords — dureté du personnage.", keywords: ["litote", "remords", "absence", "dureté", "personnag", "total"] }
     ]
   },
   {
@@ -105,7 +108,8 @@ const GRANDS_TEXTES_EXTRA6 = [
     attendus: [
       { procede: "Registre comique", citation: "« j'en ai marre d'être une gamine »", interpretation: "Registre comique: « j'en ai marre d'être une gamine » provoque le rire par la situation, les mots ou les personnages, au cœur du langage oral.", keywords: ["comique", "gamines", "familier", "humour", "populaire", "queneau"] },
       { procede: "Dialogue", citation: "répliques de Zazie", interpretation: "Dialogue: « répliques de Zazie » concentre l'effet recherché par Raymond Queneau dans le langage oral. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue", "répliq", "oral", "vivac", "roman", "théâtre"] },
-      { procede: "Antithèse", citation: "« gamine » / « femme »", interpretation: "Antithèse entre « gamine » et « femme »: le contraste met en relief deux pôles opposés et accentue langage oral.", keywords: ["antithèse", "gamines", "femme", "initiat", "enfance", "contraste"] }    ]
+      { procede: "Antithèse", citation: "« gamine » / « femme »", interpretation: "Antithèse entre « gamine » et « femme »: le contraste met en relief deux pôles opposés et accentue langage oral.", keywords: ["antithèse", "gamines", "femme", "initiat", "enfance", "contraste"] }
+    ]
   },
   {
     id: "GT-148",
@@ -152,7 +156,8 @@ Et si l'on te touchait, tu ne sentirais peut-être rien.`,
     attendus: [
       { procede: "Registre lyrique", citation: "« En ce temps-là je voyageais »", interpretation: "À travers « En ce temps-là je voyageais », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique", "je", "voyage", "errance", "subjectiv", "moderne"] },
       { procede: "Champ lexical", citation: "« voyageais », « patrie »", interpretation: "Le champ lexical repéré (« voyageais », « patrie ») enveloppe « voyageais » face à « patrie » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans Prose du Transsibérien.", keywords: ["champ lexical", "voyage", "patrie", "exil", "moderne", "errance"] },
-      { procede: "Registre épique", citation: "« Transsibérien » implicite", interpretation: "Registre épique: par « Transsibérien », Blaise Cendrars élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Prose du Transsibérien.", keywords: ["épique", "voyage", "grandeur", "monde", "transsib", "enverg"] }    ]
+      { procede: "Registre épique", citation: "« Transsibérien » implicite", interpretation: "Registre épique: par « Transsibérien », Blaise Cendrars élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Prose du Transsibérien.", keywords: ["épique", "voyage", "grandeur", "monde", "transsib", "enverg"] }
+    ]
   },
   {
     id: "GT-151",
@@ -182,7 +187,8 @@ Et tu entreras dans la ville sans nom.`,
     contexte: "Décadentisme — esthétisme, fuite du réel, symbolisme fin-de-siècle.",
     attendus: [
       { procede: "Métaphore", citation: "« bâti un monde artificiel »", interpretation: "Métaphore: « bâti un monde artificiel » transfère le sens d'un domaine à un autre et crée une image frappante. Joris-Karl Huysmans suggère ainsi l'esthétisme.", keywords: ["métaphore", "monde", "artificiel", "esthét", "fuite", "réel"] },
-      { procede: "Antithèse", citation: "« artificiel » / « esprit et goût »", interpretation: "Antithèse: « artificiel » s'oppose à « esprit et goût ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "artificiel", "esprit", "goût", "décadent", "culture"] },      { procede: "Registre lyrique", citation: "« satisfactions… de l'esprit »", interpretation: "Registre lyrique : quête de sensations raffinées — sensibilité décadente.", keywords: ["lyrique", "satisfact", "esprit", "sensibilit", "décadent", "raffin"] }
+      { procede: "Antithèse", citation: "« artificiel » / « esprit et goût »", interpretation: "Antithèse: « artificiel » s'oppose à « esprit et goût ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "artificiel", "esprit", "goût", "décadent", "culture"] },
+      { procede: "Registre lyrique", citation: "« satisfactions… de l'esprit »", interpretation: "Registre lyrique : quête de sensations raffinées — sensibilité décadente.", keywords: ["lyrique", "satisfact", "esprit", "sensibilit", "décadent", "raffin"] }
     ]
   },
   {
@@ -197,7 +203,8 @@ Et tu entreras dans la ville sans nom.`,
     attendus: [
       { procede: "Apostrophe", citation: "« Fils, je t'aimais »", interpretation: "L'apostrophe « Fils, je t'aimais » interpelle un absent ou une abstraction : François-René de Chateaubriand implique le lecteur ou un destinataire absent et dramatise préromantisme.", keywords: ["apostrophe", "fils", "aimais", "vieillard", "transmiss", "affect"] },
       { procede: "Anaphore", citation: "« je t'aimais ; je t'aime encore »", interpretation: "L'anaphore (« je t'aimais ; je t'aime encore ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "aime", "répét", "continu", "lyrique", "amour"] },
-      { procede: "Registre lyrique", citation: "« je t'aime encore »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « je t'aime encore » concentre cette coloration de la nature américaine.", keywords: ["lyrique", "aime", "déclar", "affect", "préromant", "encore"] }    ]
+      { procede: "Registre lyrique", citation: "« je t'aime encore »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « je t'aime encore » concentre cette coloration de la nature américaine.", keywords: ["lyrique", "aime", "déclar", "affect", "préromant", "encore"] }
+    ]
   },
   {
     id: "GT-154",
@@ -260,7 +267,8 @@ Et tu entreras dans la ville sans nom.`,
     contexte: "Roman psychologique — analyse des sentiments, registre lyrique et moral.",
     attendus: [
       { procede: "Question rhétorique", citation: "« Je ne sais si je dois »", interpretation: "Question rhétorique repérée dans « Je ne sais si je dois »: l'interrogation feinte structure l'argumentation de analyse des sentiments.", keywords: ["question", "rhétor", "sais", "doute", "psycholog", "marivaud"] },
-      { procede: "Antithèse", citation: "« me plaindre ou me louer »", interpretation: "Antithèse repérée dans « me plaindre ou me louer »: deux termes ou idées s'opposent pour souligner analyse des sentiments.", keywords: ["antithèse", "plaindre", "louer", "destin", "ambival", "contraste"] },      { procede: "Registre lyrique", citation: "« du sort qui m'a fait naître »", interpretation: "Registre lyrique : réflexion existentielle — subjectivité féminine.", keywords: ["lyrique", "sort", "naître", "exist", "subjectiv", "féminin"] }
+      { procede: "Antithèse", citation: "« me plaindre ou me louer »", interpretation: "Antithèse repérée dans « me plaindre ou me louer »: deux termes ou idées s'opposent pour souligner analyse des sentiments.", keywords: ["antithèse", "plaindre", "louer", "destin", "ambival", "contraste"] },
+      { procede: "Registre lyrique", citation: "« du sort qui m'a fait naître »", interpretation: "Registre lyrique : réflexion existentielle — subjectivité féminine.", keywords: ["lyrique", "sort", "naître", "exist", "subjectiv", "féminin"] }
     ]
   },
   {

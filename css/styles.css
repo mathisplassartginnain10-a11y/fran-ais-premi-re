@@ -1277,6 +1277,51 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 .auteur-dev strong{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold2);margin-bottom:.35rem}
 .auteur-dev p{margin:0;font-size:13px;line-height:1.55;color:var(--tx2)}
 .auteur-corpus-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:.65rem}
+
+.periodes-intro{font-size:14px;color:var(--tx2);line-height:1.6;margin:1.2rem 0 1.1rem;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto}
+.periodes-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:.85rem}
+.periodes-search-box{flex:1;min-width:200px;max-width:380px}
+.periodes-summary{font-size:12px;color:var(--tx2);margin-left:auto;font-weight:500}
+.periodes-filters{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem .75rem;margin-bottom:1rem}
+.periodes-filter-label{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--tx3);min-width:3.2rem;font-weight:500}
+.periodes-list{margin-top:.25rem}
+.periodes-empty{font-size:14px;color:var(--tx3);text-align:center;padding:2.5rem 1rem}
+.periodes-table-wrap{overflow-x:auto;border:1px solid var(--b2);border-radius:var(--rad2);background:var(--s2)}
+.periodes-table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.55}
+.periodes-table thead th{
+  position:sticky;top:0;z-index:1;
+  background:var(--s3);color:var(--tx2);font-weight:600;text-align:left;
+  padding:12px 14px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  border-bottom:1px solid var(--b2);white-space:nowrap
+}
+.periodes-table tbody td{padding:14px;border-bottom:1px solid var(--b1);vertical-align:top;color:var(--tx2)}
+.periodes-table tbody tr:last-child td{border-bottom:none}
+.periodes-table tbody tr.alt td{background:rgba(255,255,255,.015)}
+.periodes-table tbody tr:hover td{background:rgba(201,168,76,.05)}
+.periode-td-mouv{min-width:8.5rem;width:16%}
+.periode-td-per{min-width:7.5rem;width:14%;white-space:nowrap}
+.periode-td-oeuvre{min-width:11rem;width:32%}
+.periode-td-aut{min-width:9rem;width:24%}
+.periode-mouv-name{display:block;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--tx1);line-height:1.35}
+.periode-per-badge{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--gdim);color:var(--gold2);font-weight:500;line-height:1.3}
+.periode-oeuvre{display:flex;flex-direction:column;gap:4px}
+.periode-oeuvre-titre{display:block;font-size:14.5px;font-weight:600;color:var(--tx1);line-height:1.4}
+.periode-oeuvre-meta{display:block;font-size:12.5px;color:var(--tx3);line-height:1.4}
+.periode-auteurs-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.periode-auteurs-list li{
+  font-size:14px;font-weight:500;color:var(--gold2);line-height:1.35;
+  padding-left:12px;position:relative
+}
+.periode-auteurs-list li::before{
+  content:'';position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--gold)
+}
+.periode-muted{color:var(--tx3)}
+@media(max-width:720px){
+  .periodes-table{font-size:13px}
+  .periodes-table thead th,.periodes-table tbody td{padding:10px 11px}
+  .periode-mouv-name{font-size:1rem}
+  .periode-oeuvre-titre{font-size:13.5px}
+}
 .auteur-empty-detail{font-size:12.5px;color:var(--tx3);font-style:italic;margin:0 0 .35rem}
 .auteur-nom{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--gold2);margin:0 0 .35rem}
 .auteur-meta{font-size:12px;color:var(--tx3);margin:0 0 .55rem}

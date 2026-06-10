@@ -16,7 +16,8 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-014": "Roman de Camus (1942) : Meursault, absurde, indifférence — existentialisme, narrateur autodiégétique.",
   "GT-015": "Nouvelle fantastique de Maupassant (1887) : hantise, folie progressive — narrateur peu fiable.",
   "GT-016": "Roman de Zola (1885) : grève des mineurs, naturalisme, dénonciation sociale — cycle des Rougon-Macquart.",
-  "GT-017": "Roman de Hugo (1862) : misère sociale, rédemption, engagement — Jean Valjean, figure du roman engagé du XIXe siècle.",
+  "GT-017": "Roman de Hugo (1862) : misère sociale, rédemption, engagement — Jean Valjean, figure du roman engagé du XIXe siècle.",
+
   "GT-019": "Recueil de La Fontaine (1668 et suiv.) : « plaire et instruire » — « La Cigale et la Fourmi » illustre la morale fabuliste.",
   "GT-020": "Tragédie de Racine (1670) : amour impossible entre Titus et Bérénice — le devoir politique l'emporte sur la passion.",
   "GT-021": "Recueil de Verlaine (1884) : « Art poétique », poétique de la suggestion et de la musicalité.",
@@ -68,14 +69,16 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-067": "Recueil de Vigny (1826) : « La Maison du berger », poésie philosophique et mélancolique.",
   "GT-068": "Recueil de Baudelaire (1857) : « Spleen », ennui existentiel et modernité poétique.",
   "GT-069": "Recueil de Ronsard (1550) : poésie amoureuse de la Pléiade — « Que tu es heureux… ».",
-  "GT-070": "Recueil de Lamartine (1820) : « Le Vallon », paysage et méditation — lyrisme romantique.",
+  "GT-070": "Recueil de Lamartine (1820) : « Le Vallon », paysage et méditation — lyrisme romantique.",
+
   "GT-072": "Conte philosophique de Voltaire (1752) : voyage interplanétaire, satire des préjugés.",
   "GT-073": "Roman de Sartre (1938) : existentialisme, crise de l'existence — Roquentin et la racine.",
   "GT-074": "Prose lyrique de Gide (1897) : quête de soi, jouissance de l'existence.",
   "GT-075": "Tragédie de Corneille (1642) : martyre chrétien, conflit entre foi et amour — registre héroïque.",
   "GT-076": "Recueil épique de Hugo (1859) : « Booz endormi », poésie biblique et visionnaire.",
   "GT-077": "Poème d'Apollinaire (1913) : modernité parisienne, vers libre, collage d'images.",
-  "GT-078": "Poème de Rimbaud (1870) : « Le Dormeur du val », chute tragique — guerre et registre pathétique.",
+  "GT-078": "Poème de Rimbaud (1870) : « Le Dormeur du val », chute tragique — guerre et registre pathétique.",
+
   "GT-080": "Conte de Saint-Exupéry (1943) : amitié, regard du cœur — allégorie humaniste.",
   "GT-081": "Roman de Madame de Lafayette (1678) : premier roman psychologique — amour, devoir et pudeur à la cour.",
   "GT-082": "Préface de Chateaubriand (1802) : mal du siècle, mélancolie romantique — René et Amélie.",
@@ -93,8 +96,10 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-094": "Poème de Hugo (1856) : peur surnaturelle, strophes en crescendo — Les Contemplations.",
   "GT-095": "Prose de Rimbaud (1873) : Une saison en enfer — révolte et modernité poétique.",
   "GT-096": "Nouvelle de Vercors (1942) : résistance passive sous l'Occupation — clandestinité.",
-  "GT-097": "Pièce d'Anouilh (1944) : révolte d'Antigone — tragédie modernisée.",
-  "GT-099": "Roman de Malraux (1933) : révolution chinoise, fraternité et action — existentialisme engagé.",
+  "GT-097": "Pièce d'Anouilh (1944) : révolte d'Antigone — tragédie modernisée.",
+
+  "GT-099": "Roman de Malraux (1933) : révolution chinoise, fraternité et action — existentialisme engagé.",
+
   "GT-101": "Sonnet de Ronsard (1552) : la rose et le temps — poésie amoureuse de la Pléiade.",
   "GT-102": "Ode de Du Bellay (1558) : fierté humaniste et amour de la langue française — Les Regrets.",
   "GT-103": "Tragédie de Corneille (1637) : Rodrigue déchiré entre honneur et amour — conflit intérieur héroïque.",
@@ -103,12 +108,16 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-106": "Poème de Verlaine (1866) : musicalité, rêve amoureux — suggestion et vers courts.",
   "GT-107": "Poème de Césaire (1939) : négritude, révolte anticoloniale — Cahier d'un retour au pays natal.",
   "GT-108": "Poème de Senghor (1945) : éloge de la femme noire — négritude et registre lyrique.",
-  "GT-109": "Roman de Yourcenar (1951) : monologue d'Hadrien — solitude impériale et méditation existentielle.",
+  "GT-109": "Roman de Yourcenar (1951) : monologue d'Hadrien — solitude impériale et méditation existentielle.",
+
   "GT-111": "Roman de Balzac (1833) : Saumur provinciale, avarice du père Grandet — réalisme.",
-  "GT-112": "Nouvelle de Flaubert (1877) : Hérodias, registre biblique et visionnaire — Trois Contes.",
+  "GT-112": "Nouvelle de Flaubert (1877) : Hérodias, registre biblique et visionnaire — Trois Contes.",
+
+
   "GT-115": "Roman de Gide (1925) : journal d'Édouard, théorie du roman — modernité et métafiction.",
   "GT-116": "Roman de Zola (1877) : misère ouvrière, Gervaise au lavoir — naturalisme.",
-  "GT-117": "Roman de Diderot (1796) : Suzanne opprimée au couvent — roman philosophique et pathétique.",
+  "GT-117": "Roman de Diderot (1796) : Suzanne opprimée au couvent — roman philosophique et pathétique.",
+
   "GT-119": "Pièce de Sartre (1948) : théâtre engagé, dilemme politique et amour — Les Mains sales.",
   "GT-120": "Nouvelle de Camus (1957) : Daru et le prisonnier arabe — dilemme moral et solitude.",
   "GT-121": "Roman de Rabelais (1534) : humanisme, humour grotesque — naissance prodigieuse de Gargantua.",
@@ -121,7 +130,8 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-128": "Roman naturaliste de Zola (1880) : Nana, spectacle et corps — Paris du Second Empire.",
   "GT-129": "Roman de Colette (1910) : liberté féminine et subjectivité — La Vagabonde.",
   "GT-130": "Théâtre de Claudel (1906) : révélation mystique — Partage de midi.",
-  "GT-131": "Poème de Péguy (1913) : mystique d'Ève — registre épique et lyrique.",
+  "GT-131": "Poème de Péguy (1913) : mystique d'Ève — registre épique et lyrique.",
+
   "GT-133": "Poème d'Apollinaire (1913) : modernité, vers libre — La Jolie Rousse.",
   "GT-134": "Poème de Verlaine (1874) : musicalité et suggestion — Romances sans paroles.",
   "GT-135": "Fable de La Fontaine (1678) : liberté contre servitude — Le Loup et le Chien.",
@@ -144,7 +154,9 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-152": "Roman de Huysmans (1884) : esthétisme et fuite du réel — À rebours.",
   "GT-153": "Roman de Chateaubriand (1801) : préromantisme américain — Atala.",
   "GT-154": "Nouvelle de Barbey d'Aurevilly (1874) : perversité et paradoxe moral — Les Diaboliques.",
-  "GT-155": "Comédie de Regnard (1696) : passion du jeu — Le Joueur.",
+  "GT-155": "Comédie de Regnard (1696) : passion du jeu — Le Joueur.",
+
+
   "GT-158": "Comédie de Piron (1738) : vanité poétique — La Métromanie.",
   "GT-159": "Roman de Marivaux (1731) : analyse des sentiments — La Vie de Marianne.",
   "GT-160": "Pièce de Musset (1834) : amour fatal — On ne badine pas avec l'amour.",
@@ -164,7 +176,8 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-174": "Roman de Tournier (1970) : conte philosophique — Le Roi des aulnes.",
   "GT-175": "Roman de Gary (1956) : humanisme et écologie — Les Racines du ciel.",
   "GT-176": "Poème de Prévert (1949) : quotidien tragique — Déjeuner du matin.",
-  "GT-177": "Poème d'Éluard (1926) : surréalisme amoureux — Capitale de la douleur.",
+  "GT-177": "Poème d'Éluard (1926) : surréalisme amoureux — Capitale de la douleur.",
+
   "GT-179": "Poème de Chénier (1794) : élégie révolutionnaire — Iambes.",
   "GT-180": "Poème de Hugo (1856) : deuil de Léopoldine — Les Contemplations.",
   "GT-181": "Poème de Musset (1833) : désespoir amoureux romantique — Rolla.",
@@ -191,7 +204,9 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-202": "Roman de Daudet (1872) : bravade provinciale — Tartarin de Tarascon.",
   "GT-203": "Roman de Loti (1886) : Bretagne et amour — Pêcheur d'Islande.",
   "GT-204": "Roman de Verne (1870) : aventure sous-marine — Vingt mille lieues sous les mers.",
-  "GT-205": "Roman de Fromentin (1863) : amour pastoral — Dominique.",
+  "GT-205": "Roman de Fromentin (1863) : amour pastoral — Dominique.",
+
+
   "GT-208": "Poésie de Marot (1534) : humanisme et satire — Épîtres.",
   "GT-209": "Vaudeville de Scribe (1840) : intrigue politique — Le Verre d'eau.",
   "GT-210": "Roman de Marivaux (1735) : ascension sociale — Le Paysan parvenu.",
@@ -240,7 +255,8 @@ const GTEXT_OEUVRE_BY_ID = {
   "GT-253": "Poème d'Apollinaire (1918) : guerre et fenêtres — Calligrammes.",
   "GT-254": "Poème d'Aragon (1941) : Résistance — Le Creve-cœur.",
   "GT-255": "Poème de Baudelaire (1857) : synesthies — Harmonie du soir.",
-  "GT-256": "Roman de Barrès (1897) : enracinement — Les Déracinés.",
+  "GT-256": "Roman de Barrès (1897) : enracinement — Les Déracinés.",
+
   "GT-258": "Roman d'Anne Hébert (1970) : crime passionnel — Kamouraska.",
   "GT-259": "Roman de Sand (1846) : pastoral — La Mare au diable.",
   "GT-260": "Poésie de Régnier (1900) : mémoire et temps — Les Médailles d'argent.",

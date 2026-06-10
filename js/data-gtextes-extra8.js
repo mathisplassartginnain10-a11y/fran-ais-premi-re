@@ -46,7 +46,8 @@ Effleurait le tapis du boudoir.`,
     contexte: "Nouvelle romantique — paysage intérieur, mémoire et rêve.",
     attendus: [
       { procede: "Personnification", citation: "« val… plein de silence »", interpretation: "« val… plein de silence » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier nouvelle romantique.", keywords: ["personnification", "val", "silence", "paysage", "émotion", "fusion"] },
-      { procede: "Champ lexical", citation: "« brume », « peupliers », « source »", interpretation: "Gérard de Nerval densifie le passage avec un champ lexical centré sur brume (« brume », « peupliers », « source »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de nouvelle romantique.", keywords: ["champ lexical", "brume", "peupliers", "source", "bucol", "oniriq"] },      { procede: "Registre lyrique", citation: "« murmure lointain »", interpretation: "Registre lyrique : le paysage devient poème — mélancolie du passé.", keywords: ["lyrique", "murmure", "lointain", "poème", "mélancol", "passé"] }
+      { procede: "Champ lexical", citation: "« brume », « peupliers », « source »", interpretation: "Gérard de Nerval densifie le passage avec un champ lexical centré sur brume (« brume », « peupliers », « source »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de nouvelle romantique.", keywords: ["champ lexical", "brume", "peupliers", "source", "bucol", "oniriq"] },
+      { procede: "Registre lyrique", citation: "« murmure lointain »", interpretation: "Registre lyrique : le paysage devient poème — mélancolie du passé.", keywords: ["lyrique", "murmure", "lointain", "poème", "mélancol", "passé"] }
     ]
   },
   {
@@ -108,7 +109,8 @@ Effleurait le tapis du boudoir.`,
     contexte: "Roman réaliste — désillusion, bovarysme masculin, registre ironique.",
     attendus: [
       { procede: "Antithèse", citation: "« prêt à tout oser » / « lassitude vague »", interpretation: "Antithèse entre « prêt à tout oser » et « lassitude vague »: le contraste met en relief deux pôles opposés et accentue désillusion.", keywords: ["antithèse", "oser", "lassitude", "enthous", "iron", "flaubert"] },
-      { procede: "Registre ironique", citation: "« plein de rêves » puis déception", interpretation: "Registre ironique: la scène crée un décalage entre le sens apparent et le sens réel; « plein de rêves » concentre cette coloration du désillusion.", keywords: ["ironique", "rêves", "déconstr", "idéal", "romant", "jeune"] },      { procede: "Champ lexical", citation: "« rêves », « Paris », « lassitude »", interpretation: "Champ lexical de la désillusion : la capitale ne comble pas les attentes.", keywords: ["champ lexical", "rêves", "paris", "lassitude", "désillus", "capitale"] }
+      { procede: "Registre ironique", citation: "« plein de rêves » puis déception", interpretation: "Registre ironique: la scène crée un décalage entre le sens apparent et le sens réel; « plein de rêves » concentre cette coloration du désillusion.", keywords: ["ironique", "rêves", "déconstr", "idéal", "romant", "jeune"] },
+      { procede: "Champ lexical", citation: "« rêves », « Paris », « lassitude »", interpretation: "Champ lexical de la désillusion : la capitale ne comble pas les attentes.", keywords: ["champ lexical", "rêves", "paris", "lassitude", "désillus", "capitale"] }
     ]
   },
   {
@@ -139,7 +141,8 @@ Effleurait le tapis du boudoir.`,
     attendus: [
       { procede: "Comparaison", citation: "« comme une page… grattée »", interpretation: "Comparaison repérée dans « comme une page… grattée »: le parallèle rend la mémoire plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison", "page", "grattée", "passé", "amnés", "identité"] },
       { procede: "Registre mélancolique", citation: "« Je ne me souvenais plus »", interpretation: "Registre mélancolique: « Je ne me souvenais plus » installe une tonalité triste, nostalgique ou mélancolique, au cœur de la mémoire.", keywords: ["mélancol", "souven", "perte", "tristesse", "exist", "modiano"] },
-      { procede: "Métaphore", citation: "« passé s'était effacé »", interpretation: "« passé s'était effacé » fonctionne comme métaphore: le rapprochement implicite enrichit la mémoire et marque le style de Patrick Modiano.", keywords: ["métaphore", "effacé", "passé", "surface", "fragil", "mémoire"] },    ]
+      { procede: "Métaphore", citation: "« passé s'était effacé »", interpretation: "« passé s'était effacé » fonctionne comme métaphore: le rapprochement implicite enrichit la mémoire et marque le style de Patrick Modiano.", keywords: ["métaphore", "effacé", "passé", "surface", "fragil", "mémoire"] },
+    ]
   },
   {
     id: "GT-190",
@@ -169,7 +172,8 @@ Effleurait le tapis du boudoir.`,
     attendus: [
       { procede: "Parataxe", citation: "« Plume partit. Il ne savait pas »", interpretation: "Parataxe: « Plume partit. Il ne savait pas » concentre l'effet recherché par Henri Michaux dans l'absurdité. le parataxe oriente la lecture vers le sens du passage.", keywords: ["parataxe", "partit", "savait", "courtes", "neutre", "absurde"] },
       { procede: "Antiphrase", citation: "« docile et vide »", interpretation: "Antiphrase: « docile et vide » dit le contraire du sens réel ou crée un décalage critique. Henri Michaux invite à lire absurdité à contre-pied.", keywords: ["antiphrase", "docile", "vide", "faiblesse", "passiv", "critique"] },
-      { procede: "Registre comique", citation: "« On lui avait dit : Va »", interpretation: "Registre comique: par « On lui avait dit: Va », Henri Michaux provoque le rire par la situation, les mots ou les personnages — tonalité dominante de Plume.", keywords: ["comique", "va", "simplic", "grotesq", "destin", "humour"] },    ]
+      { procede: "Registre comique", citation: "« On lui avait dit : Va »", interpretation: "Registre comique: par « On lui avait dit: Va », Henri Michaux provoque le rire par la situation, les mots ou les personnages — tonalité dominante de Plume.", keywords: ["comique", "va", "simplic", "grotesq", "destin", "humour"] },
+    ]
   },
   {
     id: "GT-192",
@@ -215,7 +219,8 @@ Effleurait le tapis du boudoir.`,
     attendus: [
       { procede: "Antithèse", citation: "« rangée, obéissante » / « révolte silencieuse »", interpretation: "Antithèse entre « rangée, obéissante » et « révolte silencieuse »: le contraste met en relief deux pôles opposés et accentue féminisme.", keywords: ["antithèse", "rangée", "révolte", "conforme", "rébell", "identité"] },
       { procede: "Métaphore", citation: "« brûlait une révolte »", interpretation: "La métaphore « brûlait une révolte » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit autobiographie dans Mémoires d'une jeune fille rangée.", keywords: ["métaphore", "brûlait", "feu", "révolte", "passion", "fémin"] },
-      { procede: "Registre critique", citation: "« contre toutes ces convenances »", interpretation: "Registre critique: « contre toutes ces convenances » juge une réalité sociale, politique ou esthétique, au cœur de la féminisme.", keywords: ["critique", "convenances", "carcan", "social", "femmes", "dénonc"] },    ]
+      { procede: "Registre critique", citation: "« contre toutes ces convenances »", interpretation: "Registre critique: « contre toutes ces convenances » juge une réalité sociale, politique ou esthétique, au cœur de la féminisme.", keywords: ["critique", "convenances", "carcan", "social", "femmes", "dénonc"] },
+    ]
   },
   {
     id: "GT-195",
@@ -245,7 +250,8 @@ Effleurait le tapis du boudoir.`,
     attendus: [
       { procede: "Personnification", citation: "« Fleuves impassibles »", interpretation: "Personnification: « Fleuves impassibles » reçoit des traits humains (parler, agir, ressentir). Arthur Rimbaud anime la scène et rend voyage initiatique plus vivante.", keywords: ["personnification", "fleuves", "impassib", "guides", "nature", "indiff"] },
       { procede: "Registre épique", citation: "« descendais des Fleuves »", interpretation: "Registre épique: « descendais des Fleuves » élève l'action au niveau du grand récit et exalte la scène, au cœur du voyage initiatique.", keywords: ["épique", "descend", "voyage", "héroïq", "quête", "rimbaud"] },
-      { procede: "Métaphore", citation: "« Bateau ivre » (titre)", interpretation: "La métaphore « Bateau ivre » rapproche deux réalités sans outil comparatif: l'image condense voyage initiatique en une vision poétique forte.", keywords: ["métaphore", "bateau", "ivre", "poète", "gouvernail", "liberté"] },    ]
+      { procede: "Métaphore", citation: "« Bateau ivre » (titre)", interpretation: "La métaphore « Bateau ivre » rapproche deux réalités sans outil comparatif: l'image condense voyage initiatique en une vision poétique forte.", keywords: ["métaphore", "bateau", "ivre", "poète", "gouvernail", "liberté"] },
+    ]
   },
   {
     id: "GT-197",
@@ -258,7 +264,8 @@ Effleurait le tapis du boudoir.`,
     contexte: "Roman sentimental — passion fatale, registre pathétique et lyrique.",
     attendus: [
       { procede: "Hyperbole", citation: "« si belle que je restai immobile »", interpretation: "En exagérant « si belle que je restai immobile », le texte use de l'hyperbole afin de souligne l'intensité du ressenti — procédé fréquent chez Abbé Prévost.", keywords: ["hyperbole", "belle", "immobile", "beauté", "paralys", "foudre"] },
-      { procede: "Registre pathétique", citation: "« mon cœur battait avec violence »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « mon cœur battait avec violence » concentre cette coloration de la passion fatale.", keywords: ["pathétique", "cœur", "violence", "passion", "amour", "fatal"] },      { procede: "Accumulation", citation: "« immobile », « sans pouvoir », « battait »", interpretation: "Accumulation : effets physiques de la passion — intensité sentimentale.", keywords: ["accumulation", "immobile", "pouvoir", "battait", "physique", "intensité"] }
+      { procede: "Registre pathétique", citation: "« mon cœur battait avec violence »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « mon cœur battait avec violence » concentre cette coloration de la passion fatale.", keywords: ["pathétique", "cœur", "violence", "passion", "amour", "fatal"] },
+      { procede: "Accumulation", citation: "« immobile », « sans pouvoir », « battait »", interpretation: "Accumulation : effets physiques de la passion — intensité sentimentale.", keywords: ["accumulation", "immobile", "pouvoir", "battait", "physique", "intensité"] }
     ]
   },
   {
@@ -273,7 +280,8 @@ Effleurait le tapis du boudoir.`,
     attendus: [
       { procede: "Antithèse", citation: "« rêvait » / « vivait »", interpretation: "Antithèse entre « rêvait » et « vivait »: le contraste met en relief deux pôles opposés et accentue rêve et réalité.", keywords: ["antithèse", "rêvait", "vivait", "frontière", "onirisme", "trouble"] },
       { procede: "Registre onirique", citation: "« fête étrange et silencieuse »", interpretation: "Registre onirique: par « fête étrange et silencieuse », Alain-Fournier donne au passage une atmosphère de rêve et d'irréel — tonalité dominante de Le Grand Meaulnes.", keywords: ["oniriq", "fête", "étrange", "rêve", "adolesc", "atmosph"] },
-      { procede: "Métaphore", citation: "« visages pâles flottaient »", interpretation: "En transposant le sens de « visages pâles flottaient », Alain-Fournier métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore", "visages", "flottaient", "fantômes", "irréel", "poétique"] },    ]
+      { procede: "Métaphore", citation: "« visages pâles flottaient »", interpretation: "En transposant le sens de « visages pâles flottaient », Alain-Fournier métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore", "visages", "flottaient", "fantômes", "irréel", "poétique"] },
+    ]
   },
   {
     id: "GT-199",
@@ -303,7 +311,8 @@ Effleurait le tapis du boudoir.`,
     attendus: [
       { procede: "Métaphore", citation: "« yeux où brûlait une fierté »", interpretation: "La métaphore « yeux où brûlait une fierté » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit autobiographie dans La Promesse de l'aube.", keywords: ["métaphore", "yeux", "brûlait", "fierté", "feu", "maternel"] },
       { procede: "Antithèse", citation: "« elle croyait… plus que je ne croyais »", interpretation: "Antithèse: « elle croyait… plus que je ne croyais » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse", "croyait", "doute", "foi", "attente", "filial"] },
-      { procede: "Registre pathétique", citation: "« cette foi me terrifiait »", interpretation: "Registre pathétique: par « cette foi me terrifiait », Romain Gary suscite la compassion et l'indignation face à la souffrance — tonalité dominante de La Promesse de l'aube.", keywords: ["pathétique", "foi", "terrifi", "amour", "fardeau", "émotion"] },    ]
+      { procede: "Registre pathétique", citation: "« cette foi me terrifiait »", interpretation: "Registre pathétique: par « cette foi me terrifiait », Romain Gary suscite la compassion et l'indignation face à la souffrance — tonalité dominante de La Promesse de l'aube.", keywords: ["pathétique", "foi", "terrifi", "amour", "fardeau", "émotion"] },
+    ]
   }
 ];
 

@@ -123,7 +123,8 @@ const GRANDS_TEXTES_EXTRA10 = [
     contexte: "Autobiographie — classe sociale, mémoire familiale, registre sobre et pathétique.",
     attendus: [
       { procede: "Comparaison", citation: "« comme on tient sa vie »", interpretation: "La comparaison « comme on tient sa vie » établit un rapprochement explicite : Annie Ernaux facilite la visualisation de la scène et rend autobiographie plus perceptible.", keywords: ["comparaison", "café", "vie", "père", "travail", "identité"] },
-      { procede: "Registre pathétique", citation: "« pauvreté était une honte »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « pauvreté était une honte » concentre cette coloration du classe sociale.", keywords: ["pathétique", "pauvreté", "honte", "dignité", "compassion", "social"] },      { procede: "Antiphrase", citation: "« dignité silencieuse » face à la honte", interpretation: "Antiphrase : la fierté masque la souffrance — retenue émotionnelle.", keywords: ["antiphrase", "dignité", "silenc", "souffr", "fierté", "masque"] }
+      { procede: "Registre pathétique", citation: "« pauvreté était une honte »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « pauvreté était une honte » concentre cette coloration du classe sociale.", keywords: ["pathétique", "pauvreté", "honte", "dignité", "compassion", "social"] },
+      { procede: "Antiphrase", citation: "« dignité silencieuse » face à la honte", interpretation: "Antiphrase : la fierté masque la souffrance — retenue émotionnelle.", keywords: ["antiphrase", "dignité", "silenc", "souffr", "fierté", "masque"] }
     ]
   },
   {
@@ -186,7 +187,8 @@ const GRANDS_TEXTES_EXTRA10 = [
     attendus: [
       { procede: "Oxymore", citation: "« amour silencieux et fier »", interpretation: "L'oxymore « amour silencieux et fier » réunit deux termes inconciliables : la tension sémantique condense une contradiction vécue et condense roman psychologique.", keywords: ["oxymore", "silencieux", "fier", "amour", "orgueil", "stendhal"] },
       { procede: "Registre lyrique", citation: "« Octave aimait Armance »", interpretation: "À travers « Octave aimait Armance », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique", "aimait", "armance", "subjectiv", "sentiment", "octave"] },
-      { procede: "Antithèse", citation: "« souffrait » / « refusait d'avouer »", interpretation: "Antithèse: « souffrait » s'oppose à « refusait d'avouer ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "souffr", "avouer", "fierté", "conflit", "intérieur"] },    ]
+      { procede: "Antithèse", citation: "« souffrait » / « refusait d'avouer »", interpretation: "Antithèse: « souffrait » s'oppose à « refusait d'avouer ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "souffr", "avouer", "fierté", "conflit", "intérieur"] },
+    ]
   },
   {
     id: "GT-233",
@@ -296,7 +298,8 @@ const GRANDS_TEXTES_EXTRA10 = [
     attendus: [
       { procede: "Personnification", citation: "« la bêtise n'a pas voulu de moi »", interpretation: "En personnifiant « la bêtise n'a pas voulu de moi », le texte rend la description plus vivante ; l'animation du non-humain sert prose poétique dans Une Saison en Enfer.", keywords: ["personnification", "bêtise", "voulu", "rejette", "autodérision", "rimbaud"] },
       { procede: "Registre satirique", citation: "« purgatoire », « bêtise »", interpretation: "Registre satirique: « purgatoire » dénonce les mœurs ou les institutions par l'ironie et la dérision, au cœur du révolte.", keywords: ["satirique", "purgatoire", "bêtise", "moque", "révolte", "poésie"] },
-      { procede: "Antiphrase", citation: "« la bêtise m'a toujours évité »", interpretation: "Antiphrase: « la bêtise m'a toujours évité » dit le contraire du sens réel ou crée un décalage critique. Arthur Rimbaud invite à lire révolte à contre-pied.", keywords: ["antiphrase", "évité", "intelligent", "iron", "génie", "rimbaud"] },    ]
+      { procede: "Antiphrase", citation: "« la bêtise m'a toujours évité »", interpretation: "Antiphrase: « la bêtise m'a toujours évité » dit le contraire du sens réel ou crée un décalage critique. Arthur Rimbaud invite à lire révolte à contre-pied.", keywords: ["antiphrase", "évité", "intelligent", "iron", "génie", "rimbaud"] },
+    ]
   },
   {
     id: "GT-240",

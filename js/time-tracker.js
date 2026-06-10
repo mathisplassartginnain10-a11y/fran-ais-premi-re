@@ -28,6 +28,7 @@ const TIME_PAGE_MAP = {
   'p-dissert': 'learn',
   'p-corpus': 'learn',
   'p-auteurs': 'learn',
+  'p-periodes': 'learn',
   'p-cours': 'learn',
 };
 

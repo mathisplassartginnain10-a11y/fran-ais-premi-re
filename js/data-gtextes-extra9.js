@@ -128,7 +128,8 @@ Jamais du chemin de la ride.`,
     contexte: "Roman comique — ascension sociale, registre ironique et psychologique.",
     attendus: [
       { procede: "Antithèse", citation: "« simplicité » / « feindre »", interpretation: "Antithèse entre « simplicité » et « feindre »: le contraste met en relief deux pôles opposés et accentue ascension sociale.", keywords: ["antithèse", "simplicité", "feindre", "naïveté", "hypocris", "mondain"] },
-      { procede: "Registre ironique", citation: "« c'est peut-être pour cela qu'il plaisait »", interpretation: "Registre ironique: la scène crée un décalage entre le sens apparent et le sens réel; « c'est peut-être pour cela qu'il plaisait » concentre cette coloration de l'ascension sociale.", keywords: ["ironique", "plaisait", "renverse", "codes", "authentic", "séduit"] },      { procede: "Registre comique", citation: "« déconcertait »", interpretation: "Registre comique : malaise des dames provoque le rire — renversement social.", keywords: ["comique", "déconcert", "malaise", "rire", "renverse", "social"] }
+      { procede: "Registre ironique", citation: "« c'est peut-être pour cela qu'il plaisait »", interpretation: "Registre ironique: la scène crée un décalage entre le sens apparent et le sens réel; « c'est peut-être pour cela qu'il plaisait » concentre cette coloration de l'ascension sociale.", keywords: ["ironique", "plaisait", "renverse", "codes", "authentic", "séduit"] },
+      { procede: "Registre comique", citation: "« déconcertait »", interpretation: "Registre comique : malaise des dames provoque le rire — renversement social.", keywords: ["comique", "déconcert", "malaise", "rire", "renverse", "social"] }
     ]
   },
   {
@@ -143,7 +144,8 @@ Jamais du chemin de la ride.`,
     attendus: [
       { procede: "Antithèse", citation: "« amour » / « pitié »", interpretation: "Antithèse entre « amour » et « pitié »: le contraste met en relief deux pôles opposés et accentue la passion et remords.", keywords: ["antithèse", "amour", "pit", "contradict", "psycholog", "constant"] },
       { procede: "Registre lyrique", citation: "« J'aimais Ellénore »", interpretation: "Registre lyrique: « J'aimais Ellénore » exprime une subjectivité intime et des émotions personnelles, au cœur de la passion et remords.", keywords: ["lyrique", "aimais", "ellénore", "subjectiv", "confession", "intime"] },
-      { procede: "Registre tragique", citation: "« torture pour nous deux »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « torture pour nous deux » concentre cette coloration de la passion et remords.", keywords: ["tragique", "torture", "souffr", "destin", "fatal", "amour"] }    ]
+      { procede: "Registre tragique", citation: "« torture pour nous deux »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « torture pour nous deux » concentre cette coloration de la passion et remords.", keywords: ["tragique", "torture", "souffr", "destin", "fatal", "amour"] }
+    ]
   },
   {
     id: "GT-212",

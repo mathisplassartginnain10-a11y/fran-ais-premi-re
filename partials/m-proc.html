@@ -7,6 +7,7 @@
     <button class="stab"     onclick="switchPg('proc','p-stat',this)">📊 Stats</button>
     <button class="stab"     onclick="switchPg('proc','p-meth',this)">📖 Méthode</button>
     <button class="stab"     onclick="switchPg('proc','p-auteurs',this)">👤 Auteurs</button>
+    <button class="stab"     onclick="switchPg('proc','p-periodes',this)">📅 Périodes</button>
     <button class="stab"     onclick="switchPg('proc','p-dissert',this)">📋 Dissertation</button>
     <button class="stab"     onclick="switchPg('proc','p-exo',this)">🔍 Exercices</button>
     <button class="stab"     onclick="switchPg('proc','p-gtextes',this)">📜 Grands textes</button>
@@ -254,6 +255,30 @@
         <div class="chips" id="auteurs-genre-chips"></div>
       </div>
       <div id="auteurs-list" class="auteurs-list"></div>
+    </div>
+  </div>
+
+  <!-- ── Périodes & mouvements ── -->
+  <div id="proc-p-periodes" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Révisions</div>
+      <h1>Périodes &amp; <em>mouvements</em></h1>
+      <p class="hero-sub" id="periodes-count-hero">À partir du XVIIe siècle · Roman · Théâtre · Poésie</p>
+    </div>
+    <div class="wrap">
+      <p class="periodes-intro">Chronologie des <strong>mouvements littéraires</strong> depuis le <strong>XVIIe siècle</strong> : mouvement, période, première œuvre repère et deux grands auteurs — par genre.</p>
+      <div class="periodes-toolbar">
+        <div class="sbox periodes-search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="sinput" id="periodes-search" placeholder="Rechercher un mouvement, une œuvre, un auteur…">
+        </div>
+        <span class="periodes-summary" id="periodes-summary"></span>
+      </div>
+      <div class="periodes-filters">
+        <span class="periodes-filter-label">Genre</span>
+        <div class="chips" id="periodes-genre-chips"></div>
+      </div>
+      <div id="periodes-list" class="periodes-list"></div>
     </div>
   </div>
 

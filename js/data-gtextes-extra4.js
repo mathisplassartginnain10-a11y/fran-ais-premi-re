@@ -145,7 +145,8 @@ const GRANDS_TEXTES_EXTRA4 = [
     diff: 3,
     texte: `Les autres ne m'ont pas connu, ou du moins ne m'ont pas aimé. … Je suis resté seul avec moi-même, et avec ce monde que j'ai voulu comprendre.`,
     contexte: "Monologue intérieur d'Hadrien — réflexion sur le pouvoir et la mort.",
-    attendus: [      { procede: "Antithèse", citation: "« ne m'ont pas connu » / « ne m'ont pas aimé »", interpretation: "Antithèse entre « ne m'ont pas connu » et « ne m'ont pas aimé »: le contraste met en relief deux pôles opposés et accentue réflexion sur le pouvoir et la mort.", keywords: ["antithèse", "connu", "aimé", "isolement", "souverain", "contraste"] },
+    attendus: [
+      { procede: "Antithèse", citation: "« ne m'ont pas connu » / « ne m'ont pas aimé »", interpretation: "Antithèse entre « ne m'ont pas connu » et « ne m'ont pas aimé »: le contraste met en relief deux pôles opposés et accentue réflexion sur le pouvoir et la mort.", keywords: ["antithèse", "connu", "aimé", "isolement", "souverain", "contraste"] },
       { procede: "Registre lyrique", citation: "« seul avec moi-même »", interpretation: "Registre lyrique: « seul avec moi-même » exprime une subjectivité intime et des émotions personnelles, au cœur du réflexion sur le pouvoir et la mort.", keywords: ["lyrique", "je", "seul", "confession", "méditat", "exist"] },
       { procede: "Champ lexical", citation: "« seul », « comprendre », « monde »", interpretation: "Marguerite Yourcenar densifie le passage avec un champ lexical centré sur seul (« seul », « comprendre », « monde »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de monologue intérieur d'hadrien.", keywords: ["champ lexical", "seul", "comprend", "monde", "quête", "philosoph"] }
     ]
@@ -215,7 +216,8 @@ const GRANDS_TEXTES_EXTRA4 = [
     attendus: [
       { procede: "Métaphore", citation: "« rage de vaincue »", interpretation: "La métaphore « rage de vaincue » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit naturalisme zolien dans L'Assommoir.", keywords: ["métaphore", "rage", "vaincue", "désesp", "social", "combat"] },
       { procede: "Registre pathétique", citation: "« elle ne sentait plus rien »", interpretation: "Registre pathétique: par « elle ne sentait plus rien », Émile Zola suscite la compassion et l'indignation face à la souffrance — tonalité dominante de L'Assommoir.", keywords: ["pathétique", "sentait", "misère", "pit", "anesth", "gervaise"] },
-      { procede: "Champ lexical", citation: "« mains rouges », « eau », « frottait »", interpretation: "Le champ lexical repéré (« mains », « rouges », « frottait ») enveloppe « mains rouges » face à « eau » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans L'Assommoir.", keywords: ["champ lexical", "mains", "eau", "frott", "travail", "ouvrier"] },      { procede: "Gradation", citation: "mains rouges → rage → ne sentait plus", interpretation: "Gradation : l'épuisement physique mène à l'anesthésie morale.", keywords: ["gradation", "rouge", "rage", "épuis", "anesth", "moral"] }
+      { procede: "Champ lexical", citation: "« mains rouges », « eau », « frottait »", interpretation: "Le champ lexical repéré (« mains », « rouges », « frottait ») enveloppe « mains rouges » face à « eau » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans L'Assommoir.", keywords: ["champ lexical", "mains", "eau", "frott", "travail", "ouvrier"] },
+      { procede: "Gradation", citation: "mains rouges → rage → ne sentait plus", interpretation: "Gradation : l'épuisement physique mène à l'anesthésie morale.", keywords: ["gradation", "rouge", "rage", "épuis", "anesth", "moral"] }
     ]
   },
   {
@@ -229,7 +231,8 @@ const GRANDS_TEXTES_EXTRA4 = [
     contexte: "Roman philosophique — oppression religieuse, registre pathétique.",
     attendus: [
       { procede: "Antithèse", citation: "« fille perdue » / « victime »", interpretation: "Antithèse entre « fille perdue » et « victime »: le contraste met en relief deux pôles opposés et accentue oppression religieuse.", keywords: ["antithèse", "perdue", "victime", "culpab", "innoc", "contraste"] },
-      { procede: "Registre pathétique", citation: "« je suis malheureuse »", interpretation: "À travers « je suis malheureuse », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["pathétique", "malheureuse", "pit", "victime", "couvent", "souffr"] },      { procede: "Litote", citation: "« jamais mérité mon malheur »", interpretation: "Litote : je ne mérite pas cette souffrance — innocence revendiquée.", keywords: ["litote", "mérité", "malheur", "innoc", "revend", "souffr"] },
+      { procede: "Registre pathétique", citation: "« je suis malheureuse »", interpretation: "À travers « je suis malheureuse », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["pathétique", "malheureuse", "pit", "victime", "couvent", "souffr"] },
+      { procede: "Litote", citation: "« jamais mérité mon malheur »", interpretation: "Litote : je ne mérite pas cette souffrance — innocence revendiquée.", keywords: ["litote", "mérité", "malheur", "innoc", "revend", "souffr"] },
       { procede: "Champ lexical", citation: "« malheureuse », « victime », « malheur »", interpretation: "Le champ lexical repéré (« malheureuse », « victime », « malheur ») enveloppe « malheureuse » face à « victime » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans La Religieuse.", keywords: ["champ lexical", "malheur", "victime", "souffr", "injust", "institut"] }
     ]
   },
@@ -259,7 +262,8 @@ const GRANDS_TEXTES_EXTRA4 = [
     diff: 2,
     texte: `Daru regardait les deux hommes monter vers lui. … Il avançait devant, le fusil sur l'épaule, l'autre, les mains liées derrière le dos, marchait la tête haute.`,
     contexte: "Daru face à l'Arabe — dilemme moral, solitude, engagement.",
-    attendus: [      { procede: "Antithèse", citation: "« gendarme… l'autre, les mains liées »", interpretation: "Antithèse repérée dans « gendarme… l'autre, les mains liées »: deux termes ou idées s'opposent pour souligner dilemme moral.", keywords: ["antithèse", "gendarme", "prisonnier", "tension", "éthique", "contraste"] },
+    attendus: [
+      { procede: "Antithèse", citation: "« gendarme… l'autre, les mains liées »", interpretation: "Antithèse repérée dans « gendarme… l'autre, les mains liées »: deux termes ou idées s'opposent pour souligner dilemme moral.", keywords: ["antithèse", "gendarme", "prisonnier", "tension", "éthique", "contraste"] },
       { procede: "Champ lexical", citation: "« fusil », « mains liées », « chemin »", interpretation: "Les mots « fusil », « mains », « liées » appartiennent au même champ sémantique. Leur convergence renforce dilemme moral et structure l'unité thématique du passage.", keywords: ["champ lexical", "fusil", "liées", "violence", "contrainte", "choix"] },
       { procede: "Registre tragique", citation: "« marchait la tête haute »", interpretation: "Registre tragique: « marchait la tête haute » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, au cœur du dilemme moral.", keywords: ["tragique", "tête haute", "dignité", "pit", "destin", "prisonnier"] },
       { procede: "Métaphore", citation: "« monter vers lui »", interpretation: "La métaphore « monter vers lui » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit daru face à l'arabe dans L'Exil et le royaume.", keywords: ["métaphore", "monter", "devoir", "moral", "éviter", "spatial"] }

@@ -143,7 +143,8 @@ Le sens, qui doit partout l'emporter et régir.`,
     texte: `Je ne suis plus qu'une femme qui aime, et qui a peur.`,
     contexte: "Autobiographie romancée — liberté féminine, amour, subjectivité.",
     attendus: [
-      { procede: "Antithèse", citation: "« qui aime » / « qui a peur »", interpretation: "Antithèse entre « qui aime » et « qui a peur »: le contraste met en relief deux pôles opposés et accentue la liberté féminine.", keywords: ["antithèse", "aime", "peur", "conflit", "intérieur", "contraste"] },      { procede: "Registre lyrique", citation: "« qui aime »", interpretation: "Registre lyrique : émotion amoureuse au premier plan — intimité.", keywords: ["lyrique", "aime", "émotion", "intime", "amour", "premier"] },
+      { procede: "Antithèse", citation: "« qui aime » / « qui a peur »", interpretation: "Antithèse entre « qui aime » et « qui a peur »: le contraste met en relief deux pôles opposés et accentue la liberté féminine.", keywords: ["antithèse", "aime", "peur", "conflit", "intérieur", "contraste"] },
+      { procede: "Registre lyrique", citation: "« qui aime »", interpretation: "Registre lyrique : émotion amoureuse au premier plan — intimité.", keywords: ["lyrique", "aime", "émotion", "intime", "amour", "premier"] },
       { procede: "Litote", citation: "« Je ne suis plus qu'une »", interpretation: "Litote repérée dans « Je ne suis plus qu'une »: Colette sous-entend une idée forte par une formulation modeste ou négative.", keywords: ["litote", "plus", "qu'une", "humil", "renonce", "identité"] }
     ]
   },
@@ -159,7 +160,8 @@ Le sens, qui doit partout l'emporter et régir.`,
     attendus: [
       { procede: "Métaphore", citation: "« la terre tourne »", interpretation: "Par la métaphore (« terre », « tourne »), le réel est détourné : Paul Claudel condense une idée complexe en une image frappante tout en ancrant théâtre claudélien.", keywords: ["métaphore", "terre", "tourne", "cosmique", "révélat", "boulevers"] },
       { procede: "Registre lyrique", citation: "« Il y a des moments où »", interpretation: "Registre lyrique: par « Il y a des moments où », Paul Claudel exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Partage de midi.", keywords: ["lyrique", "moments", "conscience", "mystique", "instant", "subjectiv"] },
-      { procede: "Hyperbole", citation: "« sent que la terre tourne »", interpretation: "« sent que la terre tourne » relève de l'hyperbole : l'amplification souligne l'intensité du ressenti et fixe l'émotion autour de théâtre claudélien.", keywords: ["hyperbole", "terre", "sent", "cosmique", "grandeur", "exag"] }    ]
+      { procede: "Hyperbole", citation: "« sent que la terre tourne »", interpretation: "« sent que la terre tourne » relève de l'hyperbole : l'amplification souligne l'intensité du ressenti et fixe l'émotion autour de théâtre claudélien.", keywords: ["hyperbole", "terre", "sent", "cosmique", "grandeur", "exag"] }
+    ]
   },
   {
     id: "GT-131",
@@ -306,7 +308,8 @@ Ne laissez jamais ma vue en repos.`,
     diff: 2,
     texte: `Je suis né dans une famille de sonneurs de cloches, et j'ai toujours entendu le son des cloches.`,
     contexte: "Roman champêtre — tradition, musique, mémoire autobiographique.",
-    attendus: [      { procede: "Anaphore", citation: "« sonneurs de cloches… son des cloches »", interpretation: "L'anaphore (« sonneurs de cloches… son des cloches ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "cloche", "son", "identité", "musical", "répét"] },
+    attendus: [
+      { procede: "Anaphore", citation: "« sonneurs de cloches… son des cloches »", interpretation: "L'anaphore (« sonneurs de cloches… son des cloches ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore", "cloche", "son", "identité", "musical", "répét"] },
       { procede: "Champ lexical", citation: "« sonneurs », « cloches », « son »", interpretation: "George Sand densifie le passage avec un champ lexical centré sur sonneurs (« sonneurs », « cloches »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de roman champêtre.", keywords: ["champ lexical", "sonneurs", "cloches", "son", "artisan", "musical"] },
       { procede: "Registre lyrique", citation: "« j'ai toujours entendu »", interpretation: "Registre lyrique: « j'ai toujours entendu » exprime une subjectivité intime et des émotions personnelles, au cœur de la tradition.", keywords: ["lyrique", "entendu", "mémoire", "sensori", "nostalg", "passé"] }
     ]

@@ -156,7 +156,8 @@ const GRANDS_TEXTES_EXTRA11 = [
     attendus: [
       { procede: "Comparaison", citation: "« comme un théâtre »", interpretation: "Le parallèle introduit par « comme un théâtre » (comparaison) facilite la visualisation de la scène et précise la dimension roman autobiographique du passage.", keywords: ["comparaison", "théâtre", "école", "scène", "comique", "colette"] },
       { procede: "Antithèse", citation: "« curiosité » / « mépris »", interpretation: "Antithèse entre « curiosité » et « mépris »: le contraste met en relief deux pôles opposés et accentue adolescence.", keywords: ["antithèse", "curiosité", "mépris", "regard", "adolesc", "subjectiv"] },
-      { procede: "Registre comique", citation: "« rôle ridicule »", interpretation: "À travers « rôle ridicule », le texte bascule dans un registre comique ; le lecteur éprouve une mise à distance comique grâce à l'humour et détend la scène, ce qui s'inscrit dans Claudine à l'école.", keywords: ["comique", "ridicule", "moquer", "scolaire", "rôle", "claudine"] }    ]
+      { procede: "Registre comique", citation: "« rôle ridicule »", interpretation: "À travers « rôle ridicule », le texte bascule dans un registre comique ; le lecteur éprouve une mise à distance comique grâce à l'humour et détend la scène, ce qui s'inscrit dans Claudine à l'école.", keywords: ["comique", "ridicule", "moquer", "scolaire", "rôle", "claudine"] }
+    ]
   },
   {
     id: "GT-251",
@@ -200,7 +201,8 @@ const GRANDS_TEXTES_EXTRA11 = [
     texte: `Du fond de l'abri où je m'étais blotti, je regardais les fenêtres éclairées ; chaque lumière était un monde, chaque ombre une histoire.`,
     contexte: "Poème moderniste — guerre, ville, registre lyrique et onirique.",
     attendus: [
-      { procede: "Métaphore", citation: "« chaque lumière était un monde »", interpretation: "En transposant le sens de « chaque lumière était un monde », Guillaume Apollinaire métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore", "lumière", "monde", "fenêtre", "modern", "apollinaire"] },      { procede: "Registre onirique", citation: "« chaque ombre une histoire »", interpretation: "Registre onirique : imagination face aux fenêtres — poésie du rêve.", keywords: ["oniriq", "ombre", "histoire", "imagination", "rêve", "fenêtres"] },
+      { procede: "Métaphore", citation: "« chaque lumière était un monde »", interpretation: "En transposant le sens de « chaque lumière était un monde », Guillaume Apollinaire métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore", "lumière", "monde", "fenêtre", "modern", "apollinaire"] },
+      { procede: "Registre onirique", citation: "« chaque ombre une histoire »", interpretation: "Registre onirique : imagination face aux fenêtres — poésie du rêve.", keywords: ["oniriq", "ombre", "histoire", "imagination", "rêve", "fenêtres"] },
       { procede: "Parallélisme", citation: "« chaque lumière… chaque ombre »", interpretation: "Parallélisme repéré dans « chaque lumière… chaque ombre »: la répétition de structures parallèles insiste sur guerre.", keywords: ["parallélisme", "lumière", "ombre", "symét", "structure", "effet"] }
     ]
   },
@@ -265,7 +267,8 @@ const GRANDS_TEXTES_EXTRA11 = [
     attendus: [
       { procede: "Antithèse", citation: "« savait ce qu'elle avait fait » / « se sentait légère »", interpretation: "Antithèse: « savait ce qu'elle avait fait » s'oppose à « se sentait légère ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse", "savait", "légère", "culpabil", "soulag", "paradoxe"] },
       { procede: "Comparaison", citation: "« comme libérée d'un poids »", interpretation: "La comparaison « comme libérée d'un poids » établit un rapprochement explicite : Anne Hébert facilite la visualisation de la scène et rend roman québécois plus perceptible.", keywords: ["comparaison", "libérée", "poids", "meurtre", "tragéd", "hébert"] },
-      { procede: "Champ lexical", citation: "« neige », « fleuve gelé »", interpretation: "Le champ lexical repéré (« neige », « fleuve », « gelé ») enveloppe « neige » face à « fleuve gelé » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans Kamouraska.", keywords: ["champ lexical", "neige", "fleuve", "gelé", "hiver", "québec"] }    ]
+      { procede: "Champ lexical", citation: "« neige », « fleuve gelé »", interpretation: "Le champ lexical repéré (« neige », « fleuve », « gelé ») enveloppe « neige » face à « fleuve gelé » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans Kamouraska.", keywords: ["champ lexical", "neige", "fleuve", "gelé", "hiver", "québec"] }
+    ]
   },
   {
     id: "GT-259",
