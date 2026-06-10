@@ -1,5 +1,6 @@
 ﻿/* core.js — Paramètres, utilitaires, navigation, stockage, thème */
 let _applyingAllSettings = false;
+const SETTINGS_VERSION = 1;
 const DEFAULT_SETTINGS = {
   // Apparence
   theme:              'dark',
@@ -252,9 +253,23 @@ function _onThemeAutoChange() {
   renderSettingsPreview();
 }
 
+function migrateSettings(stored) {
+  if (!stored || typeof stored !== 'object') return { ...DEFAULT_SETTINGS };
+  const s = { ...stored };
+  try {
+    const legacyFs = safeLocalGet('bac_fs', null);
+    if (legacyFs != null && (s.fontSize == null || s.fontSize === DEFAULT_SETTINGS.fontSize)) {
+      const n = parseFloat(legacyFs);
+      if (!isNaN(n) && n >= 0.8 && n <= 1.4) s.fontSize = n;
+    }
+  } catch (e) {}
+  if (!s.settingsVersion) s.settingsVersion = SETTINGS_VERSION;
+  return { ...DEFAULT_SETTINGS, ...s };
+}
+
 function loadSettings() {
   const s = safeLocalGet('bac_settings', {});
-  _settings = { ...DEFAULT_SETTINGS, ...s };
+  _settings = migrateSettings(s);
 }
 function saveSettings() {
   safeLocalSet('bac_settings', _settings);
@@ -925,6 +940,7 @@ function resetStats(options) {
 
 function exportStats() {
   const data = {
+    version: 1,
     proc:     safeLocalGet('bac_proc_stats', {}),
     gram:     safeLocalGet('bac_gram_stats', {}),
     vocab:    safeLocalGet('bac_vocab_stats', {}),
@@ -935,6 +951,9 @@ function exportStats() {
     cartes:   safeLocalGet('bac_carte_stats', {}),
     challenge: safeLocalGet('bac_challenge_stats', {}),
     time:     safeLocalGet('bac_time_stats', {}),
+    gtextCustom: safeLocalGet('bac_gtext_custom', null),
+    introSimRecent: safeLocalGet('bac_intro_sim_recent', null),
+    ollamaCfg: safeLocalGet('bac_ollama_comment_cfg', null),
     settings: _settings,
     exported: new Date().toISOString(),
   };
@@ -947,6 +966,14 @@ function exportStats() {
   URL.revokeObjectURL(url);
 }
 
+function _validateImportPayload(data) {
+  if (!data || typeof data !== 'object') return 'Fichier vide ou illisible.';
+  const hasStats = ['proc', 'gram', 'vocab', 'exo', 'gtext'].some(k => data[k] != null);
+  if (!hasStats && !data.settings) return 'Aucune statistique ni paramètre reconnu.';
+  if (data.version != null && typeof data.version !== 'number') return 'Champ version invalide.';
+  return null;
+}
+
 function importStats(e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -954,6 +981,8 @@ function importStats(e) {
   reader.onload = ev => {
     try {
       const data = JSON.parse(ev.target.result);
+      const err = _validateImportPayload(data);
+      if (err) { alert('❌ Import refusé : ' + err); return; }
       if (data.proc)     { localStorage.setItem('bac_proc_stats', JSON.stringify(data.proc)); invalidateStCache('bac_proc_stats'); }
       if (data.gram)     { localStorage.setItem('bac_gram_stats', JSON.stringify(data.gram)); invalidateStCache('bac_gram_stats'); }
       if (data.vocab)    { localStorage.setItem('bac_vocab_stats', JSON.stringify(data.vocab)); invalidateStCache('bac_vocab_stats'); }
@@ -964,9 +993,16 @@ function importStats(e) {
       if (data.cartes)   localStorage.setItem('bac_carte_stats', JSON.stringify(data.cartes));
       if (data.challenge) localStorage.setItem('bac_challenge_stats', JSON.stringify(data.challenge));
       if (data.time)      localStorage.setItem('bac_time_stats', JSON.stringify(data.time));
-      if (data.settings) { localStorage.setItem('bac_settings', JSON.stringify(data.settings)); applyAllSettings(); syncSettingsUI(); }
+      if (data.gtextCustom != null) localStorage.setItem('bac_gtext_custom', JSON.stringify(data.gtextCustom));
+      if (data.introSimRecent != null) localStorage.setItem('bac_intro_sim_recent', JSON.stringify(data.introSimRecent));
+      if (data.ollamaCfg != null) localStorage.setItem('bac_ollama_comment_cfg', JSON.stringify(data.ollamaCfg));
+      if (data.settings) {
+        localStorage.setItem('bac_settings', JSON.stringify(migrateSettings(data.settings)));
+        applyAllSettings();
+        syncSettingsUI();
+      }
       invalidateAllCaches();
-      scheduleDashboardUpdate();
+      _refreshAfterStatsReset();
       alert('✅ Importation réussie !');
     } catch (err) { alert('❌ Fichier invalide.'); }
   };
