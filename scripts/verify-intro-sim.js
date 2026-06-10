@@ -33,12 +33,7 @@ function load(file) {
 });
 
 sandbox.getAllGtexts = function () {
-  const out = [];
-  if (Array.isArray(sandbox.GRANDS_TEXTES)) out.push(...sandbox.GRANDS_TEXTES);
-  for (const k of Object.keys(sandbox)) {
-    if (/^GRANDS_TEXTES_EXTRA/.test(k) && Array.isArray(sandbox[k])) out.push(...sandbox[k]);
-  }
-  return out;
+  return Array.isArray(sandbox.GRANDS_TEXTES) ? sandbox.GRANDS_TEXTES.slice() : [];
 };
 
 const { introSimParseOeuvreRef, introSimSearch, introSimBuildIndex } = sandbox;

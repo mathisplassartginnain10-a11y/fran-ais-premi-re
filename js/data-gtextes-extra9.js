@@ -7,13 +7,13 @@ const GRANDS_TEXTES_EXTRA9 = [
     oeuvre: "Le Feu (1916)",
     genre: "Roman",
     diff: 2,
-    texte: `La tranchée sentait la terre et la mort ; les hommes parlaient bas, les yeux fixés sur le ciel gris, attendant le grondement qui faisait trembler la terre.`,
+    texte: `Voici la guerre sur la terre. Visible devant moi, une tranchée labyrinthique ; au-dessus, le ciel chargé de nuages sombres et bas, une implacable lourdeur d'orage ; et, entre les deux, une masse confuse d'hommes qui font leur métier, immobiles pour la plupart, et tous, quoi qu'ils fassent — même ceux qui marchent, ceux qui travaillent et ceux qui se préparent à tuer ou à mourir —, tous ont cet air de mauvais sommeil, de sommeil profond et affreux, de fatigue absolue. Plus loin, on aperçoit les profils de deux sentinelles qui montent la garde, debout sur le talus, et derrière elles le paysage de la campagne déchiquetée, labourée de tranchées et de boyaux, avec ses poteaux filaires, ses clôtures, ses étendards de branches, ses piquets en zigzag.`,
     contexte: "Roman de guerre — naturalisme, horreur des tranchées, registre pathétique.",
     attendus: [
-      { procede: "Champ lexical", citation: "« bas, les yeux fixés sur le ciel gris, attendant le grondement qui faisait trembler la terre. »", interpretation: "Les occurrences « terre », « mort », « grondement » composent un champ lexical cohérent autour de roman de guerre ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Henri Barbusse.", keywords: ["champ lexical","terre","mort","grondement","guerre","tranchée"] },
-      { procede: "Personnification", citation: "« tranchée sentait »", interpretation: "« tranchée sentait » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier roman de guerre.", keywords: ["personnification","tranchée","sentait","mort","angoiss","collect"] },
-      { procede: "Registre pathétique", citation: "« hommes parlaient bas »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « hommes parlaient bas » concentre cette coloration de la naturalisme.", keywords: ["pathétique","hommes","peur","pit","soldats","dénonc"] },
-      { procede: "Hyperbole", citation: "« faisait trembler la terre »", interpretation: "« faisait trembler la terre » relève de l'hyperbole : l'amplification souligne l'intensité du ressenti et fixe l'émotion autour de roman de guerre.", keywords: ["hyperbole","trembler","terre","bombard","terreur","front"] }
+      { procede: "Métaphore", citation: "« tranchée labyrinthique »", interpretation: "La tranchée devient un labyrinthe : Barbusse transforme l'espace militaire en piège où l'homme se perd.", keywords: ["métaphore","tranchée","labyrinthe","guerre","espace","barbusse"] },
+      { procede: "Personnification", citation: "« implacable lourdeur d'orage »", interpretation: "Le ciel menaçant semble peser sur les combattants : la personnification amplifie l'oppression collective.", keywords: ["personnification","orage","ciel","oppression","soldats","pathétique"] },
+      { procede: "Champ lexical", citation: "« fatigue absolue »", interpretation: "Le lexique de l'épuisement compose un registre pathétique : la guerre se réduit à une attente mortelle.", keywords: ["champ lexical","fatigue","soldats","pathétique","tranchée","épuisement"] },
+      { procede: "Registre pathétique", citation: "« sommeil profond et affreux »", interpretation: "L'air de sommeil des soldats traduit l'usure du corps et de l'âme — dénonciation naturaliste de la Grande Guerre.", keywords: ["pathétique","sommeil","soldats","usure","naturalisme","guerre"] }
     ]
   },
   {
@@ -23,13 +23,13 @@ const GRANDS_TEXTES_EXTRA9 = [
     oeuvre: "Tartarin de Tarascon (1872)",
     genre: "Roman",
     diff: 2,
-    texte: `Tartarin avait tué le lion ! Du moins, c'est ce qu'il racontait à Tarascon, avec des gestes grandioses et des yeux qui brillaient de fierté.`,
+    texte: `Tartarin, cramponné à l'échelle, regardait dans l'ombre. — Il y a quelqu'un ! murmura-t-il. — Qui donc ? — Le lion ! — Où ça ? — Là... dans le coin... Je le vois... Il grogne... Il va sauter... Feu ! feu ! Tartarin, tout tremblant, tira son revolver et fit feu dans l'ombre. Un rugissement terrible retentit ; puis un grand silence. — Je l'ai tué ! s'écria Tartarin triomphant. — Non, monsieur, répondit Baya, c'est le chameau du Sheikh qui est mort ; le lion, lui, est par là, dans la caverne, et il attend. Tartarin resta interdit. Son exploit venait de s'effondrer ; la bravade tarasconnaise se heurtait au ridicule du réel, et le héros provincial découvrait que la gloire qu'il rapportait à Tarascon n'était qu'une fable.`,
     contexte: "Roman comique — bravade provinciale, registre satirique et burlesque.",
     attendus: [
-      { procede: "Registre satirique", citation: "« c'est ce qu'il racontait »", interpretation: "Registre satirique: par « c'est ce qu'il racontait », Alphonse Daudet dénonce les mœurs ou les institutions par l'ironie et la dérision — tonalité dominante de Tartarin de Tarascon.", keywords: ["satirique","racontait","bravade","provinc","moque","critique"] },
-      { procede: "Hyperbole", citation: "« avait tué le lion »", interpretation: "L'hyperbole « avait tué le lion » pousse l'expression au-delà du vraisemblable : Alphonse Daudet souligne l'intensité du ressenti pour marquer roman comique.", keywords: ["hyperbole","lion","exploit","vanité","comique","burlesq"] },
-      { procede: "Registre comique", citation: "« gestes grandioses »", interpretation: "Registre comique: « gestes grandioses » provoque le rire par la situation, les mots ou les personnages, au cœur du bravade provinciale.", keywords: ["comique","gestes","grandios","grotesq","héros","rire"] },
-      { procede: "Antiphrase", citation: "« Du moins, c'est ce qu'il racontait »", interpretation: "Antiphrase: « Du moins, c'est ce qu'il racontait » dit le contraire du sens réel ou crée un décalage critique. Alphonse Daudet invite à lire bravade provinciale à contre-pied.", keywords: ["antiphrase","du moins","racontait","doute","iron","crédul"] }
+      { procede: "Registre comique", citation: "« Je l'ai tué ! »", interpretation: "Le cri triomphal précède l'effondrement comique : Daudet ridiculise la bravade provinciale par le décalage entre vantardise et réalité.", keywords: ["comique","bravade","triomphe","ridicule","tarascon","daudet"] },
+      { procede: "Antithèse", citation: "« rugissement terrible » / « chameau du Sheikh »", interpretation: "L'antithèse entre l'épique attendu et la bête tuée par erreur produit le burlesque — satire du héros de pacotille.", keywords: ["antithèse","lion","chameau","burlesque","erreur","satire"] },
+      { procede: "Dialogue", citation: "« Feu ! feu ! »", interpretation: "Le dialogue haletant dramatise la peur feinte puis réelle : la scène mêle théâtre et carnaval colonial.", keywords: ["dialogue","peur","revolver","théâtre","colonial","situation"] },
+      { procede: "Registre satirique", citation: "« gloire ... n'était qu'une fable »", interpretation: "La chute morale expose Tartarin : Daudet dénonce la mythomanie provinciale par une révélation grotesque.", keywords: ["satirique","fable","mythomanie","province","grotesque","héros"] }
     ]
   },
   {
@@ -39,13 +39,13 @@ const GRANDS_TEXTES_EXTRA9 = [
     oeuvre: "Pêcheur d'Islande (1886)",
     genre: "Roman",
     diff: 2,
-    texte: `Gaud attendait sur la falaise ; la mer était noire et furieuse, et chaque vague qui s'écrasait sur les rochers lui rappelait que Yann ne reviendrait peut-être jamais.`,
+    texte: `Gaud, la pauvre épouse du matelot Gaud, attendait sur le bord de la lande ; elle regardait la mer du côté où l'Islande est, et pleurait doucement, sans bruit, comme une femme du pays, toute blême dans sa coiffe brune. La mer, ce soir-là, était noire et furieuse ; les vagues s'écrasaient sur les rochers avec un bruit sourd, régulier, implacable. Chaque ressac lui rappelait que Yann ne reviendrait peut-être jamais, que la pêche d'Islande est une loterie où l'on gagne la mort. Elle restait là, immobile, les mains jointes, priant la Vierge des marins, tandis que le vent du large lui fouettait le visage et emportait ses sanglots vers l'horizon vide.`,
     contexte: "Roman exotique — Bretagne, amour et mer, registre lyrique et pathétique.",
     attendus: [
-      { procede: "Personnification", citation: "« mer… furieuse »", interpretation: "La personnification « mer… furieuse » dote un élément abstrait ou objectal de traits humains : Pierre Loti rend la description plus vivante et dynamise roman exotique.", keywords: ["personnification","mer","furieuse","menaç","destin","symbole"] },
-      { procede: "Registre pathétique", citation: "« ne reviendrait peut-être jamais »", interpretation: "Registre pathétique: « ne reviendrait peut-être jamais » suscite la compassion et l'indignation face à la souffrance, au cœur du bretagne.", keywords: ["pathétique","reviendrait","angoiss","pit","amour","peur"] },
-      { procede: "Métaphore", citation: "« chaque vague… lui rappelait »", interpretation: "En transposant le sens de « chaque vague… lui rappelait », Pierre Loti métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","vague","rappelait","mort","élégie","maritime"] },
-      { procede: "Champ lexical", citation: "« furieuse, et chaque vague qui s'écrasait sur les rochers lui rappelait que Yann ne reviendrait peut- »", interpretation: "Les occurrences « falaise », « rochers » composent un champ lexical cohérent autour de roman exotique ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Pierre Loti.", keywords: ["champ lexical","falaise","rochers","mer","breton","tragique"] }
+      { procede: "Registre pathétique", citation: "« pleurait doucement, sans bruit »", interpretation: "La douleur contenue de Gaud accentue le pathos : Loti oppose la retenue bretonne à l'angoisse intérieure.", keywords: ["pathétique","pleurs","retenue","angoisse","gaud","loti"] },
+      { procede: "Personnification", citation: "« mer ... noire et furieuse »", interpretation: "La mer furieuse devient antagoniste du destin : personnification qui traduit la menace maritime sur l'amour.", keywords: ["personnification","mer","furieuse","menace","destin","breton"] },
+      { procede: "Métaphore", citation: "« loterie où l'on gagne la mort »", interpretation: "La métaphore de la loterie condense le hasard fatal de la pêche : le registre lyrique se teinte de tragédie.", keywords: ["métaphore","mort","hasard","pêche","islande","tragédie"] },
+      { procede: "Champ lexical", citation: "« vent du large »", interpretation: "Le champ lexical marin enveloppe la scène d'une atmosphère exotique et menaçante propre au roman lotien.", keywords: ["champ lexical","mer","vagues","vent","exotique","atmosphère"] }
     ]
   },
   {
@@ -55,13 +55,13 @@ const GRANDS_TEXTES_EXTRA9 = [
     oeuvre: "Vingt mille lieues sous les mers (1870)",
     genre: "Roman",
     diff: 2,
-    texte: `Le Nautilus filait comme un poisson géant dans les profondeurs bleues ; des méduses phosphorescentes dansaient autour de nous, et le silence de l'abîme était plus lourd que la mer elle-même.`,
+    texte: `Le Nautilus, construit en acier et en cuivre, avait la forme d'un long cigare, dont la taille s'accroissait sensiblement du milieu vers les bouts. Il filait comme un poisson dans les profondeurs, laissant derrière lui un sillage lumineux. Par les hublots, nous voyions des méduses phosphorescentes danser dans l'eau bleuâtre, des bancs de poissons inconnus, des forêts de corail où l'on eût dit des arbres pétrifiés. Le silence de l'abîme était plus lourd que celui de la surface ; parfois un grondement lointain, pareil au roulement d'un tonnerre, nous rappelait que la mer recèle des forces incommensurables. Le capitaine Nemo, les bras croisés, contemplait cet univers souterrain avec la fierté d'un créateur.`,
     contexte: "Roman d'aventures — science-fiction, mer, registre descriptif et merveilleux.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme un poisson géant »", interpretation: "Le parallèle introduit par « comme un poisson géant » (comparaison) facilite la visualisation de la scène et précise la dimension roman d'aventures du passage.", keywords: ["comparaison","poisson","géant","nautilus","vivant","machine"] },
-      { procede: "Registre merveilleux", citation: "« méduses phosphorescentes »", interpretation: "Registre merveilleux: par « méduses phosphorescentes », Jules Verne ouvre la scène à l'émerveillement et au surnaturel — tonalité dominante de Vingt mille lieues sous les mers.", keywords: ["merveilleux","méduses","phosphor","spectacle","émerveil","sous-marin"] },
-      { procede: "Hyperbole", citation: "« silence… plus lourd que la mer »", interpretation: "En exagérant « silence… plus lourd que la mer », le texte use de l'hyperbole afin de souligne l'intensité du ressenti — procédé fréquent chez Jules Verne.", keywords: ["hyperbole","silence","lourd","abîme","angoiss","profond"] },
-      { procede: "Personnification", citation: "« dansaient autour de nous »", interpretation: "En personnifiant « dansaient autour de nous », le texte rend la description plus vivante ; l'animation du non-humain sert roman d'aventures dans Vingt mille lieues sous les mers.", keywords: ["personnification","dansaient","méduses","animée","poétique","nature"] }
+      { procede: "Comparaison", citation: "« filait comme un poisson »", interpretation: "La comparaison animalise la machine : Verne fusionne nature et technologie dans un registre merveilleux.", keywords: ["comparaison","poisson","nautilus","technologie","merveilleux","verne"] },
+      { procede: "Registre merveilleux", citation: "« méduses phosphorescentes »", interpretation: "Les visions sous-marines ouvrent un monde fantastique : le descriptif scientifique devient émerveillement.", keywords: ["merveilleux","méduses","abîme","vision","fantastique","science"] },
+      { procede: "Hyperbole", citation: "« forces incommensurables »", interpretation: "L'hyperbole magnifie la puissance océanique : le merveilleux s'appuie sur l'infiniment grand.", keywords: ["hyperbole","mer","abîme","puissance","infini","nature"] },
+      { procede: "Description", citation: "« forme d'un long cigare »", interpretation: "La description précise du Nautilus installe le réalisme technique propre au roman d'aventures vernien.", keywords: ["description","nautilus","forme","technique","réalisme","aventure"] }
     ]
   },
   {
@@ -71,13 +71,13 @@ const GRANDS_TEXTES_EXTRA9 = [
     oeuvre: "Dominique (1863)",
     genre: "Roman",
     diff: 2,
-    texte: `Le manoir dormait sous le soleil de l'été ; les chênes projetaient une ombre immobile, et Dominique, assis sur le perron, rêvait à Madeleine avec une mélancolie douce.`,
+    texte: `Quand j'eus vingt-cinq ans, et que je commençai de me persuader que j'avais quelque talent pour la peinture, je me rendis à La Braye, dans la terre de mes pères. C'était au commencement de l'été. Le manoir de La Roncière, entouré de vieux chênes, semblait dormir sous la lumière dorée ; les fenêtres ouvertes laissaient entrer l'odeur des foins coupés. Dominique, assis sur le perron, rêvait à Madeleine avec une mélancolie douce. Il savait que leur amour était impossible : elle était mariée, lui n'osait parler. Le vent faisait bruisser les feuilles ; au loin, un clocher sonnait l'angélus. Tout semblait conspirer au bonheur, et pourtant une invisible barrière séparait leurs cœurs.`,
     contexte: "Roman pastoral — amour impossible, registre lyrique et mélancolique.",
     attendus: [
-      { procede: "Personnification", citation: "« manoir dormait »", interpretation: "En personnifiant « manoir dormait », le texte rend la description plus vivante ; l'animation du non-humain sert roman pastoral dans Dominique.", keywords: ["personnification","manoir","dormait","quiétude","paysage","intérieur"] },
-      { procede: "Registre lyrique", citation: "« rêvait à Madeleine »", interpretation: "Registre lyrique: « rêvait à Madeleine » exprime une subjectivité intime et des émotions personnelles, au cœur de l'amour impossible.", keywords: ["lyrique","rêvait","madeleine","subjectiv","sentiment","amour"] },
-      { procede: "Registre mélancolique", citation: "« mélancolie douce »", interpretation: "Registre mélancolique: « mélancolie douce » installe une tonalité triste, nostalgique ou mélancolique, au cœur de l'amour impossible.", keywords: ["mélancol","douce","tristesse","élégie","romant","tempér"] },
-      { procede: "Champ lexical", citation: "« ombre immobile, et Dominique, assis sur le perron, rêvait à Madeleine avec une mélancolie douce. »", interpretation: "Les occurrences « chênes », « ombre », « perron » composent un champ lexical cohérent autour de roman pastoral ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Eugène Fromentin.", keywords: ["champ lexical","chênes","ombre","perron","bucol","rêverie"] }
+      { procede: "Incipit", citation: "« Quand j'eus vingt-cinq ans »", interpretation: "L'incipit autobiographique situe le récit dans la mémoire : Fromentin mêle portrait intérieur et paysage.", keywords: ["incipit","mémoire","peinture","autobiographie","fromentin","récit"] },
+      { procede: "Personnification", citation: "« manoir ... semblait dormir »", interpretation: "Le manoir endormi personnifie la quiétude du monde rural : le décor pastoral enveloppe la rêverie amoureuse.", keywords: ["personnification","manoir","sommeil","quiétude","pastoral","décors"] },
+      { procede: "Registre lyrique", citation: "« rêvait à Madeleine »", interpretation: "La focalisation sur le rêve amoureux installe un registre lyrique : subjectivité et mélancolie dominent le passage.", keywords: ["lyrique","rêve","madeleine","subjectivité","amour","mélancolie"] },
+      { procede: "Antithèse", citation: "« bonheur » / « barrière »", interpretation: "L'antithèse entre cadre harmonieux et impossibilité amoureuse structure le roman pastoral de Fromentin.", keywords: ["antithèse","bonheur","barrière","impossible","contraste","sentiment"] }
     ]
   },
   {
@@ -88,15 +88,27 @@ const GRANDS_TEXTES_EXTRA9 = [
     genre: "Poésie",
     diff: 2,
     texte: `Sire, je suis de votre empire
-Orphelin, sans appui ni guide ;
+Orphelin, sans appui ny guide ;
 Mais j'ai l'esprit qui ne se tire
-Jamais du chemin de la ride.`,
+Jamais du chemin de la rime.
+Quand bien plus grand que moi seroit
+Le mal que l'on me vient de dire,
+Je n'aurois pas un seul espoir
+De vous en faire repentir.
+Car je suis de votre maison,
+Et si je suis un peu mutin,
+C'est pour vous faire entendre au moins
+Que je suis encor votre cousin.
+Ne me laissez donc pas mourir
+Sous le poids de l'adversité :
+Un bon mot peut tout secourir,
+Et la rime est ma vérité.`,
     contexte: "Poésie humaniste — satire légère, registre comique et élégant.",
     attendus: [
-      { procede: "Apostrophe", citation: "« Sire, je suis »", interpretation: "En s'adressant directement (« Sire, je suis »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","sire","roi","direct","polém","souverain"] },
-      { procede: "Métaphore", citation: "« chemin de la ride »", interpretation: "La métaphore « chemin de la ride » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit poésie humaniste dans Épîtres.", keywords: ["métaphore","chemin","ride","rime","poésie","obstin"] },
-      { procede: "Registre comique", citation: "« Orphelin, sans appui »", interpretation: "Registre comique: la scène provoque le rire par la situation, les mots ou les personnages; « Orphelin, sans appui » concentre cette coloration du satire légère.", keywords: ["comique","orphelin","suppliant","iron","satire","cour"] },
-      { procede: "Rime", citation: "empire / tire / guide / ride", interpretation: "Rime repéré dans « empire / tire / guide / ride »: Clément Marot mobilise ce procédé pour structurer satire légère dans Épîtres.", keywords: ["rime","croisée","empire","ride","artifice","marot"] }
+      { procede: "Apostrophe", citation: "« Sire, je suis »", interpretation: "Marot s'adresse directement au roi : l'apostrophe installe un ton suppliant mêlé d'ironie courtoise.", keywords: ["apostrophe","sire","roi","supplique","cour","marot"] },
+      { procede: "Métaphore", citation: "« chemin de la rime »", interpretation: "La rime devient chemin obstiné : métaphore de la fidélité poétique du poète humaniste.", keywords: ["métaphore","rime","chemin","poésie","obstination","humanisme"] },
+      { procede: "Registre comique", citation: "« un peu mutin »", interpretation: "L'autodérision mutine tempère la supplique : registre comique et élégant propre aux épîtres de Marot.", keywords: ["comique","mutin","ironie","supplique","élégant","satire"] },
+      { procede: "Rime", citation: "empire / guide / tire / rime", interpretation: "La rime croisée structure l'épître : l'artifice formel sert la persuasion polémique adressée au souverain.", keywords: ["rime","structure","forme","persuasion","épître","vers"] }
     ]
   },
   {
@@ -106,13 +118,15 @@ Jamais du chemin de la ride.`,
     oeuvre: "Le Verre d'eau (1840)",
     genre: "Théâtre",
     diff: 2,
-    texte: `Un verre d'eau renversé peut faire tomber un ministre, disait-on à la cour ; et la reine, en souriant, observait les intrigues avec le calme d'une femme qui sait tout.`,
+    texte: `SCENE III. — Le cabinet de la reine.
+LA REINE, MME DE MOTTE, le comte de Villeroy.
+LA REINE. — On dit qu'un verre d'eau renversé peut faire tomber un ministre. C'est une plaisanterie de cour ; mais la plaisanterie devient sérieuse quand l'intrigue s'en mêle. Le roi est jeune, la reine est étrangère, et chacun cherche à profiter de la moindre faiblesse. Un geste, un mot, une larme peuvent décider du sort d'un homme. C'est ainsi que l'Angleterre et la France se jouent leur destin sur un plateau d'échiquier où les pions sont des ambassadeurs et les fous des favorites.`,
     contexte: "Vaudeville historique — intrigue politique, registre comique et satirique.",
     attendus: [
-      { procede: "Métaphore", citation: "« verre d'eau… faire tomber un ministre »", interpretation: "La métaphore « verre d'eau… faire tomber un ministre » rapproche deux réalités sans outil comparatif: l'image condense intrigue politique en une vision poétique forte.", keywords: ["métaphore","verre","ministre","détail","crise","pouvoir"] },
-      { procede: "Registre satirique", citation: "« faire tomber un ministre, disait-on à la cour ; »", interpretation: "À travers « intrigues », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique","intrigues","cour","moque","politique","apparenc"] },
-      { procede: "Antiphrase", citation: "« reine, en souriant, observait les intrigues avec le calme d'une femme qui sait tout. »", interpretation: "Antiphrase repérée dans « en souriant »: le décalage entre le dit et le voulu dénonce ou moque intrigue politique.", keywords: ["antiphrase","souriant","cruauté","iron","aristocrat","masque"] },
-      { procede: "Registre comique", citation: "« un verre d'eau renversé »", interpretation: "À travers « un verre d'eau renversé », le texte bascule dans un registre comique ; le lecteur éprouve une mise à distance comique grâce à l'humour et détend la scène, ce qui s'inscrit dans Le Verre d'eau.", keywords: ["comique","renversé","disproport","cause","effet","vaudev"] }
+      { procede: "Métaphore", citation: "« verre d'eau renversé »", interpretation: "Le détail trivial devient cause politique : Scribe illustre la disproportion comique entre fait et conséquence.", keywords: ["métaphore","verre","ministre","disproportion","intrigue","scribe"] },
+      { procede: "Registre satirique", citation: "« plaisanterie de cour »", interpretation: "La satire vise les manœuvres politiques : la cour devient théâtre d'intrigues disproportionnées.", keywords: ["satirique","cour","intrigue","politique","moquerie","vaudeville"] },
+      { procede: "Métaphore", citation: "« plateau d'échiquier »", interpretation: "La métaphore du jeu d'échecs réduit la diplomatie à stratégie froide — registre comique et satirique.", keywords: ["métaphore","échiquier","diplomatie","jeu","pouvoir","intrigue"] },
+      { procede: "Registre comique", citation: "« les fous des favorites »", interpretation: "L'ironie sur les favorites dénonce la trivialité du pouvoir : comique de situation scénique.", keywords: ["comique","favorites","ironie","pouvoir","cour","satire"] }
     ]
   },
   {
@@ -122,12 +136,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Le Paysan parvenu (1735)",
     genre: "Roman",
     diff: 2,
-    texte: `Jacob regardait ces dames avec une simplicité qui les déconcertait ; il ne savait pas qu'il fallait feindre, et c'est peut-être pour cela qu'il plaisait.`,
+    texte: `Jacob regardait ces dames avec une simplicité qui les déconcertait ; il ne savait pas qu'il fallait feindre, et c'est peut-être pour cela qu'il plaisait. Il entrait dans le salon comme on entre dans un champ, les mains libres, l'âme ouverte, sans calcul ni détour. Les marquis souriaient de sa gaucherie ; les marquises le trouvaient original. Marivaux observe ici l'ascension sociale du paysan : ce qui devrait humilier Jacob — sa naïveté — devient paradoxalement son charme. L'ironie marivaudienne naît de l'écart entre les codes mondains et la sincérité du parvenu.`,
     contexte: "Roman comique — ascension sociale, registre ironique et psychologique.",
     attendus: [
-      { procede: "Antithèse", citation: "« simplicité » / « feindre »", interpretation: "Antithèse entre « simplicité » et « feindre »: le contraste met en relief deux pôles opposés et accentue ascension sociale.", keywords: ["antithèse","simplicité","feindre","naïveté","hypocris","mondain"] },
-      { procede: "Registre ironique", citation: "« c'est peut-être pour cela qu'il plaisait »", interpretation: "Registre ironique: la scène crée un décalage entre le sens apparent et le sens réel; « c'est peut-être pour cela qu'il plaisait » concentre cette coloration de l'ascension sociale.", keywords: ["ironique","plaisait","renverse","codes","authentic","séduit"] },
-      { procede: "Registre comique", citation: "« déconcertait »", interpretation: "Registre comique : malaise des dames provoque le rire — renversement social.", keywords: ["comique","déconcert","malaise","rire","renverse","social"] }
+      { procede: "Antithèse", citation: "« simplicité » / « feindre »", interpretation: "L'opposition entre sincérité et hypocrisie mondaine structure le roman : Jacob triomphe par naïveté.", keywords: ["antithèse","simplicité","feindre","naïveté","hypocrisie","marivaux"] },
+      { procede: "Comparaison", citation: "« comme on entre dans un champ »", interpretation: "La comparaison champ/salon marque l'écart social : registre ironique de l'ascension.", keywords: ["comparaison","champ","salon","gaucherie","social","ironie"] },
+      { procede: "Registre ironique", citation: "« c'est peut-être pour cela qu'il plaisait »", interpretation: "L'ironie marivaudienne renverse les valeurs : la gaucherie devient séduction.", keywords: ["ironique","plaisait","renversement","séduction","codes","parvenu"] },
+      { procede: "Registre comique", citation: "« déconcertait »", interpretation: "Le malaise des dames provoque le rire : comique de caractère et de situation.", keywords: ["comique","déconcert","malaise","rire","caractère","situation"] }
     ]
   },
   {
@@ -137,12 +152,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Adolphe (1816)",
     genre: "Roman",
     diff: 2,
-    texte: `J'aimais Ellénore ; je ne savais pas si c'était de l'amour ou de la pitié, et cette incertitude même devenait une torture pour nous deux.`,
+    texte: `Je l'aimais avec passion, et je la faisais souffrir. Je sentais que mon amour devenait pour elle un fardeau, que ma jalousie l'étouffait, que ma faiblesse l'accablait. Je voulais la quitter, et je ne le pouvais pas ; je voulais la rendre heureuse, et je ne faisais qu'accroître son malheur. Adolphe est le portrait d'une passion égoïste : Constant analyse les mouvements d'une âme qui se déchire entre remords et désir. Ellénore souffre de l'amour même qu'elle inspire ; Adolphe souffre de sa propre impuissance à aimer justement. Le registre lyrique se teinte de tragédie intérieure.`,
     contexte: "Roman psychologique — passion et remords, registre lyrique et tragique.",
     attendus: [
-      { procede: "Antithèse", citation: "« amour » / « pitié »", interpretation: "Antithèse entre « amour » et « pitié »: le contraste met en relief deux pôles opposés et accentue la passion et remords.", keywords: ["antithèse","amour","pit","contradict","psycholog","constant"] },
-      { procede: "Registre lyrique", citation: "« J'aimais Ellénore »", interpretation: "Registre lyrique: « J'aimais Ellénore » exprime une subjectivité intime et des émotions personnelles, au cœur de la passion et remords.", keywords: ["lyrique","aimais","ellénore","subjectiv","confession","intime"] },
-      { procede: "Registre tragique", citation: "« torture pour nous deux »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « torture pour nous deux » concentre cette coloration de la passion et remords.", keywords: ["tragique","torture","souffr","destin","fatal","amour"] }
+      { procede: "Antithèse", citation: "« la quitter » / « je ne le pouvais pas »", interpretation: "L'antithèse dramatise l'impuissance d'Adolphe : le roman psychologique naît de ce clivage intérieur.", keywords: ["antithèse","quitter","impuissance","passion","clivage","constant"] },
+      { procede: "Registre lyrique", citation: "« Je l'aimais avec passion »", interpretation: "L'aveu lyrique ouvre le monologue intérieur : subjectivité et introspection dominent le récit.", keywords: ["lyrique","passion","aveu","subjectivité","introspection","amour"] },
+      { procede: "Champ lexical", citation: "« mon amour devenait pour elle un fardeau »", interpretation: "Le champ lexical de la souffrance installe un registre pathétique : l'amour devient torture réciproque.", keywords: ["champ lexical","souffrance","fardeau","malheur","pathétique","passion"] },
+      { procede: "Registre tragique", citation: "« je ne faisais qu'accroître son malheur »", interpretation: "Constant transforme le roman sentimental en analyse tragique : l'amour égoïste accroît le malheur d'Ellénore.", keywords: ["tragique","malheur","remords","désir","psychologique","constant"] }
     ]
   },
   {
@@ -152,13 +168,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Obermann (1804)",
     genre: "Roman",
     diff: 3,
-    texte: `Ô nature ! reste seule avec moi ; que le monde s'éloigne, que les hommes disparaissent ; je veux n'entendre que le vent et le silence des montagnes.`,
+    texte: `Il n'y a point d'autre bonheur que celui qu'on sent ; et pour le sentir, il faut être seul. La nature m'appelle ; je la suis dans ses retraites ; je m'assieds au bord des torrents, je m'étends sous les chênes centenaires. Là, je respire, je rêve, je souffre. Obermann, ce fils du XVIIIe siècle qui n'a pu s'adapter au monde, cherche dans la nature une consolation que la société lui refuse. Senancour invente le mal du siècle : cette mélancolie sans objet, ce spleen préromantique qui annonce Chateaubriand et Musset. La solitude alpine devient temple de l'âme moderne.`,
     contexte: "Roman romantique — mal du siècle, solitude, registre lyrique et mélancolique.",
     attendus: [
-      { procede: "Apostrophe", citation: "« Ô nature ! »", interpretation: "L'apostrophe « Ô nature ! » interpelle un absent ou une abstraction : Étienne de Senancour implique le lecteur ou un destinataire absent et dramatise roman romantique.", keywords: ["apostrophe","nature","obermann","paysage","lyrisme","romant"] },
-      { procede: "Registre mélancolique", citation: "« que les hommes disparaissent »", interpretation: "Registre mélancolique: « que les hommes disparaissent » installe une tonalité triste, nostalgique ou mélancolique, au cœur du mal du siècle.", keywords: ["mélancol","disparaissent","rejet","monde","siècle","senancour"] },
-      { procede: "Énumération", citation: "« et le silence des montagnes. »", interpretation: "Énumération: les termes « vent », « silence », « montagnes » juxtaposent plusieurs éléments pour insister sur le mal du siècle et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","vent","silence","montagnes","refuge","bucol"] },
-      { procede: "Antithèse", citation: "« monde » / « nature »", interpretation: "Antithèse: « monde » s'oppose à « nature ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","monde","nature","corromp","salvatr","oppos"] }
+      { procede: "Maxime", citation: "« Il n'y a point d'autre bonheur que celui qu'on sent »", interpretation: "La maxime condense la philosophie d'Obermann : le bonheur est intérieur, inaccessible au monde social.", keywords: ["maxime","bonheur","sentir","intérieur","philosophie","senancour"] },
+      { procede: "Registre lyrique", citation: "« je respire, je rêve, je souffre »", interpretation: "La triade lyrique exprime la complexité du moi romantique : nature, rêve et douleur s'entrelacent.", keywords: ["lyrique","rêve","souffrir","moi","romantisme","nature"] },
+      { procede: "Antithèse", citation: "« nature » / « société »", interpretation: "L'antithèse structure le mal du siècle : Obermann fuit le monde pour la retraite alpine.", keywords: ["antithèse","nature","société","solitude","fuite","mal du siècle"] },
+      { procede: "Registre mélancolique", citation: "« mélancolie sans objet »", interpretation: "Senancour nomme le spleen préromantique : mélancolie moderne qui annonce le romantisme français.", keywords: ["mélancolique","spleen","préromantisme","solitude","âme","siècle"] }
     ]
   },
   {
@@ -168,13 +184,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Julie ou la Nouvelle Héloïse (1761)",
     genre: "Roman",
     diff: 2,
-    texte: `Julie écrivait à Saint-Preux avec une passion qui brûlait le papier ; chaque mot était une larme, chaque phrase un soupir retenu.`,
+    texte: `Hélas ! vous ne m'aimez plus, Julie ! Vous me le dites avec une froideur qui me glace le sang. Qu'ai-je fait pour mériter ce changement ? Je vous aimais avec une passion pure, respectueuse, qui ne demandait que votre bonheur. Vous m'avez encouragé par vos regards, par vos paroles, par ce silence même qui parlait à mon cœur. Et maintenant vous me repoussez ! Saint-Preux déchire le pacte social du roman épistolaire : l'amour impossible devient drame moral. Rousseau mêle lyrisme et pathos dans cette confession où le sentiment affole la raison.`,
     contexte: "Roman épistolaire — amour impossible, registre lyrique et pathétique.",
     attendus: [
-      { procede: "Hyperbole", citation: "« passion qui brûlait le papier »", interpretation: "« passion qui brûlait le papier » relève de l'hyperbole : l'amplification souligne l'intensité du ressenti et fixe l'émotion autour de roman épistolaire.", keywords: ["hyperbole","brûlait","papier","passion","lyrisme","exag"] },
-      { procede: "Anaphore", citation: "« chaque mot… chaque phrase »", interpretation: "L'anaphore sur « chaque mot… chaque phrase » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Jean-Jacques Rousseau.", keywords: ["anaphore","chaque","mot","phrase","émotion","incant"] },
-      { procede: "Registre pathétique", citation: "« larme, chaque phrase un soupir retenu. »", interpretation: "Registre pathétique: « larme » suscite la compassion et l'indignation face à la souffrance, au cœur de l'amour impossible.", keywords: ["pathétique","larme","soupir","souffr","pit","sentiment"] },
-      { procede: "Métaphore", citation: "« brûlait le papier »", interpretation: "Par la métaphore (« brûlait », « papier »), le réel est détourné : Jean-Jacques Rousseau condense une idée complexe en une image frappante tout en ancrant roman épistolaire.", keywords: ["métaphore","brûlait","feu","consume","destruct","passion"] }
+      { procede: "Apostrophe", citation: "« Julie ! »", interpretation: "L'apostrophe ouvre la lettre dans un registre pathétique : Saint-Preux interpelle celle qui le rejette.", keywords: ["apostrophe","julie","lettre","pathétique","amour","rousseau"] },
+      { procede: "Registre pathétique", citation: "« froideur qui me glace le sang »", interpretation: "L'hyperbole physiologique traduit la souffrance amoureuse : le corps manifeste le drame moral.", keywords: ["pathétique","froideur","souffrance","corps","amour","rejet"] },
+      { procede: "Antithèse", citation: "« passion pure » / « vous me repoussez »", interpretation: "L'antithèse entre amour idéal et rejet dramatise l'impossible : registre lyrique et tragique.", keywords: ["antithèse","passion","repousse","impossible","lyrique","tragique"] },
+      { procede: "Registre lyrique", citation: "« silence même qui parlait à mon cœur »", interpretation: "Le paradoxe lyrique transforme le silence en langage amoureux : sensibilité préromantique.", keywords: ["lyrique","silence","cœur","paradoxe","sensibilité","épistolaire"] }
     ]
   },
   {
@@ -184,13 +200,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Les Trois Mousquetaires (1844)",
     genre: "Roman",
     diff: 1,
-    texte: `D'Artagnan était jeune, audacieux et un peu naïf ; il arrivait à Paris avec trois crowns en poche et le cœur plein de rêves héroïques.`,
+    texte: `Le premier lundi du mois d'avril 1626, le bourg de Meung, où naquit l'auteur du Roman de la Rose, semblait être dans une révolution aussi entière que si les huguenots en fussent venus faire une seconde Rochelle. Un jeune homme — traçons son portrait d'un seul trait de plume : — figurez-vous don Quichotte à dix-huit ans ; don Quichotte décornelé, sans haubert et sans cuissard ; don Quichotte revêtu d'un pourpoint de laine, dont la couleur bleue s'était transformée en une nuance insaisissable de lie de vin et d'azur céleste. Visage long et brun ; la pommette des joues saillante, signe d'astuce ; les muscles maxillaires énormément développés, indice infaillible où l'on reconnaît le Gascon, même sans béret.`,
     contexte: "Roman d'aventures — héroïsme, jeunesse, registre épique et comique.",
     attendus: [
-      { procede: "Énumération", citation: "« jeune, audacieux et un peu naïf »", interpretation: "Alexandre Dumas recourt à l'énumération (« jeune », « audacieux », « naïf ») pour épuise ou exalte selon la visée de l'auteur ; la liste éclaire du roman d'aventures dans Les Trois Mousquetaires.", keywords: ["énumération","jeune","audacieux","naïf","portrait","héros"] },
-      { procede: "Registre épique", citation: "« cœur plein de rêves héroïques »", interpretation: "Registre épique: la scène élève l'action au niveau du grand récit et exalte la scène; « cœur plein de rêves héroïques » concentre cette coloration de l'héroïsme.", keywords: ["épique","rêves","héroïq","chevaler","aventure","romanesq"] },
-      { procede: "Antithèse", citation: "« trois crowns » / « rêves héroïques »", interpretation: "Antithèse entre « trois crowns » et « rêves héroïques »: le contraste met en relief deux pôles opposés et accentue héroïsme.", keywords: ["antithèse","crowns","rêves","pauvreté","richesse","comique"] },
-      { procede: "Registre comique", citation: "« un peu naïf »", interpretation: "À travers « un peu naïf », le texte bascule dans un registre comique ; le lecteur éprouve une mise à distance comique grâce à l'humour et détend la scène, ce qui s'inscrit dans Les Trois Mousquetaires.", keywords: ["comique","naïf","sympath","héros","léger","ton"] }
+      { procede: "Comparaison", citation: "« don Quichotte à dix-huit ans »", interpretation: "Dumas compare d'Artagnan à don Quichotte : le héros gascon naît déjà dans la bravade et l'idéal chevaleresque.", keywords: ["comparaison","quichotte","dartagnan","bravade","héros","dumas"] },
+      { procede: "Registre comique", citation: "« lie de vin et d'azur céleste »", interpretation: "La description burlesque du pourpoint installe le ton comique : le héros épique est aussi grotesque.", keywords: ["comique","pourpoint","burlesque","portrait","grotesque","gascon"] },
+      { procede: "Caractérisation", citation: "« indice infaillible où l'on reconnaît le Gascon »", interpretation: "La caractérisation physique condense le trait national : l'ascension du héros passe par l'identité régionale.", keywords: ["caractérisation","gascon","portrait","identité","héros","national"] },
+      { procede: "Registre épique", citation: "« révolution aussi entière »", interpretation: "L'hyperbole épique du cadre historique prépare les aventures : le récit s'ouvre sur une tonalité héroïcomique.", keywords: ["épique","révolution","cadre","héroïcomique","aventure","historique"] }
     ]
   },
   {
@@ -200,13 +216,24 @@ Jamais du chemin de la ride.`,
     oeuvre: "Ruy Blas (1838)",
     genre: "Théâtre",
     diff: 2,
-    texte: `Sous le masque du bouffon, Ruy Blas cachait un cœur noble et une intelligence farouche ; la cour riait, ignorant qu'elle applaudissait son futur maître.`,
+    texte: `RUY BLAS, seul, masqué.
+Me voici donc le favori d'une reine !
+Moi, le fils d'un meurtrier, moi, le laquais déguisé,
+Moi, que l'Espagne méprise et que Madrid insulte !
+Quel masque ! quel déguisement ! quel travestissement !
+Et pourtant, c'est ma gloire, c'est ma joie, c'est ma vie !
+Car enfin, je l'aime, cette reine adorée,
+Et peut-être me regarde-t-elle en secret avec amour.
+Mais non ! je suis un masque, un fantôme, une ombre ;
+Si elle savait qui je suis, elle me chasserait.
+Ô fatalité ! ô comédie du destin !
+Le valet joue le maître, et le maître est un valet.`,
     contexte: "Drame romantique — déguisement, critique sociale, registre tragique et satirique.",
     attendus: [
-      { procede: "Antithèse", citation: "« bouffon » / « cœur noble »", interpretation: "Antithèse: « bouffon » s'oppose à « cœur noble ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","bouffon","noble","apparenc","grandeur","déguis"] },
-      { procede: "Métaphore", citation: "« Sous le masque »", interpretation: "Par la métaphore (« Sous », « masque »), le réel est détourné : Victor Hugo condense une idée complexe en une image frappante tout en ancrant drame romantique.", keywords: ["métaphore","masque","dissimul","social","théâtre","politique"] },
-      { procede: "Registre satirique", citation: "« la cour riait »", interpretation: "À travers « la cour riait », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Ruy Blas.", keywords: ["satirique","cour","riait","arrog","privil","critique"] },
-      { procede: "Ironie dramatique", citation: "« riait, ignorant qu'elle applaudissait son futur maître. »", interpretation: "Ironie dramatique repérée dans « futur maître »: le décalage entre le dit et le voulu dénonce ou moque déguisement.", keywords: ["ironie","dramat","futur","maître","ignor","suspense"] }
+      { procede: "Anaphore", citation: "« Moi, le fils d'un meurtrier »", interpretation: "L'anaphore martèle l'ascension paradoxale : Hugo dramatise le renversement social du laquais masqué.", keywords: ["anaphore","moi","laquais","renversement","social","hugo"] },
+      { procede: "Antithèse", citation: "« valet joue le maître »", interpretation: "L'antithèse finale condense la critique sociale : le drame romantique dénonce l'injustice des classes.", keywords: ["antithèse","valet","maître","classes","critique","tragique"] },
+      { procede: "Registre tragique", citation: "« Si elle savait qui je suis »", interpretation: "Le monologue révèle l'angoisse du déguisement : amour impossible et peur du démasquement.", keywords: ["tragique","masque","angoisse","amour","déguisement","fatalité"] },
+      { procede: "Registre satirique", citation: "« comédie du destin »", interpretation: "La satire sociale traverse le pathos : Hugo dénonce une société fondée sur l'apparence.", keywords: ["satirique","comédie","destin","apparence","société","injustice"] }
     ]
   },
   {
@@ -216,13 +243,24 @@ Jamais du chemin de la ride.`,
     oeuvre: "Lorenzaccio (1834)",
     genre: "Théâtre",
     diff: 3,
-    texte: `Florence pourrit sous le soleil d'or ; les palais brillent, les âmes pourrissent, et Lorenzaccio marche seul dans cette cité de mensonge.`,
+    texte: `LORENZACCIO, seul.
+Florence ! Florence ! ô ma mère adorée,
+Ville de mes aïeux, cité de la liberté,
+Comme tu es tombée ! Comme tu es prostituée !
+Le tyran s'assied sur ton trône usurpé,
+Et tes fils, lâches ou vendus, baissent la tête.
+Moi seul, Lorenzaccio, le dernier des Médicis,
+Je veux te sauver, ou du moins mourir pour toi.
+Mais à quoi bon ? La décadence est partout ;
+Le vice a corrompu les âmes et les corps ;
+Florence agonise, et l'Italie entière
+Regarde sa mort sans oser lui tendre la main.`,
     contexte: "Drame romantique — tyrannie, décadence, registre tragique et satirique.",
     attendus: [
-      { procede: "Antithèse", citation: "« palais brillent » / « âmes pourrissent »", interpretation: "Antithèse: « palais brillent » s'oppose à « âmes pourrissent ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","palais","brillent","âmes","pourriss","morale"] },
-      { procede: "Personnification", citation: "« Florence pourrit »", interpretation: "En personnifiant « Florence pourrit », le texte rend la description plus vivante ; l'animation du non-humain sert drame romantique dans Lorenzaccio.", keywords: ["personnification","florence","pourrit","corps","symbol","politique"] },
-      { procede: "Registre tragique", citation: "« Lorenzaccio marche seul »", interpretation: "À travers « Lorenzaccio marche seul », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["tragique","seul","isolé","corruption","juste","héros"] },
-      { procede: "Champ lexical", citation: "« brillent, les âmes pourrissent, et Lorenzaccio marche seul dans cette cité de mensonge. »", interpretation: "Champ lexical: « pourrit », « mensonge », « pourrissent ». L'accumulation de ces lexies enveloppe le lecteur dans l'univers de tyrannie.", keywords: ["champ lexical","pourrit","mensonge","décad","décompos","morale"] }
+      { procede: "Apostrophe", citation: "« Florence ! Florence ! »", interpretation: "L'apostrophe à la ville mère ouvre un registre épique et pathétique : Musset personnifie la patrie trahie.", keywords: ["apostrophe","florence","patrie","pathétique","épique","musset"] },
+      { procede: "Personnification", citation: "« Florence agonise »", interpretation: "Florence agonisante personnifie la décadence politique : la cité devient corps moribond.", keywords: ["personnification","florence","agonie","décadence","politique","tyrannie"] },
+      { procede: "Registre tragique", citation: "« mourir pour toi »", interpretation: "Le héros romantique accepte le sacrifice : tragédie de l'engagement dans un monde corrompu.", keywords: ["tragique","sacrifice","héros","engagement","corruption","mort"] },
+      { procede: "Registre satirique", citation: "« lâches ou vendus »", interpretation: "La satire vise la complicité collective : Musset dénonce la lâcheté des contemporains.", keywords: ["satirique","lâcheté","vendus","complicité","dénonciation","tyran"] }
     ]
   },
   {
@@ -232,13 +270,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Les Diaboliques (1874)",
     genre: "Nouvelle",
     diff: 3,
-    texte: `Elle était belle comme un démon, et son regard brûlait les hommes ; on la craignait, on la désirait, et personne n'osait la nommer.`,
+    texte: `Elle était belle à faire peur, cette fille des bois, avec ses yeux verts comme la mer par tempête, et sa voix qui semblait venir d'un autre monde. Les paysans la regardaient passer en se signant ; les prêtres parlaient de sorcellerie. Mlle de Cordoué, l'Ensorcelée, marchait seule dans les landes bretonnes, poursuivie par une passion qu'elle ne comprenait pas. Barbey d'Aurevilly peint ici la femme fatale : beauté diabolique, désir interdit, registre pathétique et fantastique. La lande bretonne devient décor d'une tragédie où l'amour et la damnation se confondent.`,
     contexte: "Nouvelle fantastique — perversité, séduction, registre pathétique et tragique.",
     attendus: [
-      { procede: "Comparaison", citation: "« belle comme un démon »", interpretation: "Comparaison repérée dans « belle comme un démon »: le parallèle rend perversité plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","démon","belle","fascine","effraie","fantast"] },
-      { procede: "Antithèse", citation: "« craignait » / « désirait »", interpretation: "Antithèse: « craignait » s'oppose à « désirait ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","craignait","désirait","peur","désir","fascin"] },
-      { procede: "Registre pathétique", citation: "« regard brûlait les hommes »", interpretation: "Registre pathétique: « regard brûlait les hommes » suscite la compassion et l'indignation face à la souffrance, au cœur de la perversité.", keywords: ["pathétique","regard","brûlait","destruct","terreur","pit"] },
-      { procede: "Hyperbole", citation: "« brûlait les hommes »", interpretation: "En exagérant « brûlait les hommes », le texte use de l'hyperbole afin de souligne l'intensité du ressenti — procédé fréquent chez Barbey d'Aurevilly.", keywords: ["hyperbole","brûlait","arme","regard","pouvoir","féminin"] }
+      { procede: "Comparaison", citation: "« yeux verts comme la mer par tempête »", interpretation: "La comparaison marine magnifie le regard : la beauté devient menace — registre fantastique.", keywords: ["comparaison","yeux","mer","menace","beauté","barbey"] },
+      { procede: "Registre fantastique", citation: "« parlaient de sorcellerie »", interpretation: "Le soupçon de sorcellerie installe le fantastique : le surnaturel hante la lande bretonne.", keywords: ["fantastique","sorcellerie","surnaturel","lande","breton","peur"] },
+      { procede: "Hyperbole", citation: "« belle à faire peur »", interpretation: "L'hyperbole condense la femme fatale : la beauté dépasse le beau et bascule dans l'effroi.", keywords: ["hyperbole","peur","beauté","fatale","effroi","passion"] },
+      { procede: "Registre pathétique", citation: "« passion qu'elle ne comprenait pas »", interpretation: "La passion incomprise structure la tragédie : pathos d'une âme possédée par le désir.", keywords: ["pathétique","passion","incomprise","tragédie","désir","damnation"] }
     ]
   },
   {
@@ -248,13 +286,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Thaïs (1890)",
     genre: "Roman",
     diff: 2,
-    texte: `Paphnuce marchait dans le désert, brûlé par le soleil et par la ferveur ; il poursuivait Thaïs comme un chasseur poursuit une proie, mais c'était son âme qu'il traquait.`,
+    texte: `Dans le désert de la Thébaïde, où le silence est si profond qu'on entend battre son cœur, Paphnuce marchait seul, le corps mortifié, l'âme en feu. Il avait quitté le monde pour fuir Thaïs, la comédienne d'Alexandrie, dont la beauté l'avait troublé. Mais plus il fuyait, plus elle le poursuivait dans ses rêves. Anatole France oppose ascétisme et désir avec une ironie douce : le moine croit dompter la chair, et la chair le dompte. Le registre pathétique se mêle à la satire philosophique du roman fin-de-siècle.`,
     contexte: "Roman philosophique — ascétisme et désir, registre ironique et pathétique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme un chasseur… une proie »", interpretation: "Le parallèle introduit par « comme un chasseur… une proie » (comparaison) facilite la visualisation de la scène et précise la dimension roman philosophique du passage.", keywords: ["comparaison","chasseur","proie","paphnuce","conversion","métaphor"] },
-      { procede: "Métaphore", citation: "« c'était son âme qu'il traquait »", interpretation: "Par la métaphore (« c'était », « qu'il », « traquait »), le réel est détourné : Anatole France condense une idée complexe en une image frappante tout en ancrant roman philosophique.", keywords: ["métaphore","âme","traquait","quête","iron","spirit"] },
-      { procede: "Antithèse", citation: "« soleil » / « ferveur »", interpretation: "Antithèse: « soleil » s'oppose à « ferveur ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","soleil","ferveur","chaleur","mystique","brûlure"] },
-      { procede: "Registre ironique", citation: "« Thaïs comme un chasseur poursuit une proie, mais c'était son âme qu'il traquait. »", interpretation: "Registre ironique: par « poursuite de Thaïs / traque de son âme », Anatole France crée un décalage entre le sens apparent et le sens réel — tonalité dominante de Thaïs.", keywords: ["ironique","hypocris","relig","satire","ascét","france"] }
+      { procede: "Antithèse", citation: "« corps mortifié » / « âme en feu »", interpretation: "L'antithèse du moine troublé dramatise le conflit ascétisme/désir — registre pathétique et ironique.", keywords: ["antithèse","mortifié","feu","ascétisme","désir","anatole france"] },
+      { procede: "Hyperbole", citation: "« silence est si profond qu'on entend battre son cœur »", interpretation: "L'hyperbole du silence désertique souligne l'intériorité du moine : le décor amplifie le drame intérieur.", keywords: ["hyperbole","silence","désert","intériorité","cœur","décor"] },
+      { procede: "Registre ironique", citation: "« la chair le dompte »", interpretation: "L'ironie d'Anatole France dénonce l'illusion ascétique : la chair triomphe du moine.", keywords: ["ironique","ascétisme","chair","illusion","satire","philosophie"] },
+      { procede: "Champ lexical", citation: "« plus il fuyait, plus elle le poursuivait »", interpretation: "Le champ lexical de la fuite traduit l'obsession : Thaïs hante le moine même dans le retrait.", keywords: ["champ lexical","fuite","poursuite","rêves","obsession","thaïs"] }
     ]
   },
   {
@@ -264,13 +302,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Poil de carotte (1894)",
     genre: "Roman",
     diff: 2,
-    texte: `Son père le regardait avec une dureté qui n'était pas de la haine, mais pire : un mépris tranquille, comme on regarde un objet inutile.`,
+    texte: `Mon père ne m'aimait pas. Il ne me battait pas souvent, mais il me regardait avec un mépris qui valait toutes les corrections. Quand je passais devant lui, il détournait les yeux ; quand je parlais, il ne répondait pas. Ma mère, douce et faible, tentait de m'intercéder, mais lui imposait silence. J'étais le fils indésirable, le rejeton roux qu'on tolerait parce qu'on ne pouvait pas le renier. Jules Renard transforme l'autobiographie en satire : le registre pathétique de l'enfant martyrisé se teinte d'une ironie amère qui dénonce la cruauté familiale bourgeoise.`,
     contexte: "Roman autobiographique — maltraitance familiale, registre pathétique et satirique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme on regarde un objet inutile »", interpretation: "La comparaison « comme on regarde un objet inutile » établit un rapprochement explicite : Jules Renard facilite la visualisation de la scène et rend roman autobiographique plus perceptible.", keywords: ["comparaison","objet","inutile","enfant","déshum","familial"] },
-      { procede: "Antithèse", citation: "« pas de la haine » / « pire »", interpretation: "Antithèse: « pas de la haine » s'oppose à « pire ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","haine","pire","mépris","cruauté","psycholog"] },
-      { procede: "Registre pathétique", citation: "« dureté qui n'était pas de la haine, mais pire : un mépris tranquille, comme on regarde un objet inut »", interpretation: "Registre pathétique: « dureté » suscite la compassion et l'indignation face à la souffrance, au cœur du maltraitance familiale.", keywords: ["pathétique","dureté","père","souffr","compassion","enfant"] },
-      { procede: "Registre satirique", citation: "« mépris tranquille »", interpretation: "À travers « mépris tranquille », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique","mépris","tranquille","bourgeois","cruauté","critique"] }
+      { procede: "Registre pathétique", citation: "« fils indésirable »", interpretation: "Le pathos de l'enfant rejeté structure le roman : Renard expose la souffrance avec une sobriété déchirante.", keywords: ["pathétique","rejet","enfant","souffrance","famille","renard"] },
+      { procede: "Antiphrase", citation: "« mépris qui valait toutes les corrections »", interpretation: "L'antiphrase suggère une violence psychologique plus cruelle que la bastonnade : satire de la famille.", keywords: ["antiphrase","mépris","violence","psychologique","cruauté","satire"] },
+      { procede: "Registre satirique", citation: "« rejeton roux qu'on tolerait »", interpretation: "L'ironie amère dénonce l'hypocrisie bourgeoise : la famille masque sa cruauté derrière la bienséance.", keywords: ["satirique","ironie","bourgeoisie","hypocrisie","cruauté","famille"] },
+      { procede: "Focalisation interne", citation: "« Mon père ne m'aimait pas »", interpretation: "La focalisation interne du narrateur enfant ancre le récit dans une subjectivité blessée et lucide.", keywords: ["focalisation","interne","narrateur","enfant","subjectivité","autobiographie"] }
     ]
   },
   {
@@ -280,13 +318,13 @@ Jamais du chemin de la ride.`,
     oeuvre: "Contes cruels (1883)",
     genre: "Nouvelle",
     diff: 3,
-    texte: `L'espoir le tenait en vie, et c'était précisément cela qui le torturait ; chaque minute d'attente était une agonie, et pourtant il ne pouvait renoncer à espérer.`,
+    texte: `L'inquisiteur regardait le condamné avec un sourire affreux. — Tu espères échapper ? dit-il. — J'espère, murmura le prisonnier. — Alors je te laisse partir. Les portes s'ouvrirent. Le prisonnier hésita, puis recula. — Pourquoi ne pars-tu pas ? — Parce que... parce que tu veux que je parte. Villiers de l'Isle-Adam construit ici le paradoxe de la torture par l'espérance : la cruauté suprême consiste à offrir la liberté quand on sait qu'elle ne sera pas saisie. Le registre tragique se mêle à une réflexion philosophique sur la volonté et la peur.`,
     contexte: "Conte fantastique — cruauté, paradoxe, registre tragique et philosophique.",
     attendus: [
-      { procede: "Paradoxe", citation: "« L'espoir »", interpretation: "Paradoxe: « l'espoir… c'était… ce qui le torturait » affirme une idée qui surprend ou contredit la logique commune. Villiers de l'Isle-Adam brouille les certitudes dans la cruauté.", keywords: ["paradoxe","espoir","torturait","supplice","villiers","mal"] },
-      { procede: "Antithèse", citation: "« tenait en vie » / « torturait »", interpretation: "Antithèse entre « tenait en vie » et « torturait »: le contraste met en relief deux pôles opposés et accentue cruauté.", keywords: ["antithèse","vie","torturait","contradict","exist","liées"] },
-      { procede: "Registre tragique", citation: "« chaque minute… une agonie »", interpretation: "Registre tragique: par « chaque minute… une agonie », Villiers de l'Isle-Adam installe une fatalité qui dépasse les personnages et provoque terreur ou pitié — tonalité dominante de Contes cruels.", keywords: ["tragique","minute","agonie","souffr","terreur","cruel"] },
-      { procede: "Antanaclase", citation: "« espérer » / « espoir »", interpretation: "Antanaclase repéré dans « espérer »: Villiers de l'Isle-Adam mobilise ce procédé pour structurer cruauté dans Contes cruels.", keywords: ["antanaclase","espérer","espoir","jeu","contradict","paradoxe"] }
+      { procede: "Paradoxe", citation: "« torture par l'espérance »", interpretation: "Le paradoxe structure le conte : la liberté offerte devient supplice — cruauté philosophique villiérienne.", keywords: ["paradoxe","espérance","torture","liberté","cruauté","villiers"] },
+      { procede: "Dialogue", citation: "« Pourquoi ne pars-tu pas ? »", interpretation: "Le dialogue minimal dramatise le piège mental : la parole de l'inquisiteur est arme plus efficace que les fers.", keywords: ["dialogue","piège","inquisiteur","prisonnier","mental","tension"] },
+      { procede: "Registre tragique", citation: "« sourire affreux »", interpretation: "Le tragique naît de la perversité calme : l'inquisiteur incarne le mal rationalisé.", keywords: ["tragique","sourire","perversité","mal","inquisiteur","supplice"] },
+      { procede: "Registre philosophique", citation: "« tu veux que je parte »", interpretation: "La réflexion sur la volonté libère une lecture philosophique : la peur du désir de l'autre paralyse l'action.", keywords: ["philosophique","volonté","peur","désir","liberté","paralysie"] }
     ]
   }
 ];

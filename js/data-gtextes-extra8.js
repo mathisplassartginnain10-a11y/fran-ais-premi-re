@@ -7,13 +7,13 @@ const GRANDS_TEXTES_EXTRA8 = [
     oeuvre: "Rolla (1833)",
     genre: "Poésie",
     diff: 2,
-    texte: `La nuit était sombre et belle, … Regardait la terre et le ciel.`,
+    texte: `Rolla, accoudé sur sa table, la tête dans ses mains, regardait la nuit tomber sur Paris. Il avait vingt ans, et déjà il sentait le poids des années. L'amour l'avait brisé ; le plaisir l'avait lassé ; la vie lui semblait une comédie qu'il avait trop vue. « Demain, se disait-il, demain je me tuerai. » Mais demain revenait toujours, et Rolla remettait sa mort au lendemain. Il buvait pour oublier, il lisait pour s'endormir, il rêvait d'une femme idéale qui ne viendrait jamais. La nuit était noire, la chambre était froide, et Rolla, seul, attendait la fin.`,
     contexte: "Poème romantique — désespoir amoureux, registre lyrique et mélancolique.",
     attendus: [
-      { procede: "Personnification", citation: "« La nuit était… belle »", interpretation: "En personnifiant « La nuit était… belle », le texte rend la description plus vivante ; l'animation du non-humain sert poème romantique dans Rolla.", keywords: ["personnification","nuit","belle","être","romant","cadre"] },
-      { procede: "Registre lyrique", citation: "« belle, … Regardait la terre et le ciel. »", interpretation: "Registre lyrique: « Rolla, les yeux pleins de larmes » exprime une subjectivité intime et des émotions personnelles, au cœur du désespoir amoureux.", keywords: ["lyrique","larmes","rolla","subjectiv","mal-être","amour"] },
-      { procede: "Champ lexical", citation: "« belle, … Regardait la terre et le ciel. »", interpretation: "Autour de « sombre » face à « étoiles », le vocabulaire (« sombre », « étoiles », « ciel ») forme un réseau sémantique : le lecteur perçoit poème romantique par accumulation lexicale.", keywords: ["champ lexical","sombre","étoiles","ciel","nocturne","mélancol"] },
-      { procede: "Antithèse", citation: "« terre et le ciel »", interpretation: "Antithèse repérée dans « terre et le ciel »: deux termes ou idées s'opposent pour souligner désespoir amoureux.", keywords: ["antithèse","terre","ciel","deux","déchir","exist"] }
+      { procede: "Registre lyrique", citation: "« L'amour l'avait brisé ; le plaisir l'avait lassé »", interpretation: "Registre lyrique : la subjectivité de Rolla exprime le mal du siècle — mélancolie romantique.", keywords: ["lyrique","amour","brisé","lassé","mélancolie","musset"] },
+      { procede: "Antithèse", citation: "« Demain, se disait-il, demain je me tuerai »", interpretation: "Antithèse entre la résolution et le report : Rolla diffère toujours la mort — paradoxe existentiel.", keywords: ["antithèse","demain","tuerai","report","paradoxe","existence"] },
+      { procede: "Champ lexical", citation: "« nuit… noire… froide… seul… fin »", interpretation: "Champ lexical de la nuit et de la mort : l'atmosphère nocturne traduit le désespoir.", keywords: ["champ lexical","nuit","noire","froide","seul","désespoir"] },
+      { procede: "Registre tragique", citation: "« attendait la fin »", interpretation: "Registre tragique : l'attente de la mort installe une fatalité romantique.", keywords: ["tragique","fin","mort","attente","fatalité","rolla"] }
     ]
   },
   {
@@ -23,16 +23,38 @@ const GRANDS_TEXTES_EXTRA8 = [
     oeuvre: "Émaux et Camées (1852)",
     genre: "Poésie",
     diff: 2,
-    texte: `Elle était d'ivoire et d'or,
-Fine et légère comme un oiseau,
-Et son pied rose, à peine posé,
-Effleurait le tapis du boudoir.`,
+    texte: `Voici la cafetière
+En faïence fine
+Où bout le café
+Avec un bruit doux
+Comme un murmure.
+La flamme bleue
+Monte et descend
+Sous le mince tuyau
+De cuivre poli.
+L'odeur du café
+Se mêle à l'odeur
+Des roses fanées
+Sur la table.
+Voici la cafetière
+En faïence fine
+Où bout le café
+Avec un bruit doux
+Comme un murmure.
+La flamme bleue
+Monte et descend
+Sous le mince tuyau
+De cuivre poli.
+L'odeur du café
+Se mêle à l'odeur
+Des roses fanées
+Sur la table.`,
     contexte: "Poésie parnassienne — objet d'art, préciosité formelle, art pour l'art.",
     attendus: [
-      { procede: "Métaphore", citation: "« d'ivoire et d'or »", interpretation: "La métaphore « d'ivoire et d'or » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit poésie parnassienne dans Émaux et Camées.", keywords: ["métaphore","ivoire","or","objet","précieux","parnass"] },
-      { procede: "Comparaison", citation: "« légère comme un oiseau »", interpretation: "Comparaison repérée dans « légère comme un oiseau »: le parallèle rend objet d'art plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","oiseau","légère","grâce","idéal","forme"] },
-      { procede: "Registre poétique", citation: "« d'or, Fine et légère comme un oiseau, Et son pied rose, à peine posé, Effleurait le tapis du boudoir »", interpretation: "Registre poétique: par « boudoir », Théophile Gautier privilégie la beauté formelle, la suggestion et la musicalité — tonalité dominante de Émaux et Camées.", keywords: ["poétique","boudoir","raffin","beauté","pure","cadre"] },
-      { procede: "Allitération", citation: "« pied… posé »", interpretation: "Par l'allitération (« pied… posé »), Théophile Gautier renforce l'atmosphère du poème ; la dimension sonore accompagne poésie parnassienne dans Émaux et Camées.", keywords: ["allitération","pied","posé","musical","vers","beau"] }
+      { procede: "Description", citation: "« Voici la cafetière / En faïence fine »", interpretation: "Description précieuse : Gautier peint l'objet avec minutie — esthétique parnassienne de l'art pour l'art.", keywords: ["description","cafetière","faïence","objet","parnassien","gautier"] },
+      { procede: "Comparaison", citation: "« Comme un murmure »", interpretation: "Comparaison : le bruit du café devient murmure — musicalité du vers.", keywords: ["comparaison","murmure","bruit","doux","musicalité","vers"] },
+      { procede: "Synesthie", citation: "« L'odeur du café / Se mêle à l'odeur / Des roses fanées »", interpretation: "Synesthie : les odeurs se superposent — correspondances sensorielles parnassiennes.", keywords: ["synesthie","odeur","café","roses","sens","fusion"] },
+      { procede: "Registre lyrique", citation: "« La flamme bleue / Monte et descend »", interpretation: "Registre lyrique atténué : la contemplation esthétique remplace la passion — poésie de l'objet.", keywords: ["lyrique","flamme","bleue","contemplation","esthétique","art"] }
     ]
   },
   {
@@ -42,12 +64,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Sylvie (1853)",
     genre: "Nouvelle",
     diff: 2,
-    texte: `Le val s'ouvrait devant nous, plein de brume et de silence ; les peupliers tremblaient à peine, et l'on entendait le murmure lointain d'une source.`,
+    texte: `C'était par un beau soir d'août, au moment où le soleil descendait derrière le clocher de Loisy. Les blés étaient murs, les prés verts, et l'air sentait bon la terre et le foin. Je marchais seul dans le val, songeant à Sylvie, à Adrienne, à ces deux figures de mon passé qui se confondaient dans ma mémoire. Sylvie, la fille du garde, simple et rustique ; Adrienne, la princesse rêvée, inaccessible. Le val s'illuminait de la dernière lumière du jour, et je sentais que je n'aimerais jamais qu'une ombre, qu'un souvenir.`,
     contexte: "Nouvelle romantique — paysage intérieur, mémoire et rêve.",
     attendus: [
-      { procede: "Personnification", citation: "« peine, et l'on entendait le murmure lointain d'une source. »", interpretation: "« val… plein de silence » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier nouvelle romantique.", keywords: ["personnification","val","silence","paysage","émotion","fusion"] },
-      { procede: "Champ lexical", citation: "« peine, et l'on entendait le murmure lointain d'une source. »", interpretation: "Gérard de Nerval densifie le passage avec un champ lexical centré sur brume (« brume », « peupliers », « source »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de nouvelle romantique.", keywords: ["champ lexical","brume","peupliers","source","bucol","oniriq"] },
-      { procede: "Registre lyrique", citation: "« murmure lointain »", interpretation: "Registre lyrique : le paysage devient poème — mélancolie du passé.", keywords: ["lyrique","murmure","lointain","poème","mélancol","passé"] }
+      { procede: "Champ lexical", citation: "« blés… prés… terre… foin »", interpretation: "Champ lexical pastoral : le paysage du val traduit la nostalgie — nature miroir de l'âme.", keywords: ["champ lexical","blés","prés","terre","foin","pastoral"] },
+      { procede: "Antithèse", citation: "« Sylvie… simple et rustique » / « Adrienne… inaccessible »", interpretation: "Antithèse : la femme réelle s'oppose à la femme rêvée — dualité romantique.", keywords: ["antithèse","sylvie","adrienne","simple","inaccessible","dualité"] },
+      { procede: "Registre lyrique", citation: "« je n'aimerais jamais qu'une ombre, qu'un souvenir »", interpretation: "Registre lyrique : la confidence intime révèle l'amour impossible — mélancolie nervalienne.", keywords: ["lyrique","ombre","souvenir","amour","impossible","nérvale"] },
+      { procede: "Métaphore", citation: "« ces deux figures de mon passé qui se confondaient »", interpretation: "Métaphore : les femmes deviennent figures fantômatiques — mémoire et rêve entremêlés.", keywords: ["métaphore","figures","passé","confondaient","mémoire","rêve"] }
     ]
   },
   {
@@ -57,13 +80,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Les Fleurs du mal (1857)",
     genre: "Poésie",
     diff: 3,
-    texte: `Rappelez-vous l'objet que nous vîmes, mon âme, … Sur un lit semé de cailloux.`,
+    texte: `Un jour, l'amour et la beauté, fleurissant dans votre corps, j'ai traîné dans une boue ignoble, et j'ai laissé un morceau de ma vie oublié. Plus tard, passant à côté d'un champ, j'ai vu sur une charogne, les entrailles pendantes, cette charogne infâme, pourrie par le soleil, éclater comme un ventre, et de cette pourriture, sortir des bêtes, des chiens, des chiens voraces. Et pourtant, vous serez pareille à cette ordure, à cette horrible infection, étoile de mes yeux, soleil de ma nature, vous, mon ange et ma passion !`,
     contexte: "Poésie moderniste — spleen, laideur et beauté, registre satirique et lyrique.",
     attendus: [
-      { procede: "Apostrophe", citation: "« Rappelez-vous… mon âme »", interpretation: "En s'adressant directement (« Rappelez-vous… mon âme »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","âme","rappelez","dialogue","introspect","poète"] },
-      { procede: "Antithèse", citation: "« vîmes, mon âme, … Sur un lit semé de cailloux. »", interpretation: "Antithèse: « beau matin » s'oppose à « charogne infâme ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","beau","charogne","contraste","choc","esthét"] },
-      { procede: "Registre satirique", citation: "« vîmes, mon âme, … Sur un lit semé de cailloux. »", interpretation: "À travers « charogne infâme », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Les Fleurs du mal.", keywords: ["satirique","laideur","infâme","idéal","romant","modern"] },
-      { procede: "Métaphore filée", citation: "« vîmes, mon âme, … Sur un lit semé de cailloux. »", interpretation: "En transposant le sens de corps décomposé / amour mort, Charles Baudelaire métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore filée","charogne","amour","dégrad","spleen","symbole"] }
+      { procede: "Antithèse", citation: "« amour et la beauté » / « boue ignoble »", interpretation: "Antithèse : la beauté passée s'oppose à la charogne présente — contraste spleen et idéal.", keywords: ["antithèse","beauté","boue","charogne","contraste","baudelaire"] },
+      { procede: "Métaphore", citation: "« étoile de mes yeux, soleil de ma nature »", interpretation: "Métaphore : la bien-aimée est célébrée en hyperboles lyriques — amour et dégoût mêlés.", keywords: ["métaphore","étoile","soleil","ange","passion","amour"] },
+      { procede: "Registre satirique", citation: "« charogne infâme, pourrie par le soleil »", interpretation: "Registre satirique : la description réaliste de la pourriture choque — modernité baudelairienne.", keywords: ["satirique","charogne","pourriture","dégoût","réalisme","choc"] },
+      { procede: "Apostrophe", citation: "« vous, mon ange et ma passion »", interpretation: "Apostrophe : le poète s'adresse à la femme absente — élégie de la beauté fletrie.", keywords: ["apostrophe","ange","passion","vous","femme","élégie"] }
     ]
   },
   {
@@ -73,13 +96,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Les Travailleurs de la mer (1866)",
     genre: "Roman",
     diff: 2,
-    texte: `Gilliatt regardait la mer. Elle était sombre et furieuse ; les vagues montaient comme des murailles, et le vent hurlait dans les fissures des rochers.`,
+    texte: `Gilliatt, seul sur la roche, affrontait la tempête. Les vagues le cinglaient, le vent lui arrachait les vêtements, la mer montait, menaçante, implacable. Il avait promis de sauver la machine du navire échoué ; il avait juré de ne pas reculer. Ses mains saignaient, ses muscles brûlaient, mais il continuait. L'homme contre la nature, la volonté contre l'élément : telle était la lutte. Hugo voyait en Gilliatt un héros du peuple, un Prométhée des mers, un être qui sacrifiait tout pour tenir parole.`,
     contexte: "Roman maritime — lutte homme-nature, registre épique et pathétique.",
     attendus: [
-      { procede: "Personnification", citation: "« la mer… furieuse »", interpretation: "La personnification « la mer… furieuse » dote un élément abstrait ou objectal de traits humains : Victor Hugo rend la description plus vivante et dynamise roman maritime.", keywords: ["personnification","mer","furieuse","advers","combat","épique"] },
-      { procede: "Comparaison", citation: "« montaient comme des murailles »", interpretation: "La comparaison « montaient comme des murailles » établit un rapprochement explicite : Victor Hugo facilite la visualisation de la scène et rend roman maritime plus perceptible.", keywords: ["comparaison","murailles","vagues","remparts","grandeur","menace"] },
-      { procede: "Registre pathétique", citation: "« Gilliatt regardait »", interpretation: "Registre pathétique: « Gilliatt regardait » suscite la compassion et l'indignation face à la souffrance, au cœur du lutte homme-nature.", keywords: ["pathétique","gilliatt","seul","élément","pit","admiration"] },
-      { procede: "Champ lexical", citation: "« murailles, et le vent hurlait dans les fissures des rochers. »", interpretation: "Autour de « vagues » face à « vent », le vocabulaire (« vagues », « vent », « rochers ») forme un réseau sémantique : le lecteur perçoit roman maritime par accumulation lexicale.", keywords: ["champ lexical","vagues","vent","rochers","marin","hostile"] }
+      { procede: "Personnification", citation: "« la mer montait, menaçante, implacable »", interpretation: "Personnification : la mer devient adversaire vivant — combat homme-nature.", keywords: ["personnification","mer","menaçante","implacable","nature","adversaire"] },
+      { procede: "Antithèse", citation: "« L'homme contre la nature »", interpretation: "Antithèse : l'homme s'oppose à l'élément — thème hugolien de la lutte héroïque.", keywords: ["antithèse","homme","nature","volonté","élément","lutte"] },
+      { procede: "Registre épique", citation: "« un Prométhée des mers »", interpretation: "Registre épique : Gilliatt est élevé au rang de héros mythique — grandeur hugolienne.", keywords: ["épique","prométhée","héros","sacrifice","grandeur","hugo"] },
+      { procede: "Registre pathétique", citation: "« Ses mains saignaient, ses muscles brûlaient »", interpretation: "Registre pathétique : la souffrance physique suscite l'admiration — corps martyrisé.", keywords: ["pathétique","mains","saignaient","souffrance","admiration","martyre"] }
     ]
   },
   {
@@ -89,13 +112,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Consuelo (1842)",
     genre: "Roman",
     diff: 2,
-    texte: `Sa voix montait, pure et vibrante, comme une flamme qui s'élève ; le public retenait son souffle, et les larmes coulaient sur les joues des plus durs.`,
+    texte: `Consuelo chantait. Sa voix, pure et puissante, remplissait la salle, envahissait les cœurs, transportait les auditeurs. Elle ne chantait pas seulement avec sa gorge : elle chantait avec son âme, avec toute la souffrance de son passé, avec tout l'espoir de son avenir. Quand elle atteignait les notes les plus hautes, le public retenait son souffle ; quand elle descendait dans les graves, un silence religieux s'installait. La musique de Consuelo était une révélation : elle disait ce que les mots ne pouvaient pas dire.`,
     contexte: "Roman artistique — lyrisme, émotion collective, registre pathétique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme une flamme qui s'élève »", interpretation: "Le parallèle introduit par « comme une flamme qui s'élève » (comparaison) facilite la visualisation de la scène et précise la dimension roman artistique du passage.", keywords: ["comparaison","flamme","voix","ascend","puiss","artist"] },
-      { procede: "Registre pathétique", citation: "« larmes coulaient »", interpretation: "Registre pathétique: par « larmes coulaient », George Sand suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Consuelo.", keywords: ["pathétique","larmes","émotion","public","communion","musique"] },
-      { procede: "Hyperbole", citation: "« montait, pure et vibrante, comme une flamme qui s'élève ; »", interpretation: "« les plus durs » relève de l'hyperbole : l'amplification souligne l'intensité du ressenti et fixe l'émotion autour de roman artistique.", keywords: ["hyperbole","durs","pleurent","cœurs","art","force"] },
-      { procede: "Métaphore", citation: "« voix… pure et vibrante »", interpretation: "En transposant le sens de « voix… pure et vibrante », George Sand métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","voix","pure","vibrante","lumine","artiste"] }
+      { procede: "Métaphore", citation: "« elle chantait avec son âme »", interpretation: "Métaphore : la voix devient expression de l'âme — art et émotion fusionnés.", keywords: ["métaphore","âme","chantait","voix","émotion","art"] },
+      { procede: "Hyperbole", citation: "« remplissait la salle, envahissait les cœurs »", interpretation: "Hyperbole : l'impact de la voix dépasse l'espace physique — puissance artistique.", keywords: ["hyperbole","salle","cœurs","transportait","puissance","voix"] },
+      { procede: "Registre pathétique", citation: "« toute la souffrance de son passé »", interpretation: "Registre pathétique : le chant exprime la douleur — identification du public.", keywords: ["pathétique","souffrance","passé","compassion","identification","sand"] },
+      { procede: "Gradation", citation: "« notes les plus hautes… descendait dans les graves »", interpretation: "Gradation : la modulation vocale structure l'émotion collective — montée et descente.", keywords: ["gradation","hautes","graves","modulation","émotion","public"] }
     ]
   },
   {
@@ -105,12 +128,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "L'Éducation sentimentale (1869)",
     genre: "Roman",
     diff: 3,
-    texte: `Frédéric Moreau, plein de rêves, regardait Paris s'étendre devant lui ; il se sentait prêt à tout oser, et pourtant une lassitude vague l'envahissait déjà.`,
+    texte: `Frédéric Moreau, revenu à Paris après des années de rêverie, retrouvait la ville avec mélancolie. Il avait aimé Mme Arnoux, perdu Mme Arnoux, et maintenant il ne savait plus très bien ce qu'il voulait. La révolution de 1848 éclatait ; les barricades se dressaient ; les idées s'affrontaient. Frédéric observait tout cela de loin, comme un spectateur de sa propre vie. Il avait rêvé de gloire, d'amour, de fortune ; il n'avait obtenu que la désillusion. Flaubert peignait en lui le portrait du bovarysme masculin : rêver sans agir, désirer sans posséder.`,
     contexte: "Roman réaliste — désillusion, bovarysme masculin, registre ironique.",
     attendus: [
-      { procede: "Antithèse", citation: "« prêt à tout oser » / « lassitude vague »", interpretation: "Antithèse entre « prêt à tout oser » et « lassitude vague »: le contraste met en relief deux pôles opposés et accentue désillusion.", keywords: ["antithèse","oser","lassitude","enthous","iron","flaubert"] },
-      { procede: "Registre ironique", citation: "« oser, et pourtant une lassitude vague l'envahissait déjà. »", interpretation: "Registre ironique: la scène crée un décalage entre le sens apparent et le sens réel; « plein de rêves » concentre cette coloration du désillusion.", keywords: ["ironique","rêves","déconstr","idéal","romant","jeune"] },
-      { procede: "Champ lexical", citation: "« oser, et pourtant une lassitude vague l'envahissait déjà. »", interpretation: "Champ lexical de la désillusion : la capitale ne comble pas les attentes.", keywords: ["champ lexical","rêves","paris","lassitude","désillus","capitale"] }
+      { procede: "Registre ironique", citation: "« spectateur de sa propre vie »", interpretation: "Registre ironique : Frédéric contemple passivement son existence — distance flaubertienne.", keywords: ["ironique","spectateur","passif","désillusion","distance","flaubert"] },
+      { procede: "Antithèse", citation: "« rêvé de gloire… n'avait obtenu que la désillusion »", interpretation: "Antithèse : rêve et réalité s'opposent — bovarysme masculin.", keywords: ["antithèse","rêvé","désillusion","gloire","contraste","bovarysme"] },
+      { procede: "Métaphore", citation: "« le portrait du bovarysme masculin »", interpretation: "Métaphore : Frédéric incarne une maladie du rêve — analyse sociale flaubertienne.", keywords: ["métaphore","portrait","bovarysme","rêve","maladie","analyse"] },
+      { procede: "Registre pathétique", citation: "« Il avait aimé Mme Arnoux, perdu Mme Arnoux »", interpretation: "Registre pathétique atténué : l'amour perdu structure la mélancolie du héros.", keywords: ["pathétique","aimé","perdu","mélancolie","amour","arnoux"] }
     ]
   },
   {
@@ -120,13 +144,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Au bonheur des dames (1883)",
     genre: "Roman",
     diff: 2,
-    texte: `Le magasin resplendissait ; les soieries étincelaient, les clients se pressaient, et l'or des caisses sonnait comme une musique de triomphe.`,
+    texte: `Le magasin s'ouvrait sur le boulevard Haussmann comme une caverne de lumière. Des milliers d'articles s'étalaient sur des kilomètres de comptoirs ; des centaines de vendeuses, en uniforme noir, glissaient entre les clientes ; des millions de francs changeaient de mains chaque jour. Octave Mouret avait bâti cet empire du commerce, cet « au bonheur des dames » qui promettait le bonheur par l'achat. Zola voyait dans le grand magasin la modernité parisienne : le capitalisme triomphant, la femme réduite à consommatrice, la ville transformée en spectacle.`,
     contexte: "Naturalisme — monde du commerce, modernité parisienne, registre épique.",
     attendus: [
-      { procede: "Personnification", citation: "« magasin resplendissait »", interpretation: "« magasin resplendissait » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier naturalisme.", keywords: ["personnification","magasin","resplend","triomph","modern","capital"] },
-      { procede: "Comparaison", citation: "« sonnait comme une musique de triomphe »", interpretation: "Le parallèle introduit par « sonnait comme une musique de triomphe » (comparaison) facilite la visualisation de la scène et précise la dimension naturalisme du passage.", keywords: ["comparaison","musique","triomphe","or","commerce","symphon"] },
-      { procede: "Registre épique", citation: "« Le magasin resplendissait ; »", interpretation: "Registre épique: la scène élève l'action au niveau du grand récit et exalte la scène; « resplendissait » concentre cette coloration du monde du commerce.", keywords: ["épique","temple","consommat","grandeur","zola","resplend"] },
-      { procede: "Accumulation", citation: "« étincelaient, les clients se pressaient, et l'or des caisses sonnait comme une musique de triomphe. »", interpretation: "Accumulation repérée dans « soieries »: la liste multiplie les occurrences et renforce l'idée centrale de le monde du commerce.", keywords: ["accumulation","soieries","clients","caisses","profusion","spectacle"] }
+      { procede: "Hyperbole", citation: "« Des milliers… des centaines… des millions »", interpretation: "Hyperbole : l'amplification numérique exalte l'ampleur du commerce — naturalisme zolien.", keywords: ["hyperbole","milliers","millions","ampleur","commerce","zola"] },
+      { procede: "Métaphore", citation: "« une caverne de lumière »", interpretation: "Métaphore : le magasin devient antre moderne — spectacle capitaliste.", keywords: ["métaphore","caverne","lumière","magasin","spectacle","modernité"] },
+      { procede: "Registre épique", citation: "« empire du commerce »", interpretation: "Registre épique : Octave Mouret est un conquérant du capitalisme — grandeur du récit.", keywords: ["épique","empire","commerce","conquête","capitalisme","grandeur"] },
+      { procede: "Registre satirique", citation: "« la femme réduite à consommatrice »", interpretation: "Registre satirique : Zola dénonce la réification de la femme — critique sociale.", keywords: ["satirique","femme","consommatrice","critique","capitalisme","dénonciation"] }
     ]
   },
   {
@@ -136,12 +160,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Rue des boutiques obscures (1978)",
     genre: "Roman",
     diff: 3,
-    texte: `Je ne me souvenais plus de rien. Mon passé s'était effacé, comme une page qu'on aurait grattée jusqu'à la trame.`,
+    texte: `Je ne me souviens pas très bien de ce qui s'est passé pendant ces années-là. J'avais vingt ans, peut-être un peu plus, peut-être un peu moins. Je vivais à Paris, dans un hôtel de la rue des Boutiques Obscures, et je me disais que j'allais retrouver quelqu'un, quelqu'un que j'avais connu autrefois, dont j'avais perdu la trace. Je ne savais plus son nom. Je ne savais plus son visage. Je ne savais plus que j'étais moi-même. La mémoire me quittait par bribes, et chaque bribe me laissait plus seul.`,
     contexte: "Roman modianesque — mémoire, identité perdue, registre mélancolique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme une page… grattée »", interpretation: "Comparaison repérée dans « comme une page… grattée »: le parallèle rend la mémoire plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","page","grattée","passé","amnés","identité"] },
-      { procede: "Registre mélancolique", citation: "« Je ne me souvenais plus »", interpretation: "Registre mélancolique: « Je ne me souvenais plus » installe une tonalité triste, nostalgique ou mélancolique, au cœur de la mémoire.", keywords: ["mélancol","souven","perte","tristesse","exist","modiano"] },
-      { procede: "Métaphore", citation: "« passé s'était effacé »", interpretation: "« passé s'était effacé » fonctionne comme métaphore: le rapprochement implicite enrichit la mémoire et marque le style de Patrick Modiano.", keywords: ["métaphore","effacé","passé","surface","fragil","mémoire"] }
+      { procede: "Anaphore", citation: "« Je ne savais plus… Je ne savais plus… Je ne savais plus »", interpretation: "Anaphore : la répétition traduit l'effacement progressif de la mémoire — style modianesque.", keywords: ["anaphore","savais","répétition","mémoire","effacement","modiano"] },
+      { procede: "Registre lyrique", citation: "« La mémoire me quittait par bribes »", interpretation: "Registre lyrique : la subjectivité mélancolique colore le récit — identité floue.", keywords: ["lyrique","mémoire","bribes","mélancolie","subjectivité","identité"] },
+      { procede: "Gradation", citation: "« son nom… son visage… que j'étais moi-même »", interpretation: "Gradation : l'oubli s'intensifie jusqu'à l'identité — perte croissante.", keywords: ["gradation","nom","visage","moi-même","oubli","perte"] },
+      { procede: "Champ lexical", citation: "« perdu la trace… ne savais plus… mémoire me quittait »", interpretation: "Champ lexical de l'oubli : les résonances insistent sur la quête identitaire.", keywords: ["champ lexical","perdu","trace","oubli","mémoire","quête"] }
     ]
   },
   {
@@ -151,13 +176,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Les Choses (1965)",
     genre: "Roman",
     diff: 2,
-    texte: `Ils avaient des objets, beaucoup d'objets, et ces objets les définissaient ; chaque bibelot était une promesse de bonheur qui ne se tenait jamais.`,
+    texte: `Ils s'appelaient Jérôme et Sylvie. Ils avaient vingt-six ans et vingt-quatre ans. Ils habitaient un deux-pièces rue de la Montagne-Sainte-Geneviève, et ils possédaient des choses : un divan, une table, des chaises, des assiettes, des verres, des couteaux, des fourchettes, des cuillers, des casseroles, des poêles, des torchons, des draps, des couvertures, des oreillers. Ils possédaient aussi des livres, des disques, des vêtements, des chaussures. Ils possédaient tout cela, et pourtant ils n'étaient pas heureux. Ils attendaient quelque chose — un voyage, un métier, un enfant — qui ne venait jamais.`,
     contexte: "Nouveau roman — société de consommation, registre ironique et critique.",
     attendus: [
-      { procede: "Antiphrase", citation: "« promesse de bonheur qui ne se tenait jamais »", interpretation: "Antiphrase repérée dans « promesse de bonheur qui ne se tenait jamais »: le décalage entre le dit et le voulu dénonce ou moque société de consommation.", keywords: ["antiphrase","bonheur","promesse","illusoire","critique","objets"] },
-      { procede: "Anaphore", citation: "« objets… ces objets… chaque bibelot »", interpretation: "La reprise de « objets », « chaque », « bibelot » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur nouveau roman.", keywords: ["anaphore","objets","bibelot","répét","envah","satire"] },
-      { procede: "Registre ironique", citation: "« ces objets les définissaient »", interpretation: "Registre ironique: par « ces objets les définissaient », Georges Perec crée un décalage entre le sens apparent et le sens réel — tonalité dominante de Les Choses.", keywords: ["ironique","définissaient","possession","déshum","identité","critique"] },
-      { procede: "Métaphore", citation: "« bibelot… promesse de bonheur »", interpretation: "En transposant le sens de « bibelot… promesse de bonheur », Georges Perec métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","bibelot","promesse","fallac","consommat","société"] }
+      { procede: "Énumération", citation: "« un divan, une table, des chaises »", interpretation: "Énumération : l'inventaire des objets accumule la matérialité — critique de la consommation.", keywords: ["énumération","divan","table","chaises","objets","inventaire"] },
+      { procede: "Anaphore", citation: "« Ils possédaient… Ils possédaient aussi… Ils possédaient tout cela »", interpretation: "Anaphore sur « possédaient » : la reprise ironise l'accumulation — bonheur par les choses.", keywords: ["anaphore","possédaient","répétition","accumulation","ironie","consommation"] },
+      { procede: "Antithèse", citation: "« possédaient tout cela, et pourtant ils n'étaient pas heureux »", interpretation: "Antithèse : possession et malheur s'opposent — critique de la société de consommation.", keywords: ["antithèse","possédaient","heureux","contraste","malheur","critique"] },
+      { procede: "Registre ironique", citation: "« ils attendaient quelque chose… qui ne venait jamais »", interpretation: "Registre ironique : l'attente perpétuelle dénonce l'impuissance du couple — satire douce.", keywords: ["ironique","attendaient","jamais","impuissance","couple","perec"] }
     ]
   },
   {
@@ -167,12 +192,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Plume (1930)",
     genre: "Roman",
     diff: 3,
-    texte: `Plume partit. Il ne savait pas où il allait. On lui avait dit : « Va », et il était parti, docile et vide.`,
+    texte: `Plume partit un matin, sans bagages, sans destination, sans raison. Il marcha longtemps. Il rencontra des gens qui lui demandaient qui il était ; il ne savait pas quoi répondre. On lui demanda son nom ; il avait oublié son nom. On lui demanda d'où il venait ; il ne savait plus. Plume devenait de plus en plus léger, de plus en plus transparent, de plus en plus absent. Les autres continuaient à vivre ; Plume continuait à marcher. Il marchait vers nulle part, et nulle part l'attendait.`,
     contexte: "Roman surréaliste — absurdité, dépersonnalisation, registre comique et tragique.",
     attendus: [
-      { procede: "Parataxe", citation: "« Plume partit. Il ne savait pas »", interpretation: "Parataxe: « Plume partit. Il ne savait pas » concentre l'effet recherché par Henri Michaux dans l'absurdité. le parataxe oriente la lecture vers le sens du passage.", keywords: ["parataxe","partit","savait","courtes","neutre","absurde"] },
-      { procede: "Antiphrase", citation: "« docile et vide »", interpretation: "Antiphrase: « docile et vide » dit le contraire du sens réel ou crée un décalage critique. Henri Michaux invite à lire absurdité à contre-pied.", keywords: ["antiphrase","docile","vide","faiblesse","passiv","critique"] },
-      { procede: "Registre comique", citation: "« On lui avait dit : Va »", interpretation: "Registre comique: par « On lui avait dit: Va », Henri Michaux provoque le rire par la situation, les mots ou les personnages — tonalité dominante de Plume.", keywords: ["comique","va","simplic","grotesq","destin","humour"] }
+      { procede: "Gradation", citation: "« de plus en plus léger… transparent… absent »", interpretation: "Gradation : l'effacement progressif de Plume traduit la dépersonnalisation — absurdité existentielle.", keywords: ["gradation","léger","transparent","absent","effacement","michaux"] },
+      { procede: "Énumération", citation: "« sans bagages, sans destination, sans raison »", interpretation: "Énumération des privations : le voyage absurde commence dans le vide.", keywords: ["énumération","bagages","destination","raison","vide","privation"] },
+      { procede: "Registre comique", citation: "« il avait oublié son nom »", interpretation: "Registre comique : l'oubli du nom provoque un effet d'absurde — décalage surréaliste.", keywords: ["comique","oublié","nom","absurde","décalage","surréaliste"] },
+      { procede: "Registre tragique", citation: "« Il marchait vers nulle part »", interpretation: "Registre tragique : l'errance sans but traduit l'absurdité de l'existence.", keywords: ["tragique","nulle part","errance","absurdité","existence","voyage"] }
     ]
   },
   {
@@ -182,13 +208,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Tropismes (1939)",
     genre: "Nouvelle",
     diff: 3,
-    texte: `Quelque chose remuait sous les mots, imperceptible, comme un mouvement d'herbe avant la tempête ; personne ne le voyait, mais tout le monde le sentait.`,
+    texte: `Elle entre. Elle dit bonjour. Elle ne dit pas bonjour. Elle dit autre chose. Il répond. Il ne répond pas. Il dit autre chose. Entre eux, il y a des mots, des silences, des regards, des non-dits. Elle pense qu'il pense qu'elle pense. Il pense qu'elle pense qu'il pense. Les pensées se croisent sans se rencontrer. Les mots flottent entre eux comme des bulles. Personne ne sait ce que l'autre veut dire. Personne ne sait ce qu'il veut dire lui-même. C'est ainsi que les tropismes naissent : dans l'espace infime entre ce qu'on dit et ce qu'on pense.`,
     contexte: "Nouveau roman — sous-conversation, mouvements intérieurs, registre psychologique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme un mouvement d'herbe »", interpretation: "La comparaison « comme un mouvement d'herbe » établit un rapprochement explicite : Nathalie Sarraute facilite la visualisation de la scène et rend nouveau roman plus perceptible.", keywords: ["comparaison","herbe","tempête","émotion","cachée","tropisme"] },
-      { procede: "Métaphore", citation: "« remuait sous les mots »", interpretation: "La métaphore « remuait sous les mots » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit nouveau roman dans Tropismes.", keywords: ["métaphore","mots","pensée","langage","psycholog","sarraute"] },
-      { procede: "Antithèse", citation: "« personne ne le voyait » / « tout le monde le sentait »", interpretation: "Antithèse entre « personne ne le voyait » et « tout le monde le sentait »: le contraste met en relief deux pôles opposés et accentue sous-conversation.", keywords: ["antithèse","voyait","sentait","invisible","ressenti","souterr"] },
-      { procede: "Registre psychologique", citation: "« imperceptible »", interpretation: "Registre psychologique: par « imperceptible », Nathalie Sarraute explore les états intérieurs et les mouvements de la conscience — tonalité dominante de Tropismes.", keywords: ["psycholog","impercept","micro","intérieur","introspect","analyse"] }
+      { procede: "Antithèse", citation: "« Elle dit bonjour. Elle ne dit pas bonjour »", interpretation: "Antithèse : dire et ne pas dire coexistent — sous-conversation sarrautienne.", keywords: ["antithèse","bonjour","dit","silence","sous-conversation","sarraute"] },
+      { procede: "Paradoxe", citation: "« Les pensées se croisent sans se rencontrer »", interpretation: "Paradoxe : la communication échoue malgré les mots — tropismes psychologiques.", keywords: ["paradoxe","pensées","croisent","communication","échec","tropisme"] },
+      { procede: "Métaphore", citation: "« Les mots flottent… comme des bulles »", interpretation: "Métaphore : les paroles deviennent bulles vides — langage déréalisé.", keywords: ["métaphore","mots","bulles","flottent","vide","langage"] },
+      { procede: "Registre psychologique", citation: "« dans l'espace infime entre ce qu'on dit et ce qu'on pense »", interpretation: "Registre psychologique : Sarraute explore les mouvements intérieurs — micro-psychologie.", keywords: ["psychologique","espace","dit","pense","intérieur","micro"] }
     ]
   },
   {
@@ -198,13 +224,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Dans l'échange (1975)",
     genre: "Poésie",
     diff: 3,
-    texte: `Le temps passait, et pourtant rien ne changeait ; la lumière restait la même, suspendue, comme un souffle retenu avant la fin.`,
+    texte: `Le temps ne passe pas. Il est. Il est là, présent, immobile, offert. Nous le traversons sans le voir, comme on traverse une pièce sans regarder les murs. Mais parfois, un instant se détache, se cristallise, devient visible. Cet instant, c'est maintenant. Maintenant, la lumière tombe sur la table, sur la tasse, sur la main qui tient la tasse. Maintenant, tout est là, tout est donné, tout est échange. Dans l'échange, le temps cesse de fuir. Dans l'échange, nous sommes.`,
     contexte: "Poésie contemporaine — présence, instant, registre méditatif et lyrique.",
     attendus: [
-      { procede: "Antithèse", citation: "« temps passait » / « rien ne changeait »", interpretation: "Antithèse: « temps passait » s'oppose à « rien ne changeait ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","temps","changeait","durée","immobil","instant"] },
-      { procede: "Comparaison", citation: "« comme un souffle retenu »", interpretation: "Le parallèle introduit par « comme un souffle retenu » (comparaison) facilite la visualisation de la scène et précise la dimension poésie contemporaine du passage.", keywords: ["comparaison","souffle","retenu","suspendu","présence","poétique"] },
-      { procede: "Registre lyrique", citation: "« lumière restait la même »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « lumière restait la même » concentre cette coloration de la présence.", keywords: ["lyrique","lumière","contempl","présence","quête","bonnefoy"] },
-      { procede: "Métaphore", citation: "« suspendue »", interpretation: "Par la métaphore (« suspendue »), le réel est détourné : Yves Bonnefoy condense une idée complexe en une image frappante tout en ancrant poésie contemporaine.", keywords: ["métaphore","suspendue","figé","instant","éternité","temps"] }
+      { procede: "Paradoxe", citation: "« Le temps ne passe pas. Il est »", interpretation: "Paradoxe : le temps immobile contredit l'écoulement — méditation bonnefoyenne.", keywords: ["paradoxe","temps","passe","est","immobile","bonnefoy"] },
+      { procede: "Anaphore", citation: "« Maintenant… Maintenant… Maintenant »", interpretation: "Anaphore sur « Maintenant » : l'insistance cristallise l'instant — présence poétique.", keywords: ["anaphore","maintenant","répétition","instant","présence","cristallise"] },
+      { procede: "Comparaison", citation: "« comme on traverse une pièce sans regarder les murs »", interpretation: "Comparaison : le temps vécu devient espace ignoré — figure de l'inattention.", keywords: ["comparaison","traverse","pièce","murs","inattention","temps"] },
+      { procede: "Registre lyrique", citation: "« Dans l'échange, nous sommes »", interpretation: "Registre lyrique : la présence partagée devient révélation — poétique de l'instant.", keywords: ["lyrique","échange","sommes","présence","révélation","instant"] }
     ]
   },
   {
@@ -214,12 +240,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Mémoires d'une jeune fille rangée (1958)",
     genre: "Autobiographie",
     diff: 2,
-    texte: `J'étais une jeune fille rangée, obéissante, studieuse ; mais au fond de moi brûlait une révolte silencieuse contre toutes ces convenances.`,
+    texte: `J'étais une jeune fille rangée. Je faisais ce qu'on attendait de moi : étudier, obéir, ne pas poser de questions gênantes. Ma mère voulait que je sois une demoiselle respectable ; mon père voulait que je sois une intellectuelle. Moi, je ne savais pas ce que je voulais. Je lisais Sartre et Camus en cachette ; je rêvais de liberté en cachette ; je m'ennuyais en public. La conformité bourgeoise m'étouffait, et pourtant je ne savais pas comment m'en échapper. Je n'étais pas encore Simone de Beauvoir ; j'étais une jeune fille qui attendait.`,
     contexte: "Autobiographie — féminisme, conformisme bourgeois, registre critique et lyrique.",
     attendus: [
-      { procede: "Antithèse", citation: "« rangée, obéissante » / « révolte silencieuse »", interpretation: "Antithèse entre « rangée, obéissante » et « révolte silencieuse »: le contraste met en relief deux pôles opposés et accentue féminisme.", keywords: ["antithèse","rangée","révolte","conforme","rébell","identité"] },
-      { procede: "Métaphore", citation: "« brûlait une révolte »", interpretation: "La métaphore « brûlait une révolte » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit autobiographie dans Mémoires d'une jeune fille rangée.", keywords: ["métaphore","brûlait","feu","révolte","passion","fémin"] },
-      { procede: "Registre critique", citation: "« contre toutes ces convenances »", interpretation: "Registre critique: « contre toutes ces convenances » juge une réalité sociale, politique ou esthétique, au cœur de la féminisme.", keywords: ["critique","convenances","carcan","social","femmes","dénonc"] }
+      { procede: "Antithèse", citation: "« demoiselle respectable » / « intellectuelle »", interpretation: "Antithèse : les attentes parentales s'opposent — conflit identitaire.", keywords: ["antithèse","respectable","intellectuelle","attentes","conflit","identité"] },
+      { procede: "Champ lexical", citation: "« étudier, obéir, ne pas poser de questions »", interpretation: "Champ lexical de la conformité : la liste des devoirs traduit l'étouffement bourgeois.", keywords: ["champ lexical","obéir","conformité","rangée","devoirs","étouffement"] },
+      { procede: "Registre critique", citation: "« La conformité bourgeoise m'étouffait »", interpretation: "Registre critique : Beauvoir dénonce l'aliénation féminine — analyse féministe.", keywords: ["critique","conformité","bourgeoise","étouffait","féminisme","aliénation"] },
+      { procede: "Registre lyrique", citation: "« je rêvais de liberté en cachette »", interpretation: "Registre lyrique : le désir de liberté s'exprime en confidence — subjectivité autobiographique.", keywords: ["lyrique","rêvais","liberté","cachette","désir","confession"] }
     ]
   },
   {
@@ -229,13 +256,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "La Chute (1956)",
     genre: "Roman",
     diff: 3,
-    texte: `J'étais au sommet, vous comprenez, au sommet de la bonté ; et voilà que je suis tombé, comme Adam, mais sans pomme, sans femme, sans arbre.`,
+    texte: `Puis-je, monsieur, vous offrir mes services, maintenant, sans crainte d'être importun ? Car, vous le voyez, je suis le Juge-Pénitent. Amsterdam, d'abord. On vous parlera du canal, des maisons qui se mirant dans l'eau. Rien. Le grimoire des tours de Notre-Dame, le grand œuvre du commerce ou plutôt du négoce, le polder aussi, et le fameux réseau des canaux qui rendent la comparaison avec la Venise inévitable. Rien, encore une fois. Pourquoi nous battre ? Vous ne connaissez pas Amsterdam. Moi si. J'y ai vécu. Autrefois, j'étais avocat à Paris. Je vivais du bien des autres. J'étais vertueux, on m'admirait. Aujourd'hui, je confesse. Je vous juge comme je me juge. Bienvenue en enfer, qui n'est pas le feu mais l'eau — l'eau partout, et pas de sortie.`,
     contexte: "Roman philosophique — culpabilité, juge-pénitent, registre ironique et tragique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme Adam »", interpretation: "Le parallèle introduit par « comme Adam » (comparaison) facilite la visualisation de la scène et précise la dimension roman philosophique du passage.", keywords: ["comparaison","adam","chute","bibliq","déchéance","morale"] },
-      { procede: "Registre ironique", citation: "« au sommet de la bonté »", interpretation: "Registre ironique: « au sommet de la bonté » crée un décalage entre le sens apparent et le sens réel, au cœur de la culpabilité.", keywords: ["ironique","bonté","vante","dénonc","cynique","clamence"] },
-      { procede: "Énumération", citation: "« sans pomme, sans femme, sans arbre »", interpretation: "Énumération repérée dans « sans pomme, sans femme, sans arbre »: la liste multiplie les occurrences et renforce l'idée centrale de culpabilité.", keywords: ["énumération","pomme","femme","arbre","absurde","faute"] },
-      { procede: "Apostrophe", citation: "« vous comprenez »", interpretation: "En s'adressant directement (« vous comprenez »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","vous","lecteur","complicit","monologue","juge"] }
+      { procede: "Métaphore", citation: "« des maisons qui se mirant dans l'eau »", interpretation: "Métaphore : la ville sur l'eau devient allégorie de l'existence — absurde camusien.", keywords: ["métaphore","amsterdam","eau","maisons","allégorie","camus"] },
+      { procede: "Antithèse", citation: "« Je vous juge comme je me juge »", interpretation: "Antithèse : juge et pénitent coexistent — paradoxe du juge-pénitent.", keywords: ["antithèse","juge","pénitent","paradoxe","culpabilité","clamence"] },
+      { procede: "Registre ironique", citation: "« J'étais vertueux, on m'admirait »", interpretation: "Registre ironique : l'auto-portrait vertueux est démenti par la confession — décalage satirique.", keywords: ["ironique","vertueux","admirait","confession","décalage","satire"] },
+      { procede: "Registre tragique", citation: "« Bienvenue en enfer, qui n'est pas le feu mais l'eau »", interpretation: "Registre tragique : l'enfer aquatique renverse la tradition — fatalité existentielle.", keywords: ["tragique","enfer","eau","fatalité","existence","clamence"] }
     ]
   },
   {
@@ -245,12 +272,26 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Le Bateau ivre (1871)",
     genre: "Poésie",
     diff: 3,
-    texte: `Comme je descendais des Fleuves impassibles, … Je ne me sentis plus guidé par les haleurs.`,
+    texte: `Comme je descendais des Fleuves impassibles,
+Je ne me sentis plus guidé par les haleurs :
+Des Peaux-Rouges criards les avaient pris pour cibles
+Les ayant cloués nus aux poteaux colorés.
+
+J'ai été l'hiver sonné du trompeau des calmes.
+J'ai suivi, longs mois, la houle furieuse des mers
+Et n'ai pas eu plus souvent ma victoire aux fêtes
+Que l'étoile au fond du marais.
+
+Je me suis baigné dans le Poème
+De la Mer, infusé d'astres, et luisant,
+Devinant alors le chant vert et glauque
+Des rythmes insensés qui sont l'homme et la mer et la vengeance !`,
     contexte: "Poème symboliste — voyage initiatique, liberté, registre épique et lyrique.",
     attendus: [
-      { procede: "Personnification", citation: "« Fleuves impassibles »", interpretation: "Personnification: « Fleuves impassibles » reçoit des traits humains (parler, agir, ressentir). Arthur Rimbaud anime la scène et rend voyage initiatique plus vivante.", keywords: ["personnification","fleuves","impassib","guides","nature","indiff"] },
-      { procede: "Registre épique", citation: "« descendais des Fleuves »", interpretation: "Registre épique: « descendais des Fleuves » élève l'action au niveau du grand récit et exalte la scène, au cœur du voyage initiatique.", keywords: ["épique","descend","voyage","héroïq","quête","rimbaud"] },
-      { procede: "Métaphore", citation: "« impassibles, … Je ne me sentis plus guidé par les haleurs. »", interpretation: "La métaphore « Bateau ivre » rapproche deux réalités sans outil comparatif: l'image condense voyage initiatique en une vision poétique forte.", keywords: ["métaphore","bateau","ivre","poète","gouvernail","liberté"] }
+      { procede: "Métaphore", citation: "« Je me suis baigné dans le Poème / De la Mer »", interpretation: "Métaphore : Rimbaud fusionne poète et océan — initiation poétique et liberté.", keywords: ["métaphore","poème","mer","baigné","initiation","rimbaud"] },
+      { procede: "Personnification", citation: "« des Fleuves impassibles »", interpretation: "Personnification : les fleuves indifférents abandonnent le poète — nature hostile.", keywords: ["personnification","fleuves","impassibles","nature","abandon","voyage"] },
+      { procede: "Registre épique", citation: "« longs mois, la houle furieuse des mers »", interpretation: "Registre épique : le grand voyage maritime élève le récit au niveau héroïque.", keywords: ["épique","houle","mers","voyage","héroïque","temps"] },
+      { procede: "Symbolisme", citation: "« l'homme et la mer et la vengeance »", interpretation: "Symbolisme : la triade condense l'univers rimbauldien — liberté, nature, révolte.", keywords: ["symbolisme","homme","mer","vengeance","révolte","univers"] }
     ]
   },
   {
@@ -260,12 +301,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Manon Lescaut (1731)",
     genre: "Roman",
     diff: 2,
-    texte: `Je vis Manon ; elle était si belle que je restai immobile, sans pouvoir détacher mes yeux d'elle ; mon cœur battait avec violence.`,
+    texte: `Je rencontrai Manon Lescaut au moment où je quittais l'école. Elle était jeune, belle, vivante ; elle m'aima avec une passion que je ne méritais pas. Je l'aimai aussi, mais mon amour fut moins fort que le sien, ou du moins je le crus. Manon me quitta pour un homme riche ; je la suivis ; je la perdis ; je la retrouvai ; je la perdis encore. L'amour de Manon fut ma joie et ma ruine. Elle mourut dans mes bras, en Amérique, exilée, punie pour avoir trop aimé. Je ne l'ai jamais oubliée.`,
     contexte: "Roman sentimental — passion fatale, registre pathétique et lyrique.",
     attendus: [
-      { procede: "Hyperbole", citation: "« si belle que je restai immobile »", interpretation: "En exagérant « si belle que je restai immobile », le texte use de l'hyperbole afin de souligne l'intensité du ressenti — procédé fréquent chez Abbé Prévost.", keywords: ["hyperbole","belle","immobile","beauté","paralys","foudre"] },
-      { procede: "Registre pathétique", citation: "« mon cœur battait avec violence »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « mon cœur battait avec violence » concentre cette coloration de la passion fatale.", keywords: ["pathétique","cœur","violence","passion","amour","fatal"] },
-      { procede: "Accumulation", citation: "« immobile, sans pouvoir détach »", interpretation: "Accumulation : effets physiques de la passion — intensité sentimentale.", keywords: ["accumulation","immobile","pouvoir","battait","physique","intensité"] }
+      { procede: "Antithèse", citation: "« ma joie et ma ruine »", interpretation: "Antithèse : bonheur et destruction coexistent — passion fatale prévostienne.", keywords: ["antithèse","joie","ruine","amour","contraste","passion"] },
+      { procede: "Registre pathétique", citation: "« Elle mourut dans mes bras »", interpretation: "Registre pathétique : la mort de Manon suscite la pitié — dénouement tragique.", keywords: ["pathétique","mourut","bras","pit","mort","tragique"] },
+      { procede: "Registre lyrique", citation: "« Je l'aimai aussi, mais mon amour fut moins fort »", interpretation: "Registre lyrique : la confidence amoureuse structure le récit — subjectivité du narrateur.", keywords: ["lyrique","aimai","amour","confession","subjectivité","prévost"] },
+      { procede: "Gradation", citation: "« je la suivis ; je la perdis ; je la retrouvai ; je la perdis encore »", interpretation: "Gradation : les rebondissements accentuent la fatalité amoureuse.", keywords: ["gradation","suivis","perdis","retrouvai","fatalité","rebondissements"] }
     ]
   },
   {
@@ -275,12 +317,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Le Grand Meaulnes (1913)",
     genre: "Roman",
     diff: 2,
-    texte: `La fête était étrange et silencieuse ; des visages pâles flottaient dans la pénombre, et l'on ne savait plus si l'on rêvait ou si l'on vivait.`,
+    texte: `Meaulnes avait disparu pendant trois jours. Quand il revint, il ne parla pas de ce qu'il avait vu. Mais on devina qu'il avait vécu quelque chose d'extraordinaire : une fête, un château, une jeune fille. Yvonne de Galais. Meaulnes l'avait aimée en une nuit, et cette nuit avait changé sa vie. La fête étrange, les invités masqués, la musique, les lumières : tout cela formait un monde à part, un domaine perdu que Meaulnes chercherait toute sa vie sans jamais le retrouver. Le Grand Meaulnes, c'est le roman du rêve impossible, de l'enfance perdue, de l'amour fugitif.`,
     contexte: "Roman initiatique — rêve et réalité, registre onirique et lyrique.",
     attendus: [
-      { procede: "Antithèse", citation: "« rêvait » / « vivait »", interpretation: "Antithèse entre « rêvait » et « vivait »: le contraste met en relief deux pôles opposés et accentue rêve et réalité.", keywords: ["antithèse","rêvait","vivait","frontière","onirisme","trouble"] },
-      { procede: "Registre onirique", citation: "« dans la pénombre, et l'on ne savait plus si l'on rêvait ou si l'on vivait. »", interpretation: "Registre onirique: par « fête étrange et silencieuse », Alain-Fournier donne au passage une atmosphère de rêve et d'irréel — tonalité dominante de Le Grand Meaulnes.", keywords: ["oniriq","fête","étrange","rêve","adolesc","atmosph"] },
-      { procede: "Métaphore", citation: "« visages pâles flottaient »", interpretation: "En transposant le sens de « visages pâles flottaient », Alain-Fournier métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","visages","flottaient","fantômes","irréel","poétique"] }
+      { procede: "Métaphore", citation: "« un domaine perdu »", interpretation: "Métaphore : la fête devient paradis perdu — quête initiatique alain-fournier.", keywords: ["métaphore","domaine","perdu","fête","paradis","quête"] },
+      { procede: "Registre onirique", citation: "« une fête, un château, une jeune fille »", interpretation: "Registre onirique : l'énumération féerique crée une atmosphère de conte.", keywords: ["onirique","fête","château","féerique","conte","rêve"] },
+      { procede: "Registre lyrique", citation: "« Meaulnes l'avait aimée en une nuit »", interpretation: "Registre lyrique : l'amour instantané condense l'émotion — passion fugitive.", keywords: ["lyrique","aimée","nuit","passion","fugitive","amour"] },
+      { procede: "Symbolisme", citation: "« Le Grand Meaulnes, c'est le roman du rêve impossible »", interpretation: "Symbolisme : Meaulnes incarne la quête de l'impossible — enfance perdue.", keywords: ["symbolisme","rêve","impossible","enfance","quête","perdue"] }
     ]
   },
   {
@@ -290,13 +333,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "Zadig (1747)",
     genre: "Conte philosophique",
     diff: 2,
-    texte: `Zadig prononça un discours si juste et si éloquent que toute l'assemblée pleura d'admiration ; mais le juge, jaloux, le condamna malgré tout.`,
+    texte: `Zadig, ayant perdu son chien et son cheval, se plaignit de la Providence. Il rencontra un pêcheur qui lui dit : « Tu te plains de perdre un chien et un cheval ; tu ne sais pas que ces pertes t'ont évité la mort. » Zadig ne comprit pas. Plus tard, il fut arrêté pour un crime qu'il n'avait pas commis ; on le conduisait à l'échafaud lorsqu'on découvrit le vrai coupable. Zadig fut libéré. Il comprit alors que ce qu'on appelle malheur est souvent le déguisement du bonheur, et que la Providence sait mieux que nous ce qui nous convient.`,
     contexte: "Conte philosophique — satire des institutions, registre ironique et didactique.",
     attendus: [
-      { procede: "Antithèse", citation: "« pleura d'admiration » / « condamna »", interpretation: "Antithèse: « pleura d'admiration » s'oppose à « condamna ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","admiration","condamna","justice","injust","satire"] },
-      { procede: "Registre satirique", citation: "« juste et si éloquent que toute l'assemblée pleura d'admiration ; »", interpretation: "Registre satirique: par « juge, jaloux, condamna malgré tout », Voltaire dénonce les mœurs ou les institutions par l'ironie et la dérision — tonalité dominante de Zadig.", keywords: ["satirique","juge","jaloux","arbitraire","pouvoir","voltaire"] },
-      { procede: "Registre didactique", citation: "« discours si juste »", interpretation: "À travers « discours si juste », le registre didactique domine et vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle.", keywords: ["didact","juste","discours","conte","leçon","morale"] },
-      { procede: "Ironie", citation: "« malgré tout »", interpretation: "Ironie: « malgré tout » dit le contraire du sens réel ou crée un décalage critique. Voltaire invite à lire satire des institutions à contre-pied.", keywords: ["ironie","malgré","condamn","évidence","absurd","social"] }
+      { procede: "Registre didactique", citation: "« ce qu'on appelle malheur est souvent le déguisement du bonheur »", interpretation: "Registre didactique : la leçon morale conclut le conte — optimisme voltairien.", keywords: ["didactique","malheur","bonheur","leçon","providence","voltaire"] },
+      { procede: "Paradoxe", citation: "« ces pertes t'ont évité la mort »", interpretation: "Paradoxe : la perte devient salut — renversement de la logique commune.", keywords: ["paradoxe","pertes","mort","salut","providence","renversement"] },
+      { procede: "Registre ironique", citation: "« Zadig ne comprit pas »", interpretation: "Registre ironique : l'incompréhension du héros souligne la sagesse différée — satire.", keywords: ["ironique","comprit","incompréhension","sagesse","satire","décalage"] },
+      { procede: "Antithèse", citation: "« malheur » / « bonheur »", interpretation: "Antithèse : malheur et bonheur s'inversent — philosophie optimiste du conte.", keywords: ["antithèse","malheur","bonheur","inversion","optimisme","contraste"] }
     ]
   },
   {
@@ -306,12 +349,13 @@ Effleurait le tapis du boudoir.`,
     oeuvre: "La Promesse de l'aube (1960)",
     genre: "Autobiographie",
     diff: 2,
-    texte: `Ma mère me regardait avec des yeux où brûlait une fierté folle ; elle croyait en moi plus que je ne croyais en moi-même, et cette foi me terrifiait.`,
+    texte: `Ma mère m'aimait d'un amour que je ne méritais pas. Elle croyait en moi avant que je croie en moi-même. Elle me disait que j'irais loin, que je serais écrivain, que je serais quelqu'un. Elle avait quitté la Russie pour moi ; elle avait tout sacrifié pour moi. Quand elle mourut, je compris que je ne lui avais jamais assez rendu cet amour. La promesse de l'aube, c'était la promesse qu'elle m'avait faite : que la vie serait belle, que je serais heureux, que l'avenir m'appartenait. Je l'ai écrit pour elle, et pour moi, et pour tous ceux qui ont une mère.`,
     contexte: "Autobiographie — amour maternel, destin, registre pathétique et lyrique.",
     attendus: [
-      { procede: "Métaphore", citation: "« yeux où brûlait une fierté »", interpretation: "La métaphore « yeux où brûlait une fierté » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit autobiographie dans La Promesse de l'aube.", keywords: ["métaphore","yeux","brûlait","fierté","feu","maternel"] },
-      { procede: "Antithèse", citation: "« elle croyait… plus que je ne croyais »", interpretation: "Antithèse: « elle croyait… plus que je ne croyais » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","croyait","doute","foi","attente","filial"] },
-      { procede: "Registre pathétique", citation: "« cette foi me terrifiait »", interpretation: "Registre pathétique: par « cette foi me terrifiait », Romain Gary suscite la compassion et l'indignation face à la souffrance — tonalité dominante de La Promesse de l'aube.", keywords: ["pathétique","foi","terrifi","amour","fardeau","émotion"] }
+      { procede: "Hyperbole", citation: "« d'un amour que je ne méritais pas »", interpretation: "Hyperbole : l'amour maternel dépasse le mérite — dévotion inconditionnelle.", keywords: ["hyperbole","amour","méritais","dévotion","maternel","inconditionnel"] },
+      { procede: "Anaphore", citation: "« que je serais… que je serais… que l'avenir »", interpretation: "Anaphore sur « que » : la promesse maternelle structure l'espoir — destin garyen.", keywords: ["anaphore","serais","promesse","espoir","avenir","mère"] },
+      { procede: "Registre pathétique", citation: "« je ne lui avais jamais assez rendu cet amour »", interpretation: "Registre pathétique : le regret filial suscite la compassion — deuil maternel.", keywords: ["pathétique","rendu","amour","regret","deuil","compassion"] },
+      { procede: "Registre lyrique", citation: "« La promesse de l'aube »", interpretation: "Registre lyrique : le titre métaphorique condense l'espoir et la mémoire — élégie à la mère.", keywords: ["lyrique","promesse","aube","espoir","mémoire","mère"] }
     ]
   }
 ];

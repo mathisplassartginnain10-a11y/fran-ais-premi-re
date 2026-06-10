@@ -1,12 +1,17 @@
 /**
  * Tests headless du simulateur (alias, recherche GT, index).
- * Usage: node scripts/test-intro-sim-engine.mjs
+ * Usage: node scripts/test-intro-sim-engine.js
+ *
+ * Note: après chargement séquentiel des data-gtextes*.js, toutes les entrées
+ * sont fusionnées dans GRANDS_TEXTES (push des EXTRA*). Ne pas re-concaténer
+ * les tableaux GRANDS_TEXTES_EXTRA* — cela double le décompte (1652 vs 848).
  */
 const fs = require('fs');
 const vm = require('vm');
 const path = require('path');
 
 const JS = path.join(__dirname, '..', 'js');
+const GT_EXPECTED = 848;
 const sandbox = { console, window: {} };
 vm.createContext(sandbox);
 
@@ -23,13 +28,9 @@ for (let i = 2; i <= 21; i++) gtFiles.push(`data-gtextes-extra${i}.js`);
 gtFiles.forEach(f => { if (fs.existsSync(path.join(JS, f))) load(f); });
 ['data-gtextes-oeuvre-by-id.js', 'data-auteurs.js', 'data-exercices.js', 'data-intro-simulator.js'].forEach(load);
 
+/** Banque GT canonique : GRANDS_TEXTES après fusion de tous les fichiers extra. */
 sandbox.getAllGtexts = function () {
-  const out = [];
-  if (Array.isArray(sandbox.GRANDS_TEXTES)) out.push(...sandbox.GRANDS_TEXTES);
-  for (const k of Object.keys(sandbox)) {
-    if (/^GRANDS_TEXTES_EXTRA/.test(k) && Array.isArray(sandbox[k])) out.push(...sandbox[k]);
-  }
-  return out;
+  return Array.isArray(sandbox.GRANDS_TEXTES) ? sandbox.GRANDS_TEXTES.slice() : [];
 };
 
 const { introSimParseOeuvreRef, introSimSearch, introSimBuildIndex } = sandbox;
@@ -45,10 +46,10 @@ function assert(cond, msg) {
 console.log('=== test-intro-sim-engine ===');
 
 const gts = sandbox.getAllGtexts();
-assert(gts.length >= 800, 'banque GT ≥ 800 (' + gts.length + ')');
+assert(gts.length === GT_EXPECTED, `banque GT = ${GT_EXPECTED} (${gts.length})`);
 
 const idx = introSimBuildIndex();
-assert(idx.length >= 800, 'index simulateur ≥ 800 (' + idx.length + ')');
+assert(idx.length === GT_EXPECTED, `index simulateur (1 entrée/GT) = ${GT_EXPECTED} (${idx.length})`);
 
 const p = introSimParseOeuvreRef('Verlaine, Chanson d\'automne');
 assert(p && p.auteur && p.oeuvre, 'parse oeuvre Verlaine');

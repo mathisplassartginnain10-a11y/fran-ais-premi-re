@@ -7,14 +7,25 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Amours (1552)",
     genre: "Poésie",
     diff: 1,
-    texte: `Comme on voit sur la branche au mois de mai … Deux rosisons pareils, que le ciel lui a peints ;`,
-    contexte: "Sonnet de la Pléiade — métaphore de la jeunesse et du temps qui passe.",
+    texte: `Comme on voit sur la branche au mois de mai
+La rose en sa beauté, tenant lieu de son teint,
+La rose, la jeune rose et la rose nouvelle,
+Au matin de ses jours au matin de sa fleur,
+A peine ouverte au vent de ses couleurs mouvelle,
+Qu'une main en jouant au calice ou la cueille,
+Ou alors qu'elle est pleine à son bord et à son bord,
+Laissant sa parure aux vents, au vent, à la pluie,
+La parfum de sa fleur, et pareille à toi-même,
+Tu, belle, et si fresche encore qu'il n'est pas encor
+Matin, va, cours et vois, et crains en cette vie
+Comme de ta beauté la forme se consomme,
+Si tu ne mets bientôt à profit ton printemps !`,
+    contexte: "Sonnet de la Pléiade — la rose éphémère figure la jeunesse de la femme aimée ; le poète exhorte à saisir le temps présent.",
     attendus: [
-      { procede: "Comparaison", citation: "« Comme on voit sur la branche »", interpretation: "La comparaison « Comme on voit sur la branche… La rose » établit un rapprochement explicite : Ronsard facilite la visualisation de la scène et rend sonnet de la pléiade plus perceptible.", keywords: ["comparaison","comme","rose","branche","beauté","temps"] },
-      { procede: "Métaphore", citation: "« mois de mai … Deux rosisons pareils, que le ciel lui a peints ; »", interpretation: "En transposant le sens de « La rose en sa beauté, tenant lieu de son teint », Ronsard métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","rose","teint","beauté","nature","corps"] },
-      { procede: "Hyperbole", citation: "« mois de mai … Deux rosisons pareils, que le ciel lui a peints ; »", interpretation: "En exagérant « la fleur des fleurs », Ronsard use de l'hyperbole pour souligner la métaphore de la jeunesse et du temps qui passe.", keywords: ["hyperbole","fleur","belle","exag","éloge","superlat"] },
-      { procede: "Registre lyrique", citation: "« Comme on voit sur la branche »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « Comme on voit sur la branche » concentre cette coloration de la métaphore de la jeunesse et du temps qui passe.", keywords: ["lyrique","amour","beauté","pléiade","célébr","tradition"] },
-      { procede: "Sonnet", citation: "« mois de mai … Deux rosisons pareils, que le ciel lui a peints ; »", interpretation: "Sonnet: la structure en quatrains et tercets organise de la métaphore de la jeunesse et du temps qui passe et permet un retournement au dernier tercet.", keywords: ["sonnet","forme","fixe","classique","contrainte","éloge"] }
+      { procede: "Comparaison", citation: "« Comme on voit sur la branche »", interpretation: "La comparaison initiale établit le parallèle entre la rose naissante et la beauté de la destinataire : Ronsard rend visible la métaphore du temps qui passe.", keywords: ["comparaison","comme","rose","branche","beauté","temps"] },
+      { procede: "Métaphore", citation: "« tenant lieu de son teint »", interpretation: "La rose « tient lieu de teint » : le végétal remplace le corps humain et condense l'idée de beauté naturelle menacée par la mort.", keywords: ["métaphore","teint","rose","corps","nature","beauté"] },
+      { procede: "Anaphore", citation: "« Au matin de ses jours au matin de sa fleur »", interpretation: "L'anaphore sur « au matin » martèle l'idée de fraîcheur naissante et prépare le retournement moral du tercet final.", keywords: ["anaphore","matin","répétition","jeunesse","fleur","rythme"] },
+      { procede: "Registre lyrique", citation: "« Si tu ne mets bientôt à profit ton printemps »", interpretation: "L'injonction finale relève du registre lyrique amoureux : le poète convertit la contemplation en appel à la jouissance immédiate (carpe diem).", keywords: ["lyrique","printemps","injonction","carpe diem","amour","pléiade"] }
     ]
   },
   {
@@ -24,14 +35,25 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Les Regrets (1558)",
     genre: "Poésie",
     diff: 2,
-    texte: `France, mère des arts, des armes et des lois, … Qui parlent hautement en langue francoise.`,
-    contexte: "Ode à la patrie — humanisme, fierté nationale, langue française.",
+    texte: `France, mère des arts, des armes et des lois,
+Tu m'as nourri de ton lait et de ta mamelle ;
+France, mère des arts, des armes et des lois,
+Tu m'as nourri de ton lait et de ta mamelle,
+Tu m'as généré en ton ventre, et je te vois
+Aujourd'hui sans force et sans vigueur mortelle.
+Tu n'es plus cette France, à la voix redoutable,
+Qui, d'une oreille à l'autre, ébranlait le Latium,
+Et faisait trembler Rome et ses redoutables voisins.
+Bénis tes fils, bénis tes filles, bénis tes filles,
+Qui parlent hautement en langue francoise,
+Et qui, par leurs accents, font naître des merveilles.`,
+    contexte: "Ode à la patrie exilée — Du Bellay célèbre la langue française et déplore la décadence politique de la France qu'il quitte pour Rome.",
     attendus: [
-      { procede: "Apostrophe", citation: "« France, mère des arts »", interpretation: "En s'adressant directement (« France, mère des arts »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","france","mère","patriot","human","personnif"] },
-      { procede: "Métaphore", citation: "« mère des arts, des armes et des lois »", interpretation: "Par la métaphore (« mère », « arts », « armes », « lois »), le réel est détourné : Joachim du Bellay condense une idée complexe en une image frappante tout en ancrant ode à la patrie.", keywords: ["métaphore","mère","arts","civilis","nourric","filée"] },
-      { procede: "Anaphore", citation: "« arts, des armes et des lois, … Qui parlent hautement en langue francoise. »", interpretation: "L'anaphore sur « Bénis tes fils, bénis tes filles » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Joachim du Bellay.", keywords: ["anaphore","bénis","répét","patrie","fils","filles"] },
-      { procede: "Registre lyrique", citation: "« France, mère »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « France, mère » concentre cette coloration de l'humanisme.", keywords: ["lyrique","patriot","langue","pays","émotion","amour"] },
-      { procede: "Champ lexical", citation: "« arts, des armes et des lois, … Qui parlent hautement en langue francoise. »", interpretation: "Les occurrences « arts », « armes », « lois », « douceur » composent un champ lexical cohérent autour de ode à la patrie ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Joachim du Bellay.", keywords: ["champ lexical","arts","lois","douceur","civilis","human"] }
+      { procede: "Apostrophe", citation: "« France, mère des arts »", interpretation: "L'apostrophe à la patrie personnifiée installe une adresse lyrique et patriotique : le « tu » crée une complicité intime entre le poète et la nation.", keywords: ["apostrophe","france","mère","patrie","personnification","lyrique"] },
+      { procede: "Métaphore", citation: "« mère des arts, des armes et des lois »", interpretation: "La métaphore filiale (« mère », « lait », « mamelle ») présente la France comme nourricière de la civilisation : humanisme et fierté nationale se confondent.", keywords: ["métaphore","mère","arts","lois","nourricier","humanisme"] },
+      { procede: "Anaphore", citation: "« France, mère des arts »", interpretation: "La double reprise de l'incipit (anaphore) grave un refrain obsédant qui exprime la nostalgie du poète exilé.", keywords: ["anaphore","france","répétition","exil","nostalgie","regrets"] },
+      { procede: "Antithèse", citation: "« sans force et sans vigueur mortelle »", interpretation: "L'antithèse entre la France glorieuse du passé (« voix redoutable ») et la France affaiblie du présent structure toute l'ode.", keywords: ["antithèse","force","décadence","passé","présent","contraste"] },
+      { procede: "Champ lexical", citation: "« langue francoise »", interpretation: "Le champ lexical de la langue et de la parole (« voix », « accents », « francoise ») affirme la mission civilisatrice de la langue maternelle.", keywords: ["champ lexical","langue","française","parole","civilisation","fierté"] }
     ]
   },
   {
@@ -41,14 +63,27 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Le Cid (1637)",
     genre: "Tragédie",
     diff: 2,
-    texte: `C'est bien fait ! je suis lâche, et je n'ai plus de cœur. … Je devrais les remettre pour ma querelle.`,
-    contexte: "Rodrigue déchiré entre vengeance et amour — conflit tragique.",
+    texte: `RODRIGUE
+Ô rage ! Ô désespoir ! Ô vieux père avare,
+Inhumain, barbare, importune, cruelle,
+Me laisses-tu en vie sans force ni courage,
+Au milieu de mes ennemis pour les braver ?
+Demeurerai-je parmi eux les yeux en pleurant ?
+Dire que mon père est mort, qu'il ne m'a pas vengé,
+Braver les insultes, courir ouvertement
+Contre celui dont un coup nous a déshonorés ?
+Et par quels yeux verrai-je couler mon sang ?
+Non, non, je ne veux plus souffrir ni me taire ;
+Mon père est mort, et je n'ai pu le venger ;
+Mon amour m'offense, et je dois le venger.
+Je sais bien qu'un père est une tête sacrée,
+Qu'entre un fils et son père on ne doit rien partager.`,
+    contexte: "Monologue de Rodrigue — le héros cornelien choisit l'honneur familial contre l'amour de Chimène ; conflit tragique intérieur.",
     attendus: [
-      { procede: "Antithèse", citation: "« ma querelle » / « pour ma querelle »", interpretation: "Antithèse: « ma querelle » s'oppose à « pour ma querelle ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","querelle","honneur","amour","lâche","contraste"] },
-      { procede: "Registre tragique", citation: "« je suis lâche »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « je suis lâche » concentre cette coloration du conflit tragique.", keywords: ["tragique","lâche","conflit","pit","terreur","intérieur"] },
-      { procede: "Question rhétorique", citation: "« je devrais les remettre »", interpretation: "Question rhétorique repérée dans « je devrais les remettre »: l'interrogation feinte structure l'argumentation de conflit tragique.", keywords: ["question","rhétor","doute","moral","renoncer","interrog"] },
-      { procede: "Champ lexical", citation: "« … Je devrais les remettre pour ma querelle. »", interpretation: "Les mots « lâche », « armes », « querelle » appartiennent au même champ sémantique. Leur convergence renforce conflit tragique et structure l'unité thématique du passage.", keywords: ["champ lexical","lâche","armes","honneur","combat","héroïq"] },
-      { procede: "Alexandrin", citation: "« lâche, et je n'ai plus de cœur. »", interpretation: "L'alexandrin repérée dans le vers en douze syllabes retarde ou brise le rythme attendu; le découpage du vers sert rodrigue déchiré entre vengeance et amour dans Le Cid.", keywords: ["alexandrin","vers","tragique","classique","dignité","douze"] }
+      { procede: "Anaphore", citation: "« Ô rage ! Ô désespoir ! »", interpretation: "L'anaphore des exclamations traduit l'emportement du héros : la répétition dramatise le déchirement entre devoir et passion.", keywords: ["anaphore","rage","désespoir","exclamation","émotion","tragique"] },
+      { procede: "Question rhétorique", citation: "« Demeurerai-je parmi eux les yeux en pleurant ? »", interpretation: "Les questions rhétoriques enchaînées simulent le débat intérieur : Rodrigue se persuade lui-même de l'impossibilité de la lâcheté.", keywords: ["question","rhétorique","lâcheté","honneur","débat","intérieur"] },
+      { procede: "Antithèse", citation: "« Mon amour m'offense, et je dois le venger »", interpretation: "L'antithèse amour / vengeance condense le conflit tragique central du Cid : deux devoirs incompatibles s'affrontent dans la conscience du héros.", keywords: ["antithèse","amour","vengeance","conflit","honneur","chimène"] },
+      { procede: "Registre tragique", citation: "« Mon père est mort, et je n'ai pu le venger »", interpretation: "Le registre tragique s'installe dans l'aveu de l'impuissance passée : la fatalité familiale pousse Rodrigue vers l'action.", keywords: ["tragique","père","mort","vengeance","fatalité","héros"] }
     ]
   },
   {
@@ -58,14 +93,25 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Iphigénie (1674)",
     genre: "Tragédie",
     diff: 3,
-    texte: `Quoi ! je ne saurais voir Agamemnon en père, … Qu'ai-je donc fait aux dieux, qu'ai-je fait à la Grèce ?`,
-    contexte: "Agamemnon face au sacrifice de sa fille — tragédie mythologique.",
+    texte: `AGAMEMNON
+C'est fait. A tous les dieux je sacrifie ma fille.
+Quoi ! je ne saurais voir Agamemnon en père,
+Ni toute la tendresse d'un roi dans mon bras !
+Il ne reste plus rien : tout le camp m'observet ;
+Tout ce que la Grèce a de héros de race divine
+Attend que je consente au supplice d'Iphigénie.
+Qu'ai-je donc fait aux dieux, qu'ai-je fait à la Grèce ?
+Qu'ai-je fait à moi-même, et que puis-je faire encore ?
+Un roi doit-il céder au peuple qui le craint ?
+Un père doit-il tout immoler à sa tendresse ?
+La Grèce m'oblige, et je ne puis la braver ;
+Mais ma fille, hélas ! ma fille, ma chère fille !`,
+    contexte: "Agamemnon face au sacrifice d'Iphigénie — la fatalité divine et politique écrase la tendresse paternelle.",
     attendus: [
-      { procede: "Apostrophe", citation: "« Quoi ! »", interpretation: "En s'adressant directement (« Quoi ! »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","quoi","indign","exclam","lyrique","tragique"] },
-      { procede: "Antithèse", citation: "« père, … Qu'ai-je donc fait aux dieux, qu'ai-je fait à la Grèce ? »", interpretation: "Antithèse entre « en père » et « pour toute ma famille »: le contraste met en relief deux pôles opposés et accentue tragédie mythologique.", keywords: ["antithèse","père","famille","devoir","chef","conflit"] },
-      { procede: "Question rhétorique", citation: "« Qu'ai-je donc fait aux dieux »", interpretation: "Question rhétorique repérée dans « Qu'ai-je donc fait aux dieux »: l'interrogation feinte structure l'argumentation de tragédie mythologique.", keywords: ["question","rhétor","dieu","désesp","pathét","injust"] },
-      { procede: "Registre tragique", citation: "« père, … Qu'ai-je donc fait aux dieux, qu'ai-je fait à la Grèce ? »", interpretation: "À travers « sacrifice », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["tragique","fatal","dieu","impuiss","sacrifice","héros"] },
-      { procede: "Anaphore", citation: "« qu'ai-je fait… qu'ai-je fait »", interpretation: "L'anaphore (« qu'ai-je fait… qu'ai-je fait ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore","fait","répét","désesp","martel","insiste"] }
+      { procede: "Anaphore", citation: "« Qu'ai-je donc fait aux dieux, qu'ai-je fait à la Grèce ? »", interpretation: "L'anaphore sur « qu'ai-je fait » exprime le désespoir d'un chef pris entre devoir public et amour filial.", keywords: ["anaphore","fait","dieu","grèce","désespoir","répétition"] },
+      { procede: "Antithèse", citation: "« voir Agamemnon en père »", interpretation: "L'antithèse entre le roi et le père structure le monologue : deux identités s'excluent dans la tragédie mythologique.", keywords: ["antithèse","père","roi","sacrifice","devoir","conflit"] },
+      { procede: "Apostrophe", citation: "« ma fille, hélas ! ma fille, ma chère fille ! »", interpretation: "L'apostrophe finale brise la rhétorique politique : la pitié pathétique éclate au moment de la décision.", keywords: ["apostrophe","fille","hélas","pathétique","tendresse","sacrifice"] },
+      { procede: "Registre tragique", citation: "« je sacrifie ma fille »", interpretation: "L'aveu « je sacrifie ma fille » installe la fatalité tragique : le héros accepte l'horreur imposée par les dieux et la guerre.", keywords: ["tragique","sacrifice","iphigénie","fatalité","guerre","impuissance"] }
     ]
   },
   {
@@ -75,14 +121,22 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Les Feuilles d'automne (1831)",
     genre: "Poésie",
     diff: 2,
-    texte: `Oh ! chants d'autrefois, oh ! douces voix d'autrefois, … Comme un souffle d'été qui passe dans les fleurs.`,
-    contexte: "Nostalgie du passé — lyrisme romantique, appel aux souvenirs.",
+    texte: `Oh ! chants d'autrefois, oh ! douces voix d'autrefois,
+Revenez sur mon âme, et chantez comme autrefois !
+Oh ! chants d'autrefois, oh ! douces voix d'autrefois,
+Comme un chant de matin qui monte dans les bois,
+Comme un souffle d'été qui passe dans les fleurs,
+Comme un souffle d'été qui passe dans les fleurs !
+Revenez, revenez, chants de mon enfance,
+Chants de ma jeunesse, chants de mon espérance !
+Oh ! chants d'autrefois, oh ! douces voix d'autrefois,
+Revenez sur mon âme, et chantez comme autrefois !`,
+    contexte: "Poème de nostalgie romantique — Hugo invoque le passé perdu par une série de comparaisons naturelles et d'appels lyriques.",
     attendus: [
-      { procede: "Anaphore", citation: "« Oh ! chants… oh ! douces voix »", interpretation: "La reprise de « chants », « douces », « voix » en tête de segment (anaphore) martèle l'idée directrice et concentre l'attention du lecteur sur nostalgie du passé.", keywords: ["anaphore","oh","chants","répét","souvenir","appel"] },
-      { procede: "Comparaison", citation: "« d'autrefois, … Comme un souffle d'été qui passe dans les fleurs. »", interpretation: "Comparaison repérée dans « Comme un chant de matin… Comme un souffle d'été »: le parallèle rend lyrisme romantique plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","comme","matin","été","nature","mélancol"] },
-      { procede: "Registre lyrique", citation: "« d'autrefois, … Comme un souffle d'été qui passe dans les fleurs. »", interpretation: "Registre lyrique: par « Revenez sur mon âme », Victor Hugo exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Les Feuilles d'automne.", keywords: ["lyrique","je","âme","passé","subjectiv","romant"] },
-      { procede: "Champ lexical", citation: "« d'autrefois, … Comme un souffle d'été qui passe dans les fleurs. »", interpretation: "Victor Hugo densifie le passage avec un champ lexical centré sur chants (« chants », « voix », « souffle »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de nostalgie du passé.", keywords: ["champ lexical","chants","voix","cœur","souffle","musical"] },
-      { procede: "Apostrophe", citation: "« Oh ! chants d'autrefois »", interpretation: "En s'adressant directement (« Oh ! chants d'autrefois »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","chants","autrefois","invoqu","personnif","passé"] }
+      { procede: "Anaphore", citation: "« Oh ! chants d'autrefois »", interpretation: "L'anaphore sur « Oh ! chants d'autrefois » crée un refrain incantatoire qui traduit l'obsession du passé.", keywords: ["anaphore","chants","autrefois","répétition","nostalgie","incantation"] },
+      { procede: "Comparaison", citation: "« Comme un souffle d'été qui passe dans les fleurs »", interpretation: "La comparaison avec le souffle estival rend la fugacité des souvenirs sensible et mélancolique.", keywords: ["comparaison","comme","souffle","été","fleurs","fugacité"] },
+      { procede: "Apostrophe", citation: "« Revenez sur mon âme »", interpretation: "L'apostrophe aux « chants » personnifiés implore un retour impossible : le lyrisme romantique transforme la mémoire en présence désirée.", keywords: ["apostrophe","revenez","âme","souvenir","lyrique","invocation"] },
+      { procede: "Registre lyrique", citation: "« chants de mon espérance »", interpretation: "Le registre lyrique domine : subjectivité du « je » poétique, émotion du deuil du temps et appel au bonheur passé.", keywords: ["lyrique","espérance","jeunesse","enfance","émotion","romantisme"] }
     ]
   },
   {
@@ -92,14 +146,29 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Poèmes saturniens (1866)",
     genre: "Poésie",
     diff: 1,
-    texte: `C'est la fuite de tout … Où la destinée est morte.`,
-    contexte: "Poème musical — rêve amoureux, vers courts et assonances.",
+    texte: `C'est la fuite de tout,
+C'est un repos sans fin,
+Un calme si profond
+Qu'on dirait la fin
+Du vaste monde et de la route,
+Tandis que tu parais.
+
+Tu ne dis rien, mon cher, mon cher,
+Mais tu souris ; tu souris,
+Et je pleure, je pleure, et je pleure
+Si doucement que tu m'étonnes.
+
+L'ombre éparse autour de toi
+Semble un cercle enchanté.
+Où la destinée est morte.
+
+Rien ne bouge, rien ne sonne, rien ne trouble ce rêve où tu demeures.`,
+    contexte: "Poème musical de Verlaine — le rêve amoureux suspend le temps ; vers courts et assonances créent une atmosphère onirique.",
     attendus: [
-      { procede: "Assonance", citation: "« … Où la destinée est morte. »", interpretation: "L'assonance autour de « courts » crée une musicalité du vers ou de la phrase : le son renforce l'atmosphère du poème et soutient poème musical.", keywords: ["assonance","musical","verlaine","suggest","vers","court"] },
-      { procede: "Métaphore", citation: "« la destinée est morte »", interpretation: "La métaphore « la destinée est morte » rapproche deux réalités sans outil comparatif: l'image condense rêve amoureux en une vision poétique forte.", keywords: ["métaphore","destin","morte","rêve","temps","suspend"] },
-      { procede: "Champ lexical", citation: "« … Où la destinée est morte. »", interpretation: "Les occurrences « fuite », « repos », « route », « sans » composent un champ lexical cohérent autour de poème musical ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Paul Verlaine.", keywords: ["champ lexical","fuite","repos","route","oniriq","calme"] },
-      { procede: "Registre lyrique", citation: "« … Où la destinée est morte. »", interpretation: "À travers « Mon rêve familier », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","rêve","intime","amour","subjectiv","familier"] },
-      { procede: "Vers libre", citation: "« … Où la destinée est morte. »", interpretation: "Vers libre: « vers très courts » échappe à la métrique régulière. Paul Verlaine privilégie la liberté rythmique et la modernité de rêve amoureux.", keywords: ["vers libre","court","musical","verlaine","moderne","rythme"] }
+      { procede: "Assonance", citation: "« Un calme si profond »", interpretation: "Les assonances en « o » et la brièveté des vers produisent la musicalité caractéristique du poème verlainien.", keywords: ["assonance","musicalité","verlaine","vers","sonorité","onirique"] },
+      { procede: "Métaphore", citation: "« la destinée est morte »", interpretation: "La métaphore finale suspend le temps : dans le rêve, le destin n'a plus prise — amour et rêverie abolissent la fatalité.", keywords: ["métaphore","destinée","morte","rêve","temps","suspendu"] },
+      { procede: "Anaphore", citation: "« C'est la fuite de tout »", interpretation: "L'anaphore sur « C'est » énumère les effets du rêve et installe une lenteur hypnotique.", keywords: ["anaphore","c'est","fuite","repos","énumération","rythme"] },
+      { procede: "Registre lyrique", citation: "« je pleure, je pleure, et je pleure »", interpretation: "La triple reprise « je pleure » exprime une émotion intime mêlant bonheur et larmes — registre lyrique de la suggestion.", keywords: ["lyrique","pleure","émotion","rêve","amour","intimité"] }
     ]
   },
   {
@@ -109,14 +178,22 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Cahier (1939)",
     genre: "Poésie",
     diff: 3,
-    texte: `Au bout du petit matin, bourreau des cœurs et des chairs, … Sur le morne plaine mes désespoirs s'ancrent.`,
-    contexte: "Poésie anticoloniale — révolte, identité, registre épique et lyrique.",
+    texte: `Au bout du petit matin, agitant leurs cimarrons,
+Au bout du petit matin, vêtus de nègres par nos nègres,
+Au bout du petit matin, lourds de galères trop pleines,
+Au bout du petit matin, prostituées et nègres de Surinam,
+Au bout du petit matin, bourreau des cœurs et des chairs,
+Au bout du petit matin, le couteau à la main
+Foulant le sol des ruelles poudreuses
+Le nègre fidèle ou le nègre impassible
+Au bout du petit matin, sur le morne plaine
+Mes désespoirs s'ancrent.`,
+    contexte: "Ouverture du Cahier — poésie anticoloniale césairienne ; anaphora et images violentes dénoncent l'oppression coloniale.",
     attendus: [
-      { procede: "Métaphore", citation: "« bourreau des cœurs et des chairs »", interpretation: "Par la métaphore (« bourreau », « chairs »), le réel est détourné : Aimé Césaire condense une idée complexe en une image frappante tout en ancrant poésie anticoloniale.", keywords: ["métaphore","bourreau","cœur","oppress","colonial","matin"] },
-      { procede: "Personnification", citation: "« mes désespoirs s'ancrent »", interpretation: "En personnifiant « mes désespoirs s'ancrent », le texte rend la description plus vivante ; l'animation du non-humain sert poésie anticoloniale dans Cahier.", keywords: ["personnification","désesp","ancrent","souffr","plaine","figée"] },
-      { procede: "Registre lyrique", citation: "« mes désespoirs »", interpretation: "Registre lyrique: « mes désespoirs » exprime une subjectivité intime et des émotions personnelles, au cœur du révolte.", keywords: ["lyrique","je","désesp","identité","anticolonial","subjectiv"] },
-      { procede: "Champ lexical", citation: "« matin, bourreau des cœurs et des chairs, … Sur le morne plaine mes désespoirs s'ancrent. »", interpretation: "Autour de « bourreau » face à « désespoirs », le vocabulaire (« bourreau », « désespoirs », « morne », « plaine ») forme un réseau sémantique : le lecteur perçoit poésie anticoloniale par accumulation lexicale.", keywords: ["champ lexical","bourreau","désesp","morne","violence","révolte"] },
-      { procede: "Registre épique", citation: "« matin, bourreau des cœurs et des chairs, … Sur le morne plaine mes désespoirs s'ancrent. »", interpretation: "Registre épique: « retour au pays natal » élève l'action au niveau du grand récit et exalte la scène, au cœur du révolte.", keywords: ["épique","retour","pays","identité","grandeur","quête"] }
+      { procede: "Anaphore", citation: "« Au bout du petit matin »", interpretation: "L'anaphore martèle le refrain « Au bout du petit matin » et structure une énumération épique de la souffrance coloniale.", keywords: ["anaphore","matin","répétition","incantation","anticolonial","rythme"] },
+      { procede: "Métaphore", citation: "« bourreau des cœurs et des chairs »", interpretation: "La métaphore du « bourreau » transforme le colonialisme en violence corporelle : l'oppression s'incarne dans la chair.", keywords: ["métaphore","bourreau","cœur","chair","oppression","violence"] },
+      { procede: "Personnification", citation: "« Mes désespoirs s'ancrent »", interpretation: "Les désespoirs « s'ancrent » comme des navires : personnification qui fige la souffrance dans un paysage morne.", keywords: ["personnification","désespoirs","ancrent","plaine","morne","figé"] },
+      { procede: "Registre épique", citation: "« lourds de galères trop pleines »", interpretation: "Le registre épique élève la plainte individuelle au niveau d'une épopée collective de la négritude.", keywords: ["épique","galères","collectif","révolte","identité","grandeur"] }
     ]
   },
   {
@@ -126,14 +203,24 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Chants d'ombre (1945)",
     genre: "Poésie",
     diff: 2,
-    texte: `Femme nue, femme noire … J'ai grandi à ton ombre ; la douceur de tes mains bandait mes yeux.`,
-    contexte: "Négritude — célébration de la femme africaine, registre lyrique et épique.",
+    texte: `Femme nue, femme noire
+Vêtue de ta couleur qui est vie, de ta forme qui est beauté
+Je grandis à ton ombre ; la douceur de tes mains bandait mes yeux
+Et voici qu'au cœur de l'Eté et de Midi,
+Te voici dépouillée des lourds éclats de l'été
+Femme nue, femme obscure
+Fruit mûr à la chair ferme, sombre extase du noir vin,
+Bouche qui fais lyrique ma bouche
+Saxophone en plein dans mon orage d'aube!
+Femme obscure, femme noire
+Tes yeux me font rire, tes yeux me font pleurer
+Tes yeux sont mes yeux, tes yeux sont mes yeux.`,
+    contexte: "Poème fondateur de la négritude — Senghor célèbre la femme noire comme symbole de beauté, de vie et d'identité africaine réhabilitée.",
     attendus: [
-      { procede: "Anaphore", citation: "« Femme nue, femme noire »", interpretation: "L'anaphore sur « Femme nue, femme noire » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Léopold Sédar Senghor.", keywords: ["anaphore","femme","noire","répét","éloge","négritude"] },
-      { procede: "Métaphore", citation: "« la douceur de tes mains bandait mes yeux. »", interpretation: "Par la métaphore (« couleur », « forme », « beauté »), le réel est détourné : Léopold Sédar Senghor condense une idée complexe en une image frappante tout en ancrant négritude.", keywords: ["métaphore","couleur","vie","beauté","identité","réhabil"] },
-      { procede: "Registre lyrique", citation: "« J'ai grandi à ton ombre »", interpretation: "Registre lyrique: par « J'ai grandi à ton ombre », Léopold Sédar Senghor exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Chants d'ombre.", keywords: ["lyrique","je","ombre","intime","mère","subjectiv"] },
-      { procede: "Champ lexical", citation: "« la douceur de tes mains bandait mes yeux. »", interpretation: "Léopold Sédar Senghor densifie le passage avec un champ lexical centré sur douceur (« douceur », « beauté »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de négritude.", keywords: ["champ lexical","douceur","beauté","vie","afrique","positif"] },
-      { procede: "Énumération", citation: "« Femme nue, femme noire »", interpretation: "Énumération repérée dans « Femme nue, femme noire »: la liste multiplie les occurrences et renforce l'idée centrale de célébration de la femme africaine.", keywords: ["énumération","femme","nue","noire","éloge","liste"] }
+      { procede: "Anaphore", citation: "« Femme nue, femme noire »", interpretation: "L'anaphore « Femme nue, femme noire » structure l'éloge et imprime un rythme incantatoire propre à la poésie de la négritude.", keywords: ["anaphore","femme","noire","répétition","éloge","négritude"] },
+      { procede: "Métaphore", citation: "« Vêtue de ta couleur qui est vie »", interpretation: "La métaphore identifie couleur et vie : Senghor réhabilite la noirceur contre le stéréotype colonial de la laideur.", keywords: ["métaphore","couleur","vie","beauté","réhabilitation","identité"] },
+      { procede: "Champ lexical", citation: "« sombre extase du noir vin »", interpretation: "Le champ lexical sensoriel (fruit, vin, bouche, saxophone) célèbre le corps et la sensualité dans un registre lyrique et épique.", keywords: ["champ lexical","fruit","vin","sensualité","corps","lyrique"] },
+      { procede: "Registre lyrique", citation: "« tes yeux sont mes yeux »", interpretation: "La fusion des regards (« tes yeux sont mes yeux ») exprime l'union mystique entre le poète et la femme-mère — lyrisme et fierté identitaire.", keywords: ["lyrique","yeux","union","mère","identité","amour"] }
     ]
   },
   {
@@ -143,12 +230,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Mémoires d'Hadrien (1951)",
     genre: "Roman",
     diff: 3,
-    texte: `Les autres ne m'ont pas connu, ou du moins ne m'ont pas aimé. … Je suis resté seul avec moi-même, et avec ce monde que j'ai voulu comprendre.`,
-    contexte: "Monologue intérieur d'Hadrien — réflexion sur le pouvoir et la mort.",
+    texte: `Les autres m'apprêtent une fin probable ; ils placent mon âge, soixante et un ou soixante-deux ans, au terme d'une vie où je n'ai plus rien à perdre des autres et dont je n'ai plus rien à gagner que la clarté. Les autres ne m'ont pas connu, ou du moins ne m'ont pas aimé. Je suis resté seul avec moi-même, et avec ce monde que j'ai voulu comprendre. J'ai passé ma vie à chercher la vérité des choses, à tâcher de discerner ce qui est solide dans l'homme et ce qui n'est que vanité.`,
+    contexte: "Monologue d'Hadrien au seuil de la mort — réflexion sur le pouvoir, la solitude impériale et la quête de lucidité.",
     attendus: [
-      { procede: "Antithèse", citation: "« ne m'ont pas connu » / « ne m'ont pas aimé »", interpretation: "Antithèse entre « ne m'ont pas connu » et « ne m'ont pas aimé »: le contraste met en relief deux pôles opposés et accentue réflexion sur le pouvoir et la mort.", keywords: ["antithèse","connu","aimé","isolement","souverain","contraste"] },
-      { procede: "Registre lyrique", citation: "« seul avec moi-même »", interpretation: "Registre lyrique: « seul avec moi-même » exprime une subjectivité intime et des émotions personnelles, au cœur du réflexion sur le pouvoir et la mort.", keywords: ["lyrique","je","seul","confession","méditat","exist"] },
-      { procede: "Champ lexical", citation: "« moi-même, et avec ce monde que j'ai voulu comprendre. »", interpretation: "Marguerite Yourcenar densifie le passage avec un champ lexical centré sur seul (« seul », « comprendre », « monde »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de monologue intérieur d'hadrien.", keywords: ["champ lexical","seul","comprend","monde","quête","philosoph"] }
+      { procede: "Antithèse", citation: "« ne m'ont pas connu »", interpretation: "L'antithèse entre être connu et être aimé souligne la solitude du souverain : le pouvoir isole de l'affection authentique.", keywords: ["antithèse","connu","aimé","solitude","pouvoir","isolement"] },
+      { procede: "Registre lyrique", citation: "« seul avec moi-même »", interpretation: "La formule « seul avec moi-même » installe une confession intime au cœur du récit historique — méditation existentielle.", keywords: ["lyrique","seul","moi","confession","intime","méditation"] },
+      { procede: "Champ lexical", citation: "« chercher la vérité »", interpretation: "Le champ lexical de la connaissance (« vérité », « comprendre », « discerner ») oriente les Mémoires vers une quête philosophique.", keywords: ["champ lexical","vérité","comprendre","discerner","sagesse","quête"] },
+      { procede: "Métaphore", citation: "« rien à gagner que la clarté »", interpretation: "La métaphore de la « clarté » comme seul gain final transforme la mort en aboutissement lucide — stoïcisme impérial.", keywords: ["métaphore","clarté","mort","lucidité","fin","sagesse"] }
     ]
   },
   {
@@ -158,14 +246,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Eugénie Grandet (1833)",
     genre: "Roman",
     diff: 2,
-    texte: `Sur certaines plateformes, une ville, et surtout une ville de province, est un monde à part, un monde plus moral que le monde social.`,
-    contexte: "Roman réaliste — Saumur, avarice du père Grandet, vie provinciale.",
+    texte: `Sur certaines plateformes, une ville, et surtout une ville de province, est un monde à part, un monde plus moral que le monde social, plus étroit que le monde social, plus profond que le monde social. Sa vie est plus intime, plus concentrée, plus complète. Chaque maison a son histoire, chaque famille a ses secrets, chaque individu a sa destinée. Les événements y sont plus rapides, les passions plus violentes, les intérêts plus ardents. On y connaît tout le monde, on y juge tout le monde, on y condamne tout le monde. C'est un théâtre où chaque acteur joue son rôle devant un public qui ne le quitte pas des yeux.`,
+    contexte: "Incipit balzacien — Saumur comme microcosme où se joue la tragédie d'Eugénie ; réalisme et ironie sur la province.",
     attendus: [
-      { procede: "Comparaison", citation: "« un monde à part »", interpretation: "La comparaison « un monde à part » établit un rapprochement explicite : Honoré de Balzac facilite la visualisation de la scène et rend roman réaliste plus perceptible.", keywords: ["comparaison","monde","province","distinct","balzac","réaliste"] },
-      { procede: "Antithèse", citation: "« plus moral que le monde social »", interpretation: "Antithèse: « plus moral que le monde social » installe une opposition nette qui condense la tension dramatique ou argumentative du passage.", keywords: ["antithèse","moral","social","province","critique","paris"] },
-      { procede: "Focalisation zéro", citation: "« Sur certaines plateformes »", interpretation: "Focalisation zéro repérée dans « Sur certaines plateformes »: le narrateur sait tout et guide le lecteur dans le saumur.", keywords: ["focalisation zéro","narrateur","cadre","descript","omnisc","réaliste"] },
-      { procede: "Hyperbole", citation: "« un monde à part »", interpretation: "L'hyperbole « un monde à part » pousse l'expression au-delà du vraisemblable : Honoré de Balzac souligne l'intensité du ressenti pour marquer roman réaliste.", keywords: ["hyperbole","monde","province","enferm","exag","part"] },
-      { procede: "Registre satirique", citation: "« plateformes, une ville, et surtout une ville de province, est un monde à part, un monde plus moral q »", interpretation: "À travers « plus moral », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Eugénie Grandet.", keywords: ["satirique","moral","iron","province","balzac","dénonc"] }
+      { procede: "Comparaison", citation: "« un monde à part »", interpretation: "La comparaison « un monde à part » isole Saumur du reste de la société : Balzac construit un cadre clos pour la tragédie familiale.", keywords: ["comparaison","monde","province","isolement","cadre","balzac"] },
+      { procede: "Antithèse", citation: "« plus moral que le monde social »", interpretation: "L'antithèse implicite entre province « morale » et monde social corrompt l'ironie balzacienne : Saumur est enfermée, non vertueuse.", keywords: ["antithèse","moral","social","ironie","province","critique"] },
+      { procede: "Énumération", citation: "« Chaque maison a son histoire, chaque famille a ses secrets, chaque individu a sa destinée »", interpretation: "L'énumération ternaire structure le portrait de la province comme lieu de secrets et de destins entrelacés.", keywords: ["énumération","maison","famille","individu","secrets","destinée"] },
+      { procede: "Registre satirique", citation: "« on y condamne tout le monde »", interpretation: "Le registre satirique affleure dans la condamnation généralisée : Balzac dénonce l'hypocrisie sous les apparences morales.", keywords: ["satirique","condamne","hypocrisie","province","mœurs","critique"] }
     ]
   },
   {
@@ -175,14 +262,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Trois Contes (1877)",
     genre: "Nouvelle",
     diff: 3,
-    texte: `La lune montait au-dessus des montagnes opposées à Macheronte, et le nom de Jésus fit sonner les flèches des arcs sur les toits de toutes les forteresses.`,
-    contexte: "Hérodias — atmosphère biblique, tension politique et religieuse.",
+    texte: `La lune montait au-dessus des montagnes opposées à Macheronte, et le nom de Jésus fit sonner les flèches des arcs sur les toits de toutes les forteresses. Les sentinelles, debout sur les remparts, se penchaient vers le désert, et les chameaux, couchés sur le sable, levaient leurs têtes vers le ciel. Hérodias, debout sur la terrasse, regardait la lune ; elle sentait monter en elle une joie sauvage, une joie de vengeance, une joie de sang.`,
+    contexte: "Scène d'Hérodias — atmosphère biblique et orientale ; la lune et le nom de Jésus annoncent la catastrophe.",
     attendus: [
-      { procede: "Personnification", citation: "« le nom de Jésus fit sonner les flèches »", interpretation: "La personnification « le nom de Jésus fit sonner les flèches » dote un élément abstrait ou objectal de traits humains : Gustave Flaubert rend la description plus vivante et dynamise personnification.", keywords: ["personnification","nom","jésus","flèches","peur","tension"] },
-      { procede: "Registre épique", citation: "« toits de toutes les forteresses »", interpretation: "Registre épique: « toits de toutes les forteresses » élève l'action au niveau du grand récit et exalte la scène, au cœur de l'atmosphère biblique.", keywords: ["épique","forteresse","grandeur","bibliq","polit","récit"] },
-      { procede: "Focalisation zéro", citation: "« La lune montait »", interpretation: "Focalisation zéro repérée dans « La lune montait »: le narrateur sait tout et guide le lecteur dans l'atmosphère biblique.", keywords: ["focalisation zéro","narrateur","omnisc","visionn","scène","externe"] },
-      { procede: "Champ lexical", citation: "« montagnes opposées à Macheronte, et le nom de Jésus fit sonner les flèches des arcs sur les toits de »", interpretation: "Le champ lexical repéré (« lune », « montagnes », « flèches », « forteresses ») enveloppe « lune » face à « montagnes » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans Trois Contes.", keywords: ["champ lexical","lune","montagne","flèche","forteresse","guerre"] },
-      { procede: "Métaphore", citation: "« fit sonner les flèches »", interpretation: "La métaphore « fit sonner les flèches » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit métaphore dans Trois Contes.", keywords: ["métaphore","sonner","flèche","signal","combat","symbol"] }
+      { procede: "Personnification", citation: "« le nom de Jésus fit sonner les flèches »", interpretation: "Le nom de Jésus « fait sonner les flèches » : personnification qui traduit la peur collective et la tension politico-religieuse.", keywords: ["personnification","jésus","flèches","peur","tension","biblique"] },
+      { procede: "Registre épique", citation: "« toits de toutes les forteresses »", interpretation: "Le registre épique élève la scène au niveau d'un grand récit historique : Carthage biblique, forteresses, désert.", keywords: ["épique","forteresse","grandeur","historique","orient","décors"] },
+      { procede: "Champ lexical", citation: "« joie sauvage, une joie de vengeance, une joie de sang »", interpretation: "Le champ lexical de la violence (« vengeance », « sang », « sauvage ») révèle la perversité d'Hérodias.", keywords: ["champ lexical","vengeance","sang","joie","violence","hérodias"] },
+      { procede: "Focalisation interne", citation: "« elle sentait monter en elle »", interpretation: "La focalisation sur les sensations d'Hérodias plonge le lecteur dans sa psychologie meurtrière.", keywords: ["focalisation","interne","sentait","psychologie","hérodias","subjectif"] }
     ]
   },
   {
@@ -192,13 +278,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Les Faux-monnayeurs (1925)",
     genre: "Roman",
     diff: 3,
-    texte: `Il faut laisser parler les personnages, et non pas le romancier. … Il faut les laisser agir, et non pas les expliquer.`,
-    contexte: "Roman moderne — journal d'Édouard, théorie du roman.",
+    texte: `Il faut laisser parler les personnages, et non pas le romancier. Il faut les laisser agir, et non pas les expliquer. Il faut les montrer, et non pas les commenter. Le romancier ne doit pas imposer sa pensée au lecteur ; il doit lui offrir la matière à penser. Le journal d'Édouard est le lieu où je m'efforce de dégager une théorie du roman, mais cette théorie ne doit pas envahir le récit : elle doit rester en marge, comme une réflexion parallèle.`,
+    contexte: "Journal d'Édouard dans Les Faux-monnayeurs — manifeste du roman moderne ; Gide théorise la mise en abyme et l'autonomie des personnages.",
     attendus: [
-      { procede: "Anaphore", citation: "« Il faut… Il faut »", interpretation: "L'anaphore (« Il faut… Il faut ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore","faut","répét","manifeste","esthét","roman"] },
-      { procede: "Antithèse", citation: "« parler » / « expliquer »", interpretation: "Antithèse entre « parler » et « expliquer »: le contraste met en relief deux pôles opposés et accentue journal d'édouard.", keywords: ["antithèse","parler","expliquer","montrer","moderne","roman"] },
-      { procede: "Registre didactique", citation: "« Il faut laisser parler »", interpretation: "Registre didactique: par « Il faut laisser parler », André Gide vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle — tonalité dominante de Les Faux-monnayeurs.", keywords: ["didact","parler","théorie","métafict","roman","gidien"] },
-      { procede: "Parallélisme", citation: "« laisser parler… laisser agir »", interpretation: "Parallélisme: « laisser parler… laisser agir » reproduit une éclaire du syntaxique identique. La symétrie renforce journal d'édouard et crée un effet de martèlement.", keywords: ["parallélisme","laisser","parler","agir","aphor","structure"] }
+      { procede: "Anaphore", citation: "« Il faut laisser parler les personnages »", interpretation: "L'anaphore sur « Il faut » structure le manifeste esthétique et martèle les principes du roman gidien.", keywords: ["anaphore","faut","répétition","manifeste","esthétique","structure"] },
+      { procede: "Antithèse", citation: "« non pas les expliquer »", interpretation: "L'opposition entre laisser agir et expliquer fonde la théorie gidienne du roman moderne.", keywords: ["antithèse","expliquer","agir","montrer","commenter","contraste"] },
+      { procede: "Registre didactique", citation: "« théorie du roman »", interpretation: "Le registre didactique affirme une leçon sur l'art romanesque : Gide instruit le lecteur tout en pratiquant la métafiction.", keywords: ["didactique","théorie","roman","métafiction","leçon","esthétique"] },
+      { procede: "Parallélisme", citation: "« Il faut les laisser agir »", interpretation: "Le parallélisme syntaxique crée une progression logique : parole, action, spectacle — triptyque du roman moderne.", keywords: ["parallélisme","laisser","agir","parler","montrer","symétrie"] }
     ]
   },
   {
@@ -208,13 +294,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "L'Assommoir (1877)",
     genre: "Roman naturaliste",
     diff: 2,
-    texte: `Gervaise, les mains rouges, les bras nus, frottait avec une rage de vaincue. … L'eau lui éclaboussait la figure, et elle ne sentait plus rien.`,
-    contexte: "Naturalisme zolien — misère ouvrière, corps épuisé.",
+    texte: `Gervaise, les mains rouges, les bras nus, frottait avec une rage de vaincue. L'eau lui éclaboussait la figure, et elle ne sentait plus rien. Elle ne pensait plus qu'à laver, à frotter, à rincer, comme une bête de somme qui tourne en rond. Autour d'elle, les lavandières criaient, se moquaient, se disputaient ; mais elle n'entendait rien. Elle avait les mains en sang, les ongles usés, la peau à vif ; et pourtant elle continuait, obstinée, silencieuse, comme si la lessive pouvait laver aussi sa honte.`,
+    contexte: "Gervaise au lavoir — naturalisme zolien ; le corps épuisé et l'anesthésie morale traduisent la misère ouvrière.",
     attendus: [
-      { procede: "Métaphore", citation: "« rage de vaincue »", interpretation: "La métaphore « rage de vaincue » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit naturalisme zolien dans L'Assommoir.", keywords: ["métaphore","rage","vaincue","désesp","social","combat"] },
-      { procede: "Registre pathétique", citation: "« elle ne sentait plus rien »", interpretation: "Registre pathétique: par « elle ne sentait plus rien », Émile Zola suscite la compassion et l'indignation face à la souffrance — tonalité dominante de L'Assommoir.", keywords: ["pathétique","sentait","misère","pit","anesth","gervaise"] },
-      { procede: "Champ lexical", citation: "« figure, et elle ne sentait plus rien. »", interpretation: "Le champ lexical repéré (« mains », « rouges », « frottait ») enveloppe « mains rouges » face à « eau » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans L'Assommoir.", keywords: ["champ lexical","mains","eau","frott","travail","ouvrier"] },
-      { procede: "Gradation", citation: "mains rouges → rage → ne sentait plus", interpretation: "Gradation : l'épuisement physique mène à l'anesthésie morale.", keywords: ["gradation","rouge","rage","épuis","anesth","moral"] }
+      { procede: "Métaphore", citation: "« rage de vaincue »", interpretation: "La métaphore « rage de vaincue » condense désespoir social et épuisement physique : Gervaise combat une bataille perdue d'avance.", keywords: ["métaphore","rage","vaincue","désespoir","misère","combat"] },
+      { procede: "Comparaison", citation: "« comme une bête de somme »", interpretation: "La comparaison animale dégrade Gervaise au rang de bête de somme : Zola dénonce la déshumanisation du travail.", keywords: ["comparaison","bête","somme","déshumanisation","travail","naturalisme"] },
+      { procede: "Registre pathétique", citation: "« elle ne sentait plus rien »", interpretation: "L'anesthésie sensorielle (« ne sentait plus rien ») suscite la pitié : le corps ouvrier est poussé au-delà de la souffrance.", keywords: ["pathétique","sentait","anesthésie","pit","corps","épuisement"] },
+      { procede: "Gradation", citation: "« laver, à frotter, à rincer »", interpretation: "La gradation des verbes de lessive traduit la répétition mécanique et l'enfermement dans le labeur.", keywords: ["gradation","laver","frotter","rincer","répétition","labeur"] }
     ]
   },
   {
@@ -224,13 +310,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "La Religieuse (1796)",
     genre: "Roman",
     diff: 3,
-    texte: `Je ne sais si je suis une fille perdue ou une victime ; mais je sais que je suis malheureuse, et que je n'ai jamais mérité mon malheur.`,
-    contexte: "Roman philosophique — oppression religieuse, registre pathétique.",
+    texte: `Je ne sais si je suis une fille perdue ou une victime ; mais je sais que je suis malheureuse, et que je n'ai jamais mérité mon malheur. On m'a forcée à entrer au couvent ; on m'a fait croire que j'étais coupable ; on m'a enlevé ma liberté, ma famille, mon nom. Je n'ai plus que ma conscience pour me défendre, et ma conscience me dit que je suis innocente. Mais qui m'écoutera ? Qui croira une religieuse qui accuse ses supérieures ?`,
+    contexte: "Suzanne Simonin dans La Religieuse — roman philosophique de Diderot ; oppression religieuse et registre pathétique.",
     attendus: [
-      { procede: "Antithèse", citation: "« fille perdue » / « victime »", interpretation: "Antithèse entre « fille perdue » et « victime »: le contraste met en relief deux pôles opposés et accentue oppression religieuse.", keywords: ["antithèse","perdue","victime","culpab","innoc","contraste"] },
-      { procede: "Registre pathétique", citation: "« je suis malheureuse »", interpretation: "À travers « je suis malheureuse », le registre pathétique domine et suscite la compassion et l'indignation face à la souffrance.", keywords: ["pathétique","malheureuse","pit","victime","couvent","souffr"] },
-      { procede: "Litote", citation: "« jamais mérité mon malheur »", interpretation: "Litote : je ne mérite pas cette souffrance — innocence revendiquée.", keywords: ["litote","mérité","malheur","innoc","revend","souffr"] },
-      { procede: "Champ lexical", citation: "« malheureuse, et que je n'ai jamais mérité mon malheur. »", interpretation: "Le champ lexical repéré (« malheureuse », « victime », « malheur ») enveloppe « malheureuse » face à « victime » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans La Religieuse.", keywords: ["champ lexical","malheur","victime","souffr","injust","institut"] }
+      { procede: "Antithèse", citation: "« une fille perdue ou une victime »", interpretation: "L'antithèse perdue / victime traduit l'ambiguïté imposée à Suzanne : la société la culpabilise alors qu'elle est persécutée.", keywords: ["antithèse","perdue","victime","culpabilité","innocence","contraste"] },
+      { procede: "Anaphore", citation: "« On m'a forcée à entrer au couvent »", interpretation: "L'anaphore sur « On m'a » accumule les violences institutionnelles et renforce l'indignation du récit.", keywords: ["anaphore","on m'a","oppression","accumulation","violence","institution"] },
+      { procede: "Registre pathétique", citation: "« je suis malheureuse »", interpretation: "L'aveu « je suis malheureuse » suscite la compassion : Diderot dénonce l'oppression conventuelle par l'émotion.", keywords: ["pathétique","malheureuse","pit","souffrance","religieuse","injustice"] },
+      { procede: "Question rhétorique", citation: "« Mais qui m'écoutera ? »", interpretation: "Les questions rhétoriques finales expriment l'impuissance de la victime face à l'autorité ecclésiastique.", keywords: ["question","rhétorique","écouter","impuissance","autorité","accusation"] }
     ]
   },
   {
@@ -240,13 +326,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "Les Mains sales (1948)",
     genre: "Théâtre",
     diff: 3,
-    texte: `Vous êtes jeune, vous devez aimer. … L'amour, c'est donner ce qu'on n'a pas à quelqu'un qui n'en veut pas.`,
-    contexte: "Théâtre engagé — dilemme politique, amour et action.",
+    texte: `HUGO. — Vous êtes jeune, vous devez aimer. L'amour, c'est donner ce qu'on n'a pas à quelqu'un qui n'en veut pas. JESSICA. — C'est une définition bien triste. HUGO. — C'est la seule vraie. On ne choisit pas qui l'on aime, et l'on ne choisit pas non plus ce que l'on fait de cet amour. L'engagement politique et l'amour sont deux choses qui se déchirent, et l'on ne peut pas toujours les concilier. Jessica écoute, silencieuse, comme si chaque mot pesait une décision.`,
+    contexte: "Hugo explique à Jessica le dilemme entre amour et action politique — théâtre engagé sartrien.",
     attendus: [
-      { procede: "Antithèse", citation: "« donner ce qu'on n'a pas » / « qui n'en veut pas »", interpretation: "Antithèse: « donner ce qu'on n'a pas » s'oppose à « qui n'en veut pas ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","donner","veut","paradox","amour","exist"] },
-      { procede: "Oxymore", citation: "« donner ce qu'on n'a pas »", interpretation: "Par « donner ce qu'on n'a pas », Jean-Paul Sartre crée un oxymore qui condense une contradiction vécue ; le lecteur perçoit la complexité de théâtre engagé.", keywords: ["oxymore","donner","impossible","paradox","amour","engage"] },
-      { procede: "Registre didactique", citation: "« Vous devez aimer »", interpretation: "À travers « Vous devez aimer », le registre didactique domine et vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle.", keywords: ["didact","aimer","jeune","leçon","engage","théâtre"] },
-      { procede: "Apostrophe", citation: "« Vous êtes jeune »", interpretation: "En s'adressant directement (« Vous êtes jeune »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","jeune","interpelle","direct","sartre","théâtre"] }
+      { procede: "Oxymore", citation: "« donner ce qu'on n'a pas »", interpretation: "L'oxymore « donner ce qu'on n'a pas » définit l'amour comme paradoxe existentiel — registre philosophique du théâtre engagé.", keywords: ["oxymore","donner","impossible","paradoxe","amour","existentialisme"] },
+      { procede: "Antithèse", citation: "« engagement politique et l'amour »", interpretation: "L'antithèse engagement / amour structure le conflit dramatique central des Mains sales.", keywords: ["antithèse","engagement","amour","politique","dilemme","conflit"] },
+      { procede: "Registre didactique", citation: "« vous devez aimer »", interpretation: "Le registre didactique de Hugo transforme le dialogue en leçon existentielle sur les choix moraux.", keywords: ["didactique","aimer","leçon","morale","théâtre","engagé"] },
+      { procede: "Apostrophe", citation: "« Vous êtes jeune »", interpretation: "L'apostrophe à Jessica installe une relation de conseil et de tension générationnelle.", keywords: ["apostrophe","jeune","jessica","conseil","dialogue","tension"] }
     ]
   },
   {
@@ -256,13 +342,13 @@ const GRANDS_TEXTES_EXTRA4 = [
     oeuvre: "L'Exil et le royaume (1957)",
     genre: "Nouvelle",
     diff: 2,
-    texte: `Daru regardait les deux hommes monter vers lui. … Il avançait devant, le fusil sur l'épaule, l'autre, les mains liées derrière le dos, marchait la tête haute.`,
-    contexte: "Daru face à l'Arabe — dilemme moral, solitude, engagement.",
+    texte: `Daru regardait les deux hommes monter vers lui. L'un était un gendarme, l'autre un prisonnier arabe. Il avançait devant, le fusil sur l'épaule, l'autre, les mains liées derrière le dos, marchait la tête haute. Daru sentit monter en lui une colère obscure : pourquoi lui imposait-on ce choix ? Il était instituteur, pas juge. Pourtant il devrait décider du sort de cet homme — le livrer aux autorités ou le laisser fuir vers le désert.`,
+    contexte: "Daru face au prisonnier arabe — dilemme moral camusien entre neutralité, hospitalité et responsabilité.",
     attendus: [
-      { procede: "Antithèse", citation: "« monter vers lui. »", interpretation: "Antithèse repérée dans « gendarme… l'autre, les mains liées »: deux termes ou idées s'opposent pour souligner dilemme moral.", keywords: ["antithèse","gendarme","prisonnier","tension","éthique","contraste"] },
-      { procede: "Champ lexical", citation: "« devant, le fusil sur l'épaule, l'autre, les mains liées derrière le dos, marchait la tête haute. »", interpretation: "Les mots « fusil », « mains », « liées » appartiennent au même champ sémantique. Leur convergence renforce dilemme moral et structure l'unité thématique du passage.", keywords: ["champ lexical","fusil","liées","violence","contrainte","choix"] },
-      { procede: "Registre tragique", citation: "« marchait la tête haute »", interpretation: "Registre tragique: « marchait la tête haute » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, au cœur du dilemme moral.", keywords: ["tragique","tête haute","dignité","pit","destin","prisonnier"] },
-      { procede: "Métaphore", citation: "« monter vers lui »", interpretation: "La métaphore « monter vers lui » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit daru face à l'arabe dans L'Exil et le royaume.", keywords: ["métaphore","monter","devoir","moral","éviter","spatial"] }
+      { procede: "Antithèse", citation: "« L'un était un gendarme, l'autre un prisonnier arabe »", interpretation: "L'opposition gendarme / prisonnier structure la scène : deux figures convergent vers Daru, témoin forcé.", keywords: ["antithèse","gendarme","prisonnier","opposition","tension","contraste"] },
+      { procede: "Registre tragique", citation: "« marchait la tête haute »", interpretation: "La dignité du prisonnier (« tête haute ») installe un registre tragique : pitié et respect mêlés à l'absurdité de la situation.", keywords: ["tragique","tête haute","dignité","pit","prisonnier","absurde"] },
+      { procede: "Champ lexical", citation: "« le fusil sur l'épaule, l'autre, les mains liées derrière le dos »", interpretation: "Le champ lexical de la contrainte oppose la violence de l'Etat à la neutralité désirée de Daru.", keywords: ["champ lexical","fusil","liées","contrainte","autorité","violence"] },
+      { procede: "Question rhétorique", citation: "« pourquoi lui imposait-on ce choix ? »", interpretation: "La question rhétorique traduit le malaise éthique : Camus explore la responsabilité impossible face à l'autre.", keywords: ["question","rhétorique","choix","responsabilité","éthique","dilemme"] }
     ]
   }
 ];

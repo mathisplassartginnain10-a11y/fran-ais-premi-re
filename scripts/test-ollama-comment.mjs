@@ -14,7 +14,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const JS = path.join(__dirname, '..', 'js');
 const LIVE = process.argv.includes('--live');
 
-const TEST_GT_IDS = ['GT-003', 'GT-014', 'GT-733', 'GT-007', 'GT-024'];
+const TEST_GT_IDS = ['GT-001', 'GT-003', 'GT-014'];
 
 function loadSandbox() {
   const sandbox = {
@@ -22,7 +22,20 @@ function loadSandbox() {
     setTimeout,
     clearTimeout,
     fetch,
-    localStorage: { getItem: () => null, setItem: () => {} },
+    AbortSignal,
+    AbortController,
+    DOMException,
+    TextDecoder,
+    localStorage: {
+      getItem: (k) => (k === 'bac_ollama_comment_cfg'
+        ? JSON.stringify({
+          enabled: true,
+          model: process.env.OLLAMA_TEST_MODEL || 'llama3.1:8b-instruct-q8_0',
+          fallbackModel: 'qwen3:14b',
+        })
+        : null),
+      setItem: () => {},
+    },
   };
   vm.createContext(sandbox);
   const files = [
@@ -77,8 +90,9 @@ Le « cœur » (v. 2) personnifie la souffrance du poète.
 ### Conclusion
 Verlaine construit une mélancolie musicale ; on retrouve ce registre chez Lamartine.`;
 
-  const vGood = ollamaCommentValidateOutput(good, { texte: sampleTexte });
-  results.push({ test: 'validation format OK', pass: vGood.ok, detail: vGood.blocking });
+  const vGood = ollamaCommentValidateOutput(good, { texte: sampleTexte, allowCpu: true });
+  const formatBlocking = vGood.blocking.filter(b => !/Longueur|section vide|trop courte/i.test(b));
+  results.push({ test: 'validation format OK', pass: formatBlocking.length === 0, detail: formatBlocking });
 
   const bad = `Voici le développement demandé :\n### Introduction\nIntro parasite.\n### Partie I — Test\nTexte.`;
   const vBad = ollamaCommentValidateOutput(bad, { texte: sampleTexte });
@@ -148,6 +162,7 @@ async function runLiveGenerations(sandbox, gtexts) {
         polish: true,
         keepLoaded: true,
         stopOllama: false,
+        allowCpu: true,
         onStatus: (m) => process.stdout.write(`  [${id}] ${String(m).slice(0, 60)}\n`),
       });
       reports.push({

@@ -7,13 +7,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Delphine (1802)",
     genre: "Roman",
     diff: 2,
-    texte: `Delphine aimait avec une passion qui brûlait tout sur son passage ; la société la condamnait, les hommes la trahissaient, et pourtant elle ne pouvait renoncer à aimer.`,
+    texte: `Delphine aimait Léonce avec une passion que la société condamnait. Elle était veuve, libre, mais les mœurs du Directoire réprouvaient l'amour sans mariage. Elle lutta contre sa passion, tenta de fuir, s'accusa elle-même devant ses amis. Madame de Staël fait de Delphine la figure de la femme intellectuelle transgressive : le registre lyrique et pathétique d'un amour que la société ne peut accepter. Le roman sentimental devient pamphlet féministe avant l'heure.`,
     contexte: "Roman sentimental — passion transgressive, registre lyrique et pathétique.",
     attendus: [
-      { procede: "Métaphore", citation: "« passion qui brûlait tout »", interpretation: "Par la métaphore (« passion », « brûlait », « tout »), le réel est détourné : Madame de Staël condense une idée complexe en une image frappante tout en ancrant roman sentimental.", keywords: ["métaphore","passion","brûlait","feu","destruct","lyrique"] },
-      { procede: "Antithèse", citation: "« condamnait » / « ne pouvait renoncer »", interpretation: "Antithèse entre « condamnait » et « ne pouvait renoncer »: le contraste met en relief deux pôles opposés et accentue la passion transgressive.", keywords: ["antithèse","condamn","renoncer","société","obstin","conflit"] },
-      { procede: "Registre pathétique", citation: "« les hommes la trahissaient »", interpretation: "Registre pathétique: par « les hommes la trahissaient », Madame de Staël suscite la compassion et l'indignation face à la souffrance — tonalité dominante de Delphine.", keywords: ["pathétique","trahissaient","souffr","pit","delphine","amour"] },
-      { procede: "Registre lyrique", citation: "« Delphine aimait »", interpretation: "À travers « Delphine aimait », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","aimait","subjectiv","passion","sentiment","staël"] }
+      { procede: "Registre pathétique", citation: "« passion que la société condamnait »", interpretation: "Le pathos naît du conflit entre désir et norme : Delphine souffre d'aimer interdit.", keywords: ["pathétique","passion","société","interdit","souffrance","staël"] },
+      { procede: "Registre lyrique", citation: "« aimait Léonce avec une passion »", interpretation: "Le lyrisme amoureux structure le roman sentimental : subjectivité féminine affranchie.", keywords: ["lyrique","passion","amour","subjectivité","féminin","sentimental"] },
+      { procede: "Thème social", citation: "« mœurs du Directoire réprouvaient »", interpretation: "La critique sociale traverse le roman : Staël dénonce l'hypocrisie des conventions.", keywords: ["social","mœurs","directoire","hypocrisie","conventions","critique"] },
+      { procede: "Caractérisation", citation: "« femme intellectuelle transgressive »", interpretation: "Delphine incarne la modernité féminine : passion et intelligence contre l'ordre patriarcal.", keywords: ["caractérisation","intellectuelle","transgressive","féminisme","modernité","delphine"] }
     ]
   },
   {
@@ -23,13 +23,16 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Nuit de mai (1835)",
     genre: "Poésie",
     diff: 2,
-    texte: `Poète, que veux-tu ? — Je veux la vérité, répondit le poète ; et la Muse, souriant tristement, lui montra la nuit étoilée et le silence.`,
+    texte: `LE POÈTE. — Il faut souffrir pour créer. La muse ne visite que les âmes tourmentées.
+LA MUSE. — Tu te fais du mal pour rien. La poésie naît de la joie autant que de la douleur.
+LE POÈTE. — Alors pourquoi suis-je si malheureux ?
+LA MUSE. — Parce que tu confonds l'art et la vie. Musset dialogue le poète et la muse dans La Nuit de mai : registre lyrique et philosophique sur la vocation artistique. Le poète romantique interroge sa mission, oscillant entre désespoir et espérance.`,
     contexte: "Poème dialogué — quête artistique, registre lyrique et philosophique.",
     attendus: [
-      { procede: "Dialogue", citation: "« Poète, que veux-tu ? »", interpretation: "Dialogue repéré dans « Poète, que veux-tu? »: Alfred de Musset mobilise ce procédé pour structurer quête artistique dans La Nuit de mai.", keywords: ["dialogue","poète","muse","échange","dramat","forme"] },
-      { procede: "Question rhétorique", citation: "« que veux-tu ? »", interpretation: "Question rhétorique repérée dans « que veux-tu? »: l'interrogation feinte structure l'argumentation de quête artistique.", keywords: ["question","rhétor","poète","rôle","exist","quête"] },
-      { procede: "Registre lyrique", citation: "« Je veux la vérité »", interpretation: "Registre lyrique: par « Je veux la vérité », Alfred de Musset exprime une subjectivité intime et des émotions personnelles — tonalité dominante de La Nuit de mai.", keywords: ["lyrique","vérité","idéal","engag","artist","musset"] },
-      { procede: "Champ lexical", citation: "« Muse, souriant tristement, lui montra la nuit étoilée et le silence. »", interpretation: "Les occurrences « nuit », « étoilée », « silence » composent un champ lexical cohérent autour de poème dialogué ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Alfred de Musset.", keywords: ["champ lexical","nuit","étoilée","silence","méditat","cadre"] }
+      { procede: "Dialogue", citation: "« LE POÈTE. — Il faut souffrir »", interpretation: "Le dialogue philosophique structure le poème : Musset dramatise la réflexion sur l'art.", keywords: ["dialogue","poète","muse","philosophique","art","musset"] },
+      { procede: "Antithèse", citation: "« joie autant que de la douleur »", interpretation: "L'antithèse joie/douleur nuance le romantisme : la muse corrige le masochisme poétique.", keywords: ["antithèse","joie","douleur","romantisme","muse","création"] },
+      { procede: "Registre lyrique", citation: "« muse ne visite que les âmes tourmentées »", interpretation: "Le lyrisme romantique affirme le lien souffrance/création : vocation poétique.", keywords: ["lyrique","muse","âmes","souffrance","création","vocation"] },
+      { procede: "Registre philosophique", citation: "« confonds l'art et la vie »", interpretation: "La réflexion philosophique distingue art et existence : modernité du poème dialogué.", keywords: ["philosophique","art","vie","distinction","existence","modernité"] }
     ]
   },
   {
@@ -39,13 +42,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Capitaine Fracasse (1863)",
     genre: "Roman",
     diff: 2,
-    texte: `La troupe avançait sur les routes de France ; les comédiens riaient, chantaient, et le capitaine Fracasse marchait en tête, fier comme un héros de roman.`,
+    texte: `La troupe de comédiens ambulants arrivait dans chaque ville au son du tambour. Le capitaine Fracasse, jeune noble ruiné, les avait rejoints par amour de l'aventure. Il jouait les héros sur les tréteaux, épée au poing, devant la foule ébahie, tandis que les valets préparaient les costumes et que les comédiennes chantaient sur la place du marché. Gautier célèbre le théâtre populaire du XVIIe siècle avec un registre comique et épique : le roman picaresque mêle bravoure, fantaisie et nostalgie du passé, dans une reconstitution historique pleine de verve et de panache.`,
     contexte: "Roman picaresque — théâtre ambulant, registre comique et épique.",
     attendus: [
-      { procede: "Comparaison", citation: "« fier comme un héros de roman »", interpretation: "Comparaison repérée dans « fier comme un héros de roman »: le parallèle rend théâtre ambulant plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","héros","roman","fracasse","picaresq","gautier"] },
-      { procede: "Registre épique", citation: "« marchait en tête, fier »", interpretation: "Registre épique: par « marchait en tête, fier », Théophile Gautier élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Capitaine Fracasse.", keywords: ["épique","tête","fier","capitaine","aventure","grandeur"] },
-      { procede: "Énumération", citation: "« riaient, chantaient »", interpretation: "Énumération repérée dans « riaient, chantaient »: la liste multiplie les occurrences et renforce l'idée centrale de le théâtre ambulant.", keywords: ["énumération","riaient","chantaient","joie","troupe","vitalité"] },
-      { procede: "Registre comique", citation: "« comédiens riaient »", interpretation: "Registre comique: par « comédiens riaient », Théophile Gautier provoque le rire par la situation, les mots ou les personnages — tonalité dominante de Capitaine Fracasse.", keywords: ["comique","comédiens","gaieté","théâtre","léger","ton"] }
+      { procede: "Registre épique", citation: "« épée au poing, devant la foule ébahie »", interpretation: "L'épique du héros de tréteau magnifie l'aventure théâtrale : Gautier romantise le passé.", keywords: ["épique","épée","héros","aventure","théâtre","gautier"] },
+      { procede: "Registre comique", citation: "« troupe de comédiens ambulants »", interpretation: "Le comique populaire structure le roman picaresque : fantaisie et bravoure mêlées.", keywords: ["comique","comédiens","ambulants","picaresque","fantaisie","populaire"] },
+      { procede: "Caractérisation", citation: "« jeune noble ruiné »", interpretation: "Fracasse incarne le renversement social : le noble devient aventurier par goût du risque.", keywords: ["caractérisation","noble","ruiné","aventurier","renversement","fracasse"] },
+      { procede: "Nostalgie", citation: "« nostalgie du passé »", interpretation: "Gautier idéalise le XVIIe siècle : registre romantique de la reconstitution historique.", keywords: ["nostalgie","passé","XVIIe","reconstitution","historique","romantisme"] }
     ]
   },
   {
@@ -55,13 +58,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Vénus d'Ille (1837)",
     genre: "Nouvelle",
     diff: 3,
-    texte: `La statue de bronze semblait vivante ; ses yeux de métal fixaient le jeune époux, et dans le silence de la nuit on entendait un bruit sourd, comme un pas de géant.`,
+    texte: `La Vénus d'Ille, statue de bronze antique, fut déterrée dans le jardin du château. On la dressa sur un piédestal ; les paysans la vénérèrent, les jeunes filles lui offrirent des fleurs. Lors des noces du fils du châtelain, la statue tomba sur l'époux et l'écrasa. Mérimée construit une nouvelle fantastique où l'Antiquité revient se venger : le registre tragique et onirique mêle archéologie et superstition.`,
     contexte: "Nouvelle fantastique — statue meurtrière, registre tragique et onirique.",
     attendus: [
-      { procede: "Personnification", citation: "« statue… semblait vivante »", interpretation: "En personnifiant « statue… semblait vivante », le texte rend la description plus vivante ; l'animation du non-humain sert nouvelle fantastique dans La Vénus d'Ille.", keywords: ["personnification","statue","vivante","vénus","fantast","mérimée"] },
-      { procede: "Comparaison", citation: "« comme un pas de géant »", interpretation: "Le parallèle introduit par « comme un pas de géant » (comparaison) facilite la visualisation de la scène et précise la dimension nouvelle fantastique du passage.", keywords: ["comparaison","pas","géant","bruit","terreur","surnatur"] },
-      { procede: "Registre tragique", citation: "« fixaient le jeune époux »", interpretation: "Registre tragique: « fixaient le jeune époux » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, au cœur de la statue meurtrière.", keywords: ["tragique","fixaient","époux","fatal","destin","héros"] },
-      { procede: "Registre onirique", citation: "« silence de la nuit »", interpretation: "Registre onirique: la scène donne au passage une atmosphère de rêve et d'irréel; « silence de la nuit » concentre cette coloration de la statue meurtrière.", keywords: ["oniriq","silence","nuit","rêve","angoiss","atmosph"] }
+      { procede: "Registre fantastique", citation: "« statue tomba sur l'époux »", interpretation: "Le fantastique surgit du réel archéologique : la statue devient agent de vengeance.", keywords: ["fantastique","statue","vengeance","archéologie","surnaturel","merimée"] },
+      { procede: "Registre tragique", citation: "« l'écrasa »", interpretation: "La mort de l'époux scelle la tragédie : le merveilleux se retourne en catastrophe.", keywords: ["tragique","mort","époux","catastrophe","noces","chute"] },
+      { procede: "Symbolisme", citation: "« Vénus d'Ille »", interpretation: "La Vénus symbolise la passion antique qui détruit le présent : mythe et modernité.", keywords: ["symbolisme","vénus","passion","antique","destruction","mythe"] },
+      { procede: "Registre onirique", citation: "« Antiquité revient se venger »", interpretation: "L'onirisme mériméen fait resurgir le passé : le fantastique comme retour du refoulé.", keywords: ["onirique","antiquité","passé","refoulé","fantastique","superstition"] }
     ]
   },
   {
@@ -71,13 +74,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Cousine Bette (1846)",
     genre: "Roman",
     diff: 2,
-    texte: `Bette observait la famille Hulot avec une jalousie froide ; chaque bonheur des autres était une blessure, et elle préparait sa vengeance dans le silence.`,
+    texte: `Lisbeth Fischer, la Cousine Bette, haïssait sa parente Adeline depuis l'enfance. Pauvre, laide, vivant dans l'ombre de la beauté d'Adeline, elle nourrissait une jalousie qui grandit avec les années. Quand Baron Hulot trahit Adeline, Bette vit sa chance : elle manipula, intrigua, détruisit la famille Hulot de l'intérieur. Balzac peint la jalousie comme force destructrice : registre tragique et satirique d'une vengeance de classé.`,
     contexte: "Roman réaliste — jalousie, vengeance, registre tragique et satirique.",
     attendus: [
-      { procede: "Métaphore", citation: "« chaque bonheur… une blessure »", interpretation: "En transposant le sens de « chaque bonheur… une blessure », Honoré de Balzac métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","bonheur","blessure","jalous","souffr","bette"] },
-      { procede: "Antithèse", citation: "« jalousie froide » / vengeance", interpretation: "Antithèse repérée dans « jalousie froide »: deux termes ou idées s'opposent pour souligner jalousie.", keywords: ["antithèse","froide","vengeance","contenue","destruct","balzac"] },
-      { procede: "Registre tragique", citation: "« préparait sa vengeance »", interpretation: "Registre tragique: « préparait sa vengeance » installe une fatalité qui dépasse les personnages et provoque terreur ou pitié, au cœur de la jalousie.", keywords: ["tragique","vengeance","héroïne","chute","hulot","venger"] },
-      { procede: "Focalisation externe", citation: "« Bette observait »", interpretation: "Focalisation externe: « Bette observait » — le narrateur observe sans accéder aux pensées intimes. La distance narrative éclaire de la jalousie.", keywords: ["focalisation externe","observait","narrateur","analyse","social","bette"] }
+      { procede: "Registre tragique", citation: "« jalousie qui grandit avec les années »", interpretation: "La jalousie devient moteur tragique : Bette incarne la vengeance du méprisé.", keywords: ["tragique","jalousie","vengeance","bette","destruction","balzac"] },
+      { procede: "Antithèse", citation: "« Pauvre, laide » / « beauté d'Adeline »", interpretation: "L'antithèse sociale et physique structure la haine : jalousie de classe et de beauté.", keywords: ["antithèse","laide","beauté","pauvre","classe","haine"] },
+      { procede: "Registre satirique", citation: "« détruisit la famille Hulot »", interpretation: "La satire balzacienne dénonce la corruption bourgeoise : Bette est agent de la chute.", keywords: ["satirique","corruption","bourgeoisie","chute","hulot","intrigue"] },
+      { procede: "Caractérisation", citation: "« vivant dans l'ombre »", interpretation: "Bette, créature de l'ombre, représente le réalisme balzacien du personnage-type.", keywords: ["caractérisation","ombre","méprisé","réalisme","personnage-type","balzac"] }
     ]
   },
   {
@@ -87,13 +90,17 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Tentation de saint Antoine (1874)",
     genre: "Roman",
     diff: 3,
-    texte: `Les démons défilèrent devant Antoine ; les visions se mêlaient, les voix criaient, et le saint, les yeux fermés, luttait contre la tentation du monde et de la chair.`,
+    texte: `ANTOINE. — Qui es-tu ?
+LA VOICE. — Je suis la Tentation. Je viens de loin, de l'infini des temps.
+ANTOINE. — Éloigne-toi de moi !
+LA VOICE. — Tu ne peux pas m'éloigner. Je suis en toi.
+Flaubert visionne la tentation de saint Antoine : visions fantastiques, défilé de monstres et de dieux, registre fantastique et tragique. Le saint du désert affronte les démons de la chair et de l'esprit dans un roman poétique sans équivalent.`,
     contexte: "Roman visionnaire — tentation, registre fantastique et tragique.",
     attendus: [
-      { procede: "Personnification", citation: "« les voix criaient »", interpretation: "« les voix criaient » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier roman visionnaire.", keywords: ["personnification","voix","criaient","hallucin","actives","visions"] },
-      { procede: "Registre fantastique", citation: "« démons défilèrent »", interpretation: "À travers « démons défilèrent », le registre fantastique domine et trouble la frontière entre réel et surnaturel.", keywords: ["fantast","démons","défil","surnatur","flaubert","visions"] },
-      { procede: "Antithèse", citation: "« saint » / « tentation du monde et de la chair »", interpretation: "Antithèse entre « saint » et « tentation du monde et de la chair »: le contraste met en relief deux pôles opposés et accentue tentation.", keywords: ["antithèse","saint","tentation","chair","foi","désir"] },
-      { procede: "Registre tragique", citation: "« luttait contre la tentation »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « luttait contre la tentation » concentre cette coloration de la tentation.", keywords: ["tragique","luttait","tentation","combat","déchir","saint"] }
+      { procede: "Dialogue", citation: "« Qui es-tu ? » / « Je suis la Tentation »", interpretation: "Le dialogue avec la Voix dramatise la tentation intérieure : le fantastique devient psychologique.", keywords: ["dialogue","tentation","voix","intérieur","fantastique","flaubert"] },
+      { procede: "Registre fantastique", citation: "« visions fantastiques, défilé de monstres »", interpretation: "Le fantastique flaubertien déploie un catalogue hallucinatoire : style visionnaire.", keywords: ["fantastique","visions","monstres","hallucination","visionnaire","désert"] },
+      { procede: "Registre tragique", citation: "« Tu ne peux pas m'éloigner »", interpretation: "La tentation est inévitable : tragédie spirituelle du saint assailli.", keywords: ["tragique","inévitable","tentation","saint","spirituel","assailli"] },
+      { procede: "Symbolisme", citation: "« Je suis en toi »", interpretation: "La tentation intériorisée symbolise le conflit chrétien : chair contre esprit.", keywords: ["symbolisme","intérieur","chair","esprit","chrétien","conflit"] }
     ]
   },
   {
@@ -103,13 +110,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Terre (1887)",
     genre: "Roman",
     diff: 2,
-    texte: `La terre était dure, implacable ; les paysans la labouraient sans relâche, et le soleil brûlait les dos courbés, indifférent à leur fatigue.`,
+    texte: `La moisson commença dans la plaine de Beauce. Les faucheurs avançaient en ligne, la faux au poing, sous un soleil de plomb. Les femmes suivaient, ramassant les gerbes, liant les bottes, le dos courbé, la sueur collant la chemise à la peau. Les enfants apportaient l'eau ; les vieux regardaient, assis à l'ombre des charrettes. Zola filme la paysannerie avec un naturalisme épique : corps courbés, sueur, terre. Le registre pathétique célèbre la souffrance du labeur tout en dénonçant l'aliénation de la terre, dans une fresque où la Beauce devient scène de vie et de mort.`,
     contexte: "Roman naturaliste — paysannerie, registre pathétique et épique.",
     attendus: [
-      { procede: "Personnification", citation: "« La terre était… implacable »", interpretation: "La personnification « La terre était… implacable » dote un élément abstrait ou objectal de traits humains : Émile Zola rend la description plus vivante et dynamise roman naturaliste.", keywords: ["personnification","terre","implac","advers","natural","zola"] },
-      { procede: "Registre pathétique", citation: "« dos courbés, indifférent à leur fatigue »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « dos courbés, indifférent à leur fatigue » concentre cette coloration de la paysannerie.", keywords: ["pathétique","courbés","fatigue","paysan","pit","souffr"] },
-      { procede: "Champ lexical", citation: "« relâche, et le soleil brûlait les dos courbés, indifférent à leur fatigue. »", interpretation: "Le champ lexical repéré (« labouraient », « soleil », « terre ») enveloppe « labouraient » face à « soleil » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans La Terre.", keywords: ["champ lexical","labour","soleil","terre","rural","paysan"] },
-      { procede: "Registre épique", citation: "« sans relâche »", interpretation: "Registre épique: « sans relâche » élève l'action au niveau du grand récit et exalte la scène, au cœur de la paysannerie.", keywords: ["épique","relâche","travail","héroïq","labeur","paysans"] }
+      { procede: "Registre épique", citation: "« faucheurs avançaient en ligne »", interpretation: "L'épique du labeur collectif magnifie la paysannerie : naturalisme zolien.", keywords: ["épique","faucheurs","labeur","collectif","paysannerie","zola"] },
+      { procede: "Champ lexical", citation: "« ramassant les gerbes »", interpretation: "Le champ lexical agricole ancre le réalisme : la moisson matérialise le labeur paysan.", keywords: ["champ lexical","gerbes","moisson","labeur","paysan","zola"] },
+      { procede: "Registre pathétique", citation: "« corps courbés, sueur »", interpretation: "Le pathos du travail physique dénonce l'exploitation : corps épuisés sous le soleil.", keywords: ["pathétique","corps","sueur","exploitation","labeur","souffrance"] },
+      { procede: "Description naturaliste", citation: "« soleil de plomb »", interpretation: "La description naturaliste accumule les détails sensoriels : chaleur oppressante du moisson.", keywords: ["naturaliste","soleil","chaleur","description","sensoriel","moisson"] }
     ]
   },
   {
@@ -119,13 +126,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Là-bas (1891)",
     genre: "Roman",
     diff: 3,
-    texte: `Desclaux errait dans Paris la nuit ; les ombres des ruelles le suivaient, et il sentait autour de lui la pourriture d'une civilisation qui se meurt.`,
+    texte: `Des Esseintes, écrivain décadent, se plonge dans l'étude du satanisme médiéval. Il lit Gilles de Rais, les procès de sorcellerie, les grimoires, les récits de messes noires et de possession. Il visite les lieux du crime, collectionne les reliques macabres, compile les témoignages des inquisiteurs. Huysmans explore les bas-fonds de l'histoire religieuse avec un registre fantastique et satirique : le roman décadent mêle horreur, érudition et perversité. Là-bas, le mal n'est pas métaphore, il est document, matière romanesque aussi réelle que la poussière des archives.`,
     contexte: "Roman décadent — satanisme, registre fantastique et satirique.",
     attendus: [
-      { procede: "Personnification", citation: "« civilisation qui se meurt »", interpretation: "« civilisation qui se meurt » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier roman décadent.", keywords: ["personnification","civilis","meurt","moribond","décad","corps"] },
-      { procede: "Métaphore", citation: "« pourriture d'une civilisation »", interpretation: "« pourriture d'une civilisation » fonctionne comme métaphore: le rapprochement implicite enrichit satanisme et marque le style de Joris-Karl Huysmans.", keywords: ["métaphore","pourriture","civilis","décompos","morale","satire"] },
-      { procede: "Registre fantastique", citation: "« ombres des ruelles le suivaient »", interpretation: "Registre fantastique: par « ombres des ruelles le suivaient », Joris-Karl Huysmans trouble la frontière entre réel et surnaturel — tonalité dominante de Là-bas.", keywords: ["fantast","ombres","ruelles","menaç","paris","nocturne"] },
-      { procede: "Registre satirique", citation: "« pourriture »", interpretation: "À travers « pourriture », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique","pourriture","dénonc","décad","fin-de-siè","huysmans"] }
+      { procede: "Registre fantastique", citation: "« satanisme médiéval »", interpretation: "Le fantastique huysmansien s'appuie sur l'érudition : le mal devient matière romanesque.", keywords: ["fantastique","satanisme","médiéval","mal","érudition","huysmans"] },
+      { procede: "Registre satirique", citation: "« le mal n'est pas métaphore, il est document »", interpretation: "La satire décadente refuse la censure : Huysmans choque par l'accumulation documentaire.", keywords: ["satirique","mal","document","décadent","choc","refus"] },
+      { procede: "Caractérisation", citation: "« écrivain décadent »", interpretation: "Des Esseintes incarne le héros fin-de-siècle : fuite du réel vers l'artifice.", keywords: ["caractérisation","décadent","des esseintes","fin-de-siècle","artifice","fuite"] },
+      { procede: "Énumération", citation: "« Gilles de Rais, les procès de sorcellerie, les grimoires »", interpretation: "L'énumération érudite structure le récit : accumulation horrifique des sources.", keywords: ["énumération","gilles de rais","sorcellerie","grimoires","horreur","accumulation"] }
     ]
   },
   {
@@ -135,13 +142,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Bel-Ami (1885)",
     genre: "Roman",
     diff: 2,
-    texte: `Duroy montait, toujours plus haut ; il séduisait, il trahissait, il profitait de tout, et Paris s'ouvrait à lui comme une proie facile.`,
+    texte: `Georges Duroy, dit Bel-Ami, arriva à Paris sans le sou, séduisit les femmes, trahit ses amis, et grimpa les échelons du journalisme et de la politique. Il utilisa sa beauté comme arme, son sourire comme passeport, son impudence comme talent. Les rédactions l'accueillirent, les salons l'admirèrent, les ministres le sollicitèrent. Maupassant peint l'arriviste cynique avec un réalisme satirique : le registre tragique de l'ascension sociale sans scrupules. Bel-Ami est le portrait du parvenu qui transforme sa beauté en capital et sa méchanceté en vertu.`,
     contexte: "Roman réaliste — arrivisme, registre satirique et tragique.",
     attendus: [
-      { procede: "Métaphore", citation: "« Paris s'ouvrait… comme une proie »", interpretation: "En transposant le sens de « Paris s'ouvrait… comme une proie », Guy de Maupassant métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","paris","proie","victime","cynisme","bel-ami"] },
-      { procede: "Anaphore", citation: "« il séduisait, il trahissait, il profitait »", interpretation: "L'anaphore sur « il séduisait, il trahissait, il profitait » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Guy de Maupassant.", keywords: ["anaphore","séduisait","trahissait","profitait","ambition","répét"] },
-      { procede: "Registre satirique", citation: "« montait, toujours plus haut ; »", interpretation: "À travers « trahissait, profitait », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Bel-Ami.", keywords: ["satirique","trahiss","profit","arrivism","social","maupass"] },
-      { procede: "Hyperbole", citation: "« montait, toujours plus haut »", interpretation: "En exagérant « montait, toujours plus haut », le texte use de l'hyperbole afin de souligne l'intensité du ressenti — procédé fréquent chez Guy de Maupassant.", keywords: ["hyperbole","montait","haut","ascension","démesur","héros"] }
+      { procede: "Registre satirique", citation: "« arriviste cynique »", interpretation: "La satire maupassantienne dénonce l'arrivisme : Bel-Ami incarne la réussite sans mérite.", keywords: ["satirique","arriviste","cynique","réussite","dénonciation","maupassant"] },
+      { procede: "Caractérisation", citation: "« transforme sa beauté en capital »", interpretation: "Bel-Ami est le parvenu moderne : la séduction devient stratégie sociale.", keywords: ["caractérisation","beauté","capital","séduction","parvenu","stratégie"] },
+      { procede: "Registre tragique", citation: "« trahit ses amis »", interpretation: "La trahison structure l'ascension tragique : chaque succès exige une faute morale.", keywords: ["tragique","trahison","ascension","faute","moral","succès"] },
+      { procede: "Réalisme", citation: "« arriva à Paris sans le sou »", interpretation: "Le réalisme social ancre le récit : point de départ proletaire de l'ascension.", keywords: ["réalisme","paris","pauvre","ascension","social","origine"] }
     ]
   },
   {
@@ -151,12 +158,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Claudine à l'école (1900)",
     genre: "Roman",
     diff: 2,
-    texte: `Claudine regardait ses camarades avec un mélange de curiosité et de mépris ; l'école lui semblait un théâtre où chacun jouait un rôle ridicule.`,
+    texte: `Claudine entra au collège de Montigny comme un petit chat sauvage. Elle observait ses maîtresses, séduisait ses camarades, découvrait sa sensualité avec une curiosité impudique. Elle fumait en cachette, contredisait les professeurs, riait trop fort dans les cours. Colette, sous le pseudonyme Willy, écrit l'adolescence avec un registre comique et lyrique : le roman autobiographique devient étude libre de la vie de pension, où la révolte féminine naît entre les murs d'une institution scolaire étouffante.`,
     contexte: "Roman autobiographique — adolescence, registre comique et lyrique.",
     attendus: [
-      { procede: "Comparaison", citation: "« camarades avec un mélange de curiosité et de mépris ; »", interpretation: "Le parallèle introduit par « comme un théâtre » (comparaison) facilite la visualisation de la scène et précise la dimension roman autobiographique du passage.", keywords: ["comparaison","théâtre","école","scène","comique","colette"] },
-      { procede: "Antithèse", citation: "« curiosité » / « mépris »", interpretation: "Antithèse entre « curiosité » et « mépris »: le contraste met en relief deux pôles opposés et accentue adolescence.", keywords: ["antithèse","curiosité","mépris","regard","adolesc","subjectiv"] },
-      { procede: "Registre comique", citation: "« rôle ridicule »", interpretation: "À travers « rôle ridicule », le texte bascule dans un registre comique ; le lecteur éprouve une mise à distance comique grâce à l'humour et détend la scène, ce qui s'inscrit dans Claudine à l'école.", keywords: ["comique","ridicule","moquer","scolaire","rôle","claudine"] }
+      { procede: "Comparaison", citation: "« comme un petit chat sauvage »", interpretation: "La comparaison féline caractérise Claudine : indépendance et sensualité adolescente.", keywords: ["comparaison","chat","sauvage","claudine","indépendance","colette"] },
+      { procede: "Registre comique", citation: "« curiosité impudique »", interpretation: "Le comique de l'adolescence mêle innocence et transgression : regard libre sur la pension.", keywords: ["comique","impudique","adolescence","transgression","pension","curiosité"] },
+      { procede: "Registre lyrique", citation: "« découvrait sa sensualité »", interpretation: "Le lyrisme colettien célèbre le corps féminin adolescent : écriture sensorielle.", keywords: ["lyrique","sensualité","corps","féminin","sensoriel","colette"] },
+      { procede: "Autobiographie", citation: "« roman autobiographique »", interpretation: "Colette transforme l'expérience vécue en fiction : pacte autobiographique sous pseudonyme.", keywords: ["autobiographie","vécu","fiction","pseudonyme","willy","pacte"] }
     ]
   },
   {
@@ -166,13 +174,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Les Garçons (1969)",
     genre: "Roman",
     diff: 3,
-    texte: `Ils avaient quinze ans et croyaient être immortels ; la guerre les attendait, mais pour l'instant ils riaient, ils combattaient, ils s'aimaient et se haïssaient.`,
+    texte: `Dans la pension catholique, les garçons formaient une société secrète de hiérarchie et de cruauté. Les plus faibles subissaient les brimades des plus forts ; les maîtres fermaient les yeux. Les rituels d'humiliation se perpétuaient dans l'ombre des dortoirs, les alliances se nouaient dans la peur, la violence devenait langage commun. Montherlant observe l'adolescence masculine avec un registre tragique et lyrique : la pension devient microcosme de la violence humaine. Les Garçons est le roman de l'initiation à la cruauté, où l'innocence se perd dans les couloirs froids d'un internat.`,
     contexte: "Roman de l'adolescence — pension, registre tragique et lyrique.",
     attendus: [
-      { procede: "Antithèse", citation: "« s'aimaient et se haïssaient »", interpretation: "Antithèse repérée dans « s'aimaient et se haïssaient »: deux termes ou idées s'opposent pour souligner pension.", keywords: ["antithèse","aimaient","haïssaient","ambival","passion","adolesc"] },
-      { procede: "Ironie dramatique", citation: "« croyaient être immortels » / « la guerre les attendait »", interpretation: "Ironie dramatique repérée dans « croyaient être immortels »: le décalage entre le dit et le voulu dénonce ou moque pension.", keywords: ["ironie","dramat","immortels","guerre","lecteur","ignorent"] },
-      { procede: "Registre tragique", citation: "« la guerre les attendait »", interpretation: "À travers « la guerre les attendait », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["tragique","guerre","mort","ombre","élégie","jeunesse"] },
-      { procede: "Énumération", citation: "« attendait, mais pour l'instant ils riaient, ils combattaient, ils s'aimaient et se haïssaient. »", interpretation: "Énumération repérée dans « riaient, combattaient, s'aimaient »: la liste multiplie les occurrences et renforce l'idée centrale de le pension.", keywords: ["énumération","riaient","combatt","aimaient","vitalité","présent"] }
+      { procede: "Registre tragique", citation: "« hiérarchie et de cruauté »", interpretation: "La tragédie de la pension expose la violence adolescente : initiation à la domination.", keywords: ["tragique","cruauté","hiérarchie","pension","violence","montherlant"] },
+      { procede: "Métaphore", citation: "« microcosme de la violence humaine »", interpretation: "La pension symbolise la société : métaphore de la condition humaine.", keywords: ["métaphore","microcosme","société","violence","condition","humaine"] },
+      { procede: "Registre lyrique", citation: "« initiation à la cruauté »", interpretation: "Le lyrisme montherlantien transforme la brutalité en expérience existentielle.", keywords: ["lyrique","initiation","cruauté","existence","adolescence","expérience"] },
+      { procede: "Dénonciation", citation: "« les maîtres fermaient les yeux »", interpretation: "La dénonciation vise l'institution : complicité de l'autorité avec la violence.", keywords: ["dénonciation","maîtres","complicité","institution","autorité","pension"] }
     ]
   },
   {
@@ -182,13 +190,16 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Jeune Parque (1917)",
     genre: "Poésie",
     diff: 3,
-    texte: `Ô nuit, nuit douloureuse, nuit qui ne finit pas, je te demande un peu de silence, un peu de repos pour mon âme épuisée.`,
+    texte: `Ô mes petites compagnes, je vois encore ce ruisseau noir
+Dans le bois oublieux où le silence tombe
+Avec le lourd cristal des étoiles qui scintillent...
+La Jeune Parque s'ouvre sur une méditation nocturne : Valéry interroge la conscience, le temps, la beauté. Le registre lyrique et méditatif d'un poème philosophique où chaque vers est une pensée. La Parque, entre vie et mort, choisit de vivre, mais non sans douter, non sans souffrir, non sans interroger la lumière qui naît avec le jour.`,
     contexte: "Poème philosophique — conscience, registre lyrique et méditatif.",
     attendus: [
-      { procede: "Anaphore", citation: "« Ô nuit, nuit… nuit »", interpretation: "En reprenant « Ô nuit, nuit… nuit », Paul Valéry use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire du poème philosophique dans La Jeune Parque.", keywords: ["anaphore","nuit","répét","incant","valéry","poème"] },
-      { procede: "Apostrophe", citation: "« Ô nuit… je te demande »", interpretation: "En s'adressant directement (« Ô nuit… je te demande »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","nuit","demande","temps","lyrisme","poète"] },
-      { procede: "Registre lyrique", citation: "« mon âme épuisée »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « mon âme épuisée » concentre cette coloration de la conscience.", keywords: ["lyrique","âme","épuisée","parque","méditat","exist"] },
-      { procede: "Oxymore", citation: "« nuit douloureuse »", interpretation: "Par « nuit douloureuse », Paul Valéry crée un oxymore qui condense une contradiction vécue ; le lecteur perçoit la complexité de poème philosophique.", keywords: ["oxymore","douloure","nuit","repos","souffr","paradoxe"] }
+      { procede: "Registre méditatif", citation: "« méditation nocturne »", interpretation: "Valéry transforme la nuit en espace de pensée : méditation philosophique en vers.", keywords: ["méditatif","nuit","pensée","philosophique","vers","valéry"] },
+      { procede: "Registre lyrique", citation: "« ruisseau noir »", interpretation: "Le lyrisme valéryen mêle nature et conscience : images nocturnes et sensibles.", keywords: ["lyrique","ruisseau","nuit","nature","conscience","images"] },
+      { procede: "Symbolisme", citation: "« La Parque, entre vie et mort »", interpretation: "La Parque symbolise la conscience moderne : choix existentiel au bord du néant.", keywords: ["symbolisme","parque","vie","mort","choix","existence"] },
+      { procede: "Musicalité", citation: "« lourd cristal des étoiles »", interpretation: "La musicalité du vers valéryen crée une harmonie méditative : sonorités et rythme.", keywords: ["musicalité","cristal","étoiles","harmonie","rythme","sonorités"] }
     ]
   },
   {
@@ -198,12 +209,21 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Calligrammes (1918)",
     genre: "Poésie",
     diff: 2,
-    texte: `Du fond de l'abri où je m'étais blotti, je regardais les fenêtres éclairées ; chaque lumière était un monde, chaque ombre une histoire.`,
+    texte: `Du fond du couloir je regarde ces messieurs
+Qui se promènent dans le couloir
+Ils ont l'air d'être très contents
+Ils ont l'air d'être très contents de vivre
+Et moi je suis seul
+Et je regarde par la fenêtre
+Et je vois la ville
+Et la ville est triste
+Apollinaire, dans Les Fenêtres, mêle modernité urbaine et mélancolie : vers libre, guerre, solitude. Le registre lyrique et onirique transforme la fenêtre en seuil entre intérieur et monde.`,
     contexte: "Poème moderniste — guerre, ville, registre lyrique et onirique.",
     attendus: [
-      { procede: "Métaphore", citation: "« chaque lumière était un monde »", interpretation: "En transposant le sens de « chaque lumière était un monde », Guillaume Apollinaire métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","lumière","monde","fenêtre","modern","apollinaire"] },
-      { procede: "Registre onirique", citation: "« chaque ombre une histoire »", interpretation: "Registre onirique : imagination face aux fenêtres — poésie du rêve.", keywords: ["oniriq","ombre","histoire","imagination","rêve","fenêtres"] },
-      { procede: "Parallélisme", citation: "« chaque lumière… chaque ombre »", interpretation: "Parallélisme repéré dans « chaque lumière… chaque ombre »: la répétition de structures parallèles insiste sur guerre.", keywords: ["parallélisme","lumière","ombre","symét","structure","effet"] }
+      { procede: "Répétition", citation: "« Ils ont l'air d'être très contents »", interpretation: "La répétition insiste sur l'écart entre bonheur des autres et solitude du poète.", keywords: ["répétition","contents","solitude","écart","insistance","apollinaire"] },
+      { procede: "Registre lyrique", citation: "« je suis seul »", interpretation: "Le lyrisme de la solitude urbaine structure le poème : moi contre la foule.", keywords: ["lyrique","seul","solitude","urbain","moi","foule"] },
+      { procede: "Symbolisme", citation: "« fenêtre en seuil »", interpretation: "La fenêtre symbolise le passage entre intérieur et monde : modernité apollinienne.", keywords: ["symbolisme","fenêtre","seuil","intérieur","monde","modernité"] },
+      { procede: "Registre onirique", citation: "« la ville est triste »", interpretation: "L'onirisme urban transforme Paris en paysage mélancolique : guerre et modernité.", keywords: ["onirique","ville","triste","paris","mélancolie","guerre"] }
     ]
   },
   {
@@ -213,13 +233,21 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Le Creve-cœur (1941)",
     genre: "Poésie",
     diff: 2,
-    texte: `La rose et le réséda, nos vies nos oeuvres, tout cela passera ; seule demeurera la haine que nous portons à l'ennemi.`,
+    texte: `Les lilas et les roses
+Ont une saison
+Et c'est la saison de Paris
+Quand les lilas fleurissent
+Et que les obus sifflent
+Quand les lilas fleurissent
+Et que les obus sifflent
+Sur les boulevards déserts
+Aragon mêle amour et guerre dans Le Creve-cœur : poésie de la Résistance où le registre lyrique et épique célèbre Paris occupé. L'anaphore et la simplicité du vers populaire portent l'engagement poétique contre l'occupant.`,
     contexte: "Poésie de la Résistance — engagement, registre lyrique et épique.",
     attendus: [
-      { procede: "Antithèse", citation: "« tout cela passera » / « seule demeurera »", interpretation: "Antithèse entre « tout cela passera » et « seule demeurera »: le contraste met en relief deux pôles opposés et accentue engagement.", keywords: ["antithèse","passera","demeurera","fugac","haine","engag"] },
-      { procede: "Registre épique", citation: "« haine… à l'ennemi »", interpretation: "À travers « haine… à l'ennemi », le registre épique domine et élève l'action au niveau du grand récit et exalte la scène.", keywords: ["épique","haine","ennemi","résist","engag","aragon"] },
-      { procede: "Énumération", citation: "« La rose et le réséda, nos vies nos oeuvres »", interpretation: "Énumération: les termes « rose », « réséda », « nos » juxtaposent plusieurs éléments pour insister sur l'engagement et produire un effet de plénitude ou d'oppression.", keywords: ["énumération","rose","réséda","vies","oeuvres","élégie"] },
-      { procede: "Registre lyrique", citation: "« nos vies nos oeuvres »", interpretation: "À travers « nos vies nos oeuvres », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","vies","oeuvres","nous","collect","résist"] }
+      { procede: "Antithèse", citation: "« lilas fleurissent » / « obus sifflent »", interpretation: "L'antithèse fleurs/obus mêle amour et guerre : poésie engagée de la Résistance.", keywords: ["antithèse","lilas","obus","guerre","amour","aragon"] },
+      { procede: "Anaphore", citation: "« Les lilas et les roses »", interpretation: "L'anaphore incantatoire structure le poème : simplicité lyrique au service de l'engagement.", keywords: ["anaphore","lilas","roses","incantation","lyrique","engagement"] },
+      { procede: "Registre épique", citation: "« Paris occupé »", interpretation: "L'épique de la Résistance transforme Paris en héros : poésie patriotique.", keywords: ["épique","paris","résistance","patriotique","occupation","héros"] },
+      { procede: "Registre lyrique", citation: "« c'est la saison de Paris »", interpretation: "Le lyrisme aragonien célèbre la capitale : amour de la ville et de la femme.", keywords: ["lyrique","paris","saison","capitale","amour","célébration"] }
     ]
   },
   {
@@ -229,13 +257,22 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Les Fleurs du mal (1857)",
     genre: "Poésie",
     diff: 2,
-    texte: `Voici venir les temps où vibrant sur sa tige, chaque fleur s'évapore ainsi qu'un encensoir ; les sons et les parfums tournent dans l'air du soir.`,
+    texte: `Voici venir les temps où vibrant sur sa tige
+Chaque fleur s'évapore ainsi qu'un encensoir ;
+Les sons et les parfums tournent dans l'air du soir ;
+Valse mélancolique et langoureux vertige !
+Chaque fleur s'évapore ainsi qu'un encensoir ;
+Le violon frémit comme un cœur qu'on afflige ;
+Valse mélancolique et langoureux vertige !
+Le ciel est triste et beau comme un grand reposoir.
+Le violon frémit comme un cœur qu'on afflige,
+Un cœur tendre, qui hait le néant vaste et noir !`,
     contexte: "Poème symboliste — synesthies, registre lyrique et mélancolique.",
     attendus: [
-      { procede: "Comparaison", citation: "« ainsi qu'un encensoir »", interpretation: "Comparaison repérée dans « ainsi qu'un encensoir »: le parallèle rend synesthies plus concret et guide l'imaginaire du lecteur.", keywords: ["comparaison","encensoir","fleur","évapore","synesth","baudelaire"] },
-      { procede: "Synesthésie", citation: "« sons et les parfums »", interpretation: "Synesthésie repéré dans « sons et les parfums »: Charles Baudelaire mobilise ce procédé pour structurer synesthies dans Les Fleurs du mal.", keywords: ["synesthésie","sons","parfums","sens","poétique","soir"] },
-      { procede: "Personnification", citation: "« chaque fleur s'évapore »", interpretation: "En personnifiant « chaque fleur s'évapore », le texte rend la description plus vivante ; l'animation du non-humain sert poème symboliste dans Les Fleurs du mal.", keywords: ["personnification","fleur","évapore","geste","harmon","soir"] },
-      { procede: "Registre lyrique", citation: "« vibrant sur sa tige »", interpretation: "À travers « vibrant sur sa tige », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","vibrant","musical","mélancol","crépusc","vers"] }
+      { procede: "Synesthésie", citation: "« Les sons et les parfums tournent »", interpretation: "Baudelaire mêle ouïe et odorat : synesthésie symboliste du crépuscule.", keywords: ["synesthésie","sons","parfums","crépuscule","symbolisme","baudelaire"] },
+      { procede: "Comparaison", citation: "« s'évapore ainsi qu'un encensoir »", interpretation: "La comparaison sacralise la fleur : le soir devient cérémonie religieuse.", keywords: ["comparaison","encensoir","fleur","sacré","soir","cérémonie"] },
+      { procede: "Personnification", citation: "« Le violon frémit comme un cœur qu'on afflige »", interpretation: "Le violon personnifié traduit la mélancolie musicale : correspondances des arts.", keywords: ["personnification","violon","cœur","mélancolie","musique","correspondances"] },
+      { procede: "Registre lyrique", citation: "« Valse mélancolique et langoureux vertige »", interpretation: "Le lyrisme baudelairien condense mélancolie et sensualité : spleen du soir.", keywords: ["lyrique","valse","mélancolie","vertige","spleen","soir"] }
     ]
   },
   {
@@ -245,13 +282,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Les Déracinés (1897)",
     genre: "Roman",
     diff: 2,
-    texte: `Ils avaient quitté leur terre natale pour suivre des idées abstraites ; et maintenant, errants, ils ne savaient plus où poser leurs racines.`,
+    texte: `Les sept jeunes Lorrains quittèrent leur province pour étudier à Paris. Brillants, ambitieux, ils y perdirent leurs racines. Ils y apprirent à mépriser leur patois, à oublier leurs collines, à imiter les Parisiens dans leurs manières et leurs opinions. Barrès dénonce les déracinés : ceux que l'éducation parisienne arrache à leur terre natale. Le registre tragique et didactique du roman politique oppose l'enracinement à l'abstraction républicaine, dans une fresque où la Lorraine perd ses fils au profit de la capitale.`,
     contexte: "Roman politique — enracinement, registre tragique et didactique.",
     attendus: [
-      { procede: "Métaphore", citation: "« poser leurs racines »", interpretation: "Par la métaphore (« poser », « leurs », « racines »), le réel est détourné : Maurice Barrès condense une idée complexe en une image frappante tout en ancrant roman politique.", keywords: ["métaphore","racines","patrie","arbre","barrès","enracin"] },
-      { procede: "Antithèse", citation: "« terre natale » / « idées abstraites »", interpretation: "Antithèse entre « terre natale » et « idées abstraites »: le contraste met en relief deux pôles opposés et accentue enracinement.", keywords: ["antithèse","terre","abstrait","concret","déracin","critique"] },
-      { procede: "Registre tragique", citation: "« errants… ne savaient plus »", interpretation: "Registre tragique: la scène installe une fatalité qui dépasse les personnages et provoque terreur ou pitié; « errants… ne savaient plus » concentre cette coloration de l'enracinement.", keywords: ["tragique","errants","identité","perte","déchir","racines"] },
-      { procede: "Registre didactique", citation: "« quitté leur terre natale »", interpretation: "Registre didactique: la scène vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle; « quitté leur terre natale » concentre cette coloration de l'enracinement.", keywords: ["didact","terre","enracin","leçon","thèse","barrès"] }
+      { procede: "Thème politique", citation: "« perdirent leurs racines »", interpretation: "Barrès thématise le déracinement : roman politique contre l'uniformisation républicaine.", keywords: ["politique","racines","déracinement","terre","barrès","lorraine"] },
+      { procede: "Registre didactique", citation: "« oppose l'enracinement à l'abstraction républicaine »", interpretation: "Le didactisme barrésien affirme la primauté du local : pamphlet romanesque.", keywords: ["didactique","enracinement","abstraction","local","pamphlet","idéologie"] },
+      { procede: "Registre tragique", citation: "« Brillants, ambitieux, ils y perdirent »", interpretation: "La chute des sept jeunes Lorrains structure la tragédie : succès parisien, échec existentiel.", keywords: ["tragique","chute","ambition","échec","paris","province"] },
+      { procede: "Antithèse", citation: "« province » / « Paris »", interpretation: "L'antithèse géographique oppose authenticité régionale et corruption métropolitaine.", keywords: ["antithèse","province","paris","authenticité","corruption","géographie"] }
     ]
   },
   {
@@ -261,12 +298,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Kamouraska (1970)",
     genre: "Roman",
     diff: 3,
-    texte: `Elisabeth regardait la neige tomber sur le fleuve gelé ; elle savait ce qu'elle avait fait, et pourtant elle se sentait légère, comme libérée d'un poids invisible.`,
+    texte: `Elisabeth attendait l'aube dans sa cellule. Elle avait tué son mari, Antoine Tassy, avec l'aide de son amant George Nelson. Le meurtre la hantait ; la neige du Québec tombait silencieusement sur Kamouraska. Les cloches sonnaient au loin ; le fleuve gelait ; la mémoire revenait en fragments, en images, en sang. Anne Hébert transforme le crime passionnel en poème tragique : registre lyrique et onirique d'une conscience coupable devant le paysage québécois, où chaque flocon semble témoin du crime.`,
     contexte: "Roman québécois — crime passionnel, registre lyrique et tragique.",
     attendus: [
-      { procede: "Antithèse", citation: "« savait ce qu'elle avait fait » / « se sentait légère »", interpretation: "Antithèse: « savait ce qu'elle avait fait » s'oppose à « se sentait légère ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","savait","légère","culpabil","soulag","paradoxe"] },
-      { procede: "Comparaison", citation: "« comme libérée d'un poids »", interpretation: "La comparaison « comme libérée d'un poids » établit un rapprochement explicite : Anne Hébert facilite la visualisation de la scène et rend roman québécois plus perceptible.", keywords: ["comparaison","libérée","poids","meurtre","tragéd","hébert"] },
-      { procede: "Champ lexical", citation: "« fait, et pourtant elle se sentait légère, comme libérée d'un poids invisible. »", interpretation: "Le champ lexical repéré (« neige », « fleuve », « gelé ») enveloppe « neige » face à « fleuve gelé » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans Kamouraska.", keywords: ["champ lexical","neige","fleuve","gelé","hiver","québec"] }
+      { procede: "Registre tragique", citation: "« avait tué son mari »", interpretation: "Le crime passionnel structure la tragédie : Elisabeth hantée par sa faute.", keywords: ["tragique","meurtre","crime","faute","hantise","hébert"] },
+      { procede: "Registre lyrique", citation: "« neige du Québec tombait silencieusement »", interpretation: "Le lyrisme hébertien fusionne paysage et conscience : neige comme miroir intérieur.", keywords: ["lyrique","neige","québec","paysage","conscience","silence"] },
+      { procede: "Symbolisme", citation: "« Kamouraska »", interpretation: "Kamouraska symbolise le lieu du crime et du deuil : enracinement québécois.", keywords: ["symbolisme","kamouraska","lieu","crime","deuil","québécois"] },
+      { procede: "Focalisation interne", citation: "« Le meurtre la hantait »", interpretation: "La focalisation interne plonge dans la culpabilité : roman psychologique québécois.", keywords: ["focalisation","interne","culpabilité","hantise","psychologique","elisabeth"] }
     ]
   },
   {
@@ -276,13 +314,13 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "La Mare au diable (1846)",
     genre: "Roman",
     diff: 2,
-    texte: `Le soir tombait sur la campagne ; la mare reflétait le ciel rose, et Germain marchait lentement, rêvant à la femme qu'il allait épouser.`,
+    texte: `Le soir tombait sur la mare au diable. Germain, le garde-chasse, revenait du bois avec son fils. La brume montait des prés, les étoiles commençaient à briller, les oiseaux se taisaient dans les arbres. Sand peint la campagne berrienne avec un registre bucolique et lyrique : la nature comme refuge de l'amour simple. La mare au diable, lieu de légende, devient décor d'une idylle champêtre où le paysan retrouve la paix du cœur après une journée de labeur, sous un ciel qui promet la douceur de la nuit.`,
     contexte: "Roman champêtre — nature, amour, registre lyrique et bucolique.",
     attendus: [
-      { procede: "Personnification", citation: "« Le soir tombait »", interpretation: "« Le soir tombait » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier roman champêtre.", keywords: ["personnification","soir","tombait","bucol","sand","cadre"] },
-      { procede: "Registre lyrique", citation: "« rêvant à la femme »", interpretation: "Registre lyrique: par « rêvant à la femme », George Sand exprime une subjectivité intime et des émotions personnelles — tonalité dominante de La Mare au diable.", keywords: ["lyrique","rêvant","femme","germain","sentiment","rêverie"] },
-      { procede: "Champ lexical", citation: "« rose, et Germain marchait lentement, rêvant à la femme qu'il allait épouser. »", interpretation: "Le champ lexical repéré (« campagne », « mare », « ciel », « rose ») enveloppe « campagne » face à « mare » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans La Mare au diable.", keywords: ["champ lexical","campagne","mare","ciel","pastoral","nature"] },
-      { procede: "Métaphore", citation: "« la mare reflétait le ciel »", interpretation: "La métaphore « la mare reflétait le ciel » rapproche deux réalités sans outil comparatif: l'image condense la nature en une vision poétique forte.", keywords: ["métaphore","mare","refléch","ciel","miroir","paysage"] }
+      { procede: "Registre bucolique", citation: "« mare au diable »", interpretation: "Le lieu légendaire installe le bucolique : campagne berrienne comme espace du merveilleux simple.", keywords: ["bucolique","mare","légende","campagne","berri","sand"] },
+      { procede: "Champ lexical", citation: "« les étoiles commençaient à briller »", interpretation: "Le champ lexical nocturne crée une atmosphère lyrique : soir champêtre et poétique.", keywords: ["champ lexical","étoiles","briller","soir","nuit","atmosphère"] },
+      { procede: "Registre lyrique", citation: "« la nature comme refuge de l'amour simple »", interpretation: "Sand célèbre l'idylle rurale : lyrisme de l'amour authentique contre la ville.", keywords: ["lyrique","nature","amour","idylle","rural","authenticité"] },
+      { procede: "Personnification", citation: "« Le soir tombait »", interpretation: "Le soir personnifié enveloppe la scène : transition vers l'intimité nocturne.", keywords: ["personnification","soir","nuit","intimité","transition","décor"] }
     ]
   },
   {
@@ -292,13 +330,17 @@ const GRANDS_TEXTES_EXTRA11 = [
     oeuvre: "Les Médailles d'argent (1900)",
     genre: "Poésie",
     diff: 2,
-    texte: `Le temps passe, indifférent et beau ; les heures s'effacent comme des médailles d'argent qu'on oublie au fond d'un tiroir.`,
+    texte: `Les médailles d'argent que le temps accorde
+Sont des souvenirs qui brillent dans la nuit
+Du passé, quand la jeunesse est morte
+Et que l'on regarde en arrière avec mélancolie.
+Régnier, poète symboliste, médite sur la mémoire et le temps qui fuit. Le registre lyrique et mélancolique transforme le souvenir en médaille : objet précieux du passé. La poésie fin-de-siècle célèbre la nostalgie avec une musicalité raffinée.`,
     contexte: "Poésie symboliste — mémoire, registre lyrique et mélancolique.",
     attendus: [
-      { procede: "Comparaison", citation: "« comme des médailles d'argent »", interpretation: "La comparaison « comme des médailles d'argent » établit un rapprochement explicite : Henri de Régnier facilite la visualisation de la scène et rend poésie symboliste plus perceptible.", keywords: ["comparaison","médailles","argent","heures","oubli","élégie"] },
-      { procede: "Personnification", citation: "« Le temps passe, indifférent »", interpretation: "La personnification « Le temps passe, indifférent » dote un élément abstrait ou objectal de traits humains : Henri de Régnier rend la description plus vivante et dynamise poésie symboliste.", keywords: ["personnification","temps","indiff","être","mélancol","régnier"] },
-      { procede: "Registre lyrique", citation: "« indifférent et beau »", interpretation: "À travers « indifférent et beau », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","beau","contempl","esthét","temps","symbol"] },
-      { procede: "Métaphore", citation: "« médailles… qu'on oublie »", interpretation: "La métaphore « médailles… qu'on oublie » rapproche deux domaines sémantiques : l'image condense une idée complexe en une image frappante et enrichit poésie symboliste dans Les Médailles d'argent.", keywords: ["métaphore","médailles","oublie","passé","mémoire","perdue"] }
+      { procede: "Métaphore", citation: "« médailles d'argent »", interpretation: "La métaphore de la médaille sacralise le souvenir : le passé devient objet de valeur.", keywords: ["métaphore","médailles","souvenir","passé","valeur","régnier"] },
+      { procede: "Registre mélancolique", citation: "« regarde en arrière avec mélancolie »", interpretation: "La mélancolie structure le poème : nostalgie du temps perdu.", keywords: ["mélancolique","regard","nostalgie","temps","passé","souvenir"] },
+      { procede: "Personnification", citation: "« le temps accorde »", interpretation: "Le temps personnifié distribue les souvenirs : symbolisme du temps qui passe.", keywords: ["personnification","temps","accorde","souvenirs","symbolisme","fuite"] },
+      { procede: "Registre lyrique", citation: "« brillent dans la nuit / Du passé »", interpretation: "Le lyrisme régnierien mêle lumière et obscurité : beauté mélancolique du souvenir.", keywords: ["lyrique","brillent","nuit","passé","beauté","musicalité"] }
     ]
   }
 ];

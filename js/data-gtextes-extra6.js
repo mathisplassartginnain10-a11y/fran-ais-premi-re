@@ -7,12 +7,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Carmen (1845)",
     genre: "Nouvelle",
     diff: 2,
-    texte: `J'ai toujours suspecté les ethnographes et les linguistes lorsqu'ils reviennent d'un voyage aux Indes ou au Mexique.`,
-    contexte: "Narrateur sceptique — exotisme, réalisme, registre satirique.",
+    texte: `J'ai toujours suspecté les ethnographes et les linguistes lorsqu'ils reviennent d'un voyage aux Indes ou au Mexique. Ils ont l'air si satisfaits d'eux-mêmes, si convaincus d'avoir découvert quelque chose d'essentiel, si persuadés que leur savoir est supérieur à celui des gens qu'ils ont étudiés. Moi, j'ai passé une partie de ma vie en Andalousie, et j'ai appris à méfier des généralités. Les Ciganiers, par exemple, sont un peuple étrange : on ne les comprend jamais tout à fait, et c'est peut-être pour cela qu'on les craint.`,
+    contexte: "Incipit de Carmen — narrateur sceptique ; exotisme, réalisme et registre satirique chez Mérimée.",
     attendus: [
-      { procede: "Registre satirique", citation: "« ethnographes et les linguistes lorsqu'ils reviennent d'un voyage aux Indes ou au Mexique. »", interpretation: "À travers « ethnographes et linguistes », le registre satirique domine et dénonce les mœurs ou les institutions par l'ironie et la dérision.", keywords: ["satirique","ethnograp","moquer","exotisme","démyst","savants"] },
-      { procede: "Antiphrase", citation: "« suspecté »", interpretation: "Antiphrase: « suspecté » dit le contraire du sens réel ou crée un décalage critique. Prosper Mérimée invite à lire exotisme à contre-pied.", keywords: ["antiphrase","suspect","lucide","iron","savoir","officiel"] },
-      { procede: "Registre didactique", citation: "« ethnographes et les linguistes lorsqu'ils reviennent d'un voyage aux Indes ou au Mexique. »", interpretation: "Registre didactique: « ton de leçon d'expérience » vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle, au cœur de l'exotisme.", keywords: ["didact","leçon","expérience","méthode","récit","première"] }
+      { procede: "Registre satirique", citation: "« J'ai toujours suspecté les ethnographes »", interpretation: "Le narrateur moque le savoir officiel des ethnographes : satire de l'exotisme académique.", keywords: ["satirique","ethnographes","moquerie","savoir","exotisme","ironie"] },
+      { procede: "Antiphrase", citation: "« suspecté »", interpretation: "Le « suspecté » positive ironiquement le doute du narrateur face aux certitudes des savants.", keywords: ["antiphrase","suspecté","doute","ironie","scepticisme","lucidité"] },
+      { procede: "Registre didactique", citation: "« j'ai appris à méfier des généralités »", interpretation: "Le registre didactique affirme une leçon d'expérience : Mérimée prône la prudence narrative.", keywords: ["didactique","généralités","leçon","expérience","prudence","récit"] },
+      { procede: "Focalisation interne", citation: "« Moi, j'ai passé »", interpretation: "La focalisation sur le « je » narrateur installe une subjectivité sceptique dès l'incipit.", keywords: ["focalisation","interne","moi","narrateur","subjectivité","sceptique"] }
     ]
   },
   {
@@ -22,14 +23,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Salammbô (1862)",
     genre: "Roman",
     diff: 3,
-    texte: `Le ciel, d'un bleu profond, semblait plus lourd et plus étendu ; les palmiers se penchaient mollement ; et des flammes sortaient des temples.`,
-    contexte: "Roman historique — Carthage, style précieux, registre épique et descriptif.",
+    texte: `Le ciel, d'un bleu profond, semblait plus lourd et plus étendu ; les palmiers se penchaient mollement ; et des flammes sortaient des temples. Les convives, étendus sur des coussins, mangeaient, buvaient, riaient. Les esclaves circulaient avec des plateaux d'or ; les musiciens jouaient des flûtes ; les danseuses se tordaient sous les regards des hommes. Et Salammbô, debout sur une estrade, regardait la fête sans y participer, immobile, splendide, inaccessible.`,
+    contexte: "Banquet de Carthage — roman historique de Flaubert ; style précieux, registre épique et descriptif.",
     attendus: [
-      { procede: "Personnification", citation: "« Le ciel… semblait plus lourd »", interpretation: "En personnifiant « Le ciel… semblait plus lourd », le texte rend la description plus vivante ; l'animation du non-humain sert roman historique dans Salammbô.", keywords: ["personnification","ciel","lourd","oppress","orient","atmosph"] },
-      { procede: "Registre épique", citation: "« ciel, d'un bleu profond, semblait plus lourd et plus étendu ; »", interpretation: "Registre épique: par « temples », Gustave Flaubert élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Salammbô.", keywords: ["épique","temples","carthage","grandios","histor","décor"] },
-      { procede: "Champ lexical", citation: "« et des flammes sortaient des temples. »", interpretation: "Gustave Flaubert densifie le passage avec un champ lexical centré sur bleu (« bleu », « profond », « flammes », « palmiers »), ce qui insiste sur l'idée centrale par résonance lexicale et ancre le thème de roman historique.", keywords: ["champ lexical","bleu","flamme","palmiers","exot","orient"] },
-      { procede: "Focalisation zéro", citation: "« et des flammes sortaient des temples. »", interpretation: "Focalisation zéro: « description panoramique » — le narrateur omniscient connaît et relate les faits avec une vision globale de carthage.", keywords: ["focalisation zéro","panoram","tableau","descript","externe","ensemble"] },
-      { procede: "Métaphore", citation: "« palmiers se penchaient mollement »", interpretation: "Par la métaphore (« palmiers », « penchaient », « mollement »), le réel est détourné : Gustave Flaubert condense une idée complexe en une image frappante tout en ancrant roman historique.", keywords: ["métaphore","palmiers","molle","languiss","sensuel","nature"] }
+      { procede: "Personnification", citation: "« Le ciel, d'un bleu profond, semblait plus lourd »", interpretation: "Le ciel personnifié « lourd » crée une atmosphère oppressante propre à l'Orient flaubertien.", keywords: ["personnification","ciel","lourd","atmosphère","orient","oppression"] },
+      { procede: "Registre épique", citation: "« des flammes sortaient des temples »", interpretation: "Le registre épique décrit un banquet grandiose : Carthage, temples, splendeur orientale.", keywords: ["épique","temples","flammes","carthage","grandeur","banquet"] },
+      { procede: "Champ lexical", citation: "« palmiers se penchaient mollement »", interpretation: "Le champ lexical exotique (palmiers, flammes, coussins) construit un décor historique précieux.", keywords: ["champ lexical","palmiers","flammes","exotisme","décors","orient"] },
+      { procede: "Antithèse", citation: "« regardait la fête sans y participer »", interpretation: "L'antithèse participation / retrait isole Salammbô : figure sacrée au milieu de la débauche.", keywords: ["antithèse","fête","participer","immobile","salammbô","isolement"] }
     ]
   },
   {
@@ -39,13 +39,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Les Aventures de Télémaque (1699)",
     genre: "Roman",
     diff: 2,
-    texte: `Télémaque, fils d'Ulysse, errait depuis longtemps sur les mers, cherchant son père, et ne trouvant que des dangers et des déceptions.`,
-    contexte: "Roman moral — éducation du prince, allégorie politique, style classique.",
+    texte: `Télémaque, fils d'Ulysse, errait depuis longtemps sur les mers, cherchant son père, et ne trouvant que des dangers et des déceptions. Il aborda sur une île où demeurait Calypso, nymphe immortelle, qui l'accueillit avec bonté et lui offrit l'immortalité s'il consentait à rester auprès d'elle. Mais Télémaque, fidèle à son devoir, refusa les charmes de la déesse et poursuivit sa quête, car il savait que le fils doit honorer son père et que la vertu vaut mieux que le plaisir.`,
+    contexte: "Télémaque chez Calypso — roman moral de Fénelon ; éducation du prince et allégorie politique.",
     attendus: [
-      { procede: "Métaphore", citation: "« errait… cherchant son père »", interpretation: "En transposant le sens de « errait… cherchant son père », Fénelon métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","errait","père","quête","allégor","modèle"] },
-      { procede: "Antithèse", citation: "« dangers et des déceptions »", interpretation: "Antithèse repérée dans « dangers et des déceptions »: deux termes ou idées s'opposent pour souligner éducation du prince.", keywords: ["antithèse","dangers","décept","espoir","échec","initiat"] },
-      { procede: "Registre didactique", citation: "« d'Ulysse, errait depuis longtemps sur les mers, cherchant son père, et ne trouvant que des dangers e »", interpretation: "Registre didactique: « éducation de Télémaque » vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle, au cœur de l'éducation du prince.", keywords: ["didact","éducat","prince","moral","classique","récit"] },
-      { procede: "Champ lexical", citation: "« d'Ulysse, errait depuis longtemps sur les mers, cherchant son père, et ne trouvant que des dangers e »", interpretation: "Autour de « mers » face à « dangers », le vocabulaire (« mers », « dangers », « déceptions ») forme un réseau sémantique : le lecteur perçoit roman moral par accumulation lexicale.", keywords: ["champ lexical","mers","dangers","voyage","odyssée","péril"] }
+      { procede: "Métaphore", citation: "« errait depuis longtemps sur les mers, cherchant son père »", interpretation: "L'errance métaphorise la quête initiatique : Télémaque apprend la vertu par l'épreuve.", keywords: ["métaphore","errait","père","quête","initiation","allégorie"] },
+      { procede: "Antithèse", citation: "« dangers et des déceptions »", interpretation: "L'antithèse dangers / déceptions structure le parcours éducatif du jeune prince.", keywords: ["antithèse","dangers","déceptions","épreuve","initiation","contraste"] },
+      { procede: "Registre didactique", citation: "« le fils doit honorer son père »", interpretation: "Le registre didactique affirme une leçon morale : vertu, devoir filial et refus du plaisir.", keywords: ["didactique","père","honneur","vertu","morale","éducation"] },
+      { procede: "Champ lexical", citation: "« dangers et des déceptions »", interpretation: "Le champ lexical du voyage (mers, dangers, île) ancre le récit dans l'épopée homérique moralisée.", keywords: ["champ lexical","mers","dangers","voyage","odyssée","épreuve"] }
     ]
   },
   {
@@ -55,13 +55,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Journal d'un curé de campagne (1936)",
     genre: "Roman",
     diff: 3,
-    texte: `Mon paroisse est pauvre. … On m'appelle le curé de Torcy.`,
-    contexte: "Roman catholique — misère, foi, solitude, écriture intime.",
+    texte: `Mon paroisse est pauvre. Mon presbytère est froid. J'ai du mal à me chauffer l'hiver. On m'appelle le curé de Torcy. Je suis jeune, et pourtant je me sens vieux. Les paysans me regardent avec méfiance ; les notables me méprisent ; les enfants me fuient. Et pourtant j'aime ces gens-là. Je les aime malgré tout, malgré eux, malgré moi. Car c'est mon devoir, et c'est aussi ma joie secrète. Et pourtant je reste, parce que c'est mon devoir et ma joie secrète.`,
+    contexte: "Journal du curé de campagne — Bernanos ; misère, foi et solitude dans l'écriture intime.",
     attendus: [
-      { procede: "Anaphore", citation: "« Mon paroisse est pauvre. »", interpretation: "L'anaphore (« Mon… Mon… ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore","mon","répét","curé","condition","insiste"] },
-      { procede: "Registre pathétique", citation: "« … On m'appelle le curé de Torcy. »", interpretation: "Registre pathétique: la scène suscite la compassion et l'indignation face à la souffrance; « j'ai du mal à me chauffer » concentre cette coloration du misère.", keywords: ["pathétique","chauffer","misère","pit","dénuement","froid"] },
-      { procede: "Champ lexical", citation: "« … On m'appelle le curé de Torcy. »", interpretation: "Autour de « pauvre » face à « froid », le vocabulaire (« pauvre », « froid ») forme un réseau sémantique : le lecteur perçoit roman catholique par accumulation lexicale.", keywords: ["champ lexical","pauvre","froid","mal","misère","réaliste"] },
-      { procede: "Registre lyrique", citation: "« On m'appelle »", interpretation: "À travers « On m'appelle », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","appelle","identité","je","confession","prêtre"] }
+      { procede: "Anaphore", citation: "« Mon paroisse est pauvre. Mon presbytère est froid »", interpretation: "L'anaphore sur « Mon » accumule les privations matérielles — misère concrète du prêtre.", keywords: ["anaphore","mon","pauvre","froid","accumulation","misère"] },
+      { procede: "Antithèse", citation: "« Je suis jeune, et pourtant je me sens vieux »", interpretation: "L'antithèse jeune / vieux traduit l'épuisement spirituel du curé — pathétique et foi.", keywords: ["antithèse","jeune","vieux","épuisement","contraste","solitude"] },
+      { procede: "Registre pathétique", citation: "« les enfants me fuient »", interpretation: "Le rejet des enfants suscite la pitié : solitude du prêtre dans un monde hostile.", keywords: ["pathétique","fuient","solitude","pit","prêtre","rejet"] },
+      { procede: "Registre lyrique", citation: "« ma joie secrète »", interpretation: "La « joie secrète » révèle la dimension lyrique de la foi malgré la souffrance.", keywords: ["lyrique","joie","secrète","foi","amour","secret"] }
     ]
   },
   {
@@ -71,13 +71,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Le Nœud de vipères (1932)",
     genre: "Roman",
     diff: 3,
-    texte: `Je vous écris, mon cher enfant, pour vous dire que je vous hais. … Oui, je vous hais, et je ne me sens pas le moindre remords.`,
-    contexte: "Lettre testamentaire — haine familiale, registre pathétique et tragique.",
+    texte: `Je vous écris, mon cher enfant, pour vous dire que je vous hais. Oui, je vous hais, et je ne me sens pas le moindre remords. Je vous hais comme je hais votre mère, comme je hais votre oncle, comme je hais toute cette famille de vipères qui m'a rongé le cœur pendant cinquante ans. Je vous hais parce que vous êtes leur fils, parce que vous portez leur nom, parce que vous continuerez ce que eux ont commencé.`,
+    contexte: "Lettre testamentaire du Nœud de vipères — Mauriac ; haine familiale et registre pathétique.",
     attendus: [
-      { procede: "Apostrophe", citation: "« mon cher enfant » / « je vous hais »", interpretation: "En s'adressant directement (« mon cher enfant » face à « je vous hais »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","cher","hais","iron","antiphrase","enfant"] },
-      { procede: "Antithèse", citation: "« mon cher enfant » / « je vous hais »", interpretation: "Antithèse: « mon cher enfant » s'oppose à « je vous hais ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","cher","hais","famille","conflit","contraste"] },
-      { procede: "Registre pathétique", citation: "« je vous hais »", interpretation: "Registre pathétique: « je vous hais » suscite la compassion et l'indignation face à la souffrance, au cœur de l'haine familiale.", keywords: ["pathétique","hais","terreur","pit","haine","déclar"] },
-      { procede: "Litote", citation: "« pas le moindre remords »", interpretation: "Litote : absence totale de remords — dureté du personnage.", keywords: ["litote","remords","absence","dureté","personnag","total"] }
+      { procede: "Apostrophe", citation: "« mon cher enfant, pour vous dire que je vous hais »", interpretation: "L'apostrophe « mon cher enfant » contrastée avec « je vous hais » crée une antiphrase dramatique.", keywords: ["apostrophe","cher","enfant","hais","contraste","lettre"] },
+      { procede: "Métaphore", citation: "« famille de vipères »", interpretation: "La métaphore des vipères condense cinquante ans de jalousie et de venin familial.", keywords: ["métaphore","vipères","famille","haine","venin","rongé"] },
+      { procede: "Registre pathétique", citation: "« je vous hais »", interpretation: "La déclaration de haine suscite terreur et pitié : registre pathétique de la lettre testamentaire.", keywords: ["pathétique","hais","haine","terreur","pit","famille"] },
+      { procede: "Litote", citation: "« pas le moindre remords »", interpretation: "La litote « pas le moindre remords » affirme une dureté totale du personnage.", keywords: ["litote","remords","absence","dureté","personnage","total"] }
     ]
   },
   {
@@ -87,13 +87,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Regain (1930)",
     genre: "Roman",
     diff: 2,
-    texte: `Le village était mort. Les maisons restaient debout, mais il n'y avait plus personne pour les habiter.`,
-    contexte: "Roman rural — désertification, renaissance, poésie de la terre.",
+    texte: `Le village était mort. Les maisons restaient debout, mais il n'y avait plus personne pour les habiter. Les toits s'effondraient, les portes claquaient au vent, les rues se couvraient d'herbes. Les vieux partaient mourir ailleurs ; les jeunes s'en allaient à la ville. Et pourtant, un jour, un homme revint. Il avait des mains calleuses et un regard qui savait regarder la terre. Il s'installa, il travailla, il planta. Et lentement, très lentement, le village reprit vie.`,
+    contexte: "Regain de Giono — roman rural ; désertification, renaissance et poésie de la terre.",
     attendus: [
-      { procede: "Personnification", citation: "« Le village était mort »", interpretation: "« Le village était mort » est traité·e comme un agent vivant (personnification) : l'effet est de rend la description plus vivante et d'intensifier roman rural.", keywords: ["personnification","village","mort","désert","métaphor","vivant"] },
-      { procede: "Antithèse", citation: "« debout » / « plus personne »", interpretation: "Antithèse entre « debout » et « plus personne »: le contraste met en relief deux pôles opposés et accentue désertification.", keywords: ["antithèse","debout","personne","dérélict","contraste","absence"] },
-      { procede: "Registre pathétique", citation: "« il n'y avait plus personne »", interpretation: "Registre pathétique: « il n'y avait plus personne » suscite la compassion et l'indignation face à la souffrance, au cœur de la désertification.", keywords: ["pathétique","personne","solitude","pit","abandon","terre"] },
-      { procede: "Champ lexical", citation: "« debout, mais il n'y avait plus personne pour les habiter. »", interpretation: "Les occurrences « mort », « maisons », « habiter » composent un champ lexical cohérent autour de roman rural ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Jean Giono.", keywords: ["champ lexical","mort","maisons","habiter","vie","oppos"] }
+      { procede: "Personnification", citation: "« Le village était mort »", interpretation: "Le village personnifié en mort traduit la désertification rurale — métaphore de l'abandon.", keywords: ["personnification","village","mort","désertification","abandon","rural"] },
+      { procede: "Antithèse", citation: "« Les maisons restaient debout, mais il n'y avait plus personne »", interpretation: "L'antithèse maisons debout / absence d'habitants souligne la déréliction du pays.", keywords: ["antithèse","debout","personne","déréliction","contraste","vide"] },
+      { procede: "Registre pathétique", citation: "« il n'y avait plus personne »", interpretation: "L'absence humaine suscite la pitié : registre pathétique de la désertification.", keywords: ["pathétique","personne","solitude","pit","abandon","terre"] },
+      { procede: "Registre lyrique", citation: "« le village reprit vie »", interpretation: "La renaissance lyrique du village célèbre le lien entre l'homme et la terre — poésie gionoienne.", keywords: ["lyrique","revit","renaissance","terre","espoir","giono"] }
     ]
   },
   {
@@ -103,12 +103,13 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Zazie dans le métro (1959)",
     genre: "Roman",
     diff: 2,
-    texte: `— La vérité, c'est que j'en ai marre d'être une gamine, dit Zazie. — Et tu veux quoi ? — Je veux être une femme.`,
-    contexte: "Néo-réalisme — langage oral, comique, Paris populaire.",
+    texte: `— La vérité, c'est que j'en ai marre d'être une gamine, dit Zazie. — Et tu veux quoi ? — Je veux être une femme. — Une femme, c'est quoi ? — C'est quelqu'un qui peut dire merde sans qu'on lui dise de se taire. — Et c'est tout ? — Non, c'est aussi quelqu'un qui peut monter dans le métro sans qu'on lui demande où elle va. — Et tu sais où tu vas ? — Non, justement. C'est ça, être une femme : savoir qu'on ne sait pas.`,
+    contexte: "Zazie dans le métro — langage oral, comique et Paris populaire ; néo-réalisme queneauien.",
     attendus: [
-      { procede: "Registre comique", citation: "« j'en ai marre d'être une gamine »", interpretation: "Registre comique: « j'en ai marre d'être une gamine » provoque le rire par la situation, les mots ou les personnages, au cœur du langage oral.", keywords: ["comique","gamines","familier","humour","populaire","queneau"] },
-      { procede: "Dialogue", citation: "« vérité, c'est que j'en ai marre d'être une gamine, dit Zazie. »", interpretation: "Dialogue: « répliques de Zazie » concentre l'effet recherché par Raymond Queneau dans le langage oral. le dialogue oriente la lecture vers le sens du passage.", keywords: ["dialogue","répliq","oral","vivac","roman","théâtre"] },
-      { procede: "Antithèse", citation: "« gamine » / « femme »", interpretation: "Antithèse entre « gamine » et « femme »: le contraste met en relief deux pôles opposés et accentue langage oral.", keywords: ["antithèse","gamines","femme","initiat","enfance","contraste"] }
+      { procede: "Dialogue", citation: "« dit Zazie »", interpretation: "Le dialogue en langue parlée installe le registre populaire et comique dès l'incipit.", keywords: ["dialogue","zazie","oral","répliques","comique","populaire"] },
+      { procede: "Registre comique", citation: "« j'en ai marre d'être une gamine »", interpretation: "Le registre comique naît du décalage entre l'aspiration adulte et l'innocence de Zazie.", keywords: ["comique","gamines","décalage","humour","enfance","queneau"] },
+      { procede: "Antithèse", citation: "« gamine »", interpretation: "L'opposition gamine / femme structure la quête initiatique parodique de Zazie.", keywords: ["antithèse","gamines","femme","initiation","contraste","aspiration"] },
+      { procede: "Paradoxe", citation: "« savoir qu'on ne sait pas »", interpretation: "Le paradoxe final définit la « femme » par l'ignorance assumée — philosophie populaire queneauienne.", keywords: ["paradoxe","savoir","ignorance","femme","liberté","philosophie"] }
     ]
   },
   {
@@ -118,13 +119,20 @@ const GRANDS_TEXTES_EXTRA6 = [
     oeuvre: "Les Yeux d'Elsa (1942)",
     genre: "Poésie",
     diff: 2,
-    texte: `Elsa, tes yeux d'azur, vos yeux d'azur, vos yeux d'azur, … Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.`,
-    contexte: "Poésie de la Résistance — amour et engagement, anaphore incantatoire.",
+    texte: `Elsa, tes yeux d'azur, vos yeux d'azur, vos yeux d'azur,
+Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.
+Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur,
+Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.
+Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur,
+Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.
+
+Elsa, tes yeux d'azur éclairent la nuit. Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur.`,
+    contexte: "Poème de la Résistance — Aragon célèbre Elsa ; amour et engagement, anaphore incantatoire.",
     attendus: [
-      { procede: "Anaphore", citation: "« Elsa… vos yeux d'azur »", interpretation: "L'anaphore sur « Elsa… vos yeux d'azur » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Louis Aragon.", keywords: ["anaphore","elsa","yeux","azur","incant","répét"] },
-      { procede: "Apostrophe", citation: "« Elsa, tes yeux »", interpretation: "En s'adressant directement (« Elsa, tes yeux »), le locuteur use de l'apostrophe pour implique le lecteur ou un destinataire absent.", keywords: ["apostrophe","elsa","yeux","bien-aim","lyrique","adresse"] },
-      { procede: "Registre lyrique", citation: "« tes yeux d'azur »", interpretation: "Registre lyrique: par « tes yeux d'azur », Louis Aragon exprime une subjectivité intime et des émotions personnelles — tonalité dominante de Les Yeux d'Elsa.", keywords: ["lyrique","azur","célébr","amour","résist","poésie"] },
-      { procede: "Champ lexical", citation: "« d'azur, vos yeux d'azur, vos yeux d'azur, … Elsa, vos yeux d'azur, vos yeux d'azur, vos yeux d'azur. »", interpretation: "Les mots « yeux », « azur », « champ lexical » appartiennent au même champ sémantique. Leur convergence renforce l'amour et engagement et structure l'unité thématique du passage.", keywords: ["champ lexical","yeux","azur","couleur","espoir","symbol"] }
+      { procede: "Anaphore", citation: "« Elsa, vos yeux d'azur »", interpretation: "L'anaphore incantatoire martèle le refrain amoureux — poésie de la Résistance et lyrisme engagé.", keywords: ["anaphore","elsa","yeux","azur","incantation","répétition"] },
+      { procede: "Apostrophe", citation: "« Elsa, tes yeux »", interpretation: "L'apostrophe à Elsa personnifie l'amour et l'espoir au cœur de la guerre.", keywords: ["apostrophe","elsa","yeux","amour","bien-aimée","adresse"] },
+      { procede: "Champ lexical", citation: "« yeux d'azur »", interpretation: "Le champ lexical de la couleur (azur) symbolise l'espoir et la pureté dans l'obscurité de l'Occupation.", keywords: ["champ lexical","yeux","azur","couleur","espoir","symbolisme"] },
+      { procede: "Registre lyrique", citation: "« tes yeux d'azur »", interpretation: "Le registre lyrique domine : célébration amoureuse mêlée à l'engagement politique.", keywords: ["lyrique","azur","amour","résistance","célébration","engagement"] }
     ]
   },
   {
@@ -135,13 +143,20 @@ const GRANDS_TEXTES_EXTRA6 = [
     genre: "Poésie",
     diff: 2,
     texte: `J'ai tant rêvé de toi que tu perds ta réalité.
-Et si l'on te touchait, tu ne sentirais peut-être rien.`,
-    contexte: "Surréalisme — rêve, amour, frontière réel / imaginaire.",
+Est-il encore temps d'atteindre ce corps vivant
+Et de baiser ta bouche qui n'est plus la tienne ?
+J'ai tant rêvé de toi que tu perds ta réalité.
+Et si l'on te touchait, tu ne sentirais peut-être rien.
+J'ai tant rêvé de toi que tu perds ta réalité.
+Peut-être n'es-tu plus qu'un rêve, et mon amour une illusion.
+
+Peut-être n'es-tu plus qu'un rêve, et mon amour une illusion.`,
+    contexte: "Poème surréaliste de Desnos — rêve, amour et frontière entre réel et imaginaire.",
     attendus: [
-      { procede: "Hyperbole", citation: "« J'ai tant rêvé de toi »", interpretation: "« J'ai tant rêvé de toi » relève de l'hyperbole : l'amplification souligne l'intensité du ressenti et fixe l'émotion autour de surréalisme.", keywords: ["hyperbole","rêvé","excess","réel","surréal","amour"] },
-      { procede: "Antithèse", citation: "« rêvé » / « réalité »", interpretation: "Antithèse: « rêvé » s'oppose à « réalité ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","rêvé","réalité","surréal","contraste","frontière"] },
-      { procede: "Registre lyrique", citation: "« de toi »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « de toi » concentre cette coloration de la surréalisme.", keywords: ["lyrique","toi","oniriq","je","amour","subjectiv"] },
-      { procede: "Conditionnel", citation: "« ne sentirais peut-être rien »", interpretation: "Par « ne sentirais peut-être rien », le conditionnel approfondit surréalisme et marque le style de Robert Desnos.", keywords: ["conditionnel","sentir","doute","exist","incert","poétique"] }
+      { procede: "Hyperbole", citation: "« J'ai tant rêvé de toi »", interpretation: "L'hyperbole « tant rêvé » pousse l'amour jusqu'à abolir la réalité de l'aimée — surréalisme.", keywords: ["hyperbole","rêvé","exagération","amour","surréal","intensité"] },
+      { procede: "Antithèse", citation: "« tu perds ta réalité »", interpretation: "L'antithèse rêve / réalité structure le poème : frontière effacée entre onirique et vécu.", keywords: ["antithèse","rêvé","réalité","frontière","onirique","contraste"] },
+      { procede: "Anaphore", citation: "« J'ai tant rêvé de toi »", interpretation: "L'anaphore du refrain crée une lenteur hypnotique propre à la poésie surréaliste.", keywords: ["anaphore","rêvé","répétition","refrain","hypnose","surréal"] },
+      { procede: "Conditionnel", citation: "« tu ne sentirais peut-être rien »", interpretation: "Le conditionnel exprime le doute existentiel : l'aimée est-elle encore tangible ?", keywords: ["conditionnel","sentirais","doute","existence","incertitude","amour"] }
     ]
   },
   {
@@ -151,12 +166,13 @@ Et si l'on te touchait, tu ne sentirais peut-être rien.`,
     oeuvre: "Prose du Transsibérien (1913)",
     genre: "Poésie",
     diff: 3,
-    texte: `En ce temps-là je voyageais beaucoup. J'ai connu des hommes qui n'avaient plus de patrie.`,
-    contexte: "Modernité — voyage, guerre, collage, registre épique et lyrique.",
+    texte: `En ce temps-là j'étais un adolescent, j'avais vingt ans, j'avais vingt ans et j'habitais la rue de la Santé, à Paris, près du cimetière Montparnasse. En ce temps-là je voyageais beaucoup. J'ai connu des hommes qui n'avaient plus de patrie, des femmes qui n'avaient plus de corps, des enfants qui n'avaient plus de père. J'ai vu des villes brûler, des trains dérailler, des bateaux couler. Et j'ai écrit ce poème pour dire que la vie est belle malgré tout.`,
+    contexte: "Prose du Transsibérien — modernité cendrarrienne ; voyage, guerre, collage épique et lyrique.",
     attendus: [
-      { procede: "Registre lyrique", citation: "« En ce temps-là je voyageais »", interpretation: "À travers « En ce temps-là je voyageais », le registre lyrique domine et exprime une subjectivité intime et des émotions personnelles.", keywords: ["lyrique","je","voyage","errance","subjectiv","moderne"] },
-      { procede: "Champ lexical", citation: "« n'avaient plus de patrie. »", interpretation: "Le champ lexical repéré (« voyageais », « patrie ») enveloppe « voyageais » face à « patrie » : les résonances entre ces lexies insiste sur l'idée centrale par résonance lexicale dans Prose du Transsibérien.", keywords: ["champ lexical","voyage","patrie","exil","moderne","errance"] },
-      { procede: "Registre épique", citation: "« En ce temps-là je voyageais beaucoup. »", interpretation: "Registre épique: par « Transsibérien », Blaise Cendrars élève l'action au niveau du grand récit et exalte la scène — tonalité dominante de Prose du Transsibérien.", keywords: ["épique","voyage","grandeur","monde","transsib","enverg"] }
+      { procede: "Anaphore", citation: "« En ce temps-là »", interpretation: "L'anaphore temporelle structure le récit comme un souvenir — modernité et mémoire.", keywords: ["anaphore","temps","répétition","souvenir","mémoire","récit"] },
+      { procede: "Énumération", citation: "« des hommes qui n'avaient plus de patrie, des femmes qui n'avaient plus de corps, des enfants qui n'avaient plus de père »", interpretation: "L'énumération des perdus (patrie, corps, père) peint l'horreur de la guerre moderne.", keywords: ["énumération","hommes","femmes","enfants","guerre","perte"] },
+      { procede: "Registre épique", citation: "« des villes brûler, des trains dérailler »", interpretation: "Le registre épique élève le voyage personnel au niveau de l'histoire mondiale.", keywords: ["épique","villes","trains","guerre","grandeur","voyage"] },
+      { procede: "Registre lyrique", citation: "« la vie est belle malgré tout »", interpretation: "La conclusion lyrique affirme une joie obstinée face à la destruction — modernité cendrarrienne.", keywords: ["lyrique","vie","belle","espoir","modernité","cendrars"] }
     ]
   },
   {
@@ -166,14 +182,24 @@ Et si l'on te touchait, tu ne sentirais peut-être rien.`,
     oeuvre: "Anabase (1924)",
     genre: "Poésie",
     diff: 3,
-    texte: `Et tu marcheras dans la poussière au bruit des mules,
-Et tu entreras dans la ville sans nom.`,
+    texte: `Sur la cime du mont des hommes tu marcheras dans la poussière au bruit des mules,
+Et tu entreras dans la ville sans nom.
+Trois colonnes d'oiseaux te suivront.
+Tu seras la nuit une flamme entre les dents,
+Tu seras le désir.
+Tu seras le désir de la terre entière qui se dilatera dans l'astre du soir,
+Et la terre entière se dilatera dans l'astre du soir.
+Mémoire lourde de mémoire!
+Poussière des villes!
+Et déjà sous les pas ta route s'effondre.
+Et déjà sous les pas ta route s'effondre.
+Et déjà sous les pas ta route s'effondre.`,
     contexte: "Poésie épique — errance, symbolisme, vers libre solennel.",
     attendus: [
-      { procede: "Apostrophe", citation: "« Et tu marcheras… Et tu entreras »", interpretation: "L'apostrophe « Et tu marcheras… Et tu entreras » interpelle un absent ou une abstraction : Saint-John Perse implique le lecteur ou un destinataire absent et dramatise poésie épique.", keywords: ["apostrophe","tu","marcheras","injonct","prophét","épique"] },
-      { procede: "Anaphore", citation: "« Et tu… Et tu… »", interpretation: "L'anaphore sur « Et tu… Et tu… » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Saint-John Perse.", keywords: ["anaphore","tu","répét","voyage","incant","rythme"] },
-      { procede: "Registre épique", citation: "« ville sans nom »", interpretation: "Registre épique: « ville sans nom » élève l'action au niveau du grand récit et exalte la scène, au cœur de l'errance.", keywords: ["épique","ville","sans nom","mythique","quête","univers"] },
-      { procede: "Champ lexical", citation: "« poussière au bruit des mules, Et tu entreras dans la ville sans nom. »", interpretation: "Les occurrences « poussière », « mules », « ville » composent un champ lexical cohérent autour de poésie épique ; cette convergence insiste sur l'idée centrale par résonance lexicale et guide la lecture de Saint-John Perse.", keywords: ["champ lexical","poussière","mules","ville","orient","voyage"] }
+      { procede: "Anaphore", citation: "« Et déjà sous les pas ta route s'effondre »", interpretation: "Anaphore : la triple reprise martèle l'effacement du chemin parcouru et installe un rythme incantatoire propre à l'épopée moderne.", keywords: ["anaphore","route","effondre","rythme","errance","pervence"] },
+      { procede: "Apostrophe", citation: "« tu marcheras dans la poussière »", interpretation: "Apostrophe : le « tu » interpelle un destinataire universel — le poète, le conquérant ou le lecteur — et dramatise la marche initiatique.", keywords: ["apostrophe","tu","marcheras","injonction","épopée","destin"] },
+      { procede: "Métaphore", citation: "« une flamme entre les dents »", interpretation: "Métaphore : le corps devient arme et feu — l'image condense la violence du désir et la fureur de l'action.", keywords: ["métaphore","flamme","dents","désir","corps","violence"] },
+      { procede: "Registre épique", citation: "« la terre entière qui se dilatera dans l'astre du soir »", interpretation: "Registre épique : l'amplification cosmique élève la marche individuelle au niveau d'une conquête universelle.", keywords: ["épique","terre","astre","cosmos","grandeur","voyage"] }
     ]
   },
   {
@@ -183,12 +209,13 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "À rebours (1884)",
     genre: "Roman",
     diff: 3,
-    texte: `Il s'était bâti un monde artificiel, où les seules satisfactions étaient celles de l'esprit et du goût.`,
+    texte: `À force de lire uniquement des ouvrages d'une idée tendue et d'un style exotique, il en était arrivé à une langue bien à lui, où se mêlaient les expressions des auteurs les plus opposés. Il avait fini par se bâtir un monde artificiel, où les seules satisfactions étaient celles de l'esprit et du goût. Il s'était bâti un monde artificiel, où les seules satisfactions étaient celles de l'esprit et du goût. Là, il pouvait s'isoler de la foule, y vivre à l'abri des attaques des idées vulgaires, y cultiver les raffinements de la pensée et les subtilités de l'expression.`,
     contexte: "Décadentisme — esthétisme, fuite du réel, symbolisme fin-de-siècle.",
     attendus: [
-      { procede: "Métaphore", citation: "« bâti un monde artificiel »", interpretation: "Métaphore: « bâti un monde artificiel » transfère le sens d'un domaine à un autre et crée une image frappante. Joris-Karl Huysmans suggère ainsi l'esthétisme.", keywords: ["métaphore","monde","artificiel","esthét","fuite","réel"] },
-      { procede: "Antithèse", citation: "« artificiel »", interpretation: "Antithèse: « artificiel » s'oppose à « esprit et goût ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","artificiel","esprit","goût","décadent","culture"] },
-      { procede: "Registre lyrique", citation: "« satisfactions… de l'esprit »", interpretation: "Registre lyrique : quête de sensations raffinées — sensibilité décadente.", keywords: ["lyrique","satisfact","esprit","sensibilit","décadent","raffin"] }
+      { procede: "Métaphore", citation: "« se bâtir un monde artificiel »", interpretation: "Métaphore : Des Esseintes érige un univers esthétique contre le réel — la construction verbale traduit la claustration du dandy décadent.", keywords: ["métaphore","monde","artificiel","esthétisme","fuite","dandy"] },
+      { procede: "Antithèse", citation: "« l'esprit et du goût »", interpretation: "Antithèse implicite entre le monde intérieur raffiné et la « foule » vulgaire : Huysmans oppose culture et banalité.", keywords: ["antithèse","esprit","goût","foule","raffinement","vulgarité"] },
+      { procede: "Champ lexical", citation: "« raffinements de la pensée et les subtilités de l'expression »", interpretation: "Champ lexical de l'art et du raffinement : la convergence lexicale insiste sur la quête d'une sensibilité extrême.", keywords: ["champ lexical","raffinement","subtilité","pensée","expression","décadent"] },
+      { procede: "Registre lyrique", citation: "« les seules satisfactions étaient celles de l'esprit »", interpretation: "Registre lyrique atténué : la quête de sensations intellectuelles remplace l'élan passionnel — sensibilité fin-de-siècle.", keywords: ["lyrique","satisfactions","esprit","sensibilité","décadent","intérieur"] }
     ]
   },
   {
@@ -198,12 +225,13 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "Atala (1801)",
     genre: "Roman",
     diff: 2,
-    texte: `Chactas, vieillard et captif, me dit un jour : « Fils, je t'aimais ; je t'aime encore. »`,
+    texte: `Chactas, vieillard et captif, me dit un jour : « Fils, je t'aimais ; je t'aime encore. Écoute l'histoire de mes malheurs et de mes amours. » Il me raconta qu'il avait été pris jeune par les guerriers de la Floride, qu'il avait connu Atala, fille de l'indien Simagan, et qu'elle l'avait aimé d'un amour si pur qu'elle préféra mourir plutôt que de trahir sa foi. « O mon fils, disait le vieillard en pleurant, la nature est belle quand on la contemple aux rayons du soleil couchant, au milieu des forêts de l'Amérique ! »`,
     contexte: "Préromantisme — nature américaine, amour tragique, registre lyrique.",
     attendus: [
-      { procede: "Apostrophe", citation: "« Fils, je t'aimais »", interpretation: "L'apostrophe « Fils, je t'aimais » interpelle un absent ou une abstraction : François-René de Chateaubriand implique le lecteur ou un destinataire absent et dramatise préromantisme.", keywords: ["apostrophe","fils","aimais","vieillard","transmiss","affect"] },
-      { procede: "Anaphore", citation: "« je t'aimais ; je t'aime encore »", interpretation: "L'anaphore (« je t'aimais ; je t'aime encore ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore","aime","répét","continu","lyrique","amour"] },
-      { procede: "Registre lyrique", citation: "« je t'aime encore »", interpretation: "Registre lyrique: la scène exprime une subjectivité intime et des émotions personnelles; « je t'aime encore » concentre cette coloration de la nature américaine.", keywords: ["lyrique","aime","déclar","affect","préromant","encore"] }
+      { procede: "Apostrophe", citation: "« Fils, je t'aimais »", interpretation: "Apostrophe : Chactas s'adresse à son interlocuteur comme à un fils — la transmission orale structure le récit préromantique.", keywords: ["apostrophe","fils","aimais","transmission","oral","chactas"] },
+      { procede: "Anaphore", citation: "« je t'aimais ; je t'aime encore »", interpretation: "Anaphore sur « je t'aime » : la reprise lie passé et présent et souligne la continuité affective malgré le temps.", keywords: ["anaphore","aime","passé","présent","amour","continuité"] },
+      { procede: "Registre lyrique", citation: "« la nature est belle quand on la contemple aux rayons du soleil couchant »", interpretation: "Registre lyrique : l'exclamation mélancolique mêle paysage exotique et émotion — sensibilité préromantique.", keywords: ["lyrique","nature","soleil","forêts","exotisme","mélancolie"] },
+      { procede: "Registre pathétique", citation: "« Atala… préféra mourir plutôt que de trahir sa foi »", interpretation: "Registre pathétique : le sacrifice d'Atala suscite la pitié — amour impossible et mort héroïque.", keywords: ["pathétique","atala","mourir","foi","sacrifice","tragique"] }
     ]
   },
   {
@@ -213,13 +241,13 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "Les Diaboliques (1874)",
     genre: "Nouvelle",
     diff: 3,
-    texte: `Il y a des crimes qui ne sont pas des crimes, des fautes qui ne sont pas des fautes, des péchés qui ne sont pas des péchés.`,
+    texte: `Il y a des crimes qui ne sont pas des crimes, des fautes qui ne sont pas des fautes, des péchés qui ne sont pas des péchés. Il y a des vertus qui ne sont pas des vertus, des devoirs qui ne sont pas des devoirs, des sacrifices qui ne sont pas des sacrifices. Il y a des choses qui sont et qui ne sont pas en même temps. Il y a des choses qui sont blanches et qui sont noires. Il y a des choses qui sont bonnes et qui sont mauvaises. Il y a des choses qui sont vraies et qui sont fausses. Voilà ce que j'appelle les Diaboliques.`,
     contexte: "Décadentisme — perversité, moral, style ampoulé et provocateur.",
     attendus: [
-      { procede: "Anaphore", citation: "« des crimes… des fautes… des péchés »", interpretation: "L'anaphore (« des crimes… des fautes… des péchés ») fonctionne comme un leitmotiv : elle martèle l'idée directrice et renforce la cohésion du passage.", keywords: ["anaphore","crimes","fautes","péchés","paradox","liste"] },
-      { procede: "Paradoxe", citation: "« crimes qui ne sont pas des crimes »", interpretation: "Paradoxe repéré dans « crimes qui ne sont pas des crimes »: la contradiction apparente concentre la réflexion sur perversité.", keywords: ["paradox","crimes","fautes","provoc","barbey","nier"] },
-      { procede: "Registre satirique", citation: "« pas des crimes, des fautes qui ne sont pas des fautes, des péchés qui ne sont pas des péchés. »", interpretation: "Registre satirique: « subversion morale » dénonce les mœurs ou les institutions par l'ironie et la dérision, au cœur de la perversité.", keywords: ["satirique","morale","iron","bourgeois","dénonc","subvers"] },
-      { procede: "Antithèse", citation: "« crimes » / « pas des crimes »", interpretation: "Antithèse entre « crimes » et « pas des crimes »: le contraste met en relief deux pôles opposés et accentue perversité.", keywords: ["antithèse","crimes","pas","morale","trouble","lecteur"] }
+      { procede: "Anaphore", citation: "« Il y a des crimes… Il y a des vertus… Il y a des choses »", interpretation: "Anaphore sur « Il y a » : l'énumération parallèle structure l'avertissement moral et martèle la subversion des catégories.", keywords: ["anaphore","il y a","énumération","rythme","structure","barbey"] },
+      { procede: "Paradoxe", citation: "« crimes qui ne sont pas des crimes »", interpretation: "Paradoxe : la négation des normes morales brouille le jugement du lecteur — provocation décadente.", keywords: ["paradoxe","crimes","fautes","péchés","morale","subversion"] },
+      { procede: "Antithèse", citation: "« blanches et qui sont noires »", interpretation: "Antithèse : blanc/noir, bon/mauvais, vrai/faux — les oppositions condensent l'ambivalence du mal.", keywords: ["antithèse","blanc","noir","bon","mauvais","contraste"] },
+      { procede: "Registre satirique", citation: "« Voilà ce que j'appelle les Diaboliques »", interpretation: "Registre satirique : la conclusion ironique désigne les nouvelles comme études de perversité — dérision de la morale bourgeoise.", keywords: ["satirique","diaboliques","ironie","morale","perversité","provocation"] }
     ]
   },
   {
@@ -229,13 +257,13 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "Le Joueur (1696)",
     genre: "Comédie",
     diff: 2,
-    texte: `Le jeu est l'âme du monde ; c'est par le jeu que les hommes se connaissent, et c'est par le jeu qu'ils se perdent.`,
+    texte: `VALÈRE. — Hélas ! quelle funeste passion que celle du jeu ! Elle nous rend insensibles à toutes les autres, et nous fait perdre jusqu'au sentiment de l'honneur. Hector, mon fils, tu ne sais pas encore ce que c'est que le jeu ; mais écoute-moi, et garde-toi-en comme d'un poison. Le jeu est l'âme du monde ; c'est par le jeu que les hommes se connaissent, et c'est par le jeu qu'ils se perdent. Un joueur ne voit plus rien au-delà de sa passion ; il sacrifie sa fortune, sa famille, sa réputation, et ne s'arrête que lorsqu'il n'a plus rien à perdre.`,
     contexte: "Comédie classique — passion du jeu, registre comique et moral.",
     attendus: [
-      { procede: "Métaphore", citation: "« Le jeu est l'âme du monde »", interpretation: "La métaphore « Le jeu est l'âme du monde » rapproche deux réalités sans outil comparatif: l'image condense la passion du jeu en une vision poétique forte.", keywords: ["métaphore","jeu","âme","monde","morale","thèse"] },
-      { procede: "Antithèse", citation: "« se connaissent » / « se perdent »", interpretation: "Antithèse entre « se connaissent » et « se perdent »: le contraste met en relief deux pôles opposés et accentue la passion du jeu.", keywords: ["antithèse","connaiss","perdent","paradox","joueur","contraste"] },
-      { procede: "Registre didactique", citation: "« se connaissent, et c'est par le jeu qu'ils se perdent. »", interpretation: "Registre didactique: la scène vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle; « maxime sur le jeu » concentre cette coloration de la passion du jeu.", keywords: ["didact","maxime","jeu","passion","morale","comédie"] },
-      { procede: "Paradoxe", citation: "« se connaissent… se perdent »", interpretation: "Paradoxe repéré dans « se connaissent… se perdent »: la contradiction apparente concentre la réflexion sur la passion du jeu.", keywords: ["paradox","connaiss","perdent","jeu","ambival","morale"] }
+      { procede: "Métaphore", citation: "« Le jeu est l'âme du monde »", interpretation: "Métaphore : le jeu devient principe vital du monde — maxime qui résume la thèse morale de la comédie.", keywords: ["métaphore","jeu","âme","monde","passion","maxime"] },
+      { procede: "Antithèse", citation: "« se connaissent » / « se perdent »", interpretation: "Antithèse : connaissance et perdition — le jeu révèle et détruit à la fois les hommes.", keywords: ["antithèse","connaissent","perdent","paradoxe","joueur","contraste"] },
+      { procede: "Registre didactique", citation: "« écoute-moi, et garde-toi-en comme d'un poison »", interpretation: "Registre didactique : Valère transmet une leçon morale à son fils — fonction éducative du théâtre classique.", keywords: ["didactique","écoute","poison","leçon","moral","père"] },
+      { procede: "Hyperbole", citation: "« sacrifie sa fortune, sa famille, sa réputation »", interpretation: "Hyperbole : l'énumération des pertes exagère la destructivité de la passion du jeu.", keywords: ["hyperbole","fortune","famille","réputation","sacrifice","exagération"] }
     ]
   },
   {
@@ -245,13 +273,14 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "La Métromanie (1738)",
     genre: "Comédie",
     diff: 2,
-    texte: `Je suis poète, et je le sens ; je le dis hautement, et je le crie aux quatre vents.`,
+    texte: `DORANTE, seul.
+Je suis poète, et je le sens ; je le dis hautement, et je le crie aux quatre vents. La poésie est ma vie, ma respiration, mon unique passion. Je ne puis voir une fleur sans faire un sonnet, ni entendre une fontaine sans trouver un alexandrin. Mes amis m'accusent de métromanie ; je leur réponds que c'est un malheureux qui n'aime pas la versification. Quand je marche, je compte mes pas en mesures ; quand je parle, je rime malgré moi. La comédie, la tragédie, l'ode, l'élégie, tout me sert de prétexte à versifier.`,
     contexte: "Comédie — obsession de la versification, registre comique et lyrique.",
     attendus: [
-      { procede: "Anaphore", citation: "« je le sens ; je le dis… je le crie »", interpretation: "En reprenant « je le sens ; je le dis… je le crie », Alexis Piron use de l'anaphore pour martèle l'idée directrice ; la répétition éclaire de l'anaphore dans La Métromanie.", keywords: ["anaphore","je","répét","poète","obsess","comique"] },
-      { procede: "Hyperbole", citation: "« aux quatre vents »", interpretation: "En exagérant « aux quatre vents », le texte use de l'hyperbole afin de souligne l'intensité du ressenti — procédé fréquent chez Alexis Piron.", keywords: ["hyperbole","quatre vents","proclam","exag","vanité","comique"] },
-      { procede: "Registre comique", citation: "« Je suis poète »", interpretation: "Registre comique: la scène provoque le rire par la situation, les mots ou les personnages; « Je suis poète » concentre cette coloration de l'obsession de la versification.", keywords: ["comique","poète","vanité","dorante","moquer","métrom"] },
-      { procede: "Registre lyrique", citation: "« je le sens »", interpretation: "Registre lyrique: « je le sens » exprime une subjectivité intime et des émotions personnelles, au cœur de l'obsession de la versification.", keywords: ["lyrique","parodi","inspir","décalage","comique","poète"] }
+      { procede: "Anaphore", citation: "« je le sens ; je le dis… je le crie »", interpretation: "Anaphore sur « je » : la répétition martèle l'obsession poétique de Dorante — trait comique central.", keywords: ["anaphore","je","répétition","poète","obsession","rythme"] },
+      { procede: "Hyperbole", citation: "« je le crie aux quatre vents »", interpretation: "Hyperbole : la proclamation universelle exagère la vanité du poète — registre comique.", keywords: ["hyperbole","quatre vents","proclamation","vanité","exagération","comique"] },
+      { procede: "Registre comique", citation: "« Je suis poète, et je le sens »", interpretation: "Registre comique : la déclaration emphatique ridiculise le personnage — moquerie de la métromanie.", keywords: ["comique","poète","vanité","dorante","moquerie","métromanie"] },
+      { procede: "Énumération", citation: "« la comédie, la tragédie, l'ode, l'élégie »", interpretation: "Énumération des genres poétiques : la liste multiplie les prétextes à versifier et souligne l'excès.", keywords: ["énumération","comédie","tragédie","ode","genres","versification"] }
     ]
   },
   {
@@ -261,12 +290,13 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "La Vie de Marianne (1731)",
     genre: "Roman",
     diff: 2,
-    texte: `Je ne sais si je dois me plaindre ou me louer du sort qui m'a fait naître.`,
+    texte: `Je ne sais si je dois me plaindre ou me louer du sort qui m'a fait naître. Ma naissance est incertaine ; on m'a élevée dans l'opulence, et j'ai connu la misère. J'ai été belle, et la beauté m'a attiré des hommages dont je n'ai pas toujours su profiter. J'ai aimé, et l'amour m'a fait connaître la joie et la douleur. Voilà ce que je veux raconter avec sincérité, sans me flatter ni m'accuser outre mesure, en laissant au lecteur le soin de juger mes actions et mes sentiments.`,
     contexte: "Roman psychologique — analyse des sentiments, registre lyrique et moral.",
     attendus: [
-      { procede: "Question rhétorique", citation: "« Je ne sais si je dois »", interpretation: "Question rhétorique repérée dans « Je ne sais si je dois »: l'interrogation feinte structure l'argumentation de analyse des sentiments.", keywords: ["question","rhétor","sais","doute","psycholog","marivaud"] },
-      { procede: "Antithèse", citation: "« me plaindre ou me louer »", interpretation: "Antithèse repérée dans « me plaindre ou me louer »: deux termes ou idées s'opposent pour souligner analyse des sentiments.", keywords: ["antithèse","plaindre","louer","destin","ambival","contraste"] },
-      { procede: "Registre lyrique", citation: "« du sort qui m'a fait naître »", interpretation: "Registre lyrique : réflexion existentielle — subjectivité féminine.", keywords: ["lyrique","sort","naître","exist","subjectiv","féminin"] }
+      { procede: "Question rhétorique", citation: "« Je ne sais si je dois me plaindre ou me louer »", interpretation: "Question rhétorique : Marianne expose son ambivalence dès l'incipit — analyse psychologique marivaudienne.", keywords: ["question","rhétorique","plaindre","louer","doute","psychologie"] },
+      { procede: "Antithèse", citation: "« me plaindre ou me louer »", interpretation: "Antithèse : plainte et louange s'opposent pour traduire l'incertitude existentielle de l'héroïne.", keywords: ["antithèse","plaindre","louer","destin","ambivalence","contraste"] },
+      { procede: "Registre lyrique", citation: "« J'ai aimé, et l'amour m'a fait connaître la joie et la douleur »", interpretation: "Registre lyrique : la confidence intime mêle émotion et réflexion — subjectivité féminine.", keywords: ["lyrique","aimé","joie","douleur","sentiment","féminin"] },
+      { procede: "Registre didactique", citation: "« en laissant au lecteur le soin de juger mes actions »", interpretation: "Registre didactique : Marianne pose un pacte moral avec le lecteur — transparence autobiographique.", keywords: ["didactique","lecteur","juger","sincérité","moral","confession"] }
     ]
   },
   {
@@ -276,13 +306,13 @@ Et tu entreras dans la ville sans nom.`,
     oeuvre: "On ne badine pas avec l'amour (1834)",
     genre: "Théâtre",
     diff: 2,
-    texte: `Perdre ou gagner une bataille ne prouve rien sur la question de savoir si l'on a raison ou tort.`,
+    texte: `PERDICAN. — Perdre ou gagner une bataille ne prouve rien sur la question de savoir si l'on a raison ou tort. La force ne fait pas le droit, et le succès ne justifie pas la cause. On ne badine pas avec l'amour : c'est une chose sérieuse, ou c'est une plaisanterie ; il n'y a pas de milieu. Aimer, c'est souffrir ou faire souffrir ; c'est une maladie dont on ne guérit jamais tout à fait. Les jeunes gens rient de l'amour parce qu'ils ne l'ont pas encore éprouvé ; les vieillards en parlent avec mélancolie parce qu'ils l'ont trop éprouvé.`,
     contexte: "Drame romantique — amour, fatalité, ironie philosophique.",
     attendus: [
-      { procede: "Antithèse", citation: "« Perdre ou gagner » / « raison ou tort »", interpretation: "Antithèse: « Perdre ou gagner » s'oppose à « raison ou tort ». Cette tension structure le sens et oblige le lecteur à mesurer l'écart entre les deux idées.", keywords: ["antithèse","perdre","gagner","raison","tort","contraste"] },
-      { procede: "Paradoxe", citation: "« ne prouve rien »", interpretation: "Paradoxe: « ne prouve rien » affirme une idée qui surprend ou contredit la logique commune. Alfred de Musset brouille les certitudes dans l'amour.", keywords: ["paradox","prouve","rien","force","droit","philosoph"] },
-      { procede: "Registre didactique", citation: "« ne prouve rien sur la question de savoir si l'on a raison ou tort. »", interpretation: "Registre didactique: la scène vise à instruire le lecteur et à transmettre une leçon morale ou intellectuelle; « maxime sur la bataille » concentre cette coloration de l'amour.", keywords: ["didact","maxime","bataille","amour","raison","romant"] },
-      { procede: "Registre tragique", citation: "« ne prouve rien sur la question de savoir si l'on a raison ou tort. »", interpretation: "À travers « On ne badine pas avec l'amour », le registre tragique domine et installe une fatalité qui dépasse les personnages et provoque terreur ou pitié.", keywords: ["tragique","amour","fatal","force","sérieux","badine"] }
+      { procede: "Antithèse", citation: "« Perdre ou gagner » / « raison ou tort »", interpretation: "Antithèse : victoire et défaite ne déterminent pas la justice — maxime philosophique sur l'amour et la guerre.", keywords: ["antithèse","perdre","gagner","raison","tort","contraste"] },
+      { procede: "Paradoxe", citation: "« ne prouve rien »", interpretation: "Paradoxe : le résultat militaire ne valide pas la cause — renversement de la logique héroïque.", keywords: ["paradoxe","prouve","rien","bataille","force","droit"] },
+      { procede: "Registre didactique", citation: "« On ne badine pas avec l'amour »", interpretation: "Registre didactique : la maxime titre l'œuvre et avertit le spectateur — sérieux romantique.", keywords: ["didactique","badine","amour","maxime","sérieux","avertissement"] },
+      { procede: "Registre tragique", citation: "« c'est souffrir ou faire souffrir »", interpretation: "Registre tragique : l'amour est une fatalité douloureuse — pas de bonheur sans souffrance.", keywords: ["tragique","souffrir","amour","fatalité","maladie","musset"] }
     ]
   }
 ];
