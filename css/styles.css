@@ -1508,6 +1508,13 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 }
 .intro-sim-plan-opt input{margin-top:.25rem}
 .intro-sim-plan-axes{grid-column:2;font-size:11px;color:var(--tx3);line-height:1.4}
+.score-compare-panel{margin:.75rem 0;padding:.75rem;background:var(--s2);border-radius:var(--rad);border:.5px solid var(--b2)}
+.score-compare-table{width:100%;border-collapse:collapse;font-size:12px}
+.score-compare-table th,.score-compare-table td{padding:.35rem .5rem;border-bottom:1px solid var(--b1);text-align:left}
+.score-compare-table th{color:var(--tx3);font-weight:500}
+.score-compare-global td{border-top:1px solid var(--b2)}
+.score-compare-note{font-size:11px;color:var(--tx3);margin:.5rem 0 0}
+.score-compare-err{color:var(--er);font-size:12px}
 
 /* ══════════════════════════════════════════
    DESIGN & PERSONNALISATION (thème étendu)

@@ -1365,6 +1365,19 @@
       </div>
 
       <div class="sp-row">
+        <div class="sp-label">Comparer mes scores
+          <div class="sp-sub">Export compact · import lecture seule · pas de fusion</div>
+        </div>
+        <div class="sp-ctrl">
+          <button class="sp-action-btn" onclick="exportScoreSummary()">⬇ Résumé scores</button>
+          <button class="sp-action-btn" onclick="el('import-score-summary-input').click()">⬆ Comparer</button>
+          <input type="file" id="import-score-summary-input" accept=".json" style="display:none" onchange="importScoreSummaryForCompare(event)">
+          <button class="sp-action-btn sec" type="button" onclick="clearScoreCompare()">✕ Effacer</button>
+        </div>
+      </div>
+      <div id="score-compare-panel" class="score-compare-panel" hidden></div>
+
+      <div class="sp-row">
         <div class="sp-label">Exporter les statistiques</div>
         <div class="sp-ctrl">
           <button class="sp-action-btn" onclick="exportStats()">⬇ Export JSON</button>
@@ -2310,6 +2323,7 @@
 <script defer src="js/pages/qcm.js?v=20260607"></script>
 <script defer src="js/pages/daily-review.js?v=20260610"></script>
 <script defer src="js/pages/revision-print.js?v=20260610"></script>
+<script defer src="js/pages/score-compare.js?v=20260610"></script>
 <script defer src="js/pages/stats-ui.js?v=20260628"></script>
 <script defer src="js/pages/keyboard.js?v=20260607"></script>
 <script defer src="js/pages/exam.js?v=20260607"></script>
