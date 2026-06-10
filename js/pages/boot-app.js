@@ -55,6 +55,8 @@
 
   initChallengeTimer();
 
+  if (typeof initDailyReview === 'function') initDailyReview();
+
   const defMat = getSetting('defaultMatiere') || 'proc';
 
   if (defMat !== 'proc') switchMatiere(defMat);

@@ -4,10 +4,11 @@
 const QCM_STATE = {
   proc: { cat:'Toutes', answers:{}, shuffled:[], currentIdx:0, data:PROC_QCM, cats:PROC_QCM_CATS, stKey:'bac_proc_stats', prefix:'p', timer:false },
   gram: { cat:'Toutes', answers:{}, shuffled:[], currentIdx:0, data:GRAM_QCM, cats:GRAM_QCM_CATS, stKey:'bac_gram_stats', prefix:'g', timer:false },
-  vocab: { cat:'Toutes', answers:{}, shuffled:[], currentIdx:0, data:typeof VOCAB_QCM !== 'undefined' ? VOCAB_QCM : [], cats:typeof VOCAB_QCM_CATS !== 'undefined' ? VOCAB_QCM_CATS : ['Toutes'], stKey:'bac_vocab_stats', prefix:'v', timer:false }
+  vocab: { cat:'Toutes', answers:{}, shuffled:[], currentIdx:0, data:typeof VOCAB_QCM !== 'undefined' ? VOCAB_QCM : [], cats:typeof VOCAB_QCM_CATS !== 'undefined' ? VOCAB_QCM_CATS : ['Toutes'], stKey:'bac_vocab_stats', prefix:'v', timer:false },
+  daily: { cat:'Révision', answers:{}, shuffled:[], currentIdx:0, data:[], cats:['Révision'], stKey:'bac_daily_review', prefix:'daily', timer:false }
 };
 const _reviseState = { proc: false, gram: false, vocab: false };
-const _qcmStreak = { proc: 0, gram: 0, vocab: 0 };
+const _qcmStreak = { proc: 0, gram: 0, vocab: 0, daily: 0 };
 
 let _timerInterval = null;
 const TIMER_SEC = 30;
@@ -96,11 +97,17 @@ function toggleQcmFocus(m) {
   renderQ(m);
 }
 
+function _qcmStatsMat(m, q) {
+  if (m === 'daily' && q._dailyMat) return q._dailyMat;
+  return m;
+}
+
 function _buildQcard(m, q, qi) {
   const s = QCM_STATE[m];
   const done  = s.answers.hasOwnProperty(qi);
   const favs  = loadFavs();
-  const favKey = m === 'proc' ? 'qproc' : m === 'vocab' ? 'qvocab' : 'qgram';
+  const favMat = _qcmStatsMat(m, q);
+  const favKey = favMat === 'proc' ? 'qproc' : favMat === 'vocab' ? 'qvocab' : 'qgram';
   const isFav = favs[favKey].includes(q.q);
   const showFav = getSetting('qcmShowFavBtn');
   const showCorpus = getSetting('qcmShowCorpusLink') && q.ref;
@@ -123,7 +130,7 @@ function _buildQcard(m, q, qi) {
     : '';
   return `
     <div class="qnum">
-      <span>Q${qi + 1} / ${s.shuffled.length} · ${q.cat}</span>
+      <span>Q${qi + 1} / ${s.shuffled.length} · ${q._dailySrc ? q._dailySrc + ' · ' : ''}${q.cat}</span>
       ${showFav ? `<button class="qfav-btn${isFav ? ' on' : ''}" onclick="toggleFavQ('${m}',${qi})" title="Favori">★</button>` : ''}
     </div>
     ${timerHtml}
@@ -259,11 +266,20 @@ function renderQ(m) {
       <div class="rgrade">${ok} / ${s.shuffled.length}</div>
       <p>${pct}% de bonnes réponses — ${msg}</p>
       <div class="btnrow">
-        <button class="pbtn" onclick="mixQ('${m}')">Nouveau mélange</button>
-        <button class="sbtn" onclick="resetQ('${m}')">Recommencer</button>
+        ${m === 'daily' ? `
+          <button class="pbtn" onclick="startDailyReview()">↺ Nouvelle session</button>
+          <button class="sbtn" onclick="switchPg('proc','p-fiche',el('stab-fiche'))">Retour</button>
+        ` : `
+          <button class="pbtn" onclick="mixQ('${m}')">Nouveau mélange</button>
+          <button class="sbtn" onclick="resetQ('${m}')">Recommencer</button>
+        `}
       </div>`;
     cont.appendChild(r);
-    recordSession(m, ok, s.shuffled.length, s.cat);
+    if (m === 'daily' && typeof dailyReviewOnComplete === 'function') {
+      dailyReviewOnComplete(ok, s.shuffled.length);
+    } else {
+      recordSession(m, ok, s.shuffled.length, s.cat);
+    }
     setTimeout(() => r.scrollIntoView({ behavior:'smooth', block:'nearest' }), 200);
   }
 }
@@ -282,8 +298,10 @@ function ansQ(m, qi, oi) {
   if (s.answers.hasOwnProperty(qi)) return;
   const correct = oi === s.shuffled[qi].ans;
   s.answers[qi] = correct;
-  const cat = s.shuffled[qi].cat;
-  const pctBefore = (correct && cat && cat !== 'Toutes') ? _getCatPct(m, cat) : null;
+  const q = s.shuffled[qi];
+  const statsMat = _qcmStatsMat(m, q);
+  const cat = q.cat;
+  const pctBefore = (correct && cat && cat !== 'Toutes') ? _getCatPct(statsMat, cat) : null;
   if (typeof playSound === 'function' && oi >= 0) {
     if (correct) {
       _qcmStreak[m] = (_qcmStreak[m] || 0) + 1;
@@ -297,15 +315,16 @@ function ansQ(m, qi, oi) {
     _qcmStreak[m] = 0;
   }
 
-  const st  = loadSt(s.stKey);
-  const key = qKey(s.shuffled[qi]);
-  if (!st.qdata[key]) st.qdata[key] = { ok: 0, total: 0, q: s.shuffled[qi].q.slice(0, 80) };
+  const stKey = QCM_STATE[statsMat].stKey;
+  const st  = loadSt(stKey);
+  const key = qKey(q);
+  if (!st.qdata[key]) st.qdata[key] = { ok: 0, total: 0, q: q.q.slice(0, 80) };
   st.qdata[key].total++;
   if (correct) st.qdata[key].ok++;
-  saveSt(s.stKey, st);
+  saveSt(stKey, st);
 
   if (correct && pctBefore !== null && cat !== 'Toutes') {
-    const pctAfter = _getCatPct(m, cat);
+    const pctAfter = _getCatPct(statsMat, cat);
     const threshPct = Math.round((getSetting('reviseThresh') || 0.6) * 100);
     if (pctBefore < threshPct && pctAfter >= threshPct && typeof playSound === 'function') {
       playSound('levelup');

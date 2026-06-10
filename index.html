@@ -41,6 +41,9 @@
   <button class="matiere-tab" id="mtab-fav" onclick="switchMatiere('fav')" aria-label="Favoris">
     ⭐ <span class="mlabel">Favoris</span>
   </button>
+  <button class="matiere-tab daily-review-nav" id="daily-review-nav" onclick="openDailyReview()" aria-label="Révision du jour" title="Révision du jour">
+    <span class="daily-nav-badge">📅</span> <span class="mlabel">Révision</span>
+  </button>
   <span class="nav-streak" id="streak-badge" style="display:none" title="Série quotidienne"></span>
   <span class="nav-readiness" id="readiness-nav" style="display:none" title="Indice de préparation Bac"></span>
   <button class="icon-btn" id="theme-toggle" onclick="toggleTheme()" title="Thème clair / sombre" aria-label="Basculer le thème clair ou sombre">☀️</button>
@@ -1400,7 +1403,8 @@
 <div id="pages-mount">
 <div id="m-proc" class="matiere on">
   <div class="subnav" id="snav-proc">
-    <button class="stab on"  onclick="switchPg('proc','p-fiche',this)">📖 Procédés</button>
+    <button class="stab on" id="stab-fiche" onclick="switchPg('proc','p-fiche',this)">📖 Procédés</button>
+    <button class="stab" id="stab-daily" onclick="switchPg('proc','p-daily',this)">📅 Révision</button>
     <button class="stab"     onclick="switchPg('proc','p-cartes',this)">🃏 Cartes</button>
     <button class="stab"     onclick="switchPg('proc','p-qcm',this)">✏️ QCM</button>
     <button class="stab"     onclick="switchPg('proc','p-exam',this)">🏆 Examen</button>
@@ -1423,6 +1427,7 @@
       <p class="hero-sub" id="proc-count-hero">… procédés courants · Exemples &amp; effets · Clic pour développer</p>
     </div>
     <div class="daily-box" id="daily-challenge" style="display:none"></div>
+    <div class="daily-box daily-review-hero" id="daily-review-hero" style="display:none"></div>
     <div class="fbar">
       <div class="sbox">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1463,6 +1468,25 @@
     <div class="wrap-sm">
       <p class="hero-sub" id="exam-count-hero" style="text-align:center;margin:0 0 .8rem;font-size:12px">…</p>
       <div id="exam-cont"></div>
+    </div>
+  </div>
+
+  <!-- ── Révision du jour ── -->
+  <div id="proc-p-daily" class="pg">
+    <div class="wrap-sm">
+      <div class="qcm-top">
+        <h2>📅 Révision <em>du jour</em></h2>
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap">
+          <div class="scorepill">Score : <b id="dailyqsc">0</b> / <b id="dailyqtot">0</b></div>
+          <button class="sbtn" onclick="startDailyReview()">↺ Relancer</button>
+        </div>
+      </div>
+      <div id="daily-review-intro" class="daily-review-intro"></div>
+      <div style="margin-bottom:1.1rem">
+        <div class="ptrack"><div class="pfill" id="dailyqbar" style="width:0%"></div></div>
+        <div class="plbl" id="dailyqprog">0 question répondue</div>
+      </div>
+      <div id="daily-qcont"></div>
     </div>
   </div>
 
@@ -2267,6 +2291,7 @@
 <script defer src="js/pages/vocab.js?v=20260607"></script>
 <script defer src="js/pages/cartes.js?v=20260607"></script>
 <script defer src="js/pages/qcm.js?v=20260607"></script>
+<script defer src="js/pages/daily-review.js?v=20260610"></script>
 <script defer src="js/pages/stats-ui.js?v=20260628"></script>
 <script defer src="js/pages/keyboard.js?v=20260607"></script>
 <script defer src="js/pages/exam.js?v=20260607"></script>

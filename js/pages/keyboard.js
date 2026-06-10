@@ -20,6 +20,16 @@ document.addEventListener('keydown', e => {
   }
 
   if (['1','2','3','4'].includes(e.key) && getSetting('kbShortcuts')) {
+    const dailyPg = el('proc-p-daily');
+    if (dailyPg && dailyPg.classList.contains('on')) {
+      const s = QCM_STATE.daily;
+      const qi = getSetting('qcmFocusMode') ? s.currentIdx : s.shuffled.findIndex((_, i) => !s.answers.hasOwnProperty(i));
+      if (qi > -1) {
+        const oi = parseInt(e.key) - 1;
+        if (oi < s.shuffled[qi].opts.length) ansQ('daily', qi, oi);
+      }
+      return;
+    }
     const m = activeMatiere();
     if (!m) return;
     const qcmPage = el(`${m}-p-qcm`);

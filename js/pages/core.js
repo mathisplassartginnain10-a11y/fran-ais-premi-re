@@ -1371,6 +1371,10 @@ function switchPg(matiere, page, btn) {
     refreshQcmCatProgress(matiere);
     return;
   }
+  if (page === 'p-daily') {
+    if (typeof initDailyReview === 'function') initDailyReview();
+    return;
+  }
   if (page === 'p-cartes') { initCartes(); return; }
   if (page === 'p-gcartes') { initGramCartes(); return; }
   if (page === 'p-vcartes') { initVocabCartes(); return; }
