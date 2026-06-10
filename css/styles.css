@@ -1482,7 +1482,23 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
   body.print-gpf .gpf-block{border:1px solid #eee;background:#fafafa}
   body.print-gpf .gpf-proc-name,.gpf-title,.gpf-cat-title{color:#000}
   body.print-gpf .gpf-formula{color:#333}
+  body.print-revision .revision-print-root,
+  body.print-revision .revision-print-root *{visibility:visible}
+  body.print-revision .revision-print-root{
+    position:absolute;left:0;top:0;width:100%;background:#fff;color:#000;padding:1rem 1.5rem;
+  }
+  body.print-revision .topnav,.bac-countdown-bar,.subnav,.settings-panel,.no-print{display:none!important}
+  body.print-revision .revision-print-root{display:block}
+  .revision-print-item{break-inside:avoid;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid #ddd}
+  .revision-print-q{font-size:14px;font-weight:500;margin:.4rem 0}
+  .revision-print-opts{margin:.4rem 0 .6rem 1.2rem;padding:0}
+  .revision-print-opts li{margin:.25rem 0}
+  .revision-ans{font-weight:700}
+  .revision-print-expl{font-size:12px;color:#333}
+  .revision-print-head{margin-bottom:1rem;border-bottom:2px solid #c9a84c;padding-bottom:.5rem}
 }
+
+.revision-print-root{display:none}
 
 /* ══════════════════════════════════════════
    DESIGN & PERSONNALISATION (thème étendu)
