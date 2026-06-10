@@ -20,14 +20,23 @@ function load(file) {
   'data-gtextes.js', 'data-gtextes-extra.js', 'data-gtextes-extra2.js',
   'data-gtextes-extra3.js', 'data-gtextes-extra4.js', 'data-gtextes-extra5.js',
   'data-gtextes-extra6.js', 'data-gtextes-extra7.js', 'data-gtextes-extra8.js',
+  'data-gtextes-extra9.js', 'data-gtextes-extra10.js', 'data-gtextes-extra11.js',
+  'data-gtextes-extra12.js', 'data-gtextes-extra13.js', 'data-gtextes-extra14.js',
+  'data-gtextes-extra15.js', 'data-gtextes-extra16.js', 'data-gtextes-extra17.js',
+  'data-gtextes-extra18.js', 'data-gtextes-extra19.js', 'data-gtextes-extra20.js',
+  'data-gtextes-extra21.js',
   'data-auteurs.js', 'data-gtextes-oeuvre-by-id.js', 'data-exercices.js',
   'data-intro-simulator.js',
-].forEach(load);
+].forEach(f => {
+  const p = path.join(JS, f);
+  if (fs.existsSync(p)) load(f);
+});
 
 sandbox.getAllGtexts = function () {
   const out = [];
+  if (Array.isArray(sandbox.GRANDS_TEXTES)) out.push(...sandbox.GRANDS_TEXTES);
   for (const k of Object.keys(sandbox)) {
-    if (/^GRANDS_TEXTES/.test(k) && Array.isArray(sandbox[k])) out.push(...sandbox[k]);
+    if (/^GRANDS_TEXTES_EXTRA/.test(k) && Array.isArray(sandbox[k])) out.push(...sandbox[k]);
   }
   return out;
 };
