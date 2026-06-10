@@ -1055,7 +1055,13 @@ function htmlOnclickAttr(jsCall) {
   const esc = s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
   return `onclick="${esc}"`;
 }
-function qKey(q) { return q.q.slice(0, 60); }
+function qKey(q) {
+  const s = q.q || '';
+  if (s.length <= 80) return s;
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  return s.slice(0, 40) + '#' + (h >>> 0).toString(36);
+}
 
 function updateDynamicCounts() {
   const procN = typeof PROC_DATA !== 'undefined' ? PROC_DATA.length : 0;

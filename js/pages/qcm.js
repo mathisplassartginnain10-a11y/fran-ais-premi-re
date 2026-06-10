@@ -99,7 +99,7 @@ function _buildQcard(m, q, qi) {
   const s = QCM_STATE[m];
   const done  = s.answers.hasOwnProperty(qi);
   const favs  = loadFavs();
-  const favKey = m === 'proc' ? 'qproc' : 'qgram';
+  const favKey = m === 'proc' ? 'qproc' : m === 'vocab' ? 'qvocab' : 'qgram';
   const isFav = favs[favKey].includes(q.q);
   const showFav = getSetting('qcmShowFavBtn');
   const showCorpus = getSetting('qcmShowCorpusLink') && q.ref;
