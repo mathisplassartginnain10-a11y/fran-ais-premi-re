@@ -380,6 +380,12 @@ function renderExo() {
 
 
 
+    const optsHtml = (!done && !long && e.opts && e.opts.length === 4)
+      ? `<div class="exo-opts">${e.opts.map((o, oi) =>
+          `<button type="button" class="chip exo-opt" onclick="pickExoOpt(${qi},${oi})">${exoEsc(o)}</button>`
+        ).join('')}</div>`
+      : '';
+
     div.innerHTML = `
 
       <div class="exo-header">
@@ -402,6 +408,8 @@ function renderExo() {
       ${textBlock}
 
       <div class="exo-q">${e.q}</div>
+
+      ${optsHtml}
 
       <div class="exo-answer-row">
 
@@ -491,6 +499,26 @@ function renderExo() {
     setTimeout(() => r.scrollIntoView({behavior:'smooth',block:'nearest'}), 200);
 
   }
+
+}
+
+
+
+function pickExoOpt(qi, oi) {
+
+  const e = EXO_STATE.shuffled[qi];
+
+  if (!e || EXO_STATE.answers.hasOwnProperty(qi)) return;
+
+  const val = e.opts && e.opts[oi] != null ? String(e.opts[oi]) : '';
+
+  EXO_STATE.userTexts[qi] = val;
+
+  const field = el('exoin' + qi);
+
+  if (field) field.value = val;
+
+  submitExo(qi);
 
 }
 

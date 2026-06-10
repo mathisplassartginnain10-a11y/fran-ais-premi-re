@@ -31,7 +31,12 @@ function ensureLazyBundle(key) {
 }
 
 function ensureExercicesLoaded() {
-  return ensureLazyBundle('exercices');
+  return ensureLazyBundle('exercices').then(function () {
+    if (typeof EXERCICES !== 'undefined' && typeof window.bacExoAligned === 'function') {
+      window.BAC_ALIGNED_EXO = EXERCICES.filter(window.bacExoAligned);
+    }
+    if (typeof updateDynamicCounts === 'function') updateDynamicCounts();
+  });
 }
 
 function ensureIntroSimLoaded() {

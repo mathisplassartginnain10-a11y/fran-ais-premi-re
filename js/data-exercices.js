@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   data-exercices.js — 80 exercices sur textes réels
+   data-exercices.js — 82 exercices sur textes réels
    Champs : id, cat, diff(1-3), oeuvre, text, q, opts, ans, expl
    ═══════════════════════════════════════════════════ */
 

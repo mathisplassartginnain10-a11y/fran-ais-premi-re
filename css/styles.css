@@ -1833,7 +1833,6 @@ button:focus-visible,.opt:focus-visible,.chip:focus-visible,.stab:focus-visible,
     transition-duration:.01ms!important;scroll-behavior:auto!important;
   }
 }
-body.reduce-motion *,body.reduce-motion *::before,body.reduce-motion *::after{
-  animation-duration:.01ms!important;transition-duration:.01ms!important;
-}
+.exo-opts{display:flex;flex-wrap:wrap;gap:6px;margin:.45rem 0 .6rem}
+.exo-opt{font-size:11.5px;max-width:100%;text-align:left;white-space:normal;line-height:1.35}
 
