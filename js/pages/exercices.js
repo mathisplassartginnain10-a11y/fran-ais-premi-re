@@ -551,6 +551,7 @@ function submitExo(qi) {
   const e = EXO_STATE.shuffled[qi];
 
   const correct = exoCheckAnswer(e, val);
+  // exoCheckAnswer ne distingue pas « presque bon » (keyword match) vs exact : pas de playPartial ici.
 
   EXO_STATE.userTexts[qi] = val;
 
@@ -558,7 +559,11 @@ function submitExo(qi) {
 
 
 
-  if (typeof playSound === 'function') playSound(correct ? 'correct' : 'wrong');
+  if (typeof playSound === 'function') {
+    if (correct) playSound('correct');
+    else playSound('wrong');
+    setTimeout(() => playSound('reveal'), getSetting('reduceMotion') ? 0 : 220);
+  }
 
   try {
 
@@ -599,6 +604,8 @@ function toggleExoFav(id) {
   if (idx > -1) f.qproc.splice(idx, 1); else f.qproc.push(key);
 
   saveFavs(f);
+
+  if (typeof playSound === 'function') playSound(idx > -1 ? 'remove' : 'add');
 
   EXO_STATE.shuffled.forEach((e, qi) => {
 

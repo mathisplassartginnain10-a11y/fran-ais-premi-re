@@ -161,6 +161,9 @@ function ansExam(qi, oi) {
       else btn.classList.add('dim');
     });
     div.querySelector('.qexpl').classList.add('show');
+    if (typeof playSound === 'function') {
+      setTimeout(() => playSound('reveal'), getSetting('reduceMotion') ? 0 : 220);
+    }
   }
 
   const done = Object.keys(EXAM_STATE.answers).length;
@@ -185,8 +188,10 @@ function finishExam(timeout) {
     recordExamResult(ok, tot, _examMat, timeUsed, timeout);
   }
   if (getSetting('confettiOn') && pct >= getSetting('confettiThr')) launchConfetti();
+  const examNote = Math.round(pct / 100 * 20 * 10) / 10;
   if (typeof playSound === 'function') {
     if (timeout) playSound('timeout');
+    else if (typeof playGradeSound === 'function') playGradeSound(examNote);
     else if (pct >= 60) playSound('complete');
     else if (pct >= 40) playSound('partial');
   }
@@ -200,7 +205,6 @@ function finishExam(timeout) {
   const mu = Math.floor(timeUsed / 60), su = timeUsed % 60;
   const gReady = typeof computeGlobalReadiness === 'function' ? computeGlobalReadiness() : null;
   const probNote = gReady ? gReady.prob : (typeof computeReadiness === 'function' ? computeReadiness(curMat).prob : null);
-  const examNote = Math.round(pct / 100 * 20 * 10) / 10;
   const probDelta = probNote && gReady?.prob?.pct != null
     ? (pct >= 60 ? ` · Cet examen renforce ton profil` : pct >= 50 ? ` · Résultat dans la moyenne` : ` · Cible les priorités du centre probabilités`)
     : '';

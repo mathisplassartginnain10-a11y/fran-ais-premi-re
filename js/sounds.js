@@ -43,19 +43,30 @@ const BacSounds = (function () {
   }
 
   function _ac() {
+    if (!_gestureUnlocked) return null;
     if (!_ctx) {
-      if (!_gestureUnlocked) return null;
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return null;
-      _ctx = new Ctx();
+      try {
+        _ctx = new Ctx();
+      } catch (e) {
+        return null;
+      }
+    }
+    if (_ctx.state === 'suspended') {
+      try {
+        const p = _ctx.resume();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      } catch (e) {}
     }
     return _ctx;
   }
 
   function _resume() {
-    if (!_enabled() || !_gestureUnlocked || !_ctx) return null;
-    if (_ctx.state !== 'running') return null;
-    return _ctx;
+    if (!_enabled() || !_gestureUnlocked) return null;
+    const c = _ac();
+    if (!c || c.state !== 'running') return null;
+    return c;
   }
 
   function _rand(a, b) {
@@ -331,15 +342,15 @@ const BacSounds = (function () {
     _playCount++;
   }
 
-  function playCorrect() { _playThemed('correct', CORRECT_VARIANTS); }
+  function playCorrect() { if (!_enabled()) return; _playThemed('correct', CORRECT_VARIANTS); }
 
-  function playWrong() { _playThemed('wrong', WRONG_VARIANTS); }
+  function playWrong() { if (!_enabled()) return; _playThemed('wrong', WRONG_VARIANTS); }
 
-  function playPartial() { _playThemed('partial', PARTIAL_VARIANTS); }
+  function playPartial() { if (!_enabled()) return; _playThemed('partial', PARTIAL_VARIANTS); }
 
-  function playComplete() { _playThemed('complete', COMPLETE_VARIANTS); }
+  function playComplete() { if (!_enabled()) return; _playThemed('complete', COMPLETE_VARIANTS); }
 
-  function playStreak() { _playThemed('streak', STREAK_VARIANTS); }
+  function playStreak() { if (!_enabled()) return; _playThemed('streak', STREAK_VARIANTS); }
 
   /* ── UI & ambient ── */
   const CLICK_VARIANTS = [
@@ -427,53 +438,62 @@ const BacSounds = (function () {
   };
 
   function playClick() {
-    if (!_get('soundClicks', true)) return;
+    if (!_enabled() || !_get('soundClicks', true)) return;
     CLICK_VARIANTS[_pickVariant('click', CLICK_VARIANTS.length)]();
   }
 
   function playFlip() {
+    if (!_enabled()) return;
     FLIP_VARIANTS[_pickVariant('flip', FLIP_VARIANTS.length)]();
   }
 
   function playTick() {
-    if (!_get('soundTimerTick', true)) return;
+    if (!_enabled() || !_get('soundTimerTick', true)) return;
     TICK_VARIANTS[_pickVariant('tick', TICK_VARIANTS.length)]();
   }
 
   function playWarning() {
+    if (!_enabled()) return;
     WARNING_VARIANTS[_pickVariant('warning', WARNING_VARIANTS.length)]();
   }
 
   function playTimeout() {
+    if (!_enabled()) return;
     TIMEOUT_VARIANTS[_pickVariant('timeout', TIMEOUT_VARIANTS.length)]();
   }
 
   function playReveal() {
+    if (!_enabled()) return;
     REVEAL_VARIANTS[_pickVariant('reveal', REVEAL_VARIANTS.length)]();
   }
 
   function playNav() {
-    if (!_get('soundClicks', true)) return;
+    if (!_enabled() || !_get('soundClicks', true)) return;
     NAV_VARIANTS[_pickVariant('nav', NAV_VARIANTS.length)]();
   }
 
   function playAdd() {
+    if (!_enabled()) return;
     ADD_VARIANTS[_pickVariant('add', ADD_VARIANTS.length)]();
   }
 
   function playRemove() {
+    if (!_enabled()) return;
     REMOVE_VARIANTS[_pickVariant('remove', REMOVE_VARIANTS.length)]();
   }
 
   function playOpen() {
+    if (!_enabled()) return;
     OPEN_VARIANTS[_pickVariant('open', OPEN_VARIANTS.length)]();
   }
 
   function playLevelup() {
+    if (!_enabled()) return;
     _playThemed('levelup', LEVELUP_VARIANTS);
   }
 
   function playPreview() {
+    /* Aperçu des thèmes sonores — déclenché depuis Paramètres (previewSound), pas au survol UI. */
     if (!_get('soundOn', true)) return;
     if (!_gestureUnlocked || !_ctx || _ctx.state !== 'running') return;
     setTimeout(() => playNav(), 30);
@@ -558,12 +578,16 @@ const BacSounds = (function () {
 
 function playSound(kind) {
   if (typeof BacSounds === 'undefined') return;
-  const fn = BacSounds['play' + kind.charAt(0).toUpperCase() + kind.slice(1)];
+  BacSounds.unlock();
+  const aliases = { ok: 'correct', success: 'correct' };
+  const k = aliases[kind] || kind;
+  const fn = BacSounds['play' + k.charAt(0).toUpperCase() + k.slice(1)];
   if (typeof fn === 'function') fn();
 }
 
 /** Retour session : ok / partiel / raté */
 function playFeedback(ok, partial) {
+  if (typeof BacSounds !== 'undefined') BacSounds.unlock();
   if (partial) playSound('partial');
   else playSound(ok ? 'correct' : 'wrong');
 }
@@ -584,5 +608,7 @@ function previewSound() {
 }
 
 ['pointerdown', 'keydown', 'touchstart'].forEach(ev => {
-  document.addEventListener(ev, () => BacSounds.unlock(), { once: true, passive: true });
+  document.addEventListener(ev, () => {
+    if (typeof BacSounds !== 'undefined') BacSounds.unlock();
+  }, { once: true, passive: true });
 });

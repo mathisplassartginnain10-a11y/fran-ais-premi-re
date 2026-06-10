@@ -525,6 +525,8 @@ function applyAllSettings() {
   _updateSettingsLabels();
 }
 
+let _lastMatiere = 'proc';
+
 function openSettings() {
   if (typeof pauseTimeTracker === 'function') pauseTimeTracker();
   syncSettingsUI();
@@ -534,6 +536,7 @@ function openSettings() {
   document.body.style.overflow = 'hidden';
   const closeBtn = el('settings-panel')?.querySelector('.sp-close');
   if (closeBtn) closeBtn.focus();
+  if (typeof playSound === 'function') playSound('open');
 }
 function closeSettings() {
   el('settings-overlay').classList.remove('open');
@@ -1287,6 +1290,8 @@ function initBacCountdownFromCore() {
    ══════════════════════════════════════════ */
 function switchMatiere(m) {
   if (typeof timeTrackMatiere === 'function') timeTrackMatiere(m);
+  if (m !== _lastMatiere && typeof playSound === 'function') playSound('nav');
+  _lastMatiere = m;
   document.querySelectorAll('.matiere').forEach(x => x.classList.remove('on'));
   document.querySelectorAll('.matiere-tab').forEach(x => x.classList.remove('on'));
   const mat = el('m-' + m);
@@ -1341,7 +1346,6 @@ function navTab(matiere, pageId) {
 
 function switchPg(matiere, page, btn) {
   if (typeof timeTrackPage === 'function') timeTrackPage(matiere, page);
-  if (typeof playSound === 'function') playSound('nav');
   const pgEl = el(matiere + '-' + page);
   if (!pgEl) {
     console.warn('switchPg: page introuvable', matiere, page);

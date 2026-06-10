@@ -25,9 +25,11 @@ function toggleFavCard(m, name) {
   const f = loadFavs();
   const key = m === 'proc' ? 'proc' : m === 'vocab' ? 'vocab' : 'gram';
   const idx = f[key].indexOf(name);
+  const adding = idx === -1;
   if (idx > -1) f[key].splice(idx, 1);
   else f[key].push(name);
   saveFavs(f);
+  if (typeof playSound === 'function') playSound(adding ? 'add' : 'remove');
   const gridId = m === 'proc' ? 'pgrid' : m === 'vocab' ? 'vgrid' : 'ggrid';
   document.querySelectorAll(`#${gridId} .card`).forEach(card => {
     if (card.querySelector('.cname')?.textContent === name) {
@@ -43,9 +45,11 @@ function toggleFavQ(m, qi) {
   const key = m === 'proc' ? 'qproc' : m === 'vocab' ? 'qvocab' : 'qgram';
   const q = s.shuffled[qi].q;
   const idx = f[key].indexOf(q);
+  const adding = idx === -1;
   if (idx > -1) f[key].splice(idx, 1);
   else f[key].push(q);
   saveFavs(f);
+  if (typeof playSound === 'function') playSound(adding ? 'add' : 'remove');
   const btn = document.querySelector(`#${m}qc${qi} .qfav-btn`);
   if (btn) btn.classList.toggle('on', f[key].includes(q));
 }

@@ -7,6 +7,7 @@ const QCM_STATE = {
   vocab: { cat:'Toutes', answers:{}, shuffled:[], currentIdx:0, data:typeof VOCAB_QCM !== 'undefined' ? VOCAB_QCM : [], cats:typeof VOCAB_QCM_CATS !== 'undefined' ? VOCAB_QCM_CATS : ['Toutes'], stKey:'bac_vocab_stats', prefix:'v', timer:false }
 };
 const _reviseState = { proc: false, gram: false, vocab: false };
+const _qcmStreak = { proc: 0, gram: 0, vocab: 0 };
 
 let _timerInterval = null;
 const TIMER_SEC = 30;
@@ -174,6 +175,9 @@ function _finishQcard(m, qi, oi) {
   fb.textContent = correct ? '✓ Bonne réponse !' : '✗ Mauvaise réponse';
   const explEl = div.querySelector('.qexpl');
   if (explEl) explEl.classList.add('show');
+  if (typeof playSound === 'function') {
+    setTimeout(() => playSound('reveal'), getSetting('reduceMotion') ? 0 : 220);
+  }
   div.querySelectorAll('.sbtn').forEach(b => { if (b.textContent.includes('explication')) b.remove(); });
   if (getSetting('qcmFocusMode')) _updateQFocusNav(m, qi);
 }
@@ -278,7 +282,20 @@ function ansQ(m, qi, oi) {
   if (s.answers.hasOwnProperty(qi)) return;
   const correct = oi === s.shuffled[qi].ans;
   s.answers[qi] = correct;
-  if (typeof playSound === 'function' && oi >= 0) playSound(correct ? 'correct' : 'wrong');
+  const cat = s.shuffled[qi].cat;
+  const pctBefore = (correct && cat && cat !== 'Toutes') ? _getCatPct(m, cat) : null;
+  if (typeof playSound === 'function' && oi >= 0) {
+    if (correct) {
+      _qcmStreak[m] = (_qcmStreak[m] || 0) + 1;
+      if (_qcmStreak[m] >= 3) playSound('streak');
+      else playSound('correct');
+    } else {
+      _qcmStreak[m] = 0;
+      playSound('wrong');
+    }
+  } else if (oi < 0) {
+    _qcmStreak[m] = 0;
+  }
 
   const st  = loadSt(s.stKey);
   const key = qKey(s.shuffled[qi]);
@@ -286,6 +303,14 @@ function ansQ(m, qi, oi) {
   st.qdata[key].total++;
   if (correct) st.qdata[key].ok++;
   saveSt(s.stKey, st);
+
+  if (correct && pctBefore !== null && cat !== 'Toutes') {
+    const pctAfter = _getCatPct(m, cat);
+    const threshPct = Math.round((getSetting('reviseThresh') || 0.6) * 100);
+    if (pctBefore < threshPct && pctAfter >= threshPct && typeof playSound === 'function') {
+      playSound('levelup');
+    }
+  }
 
   _finishQcard(m, qi, oi);
   updateQProg(m);
@@ -341,6 +366,7 @@ function mixQ(m) {
   s.shuffled = picked.map(q => shuffleQcmOptions(q));
   s.answers = {};
   s.currentIdx = 0;
+  _qcmStreak[m] = 0;
   renderQ(m);
 }
 

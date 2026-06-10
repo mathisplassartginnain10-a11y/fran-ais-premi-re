@@ -106,7 +106,7 @@ async function introSimLaunchAll(auto) {
       status.classList.remove('err');
     }
     introSimSetLaunchBtn(false);
-    if (typeof playSound === 'function') playSound('ok');
+    if (typeof playSound === 'function') playSound('open');
   };
 
   const finishErr = (msg) => {
@@ -303,7 +303,7 @@ async function introSimRequestOllamaCommentary(entry, passage, score, showOpts, 
     }
     introSimSetOllamaPanel(false);
     introSimShowResult(entry, score, showOpts || { persist: true });
-    if (typeof playSound === 'function') playSound('ok');
+    if (typeof playSound === 'function') playSound('complete');
   } catch (e) {
     if (e.name === 'AbortError' || genId !== _introSimOllamaGenId) return;
     if (!retryGpu && introSimIsLocalServer()) {
@@ -558,7 +558,7 @@ function introSimToggleFav() {
   introSimFlashFavSaved(true);
   introSimUpdateFavBtn();
   if (typeof renderFavs === 'function') renderFavs();
-  if (typeof playSound === 'function') playSound('ok');
+  if (typeof playSound === 'function') playSound('add');
 }
 
 function introSimRemoveFavById(id) {
@@ -569,6 +569,7 @@ function introSimRemoveFavById(id) {
   introSimPersistFavs(f);
   introSimUpdateFavBtn();
   if (typeof renderFavs === 'function') renderFavs();
+  if (typeof playSound === 'function') playSound('remove');
 }
 
 function introSimGetFavIntros() {
@@ -583,7 +584,7 @@ function introSimCopyFavById(id, mode) {
     : (item.fullComment || item.full || '');
   if (!txt) return;
   navigator.clipboard.writeText(txt).then(() => {
-    if (typeof playSound === 'function') playSound('ok');
+    if (typeof playSound === 'function') playSound('click');
   }).catch(() => {});
 }
 
@@ -1135,7 +1136,7 @@ function introSimShareLink() {
   const f = introSimFields();
   introSimPushQuery(f);
   const url = location.href;
-  const done = () => { if (typeof playSound === 'function') playSound('ok'); };
+  const done = () => { if (typeof playSound === 'function') playSound('click'); };
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(url).then(done).catch(() => {});
   }
@@ -1468,7 +1469,7 @@ function introSimCopySection(key) {
   const txt = entry?.temps?.[key];
   if (!txt) return;
   navigator.clipboard.writeText(txt).catch(() => {});
-  if (typeof playSound === 'function') playSound('ok');
+  if (typeof playSound === 'function') playSound('click');
 }
 
 function introSimCopyFull() {
@@ -1476,7 +1477,7 @@ function introSimCopyFull() {
   const txt = entry?.fullComment || entry?.full;
   if (!txt) return;
   navigator.clipboard.writeText(txt).then(() => {
-    if (typeof playSound === 'function') playSound('ok');
+    if (typeof playSound === 'function') playSound('click');
   }).catch(() => {
     const ta = document.createElement('textarea');
     ta.value = txt;
@@ -1491,5 +1492,5 @@ function introSimCopyIntroOnly() {
   const entry = window._introSimCurrent;
   if (!entry?.full) return;
   navigator.clipboard.writeText(entry.full).catch(() => {});
-  if (typeof playSound === 'function') playSound('ok');
+  if (typeof playSound === 'function') playSound('click');
 }
