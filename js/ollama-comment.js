@@ -583,7 +583,8 @@ function ollamaCommentGatherContext(entry, opts) {
   const genreKind = entry.genreKind
     || (typeof introSimGenreKind === 'function' ? introSimGenreKind(entry.genre) : 'default');
   const planSrc = typeof INTRO_SIM_PLAN !== 'undefined' ? INTRO_SIM_PLAN : {};
-  const plan = (planSrc[genreKind] || planSrc.default || []).slice(0, 3);
+  const plan = entry._selectedPlan
+    || (planSrc[genreKind] || planSrc.default || []).slice(0, 3);
   const attendus = typeof introSimResolveAttendus === 'function'
     ? introSimResolveAttendus(entry, texte)
     : [];

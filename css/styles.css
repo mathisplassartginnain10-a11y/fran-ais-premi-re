@@ -1500,6 +1500,15 @@ body.gtext-fs-large .gtext-body{font-size:17px;line-height:1.85}
 
 .revision-print-root{display:none}
 
+.intro-sim-plan-wrap{margin-top:.5rem}
+.intro-sim-plan-choices{display:grid;gap:.5rem}
+.intro-sim-plan-opt{
+  display:grid;grid-template-columns:auto 1fr;gap:.35rem .65rem;align-items:start;
+  padding:.55rem .7rem;border:.5px solid var(--b2);border-radius:var(--rad);cursor:pointer;
+}
+.intro-sim-plan-opt input{margin-top:.25rem}
+.intro-sim-plan-axes{grid-column:2;font-size:11px;color:var(--tx3);line-height:1.4}
+
 /* ══════════════════════════════════════════
    DESIGN & PERSONNALISATION (thème étendu)
    ══════════════════════════════════════════ */

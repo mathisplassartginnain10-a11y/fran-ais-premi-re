@@ -1004,6 +1004,7 @@ function initIntroSim() {
     introSimRenderGtDemos();
     introSimUpdateGtDemoLabel();
     introSimInitOllamaUi();
+    introSimRenderPlanChoices('default');
     introSimApplyQuery();
     const gtSearch = el('intro-sim-gt-search');
     if (gtSearch && !gtSearch.dataset.ready) {
@@ -1142,6 +1143,43 @@ function introSimShareLink() {
   }
 }
 
+function introSimGetPlanVariantId() {
+  const sel = document.querySelector('input[name="intro-sim-plan"]:checked');
+  return sel ? sel.value : 'auto';
+}
+
+function introSimRenderPlanChoices(genreKind) {
+  const wrap = el('intro-sim-plan-choices');
+  if (!wrap) return;
+  const gk = genreKind || 'default';
+  const variants = typeof INTRO_SIM_PLAN_VARIANTS !== 'undefined'
+    ? (INTRO_SIM_PLAN_VARIANTS[gk] || INTRO_SIM_PLAN_VARIANTS.default)
+    : [];
+  const cur = introSimGetPlanVariantId();
+  wrap.innerHTML = `
+    <label class="intro-sim-plan-opt">
+      <input type="radio" name="intro-sim-plan" value="auto" ${cur === 'auto' ? 'checked' : ''} onchange="introSimOnPlanChange()">
+      <span><strong>Laisser l'IA choisir</strong> — plan par défaut du genre (comportement habituel)</span>
+    </label>
+    ${variants.map(v => `
+      <label class="intro-sim-plan-opt">
+        <input type="radio" name="intro-sim-plan" value="${introSimEscAttr(v.id)}" ${cur === v.id ? 'checked' : ''} onchange="introSimOnPlanChange()">
+        <span><strong>${introSimEsc(v.title)}</strong> — ${introSimEsc(v.hint)}</span>
+        <span class="intro-sim-plan-axes">${v.axes.map((a, i) => `${i + 1}. ${introSimEsc(a)}`).join(' · ')}</span>
+      </label>`).join('')}`;
+}
+
+function introSimOnPlanChange() {
+  const auteur = el('intro-sim-auteur')?.value.trim() || '';
+  const oeuvre = el('intro-sim-oeuvre')?.value.trim() || '';
+  const passage = el('intro-sim-passage')?.value.trim() || '';
+  const excerptOnly = typeof introSimIsExcerptText === 'function' && introSimIsExcerptText(passage);
+  if (!auteur && !oeuvre && !excerptOnly) return;
+  if (typeof introSimSearch !== 'function') return;
+  const matches = introSimSearch(auteur, oeuvre, passage, introSimOpts());
+  if (matches.length) introSimRenderMatches(matches, auteur, oeuvre, passage, true);
+}
+
 function introSimOpts() {
   const theme = el('intro-sim-theme')?.value.trim();
   const passage = el('intro-sim-passage')?.value.trim() || '';
@@ -1150,6 +1188,7 @@ function introSimOpts() {
   const fullCommentary = fullMode ? (fullMode.checked || excerpt) : excerpt;
   const opts = { fullCommentary };
   if (theme) opts.themeOverride = introSimThemeNormalize(theme);
+  opts.planVariantId = introSimGetPlanVariantId();
   return opts;
 }
 
@@ -1297,6 +1336,7 @@ function introSimRenderMatches(matches, auteur, oeuvre, passage, silent) {
   }).join('')}</div>`;
   window._introSimMatches = top;
   _introSimProbIdx = 0;
+  if (top[0].entry?.genreKind) introSimRenderPlanChoices(top[0].entry.genreKind);
   introSimShowResult(top[0].entry, top[0].score, { persist: !silent });
   if (!silent && introSimOllamaEnabled() && introSimWantsFullCommentary(passage)) {
     introSimRequestOllamaCommentary(top[0].entry, passage, top[0].score, { persist: true });

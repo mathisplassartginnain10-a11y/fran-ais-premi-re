@@ -67,6 +67,177 @@ const INTRO_SIM_PLAN = {
   ],
 };
 
+/** Variantes de plan (2–3 angles par genre) — id + titre + justification + 3 axes */
+const INTRO_SIM_PLAN_VARIANTS = {
+  poesie: [
+    {
+      id: 'thematique',
+      title: 'Plan thématique',
+      hint: 'Priorise les émotions, le « je » poétique et le sens véhiculé par les thèmes.',
+      axes: [
+        'la construction lyrique du « je » et l\'expression des émotions',
+        'les thèmes et motifs récurrents du poème',
+        'la portée symbolique et l\'effet sur le lecteur',
+      ],
+    },
+    {
+      id: 'formel',
+      title: 'Plan formel',
+      hint: 'Part de la versification, des figures et des effets sonores pour relier forme et sens.',
+      axes: [
+        'la versification et la structure du poème (strophes, rimes, mètres)',
+        'les figures de style et procédés sonores (allitérations, anaphores…)',
+        'la cohérence entre forme poétique et message',
+      ],
+    },
+    {
+      id: 'registre',
+      title: 'Plan registre / tonalité',
+      hint: 'Met l\'accent sur le ton, le registre et l\'atmosphère globale du texte.',
+      axes: [
+        'le registre dominant et la tonalité émotionnelle',
+        'les procédés qui créent l\'atmosphère (champ lexical, figures)',
+        'l\'effet produit sur le lecteur et la visée du poème',
+      ],
+    },
+  ],
+  narratif: [
+    {
+      id: 'recit',
+      title: 'Plan narratif',
+      hint: 'Analyse la construction du récit : intrigue, point de vue, temporalité.',
+      axes: [
+        'la construction du récit (intrigue, point de vue, temporalité)',
+        'la caractérisation et l\'univers fictionnel',
+        'le rythme narratif et les effets de suspense ou de description',
+      ],
+    },
+    {
+      id: 'thematique',
+      title: 'Plan thématique',
+      hint: 'Organise le commentaire autour des thèmes et enjeux du passage.',
+      axes: [
+        'les thèmes et enjeux principaux du passage',
+        'les procédés qui les mettent en valeur',
+        'le projet de l\'auteur et la portée du récit',
+      ],
+    },
+    {
+      id: 'registre',
+      title: 'Plan registre / écriture',
+      hint: 'Relie style, registre et effets d\'écriture au sens du texte.',
+      axes: [
+        'le registre dominant et le ton du narrateur',
+        'les procédés stylistiques au service du sens',
+        'l\'effet produit sur le lecteur',
+      ],
+    },
+  ],
+  theatre: [
+    {
+      id: 'dramaturgie',
+      title: 'Plan dramaturgique',
+      hint: 'Part de la scène, des conflits et de la mise en jeu des personnages.',
+      axes: [
+        'la dramaturgie et les enjeux de la scène',
+        'les relations entre personnages et conflits',
+        'la dimension spectaculaire (didascalies, double énonciation)',
+      ],
+    },
+    {
+      id: 'langue',
+      title: 'Plan langue théâtrale',
+      hint: 'Analyse dialogues, figures et registres propres au théâtre.',
+      axes: [
+        'la langue théâtrale (dialogues, répliques, apartés)',
+        'les figures de style et procédés rhétoriques',
+        'l\'effet sur le spectateur et la visée dramatique',
+      ],
+    },
+    {
+      id: 'thematique',
+      title: 'Plan thématique',
+      hint: 'Centre le commentaire sur les thèmes et l\'engagement du texte.',
+      axes: [
+        'les thèmes et enjeux du passage',
+        'les procédés qui les traduisent à la scène',
+        'l\'engagement de l\'auteur et la portée du texte',
+      ],
+    },
+  ],
+  idees: [
+    {
+      id: 'argumentation',
+      title: 'Plan argumentatif',
+      hint: 'Décompose la démonstration et la visée persuasive.',
+      axes: [
+        'l\'argumentation et la visée persuasive',
+        'la progression logique du raisonnement',
+        'l\'engagement de l\'auteur et la portée du texte',
+      ],
+    },
+    {
+      id: 'stylistique',
+      title: 'Plan stylistique',
+      hint: 'Relie procédés d\'écriture et effets sur le lecteur.',
+      axes: [
+        'les procédés stylistiques au service de la démonstration',
+        'le registre et le ton de l\'auteur',
+        'l\'effet produit sur le lecteur',
+      ],
+    },
+    {
+      id: 'thematique',
+      title: 'Plan thématique',
+      hint: 'Organise l\'analyse autour des idées et thèmes développés.',
+      axes: [
+        'les thèmes et idées centrales du passage',
+        'les exemples et procédés qui les soutiennent',
+        'la cohérence du projet d\'écriture',
+      ],
+    },
+  ],
+  default: [
+    {
+      id: 'classique',
+      title: 'Plan classique',
+      hint: 'Trois axes équilibrés : procédés, effet, projet d\'écriture.',
+      axes: INTRO_SIM_PLAN.default,
+    },
+    {
+      id: 'thematique',
+      title: 'Plan thématique',
+      hint: 'Priorise les thèmes et enjeux du passage.',
+      axes: [
+        'les thèmes et enjeux du passage',
+        'les procédés qui construisent le sens',
+        'l\'effet produit sur le lecteur',
+      ],
+    },
+    {
+      id: 'formel',
+      title: 'Plan formel',
+      hint: 'Part des procédés d\'écriture pour relier forme et sens.',
+      axes: [
+        'les procédés d\'écriture repérables',
+        'leur effet sur le sens et la construction',
+        'la cohérence du projet d\'écriture',
+      ],
+    },
+  ],
+};
+
+function introSimResolvePlan(genreKind, opts) {
+  opts = opts || {};
+  if (opts.planOverride && opts.planOverride.length >= 3) return opts.planOverride.slice(0, 3);
+  const variants = INTRO_SIM_PLAN_VARIANTS[genreKind] || INTRO_SIM_PLAN_VARIANTS.default;
+  if (opts.planVariantId && opts.planVariantId !== 'auto') {
+    const v = variants.find(x => x.id === opts.planVariantId);
+    if (v) return v.axes.slice(0, 3);
+  }
+  return (INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default).slice(0, 3);
+}
+
 let _introSimIndex = null;
 
 function introSimNorm(s) {
@@ -552,7 +723,7 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
   const registre = opts.registreOverride || introSimRegistre(t.genre, t.contexte, t.attendus);
   const genreLbl = introSimGenreLabel(t.genre);
   const procedesCles = introSimProcedesCles(t.attendus);
-  const plan = INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default;
+  const plan = introSimResolvePlan(genreKind, opts);
   const theme = opts.themeOverride
     ? introSimThemeNormalize(opts.themeOverride)
     : introSimThemeShort(t.contexte, t.titre, t.attendus, genreKind);
@@ -630,6 +801,8 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
     full: Object.values(temps).join('\n\n'),
     contexte: t.contexte,
     genreKind,
+    planVariantId: opts.planVariantId || 'auto',
+    _selectedPlan: plan,
   };
 }
 
@@ -644,7 +817,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
   const fonction = introSimFonction(author.genre || oeuvre);
   const genreKind = introSimGenreKind(author.genre || '');
   const genreLbl = introSimGenreLabel(author.genre || '');
-  const plan = INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default;
+  const plan = introSimResolvePlan(genreKind, opts);
   const theme = opts.themeOverride
     ? introSimThemeNormalize(opts.themeOverride)
     : introSimThemeShort(author.dev || '', passage || oeuvre, null, genreKind);
@@ -702,6 +875,8 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
     registre,
     theme,
     genreKind,
+    planVariantId: opts.planVariantId || 'auto',
+    _selectedPlan: plan,
   };
 }
 
@@ -913,7 +1088,7 @@ function introSimBuildFullCommentary(entry, opts) {
   const texte = (opts.userExcerpt || raw?.texte || '').trim();
   const gtRaw = raw?.attendus?.length ? raw : (texte ? introSimFindGtextByExcerpt(texte) : null);
   const genreKind = entry.genreKind || introSimGenreKind(entry.genre);
-  const axes = (INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default).slice(0, 3);
+  const axes = (entry._selectedPlan || INTRO_SIM_PLAN[genreKind] || INTRO_SIM_PLAN.default).slice(0, 3);
   const attendus = introSimResolveAttendus(entry, texte);
   const groups = introSimPartitionAttendus(attendus, axes.length);
   const auteurNom = entry.auteurNom || entry.auteur || 'L\'auteur';

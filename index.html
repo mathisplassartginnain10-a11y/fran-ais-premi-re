@@ -1548,6 +1548,7 @@
           Stats <em style="font-style:italic;color:var(--gold2)">Littérature</em>
         </h2>
         <div style="display:flex;gap:7px">
+          <button class="sbtn" onclick="printRevisionSheet()">🖨 Fiche à revoir</button>
           <button class="sbtn" onclick="window.print()">🖨 Imprimer</button>
           <button class="rst-btn" onclick="clearSt('proc')">Réinitialiser</button>
         </div>
@@ -1890,6 +1891,11 @@
         <div class="intro-sim-row">
           <label class="intro-sim-label" for="intro-sim-theme">Thème <span class="intro-sim-opt">(optionnel — remplace l'auto)</span></label>
           <input type="text" class="sinput intro-sim-input" id="intro-sim-theme" placeholder="Ex. la mélancolie du temps qui passe…">
+        </div>
+        <div class="intro-sim-row intro-sim-plan-wrap" id="intro-sim-plan-wrap">
+          <span class="intro-sim-label">Plan du commentaire</span>
+          <p class="intro-sim-opt" style="margin:0 0 .5rem">Choisis un angle avant de générer (influence l'intro locale et Ollama).</p>
+          <div class="intro-sim-plan-choices" id="intro-sim-plan-choices"></div>
         </div>
         <div class="intro-sim-form-actions">
           <button type="button" class="pbtn intro-sim-btn" onclick="introSimGenerate()">✨ Générer mon commentaire</button>
