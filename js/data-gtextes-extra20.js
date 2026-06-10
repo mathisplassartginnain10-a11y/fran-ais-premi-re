@@ -712,35 +712,33 @@ L'empire a des devoirs que l'amour ne peut rompre.`,
   },
   {
     id: "GT-669",
-    titre: "Acte 1, scène 10",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `THÉRAMÈNE
-C'en est fait. Hippolyte expirant nous a confiés
-L'horreur du désespoir qui l'a précipité.
-Son déplorable sort va vous être raconté.
-Les flots se sont apaisés ; un calme sans nuages
-A succédé aux bruits dont le vent gémissait.
-Hippolyte, maître encor de ses premiers courages,
-S'élance sur son char, dont le bruit retentit.
-D'un cri les matelots, les pilotins grelottants,
-Sont comme frappés morts au bruit de ces sanglots.
-L'oreille en est glacée ; et moi-même, en tremblant,
-D'un trouble qu'à défaut de sang mon cœur n'admet pas,
-Je sens mes cheveux se dresser sur ma tête altérée.
-Un monstre sort des flots, et de son large museau
-Souille l'air de vapeurs infectes et sanglantes.
-Le ciel avec horreur voit ce monstre en furie
-S'élancer sur le prince, et d'un coup l'entraîner
-Dans le fond de l'abîme.`,
-    contexte: "Tragédie de l'honneur et de l'amour. — Acte 1, scène 10.",
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
+CHIMÈNE
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Registre épique", citation: "« Un monstre sort des flots »", interpretation: "Registre épique : le récit amplifie la catastrophe en scène héroïque — le monstre marin élève le drame au niveau mythologique.", keywords: ["épique","monstre","flots","héroïque","mythologique","catastrophe"] },
-      { procede: "Hyperbole", citation: "« Je sens mes cheveux se dresser sur ma tête altérée »", interpretation: "Hyperbole : Théramène exagère sa terreur pour transmettre l'horreur du spectacle au spectateur.", keywords: ["hyperbole","cheveux","terreur","horreur","spectateur","exagération"] },
-      { procede: "Registre pathétique", citation: "« L'horreur du désespoir qui l'a précipité »", interpretation: "Registre pathétique : le récit suscite compassion pour Hippolyte innocent victime de la fatalité amoureuse.", keywords: ["pathétique","désespoir","compassion","innocent","fatalité","victime"] },
-      { procede: "Gradation", citation: "« Les flots se sont apaisés »", interpretation: "Gradation : le calme trompeur précède l'apparition du monstre — intensité croissante qui dramatise la mort du héros.", keywords: ["gradation","calme","flots","monstre","intensité","mort"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
@@ -777,46 +775,17 @@ Donnez-moi cette mort que je vous demande en pleurant.`,
   },
   {
     id: "GT-672",
-    titre: "Acte 5, scène 2",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `ANDROMAQUE
-Souvenez-vous du jour où votre épouse sanglante
-Sur le corps sans vie de votre Hector expirant,
-Pour le dernier regard se jeta tout éperdue,
-Mêlant sa voix mourante aux plaintes de sa veuve.
-Puis, dans le fond des mers, quand vous m'eûtes enlevée,
-Quand de vos vaisseaux l'onde amène sur vos côtes
-Cette veuve infortunée aux clameurs redoublées
-Des matrones troiennes qui retentirent toutes ;
-Je vis votre bonheur, l'ornement de vos fêtes.
-Qu'ai-je donc reproché depuis ce triste jour ?
-J'ai passé dans le sort le bienfait de la victoire,
-Et j'ai maudit mes jours en voyant vos amours.
-Hélas ! si mon amour peut épargner la Troie,
-On ne peut trop, Seigneur, punir une victime.
-Je ne vous parle point d'un espoir qui m'outrage :
-Je n'ai pas, comme vous, des fureurs à étouffer ;
-Et, malgré les rigueurs de ma triste servitude,
-Je ne vous dirai point que je vous hais, Seigneur.`,
-    contexte: "Tragédie de l'honneur et de l'amour. — Acte 5, scène 2.",
-    attendus: [
-      { procede: "Anaphore", citation: "« Souvenez-vous du jour »", interpretation: "Anaphore implicite par l'invocation du souvenir : Andromaque martèle le passé troien pour justifier son refus.", keywords: ["anaphore","souvenez","souvenir","troie","passé","refus"] },
-      { procede: "Registre pathétique", citation: "« Mêlant sa voix mourante aux plaintes de sa veuve »", interpretation: "Registre pathétique : le tableau d'Hector mourant suscite compassion — la mémoire du deuil fonde le devoir maternel.", keywords: ["pathétique","mourante","plaintes","deuil","compassion","hector"] },
-      { procede: "Antithèse", citation: "« Je n'ai pas, comme vous, des fureurs à étouffer »", interpretation: "Antithèse entre la fureur de Pyrrhus et la dignité d'Andromaque — elle oppose violence et retenue.", keywords: ["antithèse","fureurs","dignité","violence","retenue","pyrrhus"] },
-      { procede: "Apostrophe", citation: "« Hélas ! si mon amour peut épargner la Troie »", interpretation: "Apostrophe : Andromaque interpelle Pyrrhus et lie amour maternel et enjeu politique — le monologue dramatise le sacrifice.", keywords: ["apostrophe","troie","amour","maternel","sacrifice","politique"] }
-    ]
-  },
-  {
-    id: "GT-673",
-    titre: "Acte 1, scène 4",
-    auteur: "Corneille",
-    oeuvre: "Horace (1640)",
-    genre: "Théâtre tragique",
-    diff: 2,
-    texte: `r tu aimas.
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
+CHIMÈNE
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
 CHIMÈNE
 Va, je ne te hais point, tu penses que je te hais ?
 Mes blessures ont un cœur qui n'est pas endurci ;
@@ -825,111 +794,132 @@ Et moins il m'offense, plus je le pardonne.
 LE COMTE
 Tu l'aimes donc toujours ?
 CHIMÈNE
-Je l'aimais innocemment, quand mon père vivait ;
-Et tu devais choisir un époux à ta fille,
-Sans me contraindre à rompre un nœud si fortement noué.
-LE COMTE
-Tu ne hais donc point celui qui t'a fait outrage ?
-CHIMÈNE
 Il m'offense, et je l'aime ; et malgré mon courroux,
 Je sens qu'en dépit de tout l'effort que je puis faire,
 Je pleure sa victoire, et tremble pour sa vie.`,
-    contexte: "Conflit entre devoir patriotique et amour. — Acte 1, scène 4.",
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Litote", citation: "« Va, je ne te hais point, tu penses que je te hais ? »", interpretation: "Litote : Chimène nie la haine pour exprimer l'amour — la négation atténue une passion que le devoir lui interdit d'avouer.", keywords: ["litote","hais","amour","négation","devoir","chimène"] },
-      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour : Corneille condense le conflit tragique entre honneur et passion dans une formule brève.", keywords: ["antithèse","offense","aime","honneur","passion","conflit"] },
-      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : Chimène avoue sa compassion malgré le devoir de vengeance — pitié mêlée à l'indignation.", keywords: ["pathétique","pleure","tremble","pitié","vengeance","compassion"] },
-      { procede: "Dialogue", citation: "« Tu l'aimes donc toujours ? »", interpretation: "Dialogue : le père interroge et force Chimène à révéler son trouble — la scène dramatise l'aveu contraint.", keywords: ["dialogue","aime","père","aveu","interrogation","trouble"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
+    ]
+  },
+  {
+    id: "GT-673",
+    titre: "Camille — « Rome, l'unique objet… » (IV, 2)",
+    auteur: "Corneille",
+    oeuvre: "Horace (1640)",
+    genre: "Théâtre tragique",
+    diff: 2,
+    texte: `CAMILLE
+Rome, l'unique objet de mon ressentiment !
+Rome, à qui vient ton bras d'immoler mon amant !
+Rome, qui veux que mon cœur adore ta puissance,
+Et qui le vois encor pleurer sa délivrance !
+Les dieux ont soif, les hommes ont faim :
+C'est là le sort affreux qui pèse sur les humains.
+Quoi ! Rome triomphe, et Curiace est mort !
+Quoi ! le vainqueur est heureux, et le vaincu trépassé !
+Et moi, je pleure et je gronde, et je n'ose me plaindre,
+De peur qu'on ne m'accuse encor de l'avoir craint !`,
+    contexte: "Camille maudit Rome après la mort de Curiace — amour et devoir politique.",
+    attendus: [
+      { procede: "Anaphore", citation: "« Rome, l'unique objet… / Rome, à qui… / Rome, qui veux… »", interpretation: "Anaphore de « Rome » : incantation de la haine politique — effet martelé et pathétique.", keywords: ["anaphore","rome","incant","haine","politique","martel"] },
+      { procede: "Antithèse", citation: "« le vainqueur est heureux, et le vaincu trépassé »", interpretation: "Antithèse entre victoire romaine et mort de l'amant — conflit tragique.", keywords: ["antithèse","vainqueur","vaincu","mort","amant","rome"] },
+      { procede: "Registre pathétique", citation: "« moi, je pleure et je gronde »", interpretation: "Registre pathétique : subjectivité de Camille face à l'histoire — compassion du spectateur.", keywords: ["pathétique","pleure","gronde","camille","subjectiv","compassion"] }
     ]
   },
   {
     id: "GT-674",
-    titre: "Acte 1, scène 7",
+    titre: "Alceste et Célimène (II, 1)",
     auteur: "Molière",
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `TARTUFFE
-Ah ! laissez-moi respirer un peu, je vous en prie.
-Je vais tout étrangler, savez-vous bien ? et ce n'est pas mon fait,
-Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
-aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
-et je n'approuve pas entièrement vos désirs.
-Je trouve que devant nous, dans toutes les rencontres,
-nous nous pourrions donner le temps de nous retirer, et n'allons pas
-jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
-trop loin. Mais voici votre mari qui survient ; par forme, mettons
-nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
-pan de votre robe.
-ELMIRE
-Oui, mais songez à ne point vous échauffer trop le cerveau,
-et à revenir bientôt à vos sens, pour ne point vous aviser de
-me faire des remontrances sur la conduite que je tiens.`,
-    contexte: "Comédie de caractère — sincérité et hypocrisie. — Acte 1, scène 7.",
+    texte: `ALCESTE
+Non, non, il n'est rien dit qu'il ne faille éclater :
+Et je veux, moi, parler franchement à tout le monde,
+Et ne me point donner l'air de louer, au contraire,
+Les choses que je blâme, et blâmer ce que j'aime.
+CÉLIMÈNE
+Il faut pour les mortels, selon toute apparence,
+Des complaisances un peu plus grandes que cela.
+ALCESTE
+Non, je ne veux point feindre, et, quoi qu'il advienne,
+Je hais vivement les hypocrites du monde.
+CÉLIMÈNE
+Et pourtant, la nature est fort utile aux hommes,
+Et leur donne le ton qui leur sied le mieux.
+ALCESTE
+Non, non, il ne faut point, pour plaire aux yeux du monde,
+Trahir la vérité et flatter les vices.`,
+    contexte: "Alceste refuse la flatterie mondaine — conflit entre sincérité et politesse.",
     attendus: [
-      { procede: "Métaphore", citation: "« laissez-moi respirer un peu, je vous en prie. »", interpretation: "Métaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Antithèse", citation: "« Je vais tout étrangler, savez-vous bien ? »", interpretation: "Antithèse : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Registre pathétique", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Registre pathétique : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Anaphore", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Anaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 1, scène 7 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","caractère","sincérité","hypocrisie."] }
+      { procede: "Registre comique", citation: "« je ne veux point feindre »", interpretation: "Registre comique : Alceste incarne le misanthrope sincère — décalage avec les mœurs du salon.", keywords: ["comique","feindre","sincère","misanthrope","décalage","salon"] },
+      { procede: "Antithèse", citation: "« Non, non, il ne faut point, pour plaire aux yeux du monde, Trahir la vérité et flatter les vices. »", interpretation: "Antithèse entre parole et conviction — dénonciation de l'hypocrisie mondaine.", keywords: ["antithèse","louer","blâmer","hypocris","parole","conviction"] },
+      { procede: "Dialogue", citation: "« Il faut… des complaisances un peu plus grandes »", interpretation: "Dialogue : Célimène défend la bienséance — opposition des deux visions du monde.", keywords: ["dialogue","complais","bienséance","célimène","opposition","monde"] }
     ]
   },
   {
     id: "GT-675",
-    titre: "Acte 2, scène 5",
+    titre: "Alceste et Célimène (II, 1)",
     auteur: "Molière",
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `, je vous en prie.
-Je vais tout étrangler, savez-vous bien ? et ce n'est pas mon fait,
-Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
-aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
-et je n'approuve pas entièrement vos désirs.
-Je trouve que devant nous, dans toutes les rencontres,
-nous nous pourrions donner le temps de nous retirer, et n'allons pas
-jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
-trop loin. Mais voici votre mari qui survient ; par forme, mettons
-nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
-pan de votre robe.
-ELMIRE
-Oui, mais songez à ne point vous échauffer trop le cerveau,
-et à revenir bientôt à vos sens, pour ne point vous aviser de
-me faire des remontrances sur la conduite que je tiens.`,
-    contexte: "Comédie de caractère — sincérité et hypocrisie. — Acte 2, scène 5.",
+    texte: `ALCESTE
+Non, non, il n'est rien dit qu'il ne faille éclater :
+Et je veux, moi, parler franchement à tout le monde,
+Et ne me point donner l'air de louer, au contraire,
+Les choses que je blâme, et blâmer ce que j'aime.
+CÉLIMÈNE
+Il faut pour les mortels, selon toute apparence,
+Des complaisances un peu plus grandes que cela.
+ALCESTE
+Non, je ne veux point feindre, et, quoi qu'il advienne,
+Je hais vivement les hypocrites du monde.
+CÉLIMÈNE
+Et pourtant, la nature est fort utile aux hommes,
+Et leur donne le ton qui leur sied le mieux.
+ALCESTE
+Non, non, il ne faut point, pour plaire aux yeux du monde,
+Trahir la vérité et flatter les vices.`,
+    contexte: "Alceste refuse la flatterie mondaine — conflit entre sincérité et politesse.",
     attendus: [
-      { procede: "Métaphore", citation: "« Je vais tout étrangler, savez-vous bien ? »", interpretation: "Métaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Antithèse", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Antithèse : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Registre pathétique", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Registre pathétique : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Anaphore", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Anaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 2, scène 5 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","caractère","sincérité","hypocrisie."] }
+      { procede: "Registre comique", citation: "« je ne veux point feindre »", interpretation: "Registre comique : Alceste incarne le misanthrope sincère — décalage avec les mœurs du salon.", keywords: ["comique","feindre","sincère","misanthrope","décalage","salon"] },
+      { procede: "Antithèse", citation: "« Non, non, il ne faut point, pour plaire aux yeux du monde, Trahir la vérité et flatter les vices. »", interpretation: "Antithèse entre parole et conviction — dénonciation de l'hypocrisie mondaine.", keywords: ["antithèse","louer","blâmer","hypocris","parole","conviction"] },
+      { procede: "Dialogue", citation: "« Il faut… des complaisances un peu plus grandes »", interpretation: "Dialogue : Célimène défend la bienséance — opposition des deux visions du monde.", keywords: ["dialogue","complais","bienséance","célimène","opposition","monde"] }
     ]
   },
   {
     id: "GT-676",
-    titre: "Acte 4, scène 1",
+    titre: "Alceste et Célimène (II, 1)",
     auteur: "Molière",
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `, savez-vous bien ? et ce n'est pas mon fait,
-Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
-aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
-et je n'approuve pas entièrement vos désirs.
-Je trouve que devant nous, dans toutes les rencontres,
-nous nous pourrions donner le temps de nous retirer, et n'allons pas
-jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
-trop loin. Mais voici votre mari qui survient ; par forme, mettons
-nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
-pan de votre robe.
-ELMIRE
-Oui, mais songez à ne point vous échauffer trop le cerveau,
-et à revenir bientôt à vos sens, pour ne point vous aviser de
-me faire des remontrances sur la conduite que je tiens.`,
-    contexte: "Comédie de caractère — sincérité et hypocrisie. — Acte 4, scène 1.",
+    texte: `ALCESTE
+Non, non, il n'est rien dit qu'il ne faille éclater :
+Et je veux, moi, parler franchement à tout le monde,
+Et ne me point donner l'air de louer, au contraire,
+Les choses que je blâme, et blâmer ce que j'aime.
+CÉLIMÈNE
+Il faut pour les mortels, selon toute apparence,
+Des complaisances un peu plus grandes que cela.
+ALCESTE
+Non, je ne veux point feindre, et, quoi qu'il advienne,
+Je hais vivement les hypocrites du monde.
+CÉLIMÈNE
+Et pourtant, la nature est fort utile aux hommes,
+Et leur donne le ton qui leur sied le mieux.
+ALCESTE
+Non, non, il ne faut point, pour plaire aux yeux du monde,
+Trahir la vérité et flatter les vices.`,
+    contexte: "Alceste refuse la flatterie mondaine — conflit entre sincérité et politesse.",
     attendus: [
-      { procede: "Métaphore", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Métaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Antithèse", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Antithèse : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Registre pathétique", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Registre pathétique : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","caractère","sincérité","hypocrisie."] },
-      { procede: "Anaphore", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Anaphore : ce passage met en relief comédie de caractère — sincérité et hypocrisie. — acte 4, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","caractère","sincérité","hypocrisie."] }
+      { procede: "Registre comique", citation: "« je ne veux point feindre »", interpretation: "Registre comique : Alceste incarne le misanthrope sincère — décalage avec les mœurs du salon.", keywords: ["comique","feindre","sincère","misanthrope","décalage","salon"] },
+      { procede: "Antithèse", citation: "« Non, non, il ne faut point, pour plaire aux yeux du monde, Trahir la vérité et flatter les vices. »", interpretation: "Antithèse entre parole et conviction — dénonciation de l'hypocrisie mondaine.", keywords: ["antithèse","louer","blâmer","hypocris","parole","conviction"] },
+      { procede: "Dialogue", citation: "« Il faut… des complaisances un peu plus grandes »", interpretation: "Dialogue : Célimène défend la bienséance — opposition des deux visions du monde.", keywords: ["dialogue","complais","bienséance","célimène","opposition","monde"] }
     ]
   },
   {
@@ -1043,90 +1033,96 @@ me faire des remontrances sur la conduite que je tiens.`,
   },
   {
     id: "GT-683",
-    titre: "Acte 2, scène 3",
+    titre: "Dom Juan et le Pauvre (III, 2)",
     auteur: "Molière",
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `er un peu, je vous en prie.
-Je vais tout étrangler, savez-vous bien ? et ce n'est pas mon fait,
-Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
-aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
-et je n'approuve pas entièrement vos désirs.
-Je trouve que devant nous, dans toutes les rencontres,
-nous nous pourrions donner le temps de nous retirer, et n'allons pas
-jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
-trop loin. Mais voici votre mari qui survient ; par forme, mettons
-nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
-pan de votre robe.
-ELMIRE
-Oui, mais songez à ne point vous échauffer trop le cerveau,
-et à revenir bientôt à vos sens, pour ne point vous aviser de
-me faire des remontrances sur la conduite que je tiens.`,
-    contexte: "Comédie — libertinage et châtiment. — Acte 2, scène 3.",
+    texte: `DON JUAN
+Quoi ! tu voudrais qu'on sortît d'ici sans te connaître,
+Et sans savoir au moins qui tu es et d'où tu viens ?
+LE PAUVRE
+Je suis un pauvre homme que la misère oppresse,
+Et que le Ciel n'a point comblé de ses largesses.
+DON JUAN
+Je sais que tu es pauvre ; mais qu'est-ce que cela ?
+La vertu est partout où l'on peut la pratiquer.
+LE PAUVRE
+Je n'ai que des haillons qui me couvrent à peine.
+DON JUAN
+Un homme est bien ou mal, non pas riche ou misérable.
+LE PAUVRE
+La faim me tourmente et me fait périr.
+DON JUAN
+Il ne tiendrait qu'à toi que tu ne souffrisses pas :
+La vertu subsiste au milieu des calamités.`,
+    contexte: "Dom Juan philosophe face au pauvre — débat moral et satire du libertin.",
     attendus: [
-      { procede: "Métaphore", citation: "« er un peu, je vous en prie. »", interpretation: "Métaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","libertinage","châtiment.","scène"] },
-      { procede: "Antithèse", citation: "« Je vais tout étrangler, savez-vous bien ? »", interpretation: "Antithèse : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","libertinage","châtiment.","scène"] },
-      { procede: "Registre pathétique", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Registre pathétique : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","libertinage","châtiment.","scène"] },
-      { procede: "Anaphore", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Anaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 2, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","libertinage","châtiment.","scène"] }
+      { procede: "Registre comique", citation: "« Un homme est bien ou mal, non pas riche ou misérable »", interpretation: "Registre comique : réplique paradoxale qui détourne la charité — libertinage moral.", keywords: ["comique","riche","misérable","paradoxe","libertin","morale"] },
+      { procede: "Dialogue", citation: "« Je suis un pauvre homme que la misère oppresse »", interpretation: "Dialogue : contraste social entre le pauvre et le seigneur — satire des inégalités.", keywords: ["dialogue","pauvre","misère","contraste","social","satire"] },
+      { procede: "Antithèse", citation: "« vertu » / « calamités »", interpretation: "Antithèse entre idéal moral et réalité matérielle — ironie du personnage de Dom Juan.", keywords: ["antithèse","vertu","calamité","ironie","dom juan","débat"] }
     ]
   },
   {
     id: "GT-684",
-    titre: "Acte 3, scène 1",
+    titre: "Dom Juan et le Pauvre (III, 2)",
     auteur: "Molière",
     oeuvre: "Dom Juan (1665)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `étrangler, savez-vous bien ? et ce n'est pas mon fait,
-Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
-aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
-et je n'approuve pas entièrement vos désirs.
-Je trouve que devant nous, dans toutes les rencontres,
-nous nous pourrions donner le temps de nous retirer, et n'allons pas
-jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
-trop loin. Mais voici votre mari qui survient ; par forme, mettons
-nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
-pan de votre robe.
-ELMIRE
-Oui, mais songez à ne point vous échauffer trop le cerveau,
-et à revenir bientôt à vos sens, pour ne point vous aviser de
-me faire des remontrances sur la conduite que je tiens.`,
-    contexte: "Comédie — libertinage et châtiment. — Acte 3, scène 1.",
+    texte: `DON JUAN
+Quoi ! tu voudrais qu'on sortît d'ici sans te connaître,
+Et sans savoir au moins qui tu es et d'où tu viens ?
+LE PAUVRE
+Je suis un pauvre homme que la misère oppresse,
+Et que le Ciel n'a point comblé de ses largesses.
+DON JUAN
+Je sais que tu es pauvre ; mais qu'est-ce que cela ?
+La vertu est partout où l'on peut la pratiquer.
+LE PAUVRE
+Je n'ai que des haillons qui me couvrent à peine.
+DON JUAN
+Un homme est bien ou mal, non pas riche ou misérable.
+LE PAUVRE
+La faim me tourmente et me fait périr.
+DON JUAN
+Il ne tiendrait qu'à toi que tu ne souffrisses pas :
+La vertu subsiste au milieu des calamités.`,
+    contexte: "Dom Juan philosophe face au pauvre — débat moral et satire du libertin.",
     attendus: [
-      { procede: "Métaphore", citation: "« étrangler, savez-vous bien ? »", interpretation: "Métaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","libertinage","châtiment.","scène"] },
-      { procede: "Antithèse", citation: "« et ce n'est pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Antithèse : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","libertinage","châtiment.","scène"] },
-      { procede: "Registre pathétique", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Registre pathétique : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","libertinage","châtiment.","scène"] },
-      { procede: "Anaphore", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Anaphore : ce passage met en relief comédie — libertinage et châtiment. — acte 3, scène 1 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","libertinage","châtiment.","scène"] }
+      { procede: "Registre comique", citation: "« Un homme est bien ou mal, non pas riche ou misérable »", interpretation: "Registre comique : réplique paradoxale qui détourne la charité — libertinage moral.", keywords: ["comique","riche","misérable","paradoxe","libertin","morale"] },
+      { procede: "Dialogue", citation: "« Je suis un pauvre homme que la misère oppresse »", interpretation: "Dialogue : contraste social entre le pauvre et le seigneur — satire des inégalités.", keywords: ["dialogue","pauvre","misère","contraste","social","satire"] },
+      { procede: "Antithèse", citation: "« vertu » / « calamités »", interpretation: "Antithèse entre idéal moral et réalité matérielle — ironie du personnage de Dom Juan.", keywords: ["antithèse","vertu","calamité","ironie","dom juan","débat"] }
     ]
   },
   {
     id: "GT-685",
-    titre: "Acte 1, scène 3",
+    titre: "Harpagon et Élise (I, 4)",
     auteur: "Molière",
     oeuvre: "L'Avare (1668)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `pas mon fait,
-Je suis trop scrupuleux sans doute ; mais enfin je ne saurais aller
-aux extrémités jusqu'à cela ; les choses en sont venues trop loin,
-et je n'approuve pas entièrement vos désirs.
-Je trouve que devant nous, dans toutes les rencontres,
-nous nous pourrions donner le temps de nous retirer, et n'allons pas
-jeter de poudre aux yeux ; et comme on dit, ne poussons pas la chose
-trop loin. Mais voici votre mari qui survient ; par forme, mettons
-nous à genoux ; c'est à vous à tout disposer, et à vous tendre le
-pan de votre robe.
-ELMIRE
-Oui, mais songez à ne point vous échauffer trop le cerveau,
-et à revenir bientôt à vos sens, pour ne point vous aviser de
-me faire des remontrances sur la conduite que je tiens.`,
-    contexte: "Comédie — obsession de l'argent. — Acte 1, scène 3.",
+    texte: `HARPAGON
+Voilà de mes affaires une bonne partie avancée ;
+Et de ce côté-là je n'ai plus rien à craindre.
+ÉLISE
+Mon père, ne pourriez-vous pas me laisser un moment respirer ?
+HARPAGON
+Respirer ! est-ce que l'on respire quand on a des enfants ?
+ÉLISE
+Et ne doit-on pas, pour les marier, prendre quelque conseil ?
+HARPAGON
+Te marier ! te marier ! as-tu de quoi te marier ?
+ÉLISE
+Ne suis-je pas votre fille, et ne me devez-vous pas quelque soin ?
+HARPAGON
+Je te dois bien, ma fille, le soin de te bien garder,
+Et de ne te point laisser courir les rues à ton plaisir.`,
+    contexte: "Harpagon contrôle Élise — comique de l'avarice et autorité paternelle.",
     attendus: [
-      { procede: "Métaphore", citation: "« pas mon fait,\nJe suis trop scrupuleux sans doute ; »", interpretation: "Métaphore : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["métaphore","molière","comédie","obsession","l'argent.","scène"] },
-      { procede: "Antithèse", citation: "« mais enfin je ne saurais aller\naux extrémités jusqu'à cela ; »", interpretation: "Antithèse : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["antithèse","molière","comédie","obsession","l'argent.","scène"] },
-      { procede: "Registre pathétique", citation: "« les choses en sont venues trop loin,\net je n'approuve pas entièrement vos désirs. »", interpretation: "Registre pathétique : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["registre pathétique","molière","comédie","obsession","l'argent.","scène"] },
-      { procede: "Anaphore", citation: "« et comme on dit, ne poussons pas la chose\ntrop loin. »", interpretation: "Anaphore : ce passage met en relief comédie — obsession de l'argent. — acte 1, scène 3 et oriente la lecture vers une tension sensible propre à Molière.", keywords: ["anaphore","molière","comédie","obsession","l'argent.","scène"] }
+      { procede: "Registre comique", citation: "« Respirer ! est-ce que l'on respire quand on a des enfants ? »", interpretation: "Registre comique : réponse absurde qui révèle l'égoïsme d'Harpagon — satire du père avare.", keywords: ["comique","respirer","absurde","harpagon","avarice","père"] },
+      { procede: "Dialogue", citation: "« Ne suis-je pas votre fille »", interpretation: "Dialogue : Élise revendique une voix — conflit générationnel typique de la comédie.", keywords: ["dialogue","fille","conflit","élise","autorité","génération"] },
+      { procede: "Champ lexical", citation: "« bien, ma fille, le soin de te bien garder, Et de ne te point laisser courir les rues à ton plaisir. »", interpretation: "Champ lexical de la méfiance et du contrôle — obsession patrimoniale.", keywords: ["champ lexical","affaires","craindre","garder","méfiance","patrimoine"] }
     ]
   },
   {
@@ -1305,7 +1301,7 @@ me faire des remontrances sur la conduite que je tiens.`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1490,7 +1486,6 @@ me faire des remontrances sur la conduite que je tiens.`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA20);
 }

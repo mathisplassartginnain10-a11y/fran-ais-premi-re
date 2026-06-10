@@ -229,8 +229,8 @@ Et la Seine ne rendit plus jamais les deux êtres.`,
     texte: `Aujourd'hui, maman est morte. Ou peut-être hier, je ne sais pas. J'ai reçu un télégramme de l'asile : « Mère décédée. Enterrement demain. Sentiments distingués. » Cela ne veut rien dire. C'était peut-être hier. L'asile de vieillards est à Marengo, à quatre-vingts kilomètres d'Alger. Je prendrai l'autobus à deux heures et j'arriverai dans l'après-midi. Ainsi, je pourrai veiller, et je rentrerai à Alger demain soir. J'ai demandé deux jours de congé à mon patron et je ne peux pas lui refuser avec une excuse comme ça. Ça ne sera pas de ma faute si maman est enterrée vendredi plutôt qu'aujourd'hui, c'est-à-dire si je suis là pour l'enterrement. Mais ce soir j'ai demandé à l'employée de la morgue si on pouvait fermer la bière ; on m'a dit que oui et que c'était comme ça qu'on faisait habituellement. Il faisait très chaud.`,
     contexte: "Absurde — indifférence et condamnation. — Ouverture / incipit.",
     attendus: [
-      { procede: "Champ lexical", citation: "« morte », « décédée », « enterrement », « asile »", interpretation: "Champ lexical de la mort : morte, décédée, enterrement — vocabulaire administratif et froid qui contraste avec l'émotion attendue.", keywords: ["champ lexical","mort","décéd","enterrement","froid","administr"] },
-      { procede: "Antithèse", citation: "« Sentiments distingués » / mort de la mère", interpretation: "Antithèse entre la formule sociale creuse (« sentiments distingués ») et la réalité brutale (mort) — décalage qui caractérise Meursault.", keywords: ["antithèse","sentiments","mort","décalage","formule","brutal"] },
+      { procede: "Champ lexical", citation: "« heures et j'arriverai dans l'après-midi. »", interpretation: "Champ lexical de la mort : morte, décédée, enterrement — vocabulaire administratif et froid qui contraste avec l'émotion attendue.", keywords: ["champ lexical","mort","décéd","enterrement","froid","administr"] },
+      { procede: "Antithèse", citation: "« n. Sentiments distingu »", interpretation: "Antithèse entre la formule sociale creuse (« sentiments distingués ») et la réalité brutale (mort) — décalage qui caractérise Meursault.", keywords: ["antithèse","sentiments","mort","décalage","formule","brutal"] },
       { procede: "Phrase nominale", citation: "« Mère décédée. Enterrement demain. Sentiments distingués. »", interpretation: "Par « Mère décédée. Enterrement demain. Sentiments distingués. », le phrase nominale approfondit voix de meursault et marque le style de Camus.", keywords: ["phrase nominale","télégramme","sec","froid","phrase","style"] }
     ]
   },
@@ -398,8 +398,8 @@ où il fallait paraître juste pour réussir.`,
     contexte: "Conte philosophique — critique de l'optimisme. — Portrait du personnage.",
     attendus: [
       { procede: "Portrait", citation: "« un jeune homme à la figure pleine de candeur et de simplicité »", interpretation: "Portrait direct : Voltaire définit Candide par la candeur et la simplicité — traits qui ironisent sur le conte philosophique et préparent les épreuves du héros.", keywords: ["portrait","candeur","simplicité","jeune","héros","traits"] },
-      { procede: "Registre comique", citation: "« des lapins qui passaient par les trous »", interpretation: "Registre comique : détails grotesques du château (lapins, bardeaux) contrastent avec le ton noble attendu — Voltaire parodie le conte de fées dès l'incipit.", keywords: ["comique","grotesque","lapins","parodie","conte","détail"] },
-      { procede: "Antithèse", citation: "« une des plus belles maisons » / « entrée pas plus riche »", interpretation: "Antithèse entre la réputation du château et sa modestie réelle — décalage satirique qui annonce la critique des apparences.", keywords: ["antithèse","belle","modeste","décalage","apparence","satire"] }
+      { procede: "Registre comique", citation: "« s des lapins qui passaient et qui reve »", interpretation: "Registre comique : détails grotesques du château (lapins, bardeaux) contrastent avec le ton noble attendu — Voltaire parodie le conte de fées dès l'incipit.", keywords: ["comique","grotesque","lapins","parodie","conte","détail"] },
+      { procede: "Antithèse", citation: "« une des plus belles maisons »", interpretation: "Antithèse entre la réputation du château et sa modestie réelle — décalage satirique qui annonce la critique des apparences.", keywords: ["antithèse","belle","modeste","décalage","apparence","satire"] }
     ]
   },
   {
@@ -704,7 +704,7 @@ pendant cette boucherie héroïque.`,
     attendus: [
       { procede: "Portrait", citation: "« cheveux blancs, le front bas, les yeux vitreux, les mains tremblantes »", interpretation: "Portrait minutieux : Balzac accumule les détails physiques du père Goriot pour traduire la décrépitude et la misère morale du personnage sacrifié.", keywords: ["portrait","vieux","décrép","détails","misère","physique"] },
       { procede: "Comparaison", citation: "« comme si elles eussent été l'objet de sa pensée »", interpretation: "Comparaison avec « comme si » : Goriot fixe le feu comme un objet de méditation — image de la rêverie pathétique d'un père déchu.", keywords: ["comparaison","feu","méditation","rêverie","père","fixation"] },
-      { procede: "Registre réaliste", citation: "« habit vert fané, culotte de coutil blanc, bas gris »", interpretation: "Registre réaliste : vêtements usés et précis ancrent le personnage dans la quotidienneté sordide de la pension — observation sociale balzacienne.", keywords: ["réaliste","vêtements","usé","pension","quotidien","social"] }
+      { procede: "Registre réaliste", citation: "« ait un habit vert fané, une culotte de coutil bla »", interpretation: "Registre réaliste : vêtements usés et précis ancrent le personnage dans la quotidienneté sordide de la pension — observation sociale balzacienne.", keywords: ["réaliste","vêtements","usé","pension","quotidien","social"] }
     ]
   },
   {
@@ -1113,31 +1113,36 @@ Plus de vingt pas au-dessous d'Elle.`,
   },
   {
     id: "GT-781",
-    titre: "Tartuffe (I, 5)",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1669)",
     genre: "Théâtre",
     diff: 2,
-    texte: `ORGON
-Ha! si vous aviez vu comme j'en fis rencontre,
-Vous auriez pris pour lui l'amitié que je montre.
-Chaque jour à l'église il venait, d'un air doux,
-Tout vis-à-vis de moi se mettre à deux genoux.
-Il attirait les yeux de l'assemblée entière
-Par l'ardeur dont au Ciel il poussait sa prière;
-Il faisait des soupirs, de grands élancements,
-Et baisait humblement la terre à tous moments;
-Et lorsque je sortais, il me devançait vite,
-Pour m'aller à la porte offrir de l'eau bénite.
-DORINE
-Et Tartuffe?
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
 ORGON
-Le pauvre homme!`,
-    contexte: "Comédie de l'aveuglement dévot.",
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
+CLÉANTE
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
+ORGON
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
+ORGON
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Comique de caractère", citation: "« Le pauvre homme! »", interpretation: "Refrain d'Orgon manifestant son aveuglement.", keywords: ["comique","aveuglement","orgon","tartuffe"] },
-      { procede: "Accumulation", citation: "« soupirs, de grands élancements »", interpretation: "Excès de dévotion signalant l'hypocrisie.", keywords: ["accumulation","hypocrisie","dévotion","satire"] },
-      { procede: "Ironie dramatique", citation: "« Et Tartuffe? »", interpretation: "Le spectateur comprend ce qu'Orgon refuse de voir.", keywords: ["ironie dramatique","spectateur","imposture","théâtre"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
@@ -1147,7 +1152,7 @@ Le pauvre homme!`,
     oeuvre: "Phèdre (1677)",
     genre: "Théâtre",
     diff: 3,
-    texte: `PÈDRE
+    texte: `PHÈDRE
 Je le vis, je rougis, je pâlis à sa vue;
 Un trouble s'éleva dans mon âme éperdue;
 Mes yeux ne voyaient plus, je ne pouvais parler;
@@ -1454,7 +1459,6 @@ En le voyant au loin s'abattre sur les eaux.`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA13);
 }

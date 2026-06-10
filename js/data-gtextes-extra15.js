@@ -155,126 +155,129 @@ Sous l'empire fatal de son image et de son goût.`,
   },
   {
     id: "GT-400",
-    titre: "Acte 1, scène 2",
+    titre: "Andromaque et Pyrrhus (I, 4)",
     auteur: "Racine",
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `PHÈDRE
-Je le vis, je rougis, je pâlis à sa vue ;
-Un trouble s'éleva dans mon âme éperdue ;
-Mes yeux ne voyaient plus, je ne pouvais parler ;
-Je sentis tout mon corps et transir et brûler.
-
-ŒNONE
-Madame, au nom des dieux, sortez de ce silence.
-
-PHÈDRE
-C'est Vénus tout entière à sa proie attachée !
-Je reconnus Vénus et ses feux redoutables ;
-D'un sang qu'elle poursuit tourments inévitables.
-Je fuyais Hippolyte, et me trouvais partout
-Sous l'empire fatal de son image et de son goût.`,
-    contexte: "Racine, Andromaque (1667), Acte 1, scène 2.",
+    texte: `ANDROMAQUE
+Barbare, te souvient-il bien que ce fils, ce témoin,
+Ce jeune Astyanax, dont tu veux faire un otage,
+Est du grand Hector le fils, et le seul, et le dernier ?
+Ne te suffit-il pas qu'un sort cruel et funeste
+Ait mis Troie en cendres et tous ses dieux en poudre ?
+Faut-il que, dans la Grèce où tu l'as fait conduire,
+Son nom soit reproché, sa vertu criminelle,
+Et qu'il n'ait de son père hérité que la haine ?
+PYRRHUS
+Je sais qu'aux Grecs sa mort fut fort utile,
+Mais, sans vous offenser, Madame, en ce témoin
+Je ne vois que Pyrrhus et ce qu'il doit à Achille.
+ANDROMAQUE
+Il doit à votre père, et non pas à vos fureurs.
+PYRRHUS
+Madame, dans le fils je ne vois que le père.`,
+    contexte: "Andromaque défend Astyanax face à Pyrrhus — registre pathétique et conflit politique.",
     attendus: [
-      { procede: "Anaphore", citation: "« Je le vis, je rougis, je pâlis »", interpretation: "L'anaphore de « je » traduit la montée de la passion fatale.", keywords: ["anaphore","je","passion","fatalite","phèdre","tragique"] },
-      { procede: "Hyperbole", citation: "« C'est Vénus tout entière à sa proie attachée ! »", interpretation: "L'hyperbole mythologique donne à l'aveu une dimension sacrée et implacable.", keywords: ["hyperbole","venus","proie","mythe","destin","tragédie"] },
-      { procede: "Antithèse", citation: "« transir et brûler »", interpretation: "L'antithèse exprime le conflit intérieur de l'héroïne.", keywords: ["antithèse","transir","brûler","contradiction","amour","douleur"] }
+      { procede: "Registre pathétique", citation: "« ce jeune Astyanax, dont tu veux faire un otage »", interpretation: "Registre pathétique : la mère protège l'enfant du héros — pitié et indignation.", keywords: ["pathétique","astyanax","otage","mère","pitié","hector"] },
+      { procede: "Antithèse", citation: "« hérité que la haine »", interpretation: "Antithèse : le fils d'Hector n'hérite que de la haine — injustice tragique.", keywords: ["antithèse","haine","hérit","injust","hector","fils"] },
+      { procede: "Dialogue", citation: "« dans le fils je ne vois que le père »", interpretation: "Dialogue : Pyrrhus réduit Astyanax à l'ombre d'Achille — tension entre amour et vengeance.", keywords: ["dialogue","père","fils","achille","pyrrhus","tension"] }
     ]
   },
   {
     id: "GT-401",
-    titre: "Acte 1, scène 4",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Elvire, m'as-tu fait un rapport bien sincère ?
-Ne déguises-tu point ce qu'a dit mon père ?
-
-ELVIRE
-Tous ses discours semblaient un peu trop violents.
-
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
 CHIMÈNE
-Mon père est offensé ; Rodrigue est plein de gloire ;
-Et moi, dans ce combat où se perd ma mémoire,
-Je sens contre moi-même éclater ma fureur.
-
-RODRIGUE
-Percé jusques au fond du cœur
-D'une atteinte imprévue aussi bien que mortelle,
-Misérable vengeur d'une juste querelle,
-Et malheureux objet d'une injuste rigueur,
-Je demeure immobile, et mon âme abattue
-Cède au coup qui me tue.`,
-    contexte: "Corneille, Le Cid (1637), Acte 1, scène 4.",
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Percé jusques au fond du cœur »", interpretation: "Le registre tragique montre l'honneur et l'amour irréconciliables.", keywords: ["tragique","cœur","honneur","amour","corneille","dilemme"] },
-      { procede: "Antithèse", citation: "« bien que mortelle, Misérable vengeur d'une juste querelle, Et malheureux ob »", interpretation: "L'antithèse met en relief la contradiction morale du héros.", keywords: ["antithèse","juste","injuste","querelle","rigueur","conflit"] },
-      { procede: "Dialogue", citation: "« Elvire, m'as-tu fait un rapport bien sincère ? »", interpretation: "Le dialogue dramatise l'hésitation de Chimène.", keywords: ["dialogue","chimène","elvire","tension","aveu","scène"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
     id: "GT-402",
-    titre: "Acte 1, scène 1",
+    titre: "Alceste et Célimène (II, 1)",
     auteur: "Molière",
     oeuvre: "Le Misanthrope (1666)",
     genre: "Théâtre comique",
     diff: 2,
     texte: `ALCESTE
-Je veux qu'on soit sincère, et qu'en homme d'honneur
-On ne lâche aucun mot qui ne parte du cœur.
-
-PHILINTE
-Lorsqu'un homme vous vient embrasser avec joie,
-Il faut bien le payer de la même monnoie.
-
+Non, non, il n'est rien dit qu'il ne faille éclater :
+Et je veux, moi, parler franchement à tout le monde,
+Et ne me point donner l'air de louer, au contraire,
+Les choses que je blâme, et blâmer ce que j'aime.
+CÉLIMÈNE
+Il faut pour les mortels, selon toute apparence,
+Des complaisances un peu plus grandes que cela.
 ALCESTE
-Non, je ne puis souffrir cette lâche méthode
-Qu'affectent la plupart de vos gens à la mode ;
-Et je hais tous ces vains dehors civilisés,
-Ces affables donneurs d'embrassades feintes.
-
-DORINE
-Monsieur, nous y voilà ; votre humeur vous emporte,
-Mais la raison parfois vaut mieux que l'âme forte.`,
-    contexte: "Molière, Le Misanthrope (1666), Acte 1, scène 1.",
+Non, je ne veux point feindre, et, quoi qu'il advienne,
+Je hais vivement les hypocrites du monde.
+CÉLIMÈNE
+Et pourtant, la nature est fort utile aux hommes,
+Et leur donne le ton qui leur sied le mieux.
+ALCESTE
+Non, non, il ne faut point, pour plaire aux yeux du monde,
+Trahir la vérité et flatter les vices.`,
+    contexte: "Alceste refuse la flatterie mondaine — conflit entre sincérité et politesse.",
     attendus: [
-      { procede: "Antithèse", citation: "« ALCESTE Je veux qu'on soit sincère, et qu'en homme d'ho »", interpretation: "L'antithèse oppose idéal moral et hypocrisie sociale.", keywords: ["antithèse","sincère","feintes","misanthrope","satire","société"] },
-      { procede: "Registre satirique", citation: "« vos gens à la mode »", interpretation: "La satire vise les codes mondains et la comédie des apparences.", keywords: ["satirique","mode","apparence","molière","critique","comédie"] },
-      { procede: "Dialogue", citation: "« Je veux qu'on soit sincère »", interpretation: "Le dialogue met en scène l'affrontement de deux visions du monde.", keywords: ["dialogue","alceste","philinte","conflit","morale","théâtre"] }
+      { procede: "Registre comique", citation: "« je ne veux point feindre »", interpretation: "Registre comique : Alceste incarne le misanthrope sincère — décalage avec les mœurs du salon.", keywords: ["comique","feindre","sincère","misanthrope","décalage","salon"] },
+      { procede: "Antithèse", citation: "« Non, non, il ne faut point, pour plaire aux yeux du monde, Trahir la vérité et flatter les vices. »", interpretation: "Antithèse entre parole et conviction — dénonciation de l'hypocrisie mondaine.", keywords: ["antithèse","louer","blâmer","hypocris","parole","conviction"] },
+      { procede: "Dialogue", citation: "« Il faut… des complaisances un peu plus grandes »", interpretation: "Dialogue : Célimène défend la bienséance — opposition des deux visions du monde.", keywords: ["dialogue","complais","bienséance","célimène","opposition","monde"] }
     ]
   },
   {
     id: "GT-403",
-    titre: "Acte 1, scène 3",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `ALCESTE
-Je veux qu'on soit sincère, et qu'en homme d'honneur
-On ne lâche aucun mot qui ne parte du cœur.
-
-PHILINTE
-Lorsqu'un homme vous vient embrasser avec joie,
-Il faut bien le payer de la même monnoie.
-
-ALCESTE
-Non, je ne puis souffrir cette lâche méthode
-Qu'affectent la plupart de vos gens à la mode ;
-Et je hais tous ces vains dehors civilisés,
-Ces affables donneurs d'embrassades feintes.
-
-DORINE
-Monsieur, nous y voilà ; votre humeur vous emporte,
-Mais la raison parfois vaut mieux que l'âme forte.`,
-    contexte: "Molière, Tartuffe (1664), Acte 1, scène 3.",
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
+ORGON
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
+CLÉANTE
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
+ORGON
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
+ORGON
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Antithèse", citation: "« ALCESTE Je veux qu'on soit sincère, et qu'en homme d'ho »", interpretation: "L'antithèse oppose idéal moral et hypocrisie sociale.", keywords: ["antithèse","sincère","feintes","misanthrope","satire","société"] },
-      { procede: "Registre satirique", citation: "« vos gens à la mode »", interpretation: "La satire vise les codes mondains et la comédie des apparences.", keywords: ["satirique","mode","apparence","molière","critique","comédie"] },
-      { procede: "Dialogue", citation: "« Je veux qu'on soit sincère »", interpretation: "Le dialogue met en scène l'affrontement de deux visions du monde.", keywords: ["dialogue","alceste","philinte","conflit","morale","théâtre"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
@@ -689,157 +692,160 @@ Sous l'empire fatal de son image et de son goût.`,
   },
   {
     id: "GT-428",
-    titre: "Acte 1, scène 3",
+    titre: "Andromaque et Pyrrhus (I, 4)",
     auteur: "Racine",
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `PHÈDRE
-Je le vis, je rougis, je pâlis à sa vue ;
-Un trouble s'éleva dans mon âme éperdue ;
-Mes yeux ne voyaient plus, je ne pouvais parler ;
-Je sentis tout mon corps et transir et brûler.
-
-ŒNONE
-Madame, au nom des dieux, sortez de ce silence.
-
-PHÈDRE
-C'est Vénus tout entière à sa proie attachée !
-Je reconnus Vénus et ses feux redoutables ;
-D'un sang qu'elle poursuit tourments inévitables.
-Je fuyais Hippolyte, et me trouvais partout
-Sous l'empire fatal de son image et de son goût.`,
-    contexte: "Racine, Andromaque (1667), Acte 1, scène 3.",
+    texte: `ANDROMAQUE
+Barbare, te souvient-il bien que ce fils, ce témoin,
+Ce jeune Astyanax, dont tu veux faire un otage,
+Est du grand Hector le fils, et le seul, et le dernier ?
+Ne te suffit-il pas qu'un sort cruel et funeste
+Ait mis Troie en cendres et tous ses dieux en poudre ?
+Faut-il que, dans la Grèce où tu l'as fait conduire,
+Son nom soit reproché, sa vertu criminelle,
+Et qu'il n'ait de son père hérité que la haine ?
+PYRRHUS
+Je sais qu'aux Grecs sa mort fut fort utile,
+Mais, sans vous offenser, Madame, en ce témoin
+Je ne vois que Pyrrhus et ce qu'il doit à Achille.
+ANDROMAQUE
+Il doit à votre père, et non pas à vos fureurs.
+PYRRHUS
+Madame, dans le fils je ne vois que le père.`,
+    contexte: "Andromaque défend Astyanax face à Pyrrhus — registre pathétique et conflit politique.",
     attendus: [
-      { procede: "Anaphore", citation: "« Je le vis, je rougis, je pâlis »", interpretation: "L'anaphore de « je » traduit la montée de la passion fatale.", keywords: ["anaphore","je","passion","fatalite","phèdre","tragique"] },
-      { procede: "Hyperbole", citation: "« C'est Vénus tout entière à sa proie attachée ! »", interpretation: "L'hyperbole mythologique donne à l'aveu une dimension sacrée et implacable.", keywords: ["hyperbole","venus","proie","mythe","destin","tragédie"] },
-      { procede: "Antithèse", citation: "« transir et brûler »", interpretation: "L'antithèse exprime le conflit intérieur de l'héroïne.", keywords: ["antithèse","transir","brûler","contradiction","amour","douleur"] }
+      { procede: "Registre pathétique", citation: "« ce jeune Astyanax, dont tu veux faire un otage »", interpretation: "Registre pathétique : la mère protège l'enfant du héros — pitié et indignation.", keywords: ["pathétique","astyanax","otage","mère","pitié","hector"] },
+      { procede: "Antithèse", citation: "« hérité que la haine »", interpretation: "Antithèse : le fils d'Hector n'hérite que de la haine — injustice tragique.", keywords: ["antithèse","haine","hérit","injust","hector","fils"] },
+      { procede: "Dialogue", citation: "« dans le fils je ne vois que le père »", interpretation: "Dialogue : Pyrrhus réduit Astyanax à l'ombre d'Achille — tension entre amour et vengeance.", keywords: ["dialogue","père","fils","achille","pyrrhus","tension"] }
     ]
   },
   {
     id: "GT-429",
-    titre: "Acte 2, scène 1",
+    titre: "Andromaque et Pyrrhus (I, 4)",
     auteur: "Racine",
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `PHÈDRE
-Je le vis, je rougis, je pâlis à sa vue ;
-Un trouble s'éleva dans mon âme éperdue ;
-Mes yeux ne voyaient plus, je ne pouvais parler ;
-Je sentis tout mon corps et transir et brûler.
-
-ŒNONE
-Madame, au nom des dieux, sortez de ce silence.
-
-PHÈDRE
-C'est Vénus tout entière à sa proie attachée !
-Je reconnus Vénus et ses feux redoutables ;
-D'un sang qu'elle poursuit tourments inévitables.
-Je fuyais Hippolyte, et me trouvais partout
-Sous l'empire fatal de son image et de son goût.`,
-    contexte: "Racine, Andromaque (1667), Acte 2, scène 1.",
+    texte: `ANDROMAQUE
+Barbare, te souvient-il bien que ce fils, ce témoin,
+Ce jeune Astyanax, dont tu veux faire un otage,
+Est du grand Hector le fils, et le seul, et le dernier ?
+Ne te suffit-il pas qu'un sort cruel et funeste
+Ait mis Troie en cendres et tous ses dieux en poudre ?
+Faut-il que, dans la Grèce où tu l'as fait conduire,
+Son nom soit reproché, sa vertu criminelle,
+Et qu'il n'ait de son père hérité que la haine ?
+PYRRHUS
+Je sais qu'aux Grecs sa mort fut fort utile,
+Mais, sans vous offenser, Madame, en ce témoin
+Je ne vois que Pyrrhus et ce qu'il doit à Achille.
+ANDROMAQUE
+Il doit à votre père, et non pas à vos fureurs.
+PYRRHUS
+Madame, dans le fils je ne vois que le père.`,
+    contexte: "Andromaque défend Astyanax face à Pyrrhus — registre pathétique et conflit politique.",
     attendus: [
-      { procede: "Anaphore", citation: "« Je le vis, je rougis, je pâlis »", interpretation: "L'anaphore de « je » traduit la montée de la passion fatale.", keywords: ["anaphore","je","passion","fatalite","phèdre","tragique"] },
-      { procede: "Hyperbole", citation: "« C'est Vénus tout entière à sa proie attachée ! »", interpretation: "L'hyperbole mythologique donne à l'aveu une dimension sacrée et implacable.", keywords: ["hyperbole","venus","proie","mythe","destin","tragédie"] },
-      { procede: "Antithèse", citation: "« transir et brûler »", interpretation: "L'antithèse exprime le conflit intérieur de l'héroïne.", keywords: ["antithèse","transir","brûler","contradiction","amour","douleur"] }
+      { procede: "Registre pathétique", citation: "« ce jeune Astyanax, dont tu veux faire un otage »", interpretation: "Registre pathétique : la mère protège l'enfant du héros — pitié et indignation.", keywords: ["pathétique","astyanax","otage","mère","pitié","hector"] },
+      { procede: "Antithèse", citation: "« hérité que la haine »", interpretation: "Antithèse : le fils d'Hector n'hérite que de la haine — injustice tragique.", keywords: ["antithèse","haine","hérit","injust","hector","fils"] },
+      { procede: "Dialogue", citation: "« dans le fils je ne vois que le père »", interpretation: "Dialogue : Pyrrhus réduit Astyanax à l'ombre d'Achille — tension entre amour et vengeance.", keywords: ["dialogue","père","fils","achille","pyrrhus","tension"] }
     ]
   },
   {
     id: "GT-431",
-    titre: "Acte 2, scène 3",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Elvire, m'as-tu fait un rapport bien sincère ?
-Ne déguises-tu point ce qu'a dit mon père ?
-
-ELVIRE
-Tous ses discours semblaient un peu trop violents.
-
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
 CHIMÈNE
-Mon père est offensé ; Rodrigue est plein de gloire ;
-Et moi, dans ce combat où se perd ma mémoire,
-Je sens contre moi-même éclater ma fureur.
-
-RODRIGUE
-Percé jusques au fond du cœur
-D'une atteinte imprévue aussi bien que mortelle,
-Misérable vengeur d'une juste querelle,
-Et malheureux objet d'une injuste rigueur,
-Je demeure immobile, et mon âme abattue
-Cède au coup qui me tue.`,
-    contexte: "Corneille, Le Cid (1637), Acte 2, scène 3.",
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Percé jusques au fond du cœur »", interpretation: "Le registre tragique montre l'honneur et l'amour irréconciliables.", keywords: ["tragique","cœur","honneur","amour","corneille","dilemme"] },
-      { procede: "Antithèse", citation: "« bien que mortelle, Misérable vengeur d'une juste querelle, Et malheureux ob »", interpretation: "L'antithèse met en relief la contradiction morale du héros.", keywords: ["antithèse","juste","injuste","querelle","rigueur","conflit"] },
-      { procede: "Dialogue", citation: "« Elvire, m'as-tu fait un rapport bien sincère ? »", interpretation: "Le dialogue dramatise l'hésitation de Chimène.", keywords: ["dialogue","chimène","elvire","tension","aveu","scène"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
     id: "GT-432",
-    titre: "Acte 3, scène 1",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Elvire, m'as-tu fait un rapport bien sincère ?
-Ne déguises-tu point ce qu'a dit mon père ?
-
-ELVIRE
-Tous ses discours semblaient un peu trop violents.
-
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
 CHIMÈNE
-Mon père est offensé ; Rodrigue est plein de gloire ;
-Et moi, dans ce combat où se perd ma mémoire,
-Je sens contre moi-même éclater ma fureur.
-
-RODRIGUE
-Percé jusques au fond du cœur
-D'une atteinte imprévue aussi bien que mortelle,
-Misérable vengeur d'une juste querelle,
-Et malheureux objet d'une injuste rigueur,
-Je demeure immobile, et mon âme abattue
-Cède au coup qui me tue.`,
-    contexte: "Corneille, Le Cid (1637), Acte 3, scène 1.",
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Percé jusques au fond du cœur »", interpretation: "Le registre tragique montre l'honneur et l'amour irréconciliables.", keywords: ["tragique","cœur","honneur","amour","corneille","dilemme"] },
-      { procede: "Antithèse", citation: "« bien que mortelle, Misérable vengeur d'une juste querelle, Et malheureux ob »", interpretation: "L'antithèse met en relief la contradiction morale du héros.", keywords: ["antithèse","juste","injuste","querelle","rigueur","conflit"] },
-      { procede: "Dialogue", citation: "« Elvire, m'as-tu fait un rapport bien sincère ? »", interpretation: "Le dialogue dramatise l'hésitation de Chimène.", keywords: ["dialogue","chimène","elvire","tension","aveu","scène"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
     id: "GT-434",
-    titre: "Acte 1, scène 4",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `ALCESTE
-Je veux qu'on soit sincère, et qu'en homme d'honneur
-On ne lâche aucun mot qui ne parte du cœur.
-
-PHILINTE
-Lorsqu'un homme vous vient embrasser avec joie,
-Il faut bien le payer de la même monnoie.
-
-ALCESTE
-Non, je ne puis souffrir cette lâche méthode
-Qu'affectent la plupart de vos gens à la mode ;
-Et je hais tous ces vains dehors civilisés,
-Ces affables donneurs d'embrassades feintes.
-
-DORINE
-Monsieur, nous y voilà ; votre humeur vous emporte,
-Mais la raison parfois vaut mieux que l'âme forte.`,
-    contexte: "Molière, Tartuffe (1664), Acte 1, scène 4.",
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
+ORGON
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
+CLÉANTE
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
+ORGON
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
+ORGON
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Antithèse", citation: "« ALCESTE Je veux qu'on soit sincère, et qu'en homme d'ho »", interpretation: "L'antithèse oppose idéal moral et hypocrisie sociale.", keywords: ["antithèse","sincère","feintes","misanthrope","satire","société"] },
-      { procede: "Registre satirique", citation: "« vos gens à la mode »", interpretation: "La satire vise les codes mondains et la comédie des apparences.", keywords: ["satirique","mode","apparence","molière","critique","comédie"] },
-      { procede: "Dialogue", citation: "« Je veux qu'on soit sincère »", interpretation: "Le dialogue met en scène l'affrontement de deux visions du monde.", keywords: ["dialogue","alceste","philinte","conflit","morale","théâtre"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
@@ -1122,7 +1128,7 @@ où il fallait paraître juste pour réussir.`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1307,7 +1313,6 @@ où il fallait paraître juste pour réussir.`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA15);
 }

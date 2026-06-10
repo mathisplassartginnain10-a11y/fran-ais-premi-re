@@ -17,7 +17,13 @@ const LIVE = process.argv.includes('--live');
 const TEST_GT_IDS = ['GT-003', 'GT-014', 'GT-733', 'GT-007', 'GT-024'];
 
 function loadSandbox() {
-  const sandbox = { console, localStorage: { getItem: () => null, setItem: () => {} } };
+  const sandbox = {
+    console,
+    setTimeout,
+    clearTimeout,
+    fetch,
+    localStorage: { getItem: () => null, setItem: () => {} },
+  };
   vm.createContext(sandbox);
   const files = [
     'data-intro-simulator.js',

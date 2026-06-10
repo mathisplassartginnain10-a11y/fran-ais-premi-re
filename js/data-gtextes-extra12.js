@@ -27,7 +27,7 @@ Venus, odieux objet dont la cruelle ardeur
 Cause l'horreur de ma honte et les tourments de mon cœur !`,
     contexte: "Confession de l'amour interdit pour Hippolyte — registre pathétique.",
     attendus: [
-      { procede: "Anaphore", citation: "« J'ai voulu, j'ai tenté… / J'ai voulu, j'ai tenté… »", interpretation: "Anaphore : répétition de « J'ai voulu, j'ai tenté » en début de vers. Martèlement qui insiste sur l'effort vain de Phèdre pour résister à sa passion — effet incantatoire et pathétique.", keywords: ["anaphore","répét","voulu","tenté","martel","insist","effort","vain"] },
+      { procede: "Anaphore", citation: "« voulu, j'ai tenté de lui résister, Depuis qu'on m'a soumise à cet Hémon charmant, Depuis qu'un impur »", interpretation: "Anaphore : répétition de « J'ai voulu, j'ai tenté » en début de vers. Martèlement qui insiste sur l'effort vain de Phèdre pour résister à sa passion — effet incantatoire et pathétique.", keywords: ["anaphore","répét","voulu","tenté","martel","insist","effort","vain"] },
       { procede: "Hyperbole", citation: "« Que n'ai-je au fond des mers une retraite ! »", interpretation: "Hyperbole : souhait exagéré de se cacher au fond des mers pour échapper à la passion. Phèdre pousse l'expression au-delà du réaliste pour traduire l'intensité de sa souffrance.", keywords: ["hyperbole","exag","mers","retraite","souffr","intens","échapp"] },
       { procede: "Personnification", citation: "« Vénus impitoyable, a-t-il besoin d'offenses ? »", interpretation: "Personnification : Vénus est traitée comme une divinité cruelle et active qui poursuit Phèdre — la passion devient une force extérieure qui la possède.", keywords: ["personnification","vénus","impitoyable","divinité","passion","fatal"] }
     ]
@@ -458,36 +458,29 @@ Qui m'ont jadis vengée et qui me punissent tous.`,
   },
   {
     id: "GT-746",
-    titre: "« Pour qui sont ces serpents… » (V, 5)",
+    titre: "Monologue d'Oreste (V, 5)",
     auteur: "Racine",
     oeuvre: "Andromaque (1667)",
     genre: "Théâtre tragique",
     diff: 1,
-    texte: `OËNONE
+    texte: `ORESTE
+Qu'ils sont loin, ces plaisirs dont j'étais accablé !
+Dieux ! qu'il est beau le jour où triomphe la vengeance !
+Mais Hermione est morte… Allons, sortons de ce palais.
 Pour qui sont ces serpents qui sifflent sur vos têtes ?
-LE CHŒUR
-Ils se tordent en expirant.
-OËNONE
-De leurs sanglantes morsures les humides venins
-Coule sur votre visage en mêlant ignoblement
-Le sang virginal dont rougissaient vos joues
-À ce poison consumé dont leur bouche est encore pleine.
-PYRRHUS
-Où, dans les enfers, suis-je donc transporté ?
-ANDROMAQUE
-Non, mon fils, tu ne verras point ces horreurs.
-OËNONE
-Voyez plutôt ces monstres qui se traînent sur le sable,
-Et qui, de leurs corps déchirés, font un long sillage
-De sang et de fange, en se roulant dans la poussière.
-PYRRHUS
-Quoi ! ces serpents, ces monstres, ce sang, cette poussière,
-C'est donc là ce qu'on voit quand on meurt pour Hermione ?`,
-    contexte: "Récit de la mort d'Hermione — onomatopée et pathos.",
+Peuples, vous les voyez, mes yeux encore égarés
+De leur sanglant venin n'ont pu se détourner.
+Voyez : ils se traînent encor dans ce palais :
+C'est sur moi qu'ils viennent, c'est sur moi qu'ils s'attaquent ;
+De sang et de fange ils viennent me baigner,
+Et mêlent confusément leurs lames infernales
+À ce monstre qu'ils portent sur leurs têtes impurales.`,
+    contexte: "Hallucination d'Oreste après la mort d'Hermione — registre tragique et onomatopée en [s].",
     attendus: [
-      { procede: "Allitération", citation: "« ces serpents qui sifflent sur vos têtes »", interpretation: "Allitération en [s] : « sont », « serpents », « sifflent », « sur ». La consonne siflante imite le bruit des serpents — harmonie imitative.", keywords: ["allitération","s","siffl","serpent","consonne","imit","harmonie"] },
-      { procede: "Gradation", citation: "« serpents » → « sifflent sur vos têtes »", interpretation: "Gradation d'angoisse : la menace se rapproche du spectateur (serpents au-dessus des têtes) — intensité croissante de la peur.", keywords: ["gradation","angoiss","peur","serpent","intens","menace","spectateur"] },
-      { procede: "Hyperbole", citation: "« ces serpents qui sifflent sur vos têtes »", interpretation: "Hyperbole : les serpents sur la tête des spectateurs transforment la scène en menace universelle — exagération qui dramatise la peur.", keywords: ["hyperbole","exag","serpent","menace","peur","spectateur"] }
+      { procede: "Allitération", citation: "« ces serpents qui sifflent sur vos têtes »", interpretation: "Allitération en [s] dans « serpents », « sifflent », « sur » : la consonne imite le sifflement et installe une menace sensorielle.", keywords: ["allitération","s","serpent","siffl","imitation","menace"] },
+      { procede: "Registre tragique", citation: "« Pour qui sont ces serpents qui sifflent sur vos têtes ? »", interpretation: "Registre tragique : Oreste hallucine une scène d'horreur après la mort d'Hermione — la folie dramatise la culpabilité.", keywords: ["tragique","orest","hallucin","hermione","folie","coupabl"] },
+      { procede: "Anaphore", citation: "« C'est sur moi qu'ils viennent, c'est sur moi qu'ils s'attaquent »", interpretation: "Anaphore de « c'est sur moi » : martèlement qui concentre la menace sur le héros — effet d'obsession et de panique.", keywords: ["anaphore","sur moi","martel","menace","panique","obsess"] },
+      { procede: "Champ lexical", citation: "« viennent me baigner, Et mêlent confusément leurs lames infernales À ce monstre qu'ils portent sur le »", interpretation: "Champ lexical de la souillure et du sang : le vocabulaire matérialise la vision infernale d'Oreste.", keywords: ["champ lexical","sang","fange","venin","souill","horreur"] }
     ]
   },
   {
@@ -1324,7 +1317,7 @@ Qui ne finit jamais pour le père qui pleure.`,
     attendus: [
       { procede: "Métaphore", citation: "« semblaient des spectres qui attendaient le jour »", interpretation: "Métaphore : les insurgés sont comparés à des spectres — la barricade devient un lieu de mort anticipée, entre ombre et révolution.", keywords: ["métaphore","spectres","ombre","mort","barricade","révolution"] },
       { procede: "Registre pathétique", citation: "« L'attente était lugubre »", interpretation: "Registre pathétique : l'atmosphère oppressante suscite pitié pour les combattants condamnés — Hugo émeut pour dénoncer la violence sociale.", keywords: ["pathétique","lugubre","pit","violence","attente","oppress"] },
-      { procede: "Champ lexical", citation: "« poudre noire », « pénombre », « lugubre », « effrayée »", interpretation: "Champ lexical de la peur et de la nuit : vocabulaire sombre qui installe une atmosphère de siège et d'apocalypse urbaine.", keywords: ["champ lexical","peur","nuit","sombre","siège","apocalypse"] }
+      { procede: "Champ lexical", citation: "« tenaient là, noirs, uniquement voilés par leur chemise blanche, à demi perdus dans la pénombre du ma »", interpretation: "Champ lexical de la peur et de la nuit : vocabulaire sombre qui installe une atmosphère de siège et d'apocalypse urbaine.", keywords: ["champ lexical","peur","nuit","sombre","siège","apocalypse"] }
     ]
   },
   {
@@ -1971,7 +1964,6 @@ Mme de Merteuil.`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA12);
 }

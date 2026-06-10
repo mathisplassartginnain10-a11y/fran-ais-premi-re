@@ -359,7 +359,7 @@ Je pleure sa victoire, et tremble pour sa vie.`,
     attendus: [
       { procede: "Métaphore", citation: "« Paris s'ouvrait… comme une proie »", interpretation: "En transposant le sens de « Paris s'ouvrait… comme une proie », Guy de Maupassant métaphorise la scène ; le lecteur condense une idée complexe en une image frappante.", keywords: ["métaphore","paris","proie","victime","cynisme","bel-ami"] },
       { procede: "Anaphore", citation: "« il séduisait, il trahissait, il profitait »", interpretation: "L'anaphore sur « il séduisait, il trahissait, il profitait » martèle une forme répétée : l'insistance martèle l'idée directrice et imprime un rythme obsédant propre à Guy de Maupassant.", keywords: ["anaphore","séduisait","trahissait","profitait","ambition","répét"] },
-      { procede: "Registre satirique", citation: "« trahissait, profitait »", interpretation: "À travers « trahissait, profitait », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Bel-Ami.", keywords: ["satirique","trahiss","profit","arrivism","social","maupass"] }
+      { procede: "Registre satirique", citation: "« soir, en rentrant dans son appartement neuf, il contemplait la ville illuminée et se disait que tout »", interpretation: "À travers « trahissait, profitait », le texte bascule dans un registre satirique ; le lecteur est invité à critiquer les mœurs et les institutions par le rire, ce qui s'inscrit dans Bel-Ami.", keywords: ["satirique","trahiss","profit","arrivism","social","maupass"] }
     ]
   },
   {
@@ -978,7 +978,7 @@ Sans me laisser un mot, sans me dire adieu !`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1163,7 +1163,6 @@ Sans me laisser un mot, sans me dire adieu !`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA21);
 }

@@ -112,7 +112,7 @@ Jura, mais un peu tard, qu'on ne l'y prendrait plus.`,
     attendus: [
       { procede: "Antithèse", citation: "« une des plus belles maisons » / « entrée n'était pas plus riche »", interpretation: "Antithèse : Voltaire oppose richesse apparente et misère réelle — ironie sur l'aristocratie allemande.", keywords: ["antithèse","richesse","misère","ironie","château","voltaire"] },
       { procede: "Caractérisation", citation: "« figure pleine de candeur et de simplicité »", interpretation: "Caractérisation : le nom Candide condense le trait moral du héros — naïveté qui structure tout le conte.", keywords: ["caractérisation","candeur","simplicité","héros","naïveté","nom"] },
-      { procede: "Registre satirique", citation: "« lapins qui passaient par les trous »", interpretation: "Registre satirique : détail grotesque du château délabré — dévalorisation comique du cadre noble.", keywords: ["satirique","délabré","grotesque","château","détail","comique"] },
+      { procede: "Registre satirique", citation: "« s lapins qui passaient et qui reve »", interpretation: "Registre satirique : détail grotesque du château délabré — dévalorisation comique du cadre noble.", keywords: ["satirique","délabré","grotesque","château","détail","comique"] },
       { procede: "Incipit", citation: "« Dans un château de Westphalie »", interpretation: "Incipit : localisation précise et ton conteur — pacte de lecture du conte philosophique.", keywords: ["incipit","westphalie","conte","cadre","narrateur","pacte"] }
     ]
   },
@@ -179,9 +179,9 @@ Un soir, je bus de l'eau ; le lendemain, la carafe était vide alors que je n'av
 L'Arabe était là, immobile, le couteau à la main. J'ai fait un pas ; la sueur m'a coulé dans les yeux. Alors tout a vacillé. La gâchette a cédé, et j'ai compris que j'avais brisé l'équilibre du jour. J'ai tiré encore, comme on frappe à la porte du malheur.`,
     contexte: "L'Étranger — scène de la plage : meurtre, sensation physique et absurdité.",
     attendus: [
-      { procede: "Champ lexical sensoriel", citation: "« chaleur », « lumière », « sueur », « bruit »", interpretation: "Camus construit la scène par sensations physiques plutôt que par psychologie : le corps précède la décision et transforme l'acte en mécanique.", keywords: ["champ lexical","sensation","corps","chaleur","camus","meurtre"] },
+      { procede: "Champ lexical sensoriel", citation: "« encore, comme on frappe à la porte du malheur. »", interpretation: "Camus construit la scène par sensations physiques plutôt que par psychologie : le corps précède la décision et transforme l'acte en mécanique.", keywords: ["champ lexical","sensation","corps","chaleur","camus","meurtre"] },
       { procede: "Causalité absurde", citation: "« la gâchette a cédé »", interpretation: "La formulation désubjectivise l'action : le geste semble déclenché par un enchaînement matériel plus que par une volonté morale claire.", keywords: ["absurde","causalité","gâchette","désubjectivation","étranger","acte"] },
-      { procede: "Métaphore", citation: "« frapper à la porte du malheur »", interpretation: "La métaphore finale transforme les coups de feu supplémentaires en entrée dans une fatalité irréversible : le personnage franchit un seuil.", keywords: ["métaphore","malheur","seuil","fatalité","violence","destin"] },
+      { procede: "Métaphore", citation: "« derrière les tempes. »", interpretation: "La métaphore finale transforme les coups de feu supplémentaires en entrée dans une fatalité irréversible : le personnage franchit un seuil.", keywords: ["métaphore","malheur","seuil","fatalité","violence","destin"] },
       { procede: "Style blanc", citation: "« L'Arabe était là, immobile »", interpretation: "La phrase brève et neutre typique du style de Camus crée une distance émotionnelle : l'horreur est dite sans pathos, ce qui renforce son étrangeté.", keywords: ["style","phrase brève","neutralité","distance","camus","écriture"] }
     ]
   },
@@ -265,7 +265,7 @@ Tranquille. Il a deux trous rouges au côté droit.`,
       { procede: "Ironie tragique", citation: "« Il a deux trous rouges au côté droit »", interpretation: "Ironie tragique : le vers final révèle la mort du soldat — le tableau bucolique se retourne en dénonciation de la guerre.", keywords: ["ironie","mort","soldat","guerre","révélation","rimbaud"] },
       { procede: "Personnification", citation: "« Nature, berce-le chaudement : il a froid »", interpretation: "Personnification : la nature apostrophée comme mère ne peut réchauffer le mort — pathos et indifférence cosmique.", keywords: ["personnification","nature","berce","froid","mort","pathos"] },
       { procede: "Métaphore", citation: "« Pâle dans son lit vert où la lumière pleut »", interpretation: "Métaphore : l'herbe devient lit funèbre — l'euphémisme pastoral dissimule la mort avant la chute finale.", keywords: ["métaphore","lit","vert","lumière","mort","euphémisme"] },
-      { procede: "Champ lexical", citation: "« Dort », « fait un somme », « la main sur sa poitrine »", interpretation: "Champ lexical du sommeil : Rimbaud accumule les signes d'un repos apparent pour frapper le lecteur à la dernière ligne.", keywords: ["champ lexical","sommeil","repos","mort","suspense","chute"] }
+      { procede: "Champ lexical", citation: "« Il a deux trous rouges au côté droit. »", interpretation: "Champ lexical du sommeil : Rimbaud accumule les signes d'un repos apparent pour frapper le lecteur à la dernière ligne.", keywords: ["champ lexical","sommeil","repos","mort","suspense","chute"] }
     ]
   },
   {
@@ -322,30 +322,33 @@ Trahit donc ma querelle, et ne fait rien pour moi ?
   },
   {
     id: "GT-460",
-    titre: "Acte 3, scène 2",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Elvire, m'as-tu fait un rapport bien sincère ?
-Ne déguises-tu point ce qu'a fait mon père ?
-ELVIRE
-J'ai vu de mes yeux ce que je vous ai dit.
-RODRIGUE
-Percé jusques au fond du cœur,
-D'une atteinte imprévue aussi bien que mortelle,
-Misérable vengeur d'une juste querelle,
-Et malheureux objet d'une injuste rigueur,
-Je demeure immobile, et mon âme abattue
-Cède au coup qui me tue.
-Il faut venger un père, et perdre une maîtresse.`,
-    contexte: "Le Cid, acte III scène 2 — souffrance croisée de Chimène et Rodrigue.",
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
+CHIMÈNE
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Stichomythie", citation: "« m'as-tu ... ? / J'ai vu ... »", interpretation: "Les répliques courtes de Chimène et Elvire installent une tension immédiate, puis la tirade de Rodrigue élargit la crise intime.", keywords: ["stichomythie","chimène","elvire","tension","réplique","théâtre"] },
-      { procede: "Antithèse cornélienne", citation: "« venger un père, et perdre une maîtresse »", interpretation: "Le vers condense la contradiction fondatrice de la pièce : honneur public contre fidélité amoureuse.", keywords: ["antithèse","père","maîtresse","honneur","amour","cid"] },
-      { procede: "Registre pathétique", citation: "« mon âme abattue / Cède au coup »", interpretation: "Le lexique de la blessure morale transforme le dilemme en souffrance corporelle : le héros devient victime de son propre devoir.", keywords: ["pathétique","âme","coup","souffrance","devoir","héros"] },
-      { procede: "Parallélisme", citation: "« juste querelle / injuste rigueur »", interpretation: "Le parallélisme oppose justice et injustice dans une symétrie frappante : la forme rend sensible l'impasse morale.", keywords: ["parallélisme","juste","injuste","impasse","symétrie","morale"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
@@ -380,31 +383,36 @@ Et les autres pour être aux méchants complaisants.`,
   },
   {
     id: "GT-464",
-    titre: "Acte 2, scène 3",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `DORINE
-Vous êtes donc, monsieur, un homme bien heureux !
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
 ORGON
-Que veux-tu dire là ?
-DORINE
-Que sans trouble et sans peine,
-Vous voyez toute chose en doctrine certaine.
-Votre Tartuffe est saint ; son zèle vous conduit ;
-Et, quand votre maison murmure, il vous instruit.
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
+CLÉANTE
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
 ORGON
-Tais-toi, tu parles mal d'un homme irréprochable.
-DORINE
-Irréprochable ? Il veut commander à table,
-Régler jusqu'à nos yeux, jusqu'à notre parler.`,
-    contexte: "Tartuffe — Dorine dénonce l'aveuglement d'Orgon.",
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
+ORGON
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Ironie", citation: "« un homme bien heureux »", interpretation: "Dorine ouvre par un faux compliment : l'ironie attaque la crédulité d'Orgon sans frontalité immédiate.", keywords: ["ironie","dorine","orgon","crédulité","tartuffe","comédie"] },
-      { procede: "Registre satirique", citation: "« commander à table ... régler ... »", interpretation: "La liste des intrusions domestiques expose la tyrannie du faux dévot : Molière ridiculise l'autorité religieuse usurpée.", keywords: ["satirique","tyrannie","dévot","maison","usurpation","molière"] },
-      { procede: "Antithèse", citation: "« saint » / « commander »", interpretation: "L'opposition entre façade spirituelle et contrôle matériel dévoile le cœur de l'hypocrisie tartuffienne.", keywords: ["antithèse","saint","hypocrisie","façade","pouvoir","intérêt"] },
-      { procede: "Rôle de la servante", citation: "« Tais-toi ... / Irréprochable ? »", interpretation: "Dorine, socialement inférieure, porte la vérité dramatique : la comédie confie la lucidité critique à la voix subalterne.", keywords: ["servante","lucidité","vérité","hiérarchie","théâtre","critique"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
@@ -653,7 +661,7 @@ Il se leva, puis se rassit, rouge de confusion, pendant qu'un rire étouffé cou
     contexte: "Madame Bovary, ouverture — Charles saisi par le regard collectif.",
     attendus: [
       { procede: "Point de vue collectif", citation: "« Nous étions à l'Étude »", interpretation: "Le narrateur pluralise le regard : Charles est défini d'abord par la perception d'un groupe scolaire qui le juge.", keywords: ["point de vue","collectif","nous","charles","jugement","réalisme"] },
-      { procede: "Description comportementale", citation: "« tenait sa casquette ... l'air embarrassé »", interpretation: "Les gestes maladroits construisent un portrait social sans commentaire psychologique explicite, typique du réalisme flaubertien.", keywords: ["description","gestes","embarras","portrait","réalisme","flaubert"] },
+      { procede: "Description comportementale", citation: "« tenait sa casquette »", interpretation: "Les gestes maladroits construisent un portrait social sans commentaire psychologique explicite, typique du réalisme flaubertien.", keywords: ["description","gestes","embarras","portrait","réalisme","flaubert"] },
       { procede: "Registre ironique", citation: "« Levez-vous donc ! »", interpretation: "L'autorité professorale et le rire des élèves installent une ironie d'humiliation : le héros entre en scène par l'échec.", keywords: ["ironie","humiliation","école","rire","héros","entrée"] },
       { procede: "Scène inaugurale", citation: "« un rire étouffé courait ... »", interpretation: "La scène fixe une matrice du roman : désir d'ascension et disqualification sociale répétée.", keywords: ["inaugural","rire","ascension","disqualification","roman","société"] }
     ]
@@ -672,7 +680,7 @@ Pas une ombre d'arbre, pas une tache de village ; rien que les ténèbres épais
       { procede: "Registre réaliste", citation: "« dix kilomètres de pavé ... champs de betteraves »", interpretation: "La précision géographique ancre l'incipit dans un territoire social déterminé : le roman part du concret matériel.", keywords: ["réaliste","géographie","pavé","naturalisme","zola","milieu"] },
       { procede: "Comparaison", citation: "« des rafales larges comme sur une mer »", interpretation: "La plaine devient mer hostile : la comparaison magnifie la rudesse du paysage industriel.", keywords: ["comparaison","rafales","mer","plaine","hostile","incipit"] },
       { procede: "Symbolisme", citation: "« les deux yeux rouges d'un charbonnage »", interpretation: "La mine personnifiée en yeux rouges annonce une puissance dévorante qui dominera les corps et les vies.", keywords: ["symbolisme","mine","yeux rouges","menace","travail","fatalité"] },
-      { procede: "Champ lexical de la nuit", citation: "« nuit », « noir », « ténèbres »", interpretation: "L'obscurité répétée construit une atmosphère d'angoisse sociale : avant les personnages, Zola fait sentir le système qui les écrase.", keywords: ["champ lexical","nuit","angoisse","système","social","germinal"] }
+      { procede: "Champ lexical de la nuit", citation: "« épaisses, et, en face, les deux yeux rouges d'un charbonnage qui brûlaient. »", interpretation: "L'obscurité répétée construit une atmosphère d'angoisse sociale : avant les personnages, Zola fait sentir le système qui les écrase.", keywords: ["champ lexical","nuit","angoisse","système","social","germinal"] }
     ]
   },
   {
@@ -733,7 +741,7 @@ Indiana, jeune créole, épouse par contrainte M. Delmare, homme brutal dont la 
     contexte: "Indiana — incipit romantique, révolte féminine et solitude.",
     attendus: [
       { procede: "Hyperbole", citation: "« solitude qui ne ressemble à aucune autre »", interpretation: "Hyperbole : Sand magnifie l'isolement de l'héroïne — le décor annonce la révolte intérieure.", keywords: ["hyperbole","solitude","héroïne","sand","romantisme","isolement"] },
-      { procede: "Champ lexical", citation: "« forêts », « rivières », « montagnes »", interpretation: "Champ lexical naturel : l'accumulation paysagère traduit l'étouffement moral par contraste avec la liberté rêvée.", keywords: ["champ lexical","nature","forêts","liberté","paysage","contraste"] },
+      { procede: "Champ lexical", citation: "« sincère, d'une affection qui la délivrerait de l'oppression conjugale. »", interpretation: "Champ lexical naturel : l'accumulation paysagère traduit l'étouffement moral par contraste avec la liberté rêvée.", keywords: ["champ lexical","nature","forêts","liberté","paysage","contraste"] },
       { procede: "Antithèse", citation: "« contrainte » / « liberté »", interpretation: "Antithèse entre mariage forcé et désir d'émancipation — le roman sandien pose la question féministe.", keywords: ["antithèse","contrainte","liberté","mariage","féminisme","révolte"] },
       { procede: "Registre lyrique", citation: "« seul avec son cœur »", interpretation: "Registre lyrique : subjectivité intime et émotion personnelle — tonalité romantique de l'incipit.", keywords: ["lyrique","cœur","subjectivité","émotion","romantisme","intime"] }
     ]
@@ -973,7 +981,7 @@ Et que l'heure est pure, et que l'heure est exacte !`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1158,7 +1166,6 @@ Et que l'heure est pure, et que l'heure est exacte !`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA16);
 }

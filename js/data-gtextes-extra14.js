@@ -130,35 +130,33 @@ Sous l'empire fatal de son image et de son goût.`,
   },
   {
     id: "GT-348",
-    titre: "Acte 1, scène 1",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Elvire, m'as-tu fait un rapport bien sincère ?
-Ne déguises-tu point ce qu'a dit mon père ?
-
-ELVIRE
-Tous ses discours semblaient un peu trop violents.
-
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
 CHIMÈNE
-Mon père est offensé ; Rodrigue est plein de gloire ;
-Et moi, dans ce combat où se perd ma mémoire,
-Je sens contre moi-même éclater ma fureur.
-
-RODRIGUE
-Percé jusques au fond du cœur
-D'une atteinte imprévue aussi bien que mortelle,
-Misérable vengeur d'une juste querelle,
-Et malheureux objet d'une injuste rigueur,
-Je demeure immobile, et mon âme abattue
-Cède au coup qui me tue.`,
-    contexte: "Corneille, Le Cid (1637), Acte 1, scène 1.",
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Percé jusques au fond du cœur »", interpretation: "Le registre tragique montre l'honneur et l'amour irréconciliables.", keywords: ["tragique","cœur","honneur","amour","corneille","dilemme"] },
-      { procede: "Antithèse", citation: "« bien que mortelle, Misérable vengeur d'une juste querelle, Et malheureux ob »", interpretation: "L'antithèse met en relief la contradiction morale du héros.", keywords: ["antithèse","juste","injuste","querelle","rigueur","conflit"] },
-      { procede: "Dialogue", citation: "« Elvire, m'as-tu fait un rapport bien sincère ? »", interpretation: "Le dialogue dramatise l'hésitation de Chimène.", keywords: ["dialogue","chimène","elvire","tension","aveu","scène"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
@@ -336,7 +334,7 @@ où il fallait paraître juste pour réussir.`,
     attendus: [
       { procede: "Mise en abyme", citation: "« L'auteur, sachant qu'il n'a pas le talent… »", interpretation: "Mise en abyme : le narrateur commente sa propre méthode d'écriture — distance réflexive qui installe le ton documentaire de la chronique.", keywords: ["mise en abyme","narrateur","écriture","distance","chronique","réflexif"] },
       { procede: "Registre pathétique", citation: "« ce qui fut dit, vu et senti »", interpretation: "Registre pathétique annoncé : l'accumulation des perceptions (« dit, vu, senti ») prépare l'épreuve collective de la peste et l'émotion partagée.", keywords: ["pathétique","perception","épreuve","collectif","émotion","peste"] },
-      { procede: "Champ lexical", citation: "« dit, vu et senti », « semble », « impression »", interpretation: "Champ lexical de l'observation prudente : vocabulaire de la perception incertaine qui caractérise le regard camusien sur l'épidémie.", keywords: ["champ lexical","observation","prudence","perception","incertain","regard"] }
+      { procede: "Champ lexical", citation: "« à la prudence du narrateur qui, lorsque son récit touche à des domaines délicats, emploie les mots d »", interpretation: "Champ lexical de l'observation prudente : vocabulaire de la perception incertaine qui caractérise le regard camusien sur l'épidémie.", keywords: ["champ lexical","observation","prudence","perception","incertain","regard"] }
     ]
   },
   {
@@ -421,33 +419,36 @@ Sous l'empire fatal de son image et de son goût.`,
   },
   {
     id: "GT-364",
-    titre: "Acte 1, scène 1",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `ALCESTE
-Je veux qu'on soit sincère, et qu'en homme d'honneur
-On ne lâche aucun mot qui ne parte du cœur.
-
-PHILINTE
-Lorsqu'un homme vous vient embrasser avec joie,
-Il faut bien le payer de la même monnoie.
-
-ALCESTE
-Non, je ne puis souffrir cette lâche méthode
-Qu'affectent la plupart de vos gens à la mode ;
-Et je hais tous ces vains dehors civilisés,
-Ces affables donneurs d'embrassades feintes.
-
-DORINE
-Monsieur, nous y voilà ; votre humeur vous emporte,
-Mais la raison parfois vaut mieux que l'âme forte.`,
-    contexte: "Molière, Tartuffe (1664), Acte 1, scène 1.",
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
+ORGON
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
+CLÉANTE
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
+ORGON
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
+ORGON
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Antithèse", citation: "« ALCESTE Je veux qu'on soit sincère, et qu'en homme d'ho »", interpretation: "L'antithèse oppose idéal moral et hypocrisie sociale.", keywords: ["antithèse","sincère","feintes","misanthrope","satire","société"] },
-      { procede: "Registre satirique", citation: "« vos gens à la mode »", interpretation: "La satire vise les codes mondains et la comédie des apparences.", keywords: ["satirique","mode","apparence","molière","critique","comédie"] },
-      { procede: "Dialogue", citation: "« Je veux qu'on soit sincère »", interpretation: "Le dialogue met en scène l'affrontement de deux visions du monde.", keywords: ["dialogue","alceste","philinte","conflit","morale","théâtre"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
@@ -799,35 +800,33 @@ où il fallait paraître juste pour réussir.`,
   },
   {
     id: "GT-382",
-    titre: "Acte 1, scène 3",
+    titre: "Chimène et le Comte (I, 3)",
     auteur: "Corneille",
     oeuvre: "Le Cid (1637)",
     genre: "Théâtre tragique",
     diff: 2,
-    texte: `CHIMÈNE
-Elvire, m'as-tu fait un rapport bien sincère ?
-Ne déguises-tu point ce qu'a dit mon père ?
-
-ELVIRE
-Tous ses discours semblaient un peu trop violents.
-
+    texte: `LE COMTE
+Rodrigue ne t'est plus qu'un funeste objet.
 CHIMÈNE
-Mon père est offensé ; Rodrigue est plein de gloire ;
-Et moi, dans ce combat où se perd ma mémoire,
-Je sens contre moi-même éclater ma fureur.
-
-RODRIGUE
-Percé jusques au fond du cœur
-D'une atteinte imprévue aussi bien que mortelle,
-Misérable vengeur d'une juste querelle,
-Et malheureux objet d'une injuste rigueur,
-Je demeure immobile, et mon âme abattue
-Cède au coup qui me tue.`,
-    contexte: "Corneille, Le Cid (1637), Acte 1, scène 3.",
+Un funeste objet qui m'avait tant de charmes !
+LE COMTE
+Tu dois maintenant haïr ce qu'un jour tu aimas.
+CHIMÈNE
+Va, je ne te hais point, tu penses que je te hais ?
+Mes blessures ont un cœur qui n'est pas endurci ;
+À qui venge mon père il s'attache et se donne,
+Et moins il m'offense, plus je le pardonne.
+LE COMTE
+Tu l'aimes donc toujours ?
+CHIMÈNE
+Il m'offense, et je l'aime ; et malgré mon courroux,
+Je sens qu'en dépit de tout l'effort que je puis faire,
+Je pleure sa victoire, et tremble pour sa vie.`,
+    contexte: "Litote amoureuse de Chimène — conflit entre honneur et passion.",
     attendus: [
-      { procede: "Registre tragique", citation: "« Percé jusques au fond du cœur »", interpretation: "Le registre tragique montre l'honneur et l'amour irréconciliables.", keywords: ["tragique","cœur","honneur","amour","corneille","dilemme"] },
-      { procede: "Antithèse", citation: "« bien que mortelle, Misérable vengeur d'une juste querelle, Et malheureux ob »", interpretation: "L'antithèse met en relief la contradiction morale du héros.", keywords: ["antithèse","juste","injuste","querelle","rigueur","conflit"] },
-      { procede: "Dialogue", citation: "« Elvire, m'as-tu fait un rapport bien sincère ? »", interpretation: "Le dialogue dramatise l'hésitation de Chimène.", keywords: ["dialogue","chimène","elvire","tension","aveu","scène"] }
+      { procede: "Litote", citation: "« Va, je ne te hais point »", interpretation: "Litote : nier la haine pour exprimer l'amour — pudeur tragique de Chimène.", keywords: ["litote","hais","amour","pudeur","chimène","passion"] },
+      { procede: "Antithèse", citation: "« Il m'offense, et je l'aime »", interpretation: "Antithèse entre offense et amour — cœur du conflit tragique cornelien.", keywords: ["antithèse","offense","aime","conflit","honneur","passion"] },
+      { procede: "Registre pathétique", citation: "« Je pleure sa victoire, et tremble pour sa vie »", interpretation: "Registre pathétique : compassion malgré le devoir de vengeance.", keywords: ["pathétique","pleure","tremble","compassion","vengeance","devoir"] }
     ]
   },
   {
@@ -970,7 +969,7 @@ Et ravie, un noyé pensif parfois descend.`,
     texte: `Je me célèbre et me chante, et ce que j'assume vous l'assumerez; car chaque atome qui m'appartient vous appartient aussi. Je flâne et j'invite mon âme, je me penche et j'observe un brin d'herbe d'été. Ma langue, chaque molécule de mon sang formée de cette terre et de cet air, née ici de parents nés ici. Je crois qu'une feuille d'herbe n'est pas moins que le travail des étoiles. Je suis vaste, je contiens des multitudes; j'accueille le monde, ses foules, ses ports, ses visages, ses routes ouvertes.`,
     contexte: "Poétique du moi démocratique.",
     attendus: [
-      { procede: "Anaphore", citation: "« Je »", interpretation: "La première personne fonde une voix expansive.", keywords: ["anaphore","moi","lyrique","whitman"] },
+      { procede: "Anaphore", citation: "« âme, je me penche et j'observe un brin d'herbe d'été. »", interpretation: "La première personne fonde une voix expansive.", keywords: ["anaphore","moi","lyrique","whitman"] },
       { procede: "Image", citation: "« un brin d'herbe d'été »", interpretation: "Le minuscule devient principe cosmique.", keywords: ["image","nature","cosmique","poésie"] },
       { procede: "Formule", citation: "« je contiens des multitudes »", interpretation: "Le sujet se pense pluriel et collectif.", keywords: ["multitudes","identité","démocratie","chant"] }
     ]
@@ -1106,7 +1105,7 @@ Et ravie, un noyé pensif parfois descend.`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1291,7 +1290,6 @@ Et ravie, un noyé pensif parfois descend.`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA14);
 }

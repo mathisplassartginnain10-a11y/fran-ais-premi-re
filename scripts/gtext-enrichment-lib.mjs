@@ -87,16 +87,38 @@ ${attLines}
   }`;
 }
 
-export function writeExtraFile(num, entries, originalContent) {
-  const headerMatch = originalContent.match(/^\/\*[^\n]*\*\/\r?\n/);
-  const header = headerMatch ? headerMatch[0] : `/* Grands textes — lot ${num} · enrichi */\n`;
-  const varName = `GRANDS_TEXTES_EXTRA${num}`;
-  const content = `${header}const ${varName} = [\n${entries.map(formatGtEntry).join(',\n')}\n];\n\nif (typeof GRANDS_TEXTES !== 'undefined') {\n  GRANDS_TEXTES.push(...${varName});\n}\n`;
-  fs.writeFileSync(path.join(JS, `data-gtextes-extra${num}.js`), content, 'utf8');
-}
-
 export function oeuvreKey(auteur, oeuvre) {
   return `${auteur}|${(oeuvre || '').replace(/\(\d{4}\)/, '').trim()}`.toLowerCase();
+}
+
+export function citationInText(citation, texte) {
+  const norm = s => String(s ?? '')
+    .normalize('NFD').replace(/\p{M}/gu, '')
+    .replace(/[«»""''„]/g, '')
+    .replace(/\.\.\.|…/g, ' ')
+    .replace(/[^\p{L}\p{N}\s'-]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+  const strip = c => String(c ?? '').replace(/^[«\s]+|[»\s]+$/g, '').trim();
+  const segments = strip(citation).split(/\s*[\/→]\s*|\s*…\s*|\s*\.\.\.\s*/).map(s => s.trim()).filter(s => s.replace(/[^\p{L}]/gu, '').length >= 4);
+  const test = seg => {
+    const a = norm(seg);
+    const b = norm(texte);
+    return a.length >= 4 && b.includes(a);
+  };
+  if (!segments.length) return test(strip(citation));
+  return segments.every(test);
+}
+
+export function validateEntry(t) {
+  const issues = [];
+  if ((t.texte || '').length < 400) issues.push('texte court');
+  if (BAD_MARKERS.some(m => (t.texte || '').includes(m))) issues.push('marqueur générique');
+  (t.attendus || []).forEach((a, i) => {
+    if (!citationInText(a.citation, t.texte)) issues.push(`attendu ${i + 1} citation hors texte`);
+  });
+  return issues;
 }
 
 export function buildGoodDonorIndex(all) {
@@ -109,24 +131,18 @@ export function buildGoodDonorIndex(all) {
   return byWork;
 }
 
-export function citationInText(citation, texte) {
-  const norm = s => String(s).replace(/[«»""]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
-  const c = norm(citation);
-  const t = norm(texte);
-  if (!c || !t) return false;
-  if (t.includes(c)) return true;
-  const chunk = c.slice(0, Math.max(10, Math.floor(c.length * 0.55)));
-  return chunk.length >= 8 && t.includes(chunk);
+export function writeExtraFile(num, entries, originalContent) {
+  writeGtextFile(`data-gtextes-extra${num}.js`, entries, originalContent);
 }
 
-export function validateEntry(t) {
-  const issues = [];
-  if ((t.texte || '').length < 400) issues.push('texte court');
-  if (BAD_MARKERS.some(m => (t.texte || '').includes(m))) issues.push('marqueur générique');
-  (t.attendus || []).forEach((a, i) => {
-    if (!citationInText(a.citation, t.texte)) issues.push(`attendu ${i + 1} citation hors texte`);
-  });
-  return issues;
+export function writeGtextFile(filename, entries, originalContent) {
+  const varName = originalContent.match(/\b(?:const|var)\s+(GRANDS_TEXTES\w*)\s*=/)?.[1] || 'GRANDS_TEXTES';
+  const headerMatch = originalContent.match(/^[\s\S]*?(?=const GRANDS_TEXTES|var GRANDS_TEXTES)/);
+  const header = headerMatch ? headerMatch[0] : `/* ${filename} */\n`;
+  const footerMatch = originalContent.match(/\];\s*([\s\S]*)$/);
+  const footer = footerMatch ? footerMatch[1] : '';
+  const content = `${header}const ${varName} = [\n${entries.map(formatGtEntry).join(',\n')}\n];\n${footer}`;
+  fs.writeFileSync(path.join(JS, filename), content, 'utf8');
 }
 
 export function mergeOeuvreById(entries, oeuvreDescFn) {

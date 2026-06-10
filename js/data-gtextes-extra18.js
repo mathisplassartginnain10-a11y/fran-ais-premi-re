@@ -377,84 +377,70 @@ Mais à ce cœur, Madame, il faut quelque retour.`,
   },
   {
     id: "GT-557",
-    titre: "Acte 1, scène 7",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `ORGON
-Ah ! si vous aviez vu comme j'ai rencontré
-Sur le chemin, un homme... un homme... c'est Tartuffe !
-Un homme tout couvert de modestie et d'ardeur,
-Qui devant tout le monde et se mettant à genoux,
-Priait Dieu d'une voix douce et posée et forte,
-Attirant à soi tous les yeux du couvent entier.
-Je lui faisais la charité, mais lui, avec décence,
-En prenait la moitié qu'il rendait aux pauvres.
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
+ORGON
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
 CLÉANTE
-Hé bien, mon frère ?
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
 ORGON
-Mon frère, c'est un homme du ciel.
-L'amour qu'il a pour Dieu le fait haïr la terre.
-Tout lui paraît péché. La moindre chose l'offense.
-DORINE
-Et Madame a eu la fièvre toute une nuit.
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
 ORGON
-Ah ! pauvre homme !
-DORINE
-Et la fièvre l'a fort tourmentée.
-ORGON
-Tartuffe ?
-DORINE
-Non, Madame, Monsieur. La nuit a été rude.
-ORGON
-Ah ! pauvre homme !`,
-    contexte: "Orgon raconte sa rencontre avec Tartuffe et manifeste son aveuglement absolu — la scène installe l'hypocrisie religieuse et sa réception naïve comme moteur comique de la pièce.",
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Ironie", citation: "« Ah ! pauvre homme ! »", interpretation: "La réplique d'Orgon destinée à Tartuffe alors que Dorine parle de Madame crée un décalage comique irrésistible : l'ironie dramatique révèle l'aveuglement total d'Orgon au spectateur.", keywords: ["ironie","orgon","tartuffe","aveuglement","décalage","comique"] },
-      { procede: "Hyperbole", citation: "« c'est un homme du ciel. L'amour qu'il a pour Dieu le fait haïr la terre »", interpretation: "L'hyperbole dévotieuse d'Orgon élève Tartuffe au-dessus de la condition humaine : en l'opposant au monde, il abdique son jugement et se rend entièrement manipulable.", keywords: ["hyperbole","ciel","terre","mystique","jugement","manipulable"] },
-      { procede: "Registre comique", citation: "« Non, Madame, Monsieur »", interpretation: "La correction de Dorine produit le quiproquo comique central : Orgon et la servante parlent de personnes différentes — le rire expose par contraste la monomanie d'Orgon.", keywords: ["comique","quiproquo","dorine","monomanie","rire","exposition"] },
-      { procede: "Antithèse", citation: "« priait Dieu d'une voix douce et posée et forte »", interpretation: "La description d'une voix simultanément douce et forte révèle la maîtrise rhétorique de Tartuffe : l'antithèse implicite signale au spectateur l'artificialité de cette dévotion calculée.", keywords: ["antithèse","voix","douce","forte","artificialité","dévotion"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
     id: "GT-558",
-    titre: "Acte 2, scène 5",
+    titre: "Orgon et Cléante (I, 5)",
     auteur: "Molière",
     oeuvre: "Tartuffe (1664)",
     genre: "Théâtre comique",
     diff: 2,
-    texte: `DORINE
-Un homme qui se met à genoux pour vous faire hommage,
-Et qui de vos beautés va partout se vanter ;
-Un homme de bien, un homme de mérite,
-Que verrait-on partout par ses pieuses œuvres ;
-Et si vous l'épousez, de quoi vous plaignez-vous ?
-MARIANE
-Mais Tartuffe est un homme... Ciel ! puis-je le dire ?
-DORINE
-Quoi donc ?
-MARIANE
-C'est un homme dont j'ai horreur.
-DORINE
-Et vous épouserez, s'il le faut, cet homme-là ?
-MARIANE
-Que puis-je faire ? Mon père y consent.
-DORINE
-Votre père est un sot, et vous l'êtes aussi
-De recevoir de lui cette loi tyrannique.
-MARIANE
-Ma Dorine, des droits que mon père possède
-Sur moi...
-DORINE
-Non, non. On vous mariera contre votre gré ;
-Parce qu'un sot s'en mêle, il faudra l'endurer.`,
-    contexte: "Dorine exhorte Mariane à résister au mariage forcé avec Tartuffe — la servante incarne le bon sens face à la faiblesse de Mariane et à l'autorité dévoyée d'Orgon.",
+    texte: `CLÉANTE
+Mais, dites-moi un peu, d'où vous vient donc Tartuffe,
+Et comment le trouvèrent-ils si familier ?
+ORGON
+S'il avait su tenir, en effet, ainsi les rênes,
+Frère, tous les honneurs dus à la vertu n'eussent-ils pas dû aller à lui ?
+CLÉANTE
+S'il est assez puissant pour faire à vos yeux ce mérite,
+Vous n'avez pas besoin de vous faire son dupe.
+ORGON
+Que Dieu par sa bonté vous traite comme il le doit,
+Puisqu'enfin il vous fait les honneurs qu'il me fait.
+CLÉANTE
+La vertu, mon frère, au fond n'est point une chose
+Où la raison d'un autre soit le juge pour nous.
+ORGON
+C'est un homme… qui… ah !… enfin, un homme… qui…
+Un homme qui prend le malheur des autres sur lui,
+Un homme qui ne doit pas tant aux biens qu'il possède
+Qu'aux grands biens du ciel dont en lui Dieu nous laisse voir l'image.`,
+    contexte: "Cléante interroge l'admiration aveugle d'Orgon pour Tartuffe — satire de l'hypocrisie.",
     attendus: [
-      { procede: "Ironie", citation: "« Un homme de bien, un homme de mérite »", interpretation: "L'ironie de Dorine retourne contre Tartuffe ses propres attributs mondains : en les répétant trop, elle révèle leur vacuité et expose la fausse réputation de l'imposteur.", keywords: ["ironie","dorine","mérite","fausse","réputation","imposteur"] },
-      { procede: "Antithèse", citation: "« Mon père y consent »", interpretation: "La soumission de Mariane (mon père y consent) opposée au franc-parler de Dorine (Votre père est un sot) souligne l'opposition des perspectives : le comique tient à la liberté de parole de la servante face à l'autorité aveuglée.", keywords: ["antithèse","père","soumission","franc-parler","dorine","autorité"] },
-      { procede: "Registre comique", citation: "« Votre père est un sot, et vous l'êtes aussi »", interpretation: "La brutalité comique de Dorine produit un effet libérateur : la servante dit ce que le spectateur pense — Molière délègue à elle la lucidité que ni Orgon ni Mariane ne possèdent.", keywords: ["comique","sot","dorine","libérateur","lucidité","molière"] },
-      { procede: "Gradation", citation: "« C'est un homme dont j'ai horreur »", interpretation: "La gradation de l'aveu de Mariane — de la réticence (puis-je le dire ?) à l'horreur déclarée — révèle la profondeur de son refus et l'oppression que lui impose ce mariage arrangé.", keywords: ["gradation","horreur","réticence","refus","oppression","mariage"] }
+      { procede: "Registre comique", citation: "« vous n'avez pas besoin de vous faire son dupe »", interpretation: "Registre comique : Cléante dénonce l'aveuglement d'Orgon — ironie et satire sociale.", keywords: ["comique","dupe","orgon","ironie","satire","aveugle"] },
+      { procede: "Dialogue", citation: "« d'où vous vient donc Tartuffe »", interpretation: "Dialogue : la question de Cléante ouvre le débat sur l'imposture religieuse.", keywords: ["dialogue","question","tartuffe","cléante","débat","imposture"] },
+      { procede: "Hyperbole", citation: "« prend le malheur des autres sur lui »", interpretation: "Hyperbole : Orgon exalte Tartuffe en saint — démesure comique de la dévotion feinte.", keywords: ["hyperbole","malheur","exalt","dévotion","feinte","orgon"] }
     ]
   },
   {
@@ -838,7 +824,7 @@ Le soir, Salamano est venu frapper à ma porte. Il pleurait. Son chien avait dis
     attendus: [
       { procede: "Écriture blanche", citation: "« cela ne voulait rien dire, mais qu'il me semblait que non »", interpretation: "Écriture blanche : la réponse de Meursault à Marie, dépourvue de pathos, traduit une impossibilité radicale à éprouver les sentiments attendus — l'indifférence affective est le marqueur central du personnage.", keywords: ["écriture blanche","indifférence","sentiment","meursault","camus","absurde"] },
       { procede: "Registre réaliste", citation: "« L'eau était froide et bonne »", interpretation: "Registre réaliste : la sensation brute remplace l'introspection — Meursault perçoit le monde par les sens sans médiation symbolique, conformément à l'esthétique camusienne.", keywords: ["réaliste","sensation","corps","mer","physique","présent"] },
-      { procede: "Temporalité", citation: "« Ce matin-là », « Le soir »", interpretation: "Temporalité : les marqueurs temporels simples segmentent la journée sans hiérarchie émotionnelle — l'amour, la misère de Salamano et le sommeil s'enchaînent à égalité, illustrant l'absurde.", keywords: ["temporalité","journée","succession","égalité","absurde","routine"] },
+      { procede: "Temporalité", citation: "« Je l'ai regardée faire sans rien dire. »", interpretation: "Temporalité : les marqueurs temporels simples segmentent la journée sans hiérarchie émotionnelle — l'amour, la misère de Salamano et le sommeil s'enchaînent à égalité, illustrant l'absurde.", keywords: ["temporalité","journée","succession","égalité","absurde","routine"] },
       { procede: "Énumération", citation: "« Ça ne m'intéressait pas vraiment. J'avais sommeil. Je me suis couché. »", interpretation: "Énumération de courtes phrases juxtaposées : la parataxe mime l'indifférence de Meursault — le drame de Salamano et la fatigue personnelle sont mis sur le même plan.", keywords: ["énumération","parataxe","indifférence","juxtaposition","brevitas","salamano"] }
     ]
   },
@@ -1112,7 +1098,7 @@ De l'inspiration, qui regagne le ciel.`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1297,7 +1283,6 @@ De l'inspiration, qui regagne le ciel.`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA18);
 }

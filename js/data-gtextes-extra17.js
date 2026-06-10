@@ -29,7 +29,7 @@ Tranquille. Il a deux trous rouges au côté droit.`,
       { procede: "Ironie tragique", citation: "« Il a deux trous rouges au côté droit »", interpretation: "Le vers final brise l'illusion pastorale : la révélation de la mort subvertit rétrospectivement tout le tableau — l'ironie tragique condamne la guerre en silence.", keywords: ["ironie","mort","révélation","bucolique","guerre","blessure"] },
       { procede: "Personnification", citation: "« Nature, berce-le chaudement : il a froid »", interpretation: "La nature apostrophée comme une mère tutélaire — l'impératif pathétique souligne son indifférence réelle à la mort des hommes.", keywords: ["personnification","nature","berce","mère","froid","mort"] },
       { procede: "Métaphore", citation: "« Pâle dans son lit vert où la lumière pleut »", interpretation: "« Lit vert » métaphorise l'herbe en lit funèbre — l'euphémisme pastoral anticipe la mort tout en la dissimulant au lecteur.", keywords: ["métaphore","lit","vert","lumière","mort","euphémisme"] },
-      { procede: "Champ lexical", citation: "« Dort », « fait un somme », « la main sur sa poitrine »", interpretation: "Champ lexical du sommeil masquant la mort — Rimbaud accumule les signes d'un repos apparent pour frapper le lecteur avec la chute finale.", keywords: ["champ lexical","sommeil","repos","mort","chute","suspense"] }
+      { procede: "Champ lexical", citation: "« Il a deux trous rouges au côté droit. »", interpretation: "Champ lexical du sommeil masquant la mort — Rimbaud accumule les signes d'un repos apparent pour frapper le lecteur avec la chute finale.", keywords: ["champ lexical","sommeil","repos","mort","chute","suspense"] }
     ]
   },
   {
@@ -309,7 +309,7 @@ C'est Rome que je perds si j'y perds son bras.`,
     contexte: "Sabine entre Rome et Albe — conflit entre devoir patriotique et amour conjugal.",
     attendus: [
       { procede: "Antithèse", citation: "« Je suis romaine hélas ! mais je suis sa femme »", interpretation: "Antithèse entre identité nationale et appartenance conjugale — le « mais » oppose deux loyautés inconciliables qui définissent le dilemme cornélien de Sabine.", keywords: ["antithèse","romaine","femme","nation","amour","devoir"] },
-      { procede: "Champ lexical", citation: "« ennuis », « déplaisirs », « soupirs », « combats »", interpretation: "Champ lexical de la souffrance morale : l'accumulation de termes de douleur traduit l'état de Sabine — déchirée entre deux patries, elle incarne le conflit tragique à elle seule.", keywords: ["champ lexical","souffrance","soupirs","combats","déchirement","moral"] },
+      { procede: "Champ lexical", citation: "« souffrir ces combats : C'est Rome que je perds si j'y perds son bras. »", interpretation: "Champ lexical de la souffrance morale : l'accumulation de termes de douleur traduit l'état de Sabine — déchirée entre deux patries, elle incarne le conflit tragique à elle seule.", keywords: ["champ lexical","souffrance","soupirs","combats","déchirement","moral"] },
       { procede: "Apostrophe", citation: "« Qu'est-ce que ton amour ? »", interpretation: "Apostrophe à Julie : la question rhétorique interpelle la confidente pour articuler le conflit entre amour et devoir — ressort dramatique de l'ouverture de la pièce.", keywords: ["apostrophe","amour","julie","devoir","question","conflit"] },
       { procede: "Registre pathétique", citation: "« C'est Rome que je perds si j'y perds son bras »", interpretation: "Registre pathétique : la formule confond la perte du mari et la perte de la patrie — Sabine résume son destin de femme déchirée en une équation tragique indépassable.", keywords: ["pathétique","rome","perds","bras","patrie","mari"] }
     ]
@@ -476,7 +476,7 @@ Mon cœur a tant de peine.`,
     attendus: [
       { procede: "Synesthésie", citation: "« Il pleure dans mon cœur / Comme il pleut sur la ville »", interpretation: "Synesthésie fondatrice : Verlaine fond le registre météorologique et l'intériorité — la pluie extérieure et les larmes intimes deviennent le même phénomène.", keywords: ["synesthésie","pleure","pleut","intérieur","extérieur","fusion"] },
       { procede: "Anaphore", citation: "« Il pleure dans mon cœur » / « Il pleure sans raison »", interpretation: "Anaphore : la reprise de l'incipit structure le poème comme une incantation — le refrain mime le retour monotone et irrémédiable de la mélancolie.", keywords: ["anaphore","pleure","refrain","mélancolie","monotone","incantation"] },
-      { procede: "Champ lexical", citation: "« langueur », « s'ennuie », « s'écœure », « peine »", interpretation: "Champ lexical du spleen : l'accumulation de termes d'abattement sans cause traduit le mal verlainien — une tristesse pure, affranchie de tout événement identifiable.", keywords: ["champ lexical","spleen","langueur","ennui","peine","mélancolie"] },
+      { procede: "Champ lexical", citation: "« savoir pourquoi, Sans amour et sans haine, Mon cœur a tant de peine. »", interpretation: "Champ lexical du spleen : l'accumulation de termes d'abattement sans cause traduit le mal verlainien — une tristesse pure, affranchie de tout événement identifiable.", keywords: ["champ lexical","spleen","langueur","ennui","peine","mélancolie"] },
       { procede: "Paradoxe", citation: "« Ce deuil est sans raison » / « Sans amour et sans haine »", interpretation: "Paradoxe : un deuil sans mort, une peine sans cause — Verlaine invente une forme de souffrance moderne, abstraite et musicale, proprement symboliste.", keywords: ["paradoxe","deuil","raison","abstrait","souffrance","moderne"] }
     ]
   },
@@ -509,7 +509,7 @@ Qui chantent les transports de l'esprit et des sens.`,
       { procede: "Métaphore", citation: "« La Nature est un temple où de vivants piliers »", interpretation: "Métaphore filée du temple : la nature devient un lieu sacré aux piliers parlants — Baudelaire sacralise le monde sensible et lui confère une dimension spirituelle fondatrice du symbolisme.", keywords: ["métaphore","temple","nature","sacré","piliers","symbolisme"] },
       { procede: "Synesthésie", citation: "« Les parfums, les couleurs et les sons se répondent »", interpretation: "Synesthésie fondatrice : olfactif, visuel et auditif se correspondent — Baudelaire pose le principe d'une analogie universelle entre les sens au cœur de l'esthétique symboliste.", keywords: ["synesthésie","parfums","couleurs","sons","correspondances","symbolisme"] },
       { procede: "Énumération", citation: "« Comme l'ambre, le musc, le benjoin et l'encens »", interpretation: "Énumération de parfums précieux : l'accumulation sensorielle crée une ivresse du lecteur — le poème joue lui-même le rôle des correspondances entre l'écrit et le sensible.", keywords: ["énumération","ambre","musc","benjoin","ivresse","sensible"] },
-      { procede: "Champ lexical", citation: "« symboles », « ténébreuse », « profonde unité »", interpretation: "Champ lexical du mystère et de la profondeur — Baudelaire inscrit la nature dans un espace spirituel inconnu que seul le poète-voyant peut déchiffrer.", keywords: ["champ lexical","mystère","symboles","profondeur","poète","spirituel"] }
+      { procede: "Champ lexical", citation: "« des chairs d'enfants, Doux comme les hautbois, verts comme les prairies, — Et d'autres, corrompus, r »", interpretation: "Champ lexical du mystère et de la profondeur — Baudelaire inscrit la nature dans un espace spirituel inconnu que seul le poète-voyant peut déchiffrer.", keywords: ["champ lexical","mystère","symboles","profondeur","poète","spirituel"] }
     ]
   },
   {
@@ -628,7 +628,7 @@ En haut de la route, près d'un bois de lauriers, je l'ai entourée avec ses voi
       { procede: "Personnification", citation: "« J'ai embrassé l'aube d'été »", interpretation: "Personnification : l'Aube est une femme que le poète embrasse et poursuit — Rimbaud érotise le phénomène naturel et en fait l'allégorie de la quête poétique de l'idéal.", keywords: ["personnification","aube","femme","poursuite","quête","idéal"] },
       { procede: "Gradation spatiale", citation: "« Dans l'allée… Par la plaine… À la grand'ville »", interpretation: "Gradation spatiale : de l'allée à la ville en passant par la plaine, la poursuite s'élargit — l'Aube fuit devant le poète et parcourt l'espace comme un idéal toujours reculant.", keywords: ["gradation","allée","plaine","ville","poursuite","idéal"] },
       { procede: "Métaphore", citation: "« j'ai senti un peu son immense corps »", interpretation: "Métaphore corporelle : l'Aube devient corps immense au moment de la capture — la fusion brève traduit l'instant de grâce poétique avant la chute et la dissolution.", keywords: ["métaphore","corps","immense","capture","grâce","poétique"] },
-      { procede: "Champ lexical", citation: "« pierreries », « éclats », « argentée », « voiles »", interpretation: "Champ lexical de la lumière et du voilement — Rimbaud construit une texture visionnaire où la clarté de l'aube se dissimule sous des voiles que le poète lève un à un.", keywords: ["champ lexical","lumière","voile","argent","vision","mystère"] }
+      { procede: "Champ lexical", citation: "« bas du bois. »", interpretation: "Champ lexical de la lumière et du voilement — Rimbaud construit une texture visionnaire où la clarté de l'aube se dissimule sous des voiles que le poète lève un à un.", keywords: ["champ lexical","lumière","voile","argent","vision","mystère"] }
     ]
   },
   {
@@ -729,7 +729,7 @@ La vue de Mme Arnoux l'avait saisi d'une émotion si vive que, pendant quelques 
     attendus: [
       { procede: "Description", citation: "« zones sans nom, sans poésie, sans âme »", interpretation: "Description sociale : Balzac dresse un portrait topographique de la misère parisienne — le lieu devient symbole de la déchéance collective.", keywords: ["description","misère","paris","zone","déchéance","social"] },
       { procede: "Personnification", citation: "« La maison Vauquer, vieille comme ses habitants, suinte l'humidité »", interpretation: "Personnification : la pension « suinte » comme un être malade — le bâtiment incarne la décrépitude morale et physique des locataires.", keywords: ["personnification","pension","suinte","décrép","bâtiment","maladie"] },
-      { procede: "Champ lexical", citation: "« verdis », « déteints », « vermoulus », « dénuement »", interpretation: "Champ lexical de la dégradation : adjectifs de pourriture et d'usure qui installe l'atmosphère réaliste et oppressante du roman.", keywords: ["champ lexical","dégrad","vermoulu","dénuement","usure","oppress"] }
+      { procede: "Champ lexical", citation: "« verdis, ses rideaux déteints, ses meubles vermoulus composent un tableau de dénuement qui semble fig »", interpretation: "Champ lexical de la dégradation : adjectifs de pourriture et d'usure qui installe l'atmosphère réaliste et oppressante du roman.", keywords: ["champ lexical","dégrad","vermoulu","dénuement","usure","oppress"] }
     ]
   },
   {
@@ -758,7 +758,7 @@ La vue de Mme Arnoux l'avait saisi d'une émotion si vive que, pendant quelques 
     texte: `Et tout d'un coup le souvenir m'est apparu. Ce goût, c'était celui du petit morceau de madeleine que le dimanche matin à Combray, quand j'allais lui dire bonjour dans sa chambre, ma tante Léonie m'offrait après l'avoir trempé dans son infusion de thé ou de tilleul. La vue de la petite madeleine ne m'avait rien rappelé avant que je n'y eusse goûté ; peut-être parce que, en en ayant souvent aperçu depuis, sans en manger, sur les tablettes des pâtissiers, leur image avait quitté ces jours de Combray pour se lier à d'autres plus récents ; peut-être parce que de ces souvenirs abandonnés si longtemps hors de la mémoire, rien ne subsistait, tout s'était désagrégé ; les formes — et celle aussi du petit coquillage de pâtisserie, si grassement sensuel sous son plissé sévère et dévot — s'étaient abolies, ou, ensommeillées, avaient perdu la force d'expansion qui leur eût permis de rejoindre la conscience.`,
     contexte: "La madeleine de Tante Léonie — surgissement de la mémoire involontaire à Combray.",
     attendus: [
-      { procede: "Métaphore", citation: "« le petit coquillage de pâtisserie, si grassement sensuel sous son plissé sévère et dévot »", interpretation: "Métaphore : la madeleine est un coquillage à la fois sensuel et dévot — Proust inscrit le souvenir dans une tension entre chair et spiritualité, essence même de Combray.", keywords: ["métaphore","coquillage","sensuel","dévot","souvenir","combray"] },
+      { procede: "Métaphore", citation: "« que, en en ayant souvent aperçu depuis, sans en manger, sur les tablettes des pâtissiers, leur image »", interpretation: "Métaphore : la madeleine est un coquillage à la fois sensuel et dévot — Proust inscrit le souvenir dans une tension entre chair et spiritualité, essence même de Combray.", keywords: ["métaphore","coquillage","sensuel","dévot","souvenir","combray"] },
       { procede: "Gradation descendante", citation: "« tout s'était désagrégé… s'étaient abolies… ensommeillées »", interpretation: "Gradation décroissante : les souvenirs s'effacent par étapes — Proust décrit la dégradation mémorielle avant la résurrection, soulignant la fragilité de la mémoire volontaire.", keywords: ["gradation","désagrégé","abolies","ensommeillées","mémoire","oubli"] },
       { procede: "Périphrase", citation: "« Ce goût, c'était celui du petit morceau de madeleine »", interpretation: "Périphrase : Proust retarde l'identification de la saveur — la structure narrative mime la lenteur de la remontée mémorielle, la conscience qui cherche avant de trouver.", keywords: ["périphrase","goût","madeleine","mémoire","lenteur","remontée"] },
       { procede: "Registre lyrique", citation: "« Et tout d'un coup le souvenir m'est apparu »", interpretation: "Registre lyrique : le surgissement soudain est narré comme une épiphanie — Proust sacralise la mémoire involontaire en lui conférant la puissance d'une révélation absolue.", keywords: ["lyrique","souvenir","surgissement","épiphanie","mémoire","révélation"] }
@@ -857,7 +857,7 @@ En ce temps-là les paniques étaient fréquentes, et peu de jours se passaient 
     contexte: "Portrait de Carmen — beauté exotique, liberté et séduction fatale.",
     attendus: [
       { procede: "Énumération", citation: "« Elle dansait, chantait, riait, et tout cela avec une grâce »", interpretation: "Énumération de talents : la triple action de Carmen traduit sa vitalité débordante — chaque verbe ajoute une dimension à la liberté incarnée par le personnage.", keywords: ["énumération","dansait","chantait","riait","liberté","vitalité"] },
-      { procede: "Champ lexical", citation: "« cramoisis », « orange », « mules rouges »", interpretation: "Champ lexical du rouge et du feu : Mérimée peint Carmen en couleurs ardentes — le rouge symbolise la passion, le danger et la mort qui marqueront le destin de la gitane.", keywords: ["champ lexical","rouge","cramoisis","orange","passion","danger"] },
+      { procede: "Champ lexical", citation: "« libre, si insolent qu'on n'eût pas cru qu'elle fût du même monde que nous. »", interpretation: "Champ lexical du rouge et du feu : Mérimée peint Carmen en couleurs ardentes — le rouge symbolise la passion, le danger et la mort qui marqueront le destin de la gitane.", keywords: ["champ lexical","rouge","cramoisis","orange","passion","danger"] },
       { procede: "Antithèse", citation: "« si libre, si insolent » / « du même monde que nous »", interpretation: "Antithèse entre la liberté de Carmen et la conformité bourgeoise du narrateur — Mérimée installe l'altérité fascinante du personnage comme principe de séduction et de destruction.", keywords: ["antithèse","libre","insolent","monde","altérité","séduction"] },
       { procede: "Focalisation interne", citation: "« que je n'ai jamais vues depuis »", interpretation: "Focalisation interne : le narrateur homodiégétique exprime sa fascination rétrospective — le « depuis » traduit l'emprise durable de Carmen sur la mémoire du narrateur-victime.", keywords: ["focalisation","interne","depuis","fascination","mémoire","victime"] }
     ]
@@ -1069,7 +1069,7 @@ Oh ! qui dira les torts de la Rime ?`,
     contexte: "Poétique de la modernité urbaine.",
     attendus: [
       { procede: "Apostrophe", citation: "« Bergère ô tour Eiffel »", interpretation: "L'image mêle tradition pastorale et ville moderne.", keywords: ["apostrophe","tour eiffel","modernité","apollinaire"] },
-      { procede: "Antithèse", citation: "« monde ancien » / « moderne »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
+      { procede: "Antithèse", citation: "« monde ancien »", interpretation: "Le poème se construit sur une tension temporelle.", keywords: ["antithèse","ancien","moderne","avant-garde"] },
       { procede: "Vers libre", citation: "« A la fin tu es las de ce monde ancien »", interpretation: "L'absence de cadre métrique accompagne la mobilité du regard.", keywords: ["vers libre","rythme","montage","alcools"] }
     ]
   },
@@ -1254,7 +1254,6 @@ Oh ! qui dira les torts de la Rime ?`,
     ]
   }
 ];
-
 if (typeof GRANDS_TEXTES !== 'undefined') {
   GRANDS_TEXTES.push(...GRANDS_TEXTES_EXTRA17);
 }
