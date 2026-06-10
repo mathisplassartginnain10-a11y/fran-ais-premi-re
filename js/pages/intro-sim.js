@@ -1198,23 +1198,33 @@ function introSimRandom() {
 }
 
 function introSimOpenFromGtext(id) {
-  const t = typeof gtextGetById === 'function' ? gtextGetById(id) : introSimGetRawText(id);
-  if (!t) return;
-  introSimNavigate();
-  setTimeout(() => {
-    initIntroSim();
-    introSimSetFields({
-      auteur: t.auteur,
-      oeuvre: t.oeuvre.replace(/\(\d{4}\)/, '').trim(),
-      passage: typeof introSimPassageFirstLast === 'function'
-        ? introSimPassageFirstLast(t.texte || '') || t.titre || ''
-        : (t.texte || t.titre || ''),
-    });
-    const fm = el('intro-sim-fullmode');
-    if (fm) fm.checked = !!(t.texte && t.texte.length > 80);
-    introSimGenerate();
-    el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 120);
+  const open = () => {
+    const t = typeof gtextGetById === 'function' ? gtextGetById(id) : introSimGetRawText(id);
+    if (!t) {
+      alert('Texte ' + id + ' introuvable — chargement en cours, réessayez.');
+      return;
+    }
+    introSimNavigate();
+    setTimeout(() => {
+      initIntroSim();
+      introSimSetFields({
+        auteur: t.auteur,
+        oeuvre: t.oeuvre.replace(/\(\d{4}\)/, '').trim(),
+        passage: typeof introSimPassageFirstLast === 'function'
+          ? introSimPassageFirstLast(t.texte || '') || t.titre || ''
+          : (t.texte || t.titre || ''),
+      });
+      const fm = el('intro-sim-fullmode');
+      if (fm) fm.checked = !!(t.texte && t.texte.length > 80);
+      introSimGenerate();
+      el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 120);
+  };
+  if (typeof ensureGtextesLoaded === 'function') {
+    ensureGtextesLoaded().then(open).catch(e => { console.error('introSimOpenFromGtext', e); open(); });
+  } else {
+    open();
+  }
 }
 
 function introSimOpenFromExo(exoId) {

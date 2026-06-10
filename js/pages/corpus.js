@@ -10,26 +10,33 @@ function openCorpusPage() {
   if (btn) switchPg('proc', 'p-corpus', btn);
 }
 
+function _corpusScrollToRef(id) {
+  const srch = el('corpus-srch');
+  if (srch) srch.value = id;
+  renderCorpus();
+  const target = document.getElementById('corpus-' + id);
+  if (target) {
+    target.classList.add('corpus-highlight');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => target.classList.remove('corpus-highlight'), 3500);
+  }
+}
+
 function openCorpusRef(id) {
   switchMatiere('proc');
   const btn = document.querySelector('#snav-proc .stab[data-corpus]');
   if (btn) switchPg('proc', 'p-corpus', btn);
-  setTimeout(() => {
-    const srch = el('corpus-srch');
-    if (srch) srch.value = id;
-    renderCorpus();
-    const target = document.getElementById('corpus-' + id);
-    if (target) {
-      target.classList.add('corpus-highlight');
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => target.classList.remove('corpus-highlight'), 3500);
-    }
-  }, 100);
+  const run = () => _corpusScrollToRef(id);
+  if (typeof ensureCorpusLoaded === 'function') {
+    ensureCorpusLoaded().then(run).catch(e => { console.error('openCorpusRef', e); run(); });
+  } else {
+    setTimeout(run, 100);
+  }
 }
 
 function openCorpusCat(cat) {
   openCorpusPage();
-  setTimeout(() => {
+  const apply = () => {
     _corpusFilter = cat || 'Toutes';
     const fc = el('corpus-chips');
     if (fc) {
@@ -40,7 +47,12 @@ function openCorpusCat(cat) {
     const srch = el('corpus-srch');
     if (srch) srch.value = '';
     renderCorpus();
-  }, 100);
+  };
+  if (typeof ensureCorpusLoaded === 'function') {
+    ensureCorpusLoaded().then(apply).catch(e => { console.error('openCorpusCat', e); apply(); });
+  } else {
+    setTimeout(apply, 100);
+  }
 }
 
 function debounceCorpusSearch() {
@@ -83,6 +95,13 @@ function initCorpusFilters() {
   });
 }
 
+function _corpusAuteurBtn(entry) {
+  if (entry.type !== 'auteur' || !entry.id || typeof openAuteurCard !== 'function') return '';
+  const auteurId = entry.id.replace(/^AU-/, '');
+  if (!auteurId) return '';
+  return `<button type="button" class="corpus-inline-btn" onclick="openAuteurCard('${auteurId}')">👤 Fiche auteur</button>`;
+}
+
 function renderCorpus(append) {
   const cont = el('corpus-cont');
   const meta = el('corpus-meta');
@@ -121,6 +140,7 @@ function renderCorpus(append) {
       ${entry.analyse}
     </article>`;
     }
+    const auteurBtn = _corpusAuteurBtn(entry);
     return `<article class="corpus-entry" id="corpus-${entry.id}">
       <div class="corpus-entry-head">
         <span class="corpus-id">${entry.id}</span>
@@ -129,6 +149,7 @@ function renderCorpus(append) {
       </div>
       <h3 class="corpus-title">${titre}</h3>
       ${entry.auteur ? `<div class="corpus-auteur">${entry.auteur}</div>` : ''}
+      ${auteurBtn ? `<div class="corpus-links">${auteurBtn}</div>` : ''}
       ${entry.phrase ? `<blockquote class="corpus-phrase">${entry.phrase}</blockquote>` : ''}
       <div class="corpus-reponse"><span>Réponse / notion clé</span><strong>${entry.reponse}</strong></div>
       ${entry.effet ? `<div class="corpus-effet"><span>Effet</span>${entry.effet}</div>` : ''}
@@ -140,4 +161,3 @@ function renderCorpus(append) {
     : '';
   cont.innerHTML = (html || '<div class="no-data">Aucune entrée ne correspond à ta recherche.</div>') + moreBtn;
 }
-

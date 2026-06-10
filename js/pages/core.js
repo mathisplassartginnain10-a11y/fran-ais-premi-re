@@ -1327,13 +1327,31 @@ function restoreLastPage() {
   } catch (e) {}
 }
 
+function navTab(matiere, pageId) {
+  switchMatiere(matiere);
+  const tabs = document.querySelectorAll('#snav-' + matiere + ' .stab');
+  let btn = null;
+  tabs.forEach(b => {
+    const onclick = b.getAttribute('onclick') || '';
+    if (onclick.includes("'" + pageId + "'")) btn = b;
+  });
+  if (btn) switchPg(matiere, pageId, btn);
+  else console.warn('navTab: onglet introuvable', matiere, pageId);
+}
+
 function switchPg(matiere, page, btn) {
   if (typeof timeTrackPage === 'function') timeTrackPage(matiere, page);
   if (typeof playSound === 'function') playSound('nav');
+  const pgEl = el(matiere + '-' + page);
+  if (!pgEl) {
+    console.warn('switchPg: page introuvable', matiere, page);
+    return;
+  }
   document.querySelectorAll('#m-' + matiere + ' .pg').forEach(x => x.classList.remove('on'));
   document.querySelectorAll('#snav-' + matiere + ' .stab').forEach(x => x.classList.remove('on'));
-  el(matiere + '-' + page).classList.add('on');
-  btn.classList.add('on');
+  pgEl.classList.add('on');
+  if (btn) btn.classList.add('on');
+  else console.warn('switchPg: bouton absent', matiere, page);
   saveLastPage(matiere, page);
 
   function afterLoad(fn) {

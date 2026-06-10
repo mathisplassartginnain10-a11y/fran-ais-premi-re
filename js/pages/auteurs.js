@@ -60,14 +60,20 @@ function openAuteurCard(id) {
   const btn = document.querySelector('#snav-proc .stab[onclick*="p-auteurs"]');
   if (btn) switchPg('proc', 'p-auteurs', btn);
   AUTEURS_OPEN.add(id);
-  setTimeout(() => {
+  const reveal = () => {
     renderAuteursList();
     const card = document.querySelector(`.auteur-card[data-auteur-id="${CSS.escape(id)}"]`);
     if (card) {
       card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, 120);
+  };
+  if (typeof ensureAuteursLoaded === 'function') {
+    ensureAuteursLoaded().then(reveal).catch(e => { console.error('openAuteurCard', e); setTimeout(reveal, 120); });
+  } else {
+    setTimeout(reveal, 120);
+  }
 }
 
 function initAuteursFilters() {

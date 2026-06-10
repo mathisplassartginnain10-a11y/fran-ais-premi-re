@@ -231,7 +231,7 @@ function finishExam(timeout) {
       <div class="btnrow">
         <button class="pbtn" onclick="startExam()">▶ Nouvel examen</button>
         <button class="sbtn" onclick="EXAM_STATE.running=false;renderExam()">⚙ Configurer</button>
-        <button class="sbtn" onclick="switchMatiere('${curMat}');switchPg('${curMat}','p-stat',document.querySelector('#snav-${curMat} .stab:nth-child(5)'))">📊 Stats</button>
+        <button class="sbtn" onclick="navTab('${curMat}','p-stat')">📊 Stats</button>
       </div>
     </div>`;
 }

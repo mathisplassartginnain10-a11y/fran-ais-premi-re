@@ -45,9 +45,7 @@ function computeStreak(sessions) {
 }
 
 function openQcmCat(m, cat) {
-  switchMatiere(m);
-  const tabs = document.querySelectorAll(`#snav-${m} .stab`);
-  if (tabs[2]) switchPg(m, 'p-qcm', tabs[2]);
+  navTab(m, 'p-qcm');
   const s = QCM_STATE[m];
   s.cat = cat;
   document.querySelectorAll(`#${s.prefix}qcats .chip`).forEach((b, i) => {
@@ -57,9 +55,7 @@ function openQcmCat(m, cat) {
 }
 
 function openExamMode(m) {
-  switchMatiere(m);
-  const tabs = document.querySelectorAll(`#snav-${m} .stab`);
-  if (tabs[3]) switchPg(m, 'p-exam', tabs[3]);
+  navTab(m, 'p-exam');
 }
 
 function renderStats(m) {
