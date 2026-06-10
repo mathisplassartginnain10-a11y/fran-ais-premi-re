@@ -324,5 +324,9 @@
     window.BAC_QCM_GRAM_FILTERED = gramDropped;
     window.BAC_QCM_VOCAB_FILTERED = vocabDropped;
     window.BAC_QCM_SANITIZED = procSan.dropped + gramSan.dropped + vocabSan.dropped;
+    const sanitized = window.BAC_QCM_SANITIZED;
+    if (sanitized > 0 && typeof console !== 'undefined' && console.warn) {
+      console.warn('[bac] QCM sanitize: ' + sanitized + ' question(s) corrigée(s) ou retirée(s) au chargement.');
+    }
   }
 })();
