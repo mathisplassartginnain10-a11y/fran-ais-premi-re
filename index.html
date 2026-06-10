@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bac de Français — Première</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c9a84c">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2305,5 +2307,12 @@
 <script defer src="js/pages/boot-app.js?v=20260623"></script>
 <script defer src="js/pages-loader.js?v=20260609"></script>
 <script defer src="js/boot.js?v=20260609"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
 </body>
 </html>
