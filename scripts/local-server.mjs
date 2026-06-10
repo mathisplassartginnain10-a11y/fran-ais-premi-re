@@ -513,10 +513,15 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (p === '/api/launch') {
-    const force = url.searchParams.get('restart') === '1' || req.method === 'POST';
-    const result = await ensureOllama(force);
-    res.writeHead(result.ok ? 200 : 503, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(result));
+    try {
+      const force = url.searchParams.get('restart') === '1' || req.method === 'POST';
+      const result = await ensureOllama(force);
+      res.writeHead(result.ok ? 200 : 503, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(result));
+    } catch (e) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: false, gpu: false, error: e.message || 'Erreur serveur launch' }));
+    }
     return;
   }
 
@@ -547,10 +552,15 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (p === '/api/ollama/ensure') {
-    const force = url.searchParams.get('restart') === '1' || req.method === 'POST';
-    const result = await ensureOllama(force);
-    res.writeHead(result.ok ? 200 : 503, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(result));
+    try {
+      const force = url.searchParams.get('restart') === '1' || req.method === 'POST';
+      const result = await ensureOllama(force);
+      res.writeHead(result.ok ? 200 : 503, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(result));
+    } catch (e) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: false, gpu: false, error: e.message || 'Erreur serveur ensure' }));
+    }
     return;
   }
 

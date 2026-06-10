@@ -321,17 +321,6 @@ async function ollamaCommentFetchGpuStatus(base) {
           isFullGpu: j.gpu === true,
         };
       }
-      const r2 = await fetch('/api/ollama/ensure', { signal: AbortSignal.timeout(10000) });
-      if (r2.ok) {
-        const j2 = await r2.json();
-        return {
-          name: j2.model,
-          processor: j2.processor || '',
-          size: j2.size,
-          vramMb: j2.vramMb,
-          isFullGpu: j2.gpu === true,
-        };
-      }
     } catch (e) { /* fallback */ }
   }
   try {

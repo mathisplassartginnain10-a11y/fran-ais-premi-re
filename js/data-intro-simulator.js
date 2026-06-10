@@ -489,10 +489,12 @@ function introSimRegistreShort(registre) {
 }
 
 const INTRO_SIM_THEME_PATTERNS = [
-  [/amour|passion|desir|coeur|baiser|tendre|jalous/, 'l\'amour et le conflit des sentiments'],
+  [/synesth|correspond.*sens|parfum.*couleur|sons se re/, 'les correspondances entre les sens et la vision poétique du monde'],
+  [/symbol|symbole|for[eê]t de symb|sacr(?:e|al)/, 'le symbolisme et la sacralisation du réel'],
+  [/amour impossible|devoir.*passion|passion.*devoir|venge.*aime/, 'l\'amour impossible et le conflit entre devoir et passion'],
+  [/amour|passion|desir|coeur|baiser|tendre|jalous/, 'l\'amour et la tension des sentiments'],
   [/mort|deuil|tombe|funer|necro|sepul/, 'la mort et le deuil'],
   [/temps|souvenir|passe|autrefois|melancol|automne|veill|oubli/, 'la mélancolie du temps qui passe'],
-  [/nature|paysage|saison|foret|mer|mont|campagn/, 'le rapport à la nature'],
   [/libert|revol|injust|misere|pauv|oppress|exploit/, 'la dénonciation sociale et l\'injustice'],
   [/heros|honneur|devoir|patriot|guerre|combat/, 'le conflit entre passion et devoir'],
   [/folie|reve|song|halluc|fantas|absurd/, 'le trouble de la perception et du réel'],
@@ -501,15 +503,22 @@ const INTRO_SIM_THEME_PATTERNS = [
   [/beaut|laideur|art|creer|poet/, 'le rapport à la beauté et à l\'art'],
   [/silence|parol|lang|discours|verbe/, 'le pouvoir de la parole et du silence'],
   [/famill|pere|mere|filial|frater/, 'les liens familiaux'],
+  [/nature|paysage|saison|foret|mer|mont|campagn/, 'le rapport au monde et à la nature'],
 ];
 
 function introSimThemeNormalize(raw) {
   let t = (raw || '').trim().replace(/\.$/, '').replace(/\s+/g, ' ');
   if (!t) return '';
-  if (t.length > 65) t = t.split(/[,;]/)[0].trim();
-  if (t.length > 65) t = t.slice(0, 62).trim() + '…';
+  if (t.includes(',')) {
+    const parts = t.split(',').map(p => p.trim()).filter(Boolean);
+    if (parts[0].length >= 8 && parts[0].length <= 48) t = parts[0];
+  }
+  if (t.length > 58) t = t.slice(0, 55).trim() + '…';
+  if (/^d'/i.test(t)) t = `l'${t.slice(2)}`;
   if (!/^(la |le |l'|les |un |une |des |du |de la |de l'|l')/i.test(t)) {
-    t = t.charAt(0).toLowerCase() + t.slice(1);
+    if (/^correspondances|^rapports?\s|^liens\s/i.test(t)) t = `les ${t}`;
+    else if (/^[aeiouàâéèêëîïôùûüh]/i.test(t)) t = `l'${t}`;
+    else t = `la ${t}`;
   }
   return t;
 }
@@ -524,14 +533,30 @@ function introSimThemeFromInterp(interp) {
 }
 
 function introSimThemeFromContext(contexte) {
-  let s = (contexte || '').trim().split(/[.—]/)[0].trim();
-  s = s.replace(/^(dans ce passage|cet extrait|extrait|scène|poème|texte|passage)\s*,?\s*/i, '');
+  let s = (contexte || '').trim();
+  const dashParts = s.split(/\s*[—–-]\s+/);
+  if (dashParts.length >= 2) {
+    let after = dashParts.slice(1).join(' — ').split(/[.—]/)[0].trim();
+    if (after.length >= 12 && after.length <= 72 && !/^(il|elle|on|l'auteur|chimène|camille)/i.test(after)) {
+      return introSimThemeNormalize(after.charAt(0).toLowerCase() + after.slice(1));
+    }
+    let before = dashParts[0].trim()
+      .replace(/^(scène|sonnet|tirade|extrait|passage)\s+(?:de\s+|d')/i, '')
+      .replace(/^poème\s+(?:de\s+|d'|en\s+vers\s+)?/i, '');
+    if (before.length >= 10 && before.length <= 58 && !/^vers impairs$/i.test(before)) {
+      return introSimThemeNormalize(before);
+    }
+  }
+  s = s.split(/[.—]/)[0].trim();
+  s = s.replace(/^(dans ce passage|cet extrait|extrait|scène|poème|texte|passage|sonnet|tirade)\s*,?\s*/i, '');
   if (s.length < 12 || s.length > 55) return '';
   if (/^(il|elle|on|nous|ce|cette|l'auteur)/i.test(s)) return '';
   return introSimThemeNormalize(s.charAt(0).toLowerCase() + s.slice(1));
 }
 
 function introSimThemeShort(contexte, titre, attendus, genreKind) {
+  const fromCtx = introSimThemeFromContext(contexte);
+  if (fromCtx && fromCtx.length >= 14) return fromCtx;
   const hay = introSimNorm((contexte || '') + ' ' + (titre || ''));
   for (const [re, label] of INTRO_SIM_THEME_PATTERNS) {
     if (re.test(hay)) return label;
@@ -543,8 +568,6 @@ function introSimThemeShort(contexte, titre, attendus, genreKind) {
       if (fromInterp) return fromInterp;
     }
   }
-  const fromCtx = introSimThemeFromContext(contexte);
-  if (fromCtx) return fromCtx;
   const defaults = {
     poesie: 'la subjectivité et l\'expression des émotions',
     theatre: 'la tension dramatique',
@@ -558,58 +581,132 @@ function introSimTheme(contexte, titre, attendus, genreKind) {
   return introSimThemeShort(contexte, titre, attendus, genreKind || 'default');
 }
 
-function introSimBuildProblematiquePack({ genreKind, themeShort, registre, genreLbl, procedesCles }) {
+function introSimWrapProblematique(core) {
+  const c = (core || '').trim().replace(/\?+$/, '').replace(/[.!…]+$/, '');
+  return `À travers l'étude de ce passage, nous nous demanderons ${c}.`;
+}
+
+function introSimProbProcsPhrase(procedesCles, max) {
+  const list = (procedesCles || []).slice(0, max || 2).filter(Boolean);
+  if (!list.length) return '';
+  if (list.length === 1) return introSimProcLabel(list[0]);
+  return `${introSimProcLabel(list[0])} et ${introSimProcLabel(list[1])}`;
+}
+
+function introSimEffectFromAttendus(attendus) {
+  if (!attendus?.length) return '';
+  const scored = [];
+  for (const a of attendus.slice(0, 4)) {
+    const cleaned = introSimCleanInterp(a.interpretation);
+    if (!cleaned) continue;
+    const verb = cleaned.match(
+      /(?:traduit|traduisent|exprime|expriment|suggère|suggèrent|installe|installent|crée|créent|révèle|révèlent|illustre|illustrent|renforce|renforcent|suscite|suscitent|imite|imitent|dénonce|dénoncent|met en scène|brisent|brise)\s+([^.,;—]{6,52})/i,
+    );
+    if (verb) {
+      let e = verb[1].trim().replace(/\s+(dans|par|sur|au|en|à|et|—|qui|alors).*/i, '');
+      if (e.length >= 8 && e.length <= 58) {
+        let score = 1;
+        if (/mélancol|tension|conflit|sacral|inquiét|ambival|pathét|trag|instab|impuiss|subjectiv|symbol|correspond/i.test(e)) score += 2;
+        scored.push({ e, score });
+      }
+    }
+  }
+  scored.sort((a, b) => b.score - a.score);
+  return scored[0]?.e || '';
+}
+
+function introSimEffectClause(effect) {
+  if (!effect) return '';
+  const e = effect.trim();
+  if (/^(la |le |l'|les |un |une |des )/i.test(e)) return `susciter ${e}`;
+  if (/^(sonorité|instabilité|tension|mélancolie|ambivalence|sacralisation|inquiétude)/i.test(e)) {
+    return `faire émerger ${e.charAt(0).toLowerCase() + e.slice(1)}`;
+  }
+  return e.charAt(0).toLowerCase() + e.slice(1);
+}
+
+function introSimProbUnique(items) {
+  const seen = new Set();
+  return items.filter(s => {
+    const k = introSimNorm(s);
+    if (!k || k.length < 35 || seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+}
+
+function introSimRegistreIsVague(registre) {
+  const r = (registre || '').trim();
+  return !r || /^varié/i.test(r) || r === 'satirique' || r === 'pathétique';
+}
+
+function introSimBuildProblematiquePack({ genreKind, themeShort, registre, genreLbl, procedesCles, attendus }) {
+  const theme = themeShort || 'le sens du passage';
   const reg = introSimRegistreShort(registre);
-  const proc = (procedesCles?.[0] || '').trim();
-  const procHint = proc && proc.length < 42 ? `, notamment par ${proc.toLowerCase()}` : '';
+  const procs = introSimProbProcsPhrase(procedesCles);
+  const proc1 = procedesCles?.[0] ? introSimProcLabel(procedesCles[0]) : '';
+  const effect = introSimEffectFromAttendus(attendus);
+  const effectClause = introSimEffectClause(effect);
+  const vagueReg = introSimRegistreIsVague(registre);
+
+  let main;
+  let alts;
 
   if (genreKind === 'poesie') {
-    return {
-      main: `À travers l'étude de ce passage, nous nous demanderons en quoi les procédés poétiques${procHint} permettent de suggérer ${themeShort}.`,
-      alts: [
-        `Comment le poète exprime-t-il ${themeShort} par le choix des images et du rythme ?`,
-        `En quoi le registre ${reg} sert-il ici à faire ressortir ${themeShort} ?`,
-        `Dans quelle mesure la musicalité du poème renforce-t-elle ${themeShort} ?`,
-      ],
-    };
+    main = procs
+      ? introSimWrapProblematique(`comment le poème, par ${procs}, parvient à traduire ${theme}`)
+      : introSimWrapProblematique(`comment l'écriture poétique parvient à exprimer ${theme}`);
+    alts = [
+      proc1 && introSimWrapProblematique(`en quoi ${proc1} contribue à faire émerger ${theme}`),
+      effect && introSimWrapProblematique(`dans quelle mesure le poème parvient à ${effectClause}`),
+      !vagueReg && introSimWrapProblematique(`comment le registre ${reg} colore-t-il l'expression de ${theme}`),
+      introSimWrapProblematique(`dans quelle mesure la construction lyrique du poème (images, rythme, versification) renforce ${theme}`),
+    ];
+  } else if (genreKind === 'theatre') {
+    main = procs
+      ? introSimWrapProblematique(`comment la langue théâtrale, par ${procs}, met en scène ${theme}`)
+      : introSimWrapProblematique(`comment la dramaturgie de la scène fait émerger ${theme}`);
+    alts = [
+      introSimWrapProblematique(`en quoi le conflit des personnages révèle ${theme}`),
+      proc1 && introSimWrapProblematique(`dans quelle mesure ${proc1} permet de faire ressentir ${theme}`),
+      !vagueReg && introSimWrapProblematique(`comment le registre ${reg} intensifie-t-il ${theme}`),
+      introSimWrapProblematique(`en quoi la mise en scène et la double énonciation théâtrale participent de ${theme}`),
+    ];
+  } else if (genreKind === 'narratif') {
+    main = procs
+      ? introSimWrapProblematique(`comment le narrateur, par ${procs}, construit ${theme}`)
+      : introSimWrapProblematique(`comment le récit parvient à faire émerger ${theme}`);
+    alts = [
+      introSimWrapProblematique(`en quoi les choix narratifs (point de vue, temporalité) orientent la perception de ${theme}`),
+      proc1 && introSimWrapProblematique(`dans quelle mesure ${proc1} contribue à ${theme}`),
+      effect && introSimWrapProblematique(`comment l'extrait parvient à ${effectClause}`),
+      introSimWrapProblematique(`dans quelle mesure la description et le rythme du récit renforcent ${theme}`),
+    ];
+  } else if (genreKind === 'idees') {
+    main = procs
+      ? introSimWrapProblematique(`comment l'auteur, par ${procs}, articule son argumentation autour de ${theme}`)
+      : introSimWrapProblematique(`comment l'écrivain parvient à convaincre le lecteur de ${theme}`);
+    alts = [
+      introSimWrapProblematique(`en quoi la démonstration éclaire ${theme}`),
+      proc1 && introSimWrapProblematique(`dans quelle mesure ${proc1} renforce la visée persuasive du texte`),
+      effect && introSimWrapProblematique(`comment le raisonnement parvient à ${effectClause}`),
+      introSimWrapProblematique(`dans quelle mesure l'engagement de l'auteur se manifeste à travers ${theme}`),
+    ];
+  } else {
+    main = procs
+      ? introSimWrapProblematique(`comment l'écriture, par ${procs}, donne sens à ${theme}`)
+      : introSimWrapProblematique(`comment l'auteur parvient à faire émerger ${theme}`);
+    alts = [
+      proc1 && introSimWrapProblematique(`en quoi ${proc1} éclaire ${theme}`),
+      effect && introSimWrapProblematique(`dans quelle mesure le texte parvient à ${effectClause}`),
+      !vagueReg && introSimWrapProblematique(`comment le registre ${reg} participe à ${theme}`),
+      introSimWrapProblematique(`en quoi l'extrait invite le lecteur à ressentir ${theme}`),
+    ];
   }
-  if (genreKind === 'theatre') {
-    return {
-      main: `À travers l'étude de ce passage, nous nous demanderons comment la mise en scène et la langue théâtrale mettent en jeu ${themeShort}.`,
-      alts: [
-        `Comment le dramaturge crée-t-il la tension autour de ${themeShort} ?`,
-        `En quoi le registre ${reg} renforce-t-il ${themeShort} ?`,
-        `Dans quelle mesure ce ${genreLbl || 'texte théâtral'} engage-t-il le spectateur dans ${themeShort} ?`,
-      ],
-    };
-  }
-  if (genreKind === 'narratif') {
-    return {
-      main: `À travers l'étude de ce passage, nous nous demanderons comment le narrateur construit ${themeShort}.`,
-      alts: [
-        `En quoi les choix de narration orientent-ils la perception de ${themeShort} ?`,
-        `Comment la description et le point de vue contribuent-ils à ${themeShort} ?`,
-        `Dans quelle mesure cet extrait narratif invite-t-il à ressentir ${themeShort} ?`,
-      ],
-    };
-  }
-  if (genreKind === 'idees') {
-    return {
-      main: `À travers l'étude de ce passage, nous nous demanderons comment l'auteur articule son argumentation autour de ${themeShort}.`,
-      alts: [
-        `En quoi les procédés argumentatifs${procHint} éclairent ${themeShort} ?`,
-        `Comment l'écrivain cherche-t-il à faire comprendre ${themeShort} au lecteur ?`,
-        `Dans quelle mesure la visée persuasive passe-t-elle par ${themeShort} ?`,
-      ],
-    };
-  }
+
   return {
-    main: `À travers l'étude de ce passage, nous nous demanderons en quoi l'écriture de l'auteur donne sens à ${themeShort}.`,
-    alts: [
-      `Comment l'auteur compose-t-il son texte pour faire ressortir ${themeShort} ?`,
-      `En quoi les procédés employés${procHint} éclairent ${themeShort} ?`,
-      `Dans quelle mesure le registre ${reg} participe-t-il de ${themeShort} ?`,
-    ],
+    main,
+    alts: introSimProbUnique(alts).slice(0, 3),
   };
 }
 
@@ -629,7 +726,7 @@ function introSimResolveAuthor(auteurInput) {
 
 function introSimBuildAmorce(era) {
   const t = INTRO_SIM_AMORCE[era] || INTRO_SIM_AMORCE.romantisme;
-  return `Depuis toujours, la littérature permet aux auteurs d'exprimer leur vision du monde et de questionner la société dans laquelle ils vivent. Si le ${t.prev} était marqué par ${t.prevCar}, le ${t.siecle} siècle voit naître ${t.curCar}.`;
+  return `Depuis toujours la littérature permet aux auteurs d'exprimer leur vision du monde et de questionner la société dans laquelle ils vivent. Si le ${t.prev} était marqué par ${t.prevCar}, le ${t.siecle} siècle voit naître ${t.curCar}.`;
 }
 
 function introSimGenreLabel(genre) {
@@ -733,6 +830,7 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
     registre,
     genreLbl,
     procedesCles,
+    attendus: t.attendus,
   });
   const datesStr = author.dates ? ` (${author.dates})` : '';
   const userExcerpt = opts.userExcerpt || '';
@@ -774,7 +872,7 @@ function introSimBuildFromText(t, auteurInput, oeuvreInput, opts) {
     auteur: auteurPhrase,
     extrait: extraitPhrase,
     problematique: probPack.main,
-    plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}, puis ${plan[2]}.`,
+    plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}.`,
   };
 
   const problematiqueAlt = probPack.alts;
@@ -828,6 +926,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
     registre,
     genreLbl,
     procedesCles: [],
+    attendus: null,
   });
   const oeuvreClean = (oeuvre || passage || 'l\'œuvre').replace(/\(\d{4}\)/, '').trim();
   const datesStr = author.dates ? ` (${author.dates})` : '';
@@ -853,7 +952,7 @@ function introSimBuildFallback(auteur, oeuvre, passage, opts) {
     auteur: auteurPhrase,
     extrait: extraitPhrase,
     problematique: probPack.main,
-    plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}, puis ${plan[2]}.`,
+    plan: `Pour répondre à cette question, nous analyserons dans un premier temps ${plan[0]}, avant d'étudier ${plan[1]}.`,
   };
 
   return {
@@ -926,8 +1025,9 @@ function introSimProcLabel(proc) {
   if (/^champ lexical/.test(p)) return `le ${p}`;
   if (/^dialogue/.test(p)) return `le ${p}`;
   if (/^versification/.test(p)) return `la versification`;
-  if (/^enjambement/.test(p)) return `l'enjambement`;
-  if (/^(métaphore|personnification|comparaison|hyperbole|anaphore|assonance|allitération|antithèse|ironie|allégorie|allegorie|synecdoque|métonymie|antanaclase|accumulation|gradation)$/.test(p)) {
+  const elision = /^(assonance|allitération|antithèse|ironie|hyperbole|énumération|ellipse|asyndète|polysyndète|anacoluthe|hypallage|allusion|énjambement|enjambement|oxymore|accumulation|anaphore|allegorie|allégorie|épiphora)$/;
+  if (elision.test(p)) return `l'${p}`;
+  if (/^(métaphore|personnification|comparaison|synecdoque|métonymie|antanaclase|gradation|litote|synesthie|périphrase|analogie|inversion|synecdoque)$/.test(p)) {
     return `la ${p}`;
   }
   if (/^([aeiouàâéèêëîïôùûü])/.test(p)) return `l'${p}`;

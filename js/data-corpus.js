@@ -944,19 +944,20 @@ const CORPUS_PHRASES = [
 const CORPUS_METHOD = [
   { id:'M-INTRO', title:'Introduction raccourcie — 5 temps', cat:'Méthode commentaire', body:`<p class="doc-source"><em>Source : docs/intro version raccourcie.docx</em></p>
 <ol>
-<li><strong>L'amorce (contexte et rupture)</strong> — Depuis toujours la littérature permet aux auteurs d'exprimer leur vision du monde et de questionner la société dans laquelle ils vivent. Si le <em>[siècle précédent]</em> était marqué par <em>[caractéristique de l'ancien mouvement]</em>, le <em>[siècle de l'auteur]</em> voit naître <em>[caractéristique du nouveau mouvement]</em>.</li>
-<li><strong>Présentation de l'auteur et de l'œuvre</strong> — C'est dans ce contexte que s'inscrit <em>[nom de l'auteur]</em>, dramaturge / romancier / philosophe majeur de cette période. Il/elle publie en <em>[année]</em> son œuvre <em>[titre de l'œuvre]</em>.</li>
-<li><strong>Situation et présentation de l'extrait</strong> — Dans cet extrait, l'auteur traite de <em>[thème général du texte]</em> en utilisant <em>[ton ou registre]</em>.</li>
-<li><strong>Problématique</strong> — À travers l'étude de ce passage, nous nous demanderons comment <em>[problématique]</em>.</li>
-<li><strong>Annonce du plan</strong> — Pour répondre à cette question, nous analyserons dans un premier temps <em>[mouvement 1]</em>, avant d'étudier <em>[mouvement 2]</em>.</li>
+<li><strong>L'Amorce (Le contexte et la rupture)</strong> — Depuis toujours la littérature permet aux auteurs d'exprimer leur vision du monde et de questionner la société dans laquelle ils vivent. Si le <em>[Siècle précédent]</em> était marqué par <em>[Caractéristique de l'ancien mouvement]</em>, le <em>[Siècle de l'auteur]</em> voit naître <em>[Caractéristique du nouveau mouvement]</em>.</li>
+<li><strong>Présentation de l'auteur et de l'œuvre</strong> — C'est dans ce contexte que s'inscrit <em>[Nom de l'auteur]</em>, Dramaturge / Romancier / Philosophe majeur de cette période. Il/elle publie en <em>[Année]</em> son œuvre <em>[Titre de l'œuvre]</em>.</li>
+<li><strong>Situation et présentation de l'extrait</strong> — Dans cet extrait, l'auteur traite de <em>[Thème général du texte]</em> en utilisant <em>[ton ou registre]</em>.</li>
+<li><strong>Problématique</strong> — À travers l'étude de ce passage, nous nous demanderons comment <em>[Problématique : ex. renouvelle les codes du genre pour dénoncer une injustice / parvient à rendre compte de la complexité psychologique du personnage]</em>.</li>
+<li><strong>Annonce du plan</strong> — Pour répondre à cette question, nous analyserons dans un premier temps <em>[Mouvement 1]</em>, avant d'étudier <em>[Mouvement 2]</em>.</li>
 </ol>` },
   { id:'M-TRANS', title:"Récap' Express — transitions d'époque", cat:'Méthode commentaire', body:`<p class="doc-source"><em>Source : docs/intro version raccourcie.docx</em></p>
-<table class="mtable"><thead><tr><th>Transition</th><th>Rupture à écrire</th></tr></thead><tbody>
-<tr><td>Baroque → Classicisme (XVII<sup>e</sup>)</td><td>Liberté totale pour le théâtre → théâtre modèle de moralité (Molière, Racine, Abbé Prévost).</td></tr>
-<tr><td>Classicisme → Lumières (XVII<sup>e</sup>–XVIII<sup>e</sup>)</td><td>Théâtre moral → outil pour faire progresser l'humanité et combattre les préjugés (Voltaire, Diderot).</td></tr>
-<tr><td>Lumières → Romantisme (XVIII<sup>e</sup>–XIX<sup>e</sup>)</td><td>Combat des préjugés → exaltation de la subjectivité, de la nature et du « mal du siècle » (Alexandre Dumas, Alfred de Musset).</td></tr>
-<tr><td>Romantisme → Réalisme / Naturalisme (XIX<sup>e</sup>)</td><td>Subjectivité romantique → miroir du réel influencé par les sciences et la sociologie (Émile Zola, Alexandre Dumas fils).</td></tr>
-<tr><td>XIX<sup>e</sup> → XX<sup>e</sup> (contemporain)</td><td>Miroir du réel → tensions familiales et absurdité de la condition humaine (Mouawad, Albert Camus) — importance des didascalies.</td></tr>
+<p><em>Le « Récap' Express » pour tes transitions (Le choc des époques)</em></p>
+<table class="mtable"><thead><tr><th>Transition d'époque</th><th>L'idée de rupture à écrire</th></tr></thead><tbody>
+<tr><td>Du Baroque au Classicisme (XVII<sup>e</sup>)</td><td>Liberté totale pour le théâtre → un théâtre qui devient un modèle de moralité avec notamment Molière, Racine et Abbé Prévost.</td></tr>
+<tr><td>Du Classicisme aux Lumières (XVII<sup>e</sup> au XVIII<sup>e</sup>)</td><td>Un théâtre qui devient un modèle de moralité → devient un outil pour faire progresser l'humanité et combattre les préjugés, notamment avec Voltaire et Diderot.</td></tr>
+<tr><td>Des Lumières au Romantisme (XVIII<sup>e</sup> au XIX<sup>e</sup>)</td><td>Un outil pour faire progresser l'humanité et combattre les préjugés → qui exalte la subjectivité, la puissance de la nature et le « mal du siècle », notamment avec Alexandre Dumas et Alfred de Musset.</td></tr>
+<tr><td>Du Romantisme au Réalisme puis Naturalisme (XIX<sup>e</sup>)</td><td>Qui exalte la subjectivité, la puissance de la nature et le « mal du siècle » → miroir du réel influencé par le développement des sciences et de la sociologie, notamment avec Émile Zola et Alexandre Dumas fils.</td></tr>
+<tr><td>Du XIX<sup>e</sup> au XX<sup>e</sup> (Contemporain)</td><td>Miroir du réel influencé par le développement des sciences et de la sociologie → exploration des tensions familiales et de l'absurdité de la condition humaine, notamment avec Mouawad et Albert Camus (importance des didascalies).</td></tr>
 </tbody></table>` },
   { id:'M-IPCI', title:'Méthode IPCI (commentaire)', cat:'Méthode commentaire', body:'<p><strong>I</strong> idée → <strong>P</strong>rocédé → <strong>C</strong>itation → <strong>I</strong>nterprétation. Structure minimale d\'un paragraphe d\'analyse au bac.</p><p>Exemple : « Le poète exprime la mélancolie (I) par une assonance en [ɔ̃] (P) dans « sanglots longs des violons » (C), ce qui imite musicalement la plainte automnale (I). »</p>' },
   { id:'M-PLAN', title:'Plan thématique (pas chronologique)', cat:'Méthode commentaire', body:'<p>Chaque axe = une interprétation + des procédés précis. Éviter le plan ligne par ligne (paraphrase déguisée).</p>' },

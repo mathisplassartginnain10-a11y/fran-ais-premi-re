@@ -71,7 +71,7 @@ function renderStats(m) {
       const r = computeReadiness(m);
       if (getSetting('showReadinessStats')) renderReadinessHero(m, r);
       else { const elR = el(p + 'readiness'); if (elR) elR.innerHTML = ''; }
-      if (typeof renderExamProbabilityPanel === 'function') renderExamProbabilityPanel(m, r.prob);
+      if (typeof renderExamProbabilityPanel === 'function') renderExamProbabilityPanel(m);
       if (getSetting('showStatsAdvanced')) {
         renderFactors(m, r);
         renderMasteryGrid(m, r);
@@ -103,7 +103,7 @@ function renderStats(m) {
 
   const kpiData = [
     { val: readiness ? readiness.score + '/100' : '—', lbl: 'Indice préparation' },
-    { val: readiness ? readiness.prob.band : '—', lbl: 'Proba. réussite est.' },
+    { val: readiness ? `${readiness.mastery?.catCoverage?.tested ?? 0}/${readiness.mastery?.catCoverage?.total ?? '?'}` : '—', lbl: 'Couverture catégories' },
     { val: cov.attempted + '/' + cov.total, lbl: 'Questions vues' },
     { val: avgPct + '%', lbl: 'Score moyen sessions' },
     { val: best + '%', lbl: 'Meilleur score' },
@@ -135,20 +135,17 @@ function renderStats(m) {
 
   renderChallengeStats(m);
 
-  const mastery = readiness ? readiness.mastery : computeCatMastery(m);
+  const mastery = readiness ? (readiness.masteryByCat || computeCatMastery(m)) : computeCatMastery(m);
   const radarEl = el(p + 'radar');
   if (radarEl) radarEl.innerHTML = cfg.cats.map(t => {
     const x   = mastery[t];
     const barW = x.pct != null ? x.pct : 0;
-    const barOp = x.attempted > 0 ? 1 : 0.25;
-    const prob = x.pct != null && x.tot >= 3 && typeof _probFromPerformance === 'function'
-      ? _probFromPerformance(x.pct, x.tot, { shrinkK: 6 })
-      : null;
+    const barOp = x.tot >= 1 ? 1 : 0.25;
     const sn  = t.length > 24 ? t.slice(0, 22) + '…' : t;
-    const lbl = x.pct !== null ? x.pct + '%' : (x.attempted > 0 ? '…' : '—');
-    const probLbl = prob != null ? ` · P ${prob}%` : '';
+    const lbl = x.pct !== null ? x.pct + '%' : (x.tot >= 1 ? Math.round(x.ok / x.tot * 100) + '%' : '—');
+    const extra = x.tot < 1 ? ' · à découvrir' : '';
     return `<div class="rrow">
-      <div class="rtop"><span class="rname">${sn}</span><span class="rpct">${lbl}${probLbl}</span></div>
+      <div class="rtop"><span class="rname">${sn}</span><span class="rpct">${lbl}${extra}</span></div>
       <div class="rtrack"><div class="rfill" style="width:${barW}%;opacity:${barOp};background:${cfg.colors[t] || 'var(--gold)'}"></div></div>
     </div>`;
   }).join('') || '<div class="no-data">Pas encore de données.</div>';

@@ -16,25 +16,40 @@ function introSimWantsFullCommentary(passage) {
   return fullMode ? (fullMode.checked || excerptOnly) : excerptOnly;
 }
 
+function introSimFetchTimeout(ms) {
+  if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+    return AbortSignal.timeout(ms);
+  }
+  const c = new AbortController();
+  setTimeout(function() {
+    c.abort(new DOMException('Timeout', 'TimeoutError'));
+  }, ms);
+  return c.signal;
+}
+
 async function introSimFetchLocalApi(paths, opts) {
   opts = opts || {};
   const timeout = opts.timeout || 660000;
   const method = opts.method || 'POST';
+  let last = { r: null, j: {}, path: null, err: null };
   for (const path of paths) {
     try {
-      const r = await fetch(path, { method, signal: AbortSignal.timeout(timeout) });
+      const r = await fetch(path, { method, signal: introSimFetchTimeout(timeout) });
       if (r.status === 404) continue;
-      const j = await r.json().catch(() => ({}));
-      return { r, j, path };
-    } catch (e) { /* essai suivant */ }
+      const j = await r.json().catch(function() { return {}; });
+      last = { r, j, path, err: null };
+      if (opts.returnAny || r.ok) return last;
+    } catch (e) {
+      last.err = e;
+    }
   }
-  return { r: null, j: {}, path: null };
+  return last;
 }
 
 async function introSimPingLocalServer() {
   try {
     const r = await fetch('http://127.0.0.1:8765/api/ping', {
-      signal: AbortSignal.timeout(2000),
+      signal: introSimFetchTimeout(2000),
       cache: 'no-store',
     });
     return r.ok;
@@ -70,10 +85,15 @@ function introSimIsLocalServer() {
 }
 
 function introSimGoCommentairePage() {
-  if (typeof switchMatiere === 'function') switchMatiere('proc');
-  const btn = document.querySelector("#snav-proc .stab[onclick*=\"p-sim\"]");
-  if (typeof switchPg === 'function' && btn) switchPg('proc', 'p-sim', btn);
-  el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  try {
+    if (typeof switchMatiere === 'function') switchMatiere('proc');
+    const btn = document.querySelector('#snav-proc .stab[data-sim="1"]')
+      || document.querySelector('#snav-proc .stab[onclick*="p-sim"]');
+    if (typeof switchPg === 'function' && btn) switchPg('proc', 'p-sim', btn);
+    el('intro-sim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch (e) {
+    console.warn('introSimGoCommentairePage', e);
+  }
 }
 
 function introSimSetLaunchBtn(loading, label) {
@@ -87,7 +107,7 @@ function introSimSetLaunchBtn(loading, label) {
 async function introSimLaunchAll(auto) {
   const status = el('intro-sim-ollama-status');
   const cb = el('intro-sim-ollama');
-  introSimGoCommentairePage();
+  try { introSimGoCommentairePage(); } catch (e) { console.warn('introSimLaunchAll nav', e); }
   introSimSetLaunchBtn(true, auto ? 'Démarrage auto…' : 'Démarrage…');
   if (status) {
     status.textContent = 'Initialisation serveur + VRAM…';
@@ -119,7 +139,7 @@ async function introSimLaunchAll(auto) {
   };
 
   if (!introSimIsLocalServer()) {
-    if (status) status.textContent = 'Demarrage du serveur local…';
+    if (status) status.textContent = 'Démarrage du serveur local…';
     introSimTrySpawnServer();
     const ok = await introSimWaitForServer(20, (n, max) => {
       if (status) status.textContent = `Serveur local… (${n}/${max})`;
@@ -132,30 +152,69 @@ async function introSimLaunchAll(auto) {
     return;
   }
 
+  let pollId = null;
+  const startPoll = () => {
+    pollId = setInterval(async () => {
+      const g = await introSimFetchLocalApi(['/api/ollama/gpu'], {
+        method: 'GET',
+        timeout: 5000,
+        returnAny: true,
+      });
+      if (!status || !g.r?.ok) return;
+      const j = g.j || {};
+      if (j.gpu) {
+        status.textContent = `VRAM NVIDIA · ${j.processor || '100% GPU'}${j.vramMb != null ? ` · ${j.vramMb} MiB` : ''}…`;
+      } else if (j.vramMb != null && j.vramMb >= 2000) {
+        status.textContent = `Chargement modèle en VRAM · ${j.vramMb} MiB…`;
+      } else if (j.loaded) {
+        status.textContent = 'Modèle chargé — vérification GPU…';
+      } else {
+        status.textContent = 'Arrêt Ollama + chargement bac-qwen3-14b (1–3 min)…';
+      }
+    }, 2500);
+  };
+
   try {
     if (auto) {
-      const check = await introSimFetchLocalApi(['/api/ollama/gpu', '/api/ollama/ensure'], { method: 'GET', timeout: 12000 });
+      const check = await introSimFetchLocalApi(['/api/ollama/gpu'], {
+        method: 'GET',
+        timeout: 8000,
+        returnAny: true,
+      });
       if (check.r?.ok && check.j.gpu === true) {
         finishOk(check.j);
         return;
       }
     }
-    let { r, j } = await introSimFetchLocalApi([
+
+    if (status) status.textContent = 'Arrêt Ollama + chargement bac-qwen3-14b (1–3 min)…';
+    startPoll();
+
+    let { r, j, err } = await introSimFetchLocalApi([
       '/api/launch?restart=1',
       '/api/ollama/ensure?restart=1',
-    ]);
+    ], { timeout: 660000 });
+
     if (!r?.ok || !j.ok || j.gpu !== true) {
-      ({ r, j } = await introSimFetchLocalApi(['/api/ollama/ensure?restart=1']));
+      ({ r, j, err } = await introSimFetchLocalApi(['/api/ollama/ensure?restart=1'], { timeout: 660000 }));
     }
+
     if (!r?.ok || !j.ok || j.gpu !== true) {
-      finishErr(j.error || 'Serveur obsolète — relance Lancer.bat puis réessaie');
+      const detail = j.error || j.message || (err && err.message) || '';
+      finishErr(detail
+        ? `${detail} — relance Lancer.bat si besoin`
+        : 'VRAM NVIDIA indisponible — relance Lancer.bat puis réessaie');
       return;
     }
     finishOk(j);
   } catch (e) {
     finishErr(`Échec : ${e.message || 'timeout'} — relance Lancer.bat`);
+  } finally {
+    if (pollId) clearInterval(pollId);
   }
 }
+
+window.introSimLaunchAll = introSimLaunchAll;
 
 function introSimMaybeAutoLaunch() {
   if (!introSimIsLocalServer()) return;

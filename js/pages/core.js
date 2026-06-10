@@ -1,4 +1,14 @@
 ﻿/* core.js — Paramètres, utilitaires, navigation, stockage, thème */
+(function bacAbortSignalTimeoutPolyfill() {
+  if (typeof AbortSignal === 'undefined' || typeof AbortSignal.timeout === 'function') return;
+  AbortSignal.timeout = function(ms) {
+    const c = new AbortController();
+    setTimeout(function() {
+      c.abort(new DOMException('Timeout', 'TimeoutError'));
+    }, ms);
+    return c.signal;
+  };
+})();
 let _applyingAllSettings = false;
 const SETTINGS_VERSION = 1;
 const DEFAULT_SETTINGS = {

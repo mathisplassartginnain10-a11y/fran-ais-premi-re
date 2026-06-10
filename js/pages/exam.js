@@ -42,36 +42,30 @@ function renderExamSetup(cont) {
     : _examMat === 'gram' ? gramPool
     : _examMat === 'vocab' ? vocabPool
     : procPool + gramPool + vocabPool;
-  let gProb = null;
+  let gReady = null;
   try {
-    gProb = typeof computeGlobalReadiness === 'function' ? computeGlobalReadiness().prob : null;
+    gReady = typeof computeGlobalReadiness === 'function' ? computeGlobalReadiness() : null;
   } catch (e) {
-    console.error('renderExamSetup gProb', e);
+    console.error('renderExamSetup gReady', e);
   }
-  const weakPreview = gProb?.statCatalog?.analysis?.weaknesses?.slice(0, 3) || [];
+  const weakPreview = gReady?.weakCategories?.slice(0, 3) || getWeakestCategories(3);
   const weakListHtml = weakPreview.length
     ? `<div class="exam-prob-weak"><span style="font-size:10px;color:var(--tx3)">Priorités : </span>${weakPreview.map(w =>
-        `<span class="exam-prob-weak-tag">${w.icon} ${w.name.length > 22 ? w.name.slice(0, 20) + '…' : w.name} (${w.prob}%)</span>`
+        `<span class="exam-prob-weak-tag">${w.icon || ''} ${(w.name || w.cat).length > 22 ? (w.name || w.cat).slice(0, 20) + '…' : (w.name || w.cat)} (${w.pct ?? '?'}%)</span>`
       ).join('')}</div>`
     : '';
-  const probPreview = gProb && getSetting('probShowExamPreview') !== false ? `
+  const prepPreview = gReady && getSetting('probShowExamPreview') !== false ? `
     <div class="exam-prob-preview">
-      <div class="exam-prob-preview-head">Probabilité d'admis avant cet examen</div>
-      <div class="exam-prob-preview-main" style="color:${gProb.color}">${gProb.pct}% · ${gProb.label}</div>
-      <div class="exam-prob-preview-sub">Fourchette ${gProb.band} · confiance ${gProb.confidence.pct}%</div>
-      <div class="exam-prob-mentions">
-        ${['pass','ab','b','tb'].map(k => {
-          const x = gProb.mentions[k];
-          return `<span>${x.threshold}/20 : <b>${x.pct}%</b></span>`;
-        }).join('')}
-      </div>
+      <div class="exam-prob-preview-head">Indice de préparation actuel</div>
+      <div class="exam-prob-preview-main" style="color:${gReady.mastery?.color || 'var(--gold2)'}">${gReady.globalScore}/100 · ${gReady.mastery?.label || '—'}</div>
+      <div class="exam-prob-preview-sub">Couverture ${gReady.mastery?.catCoverage?.tested ?? 0}/${gReady.mastery?.catCoverage?.total ?? '?'} catégories · scores examens = faits mesurés, pas une prédiction</div>
       ${weakListHtml}
     </div>` : '';
   cont.innerHTML = `
     <div class="exam-setup">
       <h3>Mode Examen</h3>
       <p>Questions mélangées (programme · ${typeof PROC_DATA !== 'undefined' ? PROC_DATA.length : 20} procédés courants) avec chronomètre global.</p>
-      ${probPreview}
+      ${prepPreview}
       <p class="exam-pool-info">Banque disponible : <strong>${procPool}</strong> QCM littérature · <strong>${gramPool}</strong> QCM grammaire · <strong>${vocabPool}</strong> QCM vocabulaire${poolSize < preset.count ? ` · max ${poolSize} questions pour cette matière` : ''}</p>
       <div style="margin-bottom:.8rem">
         <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);margin-bottom:.5rem">Nombre de questions &amp; durée</div>
@@ -203,34 +197,29 @@ function finishExam(timeout) {
   const cont = curMat === 'gram' ? el('gram-exam-cont') : curMat === 'vocab' ? el('vocab-exam-cont') : el('exam-cont');
   if (!cont) return;
   const mu = Math.floor(timeUsed / 60), su = timeUsed % 60;
-  const gReady = typeof computeGlobalReadiness === 'function' ? computeGlobalReadiness() : null;
-  const probNote = gReady ? gReady.prob : (typeof computeReadiness === 'function' ? computeReadiness(curMat).prob : null);
-  const probDelta = probNote && gReady?.prob?.pct != null
-    ? (pct >= 60 ? ` · Cet examen renforce ton profil` : pct >= 50 ? ` · Résultat dans la moyenne` : ` · Cible les priorités du centre probabilités`)
-    : '';
-  const weakAfter = probNote?.statCatalog?.analysis?.weaknesses?.slice(0, 2).map(w => w.name).join(', ') || '';
-  const msg = pct >= 90 ? 'Excellent ! Prêt(e) pour le bac 🎉' : pct >= 75 ? 'Très bon résultat !' : pct >= 60 ? 'Bien, encore un effort.' : 'Continue à réviser !';
+  const examHist = typeof loadExamHistory === 'function' ? loadExamHistory() : [];
+  const prevExam = examHist.length > 1 ? examHist[examHist.length - 2] : null;
+  const bestExam = examHist.length ? examHist.reduce((b, e) => (e.pct > b.pct ? e : b), examHist[0]) : null;
+  const deltaPrev = prevExam ? pct - prevExam.pct : null;
+  const msg = pct >= 90 ? 'Excellent !' : pct >= 75 ? 'Très bon résultat !' : pct >= 60 ? 'Bien, encore un effort.' : 'Continue à réviser !';
 
-  const probDetail = probNote ? `
+  const compareHtml = examHist.length ? `
     <div class="exam-result-prob">
-      <div class="exam-result-prob-head" style="color:${probNote.color}">${probNote.pct}% · ${probNote.label}</div>
+      <div class="exam-result-prob-head">${pct}% · ${ok}/${tot} bonnes réponses</div>
       <div class="exam-result-prob-grid">
-        <span>Admis ≥10 : <b>${probNote.mentions.pass.pct}%</b></span>
-        <span>AB ≥12 : <b>${probNote.mentions.ab.pct}%</b></span>
-        <span>B ≥14 : <b>${probNote.mentions.b.pct}%</b></span>
-        <span>TB ≥16 : <b>${probNote.mentions.tb.pct}%</b></span>
+        ${deltaPrev != null ? `<span>Vs session préc. : <b>${deltaPrev >= 0 ? '+' : ''}${deltaPrev} pts</b></span>` : '<span>Première session suivie</span>'}
+        ${bestExam ? `<span>Meilleure session : <b>${bestExam.pct}%</b></span>` : ''}
+        ${prevExam ? `<span>Session préc. : <b>${prevExam.pct}%</b></span>` : ''}
       </div>
-      <div class="exam-result-prob-note">Note estimée au bac : <strong>${probNote.gradeEst.noteLow}–${probNote.gradeEst.noteHigh}/20</strong> · fourchette admis ${probNote.band}${probDelta}</div>
-      ${weakAfter ? `<div class="exam-result-prob-note" style="margin-top:4px">À renforcer : ${weakAfter}</div>` : ''}
-      <p class="rd-advice" style="margin-top:.5rem">${probNote.advice}</p>
+      <div class="exam-result-prob-note">Score réel enregistré — compare avec tes sessions précédentes, pas une prédiction au bac.</div>
     </div>` : '';
 
   cont.innerHTML = `
     <div class="rbox" style="max-width:560px;margin:0 auto">
       <h3>${timeout ? '⏱ Temps écoulé !' : 'Examen terminé !'}</h3>
       <div class="rgrade">${ok} / ${tot}</div>
-      <p>${pct}% · équivalent ~${examNote}/20 · ${msg}</p>
-      ${probDetail}
+      <p>${pct}% · ${msg}</p>
+      ${compareHtml}
       <p style="font-size:11.5px;color:var(--tx3);margin-top:-.5rem;margin-bottom:1.2rem">Temps : ${mu}min ${String(su).padStart(2,'0')}s · Enregistré dans les stats</p>
       <div class="btnrow">
         <button class="pbtn" onclick="startExam()">▶ Nouvel examen</button>

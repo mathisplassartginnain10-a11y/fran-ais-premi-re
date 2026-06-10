@@ -73,5 +73,9 @@
 
   if (typeof preloadGtextesInBackground === 'function') preloadGtextesInBackground();
 
+  if (typeof introSimInitOllamaUi === 'function') {
+    try { introSimInitOllamaUi(); } catch (e) { console.error('introSimInitOllamaUi', e); }
+  }
+
 }
 

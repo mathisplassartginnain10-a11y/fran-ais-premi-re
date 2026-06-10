@@ -60,5 +60,35 @@ assert(m.length > 0 && m[0].entry.id === 'GT-001', 'match GT-001 pour Chanson d\
 const demo = idx.find(e => e.id === 'GT-001');
 assert(demo && demo.temps && demo.temps.auteur, 'GT-001 a métadonnées auteur');
 
+const gt1 = sandbox.GRANDS_TEXTES.find(t => t.id === 'GT-001');
+const built1 = sandbox.introSimBuildFromText(gt1, '', '');
+assert(
+  !built1.temps.problematique.includes('notamment par assonance'),
+  'GT-001 problématique sans tournure « notamment par assonance »',
+);
+assert(
+  !/\bla assonance\b|\bla antithèse\b/i.test(built1.temps.problematique),
+  'GT-001 problématique avec articles corrects sur les procédés',
+);
+assert(
+  /mélancolie|automne|paysage/i.test(built1.theme),
+  'GT-001 thème centré sur la mélancolie automnale',
+);
+assert(
+  built1.temps.problematique.startsWith('À travers l\'étude'),
+  'problématique principale au format bac (5 temps)',
+);
+assert(
+  built1.problematiqueAlt.every(a => a.startsWith('À travers l\'étude')),
+  'variantes problématique au même format',
+);
+
+const gt6 = sandbox.GRANDS_TEXTES.find(t => t.id === 'GT-006');
+const built6 = sandbox.introSimBuildFromText(gt6, '', '');
+assert(
+  /correspondance|sens|symbol/i.test(built6.theme),
+  'GT-006 thème lié aux correspondances/symbolisme',
+);
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
