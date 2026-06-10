@@ -17,6 +17,10 @@ const OLLAMA_COMMENT_SECTION_WORDS = { part: [500, 650], conclusion: [200, 300] 
 const OLLAMA_COMMENT_TOTAL_WORDS = [1500, 2000];
 const OLLAMA_COMMENT_CITE_MATCH_RATIO = 0.7;
 const OLLAMA_TRANSITIONS = ['par ailleurs', 'en outre', 'de plus', 'de surcroît', 'en effet', 'ainsi'];
+/** Fin de section : prochain titre ### ou fin du document (évite $ multiligne = corps vide). */
+const OLLAMA_SECTION_END = '(?=^###\\s*(?:Partie\\s*[IVX\\d]+\\s*[—–\\-]|Conclusion\\b)|(?![\\s\\S]))';
+const OLLAMA_SECTION_SPLIT_RE = new RegExp(`^(###\\s*(?:Partie\\s*[IVX\\d]+|Conclusion)[^\\n]*)\\n([\\s\\S]*?)${OLLAMA_SECTION_END}`, 'gm');
+const OLLAMA_PART_BODY_RE = new RegExp(`###\\s*Partie\\s*([IVX\\d]+)\\s*[—–\\-]\\s*([^\\n]+)\\n([\\s\\S]*?)(?=###\\s*Partie\\s*[IVX\\d]+\\s*[—–\\-]|###\\s*Conclusion\\b|(?![\\s\\S]))`, 'gi');
 
 let _ollamaPingCache = { ok: null, at: 0 };
 let _ollamaMode = null;
@@ -197,7 +201,8 @@ async function ollamaCommentUnloadModel(base, modelName) {
   } catch (e) { /* ignore */ }
 }
 
-async function ollamaCommentWarmModel(mode, cfg, signal, onStatus) {
+async function ollamaCommentWarmModel(mode, cfg, signal, onStatus, opts) {
+  opts = opts || {};
   if (mode.type === 'proxy') {
     let j = await ollamaCommentCallEnsure(onStatus, signal, false);
     if (!j || j.gpu !== true) {
@@ -232,19 +237,21 @@ async function ollamaCommentWarmModel(mode, cfg, signal, onStatus) {
   }
   const gpu = await ollamaCommentFetchGpuStatus(base);
   if (gpu && !gpu.isFullGpu) {
-    throw new Error(`Modèle hors VRAM (${gpu.processor || 'CPU/RAM'}) — utilise le bouton ⚡`);
-  }
-  if (gpu) {
+    if (opts.allowCpu) {
+      onStatus?.(`⚠ ${gpu.processor || 'CPU/RAM'} — poursuite (mode test CPU autorisé)`);
+    } else {
+      throw new Error(`Modèle hors VRAM (${gpu.processor || 'CPU/RAM'}) — utilise le bouton ⚡`);
+    }
+  } else if (gpu) {
     onStatus?.(`VRAM OK · ${gpu.processor} · génération…`);
   }
 }
 
 function ollamaCommentLoadCfg() {
-  try {
-    return { ...OLLAMA_COMMENT_DEFAULTS, ...JSON.parse(localStorage.getItem(OLLAMA_COMMENT_STORAGE) || '{}') };
-  } catch (e) {
-    return { ...OLLAMA_COMMENT_DEFAULTS };
-  }
+  const stored = typeof safeLocalGet === 'function'
+    ? safeLocalGet(OLLAMA_COMMENT_STORAGE, {})
+    : {};
+  return { ...OLLAMA_COMMENT_DEFAULTS, ...stored };
 }
 
 function ollamaCommentResolveModel(cfg) {
@@ -644,7 +651,7 @@ function ollamaCommentCleanupRaw(raw) {
 
 function ollamaCommentExtractSectionStats(bodyText) {
   const sections = [];
-  const re = /^(###\s*(?:Partie\s*[IVX]+|Conclusion)[^\n]*)\n([\s\S]*?)(?=^###\s*(?:Partie\s*[IVX]+|Conclusion)\b|$)/gim;
+  const re = new RegExp(OLLAMA_SECTION_SPLIT_RE.source, 'gm');
   let m;
   while ((m = re.exec(bodyText)) !== null) {
     sections.push({ heading: m[1].trim(), body: m[2].trim(), words: ollamaCommentWordCount(m[2]) });
@@ -703,17 +710,26 @@ function ollamaCommentValidateOutput(bodyText, ctx) {
   }
 
   const totalWords = ollamaCommentWordCount(text);
-  if (totalWords < OLLAMA_COMMENT_TOTAL_WORDS[0] - 200) {
+  const sectionStats = ollamaCommentExtractSectionStats(text);
+  const minTotalBlock = ctx?.allowCpu ? 350 : OLLAMA_COMMENT_TOTAL_WORDS[0] - 400;
+  const minSectionBlock = ctx?.allowCpu ? 25 : 40;
+  if (totalWords < minTotalBlock) {
+    blocking.push(`Longueur globale insuffisante (~${totalWords} mots, minimum ~${ctx?.allowCpu ? 350 : OLLAMA_COMMENT_TOTAL_WORDS[0]}).`);
+  } else if (totalWords < OLLAMA_COMMENT_TOTAL_WORDS[0] - 200) {
     warnings.push(`Longueur globale faible (~${totalWords} mots, cible ${OLLAMA_COMMENT_TOTAL_WORDS[0]}-${OLLAMA_COMMENT_TOTAL_WORDS[1]}).`);
   } else if (totalWords > OLLAMA_COMMENT_TOTAL_WORDS[1] + 400) {
     warnings.push(`Longueur globale élevée (~${totalWords} mots).`);
   }
 
-  ollamaCommentExtractSectionStats(text).forEach(sec => {
+  sectionStats.forEach(sec => {
     const isConcl = /^###\s*Conclusion/i.test(sec.heading);
     const range = isConcl ? OLLAMA_COMMENT_SECTION_WORDS.conclusion : OLLAMA_COMMENT_SECTION_WORDS.part;
     if (sec.words < range[0] - 120) {
-      warnings.push(`${sec.heading.replace(/^###\s*/, '')} : ~${sec.words} mots (cible ${range[0]}-${range[1]}).`);
+      if (sec.words < minSectionBlock) {
+        blocking.push(`${sec.heading.replace(/^###\s*/, '')} : section vide ou trop courte (~${sec.words} mots).`);
+      } else {
+        warnings.push(`${sec.heading.replace(/^###\s*/, '')} : ~${sec.words} mots (cible ${range[0]}-${range[1]}).`);
+      }
     }
   });
 
@@ -841,7 +857,7 @@ async function ollamaCommentReadChatStream(r, onChunk) {
 
 function ollamaCommentSplitForPolish(bodyText) {
   const text = String(bodyText || '').trim();
-  const re = /^(###\s*(?:Partie\s*[IVX]+|Conclusion)[^\n]*)\n([\s\S]*?)(?=^###\s*(?:Partie\s*[IVX]+|Conclusion)\b|$)/gim;
+  const re = new RegExp(OLLAMA_SECTION_SPLIT_RE.source, 'gm');
   const sections = [];
   let m;
   while ((m = re.exec(text)) !== null) {
@@ -880,7 +896,10 @@ async function ollamaCommentPolishDraft(draft, cfg, base, opts) {
   if (!draft?.trim()) return draft;
 
   const sections = ollamaCommentSplitForPolish(draft);
-  if (sections.length >= 3) {
+  const avgWords = sections.length
+    ? sections.reduce((n, s) => n + ollamaCommentWordCount(s.body), 0) / sections.length
+    : 0;
+  if (sections.length >= 3 && avgWords >= 80) {
     opts.onStatus?.('Relecture linguistique (4 sections en parallèle)…');
     try {
       const polished = await Promise.all(
@@ -948,7 +967,7 @@ function ollamaCommentParseResponse(raw, entry, passageText, validation) {
   const { intro, temps } = ollamaCommentTemplateIntro(entry);
   const bodyText = ollamaCommentStripIntroSection(text);
   const parts = [];
-  const partRe = /###\s*Partie\s*([IVX\d]+)\s*[—–\-]\s*([^\n]+)\n([\s\S]*?)(?=###\s*Partie\s*[IVX\d]|###\s*Conclusion|$)/gi;
+  const partRe = OLLAMA_PART_BODY_RE;
   let m;
   while ((m = partRe.exec(bodyText)) !== null) {
     const body = m[3].trim();
@@ -999,13 +1018,14 @@ async function ollamaCommentGenerate(entry, opts) {
       signal: opts.signal,
       onStatus: opts.onStatus,
     });
-    await ollamaCommentWarmModel(mode, cfg, opts.signal, opts.onStatus);
+    await ollamaCommentWarmModel(mode, cfg, opts.signal, opts.onStatus, opts);
 
     const ctx = ollamaCommentGatherContext(entry, opts);
     const texteCheck = ollamaCommentCheckTexte(ctx);
     if (!texteCheck.ok) throw new Error(texteCheck.message);
     ctx.analysisMode = texteCheck.mode;
     if (texteCheck.warning) opts.onStatus?.(texteCheck.warning);
+    ctx.allowCpu = opts.allowCpu === true;
 
     const base = ollamaCommentResolveBase(mode);
 

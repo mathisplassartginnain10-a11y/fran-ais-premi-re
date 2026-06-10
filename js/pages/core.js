@@ -134,6 +134,27 @@ const DEFAULT_SETTINGS = {
   probShowGtextPanel:     true,
 };
 
+function safeLocalGet(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw == null || raw === '') return fallback;
+    return JSON.parse(raw);
+  } catch (e) {
+    console.warn('[localStorage] Lecture impossible:', key, e.message);
+    return fallback;
+  }
+}
+
+function safeLocalSet(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (e) {
+    console.warn('[localStorage] Écriture impossible:', key, e.message);
+    return false;
+  }
+}
+
 const SOUND_THEME_HINTS = {
   classic: 'Arpèges chaleureux · 6 variantes par effet',
   soft: 'Cloches douces · notes longues',
@@ -232,16 +253,18 @@ function _onThemeAutoChange() {
 }
 
 function loadSettings() {
-  try {
-    const s = JSON.parse(localStorage.getItem('bac_settings') || '{}');
-    _settings = { ...DEFAULT_SETTINGS, ...s };
-  } catch (e) { _settings = { ...DEFAULT_SETTINGS }; }
+  const s = safeLocalGet('bac_settings', {});
+  _settings = { ...DEFAULT_SETTINGS, ...s };
 }
 function saveSettings() {
-  try { localStorage.setItem('bac_settings', JSON.stringify(_settings)); } catch (e) {}
+  safeLocalSet('bac_settings', _settings);
 }
 
-function getSetting(k) { return _settings[k]; }
+function getSetting(k) {
+  if (_settings[k] !== undefined) return _settings[k];
+  if (DEFAULT_SETTINGS[k] !== undefined) return DEFAULT_SETTINGS[k];
+  return undefined;
+}
 
 function applySetting(key, val, segBtn) {
   if (key === 'theme' && _settings.themeAuto) {
@@ -900,16 +923,16 @@ function resetStats(options) {
 
 function exportStats() {
   const data = {
-    proc:     JSON.parse(localStorage.getItem('bac_proc_stats') || '{}'),
-    gram:     JSON.parse(localStorage.getItem('bac_gram_stats') || '{}'),
-    vocab:    JSON.parse(localStorage.getItem('bac_vocab_stats') || '{}'),
-    favs:     JSON.parse(localStorage.getItem('bac_favs')       || '{}'),
-    exo:      JSON.parse(localStorage.getItem('bac_exo_stats')  || '{}'),
-    exams:    JSON.parse(localStorage.getItem('bac_exam_history') || '[]'),
-    gtext:    JSON.parse(localStorage.getItem('bac_gtext_stats') || '{}'),
-    cartes:   JSON.parse(localStorage.getItem('bac_carte_stats') || '{}'),
-    challenge: JSON.parse(localStorage.getItem('bac_challenge_stats') || '{}'),
-    time:     JSON.parse(localStorage.getItem('bac_time_stats') || '{}'),
+    proc:     safeLocalGet('bac_proc_stats', {}),
+    gram:     safeLocalGet('bac_gram_stats', {}),
+    vocab:    safeLocalGet('bac_vocab_stats', {}),
+    favs:     safeLocalGet('bac_favs', {}),
+    exo:      safeLocalGet('bac_exo_stats', {}),
+    exams:    safeLocalGet('bac_exam_history', []),
+    gtext:    safeLocalGet('bac_gtext_stats', {}),
+    cartes:   safeLocalGet('bac_carte_stats', {}),
+    challenge: safeLocalGet('bac_challenge_stats', {}),
+    time:     safeLocalGet('bac_time_stats', {}),
     settings: _settings,
     exported: new Date().toISOString(),
   };
@@ -1143,19 +1166,20 @@ function pruneCoherenceOnBoot() {
   if (changed) saveFavs(f);
 
   ['bac_proc_stats', 'bac_gram_stats', 'bac_vocab_stats'].forEach(key => {
-    try {
-      const st = JSON.parse(localStorage.getItem(key) || '{"sessions":[],"qdata":{}}');
-      const bank = key === 'bac_proc_stats' ? PROC_QCM
-        : key === 'bac_gram_stats' ? GRAM_QCM
+    const st = safeLocalGet(key, { sessions: [], qdata: {} });
+    const bank = key === 'bac_proc_stats'
+      ? (typeof PROC_QCM !== 'undefined' ? PROC_QCM : [])
+      : key === 'bac_gram_stats'
+        ? (typeof GRAM_QCM !== 'undefined' ? GRAM_QCM : [])
         : (typeof VOCAB_QCM !== 'undefined' ? VOCAB_QCM : []);
+    if (!bank.length) return;
       const validKeys = new Set(bank.map(q => qKey(q)));
       let qChanged = false;
       Object.keys(st.qdata || {}).forEach(k => {
         if (!validKeys.has(k)) { delete st.qdata[k]; qChanged = true; }
       });
-      if (qChanged) localStorage.setItem(key, JSON.stringify(st));
+      if (qChanged) safeLocalSet(key, st);
       delete _stCache[key];
-    } catch (e) {}
   });
 }
 
@@ -1181,14 +1205,12 @@ function updateStreakNav() {
 
 function loadSt(key) {
   if (_stCache[key]) return _stCache[key];
-  try {
-    _stCache[key] = JSON.parse(localStorage.getItem(key) || '{"sessions":[],"qdata":{}}');
-  } catch (e) { _stCache[key] = { sessions: [], qdata: {} }; }
+  _stCache[key] = safeLocalGet(key, { sessions: [], qdata: {} });
   return _stCache[key];
 }
 function saveSt(key, st) {
   _stCache[key] = st;
-  try { localStorage.setItem(key, JSON.stringify(st)); } catch (e) {}
+  safeLocalSet(key, st);
 }
 
 /* ══════════════════════════════════════════
@@ -1245,7 +1267,7 @@ function saveLastPage(matiere, page) {
 function restoreLastPage() {
   if (!getSetting('rememberPage')) return;
   try {
-    const last = JSON.parse(localStorage.getItem('bac_last_page') || 'null');
+    const last = safeLocalGet('bac_last_page', null);
     if (!last?.m || !last?.p || last.m === 'fav') return;
     const mat = el('m-' + last.m);
     const pg  = el(last.m + '-' + last.p);
