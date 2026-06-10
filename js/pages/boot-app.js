@@ -69,5 +69,7 @@
 
   if (typeof preloadBacPassagesInBackground === 'function') preloadBacPassagesInBackground();
 
+  if (typeof preloadGtextesInBackground === 'function') preloadGtextesInBackground();
+
 }
 

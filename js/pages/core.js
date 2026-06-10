@@ -1045,9 +1045,10 @@ function updateDynamicCounts() {
   const exoN = typeof window !== 'undefined' && window.BAC_ALIGNED_EXO
     ? window.BAC_ALIGNED_EXO.length
     : exoAll;
-  const gtextN = typeof getAllGtexts === 'function'
+  const gtextN = typeof getAllGtexts === 'function' && typeof gtextIsFullyLoaded === 'function' && gtextIsFullyLoaded()
     ? getAllGtexts().length
-    : (typeof GRANDS_TEXTES !== 'undefined' ? GRANDS_TEXTES.length : 0);
+    : (typeof gtextExpectedTotal === 'function' ? gtextExpectedTotal()
+      : (typeof GRANDS_TEXTES !== 'undefined' ? GRANDS_TEXTES.length : 0));
   const totalQ = procQ + gramQ + vocabQ;
   const set = (id, txt) => { const e = el(id); if (e) e.textContent = txt; };
   set('proc-count-hero', `${procN} procédés courants · Exemples & effets · Clic pour développer`);
@@ -1062,7 +1063,8 @@ function updateDynamicCounts() {
     : (typeof CORPUS_PHRASES !== 'undefined' ? CORPUS_PHRASES.length : 0);
   set('corpus-count-hero', `${corpusN} entrées · ${procN} procédés · ${phraseN} phrases · Grammaire · Méthode`);
   let gtextGenreSummary = '';
-  if (typeof GRANDS_TEXTES !== 'undefined' && typeof GTEXT_GENRES !== 'undefined') {
+  if (typeof gtextIsFullyLoaded === 'function' && gtextIsFullyLoaded()
+    && typeof GRANDS_TEXTES !== 'undefined' && typeof GTEXT_GENRES !== 'undefined') {
     const parts = GTEXT_GENRES.filter(g => g.id).map(g => {
       const n = GRANDS_TEXTES.filter(t => g.test(t.genre)).length;
       return n ? `${n} ${g.label.toLowerCase()}` : null;
@@ -1267,26 +1269,69 @@ function switchPg(matiere, page, btn) {
   el(matiere + '-' + page).classList.add('on');
   btn.classList.add('on');
   saveLastPage(matiere, page);
-  if (page === 'p-stat')   renderStats(matiere);
+
+  function afterLoad(fn) {
+    if (typeof fn !== 'function') return;
+    try { fn(); } catch (e) { console.error(page, e); }
+  }
+
+  if (page === 'p-stat')   { renderStats(matiere); return; }
   if (page === 'p-qcm')    {
     const s = QCM_STATE[matiere];
     if (!s.shuffled.length) mixQ(matiere);
     else renderQ(matiere);
     refreshQcmCatProgress(matiere);
+    return;
   }
-  if (page === 'p-cartes') initCartes();
-  if (page === 'p-gcartes') initGramCartes();
-  if (page === 'p-vcartes') initVocabCartes();
-  if (page === 'p-exo')    { initExoFilters(); if (!EXO_STATE.shuffled.length) mixExo(); }
-  if (page === 'p-exam')  { EXAM_STATE.running = false; renderExam(); }
-  if (page === 'p-corpus') { initCorpusFilters(); renderCorpus(); }
+  if (page === 'p-cartes') { initCartes(); return; }
+  if (page === 'p-gcartes') { initGramCartes(); return; }
+  if (page === 'p-vcartes') { initVocabCartes(); return; }
+
+  if (page === 'p-exo') {
+    ensureExercicesLoaded().then(function () {
+      initExoFilters();
+      if (!EXO_STATE.shuffled.length) mixExo();
+    }).catch(function (e) { console.error('p-exo load', e); });
+    return;
+  }
+  if (page === 'p-exam') {
+    EXAM_STATE.running = false;
+    ensureExamDataLoaded().then(function () { renderExam(); })
+      .catch(function (e) { console.error('p-exam load', e); renderExam(); });
+    return;
+  }
+  if (page === 'p-corpus') {
+    ensureCorpusLoaded().then(function () {
+      initCorpusFilters();
+      renderCorpus();
+    }).catch(function (e) { console.error('p-corpus load', e); });
+    return;
+  }
   if (page === 'p-gtextes') {
-    try { initGtextesFilters(); renderGtextesList(); }
-    catch (e) { console.error('p-gtextes', e); }
+    ensureGtextesLoaded().then(function () {
+      afterLoad(initGtextesFilters);
+      afterLoad(renderGtextesList);
+    }).catch(function (e) { console.error('p-gtextes load', e); });
+    return;
   }
-  if (page === 'p-auteurs') { initAuteursFilters(); renderAuteursList(); }
-  if (page === 'p-periodes') { initPeriodesFilters(); renderPeriodesList(); }
-  if (page === 'p-sim') initIntroSim();
+  if (page === 'p-auteurs') {
+    ensureAuteursLoaded().then(function () {
+      afterLoad(initAuteursFilters);
+      afterLoad(renderAuteursList);
+    }).catch(function (e) { console.error('p-auteurs load', e); });
+    return;
+  }
+  if (page === 'p-periodes') {
+    ensurePeriodesLoaded().then(function () {
+      afterLoad(initPeriodesFilters);
+      afterLoad(renderPeriodesList);
+    }).catch(function (e) { console.error('p-periodes load', e); });
+    return;
+  }
+  if (page === 'p-sim') {
+    ensureIntroSimLoaded().then(function () { afterLoad(initIntroSim); })
+      .catch(function (e) { console.error('p-sim load', e); });
+  }
 }
 
 /* ══════════════════════════════════════════
