@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les 16 Textes — BAC Français</title>
+<style>
+:root {
+  --bg: #0d0f14;
+  --surf: #141720;
+  --border: #252a3a;
+  --accent: #7c6fff;
+  --text: #e8eaf2;
+  --muted: #5c6478;
+  --green: #34d87a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Georgia', serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 24px 16px 60px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 12px;
+}
+h1 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: linear-gradient(130deg, #7c6fff, #ff6b8a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.search-box {
+  flex: 1;
+  max-width: 260px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surf);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: 'Segoe UI', sans-serif;
+  outline: none;
+}
+.search-box::placeholder { color: var(--muted); }
+.search-box:focus { border-color: var(--accent); }
+
+.nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.nav-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surf);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+.nav-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+.texte-block {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px 20px;
+  margin-bottom: 20px;
+  scroll-margin-top: 16px;
+}
+.texte-block:hover { border-color: #3a4060; }
+
+.texte-header {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.ll-badge {
+  display: inline-block;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  background: rgba(124,111,255,0.2);
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.ll-badge.rimbaud { background: rgba(255,107,138,0.2); color: #ff6b8a; }
+.ll-badge.verlaine { background: rgba(52,216,122,0.2); color: var(--green); }
+.ll-badge.hugo { background: rgba(245,197,66,0.2); color: #f5c542; }
+.ll-badge.musset { background: rgba(255,149,0,0.2); color: #ff9500; }
+.ll-badge.rostand { background: rgba(100,210,255,0.2); color: #64d2ff; }
+.ll-badge.prevost { background: rgba(191,90,242,0.2); color: #bf5af2; }
+
+.texte-titre {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.texte-sous-titre {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.texte-corps {
+  font-size: 0.92rem;
+  line-height: 2;
+  color: #d0d4e0;
+}
+.ligne {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.num {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.68rem;
+  color: var(--muted);
+  min-width: 22px;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 2px;
+  user-select: none;
+}
+.texte-corps p {
+  margin: 0;
+  line-height: 2;
+}
+.locuteur {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.didascalie {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.titre-poeme {
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.vers {
+  display: block;
+  text-align: center;
+  line-height: 2.2;
+}
+.vers-gauche {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.quatrain { margin-bottom: 16px; }
+
+/* highlight on search */
+mark { background: rgba(124,111,255,0.35); color: var(--text); border-radius: 2px; }
+
+footer {
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>16 Textes · BAC Français</h1>
+  <input class="search-box" type="text" placeholder="Rechercher dans les textes…" oninput="rechercher(this.value)">
+</div>
+
+<div class="nav">
+  <div class="nav-btn active" onclick="filtrer('all', this)">Tous</div>
+  <div class="nav-btn" onclick="filtrer('fontenelle', this)">Fontenelle</div>
+  <div class="nav-btn" onclick="filtrer('voltaire', this)">Voltaire</div>
+  <div class="nav-btn" onclick="filtrer('prevost', this)">Prévost</div>
+  <div class="nav-btn" onclick="filtrer('hugo', this)">Hugo</div>
+  <div class="nav-btn" onclick="filtrer('musset', this)">Musset</div>
+  <div class="nav-btn" onclick="filtrer('rostand', this)">Rostand</div>
+  <div class="nav-btn" onclick="filtrer('rimbaud', this)">Rimbaud</div>
+  <div class="nav-btn" onclick="filtrer('verlaine', this)">Verlaine</div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 1 — FONTENELLE, Premier soir
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll1" data-auteur="fontenelle">
+  <div class="texte-header">
+    <div class="ll-badge">LL nº1 · Fontenelle</div>
+    <div class="texte-titre">Entretiens sur la pluralité des mondes, 1686</div>
+    <div class="texte-sous-titre">Premier soir</div>
+  </div>
+  <div class="texte-corps" id="corps-ll1">
+    <div class="ligne"><span class="num">1</span><p>Il semble pendant la nuit que tout soit en repos. On s'imagine que les étoiles marchent</p></div>
+    <div class="ligne"><span class="num">2</span><p>avec plus de silence que le soleil, les objets que le ciel présente sont plus doux, la vue s'y arrête</p></div>
+    <div class="ligne"><span class="num">3</span><p>plus aisément. Enfin on en rêve mieux, parce qu'on se flatte d'être alors dans toute la nature la</p></div>
+    <div class="ligne"><span class="num">4</span><p>seule personne occupée à rêver. Peut-être aussi que le spectacle du jour est trop uniforme, ce</p></div>
+    <div class="ligne"><span class="num">5</span><p>n'est qu'un unique soleil, et une unique voûte bleue, mais il se peut que la vue de toutes ces</p></div>
+    <div class="ligne"><span class="num">6</span><p>étoiles semées confusément, et disposées au hasard en mille figures différentes, favorise la</p></div>
+    <div class="ligne"><span class="num">7</span><p>rêverie, et un certain désordre de pensées où l'on ne tombe point sans plaisir.</p></div>
+    <br>
+    <div class="ligne"><span class="num">8</span><p>– J'ai toujours senti ce que vous me dites, reprit-elle, j'aime les étoiles, et je me plaindrais</p></div>
+    <div class="ligne"><span class="num">9</span><p>volontiers du Soleil qui nous les efface.</p></div>
+    <br>
+    <div class="ligne"><span class="num">10</span><p>– Ah ! m'écriai-je, je ne puis lui pardonner de me faire perdre de vue tous ces mondes.</p></div>
+    <br>
+    <div class="ligne"><span class="num">11</span><p>– Qu'appelez-vous tous ces mondes ? me dit-elle, en me regardant, et en se tournant vers moi.</p></div>
+    <br>
+    <div class="ligne"><span class="num">12</span><p>– Je vous demande pardon, répondis-je. Vous m'avez mis sur ma folie, et aussitôt mon</p></div>
+    <div class="ligne"><span class="num">13</span><p>imagination s'est échappée.</p></div>
+    <br>
+    <div class="ligne"><span class="num">14</span><p>– Quelle est donc cette folie ? reprit-elle.</p></div>
+    <br>
+    <div class="ligne"><span class="num">15</span><p>– Hélas ! répliquai-je, je suis bien fâché qu'il faille vous l'avouer, je me suis mis dans la tête que</p></div>
+    <div class="ligne"><span class="num">16</span><p>chaque étoile pourrait bien être un monde. Je ne jurerais pourtant pas que cela fût vrai, mais je</p></div>
+    <div class="ligne"><span class="num">17</span><p>le tiens pour vrai, parce qu'il me fait plaisir à croire. C'est une idée qui me plaît, et qui s'est</p></div>
+    <div class="ligne"><span class="num">18</span><p>placée dans mon esprit d'une manière riante. Selon moi, il n'y a pas jusqu'aux vérités</p></div>
+    <div class="ligne"><span class="num">19</span><p>auxquelles l'agrément ne soit nécessaire.</p></div>
+    <br>
+    <div class="ligne"><span class="num">20</span><p>– Hé bien, reprit-elle, puisque votre folie est si agréable, donnez-la-moi, je croirai sur les étoiles</p></div>
+    <div class="ligne"><span class="num">21</span><p>tout ce que vous voudrez, pourvu que j'y trouve du plaisir.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 2 — FONTENELLE, Second soir
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll2" data-auteur="fontenelle">
+  <div class="texte-header">
+    <div class="ll-badge">LL nº2 · Fontenelle</div>
+    <div class="texte-titre">Entretiens sur la pluralité des mondes, 1686</div>
+    <div class="texte-sous-titre">Second soir</div>
+  </div>
+  <div class="texte-corps" id="corps-ll2">
+    <div class="ligne"><span class="num">1</span><p>Cependant voilà un beau jour le spectacle du monde le plus étrange et le moins attendu</p></div>
+    <div class="ligne"><span class="num">2</span><p>qui se présente à eux. De grands corps énormes qui paraissent avoir des ailes blanches, qui</p></div>
+    <div class="ligne"><span class="num">3</span><p>volent sur la mer, qui vomissent du feu de toutes parts, et qui viennent jeter sur le rivage des</p></div>
+    <div class="ligne"><span class="num">4</span><p>gens inconnus, tout écaillés de fer, disposant comme ils veulent de monstres qui courent sous</p></div>
+    <div class="ligne"><span class="num">5</span><p>eux, et tenant en leur main des foudres dont ils terrassent tout ce qui leur résiste. D'où sont-ils</p></div>
+    <div class="ligne"><span class="num">6</span><p>venus ? Qui a pu les amener par-dessus les mers ? Qui a mis le feu en leur disposition ? Sont-</p></div>
+    <div class="ligne"><span class="num">7</span><p>ce les enfants du Soleil ? Car assurément ce ne sont pas des hommes. Je ne sais, Madame, si</p></div>
+    <div class="ligne"><span class="num">8</span><p>vous entrez comme moi dans la surprise des Américains, mais jamais il ne peut y en avoir eu</p></div>
+    <div class="ligne"><span class="num">9</span><p>une pareille dans le monde. Après cela je ne veux plus jurer qu'il ne puisse y avoir commerce</p></div>
+    <div class="ligne"><span class="num">10</span><p>quelque jour entre la Lune et la Terre. Les Américains eussent-ils cru qu'il eût dû y en avoir</p></div>
+    <div class="ligne"><span class="num">11</span><p>l'Amérique et l'Europe qu'ils ne connaissaient seulement pas ? Il est vrai qu'il faudra traverser</p></div>
+    <div class="ligne"><span class="num">12</span><p>ce grand espace d'air et de ciel qui est entre la Terre et la Lune, mais ces grandes mers</p></div>
+    <div class="ligne"><span class="num">13</span><p>paraissaient-elles aux Américains plus propres à être traversées ?</p></div>
+    <br>
+    <div class="ligne"><span class="num">14</span><p>– En vérité, dit la Marquise en me regardant, vous êtes fou.</p></div>
+    <br>
+    <div class="ligne"><span class="num">15</span><p>– Qui vous dit le contraire ? répondis-je.</p></div>
+    <br>
+    <div class="ligne"><span class="num">16</span><p>– Mais je veux vous le prouver, reprit-elle, je ne me contente pas de l'aveu que vous en</p></div>
+    <div class="ligne"><span class="num">17</span><p>faites. Les Américains étaient si ignorants qu'ils n'avaient garde de soupçonner qu'on pût se</p></div>
+    <div class="ligne"><span class="num">18</span><p>faire des chemins au travers des mers si vastes. Mais nous qui avons tant de connaissances,</p></div>
+    <div class="ligne"><span class="num">19</span><p>nous nous figurerions bien qu'on pût aller par les airs, si l'on pouvait effectivement y aller.</p></div>
+    <br>
+    <div class="ligne"><span class="num">20</span><p>– On fait plus que se figurer la chose possible, répliquai-je, on commence déjà à voler un</p></div>
+    <div class="ligne"><span class="num">21</span><p>peu. Plusieurs personnes différentes ont trouvé le secret de s'ajuster des ailes qui les</p></div>
+    <div class="ligne"><span class="num">22</span><p>soutinssent en l'air, de leur donner du mouvement, et de passer par-dessus des rivières. À la</p></div>
+    <div class="ligne"><span class="num">23</span><p>vérité, ce n'a pas été un vol d'aigle, et il en a quelquefois coûté à ces nouveaux oiseaux un bras</p></div>
+    <div class="ligne"><span class="num">24</span><p>ou une jambe. Mais enfin cela ne représente encore que les premières planches que l'on a</p></div>
+    <div class="ligne"><span class="num">25</span><p>mises sur l'eau, et qui ont été le commencement de la navigation. De ces planches-là, il y avait</p></div>
+    <div class="ligne"><span class="num">26</span><p>bien loin jusqu'à de gros navires qui pussent faire le tour du monde. Cependant peu à peu sont</p></div>
+    <div class="ligne"><span class="num">27</span><p>venus les gros navires. L'art de voler ne fait encore que de naître, il se perfectionnera, et quelque</p></div>
+    <div class="ligne"><span class="num">28</span><p>jour on ira jusqu'à la Lune.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 3 — FONTENELLE, Cinquième soir
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll3" data-auteur="fontenelle">
+  <div class="texte-header">
+    <div class="ll-badge">LL nº3 · Fontenelle</div>
+    <div class="texte-titre">Entretiens sur la pluralité des mondes, 1686</div>
+    <div class="texte-sous-titre">Cinquième soir — p.149-150</div>
+  </div>
+  <div class="texte-corps" id="corps-ll3">
+    <div class="ligne"><span class="num">1</span><p>– Ne me trompai-je point, s'écria la Marquise, ou si je vois où vous me voulez mener ?</p></div>
+    <div class="ligne"><span class="num">2</span><p>M'allez-vous dire : Les étoiles fixes sont autant de Soleils, notre Soleil est le centre d'un</p></div>
+    <div class="ligne"><span class="num">3</span><p>tourbillon qui tourne autour de lui ; pourquoi chaque étoile fixe ne sera-t-elle pas aussi le centre</p></div>
+    <div class="ligne"><span class="num">4</span><p>d'un tourbillon qui aura un mouvement autour d'elle ? Notre Soleil a des planètes qu'il éclaire,</p></div>
+    <div class="ligne"><span class="num">5</span><p>pourquoi chaque étoile fixe n'en aura-t-elle pas aussi qu'elle éclairera ?</p></div>
+    <br>
+    <div class="ligne"><span class="num">6</span><p>Je n'ai à vous répondre, lui dis-je, que ce que répondit Phèdre à Énone : C'est toi qui l'as</p></div>
+    <div class="ligne"><span class="num">7</span><p>nommé.</p></div>
+    <br>
+    <div class="ligne"><span class="num">8</span><p>Mais, reprit-elle, voilà l'univers si grand que je m'y perds, je ne sais plus où je suis, je ne</p></div>
+    <div class="ligne"><span class="num">9</span><p>suis plus rien. Quoi, tout sera divisé en tourbillons jetés confusément les uns parmi les autres</p></div>
+    <div class="ligne"><span class="num">10</span><p>? Chaque étoile sera le centre d'un tourbillon, peut-être aussi grand que celui où nous sommes</p></div>
+    <div class="ligne"><span class="num">11</span><p>? Tout cet espace immense qui comprend notre Soleil et nos planètes, ne sera qu'une petite</p></div>
+    <div class="ligne"><span class="num">12</span><p>parcelle de l'univers ? Autant d'espaces pareils que d'étoiles fixes ? Cela me confond, me</p></div>
+    <div class="ligne"><span class="num">13</span><p>trouble, m'épouvante.</p></div>
+    <br>
+    <div class="ligne"><span class="num">14</span><p>Et moi, répondis-je, cela me met à mon aise. Quand le ciel n'était que cette voûte bleue,</p></div>
+    <div class="ligne"><span class="num">15</span><p>où les étoiles étaient clouées, l'univers me paraissait petit et étroit, je m'y sentais comme</p></div>
+    <div class="ligne"><span class="num">16</span><p>oppressé ; présentement qu'on a donné infiniment plus d'étendue et de profondeur à cette</p></div>
+    <div class="ligne"><span class="num">17</span><p>voûte en la partageant en mille et mille tourbillons, il me semble que je respire avec plus de</p></div>
+    <div class="ligne"><span class="num">18</span><p>liberté, et que je suis dans un plus grand air, et assurément l'univers a toute une autre</p></div>
+    <div class="ligne"><span class="num">19</span><p>magnificence. La nature n'a rien épargné en le produisant, elle a fait une profusion de richesses</p></div>
+    <div class="ligne"><span class="num">20</span><p>tout à fait digne d'elle. Rien n'est si beau à se représenter que ce nombre prodigieux de</p></div>
+    <div class="ligne"><span class="num">21</span><p>tourbillons, dont le milieu est occupé par un Soleil qui fait tourner des planètes autour de lui.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 4 — VOLTAIRE, Micromégas
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll4" data-auteur="voltaire">
+  <div class="texte-header">
+    <div class="ll-badge">LL nº4 · Voltaire</div>
+    <div class="texte-titre">Micromégas, 1752</div>
+    <div class="texte-sous-titre">Chapitre II</div>
+  </div>
+  <div class="texte-corps" id="corps-ll4">
+    <p style="color:var(--muted);font-size:0.82rem;margin-bottom:12px;font-family:'Segoe UI',sans-serif;font-style:italic">Après que Son Excellence se fut couchée, et que le secrétaire se fut approché de son visage :</p>
+    <div class="ligne"><span class="num">1</span><p>– Il faut avouer, dit Micromégas, que la nature est bien variée.</p></div>
+    <br>
+    <div class="ligne"><span class="num">2</span><p>– Oui, dit le Saturnien ; la nature est comme un parterre dont les fleurs…</p></div>
+    <br>
+    <div class="ligne"><span class="num">3</span><p>– Ah ! dit l'autre, laissez là votre parterre.</p></div>
+    <br>
+    <div class="ligne"><span class="num">4</span><p>– Elle est, reprit le secrétaire, comme une assemblée de blondes et de brunes, dont les</p></div>
+    <div class="ligne"><span class="num">5</span><p>parures…</p></div>
+    <br>
+    <div class="ligne"><span class="num">6</span><p>– Eh ! qu'ai-je à faire de vos brunes ? dit l'autre.</p></div>
+    <br>
+    <div class="ligne"><span class="num">7</span><p>– Elle est donc comme une galerie de peintures dont les traits…</p></div>
+    <br>
+    <div class="ligne"><span class="num">8</span><p>– Eh non ! dit le voyageur ; encore une fois, la nature est comme la nature. Pourquoi lui chercher</p></div>
+    <div class="ligne"><span class="num">9</span><p>des comparaisons ?</p></div>
+    <br>
+    <div class="ligne"><span class="num">10</span><p>– Pour vous plaire, répondit le secrétaire.</p></div>
+    <br>
+    <div class="ligne"><span class="num">11</span><p>– Je ne veux point qu'on me plaise, répondit le voyageur ; je veux qu'on m'instruise : commencez</p></div>
+    <div class="ligne"><span class="num">12</span><p>d'abord par me dire combien les hommes de votre globe ont de sens.</p></div>
+    <br>
+    <div class="ligne"><span class="num">13</span><p>– Nous en avons soixante et douze, dit l'académicien ; et nous nous plaignons tous les jours du</p></div>
+    <div class="ligne"><span class="num">14</span><p>peu. Notre imagination va au-delà de nos besoins ; nous trouvons qu'avec nos soixante et douze</p></div>
+    <div class="ligne"><span class="num">15</span><p>sens, notre anneau, nos cinq lunes, nous sommes trop bornés ; et, malgré toute notre curiosité</p></div>
+    <div class="ligne"><span class="num">16</span><p>et le nombre assez grand de passions qui résultent de nos soixante et douze sens, nous avons</p></div>
+    <div class="ligne"><span class="num">17</span><p>tout le temps de nous ennuyer.</p></div>
+    <br>
+    <div class="ligne"><span class="num">18</span><p>– Je le crois bien, dit Micromégas ; car dans notre globe nous avons près de mille sens, et il nous</p></div>
+    <div class="ligne"><span class="num">19</span><p>reste encore je ne sais quel désir vague, je ne sais quelle inquiétude, qui nous avertit sans cesse</p></div>
+    <div class="ligne"><span class="num">20</span><p>que nous sommes peu de chose, et qu'il y a des êtres beaucoup plus parfaits. J'ai un peu voyagé</p></div>
+    <div class="ligne"><span class="num">21</span><p>; j'ai vu des mortels fort au-dessous de nous ; j'en ai vu de fort supérieurs ; mais je n'en ai vu</p></div>
+    <div class="ligne"><span class="num">22</span><p>aucuns qui n'aient plus de désirs que de vrais besoins, et plus de besoins que de satisfaction.</p></div>
+    <div class="ligne"><span class="num">23</span><p>J'arriverai peut-être un jour au pays où il ne manque rien ; mais jusqu'à présent personne ne m'a</p></div>
+    <div class="ligne"><span class="num">24</span><p>donné de nouvelles positives de ce pays-là. » Le Saturnien et le Sirien s'épuisèrent alors en</p></div>
+    <div class="ligne"><span class="num">25</span><p>conjectures ; mais, après beaucoup de raisonnements fort ingénieux et fort incertains, il en</p></div>
+    <div class="ligne"><span class="num">26</span><p>fallut revenir aux faits.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 5 — PRÉVOST, La rencontre
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll5" data-auteur="prevost">
+  <div class="texte-header">
+    <div class="ll-badge prevost">LL nº5 · Abbé Prévost</div>
+    <div class="texte-titre">Manon Lescaut, 1731</div>
+    <div class="texte-sous-titre">La rencontre</div>
+  </div>
+  <div class="texte-corps" id="corps-ll5">
+    <div class="ligne"><span class="num">1</span><p>J'avais marqué le temps de mon départ d'Amiens. Hélas ! que ne le marquai-je un jour</p></div>
+    <div class="ligne"><span class="num">2</span><p>plus tôt ! j'aurais porté chez mon père toute mon innocence. La veille même de celui que je</p></div>
+    <div class="ligne"><span class="num">3</span><p>devais quitter cette ville, étant à me promener avec mon ami, qui s'appelait Tiberge, nous vîmes</p></div>
+    <div class="ligne"><span class="num">4</span><p>arriver le coche d'Arras, et nous le suivîmes jusqu'à l'hôtellerie où ces voitures descendent.</p></div>
+    <div class="ligne"><span class="num">5</span><p>Nous n'avions pas d'autre motif que la curiosité. Il en sortit quelques femmes qui se retirèrent</p></div>
+    <div class="ligne"><span class="num">6</span><p>aussitôt ; mais il en resta une, fort jeune, qui s'arrêta seule dans la cour, pendant qu'un homme</p></div>
+    <div class="ligne"><span class="num">7</span><p>d'un âge avancé, qui paraissait lui servir de conducteur, s'empressait de faire tirer son équipage</p></div>
+    <div class="ligne"><span class="num">8</span><p>des paniers. Elle me parut si charmante, que moi, qui n'avais jamais pensé à la différence des</p></div>
+    <div class="ligne"><span class="num">9</span><p>sexes, ni regardé une fille avec un peu d'attention ; moi, dis-je, dont tout le monde admirait la</p></div>
+    <div class="ligne"><span class="num">10</span><p>sagesse et la retenue, je me trouvai enflammé tout d'un coup jusqu'au transport. J'avais le</p></div>
+    <div class="ligne"><span class="num">11</span><p>défaut d'être excessivement timide et facile à déconcerter ; mais, loin d'être arrêté alors par</p></div>
+    <div class="ligne"><span class="num">12</span><p>cette faiblesse, je m'avançai vers la maîtresse de mon cœur.</p></div>
+    <br>
+    <div class="ligne"><span class="num">13</span><p>Quoiqu'elle fût encore moins âgée que moi, elle reçut mes politesses sans paraître</p></div>
+    <div class="ligne"><span class="num">14</span><p>embarrassée. Je lui demandai ce qui l'amenait à Amiens, et si elle y avait quelques personnes</p></div>
+    <div class="ligne"><span class="num">15</span><p>de connaissance. Elle me répondit ingénument qu'elle y était envoyée par ses parents pour être</p></div>
+    <div class="ligne"><span class="num">16</span><p>religieuse. L'amour me rendait déjà si éclairé depuis un moment qu'il était dans mon cœur, que</p></div>
+    <div class="ligne"><span class="num">17</span><p>je regardai ce dessein comme un coup mortel pour mes désirs. Je lui parlai d'une manière qui</p></div>
+    <div class="ligne"><span class="num">18</span><p>lui fit comprendre mes sentiments ; car elle était bien plus expérimentée que moi : c'était malgré</p></div>
+    <div class="ligne"><span class="num">19</span><p>elle qu'on l'envoyait au couvent, pour arrêter sans doute son penchant au plaisir, qui s'était déjà</p></div>
+    <div class="ligne"><span class="num">20</span><p>déclaré, et qui a causé dans la suite tous ses malheurs et les miens. Je combattis la cruelle</p></div>
+    <div class="ligne"><span class="num">21</span><p>intention de ses parents par toutes les raisons que mon amour naissant et mon éloquence</p></div>
+    <div class="ligne"><span class="num">22</span><p>scolastique purent me suggérer. Elle n'affecta ni rigueur ni dédain. Elle me dit, après un moment</p></div>
+    <div class="ligne"><span class="num">23</span><p>de silence, qu'elle ne prévoyait que trop qu'elle allait être malheureuse ; mais que c'était</p></div>
+    <div class="ligne"><span class="num">24</span><p>apparemment la volonté du ciel, puisqu'il ne lui laissait nul moyen de l'éviter.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 6 — PRÉVOST, L'évasion de Manon
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll6" data-auteur="prevost">
+  <div class="texte-header">
+    <div class="ll-badge prevost">LL nº6 · Abbé Prévost</div>
+    <div class="texte-titre">Manon Lescaut, 1731</div>
+    <div class="texte-sous-titre">L'évasion de Manon</div>
+  </div>
+  <div class="texte-corps" id="corps-ll6">
+    <div class="ligne"><span class="num">1</span><p>Je tenais Manon si étroitement serrée entre mes bras, que nous n'occupions qu'une place dans</p></div>
+    <div class="ligne"><span class="num">2</span><p>le carrosse. Elle pleurait de joie, et je sentais ses larmes qui mouillaient mon visage mais</p></div>
+    <div class="ligne"><span class="num">3</span><p>lorsqu'il fallut descendre pour entrer chez Lescaut, j'eus avec le cocher un nouveau démêlé,</p></div>
+    <div class="ligne"><span class="num">4</span><p>dont les suites furent funestes. Je me repentis de lui avoir promis un louis, non seulement parce</p></div>
+    <div class="ligne"><span class="num">5</span><p>que le présent était excessif, mais par une autre raison bien plus forte, qui était l'impuissance</p></div>
+    <div class="ligne"><span class="num">6</span><p>de le payer. Je fis appeler Lescaut. Il descendit de sa chambre pour venir à la porte. Je lui dis à</p></div>
+    <div class="ligne"><span class="num">7</span><p>l'oreille dans quel embarras je me trouvais. Comme il était d'une humeur brusque et nullement</p></div>
+    <div class="ligne"><span class="num">8</span><p>accoutumé à ménager un fiacre, il me répondit que je me moquais. Un louis d'or ! ajouta-t-il.</p></div>
+    <div class="ligne"><span class="num">9</span><p>Vingt coups de canne à ce coquin-là ! J'eus beau lui représenter doucement qu'il allait nous</p></div>
+    <div class="ligne"><span class="num">10</span><p>perdre, il m'arracha ma canne, avec l'air d'en vouloir maltraiter le cocher. Celui-ci, à qui il était</p></div>
+    <div class="ligne"><span class="num">11</span><p>peut-être arrivé de tomber quelquefois sous la main d'un garde du corps ou d'un mousquetaire,</p></div>
+    <div class="ligne"><span class="num">12</span><p>s'enfuit de peur, avec son carrosse, en criant que je l'avais trompé, mais que j'aurais de ses</p></div>
+    <div class="ligne"><span class="num">13</span><p>nouvelles. Je lui répétai inutilement d'arrêter. Sa fuite me causa une extrême inquiétude. Je ne</p></div>
+    <div class="ligne"><span class="num">14</span><p>doutai point qu'il n'avertît le commissaire. Vous me perdez, dis-je à Lescaut. Je ne serais pas en</p></div>
+    <div class="ligne"><span class="num">15</span><p>sûreté chez vous ; il faut nous éloigner dans le moment. Je prêtai le bras à Manon pour marcher,</p></div>
+    <div class="ligne"><span class="num">16</span><p>et nous sortîmes promptement de cette dangereuse rue. Lescaut nous tint compagnie. C'est</p></div>
+    <div class="ligne"><span class="num">17</span><p>quelque chose d'admirable que la manière dont la Providence enchaîne les événements. À</p></div>
+    <div class="ligne"><span class="num">18</span><p>peine avions-nous marché cinq ou six minutes, qu'un homme dont je ne découvris point le</p></div>
+    <div class="ligne"><span class="num">19</span><p>visage, reconnut Lescaut. Il le cherchait sans doute aux environs de chez lui, avec le malheureux</p></div>
+    <div class="ligne"><span class="num">20</span><p>dessein qu'il exécuta. C'est Lescaut, dit-il, en lui lâchant un coup de pistolet ; il ira souper ce</p></div>
+    <div class="ligne"><span class="num">21</span><p>soir avec les anges. Il se déroba aussitôt. Lescaut tomba sans le moindre mouvement de vie.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 7 — PRÉVOST, La mort de Manon
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll7" data-auteur="prevost">
+  <div class="texte-header">
+    <div class="ll-badge prevost">LL nº7 · Abbé Prévost</div>
+    <div class="texte-titre">Manon Lescaut, 1731</div>
+    <div class="texte-sous-titre">La mort de Manon</div>
+  </div>
+  <div class="texte-corps" id="corps-ll7">
+    <div class="ligne"><span class="num">1</span><p>Pardonnez si j'achève en peu de mots un récit qui me tue. Je vous raconte un malheur</p></div>
+    <div class="ligne"><span class="num">2</span><p>qui n'eut jamais d'exemple ; toute ma vie est destinée à le pleurer. Mais, quoique je le porte</p></div>
+    <div class="ligne"><span class="num">3</span><p>sans cesse dans ma mémoire, mon âme semble reculer d'horreur chaque fois que</p></div>
+    <div class="ligne"><span class="num">4</span><p>j'entreprends de l'exprimer.</p></div>
+    <br>
+    <div class="ligne"><span class="num">5</span><p>Nous avions passé tranquillement une partie de la nuit. Je croyais ma chère maîtresse</p></div>
+    <div class="ligne"><span class="num">6</span><p>endormie, et je n'osais pousser le moindre souffle, dans la crainte de troubler son sommeil. Je</p></div>
+    <div class="ligne"><span class="num">7</span><p>m'aperçus, dès le point du jour, en touchant ses mains, qu'elle les avait froides et tremblantes</p></div>
+    <div class="ligne"><span class="num">8</span><p>; je les approchai de mon sein pour les échauffer. Elle sentit ce mouvement, et, faisant un effort</p></div>
+    <div class="ligne"><span class="num">9</span><p>pour saisir les miennes, elle me dit d'une voix faible qu'elle se croyait à sa dernière heure.</p></div>
+    <br>
+    <div class="ligne"><span class="num">10</span><p>Je ne pris d'abord ce discours que pour un langage ordinaire dans l'infortune, et je n'y</p></div>
+    <div class="ligne"><span class="num">11</span><p>répondis que par les tendres consolations de l'amour. Mais ses soupirs fréquents, son silence</p></div>
+    <div class="ligne"><span class="num">12</span><p>à mes interrogations, le serrement de ses mains, dans lesquelles elle continuait de tenir les</p></div>
+    <div class="ligne"><span class="num">13</span><p>miennes, me firent connaître que la fin de ses malheurs approchait.</p></div>
+    <br>
+    <div class="ligne"><span class="num">14</span><p>N'exigez point de moi que je vous décrive mes sentiments, ni que je vous rapporte ses</p></div>
+    <div class="ligne"><span class="num">15</span><p>dernières expressions. Je la perdis ; je reçus d'elle des marques d'amour au moment même</p></div>
+    <div class="ligne"><span class="num">16</span><p>qu'elle expirait : c'est tout ce que j'ai la force de vous apprendre de ce fatal et déplorable</p></div>
+    <div class="ligne"><span class="num">17</span><p>événement.</p></div>
+    <br>
+    <div class="ligne"><span class="num">18</span><p>Mon âme ne suivit pas la sienne. Le ciel ne me trouva sans doute point assez</p></div>
+    <div class="ligne"><span class="num">19</span><p>rigoureusement puni ; il a voulu que j'aie traîné depuis une vie languissante et misérable. Je</p></div>
+    <div class="ligne"><span class="num">20</span><p>renonce volontairement à la mener jamais plus heureuse.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 8 — HUGO, Notre-Dame de Paris
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll8" data-auteur="hugo">
+  <div class="texte-header">
+    <div class="ll-badge hugo">LL nº8 · Victor Hugo</div>
+    <div class="texte-titre">Notre-Dame de Paris, 1831</div>
+    <div class="texte-sous-titre">L'enlèvement d'Esméralda</div>
+  </div>
+  <div class="texte-corps" id="corps-ll8">
+    <div class="ligne"><span class="num">1</span><p>Quasimodo s'était arrêté sous le grand portail. Ses larges pieds semblaient aussi solides</p></div>
+    <div class="ligne"><span class="num">2</span><p>sur le pavé de l'église que les lourds piliers romans. Sa grosse tête chevelue s'enfonçait dans</p></div>
+    <div class="ligne"><span class="num">3</span><p>ses épaules comme celle des lions qui eux aussi ont une crinière et pas de cou. Il tenait la jeune</p></div>
+    <div class="ligne"><span class="num">4</span><p>fille toute palpitante suspendue à ses mains calleuses comme une draperie blanche ; mais il la</p></div>
+    <div class="ligne"><span class="num">5</span><p>portait avec tant de précaution qu'il paraissait craindre de la briser ou de la faner. On eût dit</p></div>
+    <div class="ligne"><span class="num">6</span><p>qu'il sentait que c'était une chose délicate, exquise et précieuse, faite pour d'autres mains que</p></div>
+    <div class="ligne"><span class="num">7</span><p>les siennes. Par moments, il avait l'air de n'oser la toucher, même du souffle. Puis, tout à coup,</p></div>
+    <div class="ligne"><span class="num">8</span><p>il la serrait avec étreinte dans ses bras, sur sa poitrine anguleuse, comme son bien, comme son</p></div>
+    <div class="ligne"><span class="num">9</span><p>trésor, comme eût fait la mère de cette enfant ; son œil de gnome, abaissé sur elle, l'inondait</p></div>
+    <div class="ligne"><span class="num">10</span><p>de tendresse, de douleur et de pitié, et se relevait subitement plein d'éclairs. Alors les femmes</p></div>
+    <div class="ligne"><span class="num">11</span><p>riaient et pleuraient, la foule trépignait d'enthousiasme, car en ce moment-là Quasimodo avait</p></div>
+    <div class="ligne"><span class="num">12</span><p>vraiment sa beauté. Il était beau, lui, cet orphelin, cet enfant trouvé, ce rebut, il se sentait</p></div>
+    <div class="ligne"><span class="num">13</span><p>auguste et fort, il regardait en face cette société dont il était banni, et dans laquelle il intervenait</p></div>
+    <div class="ligne"><span class="num">14</span><p>si puissamment, cette justice humaine à laquelle il avait arraché sa proie, tous ces tigres forcés</p></div>
+    <div class="ligne"><span class="num">15</span><p>de mâcher à vide, ces sbires, ces juges, ces bourreaux, toute cette force du roi qu'il venait de</p></div>
+    <div class="ligne"><span class="num">16</span><p>briser, lui infime, avec la force de Dieu.</p></div>
+    <br>
+    <div class="ligne"><span class="num">17</span><p>Et puis c'était une chose touchante que cette protection tombée d'un être si difforme sur</p></div>
+    <div class="ligne"><span class="num">18</span><p>un être si malheureux, qu'une condamnée à mort sauvée par Quasimodo. C'étaient les deux</p></div>
+    <div class="ligne"><span class="num">19</span><p>misères extrêmes de la nature et de la société qui se touchaient et qui s'entr'aidaient.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 9 — MUSSET, Acte I scène 2
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll9" data-auteur="musset">
+  <div class="texte-header">
+    <div class="ll-badge musset">LL nº9 · Alfred de Musset</div>
+    <div class="texte-titre">On ne badine pas avec l'amour, 1834</div>
+    <div class="texte-sous-titre">Acte I, scène 2 — Les retrouvailles</div>
+  </div>
+  <div class="texte-corps" id="corps-ll9">
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">1</span><p>Bonjour, mon père, ma sœur bien-aimée ! Quel bonheur ! que je suis heureux !</p></div>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">2</span><p>Mon père et mon cousin, je vous salue.</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">3</span><p>Comme te voilà grande, Camille ! et belle comme le jour.</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">4</span><p>Quand as-tu quitté Paris, Perdican ?</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">5</span><p>Mercredi, je crois, ou mardi. Comme te voilà métamorphosée en femme ! Je suis donc un</p></div>
+    <div class="ligne"><span class="num">6</span><p>homme, moi ? Il me semble que c'est hier que je t'ai vue pas plus haute que cela.</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">7</span><p>Vous devez être fatigués ; la route est longue, et il fait chaud.</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">8</span><p>Oh ! mon Dieu, non. Regardez donc, mon père, comme Camille est jolie !</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">9</span><p>Allons, Camille, embrasse ton cousin.</p></div>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">10</span><p>Excusez-moi.</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">11</span><p>Un compliment vaut un baiser ; embrasse-la, Perdican.</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">12</span><p>Si ma cousine recule quand je lui tends la main, je vous dirai à mon tour : Excusez-moi ;</p></div>
+    <div class="ligne"><span class="num">13</span><p>l'amour peut voler un baiser, mais non pas l'amitié.</p></div>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">14</span><p>L'amitié ni l'amour ne doivent recevoir que ce qu'ils peuvent rendre.</p></div>
+    <p class="locuteur"><span class="didascalie">Le Baron, à maître Bridaine.</span></p>
+    <div class="ligne"><span class="num">15</span><p>Voilà un commencement de mauvais augure, hé ?</p></div>
+    <p class="locuteur"><span class="didascalie">Maître Bridaine, au baron.</span></p>
+    <div class="ligne"><span class="num">16</span><p>Trop de pudeur est sans doute un défaut ; mais le mariage lève bien des scrupules.</p></div>
+    <p class="locuteur"><span class="didascalie">Le Baron, à maître Bridaine.</span></p>
+    <div class="ligne"><span class="num">17</span><p>Je suis choqué, — blessé. — Cette réponse m'a déplu. — Excusez-moi !</p></div>
+    <div class="ligne"><span class="num">18</span><p>Avez-vous vu qu'elle a fait mine de se signer ? — Venez ici, que je vous parle. — Cela m'est pénible au</p></div>
+    <div class="ligne"><span class="num">19</span><p>dernier point. Ce moment, qui devait m'être si doux, est complètement gâté. — Je suis vexé, piqué. —</p></div>
+    <div class="ligne"><span class="num">20</span><p>Diable ! voilà qui est fort mauvais.</p></div>
+    <p class="locuteur">Maître Bridaine</p>
+    <div class="ligne"><span class="num">21</span><p>Dites-leur quelques mots ; les voilà qui se tournent le dos.</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">22</span><p>Eh bien ! mes enfants, à quoi pensez-vous donc ? Que fais-tu là, Camille, devant cette</p></div>
+    <div class="ligne"><span class="num">23</span><p>tapisserie ?</p></div>
+    <p class="locuteur"><span class="didascalie">Camille, regardant un tableau.</span></p>
+    <div class="ligne"><span class="num">24</span><p>Voilà un beau portrait, mon oncle ! N'est-ce pas une grand'tante à nous ?</p></div>
+    <div class="ligne"><span class="num">25</span><p>?</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">26</span><p>Oui, mon enfant, c'est ta bisaïeule, — ou du moins la sœur de ton bisaïeul, — car la chère</p></div>
+    <div class="ligne"><span class="num">27</span><p>dame n'a jamais concouru, — pour sa part, je crois, autrement qu'en prières, — à l'accroissement de</p></div>
+    <div class="ligne"><span class="num">28</span><p>la famille. C'était, ma foi, une sainte femme.</p></div>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">29</span><p>Oh ! oui, une sainte ! c'est ma grand'tante Isabelle. Comme ce costume religieux lui va bien !</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">30</span><p>Et toi, Perdican, que fais-tu là devant ce pot de fleurs ?</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">31</span><p>Voilà une fleur charmante, mon père. C'est un héliotrope.</p></div>
+    <p class="locuteur">Le Baron</p>
+    <div class="ligne"><span class="num">32</span><p>Te moques-tu ? elle est grosse comme une mouche.</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">33</span><p>Cette petite fleur grosse comme une mouche a bien son prix.</p></div>
+    <p class="locuteur">Maître Bridaine</p>
+    <div class="ligne"><span class="num">34</span><p>Sans doute ! le docteur a raison. Demandez-lui à quel sexe, à quelle classe elle</p></div>
+    <div class="ligne"><span class="num">35</span><p>appartient, de quels éléments elle se forme, d'où lui viennent sa sève et sa couleur ; il vous ravira en</p></div>
+    <div class="ligne"><span class="num">36</span><p>extase en vous détaillant les phénomènes de ce brin d'herbe, depuis la racine jusqu'à la fleur.</p></div>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">37</span><p>Je n'en sais pas si long, mon révérend. Je trouve qu'elle sent bon, voilà tout.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 10 — MUSSET, Acte III scène 3
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll10" data-auteur="musset">
+  <div class="texte-header">
+    <div class="ll-badge musset">LL nº10 · Alfred de Musset</div>
+    <div class="texte-titre">On ne badine pas avec l'amour, 1834</div>
+    <div class="texte-sous-titre">Acte III, scène 3 — La vengeance</div>
+  </div>
+  <div class="texte-corps" id="corps-ll10">
+    <p class="locuteur"><span class="didascalie">Camille — [...] (Elle se cache derrière un arbre.) Voilà Perdican qui approche avec Rosette, ma sœur de lait. Je suppose qu'il va la quitter ; je suis bien aise de ne pas avoir l'air d'arriver la première. (Entrent Perdican et Rosette, qui s'assoient.)</span></p>
+    <br>
+    <p class="locuteur"><span class="didascalie">Camille, cachée, à part.</span></p>
+    <div class="ligne"><span class="num">5</span><p>Que veut dire cela ? Il la fait asseoir près de lui ? Me demande-t-il un rendez-vous pour y venir</p></div>
+    <div class="ligne"><span class="num">6</span><p>causer avec une autre ? Je suis curieuse de savoir ce qu'il lui dit.</p></div>
+    <br>
+    <p class="locuteur"><span class="didascalie">Perdican, à haute voix, de manière que Camille l'entende.</span></p>
+    <div class="ligne"><span class="num">8</span><p>Je t'aime, Rosette ! toi seule au monde tu n'as rien oublié de nos beaux jours passés ; toi seule</p></div>
+    <div class="ligne"><span class="num">9</span><p>tu te souviens de la vie qui n'est plus ; prends ta part de ma vie nouvelle ; donne-moi ton cœur,</p></div>
+    <div class="ligne"><span class="num">10</span><p>chère enfant ; voilà le gage de notre amour. <span class="didascalie">(Il lui pose sa chaîne sur le cou.)</span></p></div>
+    <br>
+    <p class="locuteur">Rosette</p>
+    <div class="ligne"><span class="num">11</span><p>Vous me donnez votre chaîne d'or ?</p></div>
+    <br>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">12</span><p>Regarde à présent cette bague. Lève-toi et approchons-nous de cette fontaine. Nous</p></div>
+    <div class="ligne"><span class="num">13</span><p>vois-tu tous les deux, dans la source, appuyés l'un sur l'autre ? Vois-tu tes beaux yeux près des</p></div>
+    <div class="ligne"><span class="num">14</span><p>miens, ta main dans la mienne ? Regarde tout cela s'effacer. <span class="didascalie">(Il jette sa bague dans l'eau.)</span></p></div>
+    <div class="ligne"><span class="num">15</span><p>Regarde comme notre image a disparu ; la voilà qui revient peu à peu ; l'eau qui s'était troublée</p></div>
+    <div class="ligne"><span class="num">16</span><p>reprend son équilibre ; elle tremble encore ; de grands cercles noirs courent à sa surface ;</p></div>
+    <div class="ligne"><span class="num">17</span><p>patience, nous reparaissons ; déjà je distingue de nouveau tes bras enlacés dans les miens ;</p></div>
+    <div class="ligne"><span class="num">18</span><p>encore une minute, et il n'y aura plus une ride sur ton joli visage : regarde ! c'était une bague que</p></div>
+    <div class="ligne"><span class="num">19</span><p>m'avait donnée Camille.</p></div>
+    <br>
+    <p class="locuteur"><span class="didascalie">Camille, à part.</span></p>
+    <div class="ligne"><span class="num">20</span><p>Il a jeté ma bague dans l'eau.</p></div>
+    <br>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">21</span><p>Sais-tu ce que c'est que l'amour, Rosette ? Écoute ! le vent se tait ; la pluie du matin</p></div>
+    <div class="ligne"><span class="num">22</span><p>roule en perles sur les feuilles séchées que le soleil ranime. Par la lumière du ciel, par le soleil</p></div>
+    <div class="ligne"><span class="num">23</span><p>que voilà, je t'aime ! Tu veux bien de moi, n'est-ce pas ? On n'a pas flétri ta jeunesse ; on n'a pas</p></div>
+    <div class="ligne"><span class="num">24</span><p>infiltré dans ton sang vermeil les restes d'un sang affadi ? Tu ne veux pas te faire religieuse ; te</p></div>
+    <div class="ligne"><span class="num">25</span><p>voilà jeune et belle dans les bras d'un jeune homme. Ô Rosette, Rosette ! sais-tu ce que c'est</p></div>
+    <div class="ligne"><span class="num">26</span><p>que l'amour ?</p></div>
+    <br>
+    <p class="locuteur">Rosette</p>
+    <div class="ligne"><span class="num">27</span><p>Hélas ! monsieur le docteur, je vous aimerai comme je pourrai.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 11 — MUSSET, Acte III scène 8 (V, sc.8)
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll11" data-auteur="musset">
+  <div class="texte-header">
+    <div class="ll-badge musset">LL nº11 · Alfred de Musset</div>
+    <div class="texte-titre">On ne badine pas avec l'amour, 1834</div>
+    <div class="texte-sous-titre">Acte III (V), scène 8 — Le dénouement</div>
+  </div>
+  <div class="texte-corps" id="corps-ll11">
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">1</span><p>Insensés que nous sommes ! nous nous aimons. Quel songe avons-nous fait, Camille ?</p></div>
+    <div class="ligne"><span class="num">2</span><p>Quelles vaines paroles, quelles misérables folies ont passé comme un vent funeste entre nous</p></div>
+    <div class="ligne"><span class="num">3</span><p>deux ? Lequel de nous a voulu tromper l'autre ? Hélas ! cette vie est elle-même un si pénible</p></div>
+    <div class="ligne"><span class="num">4</span><p>rêve ! pourquoi encore y mêler les nôtres ? Ô mon Dieu ! le bonheur est une perle si rare dans</p></div>
+    <div class="ligne"><span class="num">5</span><p>cet océan d'ici-bas ! Tu nous l'avais donné, pêcheur céleste, tu l'avais tiré pour nous des</p></div>
+    <div class="ligne"><span class="num">6</span><p>profondeurs de l'abîme, cet inestimable joyau ; et nous, comme des enfants gâtés que nous</p></div>
+    <div class="ligne"><span class="num">7</span><p>sommes, nous en avons fait un jouet. Le vert sentier qui nous amenait l'un vers l'autre avait une</p></div>
+    <div class="ligne"><span class="num">8</span><p>pente si douce, il était entouré de buissons si fleuris, il se perdait dans un si tranquille horizon !</p></div>
+    <div class="ligne"><span class="num">9</span><p>Il a bien fallu que la vanité, le bavardage et la colère vinssent jeter leurs rochers informes sur</p></div>
+    <div class="ligne"><span class="num">10</span><p>cette route céleste, qui nous aurait conduits à toi dans un baiser ! Il a bien fallu que nous nous</p></div>
+    <div class="ligne"><span class="num">11</span><p>fissions du mal, car nous sommes des hommes. Ô insensés ! nous nous aimons.</p></div>
+    <div class="ligne"><span class="num">12</span><p><span class="didascalie">(Il la prend dans ses bras.)</span></p></div>
+    <br>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">13</span><p>Oui, nous nous aimons, Perdican ; laisse-moi le sentir sur ton cœur. Ce Dieu qui nous</p></div>
+    <div class="ligne"><span class="num">14</span><p>regarde ne s'en offensera pas ; il veut bien que je t'aime ; il y a quinze ans qu'il le sait.</p></div>
+    <br>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">15</span><p>Chère créature, tu es à moi ! <span class="didascalie">(Il l'embrasse ; on entend un grand cri derrière l'autel.)</span></p></div>
+    <br>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">16</span><p>C'est la voix de ma sœur de lait.</p></div>
+    <br>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">17</span><p>Comment est-elle ici ? je l'avais laissée dans l'escalier, lorsque tu m'as fait rappeler.</p></div>
+    <div class="ligne"><span class="num">18</span><p>Il faut donc qu'elle m'ait suivi sans que je m'en sois aperçu.</p></div>
+    <br>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">19</span><p>Entrons dans cette galerie ; c'est là qu'on a crié.</p></div>
+    <br>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">20</span><p>Je ne sais ce que j'éprouve ; il me semble que mes mains sont couvertes de sang.</p></div>
+    <br>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">21</span><p>La pauvre enfant nous a sans doute épiés ; elle s'est encore évanouie ; viens, portons-</p></div>
+    <div class="ligne"><span class="num">22</span><p>lui secours ; hélas ! tout cela est cruel.</p></div>
+    <br>
+    <p class="locuteur">Perdican</p>
+    <div class="ligne"><span class="num">23</span><p>Non, en vérité, je n'entrerai pas ; je sens un froid mortel qui me paralyse. Vas-y,</p></div>
+    <div class="ligne"><span class="num">24</span><p>Camille, et tâche de la ramener. <span class="didascalie">(Camille sort.)</span> Je vous en supplie, mon Dieu ! ne faites pas de</p></div>
+    <div class="ligne"><span class="num">25</span><p>moi un meurtrier ! Vous voyez ce qui se passe ; nous sommes deux enfants insensés, et nous</p></div>
+    <div class="ligne"><span class="num">26</span><p>avons joué avec la vie et la mort ; mais notre cœur est pur ; ne tuez pas Rosette, Dieu juste ! Je</p></div>
+    <div class="ligne"><span class="num">27</span><p>lui trouverai un mari, je réparerai ma faute, elle est jeune, elle sera heureuse ; ne faites pas cela,</p></div>
+    <div class="ligne"><span class="num">28</span><p>ô Dieu ! vous pouvez bénir encore quatre de vos enfants. Eh bien ! Camille, qu'y a-t-il ?</p></div>
+    <div class="ligne"><span class="num">29</span><p><span class="didascalie">(Camille rentre.)</span></p></div>
+    <br>
+    <p class="locuteur">Camille</p>
+    <div class="ligne"><span class="num">30</span><p>Elle est morte. Adieu, Perdican !</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 12 — ROSTAND, Cyrano de Bergerac
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll12" data-auteur="rostand">
+  <div class="texte-header">
+    <div class="ll-badge rostand">LL nº12 · Edmond Rostand</div>
+    <div class="texte-titre">Cyrano de Bergerac, 1897</div>
+    <div class="texte-sous-titre">Acte III, scène 7 — La scène du balcon</div>
+  </div>
+  <div class="texte-corps" id="corps-ll12">
+    <p class="locuteur"><span class="didascalie">Roxane, entrouvrant sa fenêtre.</span></p>
+    <div class="ligne"><span class="num">1</span><p>Qui donc m'appelle ?</p></div>
+    <p class="locuteur">Christian</p>
+    <div class="ligne"><span class="num">2</span><p>Moi.</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">3</span><p>Qui, moi ?</p></div>
+    <p class="locuteur">Christian</p>
+    <div class="ligne"><span class="num">4</span><p>Christian.</p></div>
+    <p class="locuteur"><span class="didascalie">Roxane, avec dédain.</span></p>
+    <div class="ligne"><span class="num">5</span><p>C'est vous ?</p></div>
+    <p class="locuteur">Christian</p>
+    <div class="ligne"><span class="num">6</span><p>Je voudrais vous parler.</p></div>
+    <p class="locuteur"><span class="didascalie">Cyrano, sous le balcon, à Christian.</span></p>
+    <div class="ligne"><span class="num">7</span><p>Bien. Bien. Presque à voix basse.</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">8</span><p>Non ! Vous parlez trop mal. Allez-vous-en !</p></div>
+    <p class="locuteur">Christian</p>
+    <div class="ligne"><span class="num">9</span><p>De grâce !…</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">10</span><p>Non ! Vous ne m'aimez plus !</p></div>
+    <p class="locuteur"><span class="didascalie">Christian, à qui Cyrano souffle ses mots.</span></p>
+    <div class="ligne"><span class="num">11</span><p>M'accuser, — justes dieux ! —</p></div>
+    <div class="ligne"><span class="num">12</span><p>De n'aimer plus… quand… j'aime plus !</p></div>
+    <p class="locuteur"><span class="didascalie">Roxane, qui allait refermer sa fenêtre, s'arrêtant.</span></p>
+    <div class="ligne"><span class="num">13</span><p>Tiens ! mais c'est mieux !</p></div>
+    <p class="locuteur"><span class="didascalie">Christian, même jeu.</span></p>
+    <div class="ligne"><span class="num">14</span><p>L'amour grandit bercé dans mon âme inquiète…</p></div>
+    <div class="ligne"><span class="num">15</span><p>Que ce… cruel marmot prit pour… barcelonnette !</p></div>
+    <p class="locuteur"><span class="didascalie">Roxane, s'avançant sur le balcon.</span></p>
+    <div class="ligne"><span class="num">16</span><p>C'est mieux ! — Mais, puisqu'il est cruel, vous fûtes sot</p></div>
+    <div class="ligne"><span class="num">17</span><p>De ne pas, cet amour, l'étouffer au berceau !</p></div>
+    <p class="locuteur"><span class="didascalie">Christian, même jeu.</span></p>
+    <div class="ligne"><span class="num">18</span><p>Aussi l'ai-je tenté, mais… tentative nulle :</p></div>
+    <div class="ligne"><span class="num">19</span><p>Ce… nouveau-né, Madame, est un petit… Hercule.</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">20</span><p>C'est mieux !</p></div>
+    <p class="locuteur"><span class="didascalie">Christian, même jeu.</span></p>
+    <div class="ligne"><span class="num">21</span><p>De sorte qu'il… strangula comme rien…</p></div>
+    <div class="ligne"><span class="num">22</span><p>Les deux serpents… Orgueil et… Doute.</p></div>
+    <p class="locuteur"><span class="didascalie">Roxane, s'accoudant au balcon.</span></p>
+    <div class="ligne"><span class="num">23</span><p>Ah ! c'est très bien.</p></div>
+    <div class="ligne"><span class="num">24</span><p>— Mais pourquoi parlez-vous de façon peu hâtive ?</p></div>
+    <div class="ligne"><span class="num">25</span><p>Auriez-vous donc la goutte à l'imaginative ?</p></div>
+    <p class="locuteur"><span class="didascalie">Cyrano, tirant Christian sous le balcon et se glissant à sa place.</span></p>
+    <div class="ligne"><span class="num">26</span><p>Chut ! Cela devient trop difficile !…</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">27</span><p>Aujourd'hui… Vos mots sont hésitants. Pourquoi ?</p></div>
+    <p class="locuteur"><span class="didascalie">Cyrano, parlant à mi-voix, comme Christian.</span></p>
+    <div class="ligne"><span class="num">28</span><p>C'est qu'il fait nuit, dans cette ombre, à tâtons, ils cherchent votre oreille.</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">29</span><p>Les miens n'éprouvent pas difficulté pareille.</p></div>
+    <p class="locuteur">Cyrano</p>
+    <div class="ligne"><span class="num">30</span><p>Ils trouvent tout de suite ? oh ! cela va de soi,</p></div>
+    <div class="ligne"><span class="num">31</span><p>Puisque c'est dans mon cœur, eux, que je les reçoi ;</p></div>
+    <div class="ligne"><span class="num">32</span><p>Or, moi, j'ai le cœur grand, vous, l'oreille petite.</p></div>
+    <div class="ligne"><span class="num">33</span><p>D'ailleurs vos mots à vous, descendent : ils vont vite,</p></div>
+    <div class="ligne"><span class="num">34</span><p>Les miens montent, Madame : il leur faut plus de temps !</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">35</span><p>Mais ils montent bien mieux depuis quelques instants.</p></div>
+    <p class="locuteur">Cyrano</p>
+    <div class="ligne"><span class="num">36</span><p>De cette gymnastique, ils ont pris l'habitude !</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">37</span><p>Je vous parle en effet d'une vraie altitude !</p></div>
+    <p class="locuteur">Cyrano</p>
+    <div class="ligne"><span class="num">38</span><p>Certe, et vous me tueriez si de cette hauteur</p></div>
+    <div class="ligne"><span class="num">39</span><p>Vous me laissiez tomber un mot dur sur le cœur !</p></div>
+    <p class="locuteur"><span class="didascalie">Roxane, avec un mouvement.</span></p>
+    <div class="ligne"><span class="num">40</span><p>Je descends !</p></div>
+    <p class="locuteur"><span class="didascalie">Cyrano, vivement.</span></p>
+    <div class="ligne"><span class="num">41</span><p>Non !</p></div>
+    <p class="locuteur"><span class="didascalie">Roxane, lui montrant le banc qui est sous le balcon.</span></p>
+    <div class="ligne"><span class="num">42</span><p>Grimpez sur le banc, alors, vite !</p></div>
+    <p class="locuteur"><span class="didascalie">Cyrano, reculant avec effroi dans la nuit.</span></p>
+    <div class="ligne"><span class="num">43</span><p>Non !</p></div>
+    <p class="locuteur">Roxane</p>
+    <div class="ligne"><span class="num">44</span><p>Comment… non ?</p></div>
+    <p class="locuteur"><span class="didascalie">Cyrano, que l'émotion gagne de plus en plus.</span></p>
+    <div class="ligne"><span class="num">45</span><p>Laissez un peu que l'on profite…</p></div>
+    <div class="ligne"><span class="num">46</span><p>De cette occasion qui s'offre… de pouvoir</p></div>
+    <div class="ligne"><span class="num">47</span><p>Se parler doucement, sans se voir.</p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 13 — RIMBAUD, Vénus Anadyomène
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll13" data-auteur="rimbaud">
+  <div class="texte-header">
+    <div class="ll-badge rimbaud">LL nº13 · Arthur Rimbaud</div>
+    <div class="texte-titre">Cahiers de Douai, 1870</div>
+    <div class="texte-sous-titre">Vénus Anadyomène — Sonnet en alexandrins</div>
+  </div>
+  <div class="texte-corps" id="corps-ll13">
+    <div class="titre-poeme">VENUS ANADYOMENE</div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">1</span><span>Comme d'un cercueil vert en fer blanc, une tête</span></div>
+      <div class="vers-gauche"><span class="num">2</span><span>De femme à cheveux bruns fortement pommadés</span></div>
+      <div class="vers-gauche"><span class="num">3</span><span>D'une vieille baignoire émerge, lente et bête,</span></div>
+      <div class="vers-gauche"><span class="num">4</span><span>Avec des déficits assez mal ravaudés ;</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">5</span><span>Puis le col gras et gris, les larges omoplates</span></div>
+      <div class="vers-gauche"><span class="num">6</span><span>Qui saillent ; le dos court qui rentre et qui ressort ;</span></div>
+      <div class="vers-gauche"><span class="num">7</span><span>Puis les rondeurs des reins semblent prendre l'essor ;</span></div>
+      <div class="vers-gauche"><span class="num">8</span><span>La graisse sous la peau paraît en feuilles plates ;</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">9</span><span>L'échine est un peu rouge, et le tout sent un goût</span></div>
+      <div class="vers-gauche"><span class="num">10</span><span>Horrible étrangement ; on remarque surtout</span></div>
+      <div class="vers-gauche"><span class="num">11</span><span>Des singularités qu'il faut voir à la loupe…</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">12</span><span>Les reins portent deux mots gravés : Clara Venus ;</span></div>
+      <div class="vers-gauche"><span class="num">13</span><span>– Et tout ce corps remue et tend sa large croupe</span></div>
+      <div class="vers-gauche"><span class="num">14</span><span>Belle hideusement d'un ulcère à l'anus.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 14 — RIMBAUD, Le Dormeur du Val
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll14" data-auteur="rimbaud">
+  <div class="texte-header">
+    <div class="ll-badge rimbaud">LL nº14 · Arthur Rimbaud</div>
+    <div class="texte-titre">Cahiers de Douai, 1870</div>
+    <div class="texte-sous-titre">Le Dormeur du Val — Sonnet en alexandrins</div>
+  </div>
+  <div class="texte-corps" id="corps-ll14">
+    <div class="titre-poeme">LE DORMEUR DU VAL</div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">1</span><span>C'est un trou de verdure où chante une rivière</span></div>
+      <div class="vers-gauche"><span class="num">2</span><span>Accrochant follement aux herbes des haillons</span></div>
+      <div class="vers-gauche"><span class="num">3</span><span>D'argent ; où le soleil, de la montagne fière,</span></div>
+      <div class="vers-gauche"><span class="num">4</span><span>Luit : c'est un petit val qui mousse de rayons.</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">5</span><span>Un soldat jeune, bouche ouverte, tête nue,</span></div>
+      <div class="vers-gauche"><span class="num">6</span><span>Et la nuque baignant dans le frais cresson bleu,</span></div>
+      <div class="vers-gauche"><span class="num">7</span><span>Dort ; il est étendu dans l'herbe, sous la nue,</span></div>
+      <div class="vers-gauche"><span class="num">8</span><span>Pâle dans son lit vert où la lumière pleut.</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">9</span><span>Les pieds dans les glaïeuls, il dort. Souriant comme</span></div>
+      <div class="vers-gauche"><span class="num">10</span><span>Sourirait un enfant malade, il fait un somme :</span></div>
+      <div class="vers-gauche"><span class="num">11</span><span>Nature, berce-le chaudement : il a froid.</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">12</span><span>Les parfums ne font pas frissonner sa narine ;</span></div>
+      <div class="vers-gauche"><span class="num">13</span><span>Il dort dans le soleil, la main sur sa poitrine</span></div>
+      <div class="vers-gauche"><span class="num">14</span><span>Tranquille. Il a deux trous rouges au côté droit.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 15 — RIMBAUD, Ma Bohème
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll15" data-auteur="rimbaud">
+  <div class="texte-header">
+    <div class="ll-badge rimbaud">LL nº15 · Arthur Rimbaud</div>
+    <div class="texte-titre">Cahiers de Douai, 1870</div>
+    <div class="texte-sous-titre">Ma Bohème — Sonnet (Fantaisie)</div>
+  </div>
+  <div class="texte-corps" id="corps-ll15">
+    <div class="titre-poeme">MA BOHÈME</div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">1</span><span>Je m'en allais, les poings dans mes poches crevées ;</span></div>
+      <div class="vers-gauche"><span class="num">2</span><span>Mon paletot aussi devenait idéal ;</span></div>
+      <div class="vers-gauche"><span class="num">3</span><span>J'allais sous le ciel, Muse ! et j'étais ton féal ;</span></div>
+      <div class="vers-gauche"><span class="num">4</span><span>Oh ! là ! là ! que d'amours splendides j'ai rêvées !</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">5</span><span>Mon unique culotte avait un large trou.</span></div>
+      <div class="vers-gauche"><span class="num">6</span><span>– Petit-Poucet rêveur, j'égrenais dans ma course</span></div>
+      <div class="vers-gauche"><span class="num">7</span><span>Des rimes. Mon auberge était à la Grande-Ourse.</span></div>
+      <div class="vers-gauche"><span class="num">8</span><span>– Mes étoiles au ciel avaient un doux frou-frou</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">9</span><span>Et je les écoutais, assis au bord des routes,</span></div>
+      <div class="vers-gauche"><span class="num">10</span><span>Ces bons soirs de septembre où je sentais des gouttes</span></div>
+      <div class="vers-gauche"><span class="num">11</span><span>De rosée à mon front, comme un vin de vigueur ;</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">12</span><span>Où, rimant au milieu des ombres fantastiques,</span></div>
+      <div class="vers-gauche"><span class="num">13</span><span>Comme des lyres, je tirais les élastiques</span></div>
+      <div class="vers-gauche"><span class="num">14</span><span>De mes souliers blessés, un pied près de mon cœur !</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  LL 16 — VERLAINE, Art Poétique
+══════════════════════════════════════ -->
+<div class="texte-block" id="ll16" data-auteur="verlaine">
+  <div class="texte-header">
+    <div class="ll-badge verlaine">LL nº16 · Paul Verlaine</div>
+    <div class="texte-titre">Jadis et Naguère, 1884</div>
+    <div class="texte-sous-titre">Art Poétique — Ennéasyllabes</div>
+  </div>
+  <div class="texte-corps" id="corps-ll16">
+    <div class="titre-poeme">ART POÉTIQUE</div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">1</span><span>De la musique avant toute chose,</span></div>
+      <div class="vers-gauche"><span class="num">2</span><span>Et pour cela préfère l'Impair</span></div>
+      <div class="vers-gauche"><span class="num">3</span><span>Plus vague et plus soluble dans l'air,</span></div>
+      <div class="vers-gauche"><span class="num">4</span><span>Sans rien en lui qui pèse ou qui pose.</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">5</span><span>Il faut aussi que tu n'ailles point</span></div>
+      <div class="vers-gauche"><span class="num">6</span><span>Choisir tes mots sans quelque méprise :</span></div>
+      <div class="vers-gauche"><span class="num">7</span><span>Rien de plus cher que la chanson grise</span></div>
+      <div class="vers-gauche"><span class="num">8</span><span>Où l'Indécis au Précis se joint.</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">9</span><span>C'est des beaux yeux derrière des voiles,</span></div>
+      <div class="vers-gauche"><span class="num">10</span><span>C'est le grand jour tremblant de midi,</span></div>
+      <div class="vers-gauche"><span class="num">11</span><span>C'est, par un ciel d'automne attiédi,</span></div>
+      <div class="vers-gauche"><span class="num">12</span><span>Le bleu fouillis des claires étoiles !</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">13</span><span></span></div>
+      <div class="vers-gauche"><span class="num">14</span><span>Car nous voulons la Nuance encor,</span></div>
+      <div class="vers-gauche"><span class="num">15</span><span>Pas la Couleur, rien que la nuance !</span></div>
+      <div class="vers-gauche"><span class="num">16</span><span>Oh ! la nuance seule fiance</span></div>
+      <div class="vers-gauche"><span class="num">17</span><span>Le rêve au rêve et la flûte au cor !</span></div>
+      <div class="vers-gauche"><span class="num">18</span><span>[…]</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">19</span><span>De la musique encore et toujours !</span></div>
+      <div class="vers-gauche"><span class="num">20</span><span>Que ton vers soit la chose envolée</span></div>
+      <div class="vers-gauche"><span class="num">21</span><span>Qu'on sent qui fuit d'une âme en allée</span></div>
+      <div class="vers-gauche"><span class="num">22</span><span>Vers d'autres cieux à d'autres amours.</span></div>
+    </div>
+    <div class="quatrain">
+      <div class="vers-gauche"><span class="num">23</span><span>Que ton vers soit la bonne aventure</span></div>
+      <div class="vers-gauche"><span class="num">24</span><span>Éparse au vent crispé du matin</span></div>
+      <div class="vers-gauche"><span class="num">25</span><span>Qui va fleurant la menthe et le thym…</span></div>
+      <div class="vers-gauche"><span class="num">26</span><span>Et tout le reste est littérature.</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>St Felix Lasalle 1LGB · BAC Français · 16 textes complets</footer>
+
+<script>
+// Filtre par auteur
+function filtrer(auteur, btn) {
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.texte-block').forEach(bloc => {
+    if (auteur === 'all' || bloc.dataset.auteur === auteur) {
+      bloc.style.display = '';
+    } else {
+      bloc.style.display = 'none';
+    }
+  });
+}
+
+// Recherche dans le texte
+function rechercher(query) {
+  const q = query.trim().toLowerCase();
+  // Reset all highlights first
+  document.querySelectorAll('.texte-corps').forEach(corps => {
+    // Restore original text if needed — simple approach: re-render isn't ideal
+    // We'll just show/hide blocks based on match
+  });
+
+  if (!q) {
+    document.querySelectorAll('.texte-block').forEach(b => b.style.display = '');
+    return;
+  }
+
+  document.querySelectorAll('.texte-block').forEach(bloc => {
+    const text = bloc.querySelector('.texte-corps').innerText.toLowerCase();
+    const header = bloc.querySelector('.texte-header').innerText.toLowerCase();
+    if (text.includes(q) || header.includes(q)) {
+      bloc.style.display = '';
+    } else {
+      bloc.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

@@ -22,6 +22,8 @@ const TIME_PAGE_MAP = {
   'p-vcartes': 'cartes',
   'p-exo': 'exo',
   'p-gtextes': 'gtext',
+  'p-oral': 'learn',
+  'p-ll-textes': 'learn',
   'p-fiche': 'learn',
   'p-meth': 'learn',
   'p-sim': 'learn',

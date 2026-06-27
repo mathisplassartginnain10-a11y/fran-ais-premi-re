@@ -1,0 +1,147 @@
+# 16 extraits littéraires — épreuve orale (lecture linéaire)
+# Colle ici le passage COMPLET de chaque LL (texte source, pas le corrigé).
+# Garde les repères de lignes si ton édition en a (L.1, v.1…) — idéalement la même édition que tes fiches.
+# Format : une section par LL, séparée par une ligne ---
+
+=== LL n°1 ===
+Auteur: Fontenelle
+Œuvre: Entretiens sur la pluralité des mondes
+Titre: Premier soir
+Repères: (ex. p. … / L. …)
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°2 ===
+Auteur: Fontenelle
+Œuvre: Entretiens sur la pluralité des mondes
+Titre: Second soir
+Repères:
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°3 ===
+Auteur: Fontenelle
+Œuvre: Entretiens sur la pluralité des mondes
+Titre: Cinquième soir — p.149-150
+Repères:
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°4 ===
+Auteur: Voltaire
+Œuvre: Micromégas (1752)
+Titre: Chapitre II — Dialogue philosophique
+Repères:
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°5 ===
+Auteur: Abbé Prévost
+Œuvre: Manon Lescaut (1731/1753)
+Titre: La rencontre
+Repères:
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°6 ===
+Auteur: Abbé Prévost
+Œuvre: Manon Lescaut (1731/1753)
+Titre: L'évasion de Manon
+Repères:
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°7 ===
+Auteur: Abbé Prévost
+Œuvre: Manon Lescaut (1731/1753)
+Titre: La mort de Manon
+Repères: (corrigé cite L.1 à fin)
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°8 ===
+Auteur: Victor Hugo
+Œuvre: Notre-Dame de Paris (1831)
+Titre: L'enlèvement d'Esméralda
+Repères: (corrigé cite ligne 1 à fin)
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°9 ===
+Auteur: Alfred de Musset
+Œuvre: On ne badine pas avec l'amour (1834)
+Titre: Acte I, scène 2 — Les retrouvailles
+Repères: (corrigé cite L.1, L.2…)
+
+[Colle ici l'extrait complet — didascalies + répliques]
+
+
+=== LL n°10 ===
+Auteur: Alfred de Musset
+Œuvre: On ne badine pas avec l'amour (1834)
+Titre: Acte III, scène 3 — La vengeance
+Repères:
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°11 ===
+Auteur: Alfred de Musset
+Œuvre: On ne badine pas avec l'amour (1834)
+Titre: Acte III, scène 8 — Le dénouement
+Repères: (corrigé cite L1 à fin)
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°12 ===
+Auteur: Edmond Rostand
+Œuvre: Cyrano de Bergerac (1897)
+Titre: Acte III, scène 7 — La scène du balcon
+Repères: (corrigé cite v.1 à 33)
+
+[Colle ici l'extrait complet]
+
+
+=== LL n°13 ===
+Auteur: Arthur Rimbaud
+Œuvre: Les Cahiers de Douai (1870)
+Titre: Vénus Anadyomène
+Repères: (corrigé cite v.1 à 14)
+
+[Colle ici le poème complet]
+
+
+=== LL n°14 ===
+Auteur: Arthur Rimbaud
+Œuvre: Les Cahiers de Douai (1870)
+Titre: Le Dormeur du val — p.53
+Repères:
+
+[Colle ici le poème complet]
+
+
+=== LL n°15 ===
+Auteur: Arthur Rimbaud
+Œuvre: Les Cahiers de Douai (1870)
+Titre: Ma Bohème
+Repères:
+
+[Colle ici le poème complet]
+
+
+=== LL n°16 ===
+Auteur: Paul Verlaine
+Œuvre: Jadis et naguère (1884)
+Titre: Art poétique
+Repères:
+
+[Colle ici le poème complet]

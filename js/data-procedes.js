@@ -298,4 +298,4 @@ const PROC_QCM = [
   {cat:"Connecteurs & Style",q:"Quelle est la différence entre 'cependant' et 'néanmoins' ?",opts:["Aucune — synonymes","Cependant = opposition plus directe / néanmoins = concession plus nuancée, souvent plus soutenu","Néanmoins est incorrect","Cependant ne s'utilise qu'en début de phrase"],ans:0,expl:"Les deux sont des connecteurs de concession/opposition. 'Néanmoins' est légèrement plus formel que 'cependant'. Dans les faits, ils sont interchangeables."},
 ];
 
-const PROC_QCM_CATS = ["Toutes","Analyse de phrase","Figures de style","Procédés narratifs","Procédés poétiques","Registres & tonalités","Syntaxe & lexique","Méthode commentaire","Dissertation","Connecteurs & Style"];
+const PROC_QCM_CATS = ["Toutes","Analyse de phrase","Figures de style","Procédés narratifs","Procédés poétiques","Registres & tonalités","Syntaxe & lexique","Méthode commentaire","Dissertation","Connecteurs & Style","Lecture linéaire (oral)"];

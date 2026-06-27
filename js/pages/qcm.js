@@ -1,4 +1,4 @@
-﻿/* ══════════════════════════════════════════
+/* ══════════════════════════════════════════
    QCM — Engine générique (2 matières)
    ══════════════════════════════════════════ */
 const QCM_STATE = {
@@ -409,7 +409,14 @@ function _getCatPct(m, cat) {
 function initQcmCats(m) {
   const s = QCM_STATE[m];
   const f = el(s.prefix + 'qcats');
-  if (!f || f.dataset.init) return;
+  if (!f) return;
+  if (f.dataset.init) {
+    const chipLabels = [...f.querySelectorAll('.chip')].map(b => (b.textContent || '').trim());
+    const missing = s.cats.some(c => !chipLabels.some(t => t.startsWith(c)));
+    if (!missing) return;
+    f.dataset.init = '';
+    f.innerHTML = '';
+  }
   f.dataset.init = '1';
   s.cats.forEach(c => {
     const b = document.createElement('button');

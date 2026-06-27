@@ -892,6 +892,7 @@ const BAC_FIXED_STAT_KEYS = [
   'bac_proc_stats', 'bac_gram_stats', 'bac_vocab_stats',
   'bac_exo_stats', 'bac_exam_history', 'bac_gtext_stats',
   'bac_carte_stats', 'bac_challenge_stats', 'bac_time_stats',
+  'bac_oral_exo_stats',
 ];
 
 function _removeLocalStorageByPrefix(prefix) {
@@ -929,6 +930,10 @@ function _refreshAfterStatsReset() {
     if (typeof GTEXT_STATE !== 'undefined' && GTEXT_STATE.phase === 'work' && typeof renderGtextWork === 'function') renderGtextWork();
     else renderGtextesList();
   }
+  const oralPg = el('proc-p-oral');
+  if (oralPg && oralPg.classList.contains('on') && typeof renderOralList === 'function') renderOralList();
+  const oralLlPg = el('proc-p-ll-textes');
+  if (oralLlPg && oralLlPg.classList.contains('on') && typeof renderOralLlTextes === 'function') renderOralLlTextes();
   scheduleDashboardUpdate();
 }
 
@@ -938,12 +943,14 @@ function resetStats(options) {
   const includeFavs = !!opts.includeFavs;
   const msg = includeFavs
     ? 'Effacer toutes les statistiques et les favoris ?\n\nConservés : paramètres, textes grands textes perso.'
-    : 'Réinitialiser toutes les statistiques ?\n\nQCM · examens · grands textes · exercices · cartes · défi quotidien\n\nConservés : favoris, paramètres, textes perso.';
+    : 'Réinitialiser toutes les statistiques ?\n\nQCM · examens · grands textes · lectures linéaires (oral) · exercices · cartes · défi quotidien\n\nConservés : favoris, paramètres, textes perso.';
   if (!confirm(msg)) return;
 
   BAC_FIXED_STAT_KEYS.forEach(k => localStorage.removeItem(k));
   _removeLocalStorageByPrefix('bac_challenge_');
   _removeLocalStorageByPrefix('bac_gtext_draft_');
+  _removeLocalStorageByPrefix('oral_exo_draft_');
+  _removeLocalStorageByPrefix('oral_exo_hist_');
   if (includeFavs) localStorage.removeItem('bac_favs');
 
   invalidateAllCaches();
@@ -961,6 +968,8 @@ function exportStats() {
     exo:      safeLocalGet('bac_exo_stats', {}),
     exams:    safeLocalGet('bac_exam_history', []),
     gtext:    safeLocalGet('bac_gtext_stats', {}),
+    oral:     safeLocalGet('bac_oral_exo_stats', {}),
+    oralOverrides: safeLocalGet('bac_oral_overrides', null),
     cartes:   safeLocalGet('bac_carte_stats', {}),
     challenge: safeLocalGet('bac_challenge_stats', {}),
     time:     safeLocalGet('bac_time_stats', {}),
@@ -1003,6 +1012,11 @@ function importStats(e) {
       if (data.exo)      localStorage.setItem('bac_exo_stats',  JSON.stringify(data.exo));
       if (data.exams)    localStorage.setItem('bac_exam_history', JSON.stringify(data.exams));
       if (data.gtext)    localStorage.setItem('bac_gtext_stats', JSON.stringify(data.gtext));
+      if (data.oral)     localStorage.setItem('bac_oral_exo_stats', JSON.stringify(data.oral));
+      if (data.oralOverrides != null) {
+        localStorage.setItem('bac_oral_overrides', JSON.stringify(data.oralOverrides));
+        if (typeof oralInvalidateCache === 'function') oralInvalidateCache();
+      }
       if (data.cartes)   localStorage.setItem('bac_carte_stats', JSON.stringify(data.cartes));
       if (data.challenge) localStorage.setItem('bac_challenge_stats', JSON.stringify(data.challenge));
       if (data.time)      localStorage.setItem('bac_time_stats', JSON.stringify(data.time));
@@ -1414,6 +1428,14 @@ function switchPg(matiere, page, btn) {
       afterLoad(initGtextesFilters);
       afterLoad(renderGtextesList);
     }).catch(function (e) { console.error('p-gtextes load', e); });
+    return;
+  }
+  if (page === 'p-oral') {
+    afterLoad(initOral);
+    return;
+  }
+  if (page === 'p-ll-textes') {
+    afterLoad(initOralLlTextes);
     return;
   }
   if (page === 'p-auteurs') {

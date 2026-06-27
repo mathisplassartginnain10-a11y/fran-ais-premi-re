@@ -296,7 +296,7 @@
     const order = [
       'Analyse de phrase', 'Figures de style', 'Procédés narratifs', 'Procédés poétiques',
       'Registres & tonalités', 'Syntaxe & lexique', 'Méthode commentaire', 'Dissertation',
-      'Connecteurs & Style',
+      'Connecteurs & Style', 'Lecture linéaire (oral)',
     ];
     PROC_QCM_CATS.length = 0;
     PROC_QCM_CATS.push('Toutes', ...order.filter(c => present.has(c)));

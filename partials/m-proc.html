@@ -1,4 +1,4 @@
-﻿<div id="m-proc" class="matiere on">
+<div id="m-proc" class="matiere on">
   <div class="subnav" id="snav-proc">
     <button class="stab on"  onclick="switchPg('proc','p-fiche',this)">📖 Procédés</button>
     <button class="stab"     onclick="switchPg('proc','p-cartes',this)">🃏 Cartes</button>
@@ -11,6 +11,8 @@
     <button class="stab"     onclick="switchPg('proc','p-dissert',this)">📋 Dissertation</button>
     <button class="stab"     onclick="switchPg('proc','p-exo',this)">🔍 Exercices</button>
     <button class="stab"     onclick="switchPg('proc','p-gtextes',this)">📜 Grands textes</button>
+    <button class="stab"     onclick="switchPg('proc','p-oral',this)">🎤 Oral</button>
+    <button class="stab"     onclick="switchPg('proc','p-ll-textes',this)">📖 Passages</button>
     <button class="stab"     data-corpus="1" onclick="switchPg('proc','p-corpus',this)">📚 Corpus</button>
     <button class="stab"     data-sim="1" onclick="switchPg('proc','p-sim',this)">✍ Simulateur</button>
   </div>
@@ -361,6 +363,57 @@
       <div id="gtextes-work-view" class="gtextes-work hidden">
         <button class="sbtn gtextes-back" onclick="gtextBackToList()">← Retour à la liste</button>
         <div id="gtextes-work-cont"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Lecture linéaire (oral) ── -->
+  <div id="proc-p-oral" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Épreuve orale</div>
+      <h1>Lecture <em>linéaire</em></h1>
+      <p class="hero-sub" id="oral-count-hero">16 lectures linéaires · introductions, plans, analyses et ouvertures</p>
+    </div>
+    <div class="wrap-sm">
+      <div id="oral-hub" class="oral-hub"></div>
+      <div class="oral-toolbar">
+        <div class="sbox" style="flex:1;max-width:420px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="sinput" id="oral-search" placeholder="Rechercher auteur, œuvre, titre…">
+        </div>
+      </div>
+      <div id="oral-filters" class="oral-filters"></div>
+      <div id="oral-list" class="oral-list"></div>
+      <div id="oral-detail" class="oral-detail" hidden></div>
+    </div>
+  </div>
+
+  <!-- ── Passages intégraux (16 LL) ── -->
+  <div id="proc-p-ll-textes" class="pg">
+    <div class="hero">
+      <div class="eyebrow">Baccalauréat de Français · Épreuve orale</div>
+      <h1>Passages <em>intégraux</em></h1>
+      <p class="hero-sub" id="oral-ll-count-hero">16 lectures linéaires · textes source complets</p>
+    </div>
+    <div class="wrap oral-ll-wrap">
+      <div class="oral-ll-toolbar">
+        <div class="sbox oral-ll-search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="sinput" id="oral-ll-search" placeholder="Filtrer auteur, œuvre, titre…">
+        </div>
+        <span class="oral-ll-summary" id="oral-ll-summary"></span>
+        <div class="oral-ll-mode-chips">
+          <button type="button" class="chip on" data-oral-ll-mode="passage" onclick="oralLlSetMode('passage')">Passage seul</button>
+          <button type="button" class="chip" data-oral-ll-mode="full" onclick="oralLlSetMode('full')">+ Intro &amp; plan</button>
+        </div>
+        <button type="button" class="sbtn sec" onclick="window.print()">🖨 Imprimer</button>
+        <button type="button" class="sbtn sec" onclick="navTab('proc','p-oral')">🎤 Hub oral</button>
+        <button type="button" class="sbtn sec" onclick="oralExportOverridesFile()">⬇ Export</button>
+        <label class="sbtn sec oral-edit-import-btn">⬆ Import<input type="file" accept=".json" hidden onchange="oralImportOverridesFile(this.files[0]);this.value=''"></label>
+      </div>
+      <div class="oral-ll-layout">
+        <aside id="oral-ll-toc" class="oral-ll-toc" aria-label="Sommaire"></aside>
+        <div id="oral-ll-textes-cont" class="oral-ll-textes-cont"></div>
       </div>
     </div>
   </div>

@@ -218,15 +218,25 @@ function gtextProcedeScore(userProc, expectedProc) {
   if (!u || !e) return 0;
   if (u === e) return 1;
   if (u.includes(e) || e.includes(u)) return 0.92;
+
+  const eBare = gtextNorm(expectedProc).replace(/[«»""]/g, ' ').replace(/\s+/g, ' ').trim();
+  const uBare = gtextNorm(userProc).replace(/[«»""]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (eBare.length >= 3 && (uBare.includes(eBare) || eBare.includes(uBare))) return 0.9;
+
   const uW = u.split(' ').filter(w => w.length > 3);
   const eW = e.split(' ').filter(w => w.length > 3);
-  if (uW.length && eW.length && uW[0] === eW[0]) return 0.78;
+  if (uW.length && eW.length && uW[0] === eW[0]) return 0.88;
+  const sigU = uW.filter(w => w.length >= 5);
+  const sigE = eW.filter(w => w.length >= 5);
+  if (sigU.length && sigE.some(w => w === sigU[0] || (sigU[0].length >= 5 && w.startsWith(sigU[0].slice(0, 5))))) return 0.87;
+
   if (typeof PROC_DATA !== 'undefined') {
     const matchProc = name => gtextProcKey(name);
-    const uProc = PROC_DATA.find(p => matchProc(p.name) === u || matchProc(p.name).includes(u));
-    const eProc = PROC_DATA.find(p => matchProc(p.name) === e || matchProc(p.name).includes(e));
+    const uProc = PROC_DATA.find(p => matchProc(p.name) === u || matchProc(p.name).includes(u) || u.includes(matchProc(p.name)));
+    const eProc = PROC_DATA.find(p => matchProc(p.name) === e || matchProc(p.name).includes(e) || e.includes(matchProc(p.name)));
     if (uProc && eProc && uProc.name === eProc.name) return 1;
-    if (uProc && eProc && uProc.sub === eProc.sub) return 0.55;
+    if (uProc && eProc && uProc.sub === eProc.sub) return 0.72;
+    if (uProc && eProc && uProc.cat === eProc.cat) return 0.62;
   }
   return 0;
 }
@@ -599,35 +609,89 @@ function gtextGetInterpText(entry) {
   return i.replace(/^Citation\s*:\s*[^.]+\.\s*/i, '').trim() || raw;
 }
 
-function gtextCitationOk(citation, texte, matchedAttendu) {
+function gtextStripCite(s) {
+  return gtextNorm(String(s || '').replace(/[«»""…]/g, ' ').replace(/\s+/g, ' ').trim());
+}
+
+function gtextCitationScore(citation, texte, matchedAttendu) {
   const raw = (citation || '').trim();
-  if (raw.length < 3) return false;
-  const c = gtextNorm(raw);
+  if (raw.length < 3) return 0;
+  const c = gtextStripCite(raw);
+  if (c.length < 3) return 0;
   const textNorm = gtextNorm(texte || '');
   const words = c.split(' ').filter(w => w.length >= 3);
   if (!words.length) {
-    return c.length >= 5 && textNorm.includes(c.slice(0, Math.min(c.length, 14)));
+    return c.length >= 5 && textNorm.includes(c.slice(0, Math.min(c.length, 16))) ? 0.65 : 0;
   }
+
   const inText = words.filter(w => textNorm.includes(w)).length;
-  if (inText >= 1 && (words.length === 1 || inText >= 2)) return true;
+  const textRatio = inText / words.length;
+  if (inText >= 2 && textRatio >= 0.45) return Math.min(1, 0.55 + textRatio * 0.45);
+  if (inText >= 1 && words.length <= 4 && textRatio >= 0.34) return 0.58;
+  if (inText >= 1 && textRatio >= 0.28) return 0.48;
+
   if (matchedAttendu?.citation) {
-    const ref = gtextNorm(matchedAttendu.citation);
-    const overlap = words.filter(w => ref.includes(w) || w.length >= 4 && ref.split(' ').some(r => r.includes(w.slice(0, 4)))).length;
-    if (overlap >= 1) return true;
+    const ref = gtextStripCite(matchedAttendu.citation);
+    const refWords = ref.split(' ').filter(w => w.length >= 3);
+    if (refWords.length) {
+      const overlap = words.filter(w => ref.includes(w)).length;
+      const refRatio = overlap / Math.max(words.length, refWords.length);
+      if (overlap >= 2 && refRatio >= 0.35) return Math.min(1, 0.5 + refRatio * 0.5);
+      if (overlap >= 1 && refRatio >= 0.25) return 0.52;
+    }
   }
-  return inText >= 1;
+  return 0;
 }
 
-function gtextMatchAttendu(procede, attendus, usedIndices) {
+function gtextCitationOk(citation, texte, matchedAttendu) {
+  return gtextCitationScore(citation, texte, matchedAttendu) >= 0.48;
+}
+
+function gtextMatchAttendu(procede, attendus, usedIndices, entry, texte) {
   let best = null;
   let bestScore = 0;
   let bestIdx = -1;
+  let bestProcScore = 0;
+  let bestCiteScore = 0;
+
   attendus.forEach((a, ai) => {
     if (usedIndices?.has(ai)) return;
-    const s = gtextProcedeScore(procede, a.procede);
-    if (s > bestScore) { bestScore = s; best = a; bestIdx = ai; }
+    const procScore = gtextProcedeScore(procede, a.procede);
+    const citeScore = entry?.citation && texte
+      ? gtextCitationScore(entry.citation, texte, a)
+      : 0;
+
+    let combined = procScore;
+    if (citeScore >= 0.55 && procScore >= 0.45) {
+      combined = Math.max(combined, procScore * 0.65 + citeScore * 0.35);
+    }
+    if (citeScore >= 0.65 && procScore >= 0.55) {
+      combined = Math.max(combined, 0.88);
+    }
+    if (citeScore >= 0.72 && procScore >= 0.35) {
+      combined = Math.max(combined, 0.86);
+    }
+    if (citeScore >= 0.8 && procScore >= 0.25) {
+      combined = Math.max(combined, 0.84);
+    }
+
+    const score = Math.min(1, combined);
+    if (score > bestScore) {
+      bestScore = score;
+      best = a;
+      bestIdx = ai;
+      bestProcScore = procScore;
+      bestCiteScore = citeScore;
+    }
   });
-  return { attendu: best, score: bestScore, index: bestIdx };
+
+  return {
+    attendu: best,
+    score: bestScore,
+    index: bestIdx,
+    procScore: bestProcScore,
+    citeScore: bestCiteScore,
+  };
 }
 
 /** Valide les entrées utilisateur (max 5) · 0,5 procédé + 0,25 citation + 0,25 interprétation */
@@ -639,17 +703,18 @@ function gtextValidateUserEntries(entries, attendus, texte) {
   entries.slice(0, maxN).forEach((entry, ei) => {
     if (!entry.procede?.trim()) return;
 
-    const { attendu: matched, score: procScore, index: ai } = gtextMatchAttendu(entry.procede, attendus, usedAttendu);
-    const procOk = procScore >= 0.85;
+    const match = gtextMatchAttendu(entry.procede, attendus, usedAttendu, entry, texte);
+    const { attendu: matched, score: matchScore, index: ai, procScore: rawProcScore, citeScore: matchCiteScore } = match;
+    const procOk = matchScore >= 0.85 || (rawProcScore >= 0.55 && matchCiteScore >= 0.65 && matchScore >= 0.82);
     if (procOk && ai >= 0) usedAttendu.add(ai);
 
-    const matchForInterp = procScore >= 0.55 ? matched : null;
+    const matchForInterp = matchScore >= 0.55 || matchCiteScore >= 0.55 ? matched : null;
     const interpText = gtextGetInterpText(entry);
     let interpOk = false;
     let interpScore = 0;
     if (matchForInterp) {
       interpScore = gtextScoreInterp(interpText, matchForInterp);
-      interpOk = gtextInterpOk(interpText, matchForInterp, procOk || procScore >= 0.55);
+      interpOk = gtextInterpOk(interpText, matchForInterp, procOk || rawProcScore >= 0.55);
     } else if (procOk) {
       const extra = gtextLookupProc(entry.procede);
       interpScore = extra ? 0.35 : 0;
@@ -657,13 +722,14 @@ function gtextValidateUserEntries(entries, attendus, texte) {
     }
 
     const citeOk = gtextCitationOk(entry.citation, texte, matchForInterp || matched);
+    const citeScore = gtextCitationScore(entry.citation, texte, matchForInterp || matched);
 
     let points = 0;
     if (procOk) points += GTEXT_GRADE_CFG.weights.procede;
     if (citeOk) points += GTEXT_GRADE_CFG.weights.citation;
     if (interpOk) {
       const w = GTEXT_GRADE_CFG.weights.interpretation;
-      const thr = gtextInterpThresholdEffective(procOk || procScore >= 0.55);
+      const thr = gtextInterpThresholdEffective(procOk || rawProcScore >= 0.55);
       const mult = interpScore >= 0.85 ? 1
         : interpScore >= thr ? 0.55 + 0.45 * ((interpScore - thr) / Math.max(0.85 - thr, 0.15))
         : 0.55;
@@ -676,12 +742,18 @@ function gtextValidateUserEntries(entries, attendus, texte) {
 
     let feedback = null;
     if (!procOk) {
-      feedback = matched && procScore >= 0.55
-        ? `Procédé proche (« ${matched.procede} ») — précise le nom exact pour les 0,5 pt.`
-        : 'Procédé non reconnu dans ce texte — vérifie le nom (figure, registre…).';
+      if (matched && matchCiteScore >= 0.55 && rawProcScore < 0.55) {
+        feedback = `Citation repérée — nomme le procédé du corrigé (« ${matched.procede} »).`;
+      } else if (matched && rawProcScore >= 0.55) {
+        feedback = `Procédé proche (« ${matched.procede} ») — précise le nom exact pour les 0,5 pt.`;
+      } else if (matchCiteScore >= 0.5 && !entry.citation?.trim()) {
+        feedback = 'Citation absente — clique une ligne du passage ou recopie un extrait.';
+      } else {
+        feedback = 'Procédé non reconnu dans ce texte — vérifie le nom (figure, registre…).';
+      }
     } else {
       const missing = [];
-      if (!citeOk) missing.push('citation (0,25 pt)');
+      if (!citeOk) missing.push(`citation (0,25 pt)${citeScore >= 0.35 ? ' — presque' : ''}`);
       if (!interpOk) missing.push('interprétation (0,25 pt)');
       if (missing.length) feedback = `Procédé validé (0,5) — complète : ${missing.join(', ')}.`;
       else if (matched) feedback = gtextInterpFeedbackMsg(interpText, matched, true).replace(/^Procédé correct — /, 'Complet · ');
@@ -696,7 +768,9 @@ function gtextValidateUserEntries(entries, attendus, texte) {
       citeOk,
       interpOk,
       interpScore,
-      procScore,
+      procScore: rawProcScore,
+      matchScore,
+      citeScore,
       points,
       interpPtsEarned,
       maxPoints: 1,

@@ -13,6 +13,8 @@ const scripts = [
   'test-exam-engine.js',
   'test-intro-sim-engine.js',
   'test-stats-qcm.js',
+  'test-oral-data.js',
+  'test-oral-validation.js',
 ];
 
 let failed = 0;

@@ -651,6 +651,95 @@ function computeGtextMentionProbs(note20, n) {
   return { pass, ab, b, tb, band, pct, conf };
 }
 
+/** Stats lecture linéaire (oral) — simulations 30 min */
+function _loadOralStatsRaw() {
+  try { return JSON.parse(localStorage.getItem('bac_oral_exo_stats') || '{}'); }
+  catch (e) { return {}; }
+}
+
+function computeOralAvgNote() {
+  const st = _loadOralStatsRaw();
+  const notes = Object.values(st).filter(x => x?.note != null).map(x => x.note);
+  if (!notes.length) return null;
+  return Math.round(notes.reduce((a, b) => a + b, 0) / notes.length * 10) / 10;
+}
+
+function computeOralExtendedStats() {
+  const total = typeof ORAL_TEXTS !== 'undefined' ? ORAL_TEXTS.length : 16;
+  const st = _loadOralStatsRaw();
+  const ps = typeof getProbSettings === 'function' ? getProbSettings() : { shrinkKGtext: 4 };
+  const keys = Object.keys(st).filter(k => st[k]?.note != null);
+
+  if (!keys.length || typeof ORAL_TEXTS === 'undefined') {
+    return {
+      hasData: false, total, done: 0, todoCount: total, coveragePct: 0,
+      avgNote: null, bestNote: null, probPass: null, ipci: null,
+      weakAxis: null, strongAxis: null, texts: [], nextText: ORAL_TEXTS?.[0] || null,
+    };
+  }
+
+  let procSum = 0, citeSum = 0, interpSum = 0, ipciN = 0;
+  const texts = keys.map(id => {
+    const x = st[id];
+    const meta = (typeof getOralTextById === 'function' ? getOralTextById(id) : ORAL_TEXTS.find(t => t.id === id)) || {};
+    const tgt = x.targetCount || meta.attenduCount || 1;
+    const procPct = Math.round((x.procPts || 0) / Math.max(tgt * 0.5, 0.1) * 100);
+    const citePct = Math.round((x.citePts || 0) / Math.max(tgt * 0.25, 0.1) * 100);
+    const interpPct = Math.round((x.interpPts || 0) / Math.max(tgt * 0.25, 0.1) * 100);
+    procSum += procPct; citeSum += citePct; interpSum += interpPct; ipciN++;
+    const mentions = typeof computeGtextMentionProbs === 'function'
+      ? computeGtextMentionProbs(x.note, x.attempts || 1) : null;
+    return {
+      id, num: meta.num, titre: meta.titre, auteur: meta.auteur,
+      note: x.note, mention: x.mention, covered: x.covered, targetCount: tgt,
+      procPct, citePct, interpPct, date: x.date || 0,
+      probPass: mentions?.pass ?? null,
+      bestNote: x.bestNote,
+    };
+  }).sort((a, b) => (b.date || 0) - (a.date || 0));
+
+  const notes = texts.map(t => t.note);
+  const avgNote = Math.round(notes.reduce((a, b) => a + b, 0) / notes.length * 10) / 10;
+  const bestNote = Math.max(...notes);
+  const done = keys.length;
+  const ipci = ipciN ? {
+    proc: Math.round(procSum / ipciN),
+    cite: Math.round(citeSum / ipciN),
+    interp: Math.round(interpSum / ipciN),
+    n: ipciN,
+    procProb: _probFromPerformance(Math.round(procSum / ipciN), ipciN, { shrinkK: ps.shrinkKGtext }),
+    citeProb: _probFromPerformance(Math.round(citeSum / ipciN), ipciN, { shrinkK: ps.shrinkKGtext }),
+    interpProb: _probFromPerformance(Math.round(interpSum / ipciN), ipciN, { shrinkK: ps.shrinkKGtext }),
+  } : null;
+
+  const axes = ipci ? [
+    { id: 'proc', label: 'Procédés (P)', pct: ipci.proc, prob: ipci.procProb, icon: '🔍' },
+    { id: 'cite', label: 'Citations (C)', pct: ipci.cite, prob: ipci.citeProb, icon: '💬' },
+    { id: 'interp', label: 'Interprétations (I)', pct: ipci.interp, prob: ipci.interpProb, icon: '💡' },
+  ].sort((a, b) => a.pct - b.pct) : [];
+
+  const allOral = typeof oralGetAllTexts === 'function' ? oralGetAllTexts() : ORAL_TEXTS;
+  const nextText = allOral.find(t => st[t.id]?.note == null) || null;
+  const probPass = _probFromNote20(avgNote, Math.max(done, 1));
+
+  return {
+    hasData: true,
+    total,
+    done,
+    todoCount: total - done,
+    coveragePct: Math.round(done / total * 100),
+    avgNote,
+    bestNote,
+    probPass,
+    ipci,
+    weakAxis: axes[0] || null,
+    strongAxis: axes.length ? axes[axes.length - 1] : null,
+    texts,
+    nextText,
+    recent: texts.slice(0, 5),
+  };
+}
+
 /** Analyse approfondie grands textes — corpus, genres, IPCI, probas */
 function computeGtextExtendedStats() {
   const st = loadGtextStats();
@@ -1524,6 +1613,8 @@ function _computeGlobalReadinessCore() {
   const examHist = loadExamHistory();
   const examAvg = _weightedExamPct(examHist);
   const gtextAvg = computeGtextAvgPct();
+  const oralAvg = computeOralAvgNote();
+  const oralExt = typeof ORAL_TEXTS !== 'undefined' ? computeOralExtendedStats() : null;
   const catalog = buildMasteryCatalog();
   const weak = getWeakestCategories(5);
   let advice = gm.hasData
@@ -1540,6 +1631,10 @@ function _computeGlobalReadinessCore() {
     masteryCatalog: catalog,
     exoPct,
     gtextAvg,
+    oralAvg,
+    oralDone: oralExt?.done ?? 0,
+    oralTotal: oralExt?.total ?? 16,
+    oralExt,
     lastExam: examHist.length ? examHist[examHist.length - 1] : null,
     examAvg,
     examCount: examHist.length,
@@ -1796,6 +1891,7 @@ function _renderGlobalDashboardCore(box) {
             ${g.vocab ? `<span>📝 Voc. <b>${g.vocab.score}</b>/100 · ${g.vocab.mastery?.catCoverage?.tested ?? 0}/${g.vocab.mastery?.catCoverage?.total ?? '?'} cat.</span>` : ''}
             ${g.exoPct !== null ? `<span>🔍 Exos <b>${g.exoPct}%</b></span>` : ''}
             ${g.gtextAvg !== null ? `<span>📜 Textes <b>${Math.round(g.gtextAvg)}%</b> moy.</span>` : ''}
+            ${g.oralAvg != null ? `<span>🎤 Oral <b>${g.oralAvg}/20</b> · ${g.oralDone}/${g.oralTotal} LL</span>` : ''}
             <span>🏆 Examens <b>${g.examCount}</b>${g.examAvg != null ? ` · moy. ${g.examAvg}%` : ''}</span>
           </div>
           <p class="rd-advice">${g.advice || ''}</p>

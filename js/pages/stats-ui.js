@@ -1,11 +1,11 @@
-﻿/* ══════════════════════════════════════════
+/* ══════════════════════════════════════════
    STATS — Engine générique
    ══════════════════════════════════════════ */
 const STAT_CONFIG = {
   proc: {
     stKey:'bac_proc_stats', prefix:'p',
-    cats:["Analyse de phrase","Figures de style","Procédés narratifs","Procédés poétiques","Registres & tonalités","Syntaxe & lexique","Méthode commentaire","Dissertation","Connecteurs & Style"],
-    colors:{"Analyse de phrase":"var(--gold2)","Figures de style":"var(--purple)","Procédés narratifs":"var(--green)","Procédés poétiques":"var(--coral)","Registres & tonalités":"var(--blue)","Syntaxe & lexique":"var(--amber)","Méthode commentaire":"var(--teal)","Dissertation":"var(--pink)","Connecteurs & Style":"var(--gray)"}
+    cats:["Analyse de phrase","Figures de style","Procédés narratifs","Procédés poétiques","Registres & tonalités","Syntaxe & lexique","Méthode commentaire","Dissertation","Connecteurs & Style","Lecture linéaire (oral)"],
+    colors:{"Analyse de phrase":"var(--gold2)","Figures de style":"var(--purple)","Procédés narratifs":"var(--green)","Procédés poétiques":"var(--coral)","Registres & tonalités":"var(--blue)","Syntaxe & lexique":"var(--amber)","Méthode commentaire":"var(--teal)","Dissertation":"var(--pink)","Connecteurs & Style":"var(--gray)","Lecture linéaire (oral)":"var(--pink)"}
   },
   gram: {
     stKey:'bac_gram_stats', prefix:'g',
